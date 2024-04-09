@@ -2,7 +2,7 @@ package meli.bootcamp;
 
 public class Main {
     public static void main(String[] args) {
-        exercise1();
+        exercise2();
     }
 
     private static void exercise1() {
@@ -49,6 +49,25 @@ public class Main {
 
         System.out.println("La temperatura más alta es: " + highest[1] + " en : " + cities[highest[0]]);
         System.out.println("La temperatura más baja es: " + lowest[1] + " en : " + cities[lowest[0]]);
+    }
+
+
+    public static void exercise2() {
+        int[] serviciosCli = {1,1,2,2,2,1,2};
+        double totalFactura;
+        double seguridadConCamaras = 1500;
+        double patrullaje = 700;
+
+        for (int j : serviciosCli) {
+            totalFactura = seguridadConCamaras;
+
+            if (j != 1) {
+                totalFactura += patrullaje;
+            }
+
+            System.out.println("El tipo de servicio es: " + j);
+            System.out.println("El monto de la factura es de: " + totalFactura);
+        }
     }
 
 }
