@@ -6,7 +6,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class Perishable extends Product {
 
     int daysToExpire;
@@ -32,5 +31,14 @@ public class Perishable extends Product {
             default: break;
         }
         return  totalPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Perishable{" +
+                " name='" + this.getName() + '\'' +
+                ", price=" + this.getPrice() +
+                ", daysToExpire=" + daysToExpire +
+                '}';
     }
 }
