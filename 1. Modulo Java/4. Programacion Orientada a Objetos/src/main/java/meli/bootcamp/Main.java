@@ -11,5 +11,20 @@ public class Main {
     // No compila:
     // Persona unaPersonaIncompleta = new Persona("nombre", 123);
 
+    System.out.println("El imc de " + unaPersonaCompleta.nombre + " indica: " + mensajeImc(unaPersonaCompleta.calcularImc()));
+
+    String mensajeSobreEdad = unaPersonaCompleta.esMayorDeEdad() ? "es mayor de edad" : "es menor de edad";
+    System.out.println(unaPersonaCompleta.nombre + " " + mensajeSobreEdad);
+
+    System.out.println(unaPersonaCompleta);
+  }
+
+  public static String mensajeImc(int imc) {
+    return switch (imc) {
+      case -1 -> "Bajo peso";
+      case 0 -> "Peso normal";
+      case 1 -> "Sobrepeso";
+      default -> throw new RuntimeException("Valor de IMC no esperado");
+    };
   }
 }
