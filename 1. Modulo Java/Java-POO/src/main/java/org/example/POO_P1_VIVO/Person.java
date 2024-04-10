@@ -14,7 +14,6 @@ public class Person {
     private double height;
     @Setter
     private Double imc;
-    @Setter
     private HealtCondition healtCondition = HealtCondition.UNDEFINED;
 
     public Person() {
@@ -36,6 +35,9 @@ public class Person {
         this.setHealtCondition(calcHealtCondition());
     }
 
+    private void setHealtCondition(HealtCondition healtCondition) {
+        this.healtCondition = healtCondition;
+    }
 
     public Double calculateImc() {
         return (this.getWeight() / (Math.pow(this.getHeight(), 2)));
