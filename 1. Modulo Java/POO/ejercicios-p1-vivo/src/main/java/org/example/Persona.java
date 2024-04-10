@@ -24,14 +24,20 @@ public class Persona {
     }
 
     public int calcularIMC(){
-        double imc = (peso / Math.pow(altura, 2));
-        if (imc < 20)
-            return -1;
-        else {
-            if (imc > 25)
-                return 1;
-            else
-                return 0;
+        try {
+            if(altura == 0) throw new Exception("No es posible dividir por 0");
+
+            double imc = (peso / Math.pow(altura, 2));
+            if (imc < 20)
+                return -1;
+            else {
+                if (imc > 25)
+                    return 1;
+                else
+                    return 0;
+            }
+        } catch (Exception e) {
+            return -2;
         }
     }
 

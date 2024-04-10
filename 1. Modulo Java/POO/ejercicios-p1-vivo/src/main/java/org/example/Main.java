@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Persona personaConstructorVacio = new Persona();
         Persona personaConstructorMedio = new Persona("Jose",33, "3577323");
-        Persona personaConstructorCompleto = new Persona("Roberto", 56, "14023043", 89.2, 1.77);
+        Persona personaConstructorCompleto = new Persona("Roberto", 56, "14023043", 76, 0);
 
         /* No existe una sobrecarga del constructor con esos parametros */
         //Persona personaConConstructorErroneo = new Persona("Maria", 33);
@@ -25,6 +25,9 @@ public class Main {
                 break;
             case 1:
                 System.out.println("tiene sobrepeso");
+                break;
+            default:
+                System.out.println("No se pudo calcular el IMC");
                 break;
         }
 
