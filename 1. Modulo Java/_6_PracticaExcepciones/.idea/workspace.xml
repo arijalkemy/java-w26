@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c5f19086-478f-4fbe-a51f-f35a96f75f9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9bbcd95f-932a-483c-8be1-ae0ba44d4c8e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PracticaExcepciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_5_Animal_HerenciaYPolimorfismo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_5_Animal_HerenciaYPolimorfismo/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +31,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  "associatedIndex": 4
 }]]></component>
-  <component name="ProjectId" id="2ev21FwAgP3OJ6wQp5JX1z2sCcA" />
+  <component name="ProjectId" id="2ev7A2K8FRByAaEpgAaMtFNcurw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,10 +44,11 @@
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "bellotti__marcos",
     "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
@@ -55,12 +64,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c5f19086-478f-4fbe-a51f-f35a96f75f9b" name="Changes" comment="" />
-      <created>1712770515118</created>
+      <changelist id="9bbcd95f-932a-483c-8be1-ae0ba44d4c8e" name="Changes" comment="" />
+      <created>1712773052912</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712770515118</updated>
-      <workItem from="1712770516162" duration="2531000" />
+      <updated>1712773052912</updated>
+      <workItem from="1712773053940" duration="369000" />
     </task>
     <servers />
   </component>
