@@ -27,8 +27,13 @@ public class Persona {
         return imc < 20 ? -1 : (imc >= 20 && imc <= 25) ? 0 : 1;
     }
 
-    private boolean esMayorDeEdad(){
+    public boolean esMayorDeEdad(){
         return edad >= 18;
+    }
+
+    public String nivelDePeso(){
+        int calculoImc = cacularIMC();
+        return calculoImc == -1 ? "Bajo peso" : calculoImc == 0 ? "Peso saludable" : "Sobrepeso";
     }
 
     @Override
