@@ -8,6 +8,7 @@ public class Persona {
     public Persona() {
     }
 
+    // Se crea un constructor solo con los parametros necesarios para poder pasar solo esos parametros
     public Persona(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
