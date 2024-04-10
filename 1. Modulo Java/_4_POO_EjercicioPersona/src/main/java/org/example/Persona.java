@@ -23,13 +23,20 @@ public class Persona {
     }
 
     public int calcularIMC() {
-        double IMC = peso/(Math.pow(altura, 2));
-        if(IMC < 20)
-            return -1;
-        else
+        try{
+            if(altura == 0)
+                throw new Exception("No se puede dividir por cero");
+            double IMC = peso/(Math.pow(altura, 2));
+            if(IMC < 20)
+                return -1;
+            else
             if(IMC <= 25)
                 return 0;
-        return 1;
+            return 1;
+        }catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+        return -1;
     }
 
     public boolean esMayorDeEdad(){

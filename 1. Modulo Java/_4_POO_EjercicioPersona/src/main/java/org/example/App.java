@@ -42,6 +42,5 @@ public class App
         System.out.println("Datos de las demas personas");
         System.out.println(personaSinValorDeAtributos.toString());
         System.out.println(personaConNombreEdadYDni.toString());
-
     }
 }
