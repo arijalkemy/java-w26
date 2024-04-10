@@ -1,0 +1,10 @@
+# lib
+
+./lib
+
+# IDE
+./.vscode
+./.idea
+# Bin
+
+./bin
