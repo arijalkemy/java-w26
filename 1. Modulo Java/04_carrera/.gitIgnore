@@ -1,10 +1,10 @@
 # lib
-
-./lib
+lib
 
 # IDE
-./.vscode
-./.idea
-# Bin
+.vscode
+.idea
 
-./bin
+bin
+
+*.iml
