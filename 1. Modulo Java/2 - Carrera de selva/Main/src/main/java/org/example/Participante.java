@@ -1,9 +1,11 @@
+package org.example;
+
 public class Participante {
     public int nro_de_participante;
-    public long dni; 
+    public long dni;
     public String nombre_apellido;
     public int edad;
-    public String celular; 
+    public String celular;
     public String nro_de_emergencia;
     public String grupo_sanguineo;
     public Categoria categoria;

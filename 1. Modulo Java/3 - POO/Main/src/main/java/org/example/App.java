@@ -1,4 +1,7 @@
-public class Main {
+package org.example;
+
+public class App 
+{
     public static void main(String[] args) {
 
         Persona personaSinParametros = new Persona();
@@ -11,11 +14,11 @@ public class Main {
             case -1:
                 resultadoIMC = "Bajo peso";
                 break;
-            
+
             case 0:
                 resultadoIMC = "Peso saludable";
                 break;
-            
+
             case 1:
                 resultadoIMC = "Sobrepeso";
                 break;

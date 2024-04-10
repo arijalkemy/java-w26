@@ -1,3 +1,5 @@
+package org.example;
+
 public class Categoria {
     public int id;
     public String nombre;

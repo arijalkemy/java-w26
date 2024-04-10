@@ -1,7 +1,12 @@
+package org.example;
 import java.util.ArrayList;
 import java.util.List;
-
-public class Carrera {
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
     public static void main(String[] args) {
         Categoria cat1 = new Categoria(0,"Circuito chico", "2 km por selva y arroyos");
         Categoria cat2 = new Categoria(1,"Circuito medio", "5 km por selva, arroyos y barro");
@@ -27,7 +32,3 @@ public class Carrera {
         }
     }
 }
-
-
-
-

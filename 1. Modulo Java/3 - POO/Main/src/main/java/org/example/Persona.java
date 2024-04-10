@@ -1,3 +1,5 @@
+package org.example;
+
 public class Persona {
     String nombre;
     int edad;
@@ -6,7 +8,7 @@ public class Persona {
     double altura;
 
     public Persona(){
-        
+
     }
 
     public Persona(String nombre, int edad, String dni){
@@ -24,15 +26,21 @@ public class Persona {
     }
 
     public int calcularIMC(){
-        double imc = this.peso / (this.altura * this.altura);
-        if (imc < 20){
-            return -1;
+        try{
+            double imc = this.peso / Math.pow(this.altura, 2);
+            if (imc < 20){
+                return -1;
+            }
+            if (imc >= 20 && imc <= 25)
+            {
+                return 0;
+            }
+            return 1;
         }
-        if (imc >= 20 && imc <= 25)
-        {
-            return 0;
+        catch (ArithmeticException e){
+            System.out.println(e.getMessage());
+            return 2;
         }
-        return 1;
     }
 
     public boolean esMayorDeEdad(){
@@ -43,8 +51,8 @@ public class Persona {
     }
 
     public String toString(){
-        return "Nombre: " + this.nombre + 
-                ", edad: " + this.edad + 
+        return "Nombre: " + this.nombre +
+                ", edad: " + this.edad +
                 ", DNI: " + this.dni +
                 ", peso: " + this.peso + "Kg. " +
                 ", altura: " + this.altura + "Mtrs.";
