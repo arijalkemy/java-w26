@@ -10,7 +10,7 @@ public class App
     {
         Persona personaSinParametros = new Persona();
         Persona personaTresParametros = new Persona("Lautaro Oleastro", 20, "40989847");
-        Persona personaCincoParametros = new Persona("Lautaro Oleastro", 20, "40989847", 72.0,1.72);
+        Persona personaCincoParametros = new Persona("Lautaro Oleastro", 26, "40989847", 72.0,1.72);
 
         personaCincoParametros.calcularIMC();
 

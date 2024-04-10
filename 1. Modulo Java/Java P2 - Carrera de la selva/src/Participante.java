@@ -4,12 +4,12 @@ public class Participante {
     private String nombre;
     private String apellido;
     private int edad;
-    private int celular;
-    private int numeroEmergencia;
+    private long celular;
+    private long numeroEmergencia;
     private String grupoSanguineo;
 
-    public Participante(int numero, int dni, String nombre, String apellido, int edad, int celular,
-            int numeroEmergencia, String grupoSanguineo) {
+    public Participante(int numero, int dni, String nombre, String apellido, int edad, long celular,
+                        long numeroEmergencia, String grupoSanguineo) {
         this.numero = numero;
         this.dni = dni;
         this.nombre = nombre;
@@ -64,19 +64,19 @@ public class Participante {
         this.edad = edad;
     }
 
-    public int getCelular() {
+    public long getCelular() {
         return celular;
     }
 
-    public void setCelular(int celular) {
+    public void setCelular(long celular) {
         this.celular = celular;
     }
 
-    public int getNumeroEmergencia() {
+    public long getNumeroEmergencia() {
         return numeroEmergencia;
     }
 
-    public void setNumeroEmergencia(int numeroEmergencia) {
+    public void setNumeroEmergencia(long numeroEmergencia) {
         this.numeroEmergencia = numeroEmergencia;
     }
 
