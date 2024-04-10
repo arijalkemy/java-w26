@@ -1,3 +1,4 @@
 test/
-.idea/
+.idea
 target/
+.DS_Store
