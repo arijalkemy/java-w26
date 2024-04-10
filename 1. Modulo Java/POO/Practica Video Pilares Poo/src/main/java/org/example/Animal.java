@@ -1,0 +1,26 @@
+package org.example;
+
+public class Animal {
+
+    private String especie;
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public Animal(String especie) {
+        this.especie = especie;
+    }
+
+    public void mostrarEspecie() {
+        System.out.println("Soy un anime de la especie: " + this.especie);
+    }
+
+    public void hacerSonido(){
+        System.out.println("El animal hace un sonido");
+    }
+}
