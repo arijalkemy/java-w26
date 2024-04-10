@@ -23,4 +23,23 @@ public class Persona {
         this.peso = peso;
         this.altura = altura;
     }
+
+    public double calcularIMC() {
+        double imc = this.peso / (java.lang.Math.pow(altura, 2));
+        if (imc < 20) {
+            return -1;
+        } else if (imc >= 20 && imc <= 25) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    public boolean esMayorDeEdad() {
+        return this.edad >= 18;
+    }
+
+    public String toString() {
+        return "Nombre: " + this.nombre + " Edad: " + this.edad + " DNI: " + this.dni + " Peso: " + this.peso + " Altura: " + this.altura;
+    }
 }
