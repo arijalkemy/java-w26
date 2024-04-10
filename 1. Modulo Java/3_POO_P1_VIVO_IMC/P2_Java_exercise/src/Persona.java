@@ -6,7 +6,11 @@ public class Persona {
     public double altura;
 
     public Persona(){
-
+        this.nombre = null;
+        this.edad = 0;
+        this.DNI = null;
+        this.peso = 0.0;
+        this.altura = 0.0;
     }
     public Persona(String nombre, int edad, String Dni){
         this.nombre = nombre;
