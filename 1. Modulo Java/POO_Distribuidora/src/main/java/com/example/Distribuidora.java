@@ -16,8 +16,10 @@ public class Distribuidora
             new NoPerecedero("Fideos", 5.0, "Moñitos")
         };
 
+        double precioTotal = 0;
         for (Producto producto : productos) {
-            System.out.println(producto);
+            precioTotal += producto.calcular(5);
         }
+        System.out.printf("<< El precio total es de: %.2f%n",precioTotal);
     }
 }
