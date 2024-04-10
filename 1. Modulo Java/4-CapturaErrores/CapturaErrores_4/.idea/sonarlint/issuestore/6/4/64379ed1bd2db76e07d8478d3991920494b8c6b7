@@ -1,0 +1,13 @@
+
+z
+java:S3518 "7Make sure "a" can't be zero before doing this division.(ïëÉæ8«­ÈÍì1J$22574318-b9c6-47e2-967c-1705fee17349
+z
+java:S2589"7Remove this expression which always evaluates to "true"(Êÿª8ÆÈÍì1J$6aecc60a-bc22-4b8c-ad0d-49c15ee64689
+i
+java:S1481"&Remove this unused "c" local variable.(»ç»“8›æ¹Íì1J$dfd878b1-bb7f-4b49-8211-6fa70cf4e24e
+~	java:S125
+"<This block of commented-out lines of code should be removed.(½‘Ñ³8¦æ¹Íì1J$d15f831c-5e13-41ef-8665-ceeeba17fabf
+r	java:S106"+Replace this use of System.out by a logger.(ôúæéüÿÿÿÿ8©æ¹Íì1J$079448b3-fda0-4215-84bc-5a10740814b1
+r	java:S106"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8­æ¹Íì1J$70f2a9a6-3bb2-4a7c-8f96-73c3d70015c4
+r	java:S106"+Replace this use of System.out by a logger.(‚ªæ¾ÿÿÿÿÿ8¡ÑÇÍì1J$4c2ac71d-e9aa-4dfa-982f-30cebfe32ff5
+r	java:S106!"+Replace this use of System.out by a logger.(ôúæéüÿÿÿÿ8ÖÈÍì1J$39ff0243-2d9e-4c1f-ad54-f31625df31d2
