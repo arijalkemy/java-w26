@@ -3,7 +3,6 @@ package org.example.POO_P1_VIVO;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 
 @Getter
 public class Person {
@@ -14,7 +13,7 @@ public class Person {
     private double weight;
     private double height;
     @Setter
-    private BigDecimal imc;
+    private Double imc;
     @Setter
     private HealtCondition healtCondition = HealtCondition.UNDEFINED;
 
@@ -38,8 +37,8 @@ public class Person {
     }
 
 
-    public BigDecimal calculateImc() {
-        return BigDecimal.valueOf((this.getWeight() / (Math.pow(this.getHeight(), 2))));
+    public Double calculateImc() {
+        return (this.getWeight() / (Math.pow(this.getHeight(), 2)));
     }
 
     public boolean esMayorDeEdad() {
@@ -47,10 +46,10 @@ public class Person {
     }
 
     public HealtCondition calcHealtCondition() {
-        if (imc.compareTo(BigDecimal.valueOf(20.0)) < 0)
-            return  HealtCondition.UNDER_WEIGHT;
+        if (this.getImc() < 20.0)
+            return HealtCondition.UNDER_WEIGHT;
 
-        if (imc.compareTo(BigDecimal.valueOf(25.0)) <= 0)
+        if (this.getImc() <= 25.0)
             return HealtCondition.HEALTHY;
         else
             return HealtCondition.OVERWEIGHT;
@@ -79,6 +78,5 @@ public class Person {
                 ", Estado de Salud='" + healtCondition.getValue() + '\'' +
                 '}';
     }
-
 
 }
