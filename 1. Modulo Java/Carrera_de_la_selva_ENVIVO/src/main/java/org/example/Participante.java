@@ -1,3 +1,4 @@
+package org.example;
 public class Participante {
     private int numero;
     private String dni;
