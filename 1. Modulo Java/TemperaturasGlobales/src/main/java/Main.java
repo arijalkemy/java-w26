@@ -35,5 +35,6 @@ public class Main {
         System.out.println("Ciudad con temperatura mínima: " + ciudades[indiceTemperaturaMinima] + " " + temperaturaMinima + "\n" + "Indice temperatura máxima: " + ciudades[indiceTemperaturaMaxima] + " " + temperaturaMaxima);
     }
 
-    }
+}
+
 
