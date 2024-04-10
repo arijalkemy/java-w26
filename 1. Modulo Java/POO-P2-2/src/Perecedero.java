@@ -8,7 +8,7 @@ public class Perecedero extends Producto {
 
     @Override
     public double calcular(int cantidadDeProductos) {
-        int cantAReducir = diasPorCaducar == 1 ? 4 : diasPorCaducar == 2 ? 3 : diasPorCaducar == 3 ? 2 : 0;
+        int cantAReducir = diasPorCaducar == 1 ? 4 : diasPorCaducar == 2 ? 3 : diasPorCaducar == 3 ? 2 : 1;
         return super.calcular(cantidadDeProductos) / cantAReducir;
     }
 
