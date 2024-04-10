@@ -25,7 +25,7 @@ public class Distribuidora {
         System.out.println("--------------------------------------------- Factura ---------------------------------------------");
         for (Producto producto : productos) {
             acum += producto.calcular(5);
-            System.out.println(String.format("%s Cantidad: %d SubTotal: $%.2f ", producto, 5,acum));
+            System.out.printf("%s Cantidad: %d SubTotal: $%.2f %n", producto, 5,acum);
         }
         System.out.println(">> Total: $" + acum);
         System.out.println("---------------------------------------------------------------------------------------------------");
