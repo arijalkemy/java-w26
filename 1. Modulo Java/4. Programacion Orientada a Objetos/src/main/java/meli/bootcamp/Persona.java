@@ -39,16 +39,30 @@ public class Persona {
   }
 
   public boolean esMayorDeEdad() {
-    return edad >= 18;
+    return edad <= 18;
   }
 
   public String toString() {
     return "Persona {" +
-      "nombre='" + nombre + '\'' +
-      ", edad=" + edad +
-      ", dni='" + dni + '\'' +
-      ", pesoEnKg=" + pesoEnKg +
-      ", alturaEnM=" + alturaEnM +
-      " }";
+        "nombre = '" + nombre + '\'' +
+        ", edad=" + edad + " años" + ". " + mensajeSobreEdad() +
+        ", dni = '" + dni + '\'' +
+        ", pesoEnKg = " + pesoEnKg +
+        ", alturaEnM = " + alturaEnM +
+        ", imc = " + mensajeImc(calcularImc()) +
+        " }";
+  }
+
+  public String mensajeSobreEdad() {
+    return esMayorDeEdad() ? "Es mayor de edad" : "Es menor de edad";
+  }
+
+  public String mensajeImc(int imc) {
+    return switch (imc) {
+      case -1 -> "Bajo peso";
+      case 0 -> "Peso normal";
+      case 1 -> "Sobrepeso";
+      default -> throw new RuntimeException("Valor de IMC no esperado");
+    };
   }
 }
