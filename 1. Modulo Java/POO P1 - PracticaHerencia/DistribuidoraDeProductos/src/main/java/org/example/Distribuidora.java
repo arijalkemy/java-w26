@@ -24,8 +24,10 @@ public class Distribuidora {
     }
 
     public void imprimirPrecio(){
+        double total = 0;
         for (Producto producto : this.productos) {
-            System.out.println(producto.calcular(1));
+            total += producto.calcular(5);
         }
+        System.out.println("Precio total: " + total);
     }
 }

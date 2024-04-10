@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ad6265c-82e7-418d-a021-a524a88b50cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../POO P1 - PracticaExcepciones/untitled/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../POO P1 - PracticaExcepciones/untitled/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Distribuidora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Distribuidora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +30,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2ev5bC5IUO5QNErAAOA5t31XWBL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -49,6 +50,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "oleastro__lautaro",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/loleastro/Documents/java-w26/1. Modulo Java/POO P1 - PracticaHerencia/DistribuidoraDeProductos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,7 +95,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712772281050</updated>
-      <workItem from="1712772282102" duration="4466000" />
+      <workItem from="1712772282102" duration="4616000" />
+      <workItem from="1712780887024" duration="133000" />
     </task>
     <servers />
   </component>
