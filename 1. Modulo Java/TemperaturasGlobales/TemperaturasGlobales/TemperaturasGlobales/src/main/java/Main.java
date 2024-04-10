@@ -12,26 +12,26 @@ public class Main {
         int indiceTemperaturaMaxima = 0;
         int indiceTemperaturaMinima = 0;
 
-        // Iterar sobre las ciudades y actualizar las temperaturas máximas y mínimas
+        // Se itera el array de ciudades y se setea la temperatura maxima y minima de cada indice del array bidimensional
         for (int i = 0; i < ciudades.length; i++) {
             // Obtener las temperaturas actuales de la ciudad actual
             int temperaturaActualMax = temperaturas[i][1];
             int temperaturaActualMin = temperaturas[i][0];
 
-            // Actualizar la temperatura máxima si es necesario y guardar el índice correspondiente
+            // Se actualizan las variables de temperatura maxima si es necesario
             if (temperaturaActualMax > temperaturaMaxima) {
                 temperaturaMaxima = temperaturaActualMax;
                 indiceTemperaturaMaxima = i;
             }
 
-            // Actualizar la temperatura mínima si es necesario y guardar el índice correspondiente
+            // Se actualizan las variables de temperatura maxima si es necesario
             if (temperaturaActualMin < temperaturaMinima) {
                 temperaturaMinima = temperaturaActualMin;
                 indiceTemperaturaMinima = i;
             }
         }
 
-        // Mostrar por pantalla la ciudad con temperatura mínima y su valor, así como el índice de la temperatura máxima y su valor
+        // Se muestra por pantalla la ciudad con temperatura mínima y su valor, al igual que con la maxima
         System.out.println("Ciudad con temperatura mínima: " + ciudades[indiceTemperaturaMinima] + " " + temperaturaMinima + "\n" + "Indice temperatura máxima: " + ciudades[indiceTemperaturaMaxima] + " " + temperaturaMaxima);
     }
 
