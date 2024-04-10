@@ -9,6 +9,7 @@ public class Categoria {
     private final String descripcion;
     // Con lo siguiente se termina implementado un poliformismo "trucho", pero
     // no quería complicar la solución con una jerarquía de clases.
+    // TODO Ver si se puede reemplazar esto por dos atributos, precioMenorDeEdad y precioMayordeEdad
     private final Function<Participante, Double> calculadorMontoInscripcion;
 
 
