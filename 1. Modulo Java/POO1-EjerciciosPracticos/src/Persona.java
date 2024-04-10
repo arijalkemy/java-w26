@@ -46,7 +46,7 @@ public class Persona {
         return false;
     }
 
-
+    @Override
     public String toString() {
 
         if (this.nombre == null){
