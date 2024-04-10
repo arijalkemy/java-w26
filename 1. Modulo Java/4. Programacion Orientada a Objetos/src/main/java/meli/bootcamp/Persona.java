@@ -37,4 +37,18 @@ public class Persona {
 
     return 1;
   }
+
+  public boolean esMayorDeEdad() {
+    return edad >= 18;
+  }
+
+  public String toString() {
+    return "Persona {" +
+      "nombre='" + nombre + '\'' +
+      ", edad=" + edad +
+      ", dni='" + dni + '\'' +
+      ", pesoEnKg=" + pesoEnKg +
+      ", alturaEnM=" + alturaEnM +
+      " }";
+  }
 }
