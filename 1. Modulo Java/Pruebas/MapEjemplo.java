@@ -1,9 +1,10 @@
+import java.util.HashMap;
 import java.util.Map;
 
 public class MapEjemplo {
     Map<Integer,String> mapa = new HashMap<Integer,String>();
 
-    public Ejemplo()
+    public void Ejemplo()
     {
         mapa.put(1,"Juan");
         mapa.put(2,"Pedro");

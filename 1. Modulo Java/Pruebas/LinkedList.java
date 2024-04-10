@@ -1,5 +1,7 @@
+import java.util.List;
+
 public class LinkedList {
-    List<String> listaPersonas = new LinkedList<String>();
+    LinkedList<String> listaPersonas = new LinkedList<String>();
 
     public LinkedList()
     {

@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class EjemploList {
     private List<String> nombre;
 
 
-    public Ejemplo()
+    public void Ejemplo()
     {
         this.nombre = new ArrayList<String>();
         this.nombre.add("Juan");
