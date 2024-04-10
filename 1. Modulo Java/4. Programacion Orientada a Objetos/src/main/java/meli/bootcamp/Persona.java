@@ -4,8 +4,8 @@ public class Persona {
   String nombre;
   int edad;
   String dni;
-  float pesoEnKg;
-  float alturaEnM;
+  double pesoEnKg;
+  double alturaEnM;
 
   public Persona() {
   }
@@ -16,7 +16,7 @@ public class Persona {
     this.dni = dni;
   }
 
-  public Persona(String nombre, int edad, String dni, float pesoEnKg, float altura) {
+  public Persona(String nombre, int edad, String dni, double pesoEnKg, double altura) {
     this.nombre = nombre;
     this.edad = edad;
     this.dni = dni;
@@ -25,7 +25,7 @@ public class Persona {
   }
 
   public int calcularImc() {
-    float imc = pesoEnKg / alturaEnM * alturaEnM;
+    double imc = pesoEnKg / Math.pow(alturaEnM, 2);
 
     if (imc < 20) {
       return -1;
