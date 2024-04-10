@@ -2,8 +2,8 @@ public class Persona {
     String nombre;
     int edad;
     String dni;
-    float peso;
-    float altura;
+    double peso;
+    double altura;
 
     public Persona(){
         
@@ -15,7 +15,7 @@ public class Persona {
         this.dni = dni;
     }
 
-    public Persona(String nombre, int edad, String dni, float peso, float altura){
+    public Persona(String nombre, int edad, String dni, double peso, double altura){
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;
@@ -24,7 +24,7 @@ public class Persona {
     }
 
     public int calcularIMC(){
-        float imc = this.peso / (this.altura * this.altura);
+        double imc = this.peso / (this.altura * this.altura);
         if (imc < 20){
             return -1;
         }
@@ -37,9 +37,9 @@ public class Persona {
 
     public boolean esMayorDeEdad(){
         if (this.edad >= 18){
-            return 1;
+            return true;
         }
-        return 0;
+        return false;
     }
 
     public String toString(){
