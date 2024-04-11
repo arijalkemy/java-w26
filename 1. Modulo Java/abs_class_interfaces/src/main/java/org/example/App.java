@@ -9,7 +9,8 @@ public class App
     public static void main( String[] args )
     {
 //        transactions();
-        documents();
+//        documents();
+        animals();
     }
 
     public static void transactions() {
@@ -36,5 +37,20 @@ public class App
         System.out.println(curriculum.printDoc());
         System.out.println(pdf.printDoc());
         System.out.println(report.printDoc());
+    }
+
+    public static void animals() {
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+        Animal cow = new Cow();
+
+        dog.emitSound();
+        cat.emitSound();
+        cow.emitSound();
+
+        AlimentarAnimal alimentar = new AlimentarAnimal();
+        alimentar.comerAnimal(dog);
+        alimentar.comerAnimal(cat);
+        alimentar.comerAnimal(cow);
     }
 }
