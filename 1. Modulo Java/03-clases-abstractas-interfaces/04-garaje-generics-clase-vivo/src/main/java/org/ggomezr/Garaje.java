@@ -1,9 +1,6 @@
 package org.ggomezr;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -18,17 +15,21 @@ public class Garaje {
     }
 
     public void ordenarPorCosto(){
-        Collections.sort(vehiculos, Comparator.comparing(Vehiculo::getCosto));
+        List<Vehiculo> vehiculosOrdenadosPorCosto = new ArrayList<>(vehiculos);
 
-        for(Vehiculo vehiculo: vehiculos){
+        Collections.sort(vehiculosOrdenadosPorCosto, Comparator.comparing(Vehiculo::getCosto));
+
+        for(Vehiculo vehiculo: vehiculosOrdenadosPorCosto){
             System.out.println(vehiculo);
         }
     }
 
     public void ordenarPorMarcaYCosto(){
-        Collections.sort(vehiculos, Comparator.comparing(Vehiculo::getMarca).thenComparing(Vehiculo::getCosto));
+        List<Vehiculo> vehiculosOrdenadosPorMarcaYCosto = new ArrayList<>(vehiculos);
 
-        for(Vehiculo vehiculo: vehiculos){
+        Collections.sort(vehiculosOrdenadosPorMarcaYCosto, Comparator.comparing(Vehiculo::getMarca).thenComparing(Vehiculo::getCosto));
+
+        for(Vehiculo vehiculo: vehiculosOrdenadosPorMarcaYCosto){
             System.out.println(vehiculo);
         }
     }
