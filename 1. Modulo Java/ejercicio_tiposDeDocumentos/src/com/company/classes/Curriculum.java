@@ -25,5 +25,6 @@ public class Curriculum implements Imprimible {
         for(String habilidad: habilidades) {
             System.out.println("   - " + habilidad);
         }
+
     }
 }
