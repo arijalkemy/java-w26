@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Hello world!
@@ -60,6 +61,10 @@ public class App
         garajeMayoresMil.mostrarVehiculos();
 
 
+        List<Vehiculo> vehiculosTest= listaVehiculos.stream().sorted(Comparator.comparingDouble(Vehiculo::getCosto).thenComparing(Vehiculo::getMarca)).toList();
+
+        Garaje garajeDos = new Garaje(3,vehiculosTest);
+        garajeDos.mostrarVehiculos();
 
 
     }
