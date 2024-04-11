@@ -1,0 +1,17 @@
+package bootcamp.bendezujonathan.animals.implementations;
+
+import bootcamp.bendezujonathan.animals.Animal;
+import bootcamp.bendezujonathan.animals.interfaces.Carnivoro;
+
+public class Perro extends Animal implements Carnivoro {
+    
+    @Override
+    public void comerCarne() {
+        System.out.println("mm que buen pollito.");
+    }
+
+    @Override
+    public void emitirSonido() {
+        System.out.println("Gau gau!");
+    }
+}
