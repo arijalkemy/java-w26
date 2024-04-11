@@ -26,5 +26,6 @@ public class Main {
             garage.imprimirListaVehiculosPorMarcaYPrecio();
             garage.imprimirListaVehiculosNoMayorAPrecio1000();
             garage.imprimirListaVehiculosPrecioMayorIgual1000();
+            garage.imprimirPromedioDePrecios();
     }
 }

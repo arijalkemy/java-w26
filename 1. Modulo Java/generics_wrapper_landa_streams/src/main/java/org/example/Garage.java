@@ -44,7 +44,6 @@ public class Garage {
 
         lista.forEach(vehiculo -> System.out.println(vehiculo.toString()));
         System.out.println("\n");
-
     }
 
     public void imprimirListaVehiculosNoMayorAPrecio1000(){
@@ -58,5 +57,11 @@ public class Garage {
         Stream<Vehiculo> lista = vehiculos.stream().filter(x -> x.getCosto() >= 1000).sorted(Comparator.comparing(Vehiculo::getCosto));
         lista.forEach(vehiculo -> System.out.println(vehiculo.toString()));
         System.out.println("\n");
+    }
+
+    public void imprimirPromedioDePrecios(){
+        System.out.println("Costo Promedio del vehiculo");
+        double costoPromedio = vehiculos.stream().mapToDouble(Vehiculo::getCosto).average().getAsDouble();
+        System.out.println("costo promedio: " + costoPromedio + "\n");
     }
 }
