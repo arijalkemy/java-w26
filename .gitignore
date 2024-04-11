@@ -1,1 +1,10 @@
+# MAC
 .DS_Store
+
+# IDEs
+.idea
+.vscode/
+
+# Build
+.out
+bin
