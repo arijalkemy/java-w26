@@ -1,4 +1,4 @@
-package org.bootcamp;
+package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +15,9 @@ public class Distribuidora {
 
         double totalVenta = 0;
         for (Producto producto : productos) {
-            totalVenta += producto.calcular(1);
+            totalVenta += producto.calcular(3);
         }
         System.out.println("El total de venta es: " + totalVenta);
-        // resultado: El total de venta es: 333.3333333333333
-
     }
 }
 

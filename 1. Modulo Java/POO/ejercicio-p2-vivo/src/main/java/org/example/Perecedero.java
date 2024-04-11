@@ -1,4 +1,4 @@
-package org.bootcamp;
+package org.example;
 
 public class Perecedero extends Producto {
 
