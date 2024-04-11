@@ -1,6 +1,8 @@
-package org.example.AbstractClass_Interfaces;
+package org.example.AbstractClass_Interfaces.Clients;
 
-public class Ejecutivo implements DepositosTransferencias{
+import org.example.AbstractClass_Interfaces.Services.DepositosTransferencias;
+
+public class Ejecutivo implements DepositosTransferencias {
 
 
     @Override

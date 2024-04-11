@@ -1,6 +1,8 @@
-package org.example.AbstractClass_Interfaces;
+package org.example.AbstractClass_Interfaces.Clients;
 
-public class Cobrador implements ConsultaRetiro{
+import org.example.AbstractClass_Interfaces.Services.ConsultaRetiro;
+
+public class Cobrador implements ConsultaRetiro {
 
     @Override
     public void consulta() {
