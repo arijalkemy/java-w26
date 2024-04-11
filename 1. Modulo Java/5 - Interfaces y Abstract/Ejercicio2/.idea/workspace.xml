@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="475aeeff-f2cc-43c4-acd9-e19df3ec0440" name="Changes" comment="">
+    <list default="true" id="47916ec3-9d16-46b1-98d7-f2aa31dfc9f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../3 - POO1/3 - POO1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../4 - POO2/.idea/4 - POO2.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
@@ -13,14 +15,19 @@
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../3 - POO/Main/src/main/java/org/example/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../3 - POO1/Main/src/main/java/org/example/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/archivos/CV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Ejercicio_1/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4 - POO2/Ejercicio2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4 - POO2/Ejercicio2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4 - POO2/Main/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4 - POO2/Main/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4 - POO2/Main/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../4 - POO2/Main/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../4 - POO2/Main/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../4 - POO2/Main/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../java-w26.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../java-w26.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +48,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2evG2w6KkLaV1SRkMEd2neA1WSn" />
+  <component name="ProjectId" id="2exc2vqyGPqutjGiKWhzxonvRno" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -54,43 +61,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/joldani/Documents/practica_java/java-w26/1. Modulo Java/4 - POO2/Main",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+    "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.App" />
-      <module name="Main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.App" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="475aeeff-f2cc-43c4-acd9-e19df3ec0440" name="Changes" comment="" />
-      <created>1712777440828</created>
+      <changelist id="47916ec3-9d16-46b1-98d7-f2aa31dfc9f3" name="Changes" comment="" />
+      <created>1712849465845</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712777440828</updated>
-      <workItem from="1712777442016" duration="2504000" />
-      <workItem from="1712781985293" duration="460000" />
+      <updated>1712849465845</updated>
+      <workItem from="1712849466932" duration="2093000" />
     </task>
     <servers />
   </component>
