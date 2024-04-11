@@ -22,22 +22,22 @@ public class main {
 
         Garage garage = new Garage(1, vehiculos);
 
-        vehiculos.sort(Comparator.comparing(Vehiculo::getCosto).thenComparing(Vehiculo::getMarca));
-
-        System.out.println(vehiculos.toString());
+        System.out.println("Vehiculos ordenados por costo y marca\n");
+        vehiculos.stream().sorted(Comparator.comparingDouble(Vehiculo::getCosto)).forEach(System.out::println);
 
         // Menores a 1000
+        System.out.println("\nMenores a 1000 \n");
         vehiculos.stream()
-                .filter(p -> p.getCosto() < 1000);
-
-        System.out.println(vehiculos.toString());
+                .filter(p -> p.getCosto() < 1000)
+                .forEach(System.out::println);
 
         // Mayores o iguales a 1000
+        System.out.println("\nMayores o iguales 1000 \n");
         vehiculos.stream()
-                .filter(p -> p.getCosto() >= 1000);
+                .filter(p -> p.getCosto() >= 1000)
+                        .forEach(System.out::println);
 
-        System.out.println(vehiculos.toString());
-
+        System.out.println("\nPromedio \n");
         // promedio
         Double promedio = vehiculos.stream()
                 .mapToDouble(Vehiculo::getCosto)
