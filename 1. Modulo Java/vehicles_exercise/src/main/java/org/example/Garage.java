@@ -15,14 +15,13 @@ public class Garage {
 
     // Get vehicles list sorted by price
     public List<Vehicle> getSortedByPrice() {
-        return vehiclesList.stream().sorted(Comparator.comparing(vehicle -> vehicle.getPrice())).collect(Collectors.toList());
+        return vehiclesList.stream().sorted(Comparator.comparing(Vehicle::getPrice)).collect(Collectors.toList());
     }
 
     // Get vehicles list sorted by brand and price
     public List<Vehicle> getSortedByPriceAndBrand() {
         return vehiclesList.stream()
-                .sorted(Comparator.comparing(vehicle -> vehicle.getPrice()))
-                .sorted(Comparator.comparing(vehicle -> vehicle.getBrand()))
+                .sorted(Comparator.comparing(Vehicle::getBrand).thenComparing(Vehicle::getPrice))
                 .collect(Collectors.toList());
     }
 
