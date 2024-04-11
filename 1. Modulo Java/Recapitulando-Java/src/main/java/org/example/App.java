@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -36,7 +37,55 @@ public class App
         vehiculos.add(fortuner);
         vehiculos.add(logan);
 
-        
+        Garaje garaje = new Garaje("1", vehiculos);
 
+        List<Vehiculo> listaOrdenadaPorCosto = garaje.getVehiculos()
+                .stream()
+                .sorted(Comparator.comparingDouble(Vehiculo::getCosto))
+                .toList();
+
+        System.out.println("------ LISTA ORDENADA POR COSTO -------------");
+        recorrerLista(listaOrdenadaPorCosto);
+
+        System.out.println("-------------------");
+        System.out.println("------ LISTA ORDENADA POR MARCA Y COSTO -------------");
+        List<Vehiculo> listaOrdenadaPorMarcaYCosto = garaje.getVehiculos()
+                .stream()
+                .sorted(Comparator.comparing(Vehiculo::getMarca).thenComparingDouble(Vehiculo::getCosto))
+                .toList();
+
+        recorrerLista(listaOrdenadaPorMarcaYCosto);
+
+        System.out.println("-------------------");
+        System.out.println("------ LISTA DE VEHICULOS CON COSTO MENOR A MIL -------------");
+        List<Vehiculo> vehiculosPrecioMenorAMil = garaje.getVehiculos()
+                .stream()
+                .filter(vehiculo -> vehiculo.getCosto() < 1000)
+                .toList();
+
+        recorrerLista(vehiculosPrecioMenorAMil);
+
+        System.out.println("-------------------");
+        System.out.println("------ LISTA DE VEHICULOS CON COSTO MAYOR O IGUAL A MIL -------------");
+        List<Vehiculo> vehiculosPrecioMayorAMil = garaje.getVehiculos()
+                .stream()
+                .filter(vehiculo -> vehiculo.getCosto() >= 1000)
+                .toList();
+
+        recorrerLista(vehiculosPrecioMayorAMil);
+
+        double promedioTotal = garaje.getVehiculos()
+                .stream()
+                .mapToDouble(Vehiculo::getCosto)
+                .average().orElse(0);
+
+        System.out.println("-------------------");
+        System.out.println("Promedio total de costos: " + promedioTotal);
+    }
+
+    private static void recorrerLista(List<Vehiculo> vehiculos){
+        for (Vehiculo vehiculo: vehiculos){
+            System.out.println(vehiculo.toString());
+        }
     }
 }
