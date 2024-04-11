@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.animales.Animal;
 import org.example.animales.Gato;
 import org.example.animales.Perro;
 import org.example.animales.Vaca;
@@ -24,5 +25,14 @@ public class App
 
         vaca.emitirSonido();
         vaca.comerHierba();
+
+        // Propuesta extra
+        comerAnimal(perro);
+        comerAnimal(gato);
+        comerAnimal(vaca);
+    }
+
+    public static void comerAnimal(Animal animal){
+        animal.comer();
     }
 }

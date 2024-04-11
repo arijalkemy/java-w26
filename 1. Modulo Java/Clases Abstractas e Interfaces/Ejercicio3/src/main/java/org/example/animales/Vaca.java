@@ -9,6 +9,11 @@ public class Vaca extends Animal implements Herviboro {
     }
 
     @Override
+    public void comer() {
+        this.comerHierba();
+    }
+
+    @Override
     public void comerHierba() {
         System.out.println("Vaca comiendo pasto...");
     }
