@@ -26,4 +26,11 @@ public class Garaje {
     public void setListaVehiculo(List<Vehiculo> listaVehiculo) {
         this.listaVehiculo = listaVehiculo;
     }
+
+    public void mostrarVehiculos() {
+        System.out.println("Vehículos en el garaje:");
+        for (Vehiculo vehiculo : listaVehiculo) {
+            System.out.println("Marca: " + vehiculo.getMarca() + ", Modelo: " + vehiculo.getModelo() + ", Precio: " + vehiculo.getCosto());
+        }
+    }
 }
