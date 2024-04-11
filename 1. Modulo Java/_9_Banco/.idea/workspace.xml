@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17a7a47a-9af6-4143-9be8-e22e3c829cb6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/AbstractClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/ICalculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/MyGeneric.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/SonOfAbstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Basic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Cobrador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ConsultaDeSaldo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Curriculum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Deposito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Documento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Ejecutivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/IImprimible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ITransaccion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Informe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LibroEnPDF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PagoDeServicio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/RetiroEnEfectivo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Transferencia.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2exN1Ohu1nx64Y15VeqeBHSgvRT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "bellotti__marcos",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-53826d6a" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17a7a47a-9af6-4143-9be8-e22e3c829cb6" name="Changes" comment="" />
+      <created>1712842055142</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712842055142</updated>
+      <workItem from="1712842056213" duration="6006000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
