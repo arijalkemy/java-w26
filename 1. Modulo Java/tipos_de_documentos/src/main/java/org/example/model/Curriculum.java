@@ -36,7 +36,6 @@ public class Curriculum {
                 ", habilidades=" + habilidades +
                 '}';
     }
-
-
+    
 }
 
