@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="deaf4e81-500f-49c4-a09d-a3e4b8fafd65" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../5-POO P1/AsyncEjercitacionClaseAutomovilPOOP1/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../5-POO P1/AsyncEjercitacionClaseAutomovilPOOP1/src/main/java/Automovil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-TemperaturasGlobales/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../9-Clases Abstractas e inferfaces VIVO/2- Ejercicio Documentos/src/main/java/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/../9-Clases Abstractas e inferfaces VIVO/2- Ejercicio Documentos/src/main/java/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionAumentoSalarios/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/src/main/java/Libro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/target/classes/Libro.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionPOO1/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/src/main/java/Categories.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CarreraDeLaSelva/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/src/main/java/Carnivore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/src/main/java/Cat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/src/main/java/Dog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionAnimales/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/src/main/java/Deposit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/src/main/java/Transaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionBancaria/src/main/java/Transference.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/src/main/java/Curriculum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/src/main/java/Pdf.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/src/main/java/Printer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/src/main/java/Report.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/target/classes/Curriculum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/target/classes/Pdf.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/target/classes/Printer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionDocumentos/target/classes/Report.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/src/main/java/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionPOO1/target/classes/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionVehiculosRecapitulandoJava/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Garage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Vehicle.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2evLwpFqp9zC7z64NuvgYS0dcAK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/brdonato/RepositoryW26/java-w26/1. Modulo Java/SyncEjercitacionPOO2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="deaf4e81-500f-49c4-a09d-a3e4b8fafd65" name="Changes" comment="" />
+      <created>1712780347098</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712780347098</updated>
+      <workItem from="1712780348338" duration="1599000" />
+      <workItem from="1712875199867" duration="514000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
