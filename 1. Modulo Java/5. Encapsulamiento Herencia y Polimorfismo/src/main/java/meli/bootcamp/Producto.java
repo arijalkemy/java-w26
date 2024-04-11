@@ -33,7 +33,7 @@ public class Producto {
         '}';
   }
 
-  public double calcular(int cantidad) {
+  public double calcularPrecio(int cantidad) {
     return precio * cantidad;
   }
 }
