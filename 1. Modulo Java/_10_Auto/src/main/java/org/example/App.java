@@ -28,40 +28,40 @@ public class App
         vehiculos.add(new Vehiculo("Toyota", "Fortuner", 3000));
         vehiculos.add(new Vehiculo("Renault", "Logan", 950));
 
+        Garage garage = new Garage(111, vehiculos);
+
         //Ejercicio 3
-        vehiculos.sort(Comparator.comparingDouble(Vehiculo::getCosto));
+        List<Vehiculo> vehiculosOrdenadosPorPrecio =  vehiculos.stream()
+                .sorted(Comparator.comparingDouble(Vehiculo::getCosto))
+                .toList();
         System.out.println("Primer ordenamiento");
-        vehiculos.forEach(System.out::println);
+        vehiculosOrdenadosPorPrecio.forEach(System.out::println);
 
         //Ejercicio 4
-        vehiculos.sort(Comparator.comparing(Vehiculo::getMarca).thenComparingDouble(Vehiculo::getCosto));
+        List<Vehiculo> vehiculosOrdenadosPorMarcaYPrecio =  vehiculos.stream()
+                .sorted(Comparator.comparing(Vehiculo::getMarca)
+                        .thenComparing(Vehiculo::getCosto))
+                .toList();
         System.out.println("Segundo ordenamiento");
-        vehiculos.forEach(System.out::println);
+        vehiculosOrdenadosPorMarcaYPrecio.forEach(System.out::println);
 
         //Ejercicio 5
         System.out.println("Vehiculos con precio menor a 1000");
         List<Vehiculo> vehiculosConPreciosMenoresA1000= vehiculos.stream()
                 .filter(vehiculo -> vehiculo.getCosto() < 1000)
-                .collect(Collectors.toList());
+                .toList();
         vehiculosConPreciosMenoresA1000.forEach(System.out::println);
 
         System.out.println("Vehiculos con precio mayor a 1000");
         List<Vehiculo> vehiculosConPreciosMayoresA1000= vehiculos.stream()
                 .filter(vehiculo -> vehiculo.getCosto() >= 1000)
-                .collect(Collectors.toList());
+                .toList();
         vehiculosConPreciosMayoresA1000.forEach(System.out::println);
 
-        OptionalDouble promedio= vehiculos.stream()
+        double promedio= vehiculos.stream()
                 .mapToDouble(Vehiculo::getCosto)
-                .average();
-        System.out.println("El promedio con stream es: " + promedio.getAsDouble());
-
-        double total =0;
-        for (Vehiculo vehiculo : vehiculos){
-            total = total + vehiculo.getCosto();
-        }
-        double promConForeach = total/vehiculos.size();
-        System.out.println("El promedio con foreach es: " + promedio.getAsDouble());
+                .average().getAsDouble();
+        System.out.println("El promedio con stream es: " + promedio);
 
     }
 }
