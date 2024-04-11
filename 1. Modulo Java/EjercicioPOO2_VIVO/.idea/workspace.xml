@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="763fb38e-de8f-4443-a282-83f5859f88be" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/main/Distribuidora.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/main/NoPerecedero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/main/Perecedero.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/main/PracticaExcepciones.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/main/Producto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/main/DistribuidoraTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/src/main/java/org/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/src/main/java/org/src/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioPOO_VIVO/src/test/java/org/src/AppTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2exP78g9zava0zWl2kYJ6PA0lf5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="763fb38e-de8f-4443-a282-83f5859f88be" name="Changes" comment="" />
+      <created>1712843087422</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712843087422</updated>
+      <workItem from="1712843088957" duration="1367000" />
+      <workItem from="1712844463361" duration="139000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
