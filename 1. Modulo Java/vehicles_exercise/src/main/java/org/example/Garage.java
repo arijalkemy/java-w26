@@ -21,8 +21,8 @@ public class Garage {
     // Get vehicles list sorted by brand and price
     public List<Vehicle> getSortedByPriceAndBrand() {
         return vehiclesList.stream()
-                .sorted(Comparator.comparing(vehicle -> vehicle.getBrand()))
                 .sorted(Comparator.comparing(vehicle -> vehicle.getPrice()))
+                .sorted(Comparator.comparing(vehicle -> vehicle.getBrand()))
                 .collect(Collectors.toList());
     }
 
@@ -40,10 +40,10 @@ public class Garage {
     }
     // Get average price of the vehicles list
     public String getAverageStr() {
-        int result = 0;
-        for (Vehicle vehicle : this.vehiclesList) {
-            result += vehicle.getPrice();
-        }
+        int result = this.vehiclesList
+                .stream()
+                .mapToInt(Vehicle::getPrice)
+                .sum();
         return "The average for all the price is: " + result / this.vehiclesList.size();
     }
 
