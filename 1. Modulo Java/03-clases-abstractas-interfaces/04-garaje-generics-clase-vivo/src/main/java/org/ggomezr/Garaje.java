@@ -44,10 +44,10 @@ public class Garaje {
     }
 
     public void obtenerPromedioPreciosVehiculos(){
-        double promedioTotal = 0;
-        for (Vehiculo vehiculo: vehiculos){
-            promedioTotal += vehiculo.getCosto();
-        }
+        double promedioTotal = vehiculos.stream()
+                .mapToDouble(Vehiculo::getCosto)
+                .average()
+                .orElse(0.0);
         System.out.println("Promedio total del precio de todos los vehiculos: " + promedioTotal);
     }
 
