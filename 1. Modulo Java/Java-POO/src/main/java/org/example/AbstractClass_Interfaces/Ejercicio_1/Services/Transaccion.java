@@ -1,4 +1,4 @@
-package org.example.AbstractClass_Interfaces.Services;
+package org.example.AbstractClass_Interfaces.Ejercicio_1.Services;
 
 public interface Transaccion {
 

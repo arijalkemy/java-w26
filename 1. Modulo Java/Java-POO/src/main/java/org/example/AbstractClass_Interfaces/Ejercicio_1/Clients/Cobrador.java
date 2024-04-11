@@ -1,6 +1,6 @@
-package org.example.AbstractClass_Interfaces.Clients;
+package org.example.AbstractClass_Interfaces.Ejercicio_1.Clients;
 
-import org.example.AbstractClass_Interfaces.Services.ConsultaRetiro;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Services.ConsultaRetiro;
 
 public class Cobrador implements ConsultaRetiro {
 

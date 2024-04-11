@@ -1,7 +1,7 @@
-package org.example.AbstractClass_Interfaces.Clients;
+package org.example.AbstractClass_Interfaces.Ejercicio_1.Clients;
 
-import org.example.AbstractClass_Interfaces.Services.ConsultaRetiro;
-import org.example.AbstractClass_Interfaces.Services.Pago;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Services.ConsultaRetiro;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Services.Pago;
 
 public class Basic implements ConsultaRetiro, Pago {
 

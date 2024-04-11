@@ -1,6 +1,6 @@
-package org.example.AbstractClass_Interfaces.Clients;
+package org.example.AbstractClass_Interfaces.Ejercicio_1.Clients;
 
-import org.example.AbstractClass_Interfaces.Services.DepositosTransferencias;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Services.DepositosTransferencias;
 
 public class Ejecutivo implements DepositosTransferencias {
 

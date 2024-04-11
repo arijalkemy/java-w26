@@ -1,8 +1,8 @@
-package org.example.AbstractClass_Interfaces;
+package org.example.AbstractClass_Interfaces.Ejercicio_1;
 
-import org.example.AbstractClass_Interfaces.Clients.Basic;
-import org.example.AbstractClass_Interfaces.Clients.Cobrador;
-import org.example.AbstractClass_Interfaces.Clients.Ejecutivo;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Clients.Basic;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Clients.Cobrador;
+import org.example.AbstractClass_Interfaces.Ejercicio_1.Clients.Ejecutivo;
 
 public class App {
 
