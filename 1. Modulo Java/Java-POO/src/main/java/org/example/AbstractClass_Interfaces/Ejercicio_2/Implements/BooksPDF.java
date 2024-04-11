@@ -14,8 +14,7 @@ public class BooksPDF implements Imprimible {
     private String gender;
 
     @Override
-    public void viewData() {
-        System.out.println("---------------------------");
+    public void imprimir() {
         System.out.println("Amount of pages: " + amountPages);
         System.out.println("Author: " + author);
         System.out.println("Title: " + title);

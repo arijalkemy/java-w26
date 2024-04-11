@@ -15,8 +15,7 @@ public class Curriculums implements Imprimible {
     private List<String> skills;
 
     @Override
-    public void viewData() {
-        System.out.println("---------------------------");
+    public void imprimir() {
         System.out.println("Name: " + person.getName());
         System.out.println("Age: " + person.getAge());
         System.out.println("Skills: ");

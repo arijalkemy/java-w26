@@ -14,8 +14,7 @@ public class Report implements Imprimible {
     private String reviewer;
 
     @Override
-    public void viewData() {
-        System.out.println("---------------------------");
+    public void imprimir() {
         System.out.println("Text: " + text);
         System.out.println("Amount of pages: " + amountPages);
         System.out.println("Author: " + author);
