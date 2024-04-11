@@ -5,39 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17a7a47a-9af6-4143-9be8-e22e3c829cb6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/AbstractClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/ICalculo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/MyGeneric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_8_PracticaClasesWrapperYGenerics/src/main/java/org/example/SonOfAbstract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Basic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Cobrador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ConsultaDeSaldo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Curriculum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Deposito.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Documento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Ejecutivo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/IImprimible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ITransaccion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Informe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LibroEnPDF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/PagoDeServicio.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/RetiroEnEfectivo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Transferencia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Gato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ICarnivoro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/IHervivoro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Perro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Vaca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -96,7 +71,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712842055142</updated>
-      <workItem from="1712842056213" duration="6006000" />
+      <workItem from="1712842056213" duration="8344000" />
     </task>
     <servers />
   </component>

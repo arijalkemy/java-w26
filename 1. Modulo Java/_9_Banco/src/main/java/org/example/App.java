@@ -11,6 +11,7 @@ public class App
     public static void main( String[] args )
     {
         //EJERCICIO 1
+        System.out.println("EJERCICIO 1:");
 
         //BASIC
         System.out.println("BASIC: ");
@@ -39,8 +40,9 @@ public class App
         ejecutivo.transferencia(transaccionEjecutivo);
 
 
-
         //EJERCICIO 2
+        System.out.println("EJERCICIO 2:");
+
         List<String> habilidades = new ArrayList<>();
         habilidades.add("ninguna");
 
@@ -53,11 +55,23 @@ public class App
         IImprimible interfazInforme = new Informe(22,"Jorge", "Julian", "Texto");
         interfazInforme.imprimir();
 
+
         //EJERCICIO 3
+        System.out.println("EJERCICIO 3");
 
+        Gato gato = new Gato();
+        gato.emitirSonido();
+        Perro perro = new Perro();
+        perro.emitirSonido();
 
+        ICarnivoro interfazCarnivoro = gato;
+        interfazCarnivoro.comerCarne();
+        interfazCarnivoro = perro;
+        interfazCarnivoro.comerCarne();
 
-
-
+        Vaca vaca = new Vaca();
+        vaca.emitirSonido();
+        IHervivoro interfazHerbivoro = vaca;
+        interfazHerbivoro.comerHierba();
     }
 }
