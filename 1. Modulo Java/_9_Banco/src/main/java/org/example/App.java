@@ -73,5 +73,23 @@ public class App
         vaca.emitirSonido();
         IHervivoro interfazHerbivoro = vaca;
         interfazHerbivoro.comerHierba();
+
+        comerAnimal(gato);
+        comerAnimal(perro);
+        comerAnimal(vaca);
+    }
+
+    public static void comerAnimal(Animal animal){
+        String tipoGato = "gato";
+        String tipoPerro = "perro";
+        String tipoVaca = "vaca";
+
+        if(animal instanceof Gato){
+            ((Gato) animal).comerCarne();
+        }else if(animal instanceof Perro){
+            ((Perro) animal).comerCarne();
+        }else {
+            ((Vaca) animal).comerHierba();
+        }
     }
 }
