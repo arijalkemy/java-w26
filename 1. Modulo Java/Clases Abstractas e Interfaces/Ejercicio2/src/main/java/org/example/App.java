@@ -3,6 +3,7 @@ package org.example;
 import org.example.archivos.Curriculum;
 import org.example.archivos.Informe;
 import org.example.archivos.LibroEnPDF;
+import org.example.impresoras.Impresora;
 
 import java.util.List;
 
@@ -16,6 +17,9 @@ public class App
         Curriculum curriculum = new Curriculum("Lautaro Oleastro", List.of("Python", "Java", "POO"));
         LibroEnPDF libroEnPDF = new LibroEnPDF("Albert Camus", 234, "Ficcion");
         Informe informe = new Informe("lorem ipsum", 15, "Profesor X", "Doctor Y");
-        
+
+        Impresora.imprimir(curriculum);
+        Impresora.imprimir(libroEnPDF);
+        Impresora.imprimir(informe);
     }
 }

@@ -1,5 +1,5 @@
 package org.example.archivos;
 
-public interface IArchivo {
+public interface IImprimible {
     public String getContenido();
 }

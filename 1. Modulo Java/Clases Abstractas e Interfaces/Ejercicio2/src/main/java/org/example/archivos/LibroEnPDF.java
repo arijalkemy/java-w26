@@ -1,6 +1,6 @@
 package org.example.archivos;
 
-public class LibroEnPDF implements IArchivo {
+public class LibroEnPDF extends Archivo {
     private String nombreDelAutor;
     private Integer cantidadDePaginas;
     private String genero;
@@ -13,6 +13,6 @@ public class LibroEnPDF implements IArchivo {
 
     @Override
     public String getContenido() {
-        return "Autor: " + this.nombreDelAutor + "Cantidad de paginas: " + this.cantidadDePaginas + "Genero: " + this.genero;
+        return "Autor: " + this.nombreDelAutor + ". Cantidad de paginas: " + this.cantidadDePaginas + ". Genero: " + this.genero;
     }
 }

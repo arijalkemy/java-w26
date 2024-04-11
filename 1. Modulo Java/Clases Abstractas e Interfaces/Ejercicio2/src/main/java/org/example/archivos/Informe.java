@@ -1,6 +1,6 @@
 package org.example.archivos;
 
-public class Informe implements IArchivo{
+public class Informe extends Archivo{
     private String texto;
     private Integer cantidadDePaginas;
     private String nombreDelAutor;
@@ -15,6 +15,6 @@ public class Informe implements IArchivo{
 
     @Override
     public String getContenido() {
-        return "Texto: " + this.texto + "Cantidad de paginas: " + this.cantidadDePaginas + "Autor: " + this.nombreDelAutor + "Revisor: " + this.revisor;
+        return "Texto: " + this.texto + ". Cantidad de paginas: " + this.cantidadDePaginas + ". Autor: " + this.nombreDelAutor + ". Revisor: " + this.revisor;
     }
 }

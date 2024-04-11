@@ -3,7 +3,7 @@ package org.example.archivos;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Curriculum implements IArchivo{
+public class Curriculum extends Archivo{
 
     private String nombre;
     private List<String> listaDeHabilidades;
