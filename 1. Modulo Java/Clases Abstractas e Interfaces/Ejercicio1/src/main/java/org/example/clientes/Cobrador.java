@@ -1,4 +1,7 @@
-package org.example;
+package org.example.clientes;
+
+import org.example.transferencias.RetiroDeEfectivo;
+import org.example.transferencias.ConsultaDeSaldo;
 
 public class Cobrador extends Cliente{
     @Override

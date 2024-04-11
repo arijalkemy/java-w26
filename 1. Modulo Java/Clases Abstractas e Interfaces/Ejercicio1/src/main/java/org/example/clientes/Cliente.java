@@ -1,4 +1,10 @@
-package org.example;
+package org.example.clientes;
+
+import org.example.transferencias.Deposito;
+import org.example.transferencias.Transferencia;
+import org.example.transferencias.RetiroDeEfectivo;
+import org.example.transferencias.ConsultaDeSaldo;
+import org.example.transferencias.PagoDeServicios;
 
 public abstract class Cliente {
     public void depositar(){

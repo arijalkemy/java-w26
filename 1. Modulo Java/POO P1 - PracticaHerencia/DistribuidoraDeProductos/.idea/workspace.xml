@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ad6265c-82e7-418d-a021-a524a88b50cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Java P2 - Carrera de la selva Bis/CarreraDeLaSelva/src/main/java/org/example/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Distribuidora.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Distribuidora.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712772281050</updated>
       <workItem from="1712772282102" duration="4616000" />
-      <workItem from="1712780887024" duration="133000" />
+      <workItem from="1712780887024" duration="461000" />
     </task>
     <servers />
   </component>

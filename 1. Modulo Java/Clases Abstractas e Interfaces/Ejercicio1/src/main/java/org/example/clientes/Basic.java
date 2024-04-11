@@ -1,4 +1,8 @@
-package org.example;
+package org.example.clientes;
+
+import org.example.transferencias.RetiroDeEfectivo;
+import org.example.transferencias.ConsultaDeSaldo;
+import org.example.transferencias.PagoDeServicios;
 
 public class Basic extends Cliente {
     @Override

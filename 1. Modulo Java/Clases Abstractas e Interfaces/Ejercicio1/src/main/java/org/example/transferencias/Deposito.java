@@ -1,4 +1,4 @@
-package org.example;
+package org.example.transferencias;
 
 public class Deposito implements ITransaccion{
 

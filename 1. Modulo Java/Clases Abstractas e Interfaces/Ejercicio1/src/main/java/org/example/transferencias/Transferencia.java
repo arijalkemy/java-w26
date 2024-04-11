@@ -1,4 +1,4 @@
-package org.example;
+package org.example.transferencias;
 
 public class Transferencia implements ITransaccion{
     @Override

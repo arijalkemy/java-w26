@@ -1,6 +1,11 @@
-package org.example;
+package org.example.clientes;
 
-public class Ejecutivo extends Cliente{
+import org.example.clientes.Cliente;
+
+import org.example.transferencias.Deposito;
+import org.example.transferencias.Transferencia;
+
+public class Ejecutivo extends Cliente {
     @Override
     public void depositar(){
         Deposito t = new Deposito();
@@ -8,7 +13,7 @@ public class Ejecutivo extends Cliente{
     }
     @Override
     public void transferir(){
-        Deposito t = new Deposito();
+        Transferencia t = new Transferencia();
         t.transaccionOk();
     }
 }
