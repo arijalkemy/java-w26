@@ -27,7 +27,6 @@ public class App
         personaCobrador.transaccionNoOk();
         personaCobrador.transaccionOk();
 
-
         personaEjecutivo.RealizarDeposito();
         personaEjecutivo.realizarTransferencia();
         personaEjecutivo.transaccionNoOk();
