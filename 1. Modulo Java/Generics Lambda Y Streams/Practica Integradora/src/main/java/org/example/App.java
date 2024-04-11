@@ -25,11 +25,42 @@ public class App
         listaVehiculos.add(new Vehiculo("Toyota", "Fortuner", 3000));
         listaVehiculos.add(new Vehiculo("Renault", "Logan", 950));
 
+        Garaje garajeUno = new Garaje(1,listaVehiculos);
 
-        Garaje garaje = new Garaje(1,listaVehiculos);
+        // Se ordena la lista de vehiculos por costo y despues por marca
+        listaVehiculos.sort(Comparator.comparingDouble(Vehiculo::getCosto).thenComparing(Vehiculo::getMarca));
+        System.out.println("Printeando Vehiculos Ordernado Primero por precio y despues por marca");
+        garajeUno.mostrarVehiculos();
 
-
+        // Se ordena la lista de vehiculos solo por costo
         listaVehiculos.sort((x,y)->Double.compare((y.getCosto()),x.getCosto()));
-        garaje.mostrarVehiculos();
+        System.out.println("Printeando Vehiculos Ordernado por precio");
+        garajeUno.mostrarVehiculos();
+
+        //Se ordena la lista de vehiculos solo por marca
+
+        listaVehiculos.sort((x,y)->x.getMarca().compareTo(y.getMarca()));
+        System.out.println("Printeando Vehiculos Ordenados por marca");
+
+        garajeUno.mostrarVehiculos();
+
+        // Se filtra la lista de vehiculos menores a 1000 y se guarda en otra lista
+        List<Vehiculo> listaVehiculoMenoresMil = listaVehiculos.stream().filter((x)->x.getCosto()<=1000).toList();
+        Garaje garajeMenoresMil = new Garaje(2,listaVehiculoMenoresMil);
+
+        System.out.println("Printeando Vehiculos Menores a Mil");
+        garajeMenoresMil.mostrarVehiculos();
+
+
+        // Se filtra la lista de vehiculos menores a 1000 y se guarda en otra lista
+        List<Vehiculo> listaVehiculoMayoresMil = listaVehiculos.stream().filter((x)->x.getCosto()>1000).toList();
+        Garaje garajeMayoresMil = new Garaje(2,listaVehiculoMayoresMil);
+
+        System.out.println("Printeando Vehiculos Mayores a Mil");
+        garajeMayoresMil.mostrarVehiculos();
+
+
+
+
     }
 }
