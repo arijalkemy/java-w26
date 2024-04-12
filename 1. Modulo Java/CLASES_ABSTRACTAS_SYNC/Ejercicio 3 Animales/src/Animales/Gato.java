@@ -1,0 +1,23 @@
+package Animales;
+
+import IAnimales.Carnivoro;
+
+public class Gato extends Animal implements Carnivoro {
+
+    @Override
+    public void emitirSonido() {
+        System.out.println("Miauu");
+    }
+
+    @Override
+    public void comer() {
+        this.comerCarne();
+    }
+
+    @Override
+    public void comerCarne() {
+        System.out.println("Comiendome una ratita ");
+    }
+    
+
+}
