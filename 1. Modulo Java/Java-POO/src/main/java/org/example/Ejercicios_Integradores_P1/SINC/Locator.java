@@ -1,12 +1,16 @@
 package org.example.Ejercicios_Integradores_P1.SINC;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.Ejercicios_Integradores_P1.SINC.Repository.RepositoryClient;
 
 import java.util.List;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Locator {
 
     @Setter
@@ -15,16 +19,16 @@ public class Locator {
     @Setter
     private List<Booking> bookings;
 
-    private double total;
+    private  double total;
 
 
-    public Locator(Client client, List<Booking> bookings) {
-        this.client = client;
-        this.bookings = bookings;
+    public Locator newLocator(Client client, List<Booking> bookings, List<Client> clientsList) {
+        Client cli = clientsList.stream().filter(e -> e.getId() == client.getId()).toList().getFirst();
         // Calculate total
-        double totalParcial = bookings.stream().mapToDouble(booking -> booking.getTypeProduct().stream().mapToDouble(TypeProduct::getPrice).sum()).sum();
-        double discountByClient =  totalParcial * client.getDiscount() / 100;
-        this.total = totalParcial - discountByClient;
+        double totalPartial = bookings.stream().mapToDouble(booking -> booking.getTypeProduct().stream().mapToDouble(TypeProduct::getPrice).sum()).sum();
+        double discountByClient =  totalPartial * cli.getDiscount() / 100;
+        double total = totalPartial - discountByClient;
+        return new Locator(cli, bookings, total);
     }
 
 }

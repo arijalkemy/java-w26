@@ -11,7 +11,7 @@ public class RepositoryClient {
 
     private List<Client> clients = new ArrayList<>();
 
-    public void addClient(Client client) {
+    public void add(Client client) {
         if (!clients.contains(client))
             clients.add(client);
     }
@@ -21,10 +21,7 @@ public class RepositoryClient {
         if(clientToUpdate != null){
             clientToUpdate.setDiscount(5);
         }
-
-        //reemplazar el cliente en la lista segun el id
         clients.set(clients.indexOf(client), clientToUpdate);
-
         return clientToUpdate;
 
     }

@@ -16,12 +16,8 @@ public class RepositoryLocator {
         this.locators = new ArrayList<>();
     }
 
-    public void addLocator(Locator locator) {
-        repoClient.addClient(locator.getClient());
-        //caso 1
-        int countClient = locators.stream().filter(client -> client.getClient().equals(locator.getClient())).toArray().length;
-        if (countClient >= 2)
-            repoClient.update(locator.getClient().getId(), locator.getClient());
+    public void add(Locator locator) {
+
 
         locators.add(locator);
     }
