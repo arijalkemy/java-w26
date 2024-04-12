@@ -69,9 +69,5 @@ public class Pdf extends Document {
     }
 
 
-
-
-
-
     
 }
