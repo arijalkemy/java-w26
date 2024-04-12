@@ -35,6 +35,14 @@ public class Carrera {
         return listaDeVehiculos.size() < cantidadDeVehiculosPermitidos;
     }
 
+    public void eliminarVehiculo(Vehiculo vehiculo){
+        listaDeVehiculos.remove(vehiculo);
+    }
+
+    public void eliminarVehiculoConPatente(String unaPatente){
+        listaDeVehiculos.removeIf(vehiculo -> vehiculo.getPatente().equals(unaPatente));
+    }
+
     public double getDistancia() {
         return distancia;
     }
