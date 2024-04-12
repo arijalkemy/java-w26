@@ -51,7 +51,11 @@ public class Localizador {
 
   public double calcularTotalDeDescuentos() {
     this.aplicarDescuentoPorReservas();
-    return this.porcentajeDeDescuentoPorPaqueteCompleto() * this.calcularTotalSinDescuento();
+
+    double descuentoSobreElTotal = this.porcentajeDeDescuentoPorPaqueteCompleto() * this.calcularTotalSinDescuento();
+    double descuentoPorReservas = this.reservas.stream().mapToDouble(Reserva::getDescuento).sum();
+
+    return descuentoSobreElTotal + descuentoPorReservas;
   }
 }
 
