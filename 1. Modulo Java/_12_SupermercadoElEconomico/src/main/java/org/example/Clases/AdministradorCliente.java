@@ -2,6 +2,7 @@ package org.example.Clases;
 
 import org.example.Interfaces.ICrud;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,12 @@ public class AdministradorCliente implements ICrud<Cliente, Long> {
         this.clientes = clientes;
     }
 
+    public AdministradorCliente() {
+
+        this.clientes = new ArrayList<>();
+    }
     public AdministradorCliente(List<Cliente> clientes) {
+
         this.clientes = clientes;
     }
 
