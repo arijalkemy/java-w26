@@ -25,12 +25,12 @@ public class Vehiculo {
         this.velocidad = velocidad;
     }
 
-    public double getAceleración() {
+    public double getAceleracion() {
         return aceleracion;
     }
 
-    public void setAceleración(double aceleración) {
-        this.aceleracion = aceleración;
+    public void setAceleracion(double aceleracion) {
+        this.aceleracion = aceleracion;
     }
 
     public double getAnguloDeGiro() {

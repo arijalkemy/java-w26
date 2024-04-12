@@ -43,6 +43,37 @@ public class Carrera {
         listaDeVehiculos.removeIf(vehiculo -> vehiculo.getPatente().equals(unaPatente));
     }
 
+    public Vehiculo definirUnGanador(){
+        Vehiculo ganador = null;
+        double max = 0;
+        for (Vehiculo vehiculo : listaDeVehiculos) {
+            double valor = vehiculo.getVelocidad() * (vehiculo.getAceleracion() / 2)
+                    / (vehiculo.getAnguloDeGiro() * (vehiculo.getPeso() - vehiculo.getRuedas() * 100));
+            if(valor > max){
+                max = valor;
+                ganador = vehiculo;
+            }
+        }
+        return ganador;
+    }
+
+
+    public void socorrerAuto(String patente){
+        SocorristaAuto socorristaAuto = new SocorristaAuto();
+
+        listaDeVehiculos.stream()
+                .filter(v -> v.getPatente().equals(patente))
+                .findFirst().ifPresent(socorristaAuto::socorrer);
+    }
+
+    public void socorrerMoto(String patente){
+        SocorristaMoto socorristaMoto = new SocorristaMoto();
+
+        listaDeVehiculos.stream()
+                .filter(v -> v.getPatente().equals(patente))
+                .findFirst().ifPresent(socorristaMoto::socorrer);
+    }
+
     public double getDistancia() {
         return distancia;
     }
