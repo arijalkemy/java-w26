@@ -1,23 +1,24 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Factura {
     private Cliente cliente;
-    private Item[] items;
+    private List<Item> items;
     private double total;
 
-    public Factura(Cliente cliente, Item[] items) {
+    public Factura(Cliente cliente, List<Item> items) {
         this.cliente = cliente;
         this.items = items;
-        this.total = Arrays.stream(items).mapToDouble(Item::getCostoUnitario).sum();
+        this.total = items.stream().mapToDouble(Item::getCostoUnitario).sum();
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    public Item[] getItems() {
+    public List<Item> getItems() {
         return items;
     }
 

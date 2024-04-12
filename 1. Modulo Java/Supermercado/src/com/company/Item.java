@@ -28,4 +28,14 @@ public class Item {
     public double getCostoUnitario() {
         return costoUnitario;
     }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", cantidadComprada=" + cantidadComprada +
+                ", costoUnitario=" + costoUnitario +
+                '}';
+    }
 }
