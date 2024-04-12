@@ -2,15 +2,15 @@ package org.example;
 
 public class Vehiculo {
     private double velocidad;
-    private double aceleración;
+    private double aceleracion;
     private double anguloDeGiro;
     private String patente;
     private double peso;
     private int ruedas;
 
-    public Vehiculo(double velocidad, double aceleración, double anguloDeGiro, String patente, double peso, int ruedas) {
+    public Vehiculo(double velocidad, double aceleracion, double anguloDeGiro, String patente, double peso, int ruedas) {
         this.velocidad = velocidad;
-        this.aceleración = aceleración;
+        this.aceleracion = aceleracion;
         this.anguloDeGiro = anguloDeGiro;
         this.patente = patente;
         this.peso = peso;
@@ -26,11 +26,11 @@ public class Vehiculo {
     }
 
     public double getAceleración() {
-        return aceleración;
+        return aceleracion;
     }
 
     public void setAceleración(double aceleración) {
-        this.aceleración = aceleración;
+        this.aceleracion = aceleración;
     }
 
     public double getAnguloDeGiro() {
