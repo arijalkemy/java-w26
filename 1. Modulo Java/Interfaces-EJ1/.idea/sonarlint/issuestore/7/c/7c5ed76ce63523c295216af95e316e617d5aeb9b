@@ -1,0 +1,6 @@
+
+m	java:S106
+"+Replace this use of System.out by a logger.(ÓÉ«‹8 ä¾éì1J$8572838f-a90e-4543-b4e7-dfb2c635c569
+r	java:S106"+Replace this use of System.out by a logger.(ÅÄÓéøÿÿÿÿ8¿ÇÑéì1J$ccd4d5d0-cff1-43c1-bd86-1825ee3d93a3
+‘
+java:S1128"IRemove this unused import 'org.example.tiposDeTransacciones.Transaccion'.(üõ˜ëúÿÿÿÿ8Ôàìì1J$d91b85d5-f085-430b-be53-3d4b621cbe7a
