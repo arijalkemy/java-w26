@@ -1,6 +1,6 @@
 package org.example.vehiculo;
 
-public class Vehiculo {
+public abstract class Vehiculo {
     private double velocidad;
     private double aceleracion;
     private int anguloDeGiro;
