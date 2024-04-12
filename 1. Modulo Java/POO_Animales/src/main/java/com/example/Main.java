@@ -16,7 +16,3 @@ public class Main {
 
     }
 }
-/*
-Como propuesta extra se sugiere llamar a un método comerAnimal donde a partir del pasaje de un objeto de cualquier tipo de
-animal como parámetro, invoque al método para comer según corresponda a dicho animal.
- */
