@@ -41,6 +41,11 @@ public abstract class Vehiculo {
         return ruedas;
     }
 
+    public double puntaje(){
+        // NO puede tirar error porque hardcodeamos el peso y cantidad de ruedas.
+        return this.velocidad * (this.aceleracion / 2) / (this.peso - 100*this.ruedas);
+    }
+
     @Override
     public String toString() {
         return "Vehiculo{" +

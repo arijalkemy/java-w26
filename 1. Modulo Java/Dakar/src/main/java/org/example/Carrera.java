@@ -70,20 +70,15 @@ public class Carrera {
         }
 
         Vehiculo winner = listaDeVehiculos.get(0);
-        double maxPuntaje = puntaje(winner);
+        double maxPuntaje = winner.puntaje();
         for (Vehiculo vehiculo : listaDeVehiculos) {
-            double curPuntaje = puntaje(vehiculo);
+            double curPuntaje = vehiculo.puntaje();
             if(curPuntaje > maxPuntaje){
                 maxPuntaje = curPuntaje;
                 winner = vehiculo;
             }
         }
         return winner;
-    }
-
-    private double puntaje(Vehiculo vehiculo){
-        // NO puede tirar error porque hardcodeamos el peso y cantidad de ruedas.
-        return vehiculo.getVelocidad() * (vehiculo.getAceleracion() / 2) / (vehiculo.getPeso() - 100*vehiculo.getRuedas());
     }
 
     public void socorrerAuto(String patente){
