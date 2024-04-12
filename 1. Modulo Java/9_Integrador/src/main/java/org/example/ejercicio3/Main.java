@@ -31,7 +31,7 @@ public class Main {
         String entrada;
 
         while (true) {
-            System.out.println("\nIngrese DNI de Cliente para buscarlo, o Enter para finalizar:");
+            System.out.println("\nIngrese DNI de Cliente para buscarlo, o Enter para continuar con el resto del programa:");
             entrada = scanner.nextLine();
 
             if (entrada.isBlank())
@@ -52,7 +52,39 @@ public class Main {
             }
         }
 
-        System.out.println("Entrada vacía, saliendo...");
-    }
+        System.out.println("Entrada vacía, se continúa la ejecución...");
 
+
+        /* **********************************************
+                    Parte II
+        ************************************************* */
+
+        Supermercado supermercado = new Supermercado(clientes);
+
+        // Crear una Factura para un Cliente existente
+        Factura factura1 = supermercado.agregarFactura(
+            clientes.get(1),
+            List.of(
+                new Item("Cafe", 2, 1500),
+                new Item("Leche", 1, 800),
+                new Item("Huevos", 12, 2000)
+            )
+        );
+        System.out.println("\nNueva Factura agregada:");
+        System.out.println(factura1);
+
+        // Crear una Factura para un nuevo Cliente
+        Factura factura2 = supermercado.agregarFactura(
+            new Cliente("87654321", "Josecito", "Benavidez"),
+            List.of(
+                new Item("Clavos", 150, 4.50)
+            )
+        );
+        System.out.println("\nNueva Factura agregada:");
+        System.out.println(factura2);
+
+        // Verificar que el Supermercado tenga 4 Clientes registrados en total
+        System.out.println("\nClientes registrados:");
+        supermercado.getClientes().forEach(System.out::println);
+    }
 }

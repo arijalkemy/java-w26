@@ -1,27 +1,26 @@
 package org.example.ejercicio3;
 
+import java.util.Random;
+
 public class Item {
 
-    private String codigo;
+    private final int codigo;
     private String nombre;
-    private String cantidadComprada;
-    private String costoUnitario;
+    private int cantidadComprada;
+    private double costoUnitario;
 
+    private static final Random generadorCodigos = new Random();
 
-    public Item(String codigo, String nombre, String cantidadComprada, String costoUnitario) {
-        this.codigo = codigo;
+    public Item(String nombre, int cantidadComprada, double costoUnitario) {
+        this.codigo = generadorCodigos.nextInt();
         this.nombre = nombre;
         this.cantidadComprada = cantidadComprada;
         this.costoUnitario = costoUnitario;
     }
 
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -32,22 +31,25 @@ public class Item {
         this.nombre = nombre;
     }
 
-    public String getCantidadComprada() {
+    public int getCantidadComprada() {
         return cantidadComprada;
     }
 
-    public void setCantidadComprada(String cantidadComprada) {
+    public void setCantidadComprada(int cantidadComprada) {
         this.cantidadComprada = cantidadComprada;
     }
 
-    public String getCostoUnitario() {
+    public double getCostoUnitario() {
         return costoUnitario;
     }
 
-    public void setCostoUnitario(String costoUnitario) {
+    public void setCostoUnitario(double costoUnitario) {
         this.costoUnitario = costoUnitario;
     }
 
+    public double calcularCostoItem() {
+        return this.costoUnitario * this.cantidadComprada;
+    }
 
     @Override
     public String toString() {
