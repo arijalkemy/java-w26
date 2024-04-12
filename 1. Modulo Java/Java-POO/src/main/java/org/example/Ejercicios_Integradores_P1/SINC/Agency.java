@@ -23,7 +23,8 @@ public class Agency {
     public void registerLocator(Locator locator){
         //caso 1
         int countClient = this.getLocatorRepository().getLocators().stream().filter(l -> l.getClient().equals(locator.getClient())).toArray().length;
-        if (countClient >= 2)
+        //le sumo 1 al contador de clientes porque sino no me lo toma en la 2da vuelta
+        if (countClient + 1 >= 2)
             this.getClientRepository().update(locator.getClient().getId(), locator.getClient());
 
         this.locatorRepository.add(locator);
