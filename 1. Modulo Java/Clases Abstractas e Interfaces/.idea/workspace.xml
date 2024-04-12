@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e7cef00-f320-4663-a3f1-2e99eab7c55e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/animal/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/animal/Carnivoro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/animal/Gato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/animal/Hervivoro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/animal/Perro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/animal/Vaca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/imprimible/Curriculum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/imprimible/Imprimible.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/imprimible/Informe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/imprimible/LibroPDF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +51,7 @@
       <updated>1712846376210</updated>
       <workItem from="1712846377412" duration="2750000" />
       <workItem from="1712849249403" duration="3909000" />
+      <workItem from="1712859229831" duration="2307000" />
     </task>
     <servers />
   </component>
