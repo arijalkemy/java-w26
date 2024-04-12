@@ -7,17 +7,17 @@ public class Main {
     public static void main(String[] args) {
         Supermercado supermercado = new Supermercado();
 
-        Cliente td = new Cliente("42951261", "Tomás", "Donzis");
-        Cliente sd = new Cliente("12345678", "Sol", "Donzis");
-        Cliente nm = new Cliente("87654321", "Norma", "Metzger");
+        Cliente pg = new Cliente("34343434", "Peter", "Griffin");
+        Cliente sg = new Cliente("12345678", "Stewie", "Griffin");
+        Cliente lp = new Cliente("87654321", "Lois", "Pewterschmidt");
 
-        supermercado.registrarCliente(td);
-        supermercado.registrarCliente(sd);
-        supermercado.registrarCliente(nm);
+        supermercado.registrarCliente(pg);
+        supermercado.registrarCliente(sg);
+        supermercado.registrarCliente(lp);
 
         // supermercado.mostrarClientes();
 
-        supermercado.eliminarCliente(td);
+        supermercado.eliminarCliente(pg);
 
         // supermercado.mostrarClientes();
 
