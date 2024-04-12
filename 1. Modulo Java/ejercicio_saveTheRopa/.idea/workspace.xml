@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="998f24b4-1fee-4ce1-8779-0c392001736b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/Localizador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/Producto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/RepositorioCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/RepositorioLocalizador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/Reserva.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/classes/TipoProducto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/main/java/org/example/interfaces/IRepositorio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_agenciaDeTurismo/ejercicio_agenciaDeTurismo/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/src/main/java/org/example/classes/Serie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/src/main/java/org/example/interfaces/IPrototipo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_clasesAbstractas/ejercicio_clasesAbstractas/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_distribuidoraDeProductos/ejercicio_distribuidoraDeProductos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_practicaExcepciones/ejercicio_practicaExcepciones.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/GuardaRopa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Prenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/classes/GuardaRopa.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Prenda.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/src/main/java/org/example/classes/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/src/main/java/org/example/classes/Factura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/src/main/java/org/example/classes/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_transaccionesBancarias/ejercicio_transaccionesBancarias.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/src/main/java/org/example/Ordenamiento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ejercicio_bubleSort/ejercicioBubleSort/src/test/java/org/example/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/ejercicio_distribuidoraDeProductos.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Distribuidora.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/NoPerecedero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Perecedero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Distribuidora.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/NoPerecedero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Perecedero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/ejercicio_practicaExcepciones.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/out/production/ejercicio_practicaExcepciones/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/out/production/ejercicio_practicaExcepciones/com/company/PracticaExcepciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/src/com/company/PracticaExcepciones.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Basic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Cobrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Ejecutivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IConsultaSaldo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IDeposito.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IPagoDeServicios.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IRetiroDeEfectivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/ITransaccion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/ITransferencia.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f0rdGpW0la3kDjmZ0EIsrKqCpK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="998f24b4-1fee-4ce1-8779-0c392001736b" name="Changes" comment="" />
+      <created>1712948922790</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712948922790</updated>
+      <workItem from="1712948923996" duration="3255000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
