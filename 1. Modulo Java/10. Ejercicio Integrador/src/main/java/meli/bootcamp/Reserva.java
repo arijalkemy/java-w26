@@ -12,7 +12,7 @@ public class Reserva {
   }
 
   public void setDescuento(double descuentoEnPorcentaje) {
-    this.descuento *= descuentoEnPorcentaje;
+    this.descuento = precio * descuentoEnPorcentaje;
   }
 
   public double getPrecioFinal() {
