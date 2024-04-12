@@ -1,2 +1,5 @@
-package org.example.Animales;public class Animal {
+package org.example.Animales;
+
+public abstract class Animal {
+    public abstract void emitirSonido();
 }

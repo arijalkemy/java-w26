@@ -34,6 +34,9 @@ public class App
 
         garage.sortByPrice();
         garage.sortByName();
+        garage.costQueryMax(1000);
+        garage.costQueryMin(1000);
+        garage.sumVehiclesCost();
 
 
 
