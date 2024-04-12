@@ -1,7 +1,7 @@
-package org.example.Ejercicios_Integradores_P1.SINC.Repository;
+package org.example.Ejercicios_Integradores_P1.SINC.Agency.Repository;
 
 import lombok.Getter;
-import org.example.Ejercicios_Integradores_P1.SINC.Client;
+import org.example.Ejercicios_Integradores_P1.SINC.Agency.Client;
 
 import java.util.ArrayList;
 import java.util.List;

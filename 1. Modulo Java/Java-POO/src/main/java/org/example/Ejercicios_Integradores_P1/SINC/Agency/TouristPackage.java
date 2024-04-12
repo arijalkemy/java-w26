@@ -1,4 +1,4 @@
-package org.example.Ejercicios_Integradores_P1.SINC;
+package org.example.Ejercicios_Integradores_P1.SINC.Agency;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

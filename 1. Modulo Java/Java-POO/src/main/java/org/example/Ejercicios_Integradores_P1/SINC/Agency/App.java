@@ -1,7 +1,7 @@
-package org.example.Ejercicios_Integradores_P1.SINC;
+package org.example.Ejercicios_Integradores_P1.SINC.Agency;
 
-import org.example.Ejercicios_Integradores_P1.SINC.Repository.RepositoryClient;
-import org.example.Ejercicios_Integradores_P1.SINC.Repository.RepositoryLocator;
+import org.example.Ejercicios_Integradores_P1.SINC.Agency.Repository.RepositoryClient;
+import org.example.Ejercicios_Integradores_P1.SINC.Agency.Repository.RepositoryLocator;
 
 import java.util.List;
 

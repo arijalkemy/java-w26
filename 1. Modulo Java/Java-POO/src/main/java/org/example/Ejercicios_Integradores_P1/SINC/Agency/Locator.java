@@ -1,10 +1,9 @@
-package org.example.Ejercicios_Integradores_P1.SINC;
+package org.example.Ejercicios_Integradores_P1.SINC.Agency;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.Ejercicios_Integradores_P1.SINC.Repository.RepositoryClient;
 
 import java.util.List;
 
