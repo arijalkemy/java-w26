@@ -26,7 +26,7 @@ Se desea crear al menos 2 clases que extiendan de una clase prototipo, que gener
 
 - De igual forma si es una serie de 3, cada vez que se llame al método el valor siguiente devolverá:
     - Primera vez 3
-        - Segunda vez 6
+    - Segunda vez 6
     - Tercera vez 9
     - Cuarta vez 12
     - Así sucesivamente cada vez que se llama al método.
