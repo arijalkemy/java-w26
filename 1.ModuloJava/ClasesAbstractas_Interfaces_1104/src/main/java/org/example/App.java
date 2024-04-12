@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.ejercicios.dos.MenuDos;
+import org.example.ejercicios.tres.MenuTres;
 
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class App
                 scan.nextLine();
                 break;
             case 3 :
-                System.out.println("op3");
+                MenuTres.ejercicio();
                 scan.nextLine();
                 System.out.println("Apriete enter para continuar");
                 break;
@@ -46,7 +47,7 @@ public class App
         System.out.println("***** Bootcamp Java 11/04 *****");
         System.out.println("1) Ejecutar primer ejercicio");
         System.out.println("2) Ejecutar segundo ejercicio (INTERFAZ IMPRIMIBLE)");
-        System.out.println("3) Ejecutar tercer ejercicio");
+        System.out.println("3) Ejecutar tercer ejercicio (ANIMALES)");
         System.out.println("4) Salir");
         System.out.println("Elija una opcion: ");
         return scan.nextInt();
