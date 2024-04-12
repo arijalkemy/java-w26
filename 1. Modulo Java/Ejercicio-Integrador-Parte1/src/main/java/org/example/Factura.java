@@ -7,10 +7,14 @@ public class Factura {
     List<Item> items;
     private double totalCompra;
 
-    public Factura(Cliente cliente, List<Item> items, double totalCompra) {
+    public Factura(Cliente cliente, List<Item> items) {
         this.cliente = cliente;
         this.items = items;
-        this.totalCompra = totalCompra;
+        this.totalCompra = calcularTotalCompra();
+    }
+
+    private double calcularTotalCompra() {
+        return items.stream().mapToDouble(t -> t.getCostoUnitario() * t.getCantidadComprada()).sum();
     }
 
     public Cliente getCliente() {

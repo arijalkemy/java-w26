@@ -7,6 +7,22 @@ import java.util.Optional;
 public class Supermercado {
 
     List<Cliente> clientes = new ArrayList<>();
+    List<Factura> facturas = new ArrayList<>();
+
+    public void comprar(Cliente cliente, List<Item> items){
+        Factura factura = new Factura(cliente, items);
+        agregarFactura(factura);
+    }
+
+    public void agregarFactura(Factura factura){
+        if( !buscarClientePorDni(factura.getCliente().getDni()).isPresent() ){
+            System.out.println("El cliente no existe");
+            System.out.println("Agregando cliente...");
+            agregarCliente(factura.getCliente());
+        }
+
+        facturas.add(factura);
+    }
 
     public void agregarCliente(Cliente cliente){
         clientes.add(cliente);

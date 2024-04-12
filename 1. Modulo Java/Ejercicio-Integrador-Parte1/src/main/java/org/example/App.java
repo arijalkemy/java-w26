@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -10,6 +12,8 @@ public class App
 {
     public static void main( String[] args )
     {
+        System.out.println("\n------ PARTE 1 -------");
+
         //Instancio clientes
         Cliente clienteUno = new Cliente("111", "NombreUno", "ApellidoUno");
         Cliente clienteDos = new Cliente("222", "NombreDos", "ApellidoDos");
@@ -21,7 +25,6 @@ public class App
         //Agrego clientes al supermercado
         supermercado.agregarCliente(clienteUno);
         supermercado.agregarCliente(clienteDos);
-        supermercado.agregarCliente(clienteTres);
 
         //Consulto listado de clientes del supermercado y los muestra en pantalla
         supermercado.listadoDeClientes();
@@ -41,5 +44,25 @@ public class App
         } else {
             System.out.println("No se encontro un cliente con ese numero de DNI");
         }
+
+        System.out.println("\n------ PARTE 2 -------");
+        List<Item> items = new ArrayList<>();
+        Item itemUno = new Item("1", "ItemUno", 1, 100);
+        Item itemDos = new Item("2", "ItemDos", 2, 200);
+        items.add(itemUno);
+        items.add(itemDos);
+
+        //Creo una facutra
+        supermercado.comprar(clienteTres, items);
+
+        //Muestro el listado de facturas del supermercado
+        System.out.println("\n------ Listado de facturas -------");
+        for (Factura factura: supermercado.facturas){
+            System.out.println("Cliente: " + factura.getCliente().getNombre()
+                + "\nItems: " + factura.getItems()
+                + "\nTotal: " + factura.getTotalCompra()
+                + "\n----------------");
+        }
+
     }
 }
