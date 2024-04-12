@@ -58,5 +58,11 @@ public class Agencia
 
         System.out.println(repositorio.toString());
 
+        //PARTE 2
+        System.out.println("Cantidad de localizadores vendidos: " + repositorio.obtenerCantidadDeLocalizadores());
+        System.out.println("Cantidad de reservas vendidas: " + repositorio.obtenerCantidadDeReservas());
+        System.out.println("Total de ventas: $" + repositorio.obtenerTotalDeVentas() );
+        System.out.println("Promedio por venta: $" + repositorio.obtenerPromedioDeVentas() );
+
     }
 }

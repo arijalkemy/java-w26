@@ -40,4 +40,27 @@ public class Repositorio {
                 "localizadorList=" + localizadorList +
                 '}';
     }
+
+    //PARTE 2 - OPCIONAL
+    public int obtenerCantidadDeLocalizadores(){
+        return localizadorList.size();
+    }
+
+    public int obtenerCantidadDeReservas(){
+        return localizadorList.stream()
+                .mapToInt(loc -> loc.getReservaList().size())
+                .sum();
+    }
+
+    public double obtenerTotalDeVentas(){
+        return localizadorList.stream()
+                .mapToDouble(loc -> loc.getTotal())
+                .sum();
+    }
+
+    public double obtenerPromedioDeVentas(){
+        return localizadorList.stream()
+                .mapToDouble(loc -> loc.getTotal())
+                .average().getAsDouble();
+    }
 }
