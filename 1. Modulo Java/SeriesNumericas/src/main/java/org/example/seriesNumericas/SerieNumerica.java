@@ -2,12 +2,10 @@ package org.example.seriesNumericas;
 
 public abstract class SerieNumerica<T extends Number>{
     T initValue;
-    T step;
     T curValue;
 
-    public SerieNumerica(T initValue, T step) {
+    public SerieNumerica(T initValue) {
         this.initValue = initValue;
-        this.step = step;
         this.curValue = initValue;
     }
 
