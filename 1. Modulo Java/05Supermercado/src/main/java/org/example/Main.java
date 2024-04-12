@@ -47,10 +47,15 @@ public class Main {
             System.out.println("El cliente indicado no existe");
         }
 
-        /* Solicitar por teclado un número de dni de un cliente para buscarlo.
-        En caso de que el cliente se encuentre en la lista, mostrar sus datos,
-        caso contrario, mostrar un mensaje que informe dicha situación.
-         */
+        // Parte 2
+        Item pan = new Item("01", "Pan", 2, 100);
+        Item huevos = new Item("02", "Huevos", 6, 50);
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(pan);
+        items.add(huevos);
+        RepositorioClientes repositorio = new RepositorioClientes();
+        Factura factura = new Factura(clientes.get(0), items, repositorio);
+        System.out.println("Factura al cliente: " + factura.getCliente().getDni() + " por un monto de " + factura.getMontoTotal());
 
     }
 }

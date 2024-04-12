@@ -6,11 +6,18 @@ public class Factura {
     private Cliente cliente;
     private ArrayList<Item> items;
     private double montoTotal;
+    private RepositorioClientes repositorio;
 
-    public Factura(Cliente cliente, ArrayList<Item> items, double montoTotal) {
-        this.cliente = cliente;
+    public Factura(Cliente cliente, ArrayList<Item> items, RepositorioClientes repositorio) {
         this.items = items;
-        this.montoTotal = montoTotal;
+        this.montoTotal = items.stream()
+                .map(i -> i.getCostoUnitario() * i.getCantidadComprada())
+                .reduce(0.0, Double::sum);
+        this.repositorio = repositorio;
+        if (repositorio.buscar(cliente.getDni()) == null) {
+            repositorio.guardar(cliente);
+        }
+        this.cliente = cliente;
     }
 
     public Cliente getCliente() {
@@ -25,6 +32,10 @@ public class Factura {
         return montoTotal;
     }
 
+    public RepositorioClientes getRepositorio() {
+        return repositorio;
+    }
+
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
@@ -35,6 +46,10 @@ public class Factura {
 
     public void setMontoTotal(double montoTotal) {
         this.montoTotal = montoTotal;
+    }
+
+    public void setRepositorio(RepositorioClientes repositorio) {
+        this.repositorio = repositorio;
     }
 }
 
