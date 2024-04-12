@@ -17,6 +17,10 @@ public class Vehiculo {
         this.ruedas = ruedas;
     }
 
+    public double obtenerRendimiento(){
+        return velocidad * (aceleracion / 2) / (anguloDeGiro * (peso - ruedas * 100));
+    }
+
     public double getVelocidad() {
         return velocidad;
     }

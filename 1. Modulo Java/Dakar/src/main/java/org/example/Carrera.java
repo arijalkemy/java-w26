@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Carrera {
     private double distancia;
@@ -43,18 +45,8 @@ public class Carrera {
         listaDeVehiculos.removeIf(vehiculo -> vehiculo.getPatente().equals(unaPatente));
     }
 
-    public Vehiculo definirUnGanador(){
-        Vehiculo ganador = null;
-        double max = 0;
-        for (Vehiculo vehiculo : listaDeVehiculos) {
-            double valor = vehiculo.getVelocidad() * (vehiculo.getAceleracion() / 2)
-                    / (vehiculo.getAnguloDeGiro() * (vehiculo.getPeso() - vehiculo.getRuedas() * 100));
-            if(valor > max){
-                max = valor;
-                ganador = vehiculo;
-            }
-        }
-        return ganador;
+    public Optional<Vehiculo> definirUnGanador(){
+        return listaDeVehiculos.stream().max(Comparator.comparing(Vehiculo::obtenerRendimiento));
     }
 
 
