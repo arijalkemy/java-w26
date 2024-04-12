@@ -17,6 +17,24 @@ public class Carrera {
         this.listaDeVehiculos = listaDeVehiculos;
     }
 
+    public void darDeAltaAuto(double velocidad, double aceleracion, double anguloDeGiro, String patente){
+        if(puedeAgregarVehiculo()){
+            Vehiculo auto = new Auto(velocidad, aceleracion, anguloDeGiro, patente);
+            listaDeVehiculos.add(auto);
+        }
+    }
+
+    public void darDeAltaMoto(double velocidad, double aceleracion, double anguloDeGiro, String patente){
+        if(puedeAgregarVehiculo()){
+            Vehiculo moto = new Moto(velocidad, aceleracion, anguloDeGiro, patente);
+            listaDeVehiculos.add(moto);
+        }
+    }
+
+    private boolean puedeAgregarVehiculo(){
+        return listaDeVehiculos.size() < cantidadDeVehiculosPermitidos;
+    }
+
     public double getDistancia() {
         return distancia;
     }
