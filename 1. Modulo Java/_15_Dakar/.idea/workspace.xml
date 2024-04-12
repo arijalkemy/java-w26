@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bc6d141e-8b9e-44d3-822b-59de0890ed59" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Auto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Carrera.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Moto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/SocorristaAuto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/SocorristaMoto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/clases/Vehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/interfaces/ISocorrer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_14_SaveTheRopa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_14_SaveTheRopa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_14_SaveTheRopa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_14_SaveTheRopa/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_14_SaveTheRopa/src/main/java/org/example/clases/GuardaRopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_14_SaveTheRopa/src/main/java/org/example/clases/GuardaRopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_14_SaveTheRopa/target/classes/org/example/clases/GuardaRopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/../_14_SaveTheRopa/target/classes/org/example/clases/GuardaRopa.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f0uttvg1u3Rjm83IDF1oK9MuGV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.App" />
+      <module name="_15_Dakar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bc6d141e-8b9e-44d3-822b-59de0890ed59" name="Changes" comment="" />
+      <created>1712950535774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712950535774</updated>
+      <workItem from="1712950537658" duration="3612000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

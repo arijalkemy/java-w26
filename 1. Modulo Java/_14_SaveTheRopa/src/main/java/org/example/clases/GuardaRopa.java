@@ -1,12 +1,10 @@
 package org.example.clases;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GuardaRopa {
     private Map<Integer, List<Prenda>> almacenamiento;
-    private int id=0;
+    private int id;
 
     public Map<Integer, List<Prenda>> getAlmacenamiento() {
         return almacenamiento;
@@ -14,6 +12,7 @@ public class GuardaRopa {
 
     public GuardaRopa(){
         this.almacenamiento = new HashMap<>();
+        id=0;
     }
 
     public GuardaRopa(List<Prenda> prendas) {
@@ -33,13 +32,8 @@ public class GuardaRopa {
         return id;
     }
 
-
     public List<Prenda> devolverPrendas(Integer id){
-        return almacenamiento.entrySet().stream()
-                .filter(entry->entry.getKey().equals(id))
-                .map(Map.Entry::getValue)
-                .findFirst()
-                .orElse(null);
+        return almacenamiento.getOrDefault(id, Collections.emptyList());
     }
     private int aumentarId(){
         this.id += 1;
