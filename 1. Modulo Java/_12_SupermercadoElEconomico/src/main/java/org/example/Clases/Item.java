@@ -6,6 +6,7 @@ public class Item {
     private int cantidadComprada;
     private double costoUnitario;
 
+
     public String getCodigo() {
         return codigo;
     }
@@ -43,5 +44,9 @@ public class Item {
         this.nombre = nombre;
         this.cantidadComprada = cantidadComprada;
         this.costoUnitario = costoUnitario;
+    }
+
+    public double getCostoTotal(){
+        return costoUnitario*cantidadComprada;
     }
 }

@@ -31,9 +31,12 @@ public class Factura {
         this.total = total;
     }
 
-    public Factura(Cliente cliente, List<Item> items, double total) {
-        this.cliente = cliente;
-        this.items = items;
-        this.total = total;
+    public Factura() {
+    }
+
+    public void calcularTotal(){
+        total = items.stream()
+                .mapToDouble(Item::getCostoTotal)
+                .sum();
     }
 }

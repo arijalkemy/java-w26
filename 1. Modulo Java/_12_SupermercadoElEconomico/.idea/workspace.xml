@@ -5,28 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7065fde6-ea7a-4167-aaee-9dcab07e665f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/src/main/java/org/example/Clases/Extension1Prototipo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/src/main/java/org/example/Clases/Extension2Prototipo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../_11_EjercicioVariables/src/main/java/org/example/Clases/Prototipo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Clases/Cliente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Clases/Factura.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Clases/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Clases/AdministradorCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Interfaces/ICrud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clases/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clases/Factura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Clases/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Clases/Item.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -89,7 +73,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712925314589</updated>
-      <workItem from="1712925316270" duration="2767000" />
+      <workItem from="1712925316270" duration="4311000" />
     </task>
     <servers />
   </component>
