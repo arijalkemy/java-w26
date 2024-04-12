@@ -51,7 +51,5 @@ public class App {
         vehiclesGreaterEqualThan1000.forEach(System.out::println);
         System.out.println("++++++++++++Precio promedio de los vehiculos++++++++++++");
         System.out.println(averagePrice);
-
-
     }
 }
