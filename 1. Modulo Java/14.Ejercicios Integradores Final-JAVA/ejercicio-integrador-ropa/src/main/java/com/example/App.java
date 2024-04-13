@@ -21,7 +21,6 @@ public class App
         int searchClothesNum = 0;
 
         // Creación de lista de prendas y objeto para guardarlas
-        List<PieceOfCloth> clothes = new ArrayList<>();
         SaveClothes save = new SaveClothes();
 
         while (boolMenu) {
@@ -46,6 +45,7 @@ public class App
 
                     while (boolMenu) {
                         PieceOfCloth cloth = new PieceOfCloth();
+                        List<PieceOfCloth> clothes = new ArrayList<>();
 
                         System.out.println("------ Guardado de prendas -------");
                         
