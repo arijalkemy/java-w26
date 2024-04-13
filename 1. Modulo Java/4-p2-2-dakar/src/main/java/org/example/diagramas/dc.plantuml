@@ -1,0 +1,44 @@
+@startuml
+
+title Dakar
+
+class Carrera {
+    - distancia
+    - premioEnDolares
+    - nombre
+    - cantidadDeVehiculosPermitidos
+}
+
+class Vehiculo {
+    - velocidad
+    - aceleracion
+    - anguloDeGiro
+    - patente
+    - peso
+    - cantidadDeRuedas
+
+}
+
+class Auto {
+    - peso: 1000kg
+    - cantidadDeRuedas: 4
+
+}
+
+class Moto {
+    - peso: 300kg
+    - cantidadDeRuedas: 2
+
+}
+
+Carrera *-- Vehiculo
+
+Vehiculo <|-- Auto
+Vehiculo <|-- Moto
+
+
+
+
+
+
+@enduml
