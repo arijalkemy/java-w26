@@ -15,20 +15,16 @@ public class App {
         RepositoryLocator locatorRepository = new RepositoryLocator(clientRepository);
 
         Agency agency = new Agency(locatorRepository, clientRepository);
-        Locator locator = new Locator();
 
         agency.registerClient(clientJuan);
 
-        agency.registerLocator( locator.newLocator(clientJuan, List.of(new Booking((List.of(TypeProduct.HOSTEL)))), clientRepository.getClients()));
-        agency.registerLocator( locator.newLocator(clientJuan, List.of(new Booking((List.of(TypeProduct.HOSTEL)))), clientRepository.getClients()));
-        agency.registerLocator( locator.newLocator(clientJuan, List.of(new Booking((List.of(TypeProduct.HOSTEL)))), clientRepository.getClients()));
+        agency.registerLocator(clientJuan,
+                List.of(new Booking((List.of(TypeProduct.HOSTEL, TypeProduct.HOSTEL)))));
+        agency.registerLocator(clientJuan, List.of(new Booking((List.of(TypeProduct.TOURIST_PACKAGE)))));
 
 
         clientRepository.getClients().forEach(System.out::println);
         agency.getLocatorRepository().getLocators().forEach((e) -> System.out.println(e.getTotal()));
-
-
-
 
 
         //agency.getRepo().addLocator(new Locator(new Client(2, "Pedro"), List.of(new Booking((List.of(TypeProduct.FOOD,TypeProduct.FOOD,TypeProduct.TRANSPORT))))));

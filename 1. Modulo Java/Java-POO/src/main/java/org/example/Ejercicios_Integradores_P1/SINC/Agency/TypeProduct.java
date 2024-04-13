@@ -1,6 +1,7 @@
 package org.example.Ejercicios_Integradores_P1.SINC.Agency;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public enum TypeProduct {
@@ -12,7 +13,9 @@ public enum TypeProduct {
     TRANSPORT("Transport", 15 );
 
     private final String value;
-    private final int price;
+
+    @Setter
+    private  double price;
 
     TypeProduct(String valor,  int price) {
         this.value = valor;

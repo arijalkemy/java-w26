@@ -17,8 +17,6 @@ public class RepositoryLocator {
     }
 
     public void add(Locator locator) {
-
-
         locators.add(locator);
     }
 }
