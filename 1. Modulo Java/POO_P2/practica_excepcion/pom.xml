@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>numeros_excepciones</artifactId>
+  <artifactId>practica_excepcion</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>numeros_excepciones</name>
+  <name>practica_excepcion</name>
   <url>http://maven.apache.org</url>
 
   <properties>
