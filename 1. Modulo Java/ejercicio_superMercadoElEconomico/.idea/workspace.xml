@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd611c09-111a-4c10-a719-6bc09f3566f5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/ejercicio_distribuidoraDeProductos.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Distribuidora.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/NoPerecedero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Perecedero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Distribuidora.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/NoPerecedero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Perecedero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Producto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/ejercicio_practicaExcepciones.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/out/production/ejercicio_practicaExcepciones/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/out/production/ejercicio_practicaExcepciones/com/company/PracticaExcepciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/src/com/company/PracticaExcepciones.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Basic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Cobrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Ejecutivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IConsultaSaldo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IDeposito.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IPagoDeServicios.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IRetiroDeEfectivo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/ITransaccion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/ITransferencia.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f0lYqJLxTJqVgrE5mnNAWf4Q74" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/lelastra/Documents/Bootcamp/java-w26/1. Modulo Java/ejercicio_superMercadoElEconomico",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd611c09-111a-4c10-a719-6bc09f3566f5" name="Changes" comment="" />
+      <created>1712945928268</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712945928268</updated>
+      <workItem from="1712945929425" duration="4500000" />
+      <workItem from="1713045173841" duration="61000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
