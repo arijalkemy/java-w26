@@ -36,11 +36,11 @@ public class Carrera {
     }
 
     public void darDeAltaSocorristaAuto(String nombre) {
-        socorristas.add(new SocorristaAuto());
+        //socorristas.add(new SocorristaAuto());
     }
 
     public void darDeAltaSocorristaMoto(String nombre) {
-        socorristas.add(new SocorristaMoto());
+        //socorristas.add(new SocorristaMoto());
     }
 
 
