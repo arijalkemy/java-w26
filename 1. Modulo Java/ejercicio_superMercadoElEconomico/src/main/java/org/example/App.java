@@ -23,12 +23,24 @@ public class App
         System.out.println("---------- Datos de los clientes ----------");
         clientes.forEach(System.out::println);
 
-        System.out.println("\n---------- Se elimina el cliente " + cliente1.getNombre() + " " + cliente1.getApellido() +  " ----------");
-        clientes.remove(0);
+        System.out.println("Ingrese el Dni del cliente que desea borrar: ");
+        Scanner scn = new Scanner(System.in);
+        String dniInputDelete = scn.next().trim();
+        List<Cliente> resultadoDelete = clientes
+                .stream()
+                .filter(cliente -> cliente.getDni() == Integer.valueOf(dniInputDelete))
+                .toList();
+
+        if (resultadoDelete.size() == 0) {
+            System.out.println("No se encontraron resultados para el Dni ingresado.");
+        } else {
+            clientes.remove(resultadoDelete.get(0));
+            System.out.println("Cliente borrado exitosamente.");
+        }
+
         clientes.forEach(System.out::println);
 
         System.out.println("\nIngrese el Dni del cliente: ");
-        Scanner scn = new Scanner(System.in);
         String dniInput = scn.next().trim();
         List<Cliente> resultado = clientes
                 .stream()

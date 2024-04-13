@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bd611c09-111a-4c10-a719-6bc09f3566f5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/description.html" beforeDir="false" />
@@ -91,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712945928268</updated>
       <workItem from="1712945929425" duration="4500000" />
-      <workItem from="1713045173841" duration="61000" />
+      <workItem from="1713045173841" duration="653000" />
     </task>
     <servers />
   </component>
