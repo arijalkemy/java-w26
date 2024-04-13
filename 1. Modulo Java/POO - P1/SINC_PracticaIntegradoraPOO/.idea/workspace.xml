@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66fa8f51-8568-4458-a84e-16bb4a4f2426" name="Changes" comment="" />
+    <list default="true" id="d451916a-6868-4488-b1dc-e53a4ada91a3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ASINC_EjerciciosConClases/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ASINC_EjerciciosConClases/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +32,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2f41kXkuthRZzEa94puZA8up7Mc" />
+  <component name="ProjectId" id="2f43BdlxKlKvziVTXgvEcKyEVY3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -42,12 +51,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="66fa8f51-8568-4458-a84e-16bb4a4f2426" name="Changes" comment="" />
-      <created>1713045681230</created>
+      <changelist id="d451916a-6868-4488-b1dc-e53a4ada91a3" name="Changes" comment="" />
+      <created>1713046390452</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713045681230</updated>
-      <workItem from="1713045683392" duration="628000" />
+      <updated>1713046390452</updated>
+      <workItem from="1713046392595" duration="2153000" />
     </task>
     <servers />
   </component>
