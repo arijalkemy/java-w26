@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Localizador {
@@ -44,6 +45,17 @@ public class Localizador {
             descuento = descuento + 0.1;
         }
         return descuento;
+    }
+
+    public void diccionarioReservas(String tipo) {
+        reservas.stream().filter(r -> r.getTipo().equalsIgnoreCase(tipo))
+                .collect(Collectors.toMap(r -> r.getId(), r -> r)).forEach( (k,v) -> {
+                    System.out.println("Reserva: " + k + " - " + v);
+                });
+    }
+
+    public int cantReservas() {
+        return reservas.size();
     }
 
     public Cliente getCliente() {

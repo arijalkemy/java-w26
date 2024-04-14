@@ -3,10 +3,12 @@ package org.example;
 public class Producto {
 
 
+    private String id;
     private double precio;
     private String tipoProducto;
 
-    public Producto(String tipo, double precio) {
+    public Producto(String id, String tipo, double precio) {
+        this.id = id;
         this.tipoProducto = tipo;
         this.precio = precio;
     }
@@ -25,6 +27,14 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

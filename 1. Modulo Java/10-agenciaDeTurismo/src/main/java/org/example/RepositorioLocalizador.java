@@ -1,7 +1,9 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RepositorioLocalizador {
@@ -37,4 +39,33 @@ public class RepositorioLocalizador {
             System.out.println("Localizador no encontrado para mostrar");
         }
     }
+
+    public int cantLocalizadores() {
+        return localizadores.size();
+    }
+
+    public int cantTotalReservas() {
+        return localizadores.stream().mapToInt(l -> l.cantReservas()).sum();
+    }
+
+    public double montoTotalReservas() {
+        return localizadores.stream().mapToDouble(Localizador::getTotalConDescuento).sum();
+    }
+
+    public double promedioMontoReservas() {
+        return localizadores.stream().mapToDouble(Localizador::getTotalConDescuento).average().getAsDouble();
+    }
+
+    public void diccionarioReservas(String tipo) {
+        System.out.println("Diccionario de reservas de " + tipo + ": ");
+        for (Localizador l : localizadores) {
+            if (l.getReservas().stream()
+                    .filter(r -> r.getTipo().equalsIgnoreCase(tipo)).collect(Collectors.toList()).size() > 0) {
+                l.diccionarioReservas(tipo);
+            }
+        }
+
+    }
+
+
 }
