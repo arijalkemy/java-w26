@@ -1,6 +1,7 @@
-package org.example;
+package org.example.Model;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Cliente {
         private String dni;
@@ -46,7 +47,16 @@ public class Cliente {
                 this.apellido = apellido;
         }
 
-        public static Cliente consultaCliente(List<Cliente> clientes, String dni){
-                return clientes.stream().filter(p-> p.getDni().equals(dni)).findFirst().orElse(null);
+        public static Cliente consultaCliente(List<Cliente> clientes){
+                Scanner searchDni = new Scanner(System.in);
+
+                System.out.print("Que usuario estas Buscando: ");
+                String dni= searchDni.nextLine();
+                System.out.println(dni);
+
+                Cliente cliente = clientes.stream().filter(p-> p.getDni().equals(dni)).findFirst().orElse(null);
+
+                return cliente;
+
         }
 }
