@@ -21,7 +21,7 @@ public class RepositorioLocalizador {
     }
 
     // Aplica descuentos según las reglas del negocio
-    private void aplicarDescuentos(Localizador localizador) {
+    public void aplicarDescuentos(Localizador localizador) {
         // Aplicación de descuentos según la lógica de negocio
         Cliente cliente = localizador.getCliente();
         long cuentaLocalizadores = cliente.getLocalizadores().size();

@@ -62,7 +62,7 @@ public class Localizador {
         this.total = detallesReserva.stream().mapToDouble(DetalleReserva::getMonto).sum();
     }
 
-    // Método toString para imprimir detalles del localizador de manera conveniente
+    // Método toString para imprimir detalles del localizador
     @Override
     public String toString() {
         return "Localizador{" +

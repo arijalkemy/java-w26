@@ -46,7 +46,7 @@ public class Cliente {
         }
     }
 
-    // Método toString para imprimir detalles del cliente de manera conveniente
+    // Método toString para imprimir detalles del cliente
     @Override
     public String toString() {
         return "Cliente{" +
