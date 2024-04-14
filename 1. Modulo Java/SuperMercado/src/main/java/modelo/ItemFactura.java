@@ -1,24 +1,28 @@
 package modelo;
 
 public class ItemFactura {
-    public String codigo;
+
+    private static int id;
+    public int codigo;
     public Producto producto;
     public int cantidadComprada;
-    public int costoUnitario;
+    public double costoUnitario;
 
-    public ItemFactura(String codigo, Producto producto, int cantidadComprada, int costoUnitario) {
-        this.codigo = codigo;
+    public ItemFactura(Producto producto, int cantidadComprada, double costoUnitario) {
+        this.codigo = ++id;
         this.producto = producto;
         this.cantidadComprada = cantidadComprada;
         this.costoUnitario = costoUnitario;
     }
 
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    @Override
+    public String toString() {
+        return "ItemFactura{" +
+                "codigo=" + codigo +
+                ", producto=" + producto +
+                ", cantidadComprada=" + cantidadComprada +
+                ", costoUnitario=" + costoUnitario +
+                '}';
     }
 
     public Producto getProducto() {
@@ -37,9 +41,6 @@ public class ItemFactura {
         this.cantidadComprada = cantidadComprada;
     }
 
-    public int getCostoUnitario() {
-        return costoUnitario;
-    }
 
     public void setCostoUnitario(int costoUnitario) {
         this.costoUnitario = costoUnitario;

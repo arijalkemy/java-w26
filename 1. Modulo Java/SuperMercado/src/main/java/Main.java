@@ -1,6 +1,12 @@
 import modelo.Cliente;
+import modelo.Factura;
+import modelo.ItemFactura;
+import modelo.Producto;
+import repositorios.RepositorioCliente;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class Main {
 
@@ -30,35 +36,17 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        while (true){
-            System.out.println("Seleccione una opción");
-            System.out.println("BUSCAR CLIENTE X DNI: 1");
-            System.out.println("SALIR: 0");
+        RepositorioCliente repositorioCliente = new RepositorioCliente();
 
-            int opcion = teclado.nextInt();
+        repositorioCliente.guardar(nacho);
+        repositorioCliente.guardar(julieta);
 
-            if(opcion == 0){
-                return;
-            } else {
-                System.out.println("INGRESE EL DNI");
-                String dniBuscado = teclado.next();
+        MenuInteractivo menuInteractivo = new MenuInteractivo();
 
-                Optional<Cliente> cliente = clientes.stream().filter(cl -> cl.getDni().equals(dniBuscado)).findAny();
+        menuInteractivo.setRepositorioCliente(repositorioCliente);
 
-                if(cliente.isPresent()){
-                    System.out.println("Cliente encontrado: ");
-                    System.out.println(cliente.get().toString());
-                    System.out.println();
-                } else {
-                    System.out.println("Cliente no encontrado.");
-                    System.out.println();
-                }
-            }
-        }
-
-
-
-
-
+        menuInteractivo.interactuar();
     }
+
+
 }
