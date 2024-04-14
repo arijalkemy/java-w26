@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97e47460-2ec6-41f0-a51c-3707687e57c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_2/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../POO - P1/SINC_PracticaIntegradoraPOO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../POO - P1/SINC_PracticaIntegradoraPOO/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ASINC_EjerciciosConExcepciones/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ASINC_EjerciciosConExcepciones/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +45,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mditta/Desktop/Repositorio/java-w26/1. Modulo Java/POO - P2/SINC_EjerciciosPracticosPOO_1",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -59,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713111931298</updated>
       <workItem from="1713111932364" duration="1177000" />
+      <workItem from="1713113176540" duration="724000" />
     </task>
     <servers />
   </component>

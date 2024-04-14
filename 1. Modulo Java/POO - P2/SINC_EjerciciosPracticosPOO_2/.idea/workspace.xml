@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d451916a-6868-4488-b1dc-e53a4ada91a3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../POO - P2/SINC_EjerciciosPracticosPOO/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../POO - P2/ASINC_EjerciciosConExcepciones/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../POO - P2/ASINC_EjerciciosConExcepciones/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="30306473-d351-4011-b1e7-e521f7ec6bcd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../POO - P1/SINC_PracticaIntegradoraPOO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../POO - P1/SINC_PracticaIntegradoraPOO/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SINC_EjerciciosPracticosPOO_1/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2f43BdlxKlKvziVTXgvEcKyEVY3" />
+  <component name="ProjectId" id="2f6EoKphYd8bdkctUO79SoXqyHt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -46,19 +46,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm"
+    "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d451916a-6868-4488-b1dc-e53a4ada91a3" name="Changes" comment="" />
-      <created>1713046390452</created>
+      <changelist id="30306473-d351-4011-b1e7-e521f7ec6bcd" name="Changes" comment="" />
+      <created>1713113301492</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1713046390452</updated>
-      <workItem from="1713046392595" duration="4153000" />
+      <updated>1713113301492</updated>
+      <workItem from="1713113302588" duration="2048000" />
     </task>
     <servers />
   </component>
