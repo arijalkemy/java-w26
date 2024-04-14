@@ -1,0 +1,111 @@
+
+ 	java:S135b"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8Â÷ğì1J$6af8f1c8-727f-4767-95a5-e7e6038f6d4a
+›
+java:S1104"SMake scanner a static final constant or non-public and provide accessors if needed.(¾©´¬øÿÿÿÿ8Å÷ğì1J$4e47535c-30dd-4b38-9cce-2f9f9f3e392f
+˜
+java:S1104"UMake inscritos a static final constant or non-public and provide accessors if needed.(ï™ß®8Ç÷ğì1J$7a733de3-6cd0-4c8d-9bf6-cf5fba446fa2
+¥
+java:S1104"bMake inscritosCircuitoChico a static final constant or non-public and provide accessors if needed.(Öæéı8È÷ğì1J$d9c1b9e6-5b3e-4a61-8b52-dd2261ac3fd6
+¤
+java:S1104	"bMake inscritosCircuitoMedio a static final constant or non-public and provide accessors if needed.(ø¸º|8É÷ğì1J$120ff99b-d7f4-47f4-b385-4b7a9dab6401
+¨
+java:S1104
+"eMake inscritosCircuitoAvanzado a static final constant or non-public and provide accessors if needed.(‘ÑÏê8Ë÷ğì1J$4ee9014b-a4bf-4797-b04f-78b4b9825bbc
+
+java:S1104"VMake categorias a static final constant or non-public and provide accessors if needed.(÷í÷Úøÿÿÿÿ8Ì÷ğì1J$b57abb82-ea2e-4997-9424-d945c81091b8
+
+java:S1104"ZMake numInscripcion a static final constant or non-public and provide accessors if needed.(î‰¿8Ì÷ğì1J$e8410f01-8998-4804-9cb5-03b58e778c70
+u
+java:S1444"-Make this "public static scanner" field final(¾©´¬øÿÿÿÿ8Í÷ğì1J$8335c9dc-fcf4-42f6-8db9-5caacf2a6207
+r
+java:S1444"/Make this "public static inscritos" field final(ï™ß®8Í÷ğì1J$431c6202-f5df-4a1e-bd4a-40231eb65b69
+
+java:S1444"<Make this "public static inscritosCircuitoChico" field final(Öæéı8Í÷ğì1J$47526ebf-b2ac-4892-ae13-9adf83db92c8
+~
+java:S1444	"<Make this "public static inscritosCircuitoMedio" field final(ø¸º|8Í÷ğì1J$1d35b77e-f4ac-4e27-a809-81a0d7695f3d
+‚
+java:S1444
+"?Make this "public static inscritosCircuitoAvanzado" field final(‘ÑÏê8Í÷ğì1J$1fd48b8d-ea6c-4a80-ac16-08ea39dc1e00
+x
+java:S1444"0Make this "public static categorias" field final(÷í÷Úøÿÿÿÿ8Í÷ğì1J$454450d6-6f3d-4b31-b516-e500dd0dca7b
+w
+java:S1444"4Make this "public static numInscripcion" field final(î‰¿8Í÷ğì1J$a359133c-b697-425a-8cef-54d59b26d8a5
+r	java:S106"+Replace this use of System.out by a logger.(—í óÿÿÿÿÿ8×÷ğì1J$39bf4ddd-0b70-4bf8-99cc-94a314107108
+m	java:S106"+Replace this use of System.out by a logger.(ü×·­8×÷ğì1J$487deebd-723b-4af7-94dd-630d2112803f
+r	java:S106"+Replace this use of System.out by a logger.(­äŞÜùÿÿÿÿ8×÷ğì1J$033ab1f6-d028-4af1-94e0-0a5ebfb5813e
+r	java:S106"+Replace this use of System.out by a logger.(Á‡ıÛùÿÿÿÿ8×÷ğì1J$9cc994f5-4988-412b-aa08-91613729558e
+r	java:S106"+Replace this use of System.out by a logger.(ƒ·ò§şÿÿÿÿ8×÷ğì1J$77fd15f3-4245-44fd-a49f-139a20516a60
+r	java:S106"+Replace this use of System.out by a logger.(ÁóîÏùÿÿÿÿ8×÷ğì1J$1f45f494-02a3-4f52-ac5f-b0b587835a93
+r	java:S106"+Replace this use of System.out by a logger.(¦Îöœşÿÿÿÿ8×÷ğì1J$7f92f4b5-e143-40f3-9a59-81e9f103defd
+r	java:S106"+Replace this use of System.out by a logger.(¦óİıøÿÿÿÿ8×÷ğì1J$f3bf4344-fa54-4b26-94f5-9a0b124cdf68
+h
+java:S3457"%String contains no format specifiers.(½Ì‹­8Ø÷ğì1J$7c2d2ed3-c303-4b76-8a17-613d78582f71
+m	java:S106"+Replace this use of System.out by a logger.(½Ì‹­8Ø÷ğì1J$5dc62bc7-89f3-4999-90b2-f263446c1569
+r	java:S106*"+Replace this use of System.out by a logger.(Ş‡û ıÿÿÿÿ8Ø÷ğì1J$ff5a753b-0584-4450-990d-15a4d448c882
+r	java:S106-"+Replace this use of System.out by a logger.(ª¸ıúÿÿÿÿ8Ù÷ğì1J$11fa81b5-fdac-48ad-b2df-fc2c2b632690
+•
+java:S3776I"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(•¼¼·8Ú÷ğì1J$040a52d0-7fb7-484f-9b91-423cfc709be6
+Š
+java:S1854\"BRemove this useless assignment to local variable "grupoSanguineo".(™®¬ùÿÿÿÿ8Ú÷ğì1J$33cf159e-fdae-4f47-ac8c-4c3520128435
+}
+java:S1854O":Remove this useless assignment to local variable "nombre".(úĞƒ8Ú÷ğì1J$d8f91ea8-1297-4f41-99b7-d5e144dff3ab
+
+java:S1659J"EDeclare "apellido" and all following declarations on a separate line.(ÜŞ‹»úÿÿÿÿ8Û÷ğì1J$cb39b517-c7d8-44a8-814a-5fefb8bbcdcc
+n
+java:S1659K"&Declare "eleccion" on a separate line.(Ëâ‚—şÿÿÿÿ8Û÷ğì1J$63151269-8be6-4fae-bd79-474ff46928ce
+’
+java:S1659L"JDeclare "numEmergencia" and all following declarations on a separate line.(ÈÕ§¤üÿÿÿÿ8Û÷ğì1J$9f53072a-3c5f-473a-82f3-56ea4b3863c4
+r	java:S106M"+Replace this use of System.out by a logger.(ì¢¾Éÿÿÿÿÿ8Ü÷ğì1J$c3f889a5-3c08-4ec6-a6a8-05e5cf8df2b6
+g
+java:S3457N"%String contains no format specifiers.(ÈÕg8Ü÷ğì1J$a8bdf763-12ab-4364-91b1-7b0134018221
+l	java:S106N"+Replace this use of System.out by a logger.(ÈÕg8Ü÷ğì1J$3e82c4a6-80af-4975-a975-f7e813c788ae
+m
+java:S3457Q"%String contains no format specifiers.(ÆÔìáûÿÿÿÿ8Ü÷ğì1J$6604f759-86ee-45da-9dc9-821b96744425
+r	java:S106Q"+Replace this use of System.out by a logger.(ÆÔìáûÿÿÿÿ8Ü÷ğì1J$b53806f6-9c31-479c-888c-1479dc7e1a78
+h
+java:S3457S"%String contains no format specifiers.(áÂ±ò8Ü÷ğì1J$166e74d6-24de-46d9-a27a-32e909581060
+m	java:S106S"+Replace this use of System.out by a logger.(áÂ±ò8Ü÷ğì1J$92f28552-f797-4803-a9a8-c417af90f570
+h
+java:S3457U"%String contains no format specifiers.(ô½Ê¿8Ü÷ğì1J$3098c565-e2d4-4da1-b963-a97509fcf364
+m	java:S106U"+Replace this use of System.out by a logger.(ô½Ê¿8Ü÷ğì1J$ed2d3424-4cad-4d6f-b0a7-9adc115a7a07
+m
+java:S3457W"%String contains no format specifiers.(‹¬Üóüÿÿÿÿ8Ü÷ğì1J$73b9be44-f9c3-4135-ba09-e6a6ef19e4b8
+r	java:S106W"+Replace this use of System.out by a logger.(‹¬Üóüÿÿÿÿ8Ü÷ğì1J$981e00ae-9a90-4d17-9e3f-eca3633c1553
+h
+java:S3457Y"%String contains no format specifiers.(Â›ÿ8Ü÷ğì1J$9c64ecc4-209b-488a-8bfd-cd19fa287e81
+m	java:S106Y"+Replace this use of System.out by a logger.(Â›ÿ8Ü÷ğì1J$784647f3-0ee2-454d-9ba4-b24bfdbbfa82
+h
+java:S3457["%String contains no format specifiers.(€öÔ„8İ÷ğì1J$5730a35d-2488-46da-b9b2-21e4c795c29a
+m	java:S106["+Replace this use of System.out by a logger.(€öÔ„8İ÷ğì1J$4ce25eef-a1b5-4c41-b0bb-f80b50b7fd3b
+m	java:S106^"+Replace this use of System.out by a logger.(Û¾Öğ8İ÷ğì1J$c496e56a-cf61-4b03-838b-801bcc7085ef
+r	java:S106`"+Replace this use of System.out by a logger.(½Ş¨Äúÿÿÿÿ8İ÷ğì1J$e07cda54-938f-48cb-a449-2922f5e1be9b
+m	java:S106e"+Replace this use of System.out by a logger.(—ÑşÁ8İ÷ğì1J$3eed1e4c-c0ff-482c-bbe0-dfe716ad3046
+m	java:S106i"+Replace this use of System.out by a logger.(ËË ë8İ÷ğì1J$77d0c079-5f5c-43f3-b91e-7a205d20d6be
+h
+java:S3457j"%String contains no format specifiers.(¿ı‚»8İ÷ğì1J$6df95bea-9a68-4575-94c6-187bea7b8d9f
+m	java:S106j"+Replace this use of System.out by a logger.(¿ı‚»8İ÷ğì1J$09499c51-b89a-4530-a3e7-7f4d40b12f52
+s	java:S106ˆ"+Replace this use of System.out by a logger.(±º…Õøÿÿÿÿ8Ş÷ğì1J$06013550-5e16-4404-9a84-6a766cd8aba1
+n	java:S106"+Replace this use of System.out by a logger.(á˜â8ß÷ğì1J$a89d51d9-75a1-498e-aae0-64ad41cc5ee2
+s	java:S106‘"+Replace this use of System.out by a logger.(£À‘üÿÿÿÿ8ß÷ğì1J$a54e7852-b9e1-4d8e-9866-dce75dfa4348
+s	java:S106–"+Replace this use of System.out by a logger.(å¿‚øÿÿÿÿ8ß÷ğì1J$88de5ae1-8c94-4fbb-8dd5-6bc87b3dccd5
+i
+java:S3457—"%String contains no format specifiers.(¿ı‚»8à÷ğì1J$32e4831b-36c7-462b-ba77-aebe405b8ebb
+n	java:S106—"+Replace this use of System.out by a logger.(¿ı‚»8à÷ğì1J$44bc7eaf-6525-4c78-81c1-d6f63af767e4
+n	java:S106¤"+Replace this use of System.out by a logger.(Ã•Ûœ8à÷ğì1J$6b9e6bf3-5bd9-4635-ab4a-56acc79b8052
+n	java:S106¥"+Replace this use of System.out by a logger.(œãÒˆ8à÷ğì1J$1467b9d3-5f81-471d-98aa-0504e4181670
+n	java:S106¦"+Replace this use of System.out by a logger.(İ·Éí8à÷ğì1J$fe5f9765-8f14-4d19-a618-2e25b79af417
+s	java:S106§"+Replace this use of System.out by a logger.(µ´œ‡ÿÿÿÿÿ8à÷ğì1J$d6ac31a2-6d26-4ac6-8336-d2bff57ed5dd
+s	java:S106¨"+Replace this use of System.out by a logger.(üå¼™şÿÿÿÿ8á÷ğì1J$c650210e-ced1-4bd2-b6a0-5a90f4b0f01f
+s	java:S106©"+Replace this use of System.out by a logger.(İÄ¥İşÿÿÿÿ8á÷ğì1J$eff5230d-d782-4dca-812e-b8aa83245335
+n	java:S106ª"+Replace this use of System.out by a logger.(ù“§„8á÷ğì1J$84f2e4d0-9020-452c-9755-e4f40b2eddd4
+n	java:S106«"+Replace this use of System.out by a logger.(Ã¾¿÷8á÷ğì1J$ec6efe39-589f-4b31-a17f-39ca75de5d9f
+n	java:S106²"+Replace this use of System.out by a logger.(Î­¸8â÷ğì1J$787acd19-6517-40a6-a7ff-928d8dd30957
+n
+java:S3457³"%String contains no format specifiers.(ØĞ¼Èÿÿÿÿÿ8â÷ğì1J$ffd6dd1b-f379-49d7-b177-bffad3abc360
+s	java:S106³"+Replace this use of System.out by a logger.(ØĞ¼Èÿÿÿÿÿ8â÷ğì1J$4e96a7e9-c461-4576-8507-f92e62c4e47c
+n	java:S106À"+Replace this use of System.out by a logger.(ûêŒÕ8ã÷ğì1J$9e44e579-955c-4e94-856f-cda429ece439
+s	java:S106Ó"+Replace this use of System.out by a logger.(¬ÓÙøÿÿÿÿ8ã÷ğì1J$584ec373-59a1-4898-9332-809c61220aa8
+s	java:S106Ô"+Replace this use of System.out by a logger.(Ò‰éúøÿÿÿÿ8ã÷ğì1J$62b37729-c14d-4426-b578-f392fca69941
+n	java:S106Õ"+Replace this use of System.out by a logger.(şÑ‘8ã÷ğì1J$c2535ce1-0aad-464b-80ba-4ec3f5c26e97
+s	java:S106Ö"+Replace this use of System.out by a logger.(ğÈ±ùÿÿÿÿ8ã÷ğì1J$fbc75977-4161-4943-a7a3-10ea8fee6f47
+s	java:S106×"+Replace this use of System.out by a logger.(Ñ×™“ùÿÿÿÿ8ã÷ğì1J$8e300d3b-ad7b-413c-9357-0b67f711ae71

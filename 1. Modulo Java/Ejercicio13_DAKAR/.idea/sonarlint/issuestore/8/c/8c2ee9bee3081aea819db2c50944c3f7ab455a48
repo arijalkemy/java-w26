@@ -1,0 +1,13 @@
+
+„
+java:S4165Y"gRemove this useless assignment; "vehiculos" already holds the assigned value along all execution paths.(¥ÚÂå8Õíæ¨í1
+L	java:S106"+Replace this use of System.out by a logger.(Œ†°üÿÿÿÿ8Ùíæ¨í1
+L	java:S106"+Replace this use of System.out by a logger.(Œ†°üÿÿÿÿ8Úíæ¨í1
+_
+java:S6201?"BReplace this instanceof check and cast with 'instanceof Auto auto'(¨³áÇ8İíæ¨í1
+G	java:S106B"+Replace this use of System.out by a logger.(¢ÑÜ¥8Şíæ¨í1
+d
+java:S6201J"BReplace this instanceof check and cast with 'instanceof Moto moto'(ğÊîœúÿÿÿÿ8ßíæ¨í1
+G	java:S106M"+Replace this use of System.out by a logger.(¢ÑÜ¥8ßíæ¨í1
+L
+java:S1656Y"/Remove or correct this useless self-assignment.(¥ÚÂå8âíæ¨í1

@@ -1,0 +1,22 @@
+
+¦
+java:S14888"^Immediately return this expression instead of assigning it to the temporary variable "opcion".(ñøÒùÿÿÿÿ8åŒ©—í1J$745e35c4-ffc1-49f4-9c11-d70a3f5a3445
+”	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(üª¡şÿÿÿÿ8åŒ©—í1J$7473caf0-5483-4469-b037-a7f0befad408
+m	java:S106"+Replace this use of System.out by a logger.(«˜·œ8êŒ©—í1J$20e57275-881c-43e3-a002-a8629565f278
+m	java:S106"+Replace this use of System.out by a logger.(ÎƒÿË8êŒ©—í1J$ff1bc003-6c8e-49d9-ad3c-3179783b375f
+r	java:S106*"+Replace this use of System.out by a logger.(Öø—¬ûÿÿÿÿ8ëŒ©—í1J$dbe91d21-af1d-4e48-bf3b-48091149976b
+r	java:S106/"+Replace this use of System.out by a logger.(«¢‰©ûÿÿÿÿ8ëŒ©—í1J$63858ac3-12a1-4183-b923-29b977a931f2
+l	java:S1060"+Replace this use of System.out by a logger.(Ôæ­N8ëŒ©—í1J$011c1b51-52ca-46a2-b328-a99ecb003a7e
+m	java:S1061"+Replace this use of System.out by a logger.(áëü‹8ëŒ©—í1J$f1bc254f-592c-4176-8552-e7431c2d0b07
+r	java:S1062"+Replace this use of System.out by a logger.(İ–²òÿÿÿÿÿ8ëŒ©—í1J$2df68405-d5d4-4e43-beaf-f45fe3b50308
+r	java:S1063"+Replace this use of System.out by a logger.(çš¶Éÿÿÿÿÿ8ëŒ©—í1J$83a164b4-4342-4b00-a611-facf6a86c2e5
+r	java:S1064"+Replace this use of System.out by a logger.(äÓ¥Îøÿÿÿÿ8ëŒ©—í1J$6cbe2d98-7268-4b0f-8d80-f0407b42b807
+m	java:S1065"+Replace this use of System.out by a logger.(ñ’ß8ëŒ©—í1J$c1d2eda4-b46b-47dc-9ed8-7cdd3e514a34
+m	java:S1066"+Replace this use of System.out by a logger.(ÙÃı£8íŒ©—í1J$9a3d771b-4630-4348-abdf-46d0463022e7
+l	java:S1067"+Replace this use of System.out by a logger.(¸´Šl8íŒ©—í1J$6990dca0-b025-4fd2-97d1-6a169953ec34
+“	java:S128I"LEnd this switch case with an unconditional break, return or throw statement.(ÌÊëÎüÿÿÿÿ8ìŒ©—í1J$558577a4-377e-4451-8a55-1348c03e297d
+“	java:S128G"LEnd this switch case with an unconditional break, return or throw statement.(µ»ïşıÿÿÿÿ8íŒ©—í1J$666576cc-f088-46e0-8496-0caaefa8c7e4
+c
+java:S3457R"AFormat specifiers should be used instead of string concatenation.(ÓğŸùÿÿÿÿ8¸§ä—í1
+r	java:S106R"+Replace this use of System.out by a logger.(ÓğŸùÿÿÿÿ8¢¯—í1J$9750c574-90e7-4ef2-a980-84874abf488b
+m	java:S106U"+Replace this use of System.out by a logger.(¤¼æ¶8‘À±—í1J$48313d6a-c7c4-45c8-b143-4a2b408b4ba4

@@ -1,0 +1,16 @@
+
+›
+java:S1104	"SMake prendas a static final constant or non-public and provide accessors if needed.(İ¨Ñçùÿÿÿÿ8ß¦›í1J$d8f8c3db-6a94-413a-8ada-ccba436fc026
+¡
+java:S1104
+"YMake identificador a static final constant or non-public and provide accessors if needed.(ê‡öÚÿÿÿÿÿ8á¦›í1J$ba5fee05-fcf5-489e-95a2-620bd1814070
+u
+java:S1199"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8ÂŒ¨í1J$0ce03600-1136-42e1-84a3-54a4554a0469
+m	java:S106"+Replace this use of System.out by a logger.(¶©èÒ8ç¦›í1J$3517372a-3aef-4d2b-a16d-6d1604a16ed2
+}
+java:S1117":Rename "prendas" which hides the field declared at line 9.(ûìŒ•8ÅŒ¨í1J$6f827ba1-2d17-4ef0-af3c-f386911df912
+l	java:S106"+Replace this use of System.out by a logger.(Ç¤ÅR8ÿ÷§í1J$f9bc524a-8ed7-48e4-a5dd-439aca2a8b46
+r	java:S106"+Replace this use of System.out by a logger.(Å‹Òíûÿÿÿÿ8ÆŒ¨í1J$0d85d6d4-4db8-4ce2-b9f0-5984a39aede7
+m	java:S106$"+Replace this use of System.out by a logger.(³­ùØ8ÆŒ¨í1J$be16dbbb-1dbb-4cd0-a67f-184555fd4132
+n
+java:S1168%"+Return an empty collection instead of null.(¥¹ï8Şé©í1J$30ff9c1d-e8f2-48eb-be74-8cc8c936b9a6

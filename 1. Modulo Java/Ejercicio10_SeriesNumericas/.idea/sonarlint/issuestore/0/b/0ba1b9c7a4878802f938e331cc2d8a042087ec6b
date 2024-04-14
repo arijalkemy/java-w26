@@ -1,0 +1,36 @@
+
+w
+java:S3740%"/Provide the parametrized type for this generic.(φ‘Τοόÿÿÿÿ8ρξωσμ1J$ed02a966-abd7-4ac9-b307-e7ba552c2ee2
+w
+java:S3740B"/Provide the parametrized type for this generic.(υΫ‘ƒόÿÿÿÿ8σξωσμ1J$c848f0e2-7cde-484e-b5f8-f2595773f722
+§
+java:S1192"eDefine a constant instead of duplicating this literal "------------------------------------" 4 times.(¥ΦC8ϊξωσμ1J$f99326dd-3c32-49f6-b922-814d925a1f43
+ 	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(οÿÿÿÿÿ8ÿξωσμ1J$02919de9-b186-445e-85d5-69f51cc1f1de
+ 	java:S135."YReduce the total number of break and continue statements in this loop to use at most one.(οÿÿÿÿÿ8ƒοωσμ1J$e4c36930-7a6d-479f-a861-a1c2235ee5a3
+›
+java:S1104"SMake scanner a static final constant or non-public and provide accessors if needed.(Ύ©΄¬ψÿÿÿÿ8„οωσμ1J$ed8c80b5-6b96-453f-bc4c-0f0f0c86e470
+u
+java:S1444"-Make this "public static scanner" field final(Ύ©΄¬ψÿÿÿÿ8†οωσμ1J$7fd476be-ff17-4543-81fe-d20c0dca3185
+l	java:S106"+Replace this use of System.out by a logger.(¥ΦC8£οωσμ1J$32c8ef11-1068-400b-97bc-695c34459da1
+m	java:S106"+Replace this use of System.out by a logger.(—ÿ8£οωσμ1J$b9964703-4f7c-4b63-afa4-20a68be2bf35
+l	java:S106"+Replace this use of System.out by a logger.(¥ΦC8£οωσμ1J$2a66201a-3c06-4a4a-889b-dc8626aee1f0
+m	java:S106"+Replace this use of System.out by a logger.(Λ”³°8£οωσμ1J$80010bac-c674-410f-a069-0dbfceb91339
+l	java:S106"+Replace this use of System.out by a logger.(Ò›α8£οωσμ1J$f346c6b8-ef1b-4038-bd83-25775699b0f0
+r	java:S106"+Replace this use of System.out by a logger.(Μύϋτψÿÿÿÿ8£οωσμ1J$75f6a9d9-7b75-4c5b-988e-772b2594c17d
+r	java:S106"+Replace this use of System.out by a logger.(ςΫΦ™ωÿÿÿÿ8£οωσμ1J$b62976d6-8e36-4146-b288-07d4674f53c7
+m	java:S106"+Replace this use of System.out by a logger.(Χ­Όπ8£οωσμ1J$2b2070b9-7aaf-4780-a8d4-1beae913f107
+r	java:S106""+Replace this use of System.out by a logger.(®ΑΘθύÿÿÿÿ8¤οωσμ1J$846a6ed9-c99c-4efe-ad46-2ef01bbb86e9
+l	java:S106/"+Replace this use of System.out by a logger.(¥ΦC8¤οωσμ1J$5bf67e85-31e8-4f98-b979-0f24d5344b70
+r	java:S1060"+Replace this use of System.out by a logger.(­δήάωÿÿÿÿ8¥οωσμ1J$ad96da48-0869-483e-8ba7-0c8a7de0e0d4
+l	java:S1061"+Replace this use of System.out by a logger.(¥ΦC8¥οωσμ1J$2afd294b-d4b6-4eed-a8b4-efc6eff37a3b
+m	java:S1062"+Replace this use of System.out by a logger.(µβ8¥οωσμ1J$492916f5-e5bf-4479-93f1-e156143a489c
+r	java:S1063"+Replace this use of System.out by a logger.(ϋΧÒγωÿÿÿÿ8¥οωσμ1J$1de637de-a1dc-492c-bc50-5a0239eb07da
+r	java:S1064"+Replace this use of System.out by a logger.(™―‡χϋÿÿÿÿ8¥οωσμ1J$fcd7ac15-790b-4a37-a9ab-759d87abb219
+r	java:S1065"+Replace this use of System.out by a logger.(ςΫΦ™ωÿÿÿÿ8¥οωσμ1J$f3feaad1-d395-4e69-b97f-c08ab4755597
+m	java:S1068"+Replace this use of System.out by a logger.(Χ­Όπ8¥οωσμ1J$54dafe49-a126-4cdb-8cf6-d81f20653eb7
+
+java:S1854I"9Remove this useless assignment to local variable "valor".(οΈ²ϋÿÿÿÿ8ίε­•ν1J$9627ed47-8910-4417-81c8-0ec5f5824afe
+m	java:S106D"+Replace this use of System.out by a logger.(§τΒΙ8¦οωσμ1J$dfc7a735-25b5-4d72-a4c9-4b504efd6dee
+h
+java:S3457H"%String contains no format specifiers.(¤¶8¦οωσμ1J$e1229584-8b60-48c9-aa16-d6e73be06021
+m	java:S106H"+Replace this use of System.out by a logger.(¤¶8¦οωσμ1J$3aec053f-a32a-49f9-a3f3-5e11e19fb034

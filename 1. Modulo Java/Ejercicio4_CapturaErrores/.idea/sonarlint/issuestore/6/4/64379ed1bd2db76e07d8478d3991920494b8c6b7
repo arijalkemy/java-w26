@@ -1,0 +1,16 @@
+
+T
+java:S3518"7Make sure "a" can't be zero before doing this division.(ïëÉæ8Ñï«ëí1
+T
+java:S2589"7Remove this expression which always evaluates to "true"(Êÿª8Óï«ëí1
+R
+java:S1854"5Remove this useless assignment to local variable "c".(ïëÉæ8Öï«ëí1
+R
+java:S1854"5Remove this useless assignment to local variable "c".(ïëÉæ8×ï«ëí1
+C
+java:S1481"&Remove this unused "c" local variable.(»ç»“8Ùï«ëí1
+X	java:S125	"<This block of commented-out lines of code should be removed.(½‘Ñ³8äï«ëí1
+L	java:S106"+Replace this use of System.out by a logger.(ôúæéüÿÿÿÿ8çï«ëí1
+L	java:S106"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ8èï«ëí1
+L	java:S106"+Replace this use of System.out by a logger.(‚ªæ¾ÿÿÿÿÿ8êï«ëí1
+L	java:S106 "+Replace this use of System.out by a logger.(ôúæéüÿÿÿÿ8ëï«ëí1

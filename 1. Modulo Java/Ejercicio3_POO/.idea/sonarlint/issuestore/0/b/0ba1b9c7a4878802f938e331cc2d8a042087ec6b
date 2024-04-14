@@ -1,0 +1,18 @@
+
+Y
+java:S1854"<Remove this useless assignment to local variable "persona2".(‚ôî8Çõ€ñì1
+^
+java:S1854"<Remove this useless assignment to local variable "persona1".(çÄåƒøÿÿÿÿ8Èõ€ñì1
+O
+java:S1481"-Remove this unused "persona1" local variable.(çÄåƒøÿÿÿÿ8Ëõ€ñì1
+J
+java:S1481"-Remove this unused "persona2" local variable.(‚ôî8Íõ€ñì1
+G	java:S106"+Replace this use of System.out by a logger.(¦ˆ©8Ïõ€ñì1
+G
+java:S3457	"%String contains no format specifiers.(ë²µ«ûÿÿÿÿ8Ğõ€ñì1
+L	java:S106	"+Replace this use of System.out by a logger.(ë²µ«ûÿÿÿÿ8Òõ€ñì1
+L	java:S106"+Replace this use of System.out by a logger.(—öÚÆüÿÿÿÿ8Óõ€ñì1
+L	java:S106"+Replace this use of System.out by a logger.(äÁ’úÿÿÿÿ8Õõ€ñì1
+G	java:S106"+Replace this use of System.out by a logger.(ÕÜ¨µ8Öõ€ñì1
+G	java:S106"+Replace this use of System.out by a logger.(¶Ù‰é8Øõ€ñì1
+G	java:S106"+Replace this use of System.out by a logger.(ÃÕöÜ8Ùõ€ñì1
