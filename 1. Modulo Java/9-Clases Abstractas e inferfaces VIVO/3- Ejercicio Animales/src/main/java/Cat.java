@@ -1,5 +1,4 @@
-public class Cat extends Animal implements Carnivore{
-
+public class Cat extends Animal implements Carnivore {
 
     @Override
     public void emitSound() {
@@ -7,7 +6,7 @@ public class Cat extends Animal implements Carnivore{
     }
 
     @Override
-    public void eatMeat() {
-        System.out.println("El gato come carne");
+    public String eatMeat() {
+        return "El gato come carne";
     }
 }

@@ -1,3 +1,3 @@
 public interface Herviboro {
-    void eatPlants();
+    String eatPlants();
 }

@@ -8,9 +8,10 @@ public class Main {
         miCow.emitSound();
         miCat.emitSound();
 
-
-        miDog.eatMeat();
-        miCat.eatMeat();
-        miCow.eatPlants();
+        //Este método necesita un system.out.println porque devuelve un String
+        System.out.println("------------ Animales consumiendo el método comer()----------------");
+        System.out.println(miDog.eatMeat());
+        System.out.println(miCow.eatPlants());
+        System.out.println(miCat.eatMeat());
     }
 }

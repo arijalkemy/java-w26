@@ -1,14 +1,13 @@
-public class Cow extends Animal implements Herviboro{
-
+public class Cow extends Animal implements Herviboro {
 
     @Override
     public void emitSound() {
-        System.out.println("Muuu");
+        System.out.println();
     }
 
 
     @Override
-    public void eatPlants() {
-        System.out.println("La vaca come plantas");
+    public String eatPlants() {
+        return "La vaca come plantas";
     }
 }

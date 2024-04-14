@@ -1,3 +1,3 @@
 public interface Carnivore {
-    void eatMeat();
+    String eatMeat();
 }
