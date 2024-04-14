@@ -70,4 +70,5 @@ public class Vehiculo {
   public double calcularPuntaje() {
     return velocidad * 0.5 * aceleracion / (anguloDeGiro * (peso - ruedas * 100));
   }
+
 }

@@ -11,12 +11,12 @@ public class Carrera {
     private String nombre;
     private int cantidadDeVehiculosPermitidos;
     private List<Vehiculo> vehiculos;
-    private Vehiculo socorristaAuto;
-    private Vehiculo socorristaMoto;
+    private SocorristaAuto socorristaAuto;
+    private SocorristaMoto socorristaMoto;
 
     public Carrera(
         double distancia, double premioEnDolares, String nombre, int cantidadDeVehiculosPermitidos,
-        Vehiculo socorristaAuto, Vehiculo socorristaMoto
+        SocorristaAuto socorristaAuto, SocorristaMoto socorristaMoto
     ) {
         this.distancia = distancia;
         this.premioEnDolares = premioEnDolares;
@@ -51,4 +51,18 @@ public class Carrera {
         return Collections.max(vehiculos, Comparator.comparingInt(v -> (int) v.calcularPuntaje()));
     }
 
+    public void socorrerAuto(String patente) {
+        socorristaAuto.socorrer(buscarVehiculo(patente));
+    }
+
+    public void socorrerMoto(String patente) {
+        socorristaMoto.socorrer((Moto) buscarVehiculo(patente));
+    }
+
+    public Vehiculo buscarVehiculo(String patente) {
+        return vehiculos.stream()
+            .filter(vehiculo -> vehiculo.getPatente().equals(patente)).
+            findFirst()
+            .orElse(null);
+    }
 }
