@@ -6,11 +6,13 @@ public class Factura {
 
     // Las facturas que se generan cuando un cliente hace una compra contienen a un cliente, una lista de ítems y el total de la compra.
 
+    private String id;
     private Cliente cliente;
     private List<Item> listaItems;
     private double precioTotal;
 
-    public Factura(Cliente cliente, List<Item> items) {
+    public Factura(String id, Cliente cliente, List<Item> items) {
+        this.id = id;
         this.cliente = cliente;
         this.listaItems = items;
         this.precioTotal = calcularTotal();
@@ -44,10 +46,19 @@ public class Factura {
         this.precioTotal = precioTotal;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Factura: " +
-                "cliente=" + cliente +
+                "id: " + id +
+                ", cliente=" + cliente +
                 ", items=" + listaItems +
                 ", precioTotal=" + precioTotal;
     }
