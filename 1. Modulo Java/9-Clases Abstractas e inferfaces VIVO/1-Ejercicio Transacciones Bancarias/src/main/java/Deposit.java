@@ -1,3 +1,3 @@
-public class Deposit implements Transaction{
-    
+public interface Deposit {
+    void deposit(double amount);
 }
