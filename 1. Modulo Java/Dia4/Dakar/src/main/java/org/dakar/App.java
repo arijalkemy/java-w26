@@ -16,6 +16,7 @@ public class App {
         carrera.darDeAltaMoto(150, 15, 30, "GHI789");
         carrera.darDeAltaMoto(170, 14, 28, "JKL012");
 
+
         // Mostrar información de los vehículos en la carrera
         System.out.println("Vehículos en la carrera:");
         for (Vehiculo vehiculo : carrera.getListaVehiculos()) {
