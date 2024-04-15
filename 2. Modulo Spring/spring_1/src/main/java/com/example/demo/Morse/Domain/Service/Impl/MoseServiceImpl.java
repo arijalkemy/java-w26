@@ -16,16 +16,17 @@ public class MoseServiceImpl implements IMorseService {
     public String wordToMorse(String word) {
         String[] words = word.split(" ");
         StringBuilder sbResponse = new StringBuilder();
+        String spaceMorse = "   ";
 
         Arrays.stream(words).forEach(w -> {
             String[] letterMorse = w.split("");
             StringBuilder sbWord = new StringBuilder();
 
             Arrays.stream(letterMorse).forEach(letter -> sbWord.append(MorseAlphabet.getCodeFromLetter(letter.toUpperCase())));
-            sbResponse.append(sbWord).append(' ').append(' ').append(' ');
+            sbResponse.append(sbWord).append(spaceMorse);
         });
 
-        return sbResponse.toString();
+        return sbResponse.toString().trim();
     }
 
     @Override
@@ -41,6 +42,6 @@ public class MoseServiceImpl implements IMorseService {
             sbResponse.append(sbWord).append(' ');
         });
 
-        return sbResponse.toString();
+        return sbResponse.toString().trim();
     }
 }
