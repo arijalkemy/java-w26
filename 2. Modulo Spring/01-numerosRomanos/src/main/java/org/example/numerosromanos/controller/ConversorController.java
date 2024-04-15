@@ -20,7 +20,7 @@ public class ConversorController {
         if (num < 1 || num > 3999) {
             resultado = "No se puede convertir " + num + " en numero romano";
         } else {
-            resultado = "El decimal " + num + " en numeros romanos es " + conversorService.convertirARomano(num);
+            resultado = conversorService.convertirARomano(num);
         }
         return resultado;
     }
