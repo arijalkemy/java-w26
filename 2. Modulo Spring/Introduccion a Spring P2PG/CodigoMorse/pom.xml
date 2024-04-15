@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.miprimerproyecto</groupId>
-    <artifactId>prubasspring</artifactId>
+    <artifactId>CodigoMorse</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>prubasspring</name>
-    <description>prubasspring</description>
+    <name>CodigoMorse</name>
+    <description>CodigoMorse</description>
     <properties>
         <java.version>17</java.version>
     </properties>

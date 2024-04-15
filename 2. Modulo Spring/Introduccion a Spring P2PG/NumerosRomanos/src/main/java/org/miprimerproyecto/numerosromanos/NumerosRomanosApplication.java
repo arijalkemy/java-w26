@@ -1,13 +1,14 @@
-package org.miprimerproyecto.prubasspring;
+package org.miprimerproyecto.numerosromanos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PrubasspringApplication {
+public class NumerosRomanosApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PrubasspringApplication.class, args);
+        SpringApplication.run(NumerosRomanosApplication.class, args);
+
     }
 
 }
