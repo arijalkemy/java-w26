@@ -1,5 +1,7 @@
 package com.practica1.CodigoMorse.service;
 
 public interface ICodigoMorseService {
-    String convertirCodigoMorse(String codigoMorse);
+    String convertirATexto(String codigoMorse);
+
+    String convertirAMorse(String texto);
 }

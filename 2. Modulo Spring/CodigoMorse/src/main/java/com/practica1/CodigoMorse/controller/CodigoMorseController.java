@@ -16,8 +16,13 @@ public class CodigoMorseController {
         this.service = service;
     }
 
-    @GetMapping("/{codigoMorse}")
+    @GetMapping("/convertir-morse/{codigoMorse}")
     public String convertirCodigoMorse(@PathVariable String codigoMorse){
-        return service.convertirCodigoMorse(codigoMorse);
+        return service.convertirATexto(codigoMorse);
+    }
+
+    @GetMapping("/convertir-texto/{texto}")
+    public String convertirTexto(@PathVariable String texto){
+        return service.convertirAMorse(texto);
     }
 }
