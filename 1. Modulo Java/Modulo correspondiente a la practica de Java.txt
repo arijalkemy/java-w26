@@ -14,8 +14,8 @@ POO - P1
 
 POO - P2
 
-	ejercicio_excepciones_POO_P2 (sin cargar)
-	ejercicio_prod_perecederos_POO_P2 (sin cargar)
+	ejercicio_excepciones_POO_P2 (cargado)
+	ejercicio_prod_perecederos_POO_P2 (cargado)
 
 Clases Abstractas e interfaces
 
@@ -25,4 +25,15 @@ Clases Abstractas e interfaces
 
 Recapitulando Java
 
-	ejercicio_vehiculos_ordenamiento (sin cargar)
+	ejercicio_vehiculos_ordenamiento (cargado)
+
+Ejercicio Integradores P1
+
+	ejercicio_series_numericas (cargado)
+	ejercicio_supermercado_economico (sin cargar)
+	ejercicio_agencia_turismo (sin cargar)
+
+Ejercicio Integradores P2
+
+	ejercicio_save_the_ropa (sin cargar)
+	ejercicio_dakar (sin cargar)

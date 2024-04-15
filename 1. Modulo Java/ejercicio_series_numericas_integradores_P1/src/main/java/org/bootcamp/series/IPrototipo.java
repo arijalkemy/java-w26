@@ -2,11 +2,10 @@ package org.bootcamp.series;
 
 public interface IPrototipo <T extends Number>{
 
-    T siguiente();
+    T siguienteValor();
 
-    void reiniciar();
+    void reiniciarSerie();
 
-    void valorInicial(T valor);
+    void establecerValorInicial(T valorInicial);
 
-    void valorInicial(Number valor);
 }
