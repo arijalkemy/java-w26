@@ -1,51 +1,73 @@
 package org.example;
 
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class TouristicPackage {
-    private short hotelReservation;
-    private short food;
-    private short flightTickets;
-    private short transportation;
 
-    public TouristicPackage(short hotelReservation, short food, short flightTickets, short transportation) {
-        this.hotelReservation = hotelReservation;
-        this.food = food;
-        this.flightTickets = flightTickets;
-        this.transportation = transportation;
+    public enum ResType {
+        HOTEL,
+        FOOD,
+        FLIGHT_TICKETS,
+        TRANSPORTATION
     }
 
-    public boolean isFullPackage() {
-        return hotelReservation > 0 && food > 0 && flightTickets > 0 && transportation > 0;
+    public enum FixedPrices {
+        HOTEL(1000), FOOD(500), FLIGHT_TICKETS(900), TRANSPORTATION(600);
+        private int price;
+        FixedPrices(int price){
+            this.price = price;
+        }
+
+        public int getPrice() {
+            return price;
+        }
     }
 
-    public short getHotelReservation() {
-        return hotelReservation;
+    private final Map<ResType, String> displayName = Stream.of(
+            new AbstractMap.SimpleEntry<>(ResType.HOTEL, "Hotel"),
+                    new AbstractMap.SimpleEntry<>(ResType.FOOD, "Comida"),
+                    new AbstractMap.SimpleEntry<>(ResType.FLIGHT_TICKETS, "Boletos de viaje"),
+                    new AbstractMap.SimpleEntry<>(ResType.TRANSPORTATION, "Transporte")
+            )
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+    private ResType type;
+    private short quantity;
+    private int price;
+
+    public TouristicPackage(ResType type, short quantity, int price) {
+        this.type = type;
+        this.quantity = quantity;
+        this.price = price;
     }
 
-    public void setHotelReservation(short hotelReservation) {
-        this.hotelReservation = hotelReservation;
+    public String getDisplayName() {
+        return displayName.get(this.type);
     }
 
-    public short getFood() {
-        return food;
+    public ResType getType() {
+        return type;
     }
 
-    public void setFood(short food) {
-        this.food = food;
+    public void setType(ResType type) {
+        this.type = type;
     }
 
-    public short getFlightTickets() {
-        return flightTickets;
+    public short getQuantity() {
+        return quantity;
     }
 
-    public void setFlightTickets(short flightTickets) {
-        this.flightTickets = flightTickets;
+    public void setQuantity(short quantity) {
+        this.quantity = quantity;
     }
 
-    public short getTransportation() {
-        return transportation;
+    public int getPrice() {
+        return price;
     }
 
-    public void setTransportation(short transportation) {
-        this.transportation = transportation;
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

@@ -40,16 +40,12 @@ public class Locator {
 
     public String getTouristicPackagesDetails() {
         String detailsBody = "";
-        for (int i = 0; i < this.touristicPackages.size(); i++) {
-            TouristicPackage currTourPack = this.touristicPackages.get(i);
-            detailsBody += "- Paquete "+(i + 1)+
-                    "\t+ Transporte: " + currTourPack.getTransportation()+"\n"+
-                    "\t+ Tiquetes: " + currTourPack.getFlightTickets()+"\n"+
-                    "\t+ Comida: " + currTourPack.getFood()+"\n"+
-                    "\t+ Reservas: " + currTourPack.getHotelReservation()+"\n";
+        for (TouristicPackage aPackage : this.touristicPackages) {
+            detailsBody += aPackage.getDisplayName()+
+                    " - " + aPackage.getQuantity()+"\n";
         }
-        return "Total packages:" + touristicPackages.size() + "\n" +
-                "\t" + detailsBody;
+        return "Detalles del paquete:\n" +
+                detailsBody;
     }
 
     public void printDetails(){
