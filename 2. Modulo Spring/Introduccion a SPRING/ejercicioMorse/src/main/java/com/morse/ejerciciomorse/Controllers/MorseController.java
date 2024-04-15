@@ -1,5 +1,7 @@
 package com.morse.ejerciciomorse.Controllers;
 
+import com.morse.ejerciciomorse.services.ITranslator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,58 +14,22 @@ import java.util.Map;
 @RequestMapping("converter")
 public class MorseController {
 
-    @GetMapping("/{morse}")
-    public String morseAString(@PathVariable String morse) {
-        Map<String, String> morseMapper = new HashMap<>();
-        morseMapper.put(".-", "A");
-        morseMapper.put("-...", "B");
-        morseMapper.put("-.-.", "C");
-        morseMapper.put("-..", "D");
-        morseMapper.put(".", "E");
-        morseMapper.put("..-.", "F");
-        morseMapper.put("--.", "G");
-        morseMapper.put("....", "H");
-        morseMapper.put("..", "I");
-        morseMapper.put(".---", "J");
-        morseMapper.put("-.-", "K");
-        morseMapper.put(".-..", "L");
-        morseMapper.put("--", "M");
-        morseMapper.put("-.", "N");
-        morseMapper.put("---", "O");
-        morseMapper.put(".--.", "P");
-        morseMapper.put("--.-", "Q");
-        morseMapper.put(".-.", "R");
-        morseMapper.put("...", "S");
-        morseMapper.put("-", "T");
-        morseMapper.put("..-", "U");
-        morseMapper.put("...-", "V");
-        morseMapper.put(".--", "W");
-        morseMapper.put("-..-", "X");
-        morseMapper.put("-.--", "Y");
-        morseMapper.put("--..", "Z");
-        morseMapper.put(".----", "1");
-        morseMapper.put("..---", "2");
-        morseMapper.put("...--", "3");
-        morseMapper.put("....-", "4");
-        morseMapper.put(".....", "5");
-        morseMapper.put("-....", "6");
-        morseMapper.put("--...", "7");
-        morseMapper.put("---..", "8");
-        morseMapper.put("----.", "9");
-        morseMapper.put("-----", "0");
-        morseMapper.put("..--..", "?");
-        morseMapper.put("-.-.--", "!");
-        morseMapper.put(".-.-.-", ".");
-        morseMapper.put("--..--", ",");
+    @Autowired
+    ITranslator translatorService;
 
+    @GetMapping("/morse/{codigoMorse}")
+    public String morseAString(@PathVariable String codigoMorse) {
 
-        StringBuilder resultado = new StringBuilder();
-        String [] palabras = morse.split(" ");
-        for (String palabra : palabras){
-            String string = morseMapper.getOrDefault(palabra, " ");
-            resultado.append(string);
-        }
+        String resultado = translatorService.translateToEspa(codigoMorse);
 
-        return resultado.toString();
+        return resultado;
+    }
+
+    @GetMapping("/espa/{palabras}")
+    public String espaAMorse(@PathVariable String palabras) {
+
+        String resultado = translatorService.translateToMorse(palabras);
+
+        return resultado;
     }
 }
