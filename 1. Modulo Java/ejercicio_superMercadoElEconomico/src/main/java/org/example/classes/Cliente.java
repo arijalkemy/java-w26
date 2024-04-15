@@ -1,14 +1,24 @@
 package org.example.classes;
 
 public class Cliente {
+    private int id;
     private int dni;
     private String nombre;
     private  String apellido;
 
-    public Cliente(int dni, String nombre, String apellido) {
+    public Cliente(int id, int dni, String nombre, String apellido) {
+        this.id = id;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getDni() {

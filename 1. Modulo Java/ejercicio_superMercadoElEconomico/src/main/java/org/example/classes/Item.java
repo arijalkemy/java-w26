@@ -44,4 +44,13 @@ public class Item {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return "{" + " codigo: " + codigo +
+                ", nombre: '" + nombre +
+                ", precio: " + precio +
+                ", cantidadComprada: " + cantidadComprada +
+                '}';
+    }
 }

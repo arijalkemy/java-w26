@@ -1,6 +1,9 @@
 package org.example;
 
 import org.example.classes.Cliente;
+import org.example.classes.Factura;
+import org.example.classes.FacturaRepository;
+import org.example.classes.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +14,9 @@ public class App
     public static void main( String[] args )
     {
         // Se crean los clientes y se guardan a la colección
-        Cliente cliente1 = new Cliente(12345678, "Lionel", "Messi");
-        Cliente cliente2 = new Cliente(12345677, "Guillermo", "Francella");
-        Cliente cliente3 = new Cliente(12345679, "Hernan", "Rodriguez");
+        Cliente cliente1 = new Cliente(0, 12345678, "Lionel", "Messi");
+        Cliente cliente2 = new Cliente(1, 12345677, "Guillermo", "Francella");
+        Cliente cliente3 = new Cliente(2, 12345679, "Hernan", "Rodriguez");
 
         List<Cliente> clientes = new ArrayList<Cliente>();
         clientes.add(cliente1);
@@ -52,5 +55,21 @@ public class App
         } else {
             System.out.println(resultado.get(0).toString());
         }
+
+        System.out.println("\n---------- Parte II ----------");
+        List<Item> items = new ArrayList<Item>();
+        Item item1 = new Item("123ABC", "Jabon en polvo", 12.5F, 3);
+        Item item2 = new Item("124ABD", "Pan", 3.25F, 2);
+        Item item3 = new Item("284MDS", "Coca Cola", 6.5F, 1);
+        items.add(item1);
+        items.add(item2);
+        items.add(item3);
+
+        Factura factura = new Factura(0, cliente1, items);
+        FacturaRepository facturaRepository = new FacturaRepository();
+        facturaRepository.add(factura);
+
+        System.out.println("Factura creada: " + factura.toString());
+
     }
 }

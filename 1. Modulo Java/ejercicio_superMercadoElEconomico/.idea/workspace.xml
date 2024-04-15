@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd611c09-111a-4c10-a719-6bc09f3566f5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ejercicio_distribuidoraDeProductos/ejercicio_distribuidoraDeProductos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_practicaExcepciones/ejercicio_practicaExcepciones.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ejercicio_transaccionesBancarias/ejercicio_transaccionesBancarias.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Factura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Factura.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Item.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/description.html" beforeDir="false" />
@@ -57,6 +67,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -82,7 +93,8 @@
     "last_opened_file_path": "/Users/lelastra/Documents/Bootcamp/java-w26/1. Modulo Java/ejercicio_superMercadoElEconomico",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -94,11 +106,16 @@
       <option name="presentableId" value="Default" />
       <updated>1712945928268</updated>
       <workItem from="1712945929425" duration="4500000" />
-      <workItem from="1713045173841" duration="653000" />
+      <workItem from="1713045173841" duration="802000" />
+      <workItem from="1713131142803" duration="4033000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
