@@ -1,4 +1,4 @@
-package org.example.ejercicio1;
+package org.example.savetheropa;
 
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package org.example.ejercicio2;
+package org.example.dakar;
 
 public class Moto extends Vehiculo {
 
