@@ -1,30 +1,25 @@
 package org.example;
 
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Localizador {
-    private UUID id;
-    private Cliente client;
+    private Cliente cliente;
     private double total;
-    private Reserva reserva;
+    private List<String> detalles;
 
-    public Localizador(Cliente client, double total, Reserva reserva) {
-        this.id = UUID.randomUUID();
-        this.client = client;
-        this.total = total;
-        this.reserva = reserva;
+    public Localizador(Cliente cliente) {
+        this.cliente = cliente;
+        this.total = 0.0d;
+        this.detalles = new ArrayList<String>();
     }
 
-    public UUID getId() {
-        return id;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public Cliente getClient() {
-        return client;
-    }
-
-    public void setClient(Cliente client) {
-        this.client = client;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public double getTotal() {
@@ -35,11 +30,11 @@ public class Localizador {
         this.total = total;
     }
 
-    public Reserva getReserva() {
-        return reserva;
+    public List<String> getDetalles() {
+        return detalles;
     }
 
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setDetalles(List<String> detalles) {
+        this.detalles = detalles;
     }
 }

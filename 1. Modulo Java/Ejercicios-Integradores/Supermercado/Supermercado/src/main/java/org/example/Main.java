@@ -35,6 +35,7 @@ public class Main {
 
         Factura factura = Caja.crearFactura(clientes.get(1), listA, clientes);
         System.out.println("Factura" + factura.getCliente().getNombre() + " - Costo: " + Caja.calcularCosto(factura));
+
     }
 
     public static void solicitarDni(List<Cliente> clientes){
