@@ -21,20 +21,20 @@ import java.util.Map;
 public class Decode {
     JsonElement root = new JsonParser().parse(new FileReader("src/main/resources/static/Morse.json"));
     JsonObject obj = root.getAsJsonObject();
-    Gson gson = new Gson();
+    String[] morseCodes = obj.keySet().toArray(new String[0]);
 
     public Decode() throws FileNotFoundException {
     }
 
-    @GetMapping("/{morse}")
+    @GetMapping("/decode/{morse}")
     public String decodeMorse(@PathVariable String morse) {
         String[] words = morse.split(" {3}");
         StringBuilder translation = new StringBuilder();
         Map<String, JsonElement> morseMap = obj.asMap();
-        for(String word : words){
+        for (String word : words) {
             String[] letters = word.split(" ");
 
-            for(String letter : letters){
+            for (String letter : letters) {
                 if (!morseMap.containsKey(letter)) {
                     translation.append("?");
                     continue;
@@ -44,6 +44,32 @@ public class Decode {
             }
 
             translation.append(" ");
+        }
+        return translation.toString();
+    }
+
+    @GetMapping("/encode/{phrase}")
+    public String encodeMorse(@PathVariable String phrase) {
+        phrase = phrase.toUpperCase();
+        String[] wordList = phrase.split(" ");
+        StringBuilder translation = new StringBuilder();
+        Map<String, String> morseMap = new HashMap<>();
+        obj.entrySet().forEach(entry -> {
+            morseMap.put(entry.getValue().getAsString(), entry.getKey());
+        });
+
+        for (String word : wordList) {
+            String[] letterList = word.split("");
+
+            for (String letter : letterList) {
+                if (morseMap.containsKey(letter)) {
+                    String aLetter = morseMap.get(letter);
+                    translation.append(aLetter);
+                    translation.append(" ");
+                }
+            }
+
+            translation.append("   ");
         }
         return translation.toString();
     }
