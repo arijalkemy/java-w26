@@ -15,9 +15,14 @@ public class MorseController {
     this.morseService = morseService;
   }
 
-  @GetMapping("/morse/{morseCode}")
+  @GetMapping("morse/{morseCode}")
   public String translateToText(@PathVariable String morseCode) {
-    return MorseService.translateToText(morseCode);
+    return morseService.morseToText(morseCode);
+  }
+
+  @GetMapping("/text/{text}")
+  public String translateToMorse(@PathVariable String text) {
+    return morseService.textToMorse(text);
   }
 
 }

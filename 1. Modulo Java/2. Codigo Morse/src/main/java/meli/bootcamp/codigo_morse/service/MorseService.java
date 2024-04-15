@@ -1,69 +1,54 @@
 package meli.bootcamp.codigo_morse.service;
 
-import java.util.HashMap;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MorseService {
 
-  private static final HashMap<String, Character> morseCodeMap = new HashMap<>();
+  char[] letter = {'a', 'b', 'c', 'd', 'e', 'f',
+      'g', 'h', 'i', 'j', 'k', 'l',
+      'm', 'n', 'o', 'p', 'q', 'r',
+      's', 't', 'u', 'v', 'w', 'x',
+      'y', 'z', '1', '2', '3', '4',
+      '5', '6', '7', '8', '9', '0'};
 
-  static {
-    morseCodeMap.put(".-", 'A');
-    morseCodeMap.put("-...", 'B');
-    morseCodeMap.put("-.-.", 'C');
-    morseCodeMap.put("-..", 'D');
-    morseCodeMap.put(".", 'E');
-    morseCodeMap.put("..-.", 'F');
-    morseCodeMap.put("--.", 'G');
-    morseCodeMap.put("....", 'H');
-    morseCodeMap.put("..", 'I');
-    morseCodeMap.put(".---", 'J');
-    morseCodeMap.put("-.-", 'K');
-    morseCodeMap.put(".-..", 'L');
-    morseCodeMap.put("--", 'M');
-    morseCodeMap.put("-.", 'N');
-    morseCodeMap.put("---", 'O');
-    morseCodeMap.put(".--.", 'P');
-    morseCodeMap.put("--.-", 'Q');
-    morseCodeMap.put(".-.", 'R');
-    morseCodeMap.put("...", 'S');
-    morseCodeMap.put("-", 'T');
-    morseCodeMap.put("..-", 'U');
-    morseCodeMap.put("...-", 'V');
-    morseCodeMap.put(".--", 'W');
-    morseCodeMap.put("-..-", 'X');
-    morseCodeMap.put("-.--", 'Y');
-    morseCodeMap.put("--..", 'Z');
-    morseCodeMap.put("-----", '0');
-    morseCodeMap.put(".----", '1');
-    morseCodeMap.put("..---", '2');
-    morseCodeMap.put("...--", '3');
-    morseCodeMap.put("....-", '4');
-    morseCodeMap.put(".....", '5');
-    morseCodeMap.put("-....", '6');
-    morseCodeMap.put("--...", '7');
-    morseCodeMap.put("---..", '8');
-    morseCodeMap.put("----.", '9');
-  }
+  String[] code
+      = {".-", "-...", "-.-.", "-..", ".",
+      "..-.", "--.", "....", "..", ".---",
+      "-.-", ".-..", "--", "-.", "---",
+      ".--.", "--.-", ".-.", "...", "-",
+      "..-", "...-", ".--", "-..-", "-.--",
+      "--..", "|"};
 
-  public static String translateToText(String morseCode) {
+  public String morseToText(String morseCode) {
+    String[] array = morseCode.split(" ");
     StringBuilder result = new StringBuilder();
-    String[] words = morseCode.split(" {3}");
 
-    for (String word : words) {
-      String[] letters = word.split(" ");
-      for (String letter : letters) {
-        if (morseCodeMap.containsKey(letter)) {
-          result.append(morseCodeMap.get(letter));
-        } else {
-          result.append('?'); // handle unknown characters
+    for (String s : array) {
+      for (int j = 0; j < code.length; j++) {
+        if (s.compareTo(code[j]) == 0) {
+          result.append(letter[j]);
+          break;
         }
       }
-      result.append(' ');
     }
 
-    return result.toString().trim();
+    return result.toString();
+  }
+
+  public String textToMorse(String text) {
+    StringBuilder result = new StringBuilder();
+
+    for (int i = 0; i < text.length(); i++) {
+      for (int j = 0; j < letter.length; j++) {
+        if (text.toLowerCase().charAt(i) == letter[j]) {
+          result.append(code[j]).append(" ");
+          break;
+        }
+      }
+    }
+
+    return result.toString();
   }
 
 }
