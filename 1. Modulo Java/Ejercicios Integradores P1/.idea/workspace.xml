@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0a7ff7d-0810-41d1-ac4c-633d3c37b742" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/model/Agencia.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/model/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/model/Localizador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/model/Producto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/model/Reserva.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/repository/Repositorio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/repository/RepositorioCliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Agencia de turismo/src/main/java/org/example/repository/RepositorioLocalizador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Factura.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/src/main/java/org/example/savetheropa/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/src/main/java/org/example/savetheropa/modelo/GuardaRopa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/src/main/java/org/example/savetheropa/modelo/Prenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SaveTheRopa/src/test/java/org/example/savetheropa/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Series Numericas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Series Numericas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Series Numericas/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Series Numericas/target/classes/org/example/App.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f0DLrVL3BRiy7b1gm6XznnieUx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/frmoises/Documents/java-w26/1. Modulo Java/Ejercicios Integradores P1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0a7ff7d-0810-41d1-ac4c-633d3c37b742" name="Changes" comment="" />
+      <created>1712929050113</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712929050113</updated>
+      <workItem from="1712929051212" duration="3931000" />
+      <workItem from="1712945509344" duration="3961000" />
+      <workItem from="1712954571744" duration="1286000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
