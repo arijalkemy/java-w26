@@ -1,15 +1,16 @@
-package com.miprimerproyecto.prueba.servicios;
+package com.miprimerproyecto.prueba.servicios.implementaciones;
 
+import com.miprimerproyecto.prueba.servicios.ITraducible;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class MorseServiceImpl implements IMorse{
-    @Override
-    public String obtenerResultadoEnEspanol(String morse) {
-        Map<String, Character> morseAbecedario = new HashMap<>();
+public class TraduccionServiceImpl implements ITraducible {
+
+    private static final Map<String, Character> morseAbecedario = new HashMap<String, Character>();
+    static {
         morseAbecedario.put(".-", 'A');
         morseAbecedario.put("-...", 'B');
         morseAbecedario.put("-.-.", 'C');
@@ -40,6 +41,10 @@ public class MorseServiceImpl implements IMorse{
         morseAbecedario.put(".-.-.-", ',');
         morseAbecedario.put("-.-.--", '!');
         morseAbecedario.put("--..--", ',');
+    }
+
+    @Override
+    public String obtenerResultadoDeTraduccionAEspanol(String morse) {
 
         String[] palabras = morse.split("   ");
         StringBuilder mensajeDecodificado = new StringBuilder();
@@ -59,5 +64,27 @@ public class MorseServiceImpl implements IMorse{
         }
 
         return mensajeDecodificado.toString();
+    }
+
+    @Override
+    public String obtenerResultadoDeTraduccionAMorse(String espanol) {
+
+        StringBuilder morse = new StringBuilder();
+        for (char caracter : espanol.toUpperCase().toCharArray()) {
+            String codigoMorse = obtenerCodigoMorse(caracter);
+            if (!codigoMorse.isEmpty()) {
+                morse.append(codigoMorse).append(" ");
+            }else
+                morse.append(codigoMorse).append("  ");
+        }
+        return morse.toString().trim();
+    }
+    public static String obtenerCodigoMorse(char caracter) {
+        for (Map.Entry<String, Character> entry : morseAbecedario.entrySet()) {
+            if (entry.getValue() == caracter) {
+                return entry.getKey();
+            }
+        }
+        return "";
     }
 }

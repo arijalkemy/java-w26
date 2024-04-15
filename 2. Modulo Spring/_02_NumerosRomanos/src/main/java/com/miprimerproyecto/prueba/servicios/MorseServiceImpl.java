@@ -29,6 +29,9 @@ public class MorseServiceImpl implements IRomano {
         decimalARomano.put(900, "CM");
         decimalARomano.put(1000, "M");
 
+        if(decimal>3999)
+            return "(No se puede un numero mayor a 3999)";
+
         StringBuilder romano = new StringBuilder();
         int[] valores = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
         for (int valor : valores) {
