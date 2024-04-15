@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd611c09-111a-4c10-a719-6bc09f3566f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../ejercicio_distribuidoraDeProductos/ejercicio_distribuidoraDeProductos.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ejercicio_practicaExcepciones/ejercicio_practicaExcepciones.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ejercicio_transaccionesBancarias/ejercicio_transaccionesBancarias.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Factura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/classes/FacturaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/classes/FacturaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Cliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/Factura.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Factura.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/classes/FacturaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/classes/FacturaRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/description.html" beforeDir="false" />
@@ -79,7 +72,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2f0lYqJLxTJqVgrE5mnNAWf4Q74" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -107,12 +102,23 @@
       <updated>1712945928268</updated>
       <workItem from="1712945929425" duration="4500000" />
       <workItem from="1713045173841" duration="802000" />
-      <workItem from="1713131142803" duration="4033000" />
+      <workItem from="1713131142803" duration="5329000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/classes/ClienteRepository.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

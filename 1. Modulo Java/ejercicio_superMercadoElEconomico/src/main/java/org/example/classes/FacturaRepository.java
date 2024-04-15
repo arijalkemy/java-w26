@@ -26,7 +26,7 @@ public class FacturaRepository implements IRepository<Factura> {
         try {
             facturaList.add(object);
         } catch(Exception ex) {
-            System.out.println("Ocurrió un error al añadir al cliente al listado.");
+            System.out.println("Ocurrió un error al añadir la Factura al listado.");
         }
     }
 
@@ -52,12 +52,12 @@ public class FacturaRepository implements IRepository<Factura> {
             if (factura.getId() == id) {
                 int indice = facturaList.indexOf(factura);
                 facturaList.set(indice, object);
-                System.out.println("Cliente modificado exitosamente.");
+                System.out.println("Factura modificada exitosamente.");
                 return;
             };
         });
 
-        System.out.println("No se encontró el Cliente con el id: " + id);
+        System.out.println("No se encontró la factura con el id: " + id);
     }
 
     @Override
@@ -69,9 +69,9 @@ public class FacturaRepository implements IRepository<Factura> {
 
         if (resultado.isPresent()) {
             facturaList.remove(resultado);
-            System.out.println("Cliente eliminado exitosamente");
+            System.out.println("Factura eliminada exitosamente");
         } else {
-            System.out.println("No se encontró el Cliente con el id: " + id);
+            System.out.println("No se encontró la Factura con el id: " + id);
         }
     }
 }

@@ -1,9 +1,6 @@
 package org.example;
 
-import org.example.classes.Cliente;
-import org.example.classes.Factura;
-import org.example.classes.FacturaRepository;
-import org.example.classes.Item;
+import org.example.classes.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +15,18 @@ public class App
         Cliente cliente2 = new Cliente(1, 12345677, "Guillermo", "Francella");
         Cliente cliente3 = new Cliente(2, 12345679, "Hernan", "Rodriguez");
 
-        List<Cliente> clientes = new ArrayList<Cliente>();
-        clientes.add(cliente1);
-        clientes.add(cliente2);
-        clientes.add(cliente3);
+        ClienteRepository clienteRepository = new ClienteRepository();
+        clienteRepository.add(cliente1);
+        clienteRepository.add(cliente2);
+        clienteRepository.add(cliente3);
 
         System.out.println("---------- Datos de los clientes ----------");
-        clientes.forEach(System.out::println);
+        clienteRepository.getAll().forEach(System.out::println);
 
         System.out.println("Ingrese el Dni del cliente que desea borrar: ");
         Scanner scn = new Scanner(System.in);
         String dniInputDelete = scn.next().trim();
-        List<Cliente> resultadoDelete = clientes
+        List<Cliente> resultadoDelete = clienteRepository.getAll()
                 .stream()
                 .filter(cliente -> cliente.getDni() == Integer.valueOf(dniInputDelete))
                 .toList();
@@ -37,15 +34,14 @@ public class App
         if (resultadoDelete.size() == 0) {
             System.out.println("No se encontraron resultados para el Dni ingresado.");
         } else {
-            clientes.remove(resultadoDelete.get(0));
-            System.out.println("Cliente borrado exitosamente.");
+            clienteRepository.delete(resultadoDelete.get(0).getId());
         }
 
-        clientes.forEach(System.out::println);
+        clienteRepository.getAll().forEach(System.out::println);
 
         System.out.println("\nIngrese el Dni del cliente: ");
         String dniInput = scn.next().trim();
-        List<Cliente> resultado = clientes
+        List<Cliente> resultado = clienteRepository.getAll()
                 .stream()
                 .filter(cliente -> cliente.getDni() == Integer.valueOf(dniInput))
                 .toList();
