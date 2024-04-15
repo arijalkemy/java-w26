@@ -1,13 +1,12 @@
 package com.practica1.numerosRomanos.service;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Service
-public class NumerosRomanosService {
+public class NumerosRomanosServiceImpl implements INumerosRomanosService {
     private static final Map<Integer, String> numerosRomanos = new LinkedHashMap<>();
 
     static {
