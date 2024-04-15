@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class NumerosRomanosController {
 
-    private INumerosRomanosService service;
+    private final INumerosRomanosService service;
 
     @Autowired
     public NumerosRomanosController(INumerosRomanosService service) {
