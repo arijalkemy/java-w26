@@ -18,6 +18,8 @@ public class Factura {
         this.total = total;
     }
 
+
+
     public Long getCodigo() {
         return codigo;
     }
@@ -48,5 +50,15 @@ public class Factura {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "codigo=" + codigo +
+                ", cliente=" + cliente +
+                ", listaIteam=" + listaIteam +
+                ", total=" + total +
+                '}';
     }
 }

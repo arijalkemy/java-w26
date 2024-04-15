@@ -1,6 +1,10 @@
 package org.example;
 
 import org.example.model.Cliente;
+import org.example.model.Factura;
+import org.example.model.Iteam;
+import org.example.repository.ClienteImp;
+import org.example.repository.FacturaImp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,49 +18,41 @@ public class App
 {
     public static void main( String[] args )
     {
+        ClienteImp clienteImp = new ClienteImp();
+        FacturaImp facturaImp = new FacturaImp();
+
         Cliente cliente1 = new Cliente(12345L, "pedro1", "arriaga1");
         Cliente cliente2 = new Cliente(123456L, "pedro2", "arriaga2");
         Cliente cliente3 = new Cliente(1234567L, "pedro3", "arriaga3");
 
-        List<Cliente> listaClientes = new ArrayList<>();
-        listaClientes.add(cliente1);
-        listaClientes.add(cliente2);
-        listaClientes.add(cliente3);
+        Iteam iteam1 = new Iteam(12345L, "iteam", 1, 12.2);
+        List<Iteam> iteams = new ArrayList<>();
+        iteams.add(iteam1);
 
-        for (Cliente cliente : listaClientes) {
-            System.out.println("----------------------------");
-            System.out.println("Dni: " + cliente.getDni());
-            System.out.println("nombre: " + cliente.getNombre());
-            System.out.println("apellido: " + cliente.getApellido());
-        }
+        Factura factura1 = new Factura(12345L, cliente1,iteams, 12.1);
+
+
+
+        //añadir
+        clienteImp.save(cliente1);
+        facturaImp.save(factura1);
+
+        //mostrar
+        clienteImp.mostrarPantalla();
+        facturaImp.mostrarPantalla();
 
         Scanner teclado = new Scanner(System.in);
-        System.out.println("ingresa el dni para borrar: ");
-        int dniPorBorrar = Integer.parseInt(teclado.nextLine());
-
-        for (Cliente cliente : listaClientes) {
-            if (cliente.getDni() == dniPorBorrar) {
-                listaClientes.remove(cliente);
-                System.out.println("cliente removido");
-                break;
-            }else {
-                System.out.println("cliente no encontrado");
-            }
-        }
-
         System.out.println("ingresa el dni para buscar: ");
-        int dniBuscar = Integer.parseInt(teclado.nextLine());
+        Long dniBuscar = teclado.nextLong();
+        clienteImp.buscar(dniBuscar);
+        facturaImp.buscar(dniBuscar);
 
-        for (Cliente cliente : listaClientes) {
-            if (cliente.getDni() == dniBuscar) {
-                System.out.println("cliente encontrado");
-                System.out.println("Dni: " + cliente.getDni());
-                System.out.println("nombre: " + cliente.getNombre());
-                System.out.println("apellido: " + cliente.getApellido());
-                break;
-            }else {
-                System.out.println("cliente no encontrado");
-            }
-        }
+
+        System.out.println("ingresa el dni para borrar: ");
+        Long dniPorBorrar = teclado.nextLong();
+
+
+        clienteImp.eliminar(dniPorBorrar);
+        facturaImp.eliminar(dniPorBorrar);
     }
 }

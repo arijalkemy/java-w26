@@ -47,4 +47,14 @@ public class Iteam {
     public void setCostoUnitario(double costoUnitario) {
         this.costoUnitario = costoUnitario;
     }
+
+    @Override
+    public String toString() {
+        return "Iteam{" +
+                "codigo=" + codigo +
+                ", nombre='" + nombre + '\'' +
+                ", catidad=" + catidad +
+                ", costoUnitario=" + costoUnitario +
+                '}';
+    }
 }
