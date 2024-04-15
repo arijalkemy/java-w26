@@ -15,7 +15,14 @@ public class CodigoMorseController {
     @GetMapping("/{codigo}")
     public String decodeMorse(@PathVariable String codigo)
     {
-        return codigoMorseService.decodeCodigoMorse(codigo);
+        return codigoMorseService.decodificarCodigoMorse(codigo);
+    }
+
+    @GetMapping("/codificar/{mensaje}")
+
+    public String codificar(@PathVariable String mensaje)
+    {
+        return codigoMorseService.codificarCodigoMorse(mensaje);
     }
 
 

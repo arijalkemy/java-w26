@@ -1,5 +1,6 @@
 package com.codigoMorse.codigoMorse.service;
 
 public interface ICodigoMorseService {
-    public String decodeCodigoMorse(String code);
+    public String decodificarCodigoMorse(String code);
+    public String codificarCodigoMorse(String mensaje);
 }
