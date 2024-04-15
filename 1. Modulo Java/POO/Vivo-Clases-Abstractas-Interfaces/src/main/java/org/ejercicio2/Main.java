@@ -19,6 +19,10 @@ public class Main {
         LibrosEnPDFImpl libroPdf = new LibrosEnPDFImpl(libro);
         libroPdf.imprimir();
 
+        Informes informe = new Informes("Jorge", 55, "ASDJASDLSAKJDLASKDJLASDJ ASLKDJLASKDJASL ASKDJLASJDSLAKDJ ALSDKASJD");
+        Informesimpl informePDF = new Informesimpl(informe);
+        informePDF.imprimir();
+
 
     }
 
