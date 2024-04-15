@@ -8,6 +8,46 @@ public class Carrera {
     private String nombre;
     private int cantidadDeVehiculosPermitidos;
     private List<Vehiculo> listaDeVehiculos;
+    private SocorristaAuto socorristaAuto;
+    private SocorristaMoto socorristaMoto;
+
+    public Carrera(double distancia, double premioEnDolares, String nombre, int cantidadDeVehiculosPermitidos, List<Vehiculo> listaDeVehiculos) {
+        this.distancia = distancia;
+        this.premioEnDolares = premioEnDolares;
+        this.nombre = nombre;
+        this.cantidadDeVehiculosPermitidos = cantidadDeVehiculosPermitidos;
+        this.listaDeVehiculos = listaDeVehiculos;
+        this.socorristaAuto = new SocorristaAuto();
+        this.socorristaMoto = new SocorristaMoto();
+    }
+
+    public Carrera(double distancia, double premioEnDolares, String nombre, int cantidadDeVehiculosPermitidos) {
+        this.distancia = distancia;
+        this.premioEnDolares = premioEnDolares;
+        this.nombre = nombre;
+        this.cantidadDeVehiculosPermitidos = cantidadDeVehiculosPermitidos;
+        this.listaDeVehiculos = new ArrayList<Vehiculo>();
+        this.socorristaAuto = new SocorristaAuto();
+        this.socorristaMoto = new SocorristaMoto();
+    }
+
+    private Vehiculo buscarVehiculo(String patente){
+        return this.listaDeVehiculos.stream().filter(x -> x.getPatente() == patente).findFirst().orElse(null);
+    }
+
+    public void socorrerAuto(String patente){
+        Auto resultado = (Auto) this.buscarVehiculo(patente);
+        if (resultado != null){
+            socorristaAuto.socorrer(resultado);
+        }
+    }
+
+    public void socorrerMoto(String patente){
+        Moto resultado = (Moto) this.buscarVehiculo(patente);
+        if (resultado != null){
+            socorristaMoto.socorrer(resultado);
+        }
+    }
 
     public Optional<Vehiculo> definirGanador(){
         return this.listaDeVehiculos.stream().max(Comparator.comparing(Vehiculo::getPuntaje));
@@ -17,7 +57,7 @@ public class Carrera {
         return this.cantidadDeVehiculosPermitidos < this.listaDeVehiculos.size();
     }
 
-    public void eliminarVehiculo(Vehiculo vehículo){
+    private void eliminarVehiculo(Vehiculo vehículo){
         this.listaDeVehiculos.remove(vehículo);
     };
 
