@@ -3,16 +3,18 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>Ejercicios_Integradores_Java</artifactId>
+  <artifactId>Supermercado_El_Economico_Integrador</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Ejercicios_Integradores_Java</name>
+  <name>Supermercado_El_Economico_Integrador</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <dependencies>
 
+  </dependencies>
 </project>

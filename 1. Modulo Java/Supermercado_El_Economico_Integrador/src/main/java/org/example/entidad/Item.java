@@ -1,23 +1,27 @@
-package org.example;
+package org.example.entidad;
 
-public class Producto {
-   private String codigo;
+public class Item {
+    private Long codigo;
    private String nombre;
-   private Integer cantidad;
+   private int cantidadComprada;
    private Double costoUnitario;
 
-    public Producto(String codigo, String nombre, Integer cantidad, Double costoUnitario) {
+    public Item(Long codigo, int cantidadComprada, String nombre, Double costoUnitario) {
         this.codigo = codigo;
+        this.cantidadComprada = cantidadComprada;
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.costoUnitario = costoUnitario;
     }
 
-    public String getCodigo() {
+    public Double calcularCantidadTotal(){
+        return costoUnitario * cantidadComprada;
+    }
+
+    public Long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Long codigo) {
         this.codigo = codigo;
     }
 
@@ -29,12 +33,12 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public Integer getCantidad() {
-        return cantidad;
+    public int getCantidadComprada() {
+        return cantidadComprada;
     }
 
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidadComprada(int cantidadComprada) {
+        this.cantidadComprada = cantidadComprada;
     }
 
     public Double getCostoUnitario() {
@@ -47,10 +51,10 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
-                "codigo='" + codigo + '\'' +
+        return "Item{" +
+                "codigo=" + codigo +
                 ", nombre='" + nombre + '\'' +
-                ", cantidad=" + cantidad +
+                ", cantidadComprada=" + cantidadComprada +
                 ", costoUnitario=" + costoUnitario +
                 '}';
     }
