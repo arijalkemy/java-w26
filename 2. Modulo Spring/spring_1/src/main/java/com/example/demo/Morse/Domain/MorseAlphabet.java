@@ -58,13 +58,13 @@ public enum MorseAlphabet {
                 return e.getLetter();
             }
         }
-        return " ";
+        return "";
     }
 
     public static String getCodeFromLetter(String letter) {
         for (MorseAlphabet e : MorseAlphabet.values()) {
             if (e.getLetter().equals(letter)) {
-                return e.getCode();
+                return e.getCode().concat(" ");
             }
         }
         return "";

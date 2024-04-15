@@ -17,14 +17,12 @@ public class MoseServiceImpl implements IMorseService {
         String[] words = word.split(" ");
         StringBuilder sbResponse = new StringBuilder();
 
-
         Arrays.stream(words).forEach(w -> {
             String[] letterMorse = w.split("");
             StringBuilder sbWord = new StringBuilder();
 
             Arrays.stream(letterMorse).forEach(letter -> sbWord.append(MorseAlphabet.getCodeFromLetter(letter.toUpperCase())));
-
-            sbResponse.append(sbWord).append("   ");
+            sbResponse.append(sbWord).append(' ').append(' ').append(' ');
         });
 
         return sbResponse.toString();
