@@ -2,21 +2,20 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class Aeropuerto {
     String nombre;
     String ciudad;
-    HashMap<String, List<Tramo>> vuelosOrigen;
-    HashMap<String, List<Tramo>> vuelosDestino;
+    List<Tramo> vuelosOrigen;
+    List<Tramo> vuelosDestino;
 
 
     public Aeropuerto(String nombre, String ciudad) {
         this.nombre = nombre;
         this.ciudad = ciudad;
-        vuelosOrigen = new HashMap<>();
-        vuelosDestino = new HashMap<>();
+        vuelosOrigen = new ArrayList<>();
+        vuelosDestino = new ArrayList<>();
 
     }
 
@@ -36,46 +35,21 @@ public class Aeropuerto {
         this.ciudad = ciudad;
     }
 
-    public void agregarVuelosOrigen( String fecha, Tramo ... vuelos){
-        List<Tramo> vuelosOrigen = this.vuelosOrigen.get(fecha);
-        if( vuelosOrigen == null ){
-            this.vuelosOrigen.put( fecha, Arrays.stream(vuelos).toList());
-        }else{
-            vuelosOrigen.addAll(
-                    Arrays.stream(vuelos).toList()
-            );
-            this.vuelosOrigen.put(fecha, vuelosOrigen);
-        }
+    public void agregarVuelosOrigen(Tramo ... vuelos){
+        vuelosOrigen.addAll( Arrays.stream(vuelos).toList() );
     }
 
-    public void agregarVuelosDestino( String fecha, Tramo ... vuelos){
-        List<Tramo> vuelosDestino = this.vuelosDestino.get(fecha);
-        if( vuelosDestino == null ){
-            this.vuelosDestino.put( fecha, Arrays.stream(vuelos).toList());
-        }else{
-            vuelosDestino.addAll(
-                    Arrays.stream(vuelos).toList()
-            );
-            this.vuelosDestino.put(fecha, vuelosDestino);
-        }
+    public void agregarVuelosDestino( Tramo ... vuelos){
+        vuelosDestino.addAll( Arrays.stream(vuelos).toList() );
     }
 
-    public int cantidadVuelosOrigen(String fecha){
-        List<Tramo> vuelos = vuelosOrigen.get(fecha);
-        if( vuelos == null ){
-            System.out.println("No se encontraron vuelos en el día");
-            return 0;
-        }
-        return vuelos.size();
+    public int cantidadVuelosOrigen( int dia, int mes){
+
+        return (int) vuelosOrigen.stream().filter(x -> x.getDia() == dia && x.getMes() == mes ).count();
     }
 
-    public int cantidadVuelosDestino(String fecha){
-        List<Tramo> vuelos = vuelosDestino.get(fecha);
-        if( vuelos == null ){
-            System.out.println("No se encontraron vuelos en el día");
-            return 0;
-        }
-        return vuelos.size();
+    public int cantidadVuelosDestino(int dia, int mes){
+        return (int) vuelosDestino.stream().filter(x -> x.getDia() == dia && x.getMes() == mes ).count();
     }
 
     @Override

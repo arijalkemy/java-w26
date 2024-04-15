@@ -5,12 +5,17 @@ public class Tramo {
     Aeropuerto aeropuertoOrigen;
     Aeropuerto getAeropuertoDestino;
     double duracion;
+    int dia;
+    int mes;
 
-    public Tramo(boolean esEscala, Aeropuerto aeropuertoOrigen, Aeropuerto getAeropuertoDestino, double duracion) {
+    public Tramo(boolean esEscala, Aeropuerto aeropuertoOrigen, Aeropuerto getAeropuertoDestino, double duracion, int dia, int mes) {
         this.esEscala = esEscala;
         this.aeropuertoOrigen = aeropuertoOrigen;
         this.getAeropuertoDestino = getAeropuertoDestino;
         this.duracion = duracion;
+        this.dia = dia;
+        this.mes = mes;
+
     }
 
     public boolean isEsEscala() {
@@ -43,5 +48,21 @@ public class Tramo {
 
     public void setDuracion(double duracion) {
         this.duracion = duracion;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
     }
 }

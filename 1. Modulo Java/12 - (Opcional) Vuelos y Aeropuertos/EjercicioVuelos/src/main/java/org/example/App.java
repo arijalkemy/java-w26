@@ -21,17 +21,17 @@ public class App
         Aeropuerto aeropuertoLM = new Aeropuerto("ASF", "Lima");
         Aeropuerto aeropuertoPR = new Aeropuerto("DFG", "Porto");
 
-        Tramo BsaLima = new Tramo(true, aeropuertoBSAS,aeropuertoLM,3.0);
-        Tramo LimaMD = new Tramo(false, aeropuertoLM,aeropuertoMD,9.0);
+        Tramo BsaLima = new Tramo(true, aeropuertoBSAS,aeropuertoLM,3.0,  13,4);
+        Tramo LimaMD = new Tramo(false, aeropuertoLM,aeropuertoMD,9.0, 13, 4);
 
         Vuelo vueloBSaMD = new Vuelo( List.of(BsaLima, LimaMD),pasajeros);
         System.out.println("Cantidad de pasajeros: " + vueloBSaMD.capacidad());
         System.out.println("Duracion: " + vueloBSaMD.duracion());
 
-        aerolinea.altas("13/04/2024", vueloBSaMD);
+        aerolinea.altas(vueloBSaMD);
 
-        System.out.println("AEROPUERTO Ezeiza - BS AS - FECHA 13/04/2024 - ORIGEN: " + aeropuertoBSAS.cantidadVuelosOrigen("13/04/2024") + " - DESTINO: " + aeropuertoBSAS.cantidadVuelosDestino("13/04/2024") );
-        System.out.println("AEROPUERTO Barajas - Madrid - FECHA 13/04/2024 - ORIGEN: " + aeropuertoMD.cantidadVuelosOrigen("13/04/2024") + " - DESTINO: " + aeropuertoMD.cantidadVuelosDestino("13/04/2024") );
+        System.out.println("AEROPUERTO Ezeiza - BS AS - FECHA 13/04/2024 - ORIGEN: " + aeropuertoBSAS.cantidadVuelosOrigen(13,4) + " - DESTINO: " + aeropuertoBSAS.cantidadVuelosDestino(13,4) );
+        System.out.println("AEROPUERTO Barajas - Madrid - FECHA 13/04/2024 - ORIGEN: " + aeropuertoMD.cantidadVuelosOrigen(13,4) + " - DESTINO: " + aeropuertoMD.cantidadVuelosDestino(13,4) );
 
     }
 }

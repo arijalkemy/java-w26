@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Crud <T>{
 
-    public void altas( String fecha, T ... elemento );
+    public void altas(  T ... elemento );
     public List<T> consulta();
 
 }

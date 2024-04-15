@@ -14,11 +14,11 @@ public class AerolineaImpl implements Crud<Vuelo>{
     }
 
     @Override
-    public void altas(String fecha, Vuelo... vuelos) {
+    public void altas(Vuelo... vuelos) {
         List<Vuelo> nuevosVuelos = Arrays.stream(vuelos).toList();
         this.vuelos.addAll(nuevosVuelos);
 
-        nuevosVuelos.forEach(v -> agregarTramosAeropuerto(fecha, v.getTramos()));
+        nuevosVuelos.forEach(v -> agregarTramosAeropuerto(v.getTramos()));
 
     }
 
@@ -31,13 +31,13 @@ public class AerolineaImpl implements Crud<Vuelo>{
         return null;
     }
 
-    private void agregarTramosAeropuerto( String fecha, List<Tramo> tramos){
+    private void agregarTramosAeropuerto(List<Tramo> tramos){
         tramos.forEach( t -> {
             Aeropuerto origen = t.getAeropuertoOrigen();
-            origen.agregarVuelosOrigen(fecha, t);
+            origen.agregarVuelosOrigen( t);
 
             Aeropuerto destino = t.getGetAeropuertoDestino();
-            destino.agregarVuelosDestino(fecha, t);
+            destino.agregarVuelosDestino(t);
         });
     }
 }
