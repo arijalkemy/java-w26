@@ -1,0 +1,10 @@
+¿De donde eres?
+Bogota
+Soy de la ciudad de Zipaquirá
+¿Que edad tienes?
+24
+29
+¿Nacionalidad?
+Colombiano
+Colombia
+
