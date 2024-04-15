@@ -1,5 +1,14 @@
+### Mac OS ###
 **/.DS_Store
+
+### VS Code ###
+**/.vscode/
+
+### IntelliJ IDEA ###
 **/.idea/
 **/target/
 **/test/
-**/*.class
+*.class
+*.iws
+*.iml
+*.ipr
