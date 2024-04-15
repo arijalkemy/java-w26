@@ -31,7 +31,7 @@ public class CodigoService implements ICodigoService {
     public String convertirDeNormalAMorse(String normal) {
         Map<String, String> map = mapaMorseAAlfabeto();
         StringBuilder resultado = new StringBuilder();
-        List<String> palabras = Arrays.stream(normal.split(" ")).toList();
+        List<String> palabras = Arrays.stream(normal.toUpperCase().split(" ")).toList();
         for (String palabra : palabras) {
             List<String> letras = Arrays.stream(normal.split("")).toList();
             for (String letra : letras) {
