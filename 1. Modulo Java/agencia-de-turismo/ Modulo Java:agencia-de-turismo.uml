@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/ignruiz/Bootcamp/java-w26/1. Modulo Java/agencia-de-turismo</OriginalElement>
+  <nodes>
+    <node x="1299.620404010031" y="-19.347807824647873">model.Localizador</node>
+    <node x="794.9637631860709" y="731.2414825448548">enums.ReservaNombres</node>
+    <node x="556.2307070320354" y="-47.53082568619959">model.decorators.DescuentoLocalizadorDecorator</node>
+    <node x="511.6602044084173" y="481.4220049521015">model.Cliente</node>
+    <node x="-143.30270312617688" y="414.36145272456764">servicios.ManejadorDeDescuentos</node>
+    <node x="305.35183039303763" y="270.98465264591084">model.decorators.DescuentoLocalizadorTotal</node>
+    <node x="874.0289499383146" y="292.98465264591084">model.decorators.DescuentoLocalizadorReserva</node>
+    <node x="1048.6196805402524" y="-219.28806825714858">Interfaces.ILocalizador</node>
+    <node x="1114.166429137147" y="525.4270399009592">model.Reserva</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="model.decorators.DescuentoLocalizadorReserva" target="model.decorators.DescuentoLocalizadorDecorator" relationship="GENERALIZATION">
+      <point x="-137.49999512495492" y="-1.8769601246049206E-4" />
+      <point x="965.89" y="341.9844649498984" />
+      <point x="965.89" y="204.0" />
+      <point x="700.730682042724" y="204.0" />
+      <point x="-2.4989311441458995E-5" y="92.99963511645497" />
+    </edge>
+    <edge source="model.decorators.DescuentoLocalizadorDecorator" target="Interfaces.ILocalizador" relationship="TO_ONE">
+      <point x="-29.031977372501046" y="-89.11777407099382" />
+      <point x="671.6987296595344" y="-170.7879915880792" />
+      <point x="-121.0004899705076" y="7.666906938652573E-5" />
+    </edge>
+    <edge source="model.Reserva" target="enums.ReservaNombres" relationship="TO_ONE">
+      <point x="-4.237705759351229E-4" y="-103.99993847162574" />
+      <point x="1244.166005366571" y="629.4270399009592" />
+      <point x="924.9634499037069" y="629.4270399009592" />
+      <point x="-3.13282364004408E-4" y="81.99982776461138" />
+    </edge>
+    <edge source="model.Localizador" target="Interfaces.ILocalizador" relationship="REALIZATION">
+      <point x="7.593145155485217" y="-125.02411584024637" />
+      <point x="1440.7135491655163" y="-67.46906186576552" />
+      <point x="1169.6191905697447" y="-67.46906186576552" />
+      <point x="-4.899705077150429E-4" y="48.500076669069394" />
+    </edge>
+    <edge source="model.Cliente" target="Interfaces.ILocalizador" relationship="TO_MANY">
+      <point x="-1.1602044084173713" y="-96.04391049283527" />
+      <point x="669.4999999999999" y="508.5976090120025" />
+      <point x="669.5" y="508.5976090120025" />
+      <point x="669.5" y="241.0" />
+      <point x="1027.2977754005287" y="241.0" />
+      <point x="1027.2977754005287" y="-170.7879915880792" />
+      <point x="-121.0004899705076" y="7.666906938652573E-5" />
+    </edge>
+    <edge source="model.decorators.DescuentoLocalizadorDecorator" target="Interfaces.ILocalizador" relationship="REALIZATION">
+      <point x="144.49997501068856" y="-3.6488354503205755E-4" />
+      <point x="983.0" y="45.46880943025538" />
+      <point x="983.0" y="45.46917431380041" />
+      <point x="1169.6191905697447" y="45.46917431380041" />
+      <point x="-4.899705077150429E-4" y="48.500076669069394" />
+    </edge>
+    <edge source="model.decorators.DescuentoLocalizadorTotal" target="model.decorators.DescuentoLocalizadorDecorator" relationship="GENERALIZATION">
+      <point x="1.696069623449148E-4" y="-60.00042543918869" />
+      <point x="453.352" y="204.0" />
+      <point x="700.730682042724" y="204.0" />
+      <point x="-2.4989311441458995E-5" y="92.99963511645497" />
+    </edge>
+    <edge source="model.Localizador" target="model.Reserva" relationship="TO_MANY">
+      <point x="-133.50026562551602" y="2.290195794785177E-4" />
+      <point x="1313.0" y="106.6524211949316" />
+      <point x="1313.0" y="543.7581014293335" />
+      <point x="129.99957622942406" y="-85.66893847162575" />
+    </edge>
+    <edge source="model.Localizador" target="model.Cliente" relationship="TO_ONE">
+      <point x="133.49973437448398" y="2.290195794785177E-4" />
+      <point x="1746.922" y="106.6524211949316" />
+      <point x="1746.922" y="1008.828" />
+      <point x="353.0" y="1008.828" />
+      <point x="353.0" y="585.4220189214325" />
+      <point x="-159.0003012645941" y="1.396933100750175E-5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6168286993903872" showDependencies="true" x="710.0019233681498" y="716.1959723229425" />
+  <SelectedNodes>
+    <node>servicios.ManejadorDeDescuentos</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
