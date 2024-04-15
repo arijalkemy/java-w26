@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import bootcamp.bendezu.morse.dto.ConvertionDto;
 import jakarta.validation.constraints.NotEmpty;
 
-@RequestMapping("/morse")
-public interface IMorseController {
+@RequestMapping("/translate")
+public interface ITranslateController {
     
     @GetMapping("/spanish")
     ResponseEntity<ConvertionDto> transalteToSpanish(@NotEmpty @RequestParam("toTranslate") String toTranslate);
 
+    @GetMapping("/morse")
+    ResponseEntity<ConvertionDto> translateToMorse(@NotEmpty @RequestParam("toMorse") String toSpanish);
 }

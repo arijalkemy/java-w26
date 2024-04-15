@@ -16,9 +16,16 @@ public class TranslationService implements ITranslationService {
     public String morseToSpanish(String morse) {
         return Arrays.asList(morse.split(MORSE_DELIMITER))
                 .stream()
-                .map(morseCharacter -> MorseEnum.getByMorseKey(morseCharacter)
-                        .getValue())
+                .map(morseCharacter -> MorseEnum.getByMorseKey(morseCharacter).getValue())
                 .collect(Collectors.joining());
+    }
+
+    @Override
+    public String spanishToMorse(String spanish) {
+        return Arrays.asList(spanish.split(""))
+                .stream()
+                .map(spanishCharacter -> MorseEnum.getByLetter(spanishCharacter).getMorseKey())
+                .collect(Collectors.joining(" "));
     }
 
 }
