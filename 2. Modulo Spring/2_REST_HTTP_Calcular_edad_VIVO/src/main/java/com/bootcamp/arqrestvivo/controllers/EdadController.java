@@ -1,7 +1,6 @@
 package com.bootcamp.arqrestvivo.controllers;
 
 import com.bootcamp.arqrestvivo.services.IEdadService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +9,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class EdadController {
 
-    @Autowired
-    private IEdadService edadService;
+    private final IEdadService edadService;
+
+    public EdadController(IEdadService edadService) {
+        this.edadService = edadService;
+    }
+
 
     @GetMapping("/{dia}/{mes}/{año}")
     public ResponseEntity<?> calcularEdad(@PathVariable() int dia, @PathVariable() int mes, @PathVariable int año){
