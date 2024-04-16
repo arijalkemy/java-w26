@@ -14,23 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("findSports")
 public class DeporteController {
     @Autowired
     IDeporteService deporteService;
 
-    @GetMapping
+    @GetMapping("findSports")
     public List<String> getAll(){
         return deporteService.consultarDeportes();
     }
 
-    @GetMapping("/{name}")
-    public ResponseEntity<Deporte> findByName(@PathVariable String name){
+    @GetMapping("findSport/{name}")
+    public ResponseEntity<Deporte> findByName(@PathVariable String name) throws Exception {
         return new ResponseEntity<>(deporteService.buscarUnDeporte(name), HttpStatus.OK);
-    }
-
-    @GetMapping("/Persons")
-    public ResponseEntity<List<DeportistaDTO>> getAllSportsmans(){
-        return new ResponseEntity<>(deporteService.buscarDeportistas(), HttpStatus.OK);
     }
 }

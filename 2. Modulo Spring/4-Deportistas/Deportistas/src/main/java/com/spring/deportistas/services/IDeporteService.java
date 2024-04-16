@@ -18,7 +18,7 @@ public interface IDeporteService {
 
     List<String> consultarDeportes();
 
-    Deporte buscarUnDeporte(String nombre);
+    Deporte buscarUnDeporte(String nombre) throws Exception;
 
     List<DeportistaDTO> buscarDeportistas();
 
