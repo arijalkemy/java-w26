@@ -1,0 +1,52 @@
+{
+	"info": {
+		"_postman_id": "63be49ef-815a-4b8e-aa2b-4193bfbf9231",
+		"name": "Edad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33873654"
+	},
+	"item": [
+		{
+			"name": "Normal",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Error por fecha en el futuro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/3/8/2050",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"3",
+						"8",
+						"2050"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
