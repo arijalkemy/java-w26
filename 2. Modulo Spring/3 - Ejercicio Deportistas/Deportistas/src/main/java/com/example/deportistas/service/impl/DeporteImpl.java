@@ -1,15 +1,14 @@
-package com.example.deportistas.service;
+package com.example.deportistas.service.impl;
 
 import com.example.deportistas.model.Deporte;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.example.deportistas.service.IDeporte;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class DeporteService implements IDeporteService {
+public class DeporteImpl implements IDeporte {
     private static List<Deporte> deportes = new ArrayList<>();
     static {deportes.add(new Deporte("futbol",5));
         deportes.add(new Deporte("tenis",3));

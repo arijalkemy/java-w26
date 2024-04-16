@@ -1,14 +1,11 @@
 package com.example.deportistas.controller;
 
 import com.example.deportistas.model.Deporte;
-import com.example.deportistas.service.IDeporteService;
+import com.example.deportistas.service.IDeporte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ import java.util.List;
 public class DeportesController{
 
     @Autowired
-    IDeporteService deporteService;
+    IDeporte deporteService;
 
     @GetMapping("/findSports")
     @ResponseBody

@@ -1,15 +1,16 @@
-package com.example.deportistas.service;
+package com.example.deportistas.service.impl;
 
 import com.example.deportistas.DTO.DeportistaDTO;
 import com.example.deportistas.model.Deporte;
 import com.example.deportistas.model.Persona;
+import com.example.deportistas.service.IPersona;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class PersonaService implements IPersonaService{
+public class PersonaImpl implements IPersona {
     static Deporte dep1 = new Deporte("futbol", 5);
     static Deporte dep2 = new Deporte("tenis", 3);
     static Deporte dep3 = new Deporte("basket", 2);

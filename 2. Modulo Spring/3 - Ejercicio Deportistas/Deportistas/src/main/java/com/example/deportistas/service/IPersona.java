@@ -4,7 +4,7 @@ import com.example.deportistas.DTO.DeportistaDTO;
 
 import java.util.List;
 
-public interface IPersonaService {
+public interface IPersona {
 
     public List<DeportistaDTO> verDeportistas();
 }
