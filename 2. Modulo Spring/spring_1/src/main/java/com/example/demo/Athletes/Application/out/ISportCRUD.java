@@ -1,4 +1,4 @@
-package com.example.demo.Athletes.Application.out.response;
+package com.example.demo.Athletes.Application.out;
 
 import com.example.demo.Athletes.Domain.Sport;
 

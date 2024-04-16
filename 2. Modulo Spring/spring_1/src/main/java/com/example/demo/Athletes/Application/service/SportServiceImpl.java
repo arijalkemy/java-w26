@@ -1,7 +1,7 @@
 package com.example.demo.Athletes.Application.service;
 
 import com.example.demo.Athletes.Application.in.request.ISportsService;
-import com.example.demo.Athletes.Application.out.response.ISportCRUD;
+import com.example.demo.Athletes.Application.out.ISportCRUD;
 import com.example.demo.Athletes.Domain.Sport;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

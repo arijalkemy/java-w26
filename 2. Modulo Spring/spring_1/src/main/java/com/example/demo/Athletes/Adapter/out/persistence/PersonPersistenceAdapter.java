@@ -1,6 +1,6 @@
 package com.example.demo.Athletes.Adapter.out.persistence;
 
-import com.example.demo.Athletes.Application.out.response.IPersonFinds;
+import com.example.demo.Athletes.Application.out.IPersonFinds;
 import com.example.demo.Athletes.Domain.Person;
 import com.example.demo.Athletes.Domain.Sport;
 import lombok.RequiredArgsConstructor;

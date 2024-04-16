@@ -1,12 +1,15 @@
 package com.example.demo.Athletes.Adapter.in.web;
 
 import com.example.demo.Athletes.Application.in.request.IPersonService;
+import com.example.demo.Athletes.Application.out.response.PersonSportResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/persons")
@@ -25,7 +28,8 @@ public class PersonController {
     }
 
     @GetMapping("/findBySport/{sport}")
-    public ResponseEntity<?> getPersonsBySport(@PathVariable("sport") String sportName) {
+    public ResponseEntity<List<PersonSportResponse>> getPersonsBySport(@PathVariable(
+            "sport") String sportName) {
         return ResponseEntity.ok(personService.findBySport(sportName));
     }
 

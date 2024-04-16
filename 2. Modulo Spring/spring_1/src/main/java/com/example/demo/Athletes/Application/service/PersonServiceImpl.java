@@ -1,7 +1,9 @@
 package com.example.demo.Athletes.Application.service;
 
 import com.example.demo.Athletes.Application.in.request.IPersonService;
-import com.example.demo.Athletes.Application.out.response.IPersonFinds;
+import com.example.demo.Athletes.Application.mapper.PersonMapper;
+import com.example.demo.Athletes.Application.out.IPersonFinds;
+import com.example.demo.Athletes.Application.out.response.PersonSportResponse;
 import com.example.demo.Athletes.Domain.Person;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PersonServiceImpl implements IPersonService {
 
+    private final PersonMapper personMapper;
     private final IPersonFinds personFinds;
 
     @Override
@@ -25,7 +28,8 @@ public class PersonServiceImpl implements IPersonService {
     }
 
     @Override
-    public List<Person> findBySport(String sport) {
-        return personFinds.findBySport(sport);
+    public List<PersonSportResponse> findBySport(String sport) {
+        List<PersonSportResponse> responseList = personMapper.toPersonSportResponseList(personFinds.findBySport(sport)) ;
+        return responseList;
     }
 }

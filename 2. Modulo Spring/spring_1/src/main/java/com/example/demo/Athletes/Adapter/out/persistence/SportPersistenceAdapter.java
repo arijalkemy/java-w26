@@ -1,6 +1,6 @@
 package com.example.demo.Athletes.Adapter.out.persistence;
 
-import com.example.demo.Athletes.Application.out.response.ISportCRUD;
+import com.example.demo.Athletes.Application.out.ISportCRUD;
 import com.example.demo.Athletes.Domain.Sport;
 import com.example.demo.Athletes.Domain.erros.NotFoundException;
 import org.springframework.stereotype.Component;
