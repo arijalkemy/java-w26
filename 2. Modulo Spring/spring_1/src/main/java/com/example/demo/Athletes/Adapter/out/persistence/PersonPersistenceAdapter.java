@@ -17,7 +17,6 @@ public class PersonPersistenceAdapter implements IPersonFinds {
 
     private final List<Person> personsList = getRandomPersons();
 
-
     private List<Person> getRandomPersons() {
         String[] names = {"John", "Emma", "Michael", "Sophia", "William", "Olivia", "James", "Ava", "Alexander", "Isabella"};
         String[] lastNames = {"Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez"};
