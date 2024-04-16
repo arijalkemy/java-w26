@@ -1,4 +1,4 @@
-package com.example.demo.Athletes.Common.handleException;
+package com.example.demo.handleException;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.servlet.http.HttpServletRequest;

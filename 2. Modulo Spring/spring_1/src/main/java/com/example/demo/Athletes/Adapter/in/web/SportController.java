@@ -15,12 +15,12 @@ public class SportController {
 
     private final ISportsService sportsService;
 
-    @GetMapping("/all")
+    @GetMapping("/findSports")
     public ResponseEntity<?> getAll() {
         return ResponseEntity.ok(sportsService.findAll());
     }
 
-    @GetMapping("/findByName/{name}")
+    @GetMapping("/findSport/{name}")
     public ResponseEntity<?> getByName(@PathVariable("name") String name) {
         return ResponseEntity.ok(sportsService.findByName(name));
     }
