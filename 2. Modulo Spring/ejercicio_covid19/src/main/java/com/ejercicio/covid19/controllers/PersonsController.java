@@ -1,6 +1,6 @@
 package com.ejercicio.covid19.controllers;
 
-import com.ejercicio.covid19.DTOs.RiskPerson;
+import com.ejercicio.covid19.DTOs.RiskPersonResponseDTO;
 import com.ejercicio.covid19.services.interfaces.IPersonsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ public class PersonsController {
     IPersonsService personsService;
 
     @GetMapping("/findRiskPerson")
-    public List<RiskPerson> getRiskPersons() {
+    public List<RiskPersonResponseDTO> getRiskPersons() {
         return personsService.getRiskPersons();
     }
 }

@@ -1,6 +1,6 @@
 package com.ejercicio.deportistas.services.interfaces;
 
-import com.ejercicio.deportistas.models.Sport;
+import com.ejercicio.deportistas.entities.Sport;
 
 import java.util.List;
 

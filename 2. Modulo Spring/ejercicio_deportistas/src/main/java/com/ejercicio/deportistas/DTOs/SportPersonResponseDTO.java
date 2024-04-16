@@ -1,11 +1,11 @@
 package com.ejercicio.deportistas.DTOs;
 
-public class SportsPersonsDTO {
+public class SportPersonResponseDTO {
     private String name;
     private String lastName;
     private String sportName;
 
-    public SportsPersonsDTO(String name, String lastName, String sportName) {
+    public SportPersonResponseDTO(String name, String lastName, String sportName) {
         this.name = name;
         this.lastName = lastName;
         this.sportName = sportName;

@@ -1,6 +1,6 @@
 package com.ejercicio.covid19.services.implementations;
 
-import com.ejercicio.covid19.DTOs.RiskPerson;
+import com.ejercicio.covid19.DTOs.RiskPersonResponseDTO;
 import com.ejercicio.covid19.models.Symptom;
 import com.ejercicio.covid19.repositories.implementations.PersonsRepository;
 import com.ejercicio.covid19.repositories.implementations.SymptomsRepository;
@@ -16,13 +16,13 @@ public class PersonsService implements IPersonsService {
     private SymptomsRepository symptomsRepository = new SymptomsRepository();
 
     @Override
-    public List<RiskPerson> getRiskPersons() {
+    public List<RiskPersonResponseDTO> getRiskPersons() {
         setPersonsSymptoms();
 
         return personsRepository.getAll()
                 .stream()
                 .filter(person -> person.getAge() >= 60)
-                .map(person -> new RiskPerson(
+                .map(person -> new RiskPersonResponseDTO(
                         person.getName(),
                         person.getLastName(),
                         person.getSymptom().getName())

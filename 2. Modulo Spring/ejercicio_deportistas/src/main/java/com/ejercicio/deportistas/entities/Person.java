@@ -1,4 +1,4 @@
-package com.ejercicio.deportistas.models;
+package com.ejercicio.deportistas.entities;
 
 public class Person {
     private String name;

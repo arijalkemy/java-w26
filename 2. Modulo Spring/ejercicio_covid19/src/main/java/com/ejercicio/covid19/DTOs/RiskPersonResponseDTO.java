@@ -1,11 +1,11 @@
 package com.ejercicio.covid19.DTOs;
 
-public class RiskPerson {
+public class RiskPersonResponseDTO {
     private String name;
     private String lastName;
     private String symptom;
 
-    public RiskPerson(String name, String lastName, String symptom) {
+    public RiskPersonResponseDTO(String name, String lastName, String symptom) {
         this.name = name;
         this.lastName = lastName;
         this.symptom = symptom;

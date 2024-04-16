@@ -1,6 +1,6 @@
 package com.ejercicio.deportistas.services.implementations;
 
-import com.ejercicio.deportistas.models.Sport;
+import com.ejercicio.deportistas.entities.Sport;
 import com.ejercicio.deportistas.repository.implementations.SportsRepository;
 import com.ejercicio.deportistas.services.interfaces.ISportsService;
 import org.springframework.stereotype.Service;

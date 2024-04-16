@@ -1,6 +1,6 @@
 package com.ejercicio.deportistas.repository.implementations;
 
-import com.ejercicio.deportistas.models.Sport;
+import com.ejercicio.deportistas.entities.Sport;
 import com.ejercicio.deportistas.repository.interfaces.IRepository;
 
 import java.util.ArrayList;
