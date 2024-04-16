@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.Map;
@@ -31,12 +32,15 @@ public class EdadDeUnaPersonaController {
     @GetMapping("/{dia}/{mes}/{año}")
     public ResponseEntity<Integer> getEdadDeUnaPersona(@PathVariable int dia, @PathVariable int mes, @PathVariable int año) {
         LocalDate curDate = LocalDate.now();
-        if (curDate.getYear() < año || (curDate.getYear() == año && curDate.getMonth().getValue() < mes)
-                || (curDate.getYear() == año && curDate.getMonth().getValue() == mes && curDate.getDayOfMonth() < dia)
-                || !diasPorMes.containsKey(mes) || dia < 0 || dia > diasPorMes.get(mes) || (mes == 2 && dia == 29 && año % 4 != 0)) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        LocalDate given;
+        try{
+            given = LocalDate.of(año, mes, dia);
+            if(given.isAfter(curDate)){
+                throw new DateTimeException("La fecha introducida es futura");
+            }
+        } catch (DateTimeException e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        LocalDate given = LocalDate.of(curDate.getYear(), mes, dia);
-        return new ResponseEntity<>((curDate.getYear() - año) - (given.isAfter(curDate) ? 1 : 0), HttpStatus.OK);
+        return new ResponseEntity<>(given.until(curDate).getYears(), HttpStatus.OK);
     }
 }
