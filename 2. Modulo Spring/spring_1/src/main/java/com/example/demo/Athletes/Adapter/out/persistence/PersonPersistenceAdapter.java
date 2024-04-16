@@ -7,71 +7,49 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
 public class PersonPersistenceAdapter implements IPersonFinds {
 
-    private static final List<Person> personsList = new ArrayList<>();
+    private final List<Person> personsList = getRandomPersons();
 
-    static {
-        getRandomPersons();
+
+    private List<Person> getRandomPersons() {
+        String[] names = {"John", "Emma", "Michael", "Sophia", "William", "Olivia", "James", "Ava", "Alexander", "Isabella"};
+        String[] lastNames = {"Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez"};
+        List<Person> list = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            String name = names[random.nextInt(names.length)];
+            String lastName = lastNames[random.nextInt(lastNames.length)];
+            int age = random.nextInt(60) + 20; // Edad entre 20 y 80 años
+
+            // Generar entre 1 y 3 deportes aleatorios
+            List<Sport> sports = new ArrayList<>();
+            int numSports = random.nextInt(3) + 1; // Entre 1 y 3 deportes
+            for (int j = 0; j < numSports; j++) {
+                Sport randomSport = getRandomSport();
+                sports.add(randomSport);
+            }
+
+            // Crear la persona y agregarla a la lista
+            Person person = new Person(name, lastName, age, sports);
+            list.add(person);
+        }
+        return list;
     }
 
-    private static void getRandomPersons() {
-        personsList.add(new Person("John", "Smith", 30, Arrays.asList(
-                new Sport("Soccer", 5),
-                new Sport("Basketball", 4)
-        )));
-
-        personsList.add(new Person("Emma", "Johnson", 25, Arrays.asList(
-                new Sport("Tennis", 3),
-                new Sport("Swimming", 2),
-                new Sport("Cycling", 1)
-        )));
-
-        personsList.add(new Person("Michael", "Williams", 40, Arrays.asList(
-                new Sport("Soccer", 4),
-                new Sport("Basketball", 3)
-        )));
-
-        personsList.add(new Person("Sophia", "Brown", 35, Arrays.asList(
-                new Sport("Tennis", 5),
-                new Sport("Swimming", 4)
-        )));
-
-        personsList.add(new Person("William", "Jones", 28, List.of(
-                new Sport("Soccer", 3)
-        )));
-
-        personsList.add(new Person("Olivia", "Miller", 32, Arrays.asList(
-                new Sport("Basketball", 5),
-                new Sport("Tennis", 4),
-                new Sport("Cycling", 2)
-        )));
-
-        personsList.add(new Person("James", "Davis", 45, Arrays.asList(
-                new Sport("Soccer", 2),
-                new Sport("Basketball", 1)
-        )));
-
-        personsList.add(new Person("Ava", "Garcia", 22, Arrays.asList(
-                new Sport("Tennis", 2),
-                new Sport("Swimming", 1)
-        )));
-
-        personsList.add(new Person("Alexander", "Rodriguez", 38, Arrays.asList(
-                new Sport("Soccer", 1),
-                new Sport("Basketball", 2),
-                new Sport("Tennis", 3)
-        )));
-
-        personsList.add(new Person("Isabella", "Martinez", 27, List.of(
-                new Sport("Swimming", 3)
-        )));
+    private static Sport getRandomSport() {
+        String[] sportNames = {"Soccer", "Basketball", "Tennis", "Swimming", "Cycling"};
+        Random random = new Random();
+        String name = sportNames[random.nextInt(sportNames.length)];
+        int level = random.nextInt(5) + 1; // Nivel entre 1 y 5
+        return new Sport(name, level);
     }
 
     @Override
