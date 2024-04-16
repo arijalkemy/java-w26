@@ -1,4 +1,4 @@
-package com.example.demo.Morse.Domain.Service;
+package com.example.demo.Morse.Application.in;
 
 public interface IMorseService {
 

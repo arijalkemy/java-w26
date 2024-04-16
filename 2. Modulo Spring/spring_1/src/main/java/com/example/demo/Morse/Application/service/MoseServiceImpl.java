@@ -1,7 +1,7 @@
-package com.example.demo.Morse.Domain.Service.Impl;
+package com.example.demo.Morse.Application.service;
 
 import com.example.demo.Morse.Domain.MorseAlphabet;
-import com.example.demo.Morse.Domain.Service.IMorseService;
+import com.example.demo.Morse.Application.in.IMorseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

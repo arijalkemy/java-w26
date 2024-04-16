@@ -1,6 +1,6 @@
-package com.example.demo.Morse.Controller;
+package com.example.demo.Morse.Adapter.in;
 
-import com.example.demo.Morse.Domain.Service.IMorseService;
+import com.example.demo.Morse.Application.in.IMorseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
