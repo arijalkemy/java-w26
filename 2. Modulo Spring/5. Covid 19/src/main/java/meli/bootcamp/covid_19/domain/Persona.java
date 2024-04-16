@@ -11,7 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Persona {
-  Long id;
   String nombre;
   String apellido;
   Integer edad;
@@ -23,7 +22,9 @@ public class Persona {
 
   public boolean esDeRiesgo() {
     return this.sintomas.stream()
-        .anyMatch(sintoma -> sintoma.getNivelDeGravedad().equals(NivelDeGravedad.GRAVE));
+        .anyMatch(sintoma ->
+            sintoma.getNivelDeGravedad().equals(NivelDeGravedad.GRAVE) && edad >= 60
+        );
   }
 
 }
