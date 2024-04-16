@@ -27,10 +27,10 @@ public class SportServiceImpl implements ISportService {
     }
 
     @Override
-    public Optional<Sport> getByName(String sportName) {
+    public Sport getByName(String sportName) {
         return sportList.stream()
                 .filter(t -> t.getName().equals(sportName))
-                .findFirst();
+                .findFirst().orElse(null);
     }
 
     @Override

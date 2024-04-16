@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface ISportService {
     List<Sport> getAll();
 
-    Optional<Sport> getByName(String sportName);
+    Sport getByName(String sportName);
 
     List<SportPersonDTO> getSportsPersons();
 }

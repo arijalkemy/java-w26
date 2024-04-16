@@ -23,16 +23,16 @@ public class SportController {
 
     @GetMapping("/findSports")
     public ResponseEntity<List<Sport>> getAll(){
-        return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
+        return ResponseEntity.ok(service.getAll());
     }
 
     @GetMapping("/findSports/{name}")
-    public ResponseEntity<Optional<Sport>> getByName(@PathVariable String name){
-        return new ResponseEntity<>(service.getByName(name), HttpStatus.OK);
+    public ResponseEntity<Sport> getByName(@PathVariable String name){
+        return ResponseEntity.ok(service.getByName(name));
     }
 
     @GetMapping("/findSportsPersons")
     public ResponseEntity<List<SportPersonDTO>> getSportsPersons(){
-        return new ResponseEntity<>(service.getSportsPersons(), HttpStatus.OK);
+        return ResponseEntity.ok(service.getSportsPersons());
     }
 }
