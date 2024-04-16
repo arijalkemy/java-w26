@@ -1,6 +1,7 @@
 package meli.bootcamp.covid_19.repositories;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import meli.bootcamp.covid_19.domain.Sintoma;
 
@@ -12,8 +13,13 @@ public class RepositorioSintomas {
     this.sintomas.add(unSintoma);
   }
 
-  public List<Sintoma> obtenerPersonas() {
+  public List<Sintoma> obtenerSintomas() {
     return this.sintomas;
   }
 
+  public List<Sintoma> obtenerSintomaPorNombre(String nombre) {
+    return this.sintomas.stream()
+        .filter(sintoma -> sintoma.getNombre().equals(nombre))
+        .collect(Collectors.toList());
+  }
 }
