@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.model.GuardaRopa;
+import org.example.model.Prenda;
+
 import java.util.ArrayList;
 import java.util.List;
 
