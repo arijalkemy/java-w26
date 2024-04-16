@@ -19,7 +19,7 @@ public class RepositorioSintomas {
 
   public List<Sintoma> obtenerSintomaPorNombre(String nombre) {
     return this.sintomas.stream()
-        .filter(sintoma -> sintoma.getNombre().equals(nombre))
+        .filter(sintoma -> sintoma.getNombre().equalsIgnoreCase(nombre))
         .collect(Collectors.toList());
   }
 }
