@@ -1,7 +1,7 @@
 package meli.bootcamp.deportistas.controllers;
 
+import dto.PersonaDto;
 import java.util.List;
-import meli.bootcamp.deportistas.domain.Persona;
 import meli.bootcamp.deportistas.services.PersonaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class PersonasController {
   }
 
   @GetMapping
-  public ResponseEntity<List<Persona>> findSportsPersons() {
+  public ResponseEntity<List<PersonaDto>> findSportsPersons() {
     return ResponseEntity.ok(personaService.findSportsPersons());
   }
 }

@@ -1,5 +1,6 @@
 package meli.bootcamp.deportistas.services;
 
+import dto.PersonaDto;
 import java.util.List;
 import meli.bootcamp.deportistas.domain.Deporte;
 import meli.bootcamp.deportistas.domain.Persona;
@@ -25,7 +26,9 @@ public class PersonaService {
     );
   }
 
-  public List<Persona> findSportsPersons() {
-    return this.repo.obtenerDeportistas();
+  public List<PersonaDto> findSportsPersons() {
+    return this.repo.obtenerDeportistas().stream()
+        .map(p -> new PersonaDto(p.getNombre(), p.getDeporte().getNombre()))
+        .toList();
   }
 }
