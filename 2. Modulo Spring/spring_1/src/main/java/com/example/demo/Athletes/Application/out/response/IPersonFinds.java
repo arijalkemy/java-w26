@@ -1,12 +1,11 @@
-package com.example.demo.Athletes.Application.in.request;
+package com.example.demo.Athletes.Application.out.response;
 
 import com.example.demo.Athletes.Domain.Person;
 
 import java.util.List;
 
-public interface IPersonService {
+public interface IPersonFinds {
     List<Person> findAll();
     List<Person> findByName(String name);
     List<Person> findBySport(String sport);
-
 }
