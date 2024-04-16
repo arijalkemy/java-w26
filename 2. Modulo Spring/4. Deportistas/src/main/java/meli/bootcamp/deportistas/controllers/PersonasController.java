@@ -3,7 +3,6 @@ package meli.bootcamp.deportistas.controllers;
 import java.util.List;
 import meli.bootcamp.deportistas.domain.Persona;
 import meli.bootcamp.deportistas.services.PersonaService;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

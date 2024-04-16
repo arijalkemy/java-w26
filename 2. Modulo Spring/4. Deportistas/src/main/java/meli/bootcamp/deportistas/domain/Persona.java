@@ -1,5 +1,10 @@
 package meli.bootcamp.deportistas.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Persona {
   String nombre;
   String apellido;
@@ -20,35 +25,4 @@ public class Persona {
     return this.deporte != null;
   }
 
-  public String getNombre() {
-    return nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public String getApellido() {
-    return apellido;
-  }
-
-  public void setApellido(String apellido) {
-    this.apellido = apellido;
-  }
-
-  public int getEdad() {
-    return edad;
-  }
-
-  public void setEdad(int edad) {
-    this.edad = edad;
-  }
-
-  public Deporte getDeporte() {
-    return deporte;
-  }
-
-  public void setDeporte(Deporte deporte) {
-    this.deporte = deporte;
-  }
 }

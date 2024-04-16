@@ -1,5 +1,10 @@
 package meli.bootcamp.deportistas.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class Deporte {
   String nombre;
   int nivel;
@@ -9,19 +14,4 @@ public class Deporte {
     this.nivel = nivel;
   }
 
-  public String getNombre() {
-    return nombre;
-  }
-
-  public void setNombre(String nombre) {
-    this.nombre = nombre;
-  }
-
-  public int getNivel() {
-    return nivel;
-  }
-
-  public void setNivel(int nivel) {
-    this.nivel = nivel;
-  }
 }
