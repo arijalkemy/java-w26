@@ -5,6 +5,15 @@ public class Avion {
     private String modelo;
     private int cantidadTotalDePrimeraClase;
     private int cantidadTotalDeClaseTurismo;
+    private Aerolinea aerolinea;
+
+    public Aerolinea getAerolinea() {
+        return aerolinea;
+    }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
+    }
 
     public String getMarca() {
         return marca;
