@@ -1,5 +1,7 @@
 package com.practicaSpring.edadDeUnaPersona;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,14 +29,14 @@ public class EdadDeUnaPersonaController {
     );
 
     @GetMapping("/{dia}/{mes}/{año}")
-    public String getEdadDeUnaPersona(@PathVariable int dia, @PathVariable int mes, @PathVariable int año) {
+    public ResponseEntity<Integer> getEdadDeUnaPersona(@PathVariable int dia, @PathVariable int mes, @PathVariable int año) {
         LocalDate curDate = LocalDate.now();
         if (curDate.getYear() < año || (curDate.getYear() == año && curDate.getMonth().getValue() < mes)
                 || (curDate.getYear() == año && curDate.getMonth().getValue() == mes && curDate.getDayOfMonth() < dia)
                 || !diasPorMes.containsKey(mes) || dia < 0 || dia > diasPorMes.get(mes) || (mes == 2 && dia == 29 && año % 4 != 0)) {
-            return "Error: " + dia + "/" + mes + "/" + año + " no es una fecha válida";
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
         LocalDate given = LocalDate.of(curDate.getYear(), mes, dia);
-        return String.valueOf((curDate.getYear() - año) - (given.isAfter(curDate) ? 1 : 0));
+        return new ResponseEntity<>((curDate.getYear() - año) - (given.isAfter(curDate) ? 1 : 0), HttpStatus.OK);
     }
 }
