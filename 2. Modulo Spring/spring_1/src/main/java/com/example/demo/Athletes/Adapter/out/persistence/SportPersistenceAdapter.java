@@ -1,6 +1,6 @@
 package com.example.demo.Athletes.Adapter.out.persistence;
 
-import com.example.demo.Athletes.Application.out.ISportCRUD;
+import com.example.demo.Athletes.Application.out.ISportFinds;
 import com.example.demo.Athletes.Domain.Sport;
 import com.example.demo.Athletes.Domain.erros.NotFoundException;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class SportPersistenceAdapter implements ISportCRUD {
+public class SportPersistenceAdapter implements ISportFinds {
 
 
     List<Sport> sportsList = Arrays.asList(

@@ -4,7 +4,7 @@ import com.example.demo.Athletes.Domain.Sport;
 
 import java.util.List;
 
-public interface ISportCRUD {
+public interface ISportFinds {
     List<Sport> findAll();
     Sport findByName(String name);
 }

@@ -1,4 +1,4 @@
-package com.example.demo.handleException;
+package com.example.demo.Common.handleException;
 
 import com.example.demo.Athletes.Domain.erros.NotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
