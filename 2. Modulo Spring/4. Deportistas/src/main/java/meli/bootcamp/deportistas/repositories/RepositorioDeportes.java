@@ -10,14 +10,6 @@ public class RepositorioDeportes {
     this.deportes = deportes;
   }
 
-  public void eliminarDeporte(Deporte deporte) {
-    this.deportes.remove(deporte);
-  }
-
-  public void agregarDeporte(Deporte deporte) {
-    this.deportes.add(deporte);
-  }
-
   public List<Deporte> obtenerDeportes() {
     return this.deportes;
   }
