@@ -11,16 +11,38 @@ public class Vuelo {
     private Aeropuerto aeropuertoLlegada;
     private List<Escala> escalas = new ArrayList<Escala>();
     private List<Pasajero> pasajeros = new ArrayList<Pasajero>();
+    List<Tripulante> tripulacion = new ArrayList<>();
     private int capacidadTotal;
     private TipoDeVuelo tipoDeVuelo;
-    private LocalDate fecha;
+    private LocalDate fechaLLegada;
 
-    public Vuelo(Aeropuerto aeropuertoInicio, Aeropuerto aeropuertoLlegada, TipoDeVuelo tipoDeVuelo, int capacidadTotal, LocalDate fecha) {
+    public Vuelo(Aeropuerto aeropuertoInicio, Aeropuerto aeropuertoLlegada, TipoDeVuelo tipoDeVuelo, int capacidadTotal, LocalDate fechaLLegada) {
         this.aeropuertoInicio = aeropuertoInicio;
         this.aeropuertoLlegada = aeropuertoLlegada;
         this.tipoDeVuelo = tipoDeVuelo;
         this.capacidadTotal = capacidadTotal;
-        this.fecha = fecha;
+        this.fechaLLegada = fechaLLegada;
+    }
+
+    @Override
+    public String toString() {
+        return "Vuelo{" +
+                "aeropuertoInicio=" + aeropuertoInicio +
+                ", aeropuertoLlegada=" + aeropuertoLlegada +
+                ", escalas=" + escalas +
+                ", pasajeros=" + pasajeros.size() +
+                ", capacidadTotal=" + capacidadTotal +
+                ", tipoDeVuelo=" + tipoDeVuelo +
+                ", fecha=" + fechaLLegada +
+                '}';
+    }
+
+    public List<Tripulante> getTripulacion() {
+        return tripulacion;
+    }
+
+    public void setTripulacion(List<Tripulante> tripulacion) {
+        this.tripulacion = tripulacion;
     }
 
     public double getDuracion(){
@@ -90,11 +112,11 @@ public class Vuelo {
         this.tipoDeVuelo = tipoDeVuelo;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaLLegada() {
+        return fechaLLegada;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaLLegada(LocalDate fechaLLegada) {
+        this.fechaLLegada = fechaLLegada;
     }
 }

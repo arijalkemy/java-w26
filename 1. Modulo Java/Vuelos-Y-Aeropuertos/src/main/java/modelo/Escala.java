@@ -1,17 +1,21 @@
 package modelo;
 
+import java.time.LocalDate;
+
 public class Escala {
 
     private Aeropuerto aeropuertoInicio;
     private Aeropuerto aeropuertoLlegada;
     private double duracionEnHs;
     private Escala siguienteEscala = null;
+    private LocalDate fechaLlegada;
 
-    public Escala(Aeropuerto aeropuertoInicio, Aeropuerto aeropuertoLlegada, double duracionEnHs, Escala siguienteEscala) {
+    public Escala(Aeropuerto aeropuertoInicio, Aeropuerto aeropuertoLlegada, double duracionEnHs, Escala siguienteEscala, LocalDate fechaLlegada) {
         this.aeropuertoInicio = aeropuertoInicio;
         this.aeropuertoLlegada = aeropuertoLlegada;
         this.duracionEnHs = duracionEnHs;
         this.siguienteEscala = siguienteEscala;
+        this.fechaLlegada = fechaLlegada;
     }
 
     public Aeropuerto getAeropuertoInicio() {
@@ -44,5 +48,13 @@ public class Escala {
 
     public void setSiguienteEscala(Escala siguienteEscala) {
         this.siguienteEscala = siguienteEscala;
+    }
+
+    public LocalDate getFechaLlegada() {
+        return fechaLlegada;
+    }
+
+    public void setFechaLlegada(LocalDate fechaLlegada) {
+        this.fechaLlegada = fechaLlegada;
     }
 }

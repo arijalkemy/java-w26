@@ -8,4 +8,8 @@ public class Tripulante {
 
     private RolTripulante rolTripulante;
 
+    public Tripulante(String nombre, RolTripulante rolTripulante) {
+        this.nombre = nombre;
+        this.rolTripulante = rolTripulante;
+    }
 }
