@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import bootcamp.bendezu.morse.dto.ConvertionDto;
 import jakarta.validation.constraints.NotEmpty;
 
-@RequestMapping("/translate")
+@RequestMapping("/translations")
 public interface ITranslateController {
     
     @GetMapping("/spanish")
