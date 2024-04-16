@@ -1,7 +1,6 @@
 package com.example.demo.Athletes.Adapter.out.persistence;
 
 import com.example.demo.Athletes.Application.out.response.IPersonFinds;
-import com.example.demo.Athletes.Application.out.response.ISportCRUD;
 import com.example.demo.Athletes.Domain.Person;
 import com.example.demo.Athletes.Domain.Sport;
 import lombok.RequiredArgsConstructor;
@@ -10,14 +9,12 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
 public class PersonPersistenceAdapter implements IPersonFinds {
 
-    private final ISportCRUD sportCRUD;
     private static final List<Person> personsList = new ArrayList<>();
 
     static {
