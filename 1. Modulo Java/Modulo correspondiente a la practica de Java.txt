@@ -30,7 +30,7 @@ Recapitulando Java
 Ejercicio Integradores P1
 
 	ejercicio_series_numericas (cargado)
-	ejercicio_supermercado_economico (sin cargar)
+	ejercicio_supermercado_economico (cargado)
 	ejercicio_agencia_turismo (sin cargar)
 
 Ejercicio Integradores P2
