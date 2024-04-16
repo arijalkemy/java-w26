@@ -107,8 +107,7 @@ public class MorseServiceImpl implements IMorseService {
         //Obtengo letras
         char[] letras = palabra.toCharArray();
 
-        //Recorro las palabras para hacer la traduccion
-
+        //Recorro las letras para hacer la traduccion
             for(char letra: letras){
                 String traduccion = textoMap.get(letra);
                 if(traduccion!=null){
