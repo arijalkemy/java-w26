@@ -21,4 +21,9 @@ public class Persona {
     this.sintomas.add(unSintoma);
   }
 
+  public boolean esDeRiesgo() {
+    return this.sintomas.stream()
+        .anyMatch(sintoma -> sintoma.getNivelDeGravedad().equals(NivelDeGravedad.GRAVE));
+  }
+
 }
