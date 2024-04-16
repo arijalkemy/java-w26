@@ -1,4 +1,6 @@
-package com.practicaSpring.dtosYResponseEntities;
+package com.practicaSpring.dtosYResponseEntities.persona;
+
+import com.practicaSpring.dtosYResponseEntities.deporte.Deporte;
 
 public class Persona {
     private String nombre;

@@ -1,4 +1,4 @@
-package com.practicaSpring.dtosYResponseEntities;
+package com.practicaSpring.dtosYResponseEntities.deporte;
 
 public class Deporte {
     private String nombre;

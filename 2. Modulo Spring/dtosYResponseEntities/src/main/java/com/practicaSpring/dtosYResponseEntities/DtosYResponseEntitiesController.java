@@ -1,5 +1,9 @@
 package com.practicaSpring.dtosYResponseEntities;
 
+import com.practicaSpring.dtosYResponseEntities.deporte.Deporte;
+import com.practicaSpring.dtosYResponseEntities.persona.Persona;
+import com.practicaSpring.dtosYResponseEntities.persona.dtos.PersonaInDTO;
+import com.practicaSpring.dtosYResponseEntities.persona.dtos.PersonaOutDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,25 +13,32 @@ import java.util.List;
 
 @RestController
 public class DtosYResponseEntitiesController {
-    List<Deporte> deportes = new ArrayList<>();
-    List<Persona> personas = new ArrayList<>();
+    List<Deporte> sports = new ArrayList<>();
+    List<Persona> people = new ArrayList<>();
 
     @PostMapping(path = "/register")
-    public void register(@RequestBody Persona persona) {
-        if(!deportes.contains(persona.getDeporte())){
-            deportes.add(persona.getDeporte());
+    public void register(@RequestBody PersonaInDTO persona) {
+        Deporte sport = sports.stream().filter(deporte ->
+                deporte.getNombre().equalsIgnoreCase(persona.getNombreDeporte()) &&
+                        deporte.getNivel().equalsIgnoreCase(persona.getNivelDeporte())).findAny().orElse(null);
+
+        if(sport == null){
+            sport = new Deporte(persona.getNombreDeporte(), persona.getNivelDeporte());
+            sports.add(sport);
         }
-        personas.add(persona);
+
+        people.add(new Persona(persona.getNombre(), persona.getApellido(), persona.getEdad(), sport));
     }
 
     @GetMapping(path = "/findSports")
     public List<Deporte> findSports(){
-        return deportes;
+        return sports;
     }
 
     @GetMapping(path = "/findSport/{name}")
     public ResponseEntity<String> findSport(@PathVariable String name){
-        Deporte deporte = deportes.stream().filter(sport -> sport.getNombre().equalsIgnoreCase(name)).findFirst().orElse(null);
+        Deporte deporte = sports.stream().filter(sport ->
+                sport.getNombre().equalsIgnoreCase(name)).findFirst().orElse(null);
         if(deporte != null){
             return new ResponseEntity<>(deporte.getNivel(), HttpStatus.OK);
         }
@@ -35,13 +46,10 @@ public class DtosYResponseEntitiesController {
     }
 
     @GetMapping(path = "/findSportsPersons")
-    public List<PersonaDTO> findSportsPersons(){
-        List<PersonaDTO> dtos = new ArrayList<>();
-        for(Persona persona : personas){
-            PersonaDTO personaDTO = new PersonaDTO();
-            personaDTO.setNombre(persona.getNombre());
-            personaDTO.setApellido(persona.getApellido());
-            personaDTO.setNombreDeporte(persona.getDeporte().getNombre());
+    public List<PersonaOutDTO> findSportsPersons(){
+        List<PersonaOutDTO> dtos = new ArrayList<>();
+        for(Persona persona : people){
+            PersonaOutDTO personaDTO = new PersonaOutDTO(persona.getNombre(), persona.getApellido(), persona.getDeporte().getNombre());
             dtos.add(personaDTO);
         }
         return dtos;
