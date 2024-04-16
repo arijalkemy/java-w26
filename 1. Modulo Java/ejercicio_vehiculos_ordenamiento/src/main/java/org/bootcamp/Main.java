@@ -5,7 +5,6 @@ import org.bootcamp.domain.Vehiculo;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author jsanchezpimi
@@ -31,8 +30,8 @@ public class Main
 
         // Se orden los vehiculos por precio
         List<Vehiculo> vehiculosOrdenadosPorPrecio = garaje.getVehiculos().stream()
-                .sorted((v1, v2) -> Double.compare(v1.getCosto(), v2.getCosto()))
-                .collect(Collectors.toList());
+                .sorted(Comparator.comparingDouble(Vehiculo::getCosto))
+                .toList();
 
         // Se imprimen los vehiculos ordenados por precio de menor a mayor
         System.out.println("\n*** Vehículos ordenados por precio de menor a mayor: ***");
@@ -42,7 +41,7 @@ public class Main
         // Se ordenan por marca y precio
         List<Vehiculo> vehiculosOrdenadosPorMarcaYPrecio = garaje.getVehiculos().stream()
                 .sorted(Comparator.comparing(Vehiculo::getMarca).thenComparingDouble(Vehiculo::getCosto))
-                .collect(Collectors.toList());
+                .toList();
 
         // Se imprimen los vehiculos ordenados por marca y precio
         System.out.println("\n*** Vehiculos ordenados por marca y precio: ***");
@@ -52,12 +51,13 @@ public class Main
         // Se filtran los vehiculos con precio no mayor a 1000
         List<Vehiculo> vehiculosPrecioMenor1000 = garaje.getVehiculos().stream()
                 .filter(vehiculo -> vehiculo.getCosto() <= 1000)
-                .collect(Collectors.toList());
+                .toList();
+
 
         // Se filtran los vehiculos con precio mayor a 1000
         List<Vehiculo> vehiculosPrecioMayor1000 = garaje.getVehiculos().stream()
                 .filter(vehiculo -> vehiculo.getCosto() > 1000)
-                .collect(Collectors.toList());
+                .toList();
 
         // Se imprimen los vehiculos con precio no mayor a 1000
         System.out.println("\n*** Vehículos con precio no mayor a 1000: ***");
