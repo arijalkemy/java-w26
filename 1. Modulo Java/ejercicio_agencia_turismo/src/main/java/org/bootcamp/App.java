@@ -21,23 +21,22 @@ public class App
 
         // Se instancia los objetos
         Cliente cliente1 = new Cliente(1, "Juan", "perez");
-        Cliente cliente2 = new Cliente(2, "Juana", "perez");
-        Reserva reserva1 = new Reserva(true, false, false, true);
-        double valor1 = reserva1.getValor();
-        Reserva reserva2 = new Reserva(false, false, false, true);
-        double valor2 = reserva2.getValor();
-        Localizador localizador1 = new Localizador(cliente1, Arrays.asList(reserva1, reserva2), valor1 + valor2);
-        Localizador localizador2 = new Localizador(cliente2, Arrays.asList(reserva1, reserva2), valor1 + valor2);
-        Localizador localizador3 = new Localizador(cliente2, Arrays.asList(reserva1, reserva2), valor1 + valor2);
+        Cliente cliente2 = new Cliente(2, "Camilo", "Rodriguez");
 
+        Reserva reservaHotel = new Reserva(false, true, false, false);
+        Reserva reservaTransporte = new Reserva(false, false, false, true);
+        Reserva reservaTotal = new Reserva(true, true, true, true);
+
+        Localizador localizador1 = new Localizador(cliente1, Arrays.asList(reservaHotel, reservaHotel));
+        Localizador localizador2 = new Localizador(cliente1, Arrays.asList(reservaTransporte, reservaTransporte));
+        Localizador localizador3 = new Localizador(cliente2, Arrays.asList(reservaTotal, reservaHotel));
+
+        // Se guardar los clientes y localizadores
         clienteRepository.guardar(cliente1);
         clienteRepository.guardar(cliente2);
         localizadorRepository.guardar(localizador1);
         localizadorRepository.guardar(localizador2);
         localizadorRepository.guardar(localizador3);
-
-
-
 
 
     }

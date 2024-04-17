@@ -13,14 +13,15 @@ public class Localizador {
     private double total;
 
 
-    public Localizador() {
-        this.id = ++contadorId;
+    public Localizador(){
     }
 
-    public Localizador(Cliente cliente, List<Reserva> reservas, double subtotal) {
+    public Localizador(Cliente cliente, List<Reserva> reservas) {
+        this.id = ++contadorId;
         this.cliente = cliente;
         this.reservas = reservas;
         this.subtotal = subtotal;
+        calcularSubtotal();
     }
 
     public int getId() {
@@ -49,10 +50,22 @@ public class Localizador {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("---- Localizador ----");
+        final StringBuffer sb = new StringBuffer("\n\n---- Localizador ----");
         sb.append("\nid: ").append(id);
-        sb.append("\ncliente: ").append(cliente);
+        sb.append("\nInformación cliente: ").append(cliente);
         sb.append("\nreservas: ").append(reservas);
+        sb.append("\nsubtotal: ").append(subtotal);
+        sb.append("\ndescuento: ").append(descuento);
+        sb.append("\ntotal: ").append(total);
         return sb.toString();
     }
+
+    private void calcularSubtotal (){
+        if(!reservas.isEmpty()){
+            reservas.forEach(reserva -> this.subtotal += reserva.getValor());
+        }
+        this.total = subtotal;
+    }
+
+
 }

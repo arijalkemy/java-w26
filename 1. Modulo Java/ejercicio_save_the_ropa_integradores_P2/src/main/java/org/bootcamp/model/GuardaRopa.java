@@ -1,4 +1,4 @@
-package org.bootcamp.domain;
+package org.bootcamp.model;
 
 import java.util.List;
 import java.util.Map;

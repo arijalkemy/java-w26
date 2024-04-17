@@ -1,4 +1,4 @@
-package org.bootcamp.domain;
+package org.bootcamp.model;
 
 public class Prenda {
 

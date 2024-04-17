@@ -1,7 +1,7 @@
 package org.bootcamp;
 
-import org.bootcamp.domain.GuardaRopa;
-import org.bootcamp.domain.Prenda;
+import org.bootcamp.model.GuardaRopa;
+import org.bootcamp.model.Prenda;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,9 +38,12 @@ public class App
     }
 
     private static void imprimirPrendasDevueltas(List<Prenda> listaPrendas){
-        System.out.println("\n-- Prenda devuelta: --\n");
-        if(listaPrendas != null)
+        System.out.println("\n-- Prendas devuelta: --\n");
+        if(listaPrendas == null){
+            System.out.println("No se encontraron prendas con el código relacionado.");
+        }else{
             listaPrendas.forEach((prenda) -> System.out.println( prenda.toString()));
+        }
     }
 
     private static void imprimirCodigo(Integer codigo){

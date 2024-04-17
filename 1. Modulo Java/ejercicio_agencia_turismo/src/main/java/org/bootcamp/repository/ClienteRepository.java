@@ -2,39 +2,28 @@ package org.bootcamp.repository;
 
 import org.bootcamp.domain.Cliente;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ClienteRepository implements IGeneric<Cliente> {
 
-    private List<Cliente> clientes;
+    private static Set<Cliente> clientes;
     private int contadorId = 0;
 
     public ClienteRepository() {
-        this.clientes = new ArrayList<>();
+        this.clientes = new HashSet<>();
     }
 
 
     @Override
     public Cliente guardar(Cliente objeto) {
-        if(buscar(objeto.getDni()) == null){
-
-        }
-        for(Cliente cliente : clientes){
-            if(cliente.getDni() == objeto.getDni()){
-
-            }
-        }
-        return null;
+        this.clientes.add(objeto);
+        System.out.println(objeto.toString());
+        System.out.println("Se guardo exitosamente el Cliente.");
+        return objeto;
     }
 
     @Override
     public Cliente buscar(int id) {
-        for(Cliente cliente:clientes){
-            if(cliente.getDni() == id){
-
-            }
-        }
-        return null;
+        return this.clientes.get(id);
     }
 }

@@ -1,7 +1,4 @@
 package org.bootcamp.service;
 
-public class LocalizadorService {
-
-
-
+public interface LocalizadorService {
 }

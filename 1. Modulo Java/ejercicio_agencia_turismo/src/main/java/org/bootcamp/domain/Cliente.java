@@ -38,4 +38,13 @@ public class Cliente {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("\n*** Cliente ***");
+        sb.append("\ndni: ").append(dni);
+        sb.append("\nnombre: ").append(nombre);
+        sb.append("\napellido: ").append(apellido);
+        return sb.toString();
+    }
 }

@@ -3,29 +3,30 @@ package org.bootcamp.repository;
 import org.bootcamp.domain.Cliente;
 import org.bootcamp.domain.Localizador;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class LocalizadorRepository implements IGeneric<Localizador> {
 
-    private List<Localizador> localizadores;
+    private static Map<Integer, Localizador> localizadores;
 
     public LocalizadorRepository() {
-        this.localizadores = new ArrayList<>();
+        this.localizadores = new TreeMap<>();
     }
 
     @Override
     public Localizador guardar(Localizador objeto) {
-        return null;
+        localizadores.put(objeto.getId(), objeto);
+        System.out.println(objeto.toString());
+        System.out.println("¡Localizador guardado con exito!");
+        return objeto;
     }
 
     @Override
     public Localizador buscar(int id) {
-        return null;
+        return localizadores.get(id);
     }
 
-    public List<Localizador> getByCliente (Cliente cliente){
+    private void calcularDescuento(){
 
-        return null;
     }
 }

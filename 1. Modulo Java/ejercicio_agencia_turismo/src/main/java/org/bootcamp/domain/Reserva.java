@@ -12,14 +12,15 @@ public class Reserva {
     private double valor;
 
     public Reserva() {
-        this.idReserva = ++contadorId;
     }
 
     public Reserva(boolean viaje, boolean hotel, boolean comida, boolean transporte) {
+        this.idReserva = ++contadorId;
         this.viaje = viaje;
         this.hotel = hotel;
         this.comida = comida;
         this.transporte = transporte;
+        this.valor = this.getValor();
     }
 
     public double getValor() {
@@ -76,5 +77,17 @@ public class Reserva {
 
     public void setTransporte(boolean transporte) {
         this.transporte = transporte;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("\n*** Reserva ***");
+        sb.append("\nid reserva: ").append(idReserva);
+        sb.append("\nviaje: ").append(viaje);
+        sb.append("\nhotel: ").append(hotel);
+        sb.append("\ncomida: ").append(comida);
+        sb.append("\ntransporte: ").append(transporte);
+        sb.append("\nvalor: ").append(valor);
+        return sb.toString();
     }
 }

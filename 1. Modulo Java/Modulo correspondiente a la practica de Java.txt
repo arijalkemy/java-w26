@@ -35,5 +35,5 @@ Ejercicio Integradores P1
 
 Ejercicio Integradores P2
 
-	ejercicio_save_the_ropa (sin cargar)
+	ejercicio_save_the_ropa (cargado)
 	ejercicio_dakar (sin cargar)
