@@ -1,0 +1,13 @@
+package com.w26.edad.edad;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class EdadApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
