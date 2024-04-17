@@ -12,16 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class CodigoMorseController {
     @Autowired
     ICodigoMorseService codigoMorseService;
+
     @GetMapping("/{codigo}")
-    public String decodeMorse(@PathVariable String codigo)
-    {
+    public String decodeMorse(@PathVariable String codigo) {
         return codigoMorseService.decodificarCodigoMorse(codigo);
     }
 
     @GetMapping("/codificar/{mensaje}")
-
-    public String codificar(@PathVariable String mensaje)
-    {
+    public String codificar(@PathVariable String mensaje) {
         return codigoMorseService.codificarCodigoMorse(mensaje);
     }
 

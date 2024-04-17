@@ -10,7 +10,6 @@ public class PersonaController {
     IPersonaService personaService;
 
     @GetMapping(path = "{dia}/{mes}/{anio}")
-    @ResponseBody
     public Integer mapEdadPersona(@PathVariable Integer dia, @PathVariable Integer mes, @PathVariable Integer anio) {
         return personaService.mapEdadPersona(dia,mes,anio);
     }

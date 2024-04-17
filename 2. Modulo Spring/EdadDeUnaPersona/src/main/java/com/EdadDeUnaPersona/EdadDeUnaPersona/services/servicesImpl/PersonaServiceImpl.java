@@ -6,14 +6,15 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
+
 @Service
 public class PersonaServiceImpl implements IPersonaService {
     @Override
     public Integer mapEdadPersona(Integer dia, Integer mes, Integer anio) {
-        LocalDate hoy = LocalDate.now();
-        LocalDate fechaNacimiento = LocalDate.of(anio,mes,dia);
 
-        Period periodo = Period.between(fechaNacimiento,hoy);
+        LocalDate hoy = LocalDate.now();
+        LocalDate fechaNacimiento = LocalDate.of(anio, mes, dia);
+        Period periodo = Period.between(fechaNacimiento, hoy);
         return periodo.getYears();
     }
 }

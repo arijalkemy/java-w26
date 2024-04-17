@@ -35,7 +35,6 @@ public class DeporteController {
         if (deporte.isEmpty()) {
             return new ResponseEntity<>("No existe el deporte: "+ name, HttpStatus.BAD_REQUEST);
         }
-
         return new ResponseEntity<>(deporte.get(), HttpStatus.OK);
     }
     @GetMapping("/findSportsPersons")
