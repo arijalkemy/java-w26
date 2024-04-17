@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequestMapping("/findSymptom")
 public class SymptomController {
 
     private final ISymptomsService symptomsService;
@@ -23,12 +24,12 @@ public class SymptomController {
         this.symptomsService = symptomsService;
     }
 
-    @GetMapping("/findSymptom")
+    @GetMapping
     public List<Symptom> getAllSymptoms() {
         return symptomsService.getAllSymptoms();
     }
 
-    @GetMapping("/findSymptom/{name}")
+    @GetMapping("/{name}")
     ResponseEntity<Integer> getRiskLevelBySymptomName(@PathVariable String name) {
         Integer riskLevel = symptomsService.getRiskLevelBySymptomName(name);
         // Pruebo usarlo de otras formas
@@ -36,13 +37,6 @@ public class SymptomController {
             return new ResponseEntity<>(symptomsService.getRiskLevelBySymptomName(name), HttpStatus.OK);
         }
         return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/findRiskPerson")
-    ResponseEntity<List<RiskPersonDTO>> findRiskPerson() {
-        return ResponseEntity.ok(
-                this.symptomsService.getAllRiskPersons()
-        );
     }
 
 }

@@ -11,6 +11,4 @@ public interface ISymptomsService {
 
     Integer getRiskLevelBySymptomName(String name);
 
-    List<RiskPersonDTO> getAllRiskPersons();
-
 }
