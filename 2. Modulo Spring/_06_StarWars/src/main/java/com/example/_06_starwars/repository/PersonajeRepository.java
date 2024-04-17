@@ -26,7 +26,6 @@ public class PersonajeRepository implements IPersonajeRepository{
 
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-
             personajes = objectMapper.readValue(new FileReader(path), new TypeReference<List<Personaje>>(){});
 
             } catch (StreamReadException ex) {
