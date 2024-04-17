@@ -1,6 +1,7 @@
 package org.example.starwars.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Personaje {
+    @JsonProperty()
     private String name;
     private int height;
     private int mass;
