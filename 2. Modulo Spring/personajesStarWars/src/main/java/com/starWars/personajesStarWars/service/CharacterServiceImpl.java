@@ -19,6 +19,7 @@ public class CharacterServiceImpl implements ICharacterService {
         return characters.stream()
                 .map(this::buildCharacterDto)
                 .toList();
+        
     }
 
     private CharacterDTO buildCharacterDto(Character character){
