@@ -17,8 +17,9 @@ public class RepositorioDePersonajesJson implements IRepositorioDePersonajes {
   public RepositorioDePersonajesJson(ResourceLoader resourceLoader) throws IOException {
     ObjectMapper objectMapper = new ObjectMapper();
     Resource resource = resourceLoader.getResource("classpath:static/starwars.json");
-    personajes = objectMapper.readValue(resource.getInputStream(), new TypeReference<List<Personaje>>() {
-    });
+    personajes = objectMapper.readValue(
+        resource.getInputStream(), new TypeReference<>() {
+        });
   }
 
   @Override
