@@ -10,7 +10,7 @@ import java.time.Period;
 
 @RestController
 @RequestMapping("/")
-public class EdadPersona {
+public class EdadPersonaRestController {
     @GetMapping("/{dia}/{mes}/{anio}")
     public int obtenerEdad(@PathVariable int dia, @PathVariable int mes, @PathVariable int anio) {
 
