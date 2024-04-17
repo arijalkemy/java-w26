@@ -17,15 +17,15 @@ public class RepositorioDePersonajesJson implements IRepositorioDePersonajes {
   public RepositorioDePersonajesJson(ResourceLoader resourceLoader) throws IOException {
     ObjectMapper objectMapper = new ObjectMapper();
     Resource resource = resourceLoader.getResource("classpath:static/starwars.json");
-    personajes = objectMapper.readValue(resource.getInputStream(), new TypeReference<List<Personaje>>() {});
+    personajes = objectMapper.readValue(resource.getInputStream(), new TypeReference<List<Personaje>>() {
+    });
   }
 
   @Override
-  public Personaje buscarPersonajePorNombre(String nombre) {
+  public List<Personaje> buscarPersonajePorNombre(String nombre) {
     return this.personajes.stream()
         .filter(personaje -> personaje.getName().toLowerCase().contains(nombre.toLowerCase()))
-        .findFirst()
-        .orElseThrow(() -> new IllegalArgumentException("No se encontró a " + nombre + " :c"));
+        .toList();
   }
 
   @Override

@@ -15,7 +15,7 @@ public class PersonajeServiceImpl implements IPersonajeService {
   }
 
   @Override
-  public Personaje buscarPersonajePorNombre(String nombre) {
+  public List<Personaje> buscarPersonajePorNombre(String nombre) {
     return repositorioDePersonajes.buscarPersonajePorNombre(nombre);
   }
 

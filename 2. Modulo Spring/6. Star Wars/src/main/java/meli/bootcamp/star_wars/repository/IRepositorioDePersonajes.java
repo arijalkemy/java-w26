@@ -4,7 +4,7 @@ import java.util.List;
 import meli.bootcamp.star_wars.domain.Personaje;
 
 public interface IRepositorioDePersonajes {
-  public Personaje buscarPersonajePorNombre(String nombre);
+  public List<Personaje> buscarPersonajePorNombre(String nombre);
 
   List<Personaje> obtenerTodos();
 }

@@ -22,11 +22,11 @@ public class PersonajeController {
   }
 
   @GetMapping("/{name}")
-  public ResponseEntity<PersonajeDto> buscarPersonajePorNombre(@PathVariable String name) {
-    Personaje personaje = personajeService.buscarPersonajePorNombre(name);
-    PersonajeDto personajeDto = crearPersonajeDto(personaje);
+  public ResponseEntity<List<PersonajeDto>> buscarPersonajePorNombre(@PathVariable String name) {
+    List<Personaje> personajes = personajeService.buscarPersonajePorNombre(name);
+    List<PersonajeDto> personajseDto = personajes.stream().map(this::crearPersonajeDto).toList();
 
-    return ResponseEntity.ok().body(personajeDto);
+    return ResponseEntity.ok().body(personajseDto);
   }
 
   @GetMapping
