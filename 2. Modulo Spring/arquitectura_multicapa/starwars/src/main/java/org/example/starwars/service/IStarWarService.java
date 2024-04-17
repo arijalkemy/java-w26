@@ -6,5 +6,5 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface IStarWarService {
-    ResponseEntity<List<StarWarCharacterDTO>> getAllPersonajes();
+    ResponseEntity<List<StarWarCharacterDTO>> getChaptersByName(String name);
 }

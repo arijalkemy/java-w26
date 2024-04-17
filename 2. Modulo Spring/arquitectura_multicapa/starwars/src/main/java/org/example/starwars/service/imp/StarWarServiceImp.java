@@ -13,12 +13,13 @@ import java.util.List;
 @Service
 public class StarWarServiceImp implements IStarWarService {
     @Override
-    public ResponseEntity<List<StarWarCharacterDTO>> getAllPersonajes() {
+    public ResponseEntity<List<StarWarCharacterDTO>> getChaptersByName(String name) {
         List<StarWarCharacter> characters = new StarWarsRepository().getStarWarCharacters();
         if(characters.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         List<StarWarCharacterDTO> characterDTOS = characters.stream()
+                .filter(c -> c.getName().contains(name))
                 .map(c -> new StarWarCharacterDTO(c)).toList();
         return new ResponseEntity<>(characterDTOS, HttpStatus.OK);
     }
