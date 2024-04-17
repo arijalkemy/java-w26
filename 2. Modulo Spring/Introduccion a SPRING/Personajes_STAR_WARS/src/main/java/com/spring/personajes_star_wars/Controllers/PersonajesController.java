@@ -19,7 +19,7 @@ import java.util.List;
 public class PersonajesController {
 
     @Autowired
-    IPersonajesService personajesService;
+    private IPersonajesService personajesService;
 
     @GetMapping("/{nombre}")
     public ResponseEntity<List<PersonajeDto>> findPersonajes(@PathVariable String nombre){

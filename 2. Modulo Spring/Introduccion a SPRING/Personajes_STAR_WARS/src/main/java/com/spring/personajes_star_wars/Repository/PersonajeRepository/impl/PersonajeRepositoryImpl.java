@@ -1,8 +1,9 @@
-package com.spring.personajes_star_wars.Repository.PersonajeRepository;
+package com.spring.personajes_star_wars.Repository.PersonajeRepository.impl;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.personajes_star_wars.Models.Personaje;
+import com.spring.personajes_star_wars.Repository.PersonajeRepository.IPersonajeRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,8 @@ public class PersonajeRepositoryImpl implements IPersonajeRepository {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             File file = new ClassPathResource("data/starwars.json").getFile();
-            personajes = objectMapper.readValue(file, new TypeReference<List<Personaje>>() {});
+            personajes = objectMapper.readValue(file, new TypeReference<>() {
+            });
         } catch (IOException e) {
             throw new IOException(e);
         }

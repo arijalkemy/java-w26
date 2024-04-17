@@ -1,17 +1,12 @@
 package com.spring.personajes_star_wars.Services.PersonajeService.Impl;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.personajes_star_wars.Dtos.PersonajeDto;
 import com.spring.personajes_star_wars.Models.Personaje;
 import com.spring.personajes_star_wars.Repository.PersonajeRepository.IPersonajeRepository;
 import com.spring.personajes_star_wars.Services.PersonajeService.IPersonajesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 

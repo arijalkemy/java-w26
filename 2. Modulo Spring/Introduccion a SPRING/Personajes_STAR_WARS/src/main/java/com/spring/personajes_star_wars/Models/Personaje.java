@@ -2,9 +2,6 @@ package com.spring.personajes_star_wars.Models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.Date;
-
 public class Personaje {
     private String name;
     private Integer height;
