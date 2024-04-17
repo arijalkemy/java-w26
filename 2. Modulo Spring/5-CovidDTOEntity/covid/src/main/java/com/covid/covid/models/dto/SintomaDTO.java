@@ -1,6 +1,8 @@
 package com.covid.covid.models.dto;
 
-public class SintomaDTO {
+import java.io.Serializable;
+
+public class SintomaDTO implements Serializable {
     private String nombre;
     private String gravedad;
 

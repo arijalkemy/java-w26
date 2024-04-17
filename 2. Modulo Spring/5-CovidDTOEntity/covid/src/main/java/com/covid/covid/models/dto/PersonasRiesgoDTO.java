@@ -1,6 +1,8 @@
 package com.covid.covid.models.dto;
 
-public class PersonasRiesgoDTO {
+import java.io.Serializable;
+
+public class PersonasRiesgoDTO implements Serializable {
     private String nombre;
     private String apellido;
 
