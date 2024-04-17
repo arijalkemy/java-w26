@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface IPersonajesService {
     List<PersonajeDto> findPersonajes(String nombre);
-    List<Personaje> findAll();
 }

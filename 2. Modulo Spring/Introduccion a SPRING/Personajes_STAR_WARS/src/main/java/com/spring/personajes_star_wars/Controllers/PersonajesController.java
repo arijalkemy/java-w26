@@ -21,12 +21,6 @@ public class PersonajesController {
     @Autowired
     IPersonajesService personajesService;
 
-    @GetMapping
-    public ResponseEntity<List<Personaje>> findAll() {
-        List<Personaje> personajes = personajesService.findAll();
-        return new ResponseEntity<>(personajes, HttpStatus.OK);
-    }
-
     @GetMapping("/{nombre}")
     public ResponseEntity<List<PersonajeDto>> findPersonajes(@PathVariable String nombre){
         List<PersonajeDto> personajeDtos = personajesService.findPersonajes(nombre);

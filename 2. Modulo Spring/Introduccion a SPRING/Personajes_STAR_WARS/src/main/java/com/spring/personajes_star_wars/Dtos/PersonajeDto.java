@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class PersonajeDto implements Serializable {
     private String name;
-    private String height;
-    private String mass;
+    private Integer height;
+    private Integer mass;
     private String gender;
     private String homeworld;
     private String species;
@@ -13,7 +13,7 @@ public class PersonajeDto implements Serializable {
     public PersonajeDto() {
     }
 
-    public PersonajeDto(String name, String height, String mass, String gender, String homeworld, String species) {
+    public PersonajeDto(String name, Integer height, Integer mass, String gender, String homeworld, String species) {
         this.name = name;
         this.height = height;
         this.mass = mass;
@@ -30,19 +30,19 @@ public class PersonajeDto implements Serializable {
         this.name = name;
     }
 
-    public String getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
-    public String getMass() {
+    public Integer getMass() {
         return mass;
     }
 
-    public void setMass(String mass) {
+    public void setMass(Integer mass) {
         this.mass = mass;
     }
 

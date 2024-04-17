@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class Personaje {
     private String name;
-    private String height;
-    private String mass;
+    private Integer height;
+    private Integer mass;
     private String hair_color;
     private String skin_color;
     private String eye_color;
@@ -18,8 +18,8 @@ public class Personaje {
     private String species;
 
     @JsonCreator
-    public Personaje(@JsonProperty("name") String name, @JsonProperty("height") String height,
-                     @JsonProperty("mass") String mass, @JsonProperty("hair_color") String hairColor,
+    public Personaje(@JsonProperty("name") String name, @JsonProperty("height") Integer height,
+                     @JsonProperty("mass") Integer mass, @JsonProperty("hair_color") String hairColor,
                      @JsonProperty("skin_color") String skinColor, @JsonProperty("eye_color") String eyeColor,
                      @JsonProperty("birth_year") String birthYear, @JsonProperty("gender") String gender,
                      @JsonProperty("homeworld") String homeworld, @JsonProperty("species") String species) {
@@ -46,19 +46,19 @@ public class Personaje {
         this.name = name;
     }
 
-    public String getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
-    public void setHeight(String height) {
+    public void setHeight(Integer height) {
         this.height = height;
     }
 
-    public String getMass() {
+    public Integer getMass() {
         return mass;
     }
 
-    public void setMass(String mass) {
+    public void setMass(Integer mass) {
         this.mass = mass;
     }
 
