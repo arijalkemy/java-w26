@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Service
+@org.springframework.stereotype.Repository
 public class Repository implements ISportRepository, IPersonRepository {
 
     private static final List<Sport> sportList = Arrays.asList(
