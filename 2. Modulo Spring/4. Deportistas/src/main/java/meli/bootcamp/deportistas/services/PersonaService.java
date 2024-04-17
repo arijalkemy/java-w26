@@ -1,6 +1,6 @@
 package meli.bootcamp.deportistas.services;
 
-import dto.PersonaDto;
+import meli.bootcamp.deportistas.dto.PersonaDto;
 import java.util.List;
 import meli.bootcamp.deportistas.domain.Deporte;
 import meli.bootcamp.deportistas.domain.Persona;

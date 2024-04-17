@@ -1,6 +1,6 @@
 package meli.bootcamp.deportistas.controllers;
 
-import dto.PersonaDto;
+import meli.bootcamp.deportistas.dto.PersonaDto;
 import java.util.List;
 import meli.bootcamp.deportistas.services.PersonaService;
 import org.springframework.http.ResponseEntity;

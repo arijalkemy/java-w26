@@ -1,4 +1,4 @@
-package dto;
+package meli.bootcamp.deportistas.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
