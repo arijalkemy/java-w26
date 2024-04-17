@@ -8,11 +8,11 @@
 		<version>3.2.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>co.com.mercadolibre</groupId>
-	<artifactId>calorias</artifactId>
+	<groupId>com.EjercicioSpring</groupId>
+	<artifactId>Ejercicio9_CalculadoraCalorias</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>calorias</name>
-	<description>calorias</description>
+	<name>Ejercicio9_CalculadoraCalorias</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -38,12 +38,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.10.1</version>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
