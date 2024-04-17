@@ -2,32 +2,32 @@ package com.example._06_starwars.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 @Getter @Setter
 public class Personaje {
-    private String nombre;
-    private String colorDePelo;
-    private String colorDePiel;
-    private String colorDeOjos;
-    private String anioDeNacimiento;
-    private String genero;
-    private String mundoNatal;
-    private String especie;
-    private int peso;
-    private int altura;
+    private String name;
+    private String hair_color;
+    private String skin_color;
+    private String eye_color;
+    private String birth_year;
+    private String gender;
+    private String homeworld;
+    private String species;
+    private int mass;
+    private int height;
 
-    public Personaje(String nombre, String colorDePelo, String colorDePiel, String colorDeOjos,
-                     String anioDeNacimiento, String genero, String mundoNatal, String especie, int peso, int altura) {
-        this.nombre = nombre;
-        this.colorDePelo = colorDePelo;
-        this.colorDePiel = colorDePiel;
-        this.colorDeOjos = colorDeOjos;
-        this.anioDeNacimiento = anioDeNacimiento;
-        this.genero = genero;
-        this.mundoNatal = mundoNatal;
-        this.especie = especie;
-        this.peso = peso;
-        this.altura = altura;
+    public Personaje(){}
+    public Personaje(String name, String hairColor, String skinColor, String eyeColor,
+                     String birthYear, String gender, String homeworld, String species, int mass, int height) {
+        this.name = name;
+        this.hair_color = hairColor;
+        this.skin_color = skinColor;
+        this.eye_color = eyeColor;
+        this.birth_year = birthYear;
+        this.gender = gender;
+        this.homeworld = homeworld;
+        this.species = species;
+        this.mass = mass;
+        this.height = height;
     }
 }

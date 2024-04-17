@@ -38,12 +38,12 @@ public class PersonajeServiceImpl implements IPersonajeService{
 
         for (Personaje personaje : personajes){
             PersonajeDTO personajeDTO = new PersonajeDTO();
-            personajeDTO.setNombre(personaje.getNombre());
-            personajeDTO.setEspecie(personaje.getEspecie());
-            personajeDTO.setMundoNatal(personaje.getMundoNatal());
-            personajeDTO.setGenero(personaje.getGenero());
-            personajeDTO.setPeso(personaje.getPeso());
-            personajeDTO.setAltura(personaje.getAltura());
+            personajeDTO.setNombre(personaje.getName());
+            personajeDTO.setEspecie(personaje.getSpecies());
+            personajeDTO.setMundoNatal(personaje.getHomeworld());
+            personajeDTO.setGenero(personaje.getGender());
+            personajeDTO.setPeso(personaje.getMass());
+            personajeDTO.setAltura(personaje.getHeight());
 
             personajeDTOS.add(personajeDTO);
         }
