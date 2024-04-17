@@ -17,9 +17,13 @@ public class CharacterServiceImpl implements ICharacterService {
 
     @Override
     public List<CharacterDTO> matchName(String substring) {
-        return personajeRepository.findByString(substring).stream()
+        try{
+            return personajeRepository.findByString(substring).stream()
                 .map(character -> new CharacterDTO(character.getName(), character.getHeight(), character.getMass(),
                         character.getGender(), character.getHomeworld(), character.getSpecies()))
                 .collect(Collectors.toList());
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 }
