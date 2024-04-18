@@ -6,6 +6,7 @@ import org.example.integradorcovid.model.Symptom;
 import org.example.integradorcovid.repository.SymptomRiskRepository;
 import org.example.integradorcovid.service.ISymptom;
 import org.example.integradorcovid.service.ISymptomRisk;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class SymptomRiskImp implements ISymptom<Symptom>, ISymptomRisk<SymptomRi
     // Injecting dependencies
     private final SymptomRiskRepository symptomRiskRepository;
 
+    @Autowired
     public SymptomRiskImp(SymptomRiskRepository symptomRiskRepository){
         this.symptomRiskRepository = symptomRiskRepository;
     }

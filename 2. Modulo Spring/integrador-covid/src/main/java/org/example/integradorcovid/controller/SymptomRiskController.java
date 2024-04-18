@@ -4,6 +4,7 @@ package org.example.integradorcovid.controller;
 import org.example.integradorcovid.dto.SymptomRiskDTO;
 import org.example.integradorcovid.model.Symptom;
 import org.example.integradorcovid.service.impl.SymptomRiskImp;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ public class SymptomRiskController {
 
     private final SymptomRiskImp symptomRiskImp;
 
+    @Autowired
     public SymptomRiskController(SymptomRiskImp symptomRiskImp){
         this.symptomRiskImp = symptomRiskImp;
     }
