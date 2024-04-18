@@ -14,20 +14,20 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler({BlogEntryAlreadyExistsException.class})
     public ResponseEntity<Map<String, Object>> handleBlogEntryAlreadyExistsException(BlogEntryAlreadyExistsException ex) {
-        return getMapResponseEntity(ex.getMessage(), ex, HttpStatus.CONFLICT);
+        return getMapResponseEntity(ex, HttpStatus.CONFLICT);
     }
 
     @ExceptionHandler({NotFoundException.class})
     public ResponseEntity<Map<String, Object>> handleNotFoundException(NotFoundException ex) {
-        return getMapResponseEntity(ex.getMessage(), ex, HttpStatus.NOT_FOUND);
+        return getMapResponseEntity(ex, HttpStatus.NOT_FOUND);
     }
 
-    private ResponseEntity<Map<String, Object>> getMapResponseEntity(String message, RuntimeException ex, HttpStatus status) {
+    private ResponseEntity<Map<String, Object>> getMapResponseEntity(RuntimeException ex, HttpStatus status) {
         Map<String, Object> response = new HashMap<>();
         response.put("status", status.value());
         response.put("message", status.getReasonPhrase());
         response.put("timestamp", LocalDateTime.now());
-        response.put("error", message);
+        response.put("error", ex.getMessage());
         response.put("exception", ex.getClass().getSimpleName());
         return ResponseEntity.status(status).body(response);
     }
