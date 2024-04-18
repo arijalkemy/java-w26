@@ -28,6 +28,7 @@ public class GlobalExceptionHandler {
         response.put("message", status.getReasonPhrase());
         response.put("timestamp", LocalDateTime.now());
         response.put("error", message);
+        response.put("exception", ex.getClass().getSimpleName());
         return ResponseEntity.status(status).body(response);
     }
 }
