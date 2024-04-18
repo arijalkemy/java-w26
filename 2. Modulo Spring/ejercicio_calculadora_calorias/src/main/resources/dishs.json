@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Ensalada de Pollo",
+    "ingredients": [
+      {"name": "Lechuga", "calories": 14},
+      {"name": "Pollo", "calories": 239},
+      {"name": "Tomate", "calories": 18},
+      {"name": "Cebolla", "calories": 47},
+      {"name": "Aceite de Oliva", "calories": 884}
+    ]
+  },
+  {
+    "name": "Hamburguesa con Queso",
+    "ingredients": [
+      {"name": "Pan de Hamburguesa", "calories": 256},
+      {"name": "Carne de Res", "calories": 250},
+      {"name": "Queso Cheddar", "calories": 402},
+      {"name": "Lechuga", "calories": 14},
+      {"name": "Tomate", "calories": 18},
+      {"name": "Cebolla", "calories": 47},
+      {"name": "Ketchup", "calories": 100},
+      {"name": "Mayonesa", "calories": 188}
+    ]
+  },
+  {
+    "name": "Pasta Alfredo",
+    "ingredients": [
+      {"name": "Pasta Fettuccine", "calories": 131},
+      {"name": "Crema de Leche", "calories": 340},
+      {"name": "Mantequilla", "calories": 717},
+      {"name": "Queso Parmesano", "calories": 431}
+    ]
+  },
+  {
+    "name": "Sándwich de Pollo",
+    "ingredients": [
+      {"name": "Pan de Sandwich", "calories": 264},
+      {"name": "Pollo", "calories": 239},
+      {"name": "Lechuga", "calories": 14},
+      {"name": "Tomate", "calories": 18},
+      {"name": "Mayonesa", "calories": 188}
+    ]
+  },
+  {
+    "name": "Pizza de Pepperoni",
+    "ingredients": [
+      {"name": "Masa de Pizza", "calories": 291},
+      {"name": "Salsa de Tomate", "calories": 82},
+      {"name": "Queso Mozzarella", "calories": 280},
+      {"name": "Pepperoni", "calories": 494}
+    ]
+  }
+]
