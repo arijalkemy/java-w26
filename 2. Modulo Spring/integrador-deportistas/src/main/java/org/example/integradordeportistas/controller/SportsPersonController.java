@@ -3,6 +3,7 @@ package org.example.integradordeportistas.controller;
 import org.example.integradordeportistas.dto.SportsPersonDTO;
 import org.example.integradordeportistas.model.Sport;
 import org.example.integradordeportistas.service.impl.SportsPersonImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class SportsPersonController {
 
     private final SportsPersonImpl sportsPersonImpl;
 
+    @Autowired
     public SportsPersonController(SportsPersonImpl sportsPersonImpl){
         this.sportsPersonImpl = sportsPersonImpl;
     }

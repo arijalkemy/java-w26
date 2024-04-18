@@ -6,6 +6,7 @@ import org.example.integradordeportistas.model.Sport;
 import org.example.integradordeportistas.repository.SportsPersonRepository;
 import org.example.integradordeportistas.service.ISports;
 import org.example.integradordeportistas.service.ISportsPerson;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class SportsPersonImpl implements ISportsPerson <SportsPersonDTO>, ISport
     // Injecting Dependencies
     private final SportsPersonRepository sportsPersonRepository;
 
+    @Autowired
     public SportsPersonImpl(SportsPersonRepository sportsPersonRepository){
         this.sportsPersonRepository = sportsPersonRepository;
     }
