@@ -20,12 +20,32 @@ public class ConversionCodigo implements IConversionCodigo{
 
     @Override
     public String decifrarCadenaMorse(String morseStringCode) {
-        List<String> splittedString = List.of(morseStringCode.split(" "));
+        List<String> splittedWords = List.of(morseStringCode.split("   "));
         StringBuilder decodedMsg = new StringBuilder();
-        for(String morseLetter: splittedString){
-            decodedMsg.append(this.decifrarLetraMorse(morseLetter));
+        for(String word: splittedWords){
+            List<String> splittedString = List.of(word.split(" "));
+            for(String morseLetter: splittedString){
+                decodedMsg.append(this.decifrarLetraMorse(morseLetter));
+            }
+            decodedMsg.append(" ");
         }
 
+        return decodedMsg.toString();
+    }
+
+    @Override
+    public String convertirAMorse(String cadena){
+        List<String> splittedWords = List.of(cadena.split(" "));
+        StringBuilder decodedMsg = new StringBuilder();
+
+        for(String word: splittedWords){
+            List<String> letters =  List.of(word.split(""));
+            for(String letter: letters){
+                decodedMsg.append(MorseAlphabet.obtenerValorPorClave(letter));
+                decodedMsg.append(" ");
+            }
+            decodedMsg.append("   ");
+        }
         return decodedMsg.toString();
     }
 }

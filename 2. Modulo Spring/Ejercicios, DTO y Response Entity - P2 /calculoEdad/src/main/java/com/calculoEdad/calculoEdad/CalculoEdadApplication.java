@@ -1,12 +1,13 @@
-package com.codigo_morse.codigo_morse;
+package com.calculoEdad.calculoEdad;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CodigoMorseApplication {
+public class CalculoEdadApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(CodigoMorseApplication.class, args);
+		SpringApplication.run(CalculoEdadApplication.class, args);
 	}
 
 }

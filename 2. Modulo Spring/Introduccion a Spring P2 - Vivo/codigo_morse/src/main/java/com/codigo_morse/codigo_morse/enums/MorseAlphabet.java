@@ -37,7 +37,7 @@ public enum MorseAlphabet {
     }
 
     public String getMorseCode() {
-        return morseCode;
+        return this.morseCode;
     }
 
     public static MorseAlphabet fromMorseCode(String morseCode) {
@@ -47,5 +47,14 @@ public enum MorseAlphabet {
             }
         }
         return null;
+    }
+
+    public static String obtenerValorPorClave(String clave) {
+        for (MorseAlphabet item : MorseAlphabet.values()) {
+            if (item.name().equals(clave)) {
+                return item.getMorseCode();
+            }
+        }
+        return "";
     }
 }
