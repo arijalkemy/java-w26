@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Pizza",
+    "weight": 100,
+    "ingredients" : [
+      "Tomates","Queso manchego", "Queso mozzarella"
+    ]
+  },
+  {
+    "name": "Omelette",
+    "weight": 150,
+    "ingredients" : [
+      "Huevo entero","Leche condensada c/azúcar", "Tomates"
+    ]
+  },
+  {
+    "name": "Licuado",
+    "weight": 200,
+    "ingredients" : [
+      "Leche condensada c/azúcar","Plátano", "Avena"
+    ]
+  }
+]
