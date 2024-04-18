@@ -3,6 +3,8 @@ package com.example._09_practicaexcepcionesteoria.controller;
 import com.example._09_practicaexcepcionesteoria.dto.BlogPostDTO;
 import com.example._09_practicaexcepcionesteoria.service.IBlogPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,19 +16,20 @@ public class BlogPostController {
     IBlogPostService iBlogPostService;
 
     @GetMapping
-    public List<BlogPostDTO> getAll(){
-        return iBlogPostService.getAll();
+    public ResponseEntity<List<BlogPostDTO>> getAll(){
+        return new ResponseEntity<>(iBlogPostService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public BlogPostDTO getById(@PathVariable int id){
+    public ResponseEntity<BlogPostDTO> getById(@PathVariable int id){
 
-        return iBlogPostService.findById(id);
+        return new ResponseEntity<>(iBlogPostService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public int add(@RequestBody BlogPostDTO blogPostDTO){
-        return iBlogPostService.add(blogPostDTO);
+    public ResponseEntity<?> add(@RequestBody BlogPostDTO blogPostDTO){
+
+        return new ResponseEntity<>(iBlogPostService.add(blogPostDTO), HttpStatus.CREATED);
     }
 
 }
