@@ -33,6 +33,7 @@ public class FoodServiceImpl implements IFoodService {
 
     private PlatoResponseDto getPlatoResponseDto(PlatoRequestDto d) {
         PlatoResponseDto platoResponseDto = new PlatoResponseDto();
+        platoResponseDto.setName(d.getName());
         platoResponseDto.setIngredients(d.getIngredientes());
         platoResponseDto.setTotalCalorias(platoResponseDto.getIngredients().stream().mapToInt(this::calcularCalorias).sum());
         platoResponseDto.setMostCaloricIngredient(platoResponseDto.getIngredients().stream().max(Comparator.comparingInt(this::calcularCalorias)).orElse(null));

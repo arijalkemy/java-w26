@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Plato {
+    private String name;
     private Integer totalCalorias;
     private List<Ingrediente> ingredientes;
 

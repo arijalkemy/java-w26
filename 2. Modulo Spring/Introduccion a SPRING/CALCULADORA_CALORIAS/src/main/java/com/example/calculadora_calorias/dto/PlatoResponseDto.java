@@ -12,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PlatoResponseDto {
+    private String name;
     private Integer totalCalorias;
     private List<IngredientDto> ingredients;
     private IngredientDto mostCaloricIngredient;
