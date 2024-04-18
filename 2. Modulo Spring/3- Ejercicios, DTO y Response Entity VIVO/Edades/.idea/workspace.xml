@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c38e0bbd-5c28-43fa-80e0-3b7017bdfbe2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/CRUDRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/ClientImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/TicketImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/Controller/ConverterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/Service/Convert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/ServiceImpl/ConvertImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Garage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/target/classes/Garage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/target/classes/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionOrdenamientoBurbuja/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionOrdenamientoBurbuja/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionOrdenamientoBurbuja/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/AsyncEjercitacionOrdenamientoBurbuja/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/src/main/java/Analitics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/src/main/java/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/src/main/java/Locators.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/src/main/java/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/src/main/java/Reserve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/target/classes/AgenciaViajes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/target/classes/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/target/classes/Localizador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/target/classes/RepositorioClientes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/11-Ejercicios integradores P1/SyncEjercitacionTurismo/target/classes/Reserva.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/MotorCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/MotorCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Race.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Clothing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Clothing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/9-Clases Abstractas e inferfaces VIVO/2- Ejercicio Documentos/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/9-Clases Abstractas e inferfaces VIVO/2- Ejercicio Documentos/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/SyncEjercitacionPOO2/.idea/workspace.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2fBT6BqeowxLVob1p3QXflIczBX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/brdonato/RepositoryW26/java-w26/2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/Edades"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="EdadesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Edades" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Ejercicio.Edades.EdadesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c38e0bbd-5c28-43fa-80e0-3b7017bdfbe2" name="Changes" comment="" />
+      <created>1713273293602</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713273293602</updated>
+      <workItem from="1713273294704" duration="4615000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
