@@ -1,0 +1,13 @@
+package com.EjercicioSpring.Ejercicio7_Covid19;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class Ejercicio7Covid19ApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
