@@ -39,7 +39,7 @@ public class DesportistasServiceImpl implements IDeportistasService{
                 .setDeporteRealizado(new DeporteDTO("futbol"));
         return personaDTO;
     }
-
+    //TODO:Hacer que el service utilice todo con DTO.
     public List<Deporte> traerDeportes(){
         Persona persona1 = new Persona("erik","quispe",11);
         Deporte futbol = new Deporte("futbol", "11");
