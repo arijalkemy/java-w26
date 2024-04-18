@@ -11,6 +11,9 @@ public interface IVehicleRepository {
     public Car createVehicle(Car vehicle);
     public CarService createCarService(CarService service);
     public List<Integer> bulkCreateCarService(List<CarService> serviceList);
+    public Integer getLastVehicleId();
+    public Integer getLastServiceId();
     public List<CarService> getAllServices();
     public CarService getServiceById(Integer id);
+    public Car getVehicleById(Integer id);
 }

@@ -11,5 +11,5 @@ public interface IVehicleService {
     public List<SimpleVehicleDTO> getAllVehicles();
     public List<SimpleVehicleDTO> getVehiclesByDate(String since, String to);
     public List<SimpleVehicleDTO> getVehiclesByPrice(String since, String to);
-    public FullVehicleDTO getVehicleById(String id);
+    public FullVehicleDTO getVehicleById(Integer id);
 }

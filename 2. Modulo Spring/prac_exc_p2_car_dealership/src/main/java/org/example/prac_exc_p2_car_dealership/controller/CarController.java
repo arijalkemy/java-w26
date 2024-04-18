@@ -47,7 +47,7 @@ public class CarController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public FullVehicleDTO getVehicleById(@PathVariable String id) {
+    public FullVehicleDTO getVehicleById(@PathVariable Integer id) {
         return vehicleService.getVehicleById(id);
     }
 }
