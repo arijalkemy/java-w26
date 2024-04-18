@@ -16,14 +16,22 @@ public class Main {
         listaClientes.add(cliente2);
         listaClientes.add(cliente3);
 
+        //Parte 2
+        Item item1 = new Item(1, "Atun", 2, 15);
+        Item item2 = new Item(2, "Fideos", 1, 40);
+        Item item3 = new Item(3, "Gaseosa", 3, 100);
+
+        Factura factura = new Factura(cliente1, List.of(item1, item2, item3));
+        factura.calcularCostoTotalCompra();
+
         Scanner teclado = new Scanner(System.in);
         int opcion;
-
         do {
             System.out.println("\n--- MENU ---");
             System.out.println("1. Mostrar los datos de todos los clientes en la coleccion");
             System.out.println("2. Eliminar un cliente de la coleccion ingresando su DNI");
             System.out.println("3. Mostrar datos de un cliente ingresando su DNI");
+            System.out.println("4. Mostrar datos de la factura");
             System.out.println("9. Salir");
             System.out.print("\nIngrese una opcion: ");
             opcion = teclado.nextInt();
@@ -72,6 +80,14 @@ public class Main {
                     } else {
                         System.out.println("El dni ingresado no corresponde a un cliente");
                     }
+                    break;
+                case 4:
+                    System.out.println("\nCliente: " + factura.getCliente().getNombre());
+                    for (Item item : factura.getListaItems()) {
+                        System.out.println(item.getNombre() + " - costo unitario: " + item.getCostoUnitario() +
+                                " - cantidad: " + item.getCantidad());
+                    }
+                    System.out.println("El monto total de la compra es: " + factura.getCostoTotalCompra());
                     break;
                 case 9:
                     System.out.println("Saliendo...");
