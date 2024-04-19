@@ -1,24 +1,21 @@
 package org.mercadolibre.multicapatemplate.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class BlogEntry {
     private Integer id;
     private String title;
     private String authorName;
-    private LocalDateTime publicationDate;
 
-    public BlogEntry(Integer id, String title, String authorName) {
-        this.id = id;
-        this.title = title;
-        this.authorName = authorName;
-        this.publicationDate = LocalDateTime.now();
-    }
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDate publicationDate;
 }

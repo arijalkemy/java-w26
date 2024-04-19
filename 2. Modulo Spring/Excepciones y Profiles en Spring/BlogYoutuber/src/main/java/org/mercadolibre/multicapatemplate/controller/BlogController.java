@@ -6,10 +6,7 @@ import org.mercadolibre.multicapatemplate.service.impl.BlogEntryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,14 +20,22 @@ public class BlogController {
     }
 
     @PostMapping("/blog")
-    public ResponseEntity<Integer> saveBlogEntry(@RequestBody BlogEntryRequestDTO blogEntryRequestDTO){
+    public ResponseEntity<Integer> saveBlogEntry(@RequestBody BlogEntryRequestDTO blogEntryRequestDTO) {
         return new ResponseEntity<Integer>(
                 blogEntryService.saveBlogEntry(blogEntryRequestDTO), HttpStatus.OK
         );
     }
 
+    @GetMapping("/blog/{id}")
+    public ResponseEntity<BlogEntryResponseDTO> getBlogEntryById(@PathVariable int id) {
+        return new ResponseEntity<>(
+                blogEntryService.findById(id),
+                HttpStatus.OK
+        );
+    }
+
     @GetMapping("/blogs")
-    public ResponseEntity<List<BlogEntryResponseDTO>> findAllBlogs(){
+    public ResponseEntity<List<BlogEntryResponseDTO>> findAllBlogs() {
         return new ResponseEntity<List<BlogEntryResponseDTO>>(
                 blogEntryService.findAll(), HttpStatus.OK
         );

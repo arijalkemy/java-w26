@@ -1,24 +1,24 @@
 package org.mercadolibre.multicapatemplate.repository;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.mercadolibre.multicapatemplate.dto.BlogEntryResponseDTO;
 import org.mercadolibre.multicapatemplate.entity.BlogEntry;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class BlogEntryRepositoryImpl{
 
-    private List<BlogEntry> blogEntryList;
+    private final List<BlogEntry> blogEntryList;
 
     public BlogEntryRepositoryImpl() {
         this.blogEntryList = new ArrayList<>();
     }
 
     public Integer save(BlogEntry blogEntry){
-        if (this.find(blogEntry.getId()) == null){
+        if (this.getById(blogEntry.getId()) == null){
+            blogEntry.setPublicationDate(LocalDate.now());
             this.blogEntryList.add(blogEntry);
             return blogEntry.getId();
         } else {
@@ -26,7 +26,7 @@ public class BlogEntryRepositoryImpl{
         }
     }
 
-    public BlogEntry find(int id){
+    public BlogEntry getById(int id){
         return blogEntryList
                 .stream()
                 .filter(x -> x.getId().equals(id))

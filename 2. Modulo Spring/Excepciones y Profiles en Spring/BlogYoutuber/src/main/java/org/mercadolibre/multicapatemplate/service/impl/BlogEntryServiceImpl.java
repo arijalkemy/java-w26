@@ -21,12 +21,25 @@ public class BlogEntryServiceImpl implements IBlogEntryService {
 
     public int saveBlogEntry(BlogEntryRequestDTO blogEntryRequestDTO) {
         return blogEntryRepository.save(
-                new ObjectMapper().convertValue(blogEntryRequestDTO, BlogEntry.class)
+                new ObjectMapper().convertValue(
+                        blogEntryRequestDTO,
+                        BlogEntry.class
+                )
+        );
+    }
+
+    public BlogEntryResponseDTO findById(int id) {
+        return new ObjectMapper().convertValue(
+                blogEntryRepository.getById(id),
+                BlogEntryResponseDTO.class
         );
     }
 
     public List<BlogEntryResponseDTO> findAll(){
-        return blogEntryRepository.getAll().stream().map( x -> new ObjectMapper().convertValue(x, BlogEntryResponseDTO.class))
+        return blogEntryRepository
+                .getAll()
+                .stream()
+                .map( x -> new ObjectMapper().convertValue(x, BlogEntryResponseDTO.class))
                 .toList();
     }
 
