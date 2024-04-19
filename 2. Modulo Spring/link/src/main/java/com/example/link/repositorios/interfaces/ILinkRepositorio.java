@@ -8,4 +8,6 @@ public interface ILinkRepositorio {
     public void guardarLink(Link link);
 
     public Optional<Link> buscarPorId(int id);
+    public void guardar(Link link);
+
 }

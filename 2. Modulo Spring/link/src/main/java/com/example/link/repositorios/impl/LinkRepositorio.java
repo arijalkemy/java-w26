@@ -27,4 +27,14 @@ public class LinkRepositorio implements ILinkRepositorio {
                 .findFirst();
     }
 
+    @Override
+    public void guardar(Link link) {
+        for (int i = 0; i < links.size(); i++) {
+            if (links.get(i).getId() == link.getId()) {
+                links.set(i, link);
+            }
+        }
+        links.add(link);
+    }
+
 }

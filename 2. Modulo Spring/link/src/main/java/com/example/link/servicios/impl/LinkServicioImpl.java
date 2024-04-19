@@ -2,6 +2,8 @@ package com.example.link.servicios.impl;
 
 import com.example.link.DTOs.LinkRequestDTO;
 import com.example.link.DTOs.LinkResponseDTO;
+import com.example.link.DTOs.MetricResponseDTO;
+import com.example.link.exceptions.InvalidURLException;
 import com.example.link.modelo.Link;
 import com.example.link.repositorios.interfaces.ILinkRepositorio;
 import com.example.link.servicios.interfaces.ILinkServicio;
@@ -49,14 +51,42 @@ public class LinkServicioImpl implements ILinkServicio {
 
         Link link = this.buscarLink(id);
 
+
+        if(link.isEstaInvalidado()){
+            throw new InvalidURLException("URL invalidada");
+        } else {
+            link.redireccionar();
+        }
+
+
         try{
             URL url = new URL(link.getUrl()).toURI().toURL();
 
             HttpHeaders headers = new HttpHeaders();
             headers.setLocation(url.toURI());
             return new ResponseEntity<>(headers, HttpStatus.SEE_OTHER);
+
         } catch (MalformedURLException | URISyntaxException e){
-            return null;
+            throw new InvalidURLException("URL invalida");
         }
     }
+
+    @Override
+    public MetricResponseDTO getMetricsFrom(int id) {
+
+        Link link  = this.buscarLink(id);
+
+        return new MetricResponseDTO(link.getId(),link.getCantidadDeVecesQueSeRedirecciono());
+    }
+
+    @Override
+    public LinkResponseDTO invalidateLinkFromId(int id) {
+        Link link  = this.buscarLink(id);
+
+        link.invalidar();
+
+        this.linkRepositorio.guardar(link);
+        return new LinkResponseDTO(link.getId());
+    }
+
 }
