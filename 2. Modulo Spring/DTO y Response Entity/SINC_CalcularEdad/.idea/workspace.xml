@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="99532979-f4c3-4dfe-b0d7-87e785376c46" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Clases Abstractas e Interfaces/SINC_EjercicioAnimales/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Clases Abstractas e Interfaces/SINC_EjercicioAnimales/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Clases Abstractas e Interfaces/SINC_EjercicioBanco/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Clases Abstractas e Interfaces/SINC_EjercicioBanco/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Clases Abstractas e Interfaces/SINC_EjercicioImpresiones/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Clases Abstractas e Interfaces/SINC_EjercicioImpresiones/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_AlgoritmoOrdenamiento/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_AlgoritmoOrdenamiento/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_AlgoritmoOrdenamiento/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_AlgoritmoOrdenamiento/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_SeriesNumericas/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_SeriesNumericas/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_SupermercadoElEconomico/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Ejercicios Integradores/ASINC_SupermercadoElEconomico/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/POO - P2/SINC_EjerciciosPracticosPOO_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/POO - P2/SINC_EjerciciosPracticosPOO_1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/POO - P2/SINC_EjerciciosPracticosPOO_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/POO - P2/SINC_EjerciciosPracticosPOO_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../1. Modulo Java/Recapitulando JAVA/SINC_PracticaIntegradora/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../1. Modulo Java/Recapitulando JAVA/SINC_PracticaIntegradora/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2fBdlsnEbwKhHDVCCmvqj5rqTqD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mditta/Desktop/Repositorio/java-w26/2. Modulo Spring/DTO y Response Entity/SINC_CalcularEdad",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "86b7b862bb5d5f8d2df3e95624ede286"
+  }
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.CalcularedadApplication">
+    <configuration name="CalcularedadApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SINC_CalcularEdad" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.bootcamp.calcularedad.CalcularedadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CalcularedadApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="calcularedad" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.bootcamp.calcularedad.CalcularedadApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="99532979-f4c3-4dfe-b0d7-87e785376c46" name="Changes" comment="" />
+      <created>1713278558981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713278558981</updated>
+      <workItem from="1713278560034" duration="1798000" />
+      <workItem from="1713280671131" duration="10000" />
+      <workItem from="1713281548048" duration="671000" />
+      <workItem from="1713554576130" duration="510000" />
+      <workItem from="1713556388257" duration="208000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
