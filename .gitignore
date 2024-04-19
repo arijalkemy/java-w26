@@ -2,3 +2,4 @@
 **/.DS_Store
 **/.idea/
 **/target/
+.pre-commit-config.yaml
