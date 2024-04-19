@@ -30,14 +30,4 @@ public class VehicleRepository implements IVehicleRepository {
     public List<Vehicle> findAll() {
         return vehicles;
     }
-
-    @Override
-    public List<Vehicle> findByManufacuringDate(String from, String to) {
-        return List.of();
-    }
-
-    @Override
-    public List<Vehicle> findByPrice(Integer minimumPrice, Integer maximumPrice) {
-        return List.of();
-    }
 }
