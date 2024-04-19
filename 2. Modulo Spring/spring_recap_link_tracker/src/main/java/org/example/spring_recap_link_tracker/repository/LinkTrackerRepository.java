@@ -16,15 +16,18 @@ public class LinkTrackerRepository implements ILinkTrackerRepository{
         this.linkTrackMap = new HashMap<>();
     }
 
+    @Override
     public void createNewLink(LinkTrack linkTrack) {
         linkTrackMap.put(linkTrack.getLinkId(), linkTrack);
     }
 
+    @Override
     public LinkTrack getLinkById(String linkId) {
         return linkTrackMap.get(linkId);
     }
 
-    public void invalidateLink(LinkTrack link) {
+    @Override
+    public void updateLink(LinkTrack link) {
         linkTrackMap.replace(link.getLinkId(), link);
     }
 }

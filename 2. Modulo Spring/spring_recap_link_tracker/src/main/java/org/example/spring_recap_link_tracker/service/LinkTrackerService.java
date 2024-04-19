@@ -21,6 +21,7 @@ public class LinkTrackerService implements ILinkTrackerService {
     @Autowired
     ILinkTrackerRepository linkTrackerRepository;
 
+    @Override
     public LinkResponseDTO createLink(CreateLinkDTO newLinkData){
         Pattern pattern = Pattern.compile("(https:\\/\\/www\\.|http:\\/\\/www\\.|https:\\/\\/|http:\\/\\/)?[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})(\\.[a-zA-Z]{2,})?\\/[a-zA-Z0-9]{2,}|((https:\\/\\/www\\.|http:\\/\\/www\\.|https:\\/\\/|http:\\/\\/)?[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})(\\.[a-zA-Z]{2,})?)|(https:\\/\\/www\\.|http:\\/\\/www\\.|https:\\/\\/|http:\\/\\/)?[a-zA-Z0-9]{2,}\\.[a-zA-Z0-9]{2,}\\.[a-zA-Z0-9]{2,}(\\.[a-zA-Z0-9]{2,})?");
         Matcher matcher = pattern.matcher(newLinkData.getLink());
@@ -41,6 +42,28 @@ public class LinkTrackerService implements ILinkTrackerService {
     }
 
     @Override
+    public String getLink(String linkId, String password) {
+        LinkTrack linkTrack = linkTrackerRepository.getLinkById(linkId);
+        if (linkTrack == null) {
+            throw new NotFoundException("No se encontró ningún link con ese id");
+        }
+        if (!linkTrack.getPassword().equals(password)) {
+            throw new BadRequestException("La contraseña es incorrecta");
+        }
+        if (!linkTrack.getEnabled()) {
+            throw new BadRequestException("El enlace que estás consultando no está habilitado");
+        }
+        return linkTrack.getLink();
+    }
+
+    @Override
+    public void updateLinkRedirect(String linkId) {
+        LinkTrack linkTrack = linkTrackerRepository.getLinkById(linkId);
+        linkTrack.setRedirectCount(linkTrack.getRedirectCount() + 1);
+        linkTrackerRepository.updateLink(linkTrack);
+    }
+
+    @Override
     public LinkMetricsDTO getMetrics(String linkId) {
         LinkTrack linkTrack = linkTrackerRepository.getLinkById(linkId);
         if (linkTrack == null) {
@@ -49,13 +72,14 @@ public class LinkTrackerService implements ILinkTrackerService {
         return new LinkMetricsDTO(linkTrack.getRedirectCount());
     }
 
+    @Override
     public InvalidateLinkDTO invalidateLink(String linkId) {
         LinkTrack linkTrack = linkTrackerRepository.getLinkById(linkId);
         if (linkTrack == null) {
             throw new NotFoundException("No se encontró ningún link con ese id");
         }
         linkTrack.setEnabled(false);
-        linkTrackerRepository.invalidateLink(linkTrack);
+        linkTrackerRepository.updateLink(linkTrack);
         return new InvalidateLinkDTO(linkTrack.getLinkId(), "Link invalidado");
     }
 }

@@ -11,4 +11,6 @@ public interface ILinkTrackerService {
     public LinkResponseDTO createLink(CreateLinkDTO newLinkData);
     public LinkMetricsDTO getMetrics(String linkId);
     public InvalidateLinkDTO invalidateLink(String linkId);
+    public String getLink(String linkId, String password);
+    public void updateLinkRedirect(String linkId);
 }
