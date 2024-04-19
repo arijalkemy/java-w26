@@ -27,6 +27,7 @@ public class Main {
         Persona persona3 = new Persona("Felipe");
 
         Aerolinea aerolinea = new Aerolinea("Aerolinea");
+        Aerolinea aerolinea1 = new Aerolinea("Aerolinea 2");
 
         Aeropuerto aeropuertoEzeiza = new Aeropuerto("Aeropuerto Ezeiza", bsAs);
         Aeropuerto aeropuertoMilan = new Aeropuerto("Aeropuerto Milan", milan);
@@ -60,10 +61,14 @@ public class Main {
                 aeropuertoMilan,
                 conEscalasBsAsToMilan,
                 5,
-                LocalDate.now().minusMonths(4));
+                LocalDate.now().minusMonths(1));
 
         aerolinea.agregarVuelo(vueloBsAsToMilanDirecto);
         aerolinea.agregarVuelo(vueloBsAsToMilanConEscalas);
+
+        aerolinea1.agregarVuelo(vueloBsAsToMilanConEscalas);
+        aerolinea1.agregarVuelo(vueloBsAsToMilanConEscalas);
+        aerolinea1.agregarVuelo(vueloBsAsToMilanConEscalas);
 
         Pasajero pasajero1 = new Pasajero(persona1, 1, vueloBsAsToMilanDirecto);
         Pasajero pasajero2 = new Pasajero(persona2, 2, vueloBsAsToMilanDirecto);
@@ -128,7 +133,8 @@ public class Main {
         System.out.println("Cantidad de vuelos que realizo una tripulacion en tres meses: ");
         System.out.println(estadisticas.cantidadDeVuelosQueRealizoUnaTripulacionEn(3,tripulacion));
 
-
+        System.out.println("Aerolinea con mayor cantidad de pasajeros: ");
+        System.out.println(estadisticas.obtenerAerolineaConMayorPasajerosEnMes(Arrays.asList(aerolinea,aerolinea1),3).get());
 
     }
 

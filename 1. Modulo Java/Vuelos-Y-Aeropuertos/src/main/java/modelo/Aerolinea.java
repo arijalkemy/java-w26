@@ -14,4 +14,16 @@ public class Aerolinea {
     public void agregarVuelo(Vuelo vuelo){
         this.vuelos.add(vuelo);
     }
+
+    public List<Vuelo> getVuelos() {
+        return vuelos;
+    }
+
+    @Override
+    public String toString() {
+        return "Aerolinea{" +
+                "nombre='" + nombre + '\'' +
+                ", vuelos=" + vuelos.toString() +
+                '}';
+    }
 }

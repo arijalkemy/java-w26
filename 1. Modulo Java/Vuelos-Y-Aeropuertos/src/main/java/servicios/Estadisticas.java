@@ -1,12 +1,12 @@
 package servicios;
 
-import enums.Mes;
 import modelo.*;
 import repositorios.RepositorioVuelos;
 
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class Estadisticas {
 
@@ -60,10 +60,10 @@ public class Estadisticas {
         List<Vuelo> vuelos = this.repositorioVuelos.obtenerVuelos();
 
         List<Escala> escalas = vuelos
-                                    .stream()
-                                    .filter(v -> v.getTipoDeVuelo() instanceof VueloConEscalas)
-                                    .flatMap(v -> ((VueloConEscalas) v.getTipoDeVuelo()).getEscalas().stream())
-                                    .toList();
+                .stream()
+                .filter(v -> v.getTipoDeVuelo() instanceof VueloConEscalas)
+                .flatMap(v -> ((VueloConEscalas) v.getTipoDeVuelo()).getEscalas().stream())
+                .toList();
         return aeropuertos
                 .stream()
                 .min(Comparator.comparingInt(a -> (int) escalas.stream()
@@ -75,7 +75,8 @@ public class Estadisticas {
     public Ciudad obtenerCiudadQueRecibioMasPasajerosEnUnDia(List<Ciudad> ciudades, LocalDate fecha) {
         List<Vuelo> vuelos = this.repositorioVuelos.obtenerVuelos();
 
-        return ciudades.stream().max(Comparator.comparingInt(ciudad -> vuelos.stream().filter(v -> {
+        return ciudades.stream().max(Comparator.comparingInt(ciudad ->
+                vuelos.stream().filter(v -> {
                     boolean llegoAEseAeropuerto = v.getAeropuertoLlegada().getCiudad().equals(ciudad)
                             && v.getFechaLLegada().equals(fecha);
                     if (llegoAEseAeropuerto) {
@@ -96,7 +97,7 @@ public class Estadisticas {
 
     }
 
-    public int cantidadDeVuelosQueRealizoUnaTripulacionEn(int meses, List<Tripulante> tripulacion){
+    public int cantidadDeVuelosQueRealizoUnaTripulacionEn(int meses, List<Tripulante> tripulacion) {
         LocalDate hasta = LocalDate.now();
         LocalDate desde = hasta.minusMonths(meses);
 
@@ -112,4 +113,45 @@ public class Estadisticas {
                 .size();
     }
 
+    public Optional<Aerolinea> mayorCantidadDePasajerosEnUnMes(List<Aerolinea> aerolineas, int mes) {
+
+        return aerolineas.stream().max(
+                Comparator.comparingInt(
+                        a -> {
+                            System.out.println("aerolinea");
+                            System.out.println(a);
+                            System.out.println();
+                            List<Vuelo> vuelosEnElMes =
+                                    a
+                                            .getVuelos()
+                                            .stream().filter(
+                                                    v -> {
+                                                        System.out.println("-----");
+                                                        System.out.println(v.getFechaLLegada());
+                                                        return v.getFechaLLegada().getMonthValue() == mes;
+                                                    }
+                                            ).toList();
+
+                            System.out.println("VUELOS EN UN MES");
+                            System.out.println(vuelosEnElMes);
+                            return vuelosEnElMes.stream().mapToInt(
+                                    v -> v.getPasajeros().size()
+                            ).sum();
+                        }
+                )
+        );
+    }
+
+    public Optional<Aerolinea> obtenerAerolineaConMayorPasajerosEnMes(List<Aerolinea> aerolineas, int mes) {
+        return aerolineas.stream()
+                .max(Comparator.comparingInt(aerolinea -> {
+                    List<Vuelo> vuelosEnElMes = aerolinea.getVuelos().stream()
+                            .filter(vuelo -> vuelo.getFechaLLegada().getMonthValue() == mes)
+                            .toList();
+
+                    return vuelosEnElMes.stream()
+                            .mapToInt(vuelo -> vuelo.getPasajeros().size())
+                            .sum();
+                }));
+    }
 }
