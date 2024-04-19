@@ -16,13 +16,13 @@ public class BlogEntryRepositoryImpl{
         this.blogEntryList = new ArrayList<>();
     }
 
-    public Integer save(BlogEntry blogEntry){
+    public BlogEntry save(BlogEntry blogEntry){
         if (this.getById(blogEntry.getId()) == null){
             blogEntry.setPublicationDate(LocalDate.now());
             this.blogEntryList.add(blogEntry);
-            return blogEntry.getId();
+            return blogEntry;
         } else {
-            return -1;
+            return null;
         }
     }
 

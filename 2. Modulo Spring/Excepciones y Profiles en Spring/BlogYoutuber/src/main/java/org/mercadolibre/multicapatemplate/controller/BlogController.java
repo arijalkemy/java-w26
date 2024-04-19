@@ -3,7 +3,6 @@ package org.mercadolibre.multicapatemplate.controller;
 import org.mercadolibre.multicapatemplate.dto.BlogEntryRequestDTO;
 import org.mercadolibre.multicapatemplate.dto.BlogEntryResponseDTO;
 import org.mercadolibre.multicapatemplate.service.impl.BlogEntryServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +19,10 @@ public class BlogController {
     }
 
     @PostMapping("/blog")
-    public ResponseEntity<Integer> saveBlogEntry(@RequestBody BlogEntryRequestDTO blogEntryRequestDTO) {
-        return new ResponseEntity<Integer>(
-                blogEntryService.saveBlogEntry(blogEntryRequestDTO), HttpStatus.OK
+    public ResponseEntity<String> saveBlogEntry(@RequestBody BlogEntryRequestDTO blogEntryRequestDTO) {
+        return new ResponseEntity<>(
+                "Se creo entrada en el blog con id = "+ blogEntryService.saveBlogEntry(blogEntryRequestDTO),
+                HttpStatus.CREATED
         );
     }
 
@@ -36,7 +36,7 @@ public class BlogController {
 
     @GetMapping("/blogs")
     public ResponseEntity<List<BlogEntryResponseDTO>> findAllBlogs() {
-        return new ResponseEntity<List<BlogEntryResponseDTO>>(
+        return new ResponseEntity<>(
                 blogEntryService.findAll(), HttpStatus.OK
         );
     }
