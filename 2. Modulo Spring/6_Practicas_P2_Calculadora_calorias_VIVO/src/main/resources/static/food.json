@@ -1,0 +1,195 @@
+[
+  {
+    "name": "Tacos de carne asada",
+    "ingredients": [
+      {
+        "name": "Carne de res",
+        "calories": 250
+      },
+      {
+        "name": "Tortillas de maíz",
+        "calories": 52
+      },
+      {
+        "name": "Cebolla",
+        "calories": 44
+      },
+      {
+        "name": "Cilantro",
+        "calories": 1
+      },
+      {
+        "name": "Limón",
+        "calories": 17
+      },
+      {
+        "name": "Salsa",
+        "calories": 20
+      },
+      {
+        "name": "Aguacate",
+        "calories": 234
+      }
+    ]
+  },
+  {
+    "name": "Paella",
+    "ingredients": [
+      {
+        "name": "Arroz",
+        "calories": 130
+      },
+      {
+        "name": "Pollo",
+        "calories": 239
+      },
+      {
+        "name": "Mariscos (calamares, camarones, mejillones)",
+        "calories": 82
+      },
+      {
+        "name": "Pimientos",
+        "calories": 20
+      },
+      {
+        "name": "Tomates",
+        "calories": 18
+      },
+      {
+        "name": "Ajo",
+        "calories": 4
+      },
+      {
+        "name": "Azafrán",
+        "calories": 5
+      },
+      {
+        "name": "Caldo de pollo",
+        "calories": 15
+      },
+      {
+        "name": "Aceite de oliva",
+        "calories": 120
+      }
+    ]
+  },
+  {
+    "name": "Ceviche peruano",
+    "ingredients": [
+      {
+        "name": "Pescado blanco (corvina, lenguado)",
+        "calories": 85
+      },
+      {
+        "name": "Limón",
+        "calories": 17
+      },
+      {
+        "name": "Cebolla morada",
+        "calories": 40
+      },
+      {
+        "name": "Cilantro",
+        "calories": 1
+      },
+      {
+        "name": "Ají amarillo",
+        "calories": 15
+      },
+      {
+        "name": "Maíz",
+        "calories": 96
+      },
+      {
+        "name": "Cancha",
+        "calories": 112
+      },
+      {
+        "name": "Camote",
+        "calories": 86
+      }
+    ]
+  },
+  {
+    "name": "Gazpacho",
+    "ingredients": [
+      {
+        "name": "Tomates",
+        "calories": 18
+      },
+      {
+        "name": "Pepino",
+        "calories": 15
+      },
+      {
+        "name": "Pimiento",
+        "calories": 20
+      },
+      {
+        "name": "Cebolla",
+        "calories": 44
+      },
+      {
+        "name": "Ajo",
+        "calories": 4
+      },
+      {
+        "name": "Pan",
+        "calories": 130
+      },
+      {
+        "name": "Aceite de oliva",
+        "calories": 120
+      },
+      {
+        "name": "Vinagre",
+        "calories": 14
+      },
+      {
+        "name": "Sal",
+        "calories": 0
+      },
+      {
+        "name": "Pimienta",
+        "calories": 5
+      }
+    ]
+  },
+  {
+    "name": "Empanadas argentinas",
+    "ingredients": [
+      {
+        "name": "Carne molida",
+        "calories": 250
+      },
+      {
+        "name": "Cebolla",
+        "calories": 44
+      },
+      {
+        "name": "Pimiento",
+        "calories": 20
+      },
+      {
+        "name": "Aceitunas",
+        "calories": 132
+      },
+      {
+        "name": "Huevo duro",
+        "calories": 155
+      },
+      {
+        "name": "Comino",
+        "calories": 8
+      },
+      {
+        "name": "Pimentón",
+        "calories": 20
+      },
+      {
+        "name": "Masa para empanadas",
+        "calories": 250
+      }
+    ]
+  }
+]
