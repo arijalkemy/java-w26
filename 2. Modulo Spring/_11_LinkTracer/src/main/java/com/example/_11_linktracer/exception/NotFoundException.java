@@ -1,0 +1,7 @@
+package com.example._11_linktracer.exception;
+
+public class NotFoundException extends RuntimeException {
+    public NotFoundException(String message){
+        super(message);
+    }
+}
