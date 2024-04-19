@@ -1,0 +1,222 @@
+[
+    {
+        "brand": "Chevrolet",
+        "model": "Corsa",
+        "manufacturingDate": "2000-11-20",
+        "numberOfKilometers": "115000",
+        "doors": "5",
+        "price": "90000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2003-05-20",
+                "kilometers": "60000",
+                "descriptions": "Change air filters"
+            },
+            {
+                "date": "2005-08-15",
+                "kilometers": "80000",
+                "descriptions": "Replace brake pads"
+            }
+        ],
+        "countOfOwners": "3"
+    },
+    {
+        "brand": "Ford",
+        "model": "Fiesta",
+        "manufacturingDate": "2002-07-15",
+        "numberOfKilometers": "95000",
+        "doors": "3",
+        "price": "85000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2005-08-10",
+                "kilometers": "70000",
+                "descriptions": "Oil change"
+            },
+            {
+                "date": "2007-09-25",
+                "kilometers": "90000",
+                "descriptions": "Replace spark plugs"
+            }
+        ],
+        "countOfOwners": "2"
+    },
+    {
+        "brand": "Toyota",
+        "model": "Corolla",
+        "manufacturingDate": "2005-03-10",
+        "numberOfKilometers": "120000",
+        "doors": "4",
+        "price": "120000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2007-11-25",
+                "kilometers": "80000",
+                "descriptions": "Replace brake pads"
+            },
+            {
+                "date": "2009-09-15",
+                "kilometers": "100000",
+                "descriptions": "Change timing belt"
+            }
+        ],
+        "countOfOwners": "1"
+    },
+    {
+        "brand": "Volkswagen",
+        "model": "Gol",
+        "manufacturingDate": "2001-12-05",
+        "numberOfKilometers": "105000",
+        "doors": "5",
+        "price": "80000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2004-09-15",
+                "kilometers": "65000",
+                "descriptions": "Tire rotation"
+            },
+            {
+                "date": "2007-08-20",
+                "kilometers": "85000",
+                "descriptions": "Replace battery"
+            }
+        ],
+        "countOfOwners": "4"
+    },
+    {
+        "brand": "Renault",
+        "model": "Clio",
+        "manufacturingDate": "2003-06-25",
+        "numberOfKilometers": "110000",
+        "doors": "3",
+        "price": "85000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2006-10-20",
+                "kilometers": "75000",
+                "descriptions": "Replace spark plugs"
+            },
+            {
+                "date": "2009-07-12",
+                "kilometers": "95000",
+                "descriptions": "Change brake pads"
+            }
+        ],
+        "countOfOwners": "2"
+    },
+    {
+        "brand": "Honda",
+        "model": "Civic",
+        "manufacturingDate": "2006-08-22",
+        "numberOfKilometers": "115000",
+        "doors": "4",
+        "price": "130000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2009-12-05",
+                "kilometers": "80000",
+                "descriptions": "Change transmission fluid"
+            },
+            {
+                "date": "2012-10-15",
+                "kilometers": "105000",
+                "descriptions": "Replace timing chain"
+            }
+        ],
+        "countOfOwners": "3"
+    },
+    {
+        "brand": "Nissan",
+        "model": "March",
+        "manufacturingDate": "2007-11-12",
+        "numberOfKilometers": "90000",
+        "doors": "5",
+        "price": "110000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2010-06-20",
+                "kilometers": "70000",
+                "descriptions": "Replace battery"
+            },
+            {
+                "date": "2013-05-10",
+                "kilometers": "95000",
+                "descriptions": "Change oil and filter"
+            }
+        ],
+        "countOfOwners": "1"
+    },
+    {
+        "brand": "Hyundai",
+        "model": "Accent",
+        "manufacturingDate": "2005-04-28",
+        "numberOfKilometers": "105000",
+        "doors": "4",
+        "price": "100000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2008-11-15",
+                "kilometers": "75000",
+                "descriptions": "Replace alternator"
+            },
+            {
+                "date": "2012-07-25",
+                "kilometers": "100000",
+                "descriptions": "Change water pump"
+            }
+        ],
+        "countOfOwners": "2"
+    },
+    {
+        "brand": "Mitsubishi",
+        "model": "Lancer",
+        "manufacturingDate": "2004-10-05",
+        "numberOfKilometers": "110000",
+        "doors": "4",
+        "price": "95000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2007-07-20",
+                "kilometers": "70000",
+                "descriptions": "Change brake pads"
+            },
+            {
+                "date": "2010-09-30",
+                "kilometers": "95000",
+                "descriptions": "Replace timing belt"
+            }
+        ],
+        "countOfOwners": "4"
+    },
+    {
+        "brand": "Kia",
+        "model": "Rio",
+        "manufacturingDate": "2003-08-14",
+        "numberOfKilometers": "100000",
+        "doors": "4",
+        "price": "90000",
+        "currency": "AR",
+        "services": [
+            {
+                "date": "2006-12-30",
+                "kilometers": "65000",
+                "descriptions": "Replace coolant"
+            },
+            {
+                "date": "2009-09-20",
+                "kilometers": "85000",
+                "descriptions": "Change oil and filter"
+            }
+        ],
+        "countOfOwners": "3"
+    }
+]

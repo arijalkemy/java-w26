@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "cef68e20-55a0-4948-8b84-3d29b4f0552d",
+		"name": "Concesionaria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33873654"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/v1/api/vehicles",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/v1/api/vehicles/8dc82072-37d8-4ba9-8423-cbdc08d87ff0",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"vehicles",
+						"8dc82072-37d8-4ba9-8423-cbdc08d87ff0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByManufacturingDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/v1/api/vehicles/dates?since=2002-01-01&to=2005-12-12",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"vehicles",
+						"dates"
+					],
+					"query": [
+						{
+							"key": "since",
+							"value": "2002-01-01"
+						},
+						{
+							"key": "to",
+							"value": "2005-12-12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByPrice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/v1/api/vehicles/dates?since=2002-01-01&to=2005-12-12",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"vehicles",
+						"dates"
+					],
+					"query": [
+						{
+							"key": "since",
+							"value": "2002-01-01"
+						},
+						{
+							"key": "to",
+							"value": "2005-12-12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Ford\",\n    \"model\": \"Fiesta\",\n    \"manufacturingDate\": \"2002-07-15\",\n    \"numberOfKilometers\": \"95000\",\n    \"doors\": \"3\",\n    \"price\": \"85000\",\n    \"currency\": \"AR\",\n    \"services\": [\n        {\n            \"date\": \"2005-08-10\",\n            \"kilometers\": \"70000\",\n            \"descriptions\": \"Oil change\"\n        },\n        {\n            \"date\": \"2007-09-25\",\n            \"kilometers\": \"90000\",\n            \"descriptions\": \"Replace spark plugs\"\n        }\n    ],\n    \"countOfOwners\": \"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/v1/api/vehicles",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"v1",
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
