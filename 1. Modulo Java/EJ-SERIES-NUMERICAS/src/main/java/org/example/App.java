@@ -8,9 +8,9 @@ public class App
 {
     public static void main( String[] args )
     {
-        Serie sumarDos = new SumatoriaDe2();
+        Serie sumarDos = new SumatoriaDe2(0);
 
-        Serie sumarTres = new SumatoriaDe3();
+        Serie sumarTres = new SumatoriaDe3(0);
 
         System.out.println("IMPRIMIR CUATRO VEZ SUMATORIA DE 2, VALOR INICIAL 0 (DEFECTO)");
         for (int i = 0; i<4; i++){

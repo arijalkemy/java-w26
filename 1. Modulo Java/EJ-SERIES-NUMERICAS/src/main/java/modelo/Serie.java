@@ -1,11 +1,17 @@
 package modelo;
 
-public abstract class Serie {
+public abstract class Serie<T extends Number> {
 
-    private int valorInicial = 0;
-    private int valorActual = 0;
+    private T valorInicial;
+    private T valorActual;
 
-    public int valorSiguiente(){
+
+    public Serie(T valorInicial) {
+        this.valorInicial = valorInicial;
+        this.valorActual = valorInicial;
+    }
+
+    public T valorSiguiente(){
         valorActual = this.ejecutar();
         return valorActual;
     }
@@ -14,17 +20,17 @@ public abstract class Serie {
         this.valorActual = valorInicial;
     }
 
-    public void setearValorInicial(int valorInicial){
+    public void setearValorInicial(T valorInicial){
         this.valorInicial = valorInicial;
     }
 
-    public abstract int ejecutar();
+    public abstract T ejecutar();
 
-    public int getValorInicial() {
+    public T getValorInicial() {
         return valorInicial;
     }
 
-    public int getValorActual() {
+    public T getValorActual() {
         return valorActual;
     }
 }
