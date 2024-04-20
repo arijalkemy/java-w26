@@ -32,26 +32,4 @@ public class Repositorio {
         }
     }
 
-    public List<Personaje> getPersonajes() {
-        return personajes;
-    }
-
-    /*private List<Personaje> personajes;
-
-    @PostConstruct
-    public void cargarPersonajesDesdeJSON() {
-        try (Reader reader = new FileReader("src/main/java/com/sinc_ejerciciostarwars/repositorio/starwars.json")) {
-            Gson gson = new Gson();
-
-            // Convertir el JSON en una lista de objetos Personaje
-            Personaje[] personajesArray = gson.fromJson(reader, Personaje[].class);
-            this.personajes = Arrays.asList(personajesArray);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public List<Personaje> getPersonajes() {
-        return personajes;
-    }*/
 }
