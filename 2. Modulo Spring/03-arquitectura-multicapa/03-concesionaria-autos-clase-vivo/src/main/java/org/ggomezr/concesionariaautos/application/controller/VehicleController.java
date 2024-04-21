@@ -1,7 +1,8 @@
 package org.ggomezr.concesionariaautos.application.controller;
 
 import org.ggomezr.concesionariaautos.application.service.impl.VehicleService;
-import org.ggomezr.concesionariaautos.domain.dto.VehicleDTO;
+import org.ggomezr.concesionariaautos.domain.dto.VehicleInputDTO;
+import org.ggomezr.concesionariaautos.domain.dto.VehicleResponseDTO;
 import org.ggomezr.concesionariaautos.domain.entity.Vehicle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.core.Local;
@@ -20,37 +21,27 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PostMapping()
-    public ResponseEntity<Vehicle> createVehicle(@RequestBody Vehicle vehicle){
-        Vehicle vehicleCreated = vehicleService.createVehicle(vehicle);
-        if(vehicleCreated != null) return new ResponseEntity<>(HttpStatus.CREATED);
-        else return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<?> createVehicle(@RequestBody VehicleInputDTO vehicle){
+        return new ResponseEntity<>(vehicleService.createVehicle(vehicle), HttpStatus.CREATED);
     }
 
     @GetMapping()
-    public ResponseEntity<List<VehicleDTO>> getAllVehicles(){
-        List<VehicleDTO> vehicles = vehicleService.getAllVehicles();
-        if(!vehicles.isEmpty()) return new ResponseEntity<>(vehicles, HttpStatus.OK);
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> getAllVehicles(){
+        return new ResponseEntity<>(vehicleService.getAllVehicles(), HttpStatus.OK);
     }
 
     @GetMapping("/dates")
-    public ResponseEntity<List<VehicleDTO>> getVehiclesByManufacturingDate(@RequestParam LocalDate since, @RequestParam LocalDate to){
-        List<VehicleDTO> vehicles = vehicleService.getVehiclesByManufacturingDate(since, to);
-        if(!vehicles.isEmpty()) return new ResponseEntity<>(vehicles, HttpStatus.OK);
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> getVehiclesByManufacturingDate(@RequestParam LocalDate since, @RequestParam LocalDate to){
+        return new ResponseEntity<>(vehicleService.getVehiclesByManufacturingDate(since, to), HttpStatus.OK);
     }
 
     @GetMapping("/prices")
-    public ResponseEntity<List<VehicleDTO>> getVehiclesByPriceRange(@RequestParam Integer since, @RequestParam Integer to){
-        List<VehicleDTO> vehicles = vehicleService.getVehiclesByPriceRange(since, to);
-        if(!vehicles.isEmpty()) return new ResponseEntity<>(vehicles, HttpStatus.OK);
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> getVehiclesByPriceRange(@RequestParam Integer since, @RequestParam Integer to){
+        return new ResponseEntity<>(vehicleService.getVehiclesByPriceRange(since, to), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VehicleDTO> getVehicleById(@PathVariable Integer id){
-        VehicleDTO vehicleDTO = vehicleService.getVehicleById(id);
-        if(vehicleDTO != null) return new ResponseEntity<>(vehicleDTO, HttpStatus.OK);
-        else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<?> getVehicleById(@PathVariable Integer id){
+        return new ResponseEntity<>(vehicleService.getVehicleById(id), HttpStatus.OK);
     }
 }
