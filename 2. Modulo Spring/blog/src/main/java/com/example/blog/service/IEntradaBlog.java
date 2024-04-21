@@ -9,4 +9,5 @@ public interface IEntradaBlog {
     Integer crearBlog(EntradaBlog entradaBlog);
     EntradaBlog obtenerBlog(Integer id);
     List<EntradaBlog> obtenerTodos();
+
 }
