@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
 @RestController
-public class DeporteController {
+public class DeportesController {
     @Autowired
     IDeportes deportesService;
 

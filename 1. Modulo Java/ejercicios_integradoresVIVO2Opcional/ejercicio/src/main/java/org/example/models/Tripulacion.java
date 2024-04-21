@@ -1,8 +1,6 @@
-package org.example;
+package org.example.models;
 
 import com.sun.tools.javac.util.List;
-
-import java.util.ArrayList;
 
 public class Tripulacion {
     private List<String> pilotos;

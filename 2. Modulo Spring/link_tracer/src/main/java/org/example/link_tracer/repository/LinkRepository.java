@@ -1,2 +1,4 @@
-package org.example.link_tracer.repository;public class LinkRepository {
+package org.example.link_tracer.repository;
+
+public class LinkRepository {
 }

@@ -1,12 +1,12 @@
 package org.example.deportistas.models;
 
-public class Persona {
+public class Personas {
     private String nombre;
     private String apellido;
     private int edad;
     private Deportes deporte;
 
-    public Persona(String nombre, String apellido, int edad, Deportes deporte) {
+    public Personas(String nombre, String apellido, int edad, Deportes deporte) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;

@@ -1,9 +1,9 @@
 package org.example.star_wars.repository;
 
-import org.example.star_wars.dto.CharacterDTO;
+import org.example.star_wars.entity.Character;
 
 import java.util.*;
 
-public interface CharacterRepository {
-
+public interface ICharacterRepository {
+    public List<Character> getAllCharacters();
 }

@@ -1,5 +1,6 @@
-package org.example;
+package org.example.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,14 @@ public class Vuelo {
     private Aeropuerto aeropuertoDeSalida;
     private Aeropuerto aeropuertoDeLlegada;
     private List<Aeropuerto> escalas = new ArrayList<Aeropuerto>();
+    private LocalDate fechaDeVuelo;
 
-    public Vuelo(Avion avion,int capacidad,int duracion, Aeropuerto aeropuertoDeSalida, Aeropuerto aeropuertoDeLlegada) {
+    public Vuelo(Avion avion,int capacidad,int duracion, Aeropuerto aeropuertoDeSalida, Aeropuerto aeropuertoDeLlegada, LocalDate fechaDeVuelo) {
         this.avion = avion;
         this.duracion = duracion;
         this.aeropuertoDeSalida = aeropuertoDeSalida;
         this.aeropuertoDeLlegada = aeropuertoDeLlegada;
+        this.fechaDeVuelo = fechaDeVuelo;
     }
     public void removerEscala(Aeropuerto aeropuerto) {
         escalas.removeIf(x->x.equals(aeropuerto));

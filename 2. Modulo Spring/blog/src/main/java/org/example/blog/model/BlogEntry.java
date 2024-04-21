@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-
+@Data
 public class BlogEntry {
-    private int id;
+    private Integer id;
     private String title;
     private String authorName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

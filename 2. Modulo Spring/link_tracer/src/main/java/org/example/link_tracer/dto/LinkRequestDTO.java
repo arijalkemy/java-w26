@@ -1,2 +1,4 @@
-package org.example.link_tracer.dto;public class LinkRequestDTO {
+package org.example.link_tracer.dto;
+
+public class LinkRequestDTO {
 }

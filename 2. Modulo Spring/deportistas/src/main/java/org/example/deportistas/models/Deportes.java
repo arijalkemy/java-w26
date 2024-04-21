@@ -1,15 +1,15 @@
 package org.example.deportistas.models;
 
-public class Deporte {
+public class Deportes {
     private String nombre;
     private String nivel;
 
-    public Deporte(String nombre, String  nivel) {
+    public Deportes(String nombre, String  nivel) {
         this.nombre = nombre;
         this.nivel = nivel;
     }
 
-    public Deporte() {
+    public Deportes() {
     }
 
     public String getNombre() {

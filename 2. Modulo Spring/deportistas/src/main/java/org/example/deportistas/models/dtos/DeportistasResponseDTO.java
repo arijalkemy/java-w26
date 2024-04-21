@@ -2,12 +2,12 @@ package org.example.deportistas.models.dtos;
 
 import java.io.Serializable;
 
-public class DeportistaResponseDTO implements Serializable {
+public class DeportistasResponseDTO implements Serializable {
     private String nombre;
     private String apellido;
     private String deporte;
 
-    public DeportistaResponseDTO(String nombre, String apellido, String deporte) {
+    public DeportistasResponseDTO(String nombre, String apellido, String deporte) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.deporte = deporte;

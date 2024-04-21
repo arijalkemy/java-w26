@@ -1,2 +1,4 @@
-package org.example.link_tracer.service;public interface ILinkService {
+package org.example.link_tracer.service;
+
+public interface ILinkService {
 }

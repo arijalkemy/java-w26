@@ -1,27 +1,27 @@
 package org.example.star_wars.entity;
 
-public class CharacterEntity {
+public class Character {
     private String name;
     private Integer height;
     private Integer mass;
-    private String hair_color;
-    private String skin_color;
-    private String eye_color;
+    private String hairColor;
+    private String skinColor;
+    private String eyeColor;
     private String birthYear;
     private String gender;
     private String homeworld;
     private String species;
 
-    public CharacterEntity() {
+    public Character() {
     }
 
-    public CharacterEntity(String name, int height, int mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender, String homeworld, String species) {
+    public Character(String name, int height, int mass, String hairColor, String skinColor, String eyeColor, String birthYear, String gender, String homeworld, String species) {
         this.name = name;
         this.height = height;
         this.mass = mass;
-        this.hair_color = hairColor;
-        this.skin_color = skinColor;
-        this.eye_color = eyeColor;
+        this.hairColor = hairColor;
+        this.skinColor = skinColor;
+        this.eyeColor = eyeColor;
         this.birthYear = birthYear;
         this.gender = gender;
         this.homeworld = homeworld;
@@ -53,27 +53,27 @@ public class CharacterEntity {
     }
 
     public String getHairColor() {
-        return hair_color;
+        return hairColor;
     }
 
     public void setHairColor(String hairColor) {
-        this.hair_color = hairColor;
+        this.hairColor = hairColor;
     }
 
     public String getSkinColor() {
-        return skin_color;
+        return skinColor;
     }
 
     public void setSkinColor(String skinColor) {
-        this.skin_color = skinColor;
+        this.skinColor = skinColor;
     }
 
     public String getEyeColor() {
-        return eye_color;
+        return eyeColor;
     }
 
     public void setEyeColor(String eyeColor) {
-        this.eye_color = eyeColor;
+        this.eyeColor = eyeColor;
     }
 
     public String getBirthYear() {
