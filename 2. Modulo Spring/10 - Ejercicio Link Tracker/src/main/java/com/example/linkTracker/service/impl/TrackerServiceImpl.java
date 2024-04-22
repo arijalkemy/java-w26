@@ -28,17 +28,54 @@ public class TrackerServiceImpl implements ITrackerService {
     }
 
     @Override
-    public boolean redirect(String id) {
-        return false;
+    public NewLinkDto saveNewLink( String password ) {
+        List<Link> links = trackerRepository.getAll();
+        Link newLink = new Link(Integer.valueOf(links.size()).toString(), true, 0 );
+        newLink.setPassword(password);
+        trackerRepository.save(newLink);
+        System.out.println(newLink.toString());
+        return new NewLinkDto(newLink);
+    }
+
+    @Override
+    public void redirect(String id) {
+        Link link = trackerRepository.findById(id);
+        if( link == null || !link.getValid() || !( link.getPassword() == null ) ){
+            throw new NotFoundException("Thi id: " + id + " is not found");
+        }
+        boolean sum = trackerRepository.sumRedirect(id);
+        if( !sum ){
+            throw new NotFoundException("Thi id: " + id + " is not found");
+        }
+    }
+
+    @Override
+    public void redirect(String id, String password) {
+        Link link = trackerRepository.findById(id);
+        if( link == null || !link.getValid() || !link.getPassword().equals(password) ){
+            throw new NotFoundException("Error while redirecting");
+        }
+        boolean sum = trackerRepository.sumRedirect(id);
+        if( !sum ){
+            throw new NotFoundException("Thi id: " + id + " is not found");
+        }
     }
 
     @Override
     public StatisticsLinkDto getStatistics(String id) {
-        return null;
+        Link findLink = trackerRepository.findById(id);
+
+        if( findLink == null ){
+            throw new NotFoundException("Thi id: " + id + " is not found");
+        }
+        return new StatisticsLinkDto(findLink);
     }
 
     @Override
     public void invalidateLink(String id) {
-
+        boolean invalidate = trackerRepository.invalidateLink(id);
+        if( !invalidate ){
+            throw new NotFoundException("Thi id: " + id + " is not found");
+        }
     }
 }

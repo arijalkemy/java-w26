@@ -11,4 +11,8 @@ public interface ITrackerRepository {
     Link findById(String id);
 
     void save(Link link);
+
+    boolean sumRedirect( String id );
+
+    boolean invalidateLink(String id);
 }

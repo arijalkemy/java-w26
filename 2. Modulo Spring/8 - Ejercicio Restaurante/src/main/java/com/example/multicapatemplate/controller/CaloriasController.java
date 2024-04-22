@@ -1,6 +1,6 @@
 package com.example.multicapatemplate.controller;
 
-import com.example.multicapatemplate.model.Ingrediente;
+import com.example.multicapatemplate.dto.IngredienteDto;
 import com.example.multicapatemplate.service.RestauranteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/template")
-public class TemplateController {
+@RequestMapping("")
+public class CaloriasController {
 
     @Autowired
     RestauranteService restauranteService;
@@ -27,7 +27,7 @@ public class TemplateController {
     @GetMapping("/ingredientes/{plato}")
     public ResponseEntity otenerIngredientes(@PathVariable String plato){
 
-        List<Ingrediente> ingredientes = restauranteService.obtenerIngredientes(plato);
+        List<IngredienteDto> ingredientes = restauranteService.obtenerIngredientes(plato);
 
         if( ingredientes == null ){
             return new ResponseEntity( "No se econtró", HttpStatus.OK);
@@ -39,7 +39,7 @@ public class TemplateController {
     @GetMapping("/calorico/{plato}")
     public ResponseEntity otenerCalorico(@PathVariable String plato){
 
-        Ingrediente ingrediente = restauranteService.ingredienteCalorico(plato);
+        String ingrediente = restauranteService.ingredienteCalorico(plato);
 
         if( ingrediente == null ){
             return new ResponseEntity( "No se econtró", HttpStatus.OK);

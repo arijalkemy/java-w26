@@ -4,20 +4,40 @@ import com.example.linkTracker.service.ITrackerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
-@RequestMapping("/template")
+@RequestMapping("/link")
 public class TrackerController {
 
     @Autowired
-    ITrackerService templateService;
+    ITrackerService trackerService;
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity get(@PathVariable int id){
-        return new ResponseEntity(templateService.findById(id), HttpStatus.OK);
+    @PostMapping()
+    public ResponseEntity<?> createLinkWithPassword(@RequestParam String password) {
+        return new ResponseEntity<>( trackerService.saveNewLink(password), HttpStatus.CREATED );
+    }
+
+    @GetMapping("/{id}")
+    public RedirectView redirectLinkWithPassword(@PathVariable String id, @RequestParam String password) {
+        trackerService.redirect(id, password);
+        return new RedirectView("/link/view/" + id);
+    }
+
+    @GetMapping("/view/{id}")
+    public ResponseEntity<?> getLink(@PathVariable String id) {
+        return new ResponseEntity<>("ID: " + id, HttpStatus.OK);
+    }
+
+    @GetMapping("/metrics/{id}")
+    public ResponseEntity<?> redirectMetrics(@PathVariable String id ) {
+        return new ResponseEntity<>( trackerService.getStatistics(id), HttpStatus.OK );
+    }
+
+    @PostMapping("/invalidate/{id}")
+    public ResponseEntity<?> invalidateLink(@PathVariable String id) {
+        trackerService.invalidateLink(id);
+        return new ResponseEntity<>( HttpStatus.NO_CONTENT );
     }
 }

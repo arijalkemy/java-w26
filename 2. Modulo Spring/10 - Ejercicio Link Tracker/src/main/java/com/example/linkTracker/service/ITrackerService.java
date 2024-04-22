@@ -10,7 +10,11 @@ public interface ITrackerService {
 
     NewLinkDto saveNewLink();
 
-    boolean redirect( String id );
+    NewLinkDto saveNewLink( String password );
+
+    void redirect( String id );
+
+    void redirect( String id, String password );
 
     StatisticsLinkDto getStatistics( String id);
 

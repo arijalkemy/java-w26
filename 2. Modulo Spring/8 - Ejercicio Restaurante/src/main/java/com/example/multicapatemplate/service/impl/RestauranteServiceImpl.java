@@ -1,59 +1,58 @@
 package com.example.multicapatemplate.service.impl;
 
+import com.example.multicapatemplate.dto.IngredienteDto;
 import com.example.multicapatemplate.model.Ingrediente;
 import com.example.multicapatemplate.model.Plato;
-import com.example.multicapatemplate.repository.IRepository;
+import com.example.multicapatemplate.repository.impl.IngredientesRepositoryImpl;
 import com.example.multicapatemplate.repository.impl.PlatosRepositoryImpl;
 import com.example.multicapatemplate.service.RestauranteService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class RestauranteServiceImpl implements RestauranteService {
 
-    List<Plato> platos;
+    PlatosRepositoryImpl platosRepo;
+    public RestauranteServiceImpl() throws IOException  {
+        this.platosRepo = new PlatosRepositoryImpl();
 
-    public RestauranteServiceImpl() {
-        PlatosRepositoryImpl platosRepo = new PlatosRepositoryImpl();
-        this.platos = platosRepo.getPlatos();
+        IngredientesRepositoryImpl ingredientesRepo = new IngredientesRepositoryImpl();
+        List<Ingrediente> ingredientes = ingredientesRepo.getListOfIngredients();
+
+        Plato newPlato = new Plato("Menu1");
+        newPlato.addIngrediente(ingredientes.get( new Random().nextInt( ingredientes.size()) ), new Random().nextInt(500));
+        newPlato.addIngrediente(ingredientes.get( new Random().nextInt( ingredientes.size()) ), new Random().nextInt(500));
+        newPlato.addIngrediente(ingredientes.get( new Random().nextInt( ingredientes.size()) ), new Random().nextInt(500));
+        platosRepo.addPlato( newPlato );
     }
 
     @Override
-    public int obtenerCalorias(String plato) {
-       Optional<Plato> platosFilter = platos.stream().filter(x -> x.getNombre().equalsIgnoreCase( plato )).findFirst();
+    public double obtenerCalorias(String plato) {
+       Plato findPlato = platosRepo.getPlatoByName( plato );
+       if (plato == null) {return 0;}
 
-       if( platosFilter.isPresent() ) {
-           return platosFilter.get().getIngredientes().stream().mapToInt(Ingrediente::getCalorias).sum();
-       }else {
-           return 0;
-       }
+       return findPlato.calcularCalorias();
     }
 
     @Override
-    public List<Ingrediente> obtenerIngredientes(String plato) {
-        Optional<Plato> platosFilter = platos.stream().filter(x -> x.getNombre().equalsIgnoreCase( plato )).findFirst();
+    public List<IngredienteDto> obtenerIngredientes(String plato) {
+        Plato findPlato = platosRepo.getPlatoByName( plato );
+        if (plato == null) {return null;}
 
-        if( platosFilter.isPresent() ) {
-            return platosFilter.get().getIngredientes();
-        }else {
-            return null;
-        }
+        return findPlato.getIngredientes().entrySet().stream().map(e ->  new IngredienteDto(((e.getKey().getCalories() * e.getValue()) / 100),  e.getKey().getName() ) ).toList();
+
     }
 
     @Override
-    public Ingrediente ingredienteCalorico(String plato) {
-        Optional<Plato> platosFilter = platos.stream().filter(x -> x.getNombre().equalsIgnoreCase( plato )).findFirst();
+    public String ingredienteCalorico(String plato) {
+        Plato findPlato = platosRepo.getPlatoByName( plato );
+        if (plato == null) {return null;}
 
-        if( platosFilter.isPresent() ) {
-            return platosFilter.get().getIngredientes().stream().max(Comparator.comparingInt(Ingrediente::getCalorias)).get();
-        }else {
-            return null;
-        }
+        Ingrediente ingrediente = findPlato.getMAxCalorias();
+
+        return ingrediente.getName();
     }
 }

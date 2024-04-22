@@ -18,4 +18,12 @@ public class PlatosRepositoryImpl implements IRepository {
     public List<Plato> getPlatos() {
         return platos;
     }
+
+    public void addPlato( Plato plato ){
+        platos.add(plato);
+    }
+
+    public Plato getPlatoByName( String name ) {
+        return platos.stream().filter(x -> x.getNombre().equalsIgnoreCase(name)).findFirst().orElse(null);
+    }
 }

@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class Ingrediente {
-    private String nombre;
-    private int calorias;
+    private String name;
+    private int calories;
 }

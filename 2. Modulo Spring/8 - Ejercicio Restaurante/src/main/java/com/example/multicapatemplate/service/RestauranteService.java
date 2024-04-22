@@ -1,6 +1,6 @@
 package com.example.multicapatemplate.service;
 
-import com.example.multicapatemplate.model.Ingrediente;
+import com.example.multicapatemplate.dto.IngredienteDto;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ public interface RestauranteService {
 //    Lista de ingredientes que lo conforman y cantidad de calorías de cada uno de ellos
 //    El ingrediente con mayor cantidad de calorías
 
-    int obtenerCalorias( String plato );
+    double obtenerCalorias(String plato );
 
-    List<Ingrediente> obtenerIngredientes(String plato );
+    List<IngredienteDto> obtenerIngredientes(String plato );
 
-    Ingrediente ingredienteCalorico( String plato );
+    String ingredienteCalorico(String plato );
 }
