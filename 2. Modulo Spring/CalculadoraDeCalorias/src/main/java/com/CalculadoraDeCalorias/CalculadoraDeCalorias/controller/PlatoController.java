@@ -16,10 +16,11 @@ public class PlatoController {
     IPlatoService platoService;
 
     @GetMapping("/{nombre}")
-    public ResponseEntity<?> obtenerCalorias(@PathVariable String nombre)
-    {
+    public ResponseEntity<?> obtenerCalorias(@PathVariable String nombre) {
+
         int calorias = platoService.obtenerPlato(nombre);
         return new ResponseEntity<>(calorias, HttpStatus.OK);
+
     }
 
 
