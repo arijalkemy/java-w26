@@ -30,4 +30,16 @@ public class VehicleServiceImpl implements IVehicleService{
                 .map(v -> mapper.convertValue(v,VehicleDto.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<VehicleDto> getListByBrandAndYearRange(String brand, Integer start_year, Integer end_year) {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Vehicle> filteredList = vehicleRepository.getListByBrandAndYearRange(brand, start_year, end_year);
+        if (filteredList.isEmpty()) {
+            throw new NotFoundException("No se encontraron vehículos con esos criterios.");
+        }
+        return filteredList.stream()
+                .map(v -> mapper.convertValue(v, VehicleDto.class))
+                .toList();
+    }
 }

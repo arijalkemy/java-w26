@@ -34,4 +34,15 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
 
         listOfVehicles = vehicles;
     }
+
+    @Override
+    public List<Vehicle> getListByBrandAndYearRange(String brand, Integer start_year, Integer end_year) {
+        return listOfVehicles.stream()
+                .filter( v -> {
+                    boolean matchBrand = v.getBrand().equalsIgnoreCase(brand);
+                    boolean matchYear = v.getYear() > start_year && v.getYear() < end_year;
+                    return matchBrand && matchYear;
+                })
+                .toList();
+    }
 }
