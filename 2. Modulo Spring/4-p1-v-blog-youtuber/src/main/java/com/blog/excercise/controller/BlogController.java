@@ -20,7 +20,7 @@ public class BlogController {
     @Autowired
     BlogService blogService;
 
-    @GetMapping("/blog")
+    @PostMapping("/blog")
     public ResponseEntity<String> createNewBlog(@RequestBody BlogDTO inputBlogDTO){
         Integer id = blogService.postNewBlog(inputBlogDTO);
 
