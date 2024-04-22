@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import meli.bootcamp.star_wars.domain.EntradaBlog;
 import meli.bootcamp.star_wars.dto.EntradaBlogDto;
+import meli.bootcamp.star_wars.exception.NotFoundException;
 import meli.bootcamp.star_wars.repository.IBlogRepository;
 import meli.bootcamp.star_wars.service.IBlogService;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,11 @@ public class BlogServiceImpl implements IBlogService {
   @Override
   public EntradaBlogDto obtenerEntradaPorId(Long id) {
     EntradaBlog entrada = blogRepository.obtenerEntradaPorId(id);
+
+    if(entrada == null) {
+      throw new NotFoundException("No hay entrada con id " + id);
+    }
+
     return crearEntradaDto(entrada);
   }
 
