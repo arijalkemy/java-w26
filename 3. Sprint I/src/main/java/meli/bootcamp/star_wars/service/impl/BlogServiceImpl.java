@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import meli.bootcamp.star_wars.domain.EntradaBlog;
 import meli.bootcamp.star_wars.dto.EntradaBlogDto;
+import meli.bootcamp.star_wars.exception.DuplicatedIdException;
 import meli.bootcamp.star_wars.exception.NotFoundException;
 import meli.bootcamp.star_wars.repository.IBlogRepository;
 import meli.bootcamp.star_wars.service.IBlogService;
@@ -22,8 +23,8 @@ public class BlogServiceImpl implements IBlogService {
 
   @Override
   public EntradaBlogDto crearEntradaBlog(EntradaBlogDto entradaBlogDto) {
-    if (obtenerEntradaPorId(entradaBlogDto.getId()) != null) {
-      return null;
+    if (blogRepository.obtenerEntradaPorId(entradaBlogDto.getId()) != null) {
+      throw new DuplicatedIdException("Ya existe una entidad con id " + entradaBlogDto.getId());
     }
 
     EntradaBlog entradaNueva = new EntradaBlog(
@@ -35,7 +36,7 @@ public class BlogServiceImpl implements IBlogService {
 
     blogRepository.crearEntradaBlog(entradaNueva);
 
-    return null;
+    return crearEntradaDto(entradaNueva);
   }
 
   @Override

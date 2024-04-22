@@ -15,4 +15,9 @@ public class ExceptionController {
     return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
   }
 
+  @ExceptionHandler(DuplicatedIdException.class)
+  public ResponseEntity<ExceptionDto> handleNotFoundException(DuplicatedIdException e) {
+    ExceptionDto response = new ExceptionDto(e.getMessage(), HttpStatus.CONFLICT.value());
+    return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+  }
 }
