@@ -1,7 +1,7 @@
 package org.example;
 
 public class Item {
-    public int codigo;
+    public long codigo;
     public String nombre;
     public int cantidadComprada;
     public double costoUnitario;
@@ -13,11 +13,11 @@ public class Item {
         this.costoUnitario = costoUnitario;
     }
 
-    public int getCodigo() {
+    public long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
 

@@ -3,15 +3,32 @@ package org.example;
 import java.util.List;
 
 public class Factura {
+    private long codigo;
     Cliente cliente;
     List<Item> items;
     double totalCompra;
 
-    public Factura(Cliente cliente, List<Item> items) {
+    public Factura(long codigo, Cliente cliente, List<Item> items) {
+        this.codigo = codigo;
         this.cliente = cliente;
         this.items = items;
-        this.totalCompra = totalCompra;
+        this.calcularTotalFactura();
     }
+    //metodo para calcular el total de la compra al crear una factura
+    public void calcularTotalFactura(){
+        for (Item item: items){
+            totalCompra+=item.getCostoUnitario();
+        }
+    }
+
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
+
 
     public Cliente getCliente() {
         return cliente;
@@ -33,14 +50,12 @@ public class Factura {
         return totalCompra;
     }
 
-    public void setTotalCompra(double totalCompra) {
-        this.totalCompra = totalCompra;
-    }
 
     @Override
     public String toString() {
         return "Factura{" +
-                "cliente=" + cliente +
+                "codigo=" + codigo +
+                ",cliente=" + cliente +
                 ", items=" + items +
                 ", totalCompra=" + totalCompra +
                 '}';
