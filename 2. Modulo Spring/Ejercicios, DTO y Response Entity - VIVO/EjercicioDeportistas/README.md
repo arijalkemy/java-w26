@@ -1,19 +1,37 @@
-# Getting Started
+## Ejercicio Deportistas
+Hacer deporte es muy importante para la salud. Consideramos una persona deportista a aquella que realice algún tipo de actividad física de forma frecuente.
 
-### Reference Documentation
+Para validar si una persona es deportista, se necesita una aplicación que permita relacionar dos entidades:
 
-For further reference, please consider the following sections:
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.4/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.4/maven-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.2.4/reference/htmlsingle/index.html#using.devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.4/reference/htmlsingle/index.html#web)
+- Persona, cuyos atributos serán:
+  - Nombre
+  - Apellido
+  - Edad
+- Deporte, cuyos atributos serán:
+  - Nombre
+  - Nivel
 
-### Guides
+Nuestra aplicación deberá contar con la siguiente funcionalidad:
 
-The following guides illustrate how to use some features concretely:
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+- Ver todos los deportes que tenemos cargados.
+    - PATH: /findSports
+- Consultar si existe un deporte ingresando su nombre. De existir, se deberá mostrar el nivel del mismo. Utilizar la clase ResponseEntity para devolver la respuesta.
+  - PATH: /findSport/{name}
+- Visualizar a las personas deportistas. Queremos que se vea un listado con el nombre y el apellido de la persona y el nombre del deporte que realiza (no es necesario que se vea la edad ni el nivel del deporte realizado). Para este punto es importante valerse de un DTO.
+  - PATH: /findSportsPersons
+
+**Nota: Por el momento no se utilizará ninguna base de datos, así que se manipulan los objetos en listas.**
+
+```bash
+curl --location 'http://localhost:8080/findSports'
+```
+
+```bash
+curl --location 'http://localhost:8080/findSportsPersons'
+```
+
+```bash
+curl --location 'http://localhost:8080/findSport/asdf'
+```

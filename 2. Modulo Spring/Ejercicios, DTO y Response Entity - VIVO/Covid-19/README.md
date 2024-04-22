@@ -27,3 +27,16 @@ Nuestra aplicación deberá contar con la siguiente funcionalidad:
   - PATH: /findRiskPerson
 
 Nota: Por el momento no se utilizará ninguna base de datos, por lo cual, los diferentes objetos se deben manejar mediante listas dinámicas (collections).
+
+
+```bash
+curl --location 'http://localhost:8080/findRiskPerson'
+```
+
+```bash
+curl --location 'http://localhost:8080/findSymptom'
+```
+
+```bash
+curl --location 'http://localhost:8080/findSymptom/Frio'
+```
