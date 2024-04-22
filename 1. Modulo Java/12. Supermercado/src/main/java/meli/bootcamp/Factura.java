@@ -20,11 +20,9 @@ public class Factura {
     }
   }
 
-  public Cliente getCliente() {
-    return cliente;
-  }
-
-  public Factura(Map<Item, Integer> items) {
-    this.items = items;
+  public Double obtenerTotal() {
+    return items.entrySet().stream()
+        .mapToDouble(i -> i.getKey().costo() * i.getValue())
+        .sum();
   }
 }
