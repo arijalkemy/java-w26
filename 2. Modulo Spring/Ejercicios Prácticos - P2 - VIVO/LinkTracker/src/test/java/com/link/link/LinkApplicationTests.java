@@ -1,13 +1,13 @@
-package org.example.linktracker;
+package com.link.link;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LinkTrackerApplicationTests {
+class LinkApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
