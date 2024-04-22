@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Camry",
+    "manufacturingDate": "2019-10-20",
+    "numberOfKilometers": "30000",
+    "doors": "4",
+    "price": "20000",
+    "currency": "USD",
+    "countOfOwners": "1",
+    "services": [
+      {
+        "date": "2022-05-10",
+        "kilometers": "15000",
+        "description": "Cambio de aceite y filtro"
+      },
+      {
+        "date": "2023-02-20",
+        "kilometers": "25000",
+        "description": "Cambio de bujías"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "brand": "Honda",
+    "model": "Civic",
+    "manufacturingDate": "2020-03-15",
+    "numberOfKilometers": "25000",
+    "doors": "4",
+    "price": "22000",
+    "currency": "USD",
+    "countOfOwners": "1",
+    "services": [
+      {
+        "date": "2021-12-05",
+        "kilometers": "10000",
+        "description": "Cambio de aceite y filtro"
+      },
+      {
+        "date": "2022-09-20",
+        "kilometers": "20000",
+        "description": "Revisión general"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "brand": "Ford",
+    "model": "Fusion",
+    "manufacturingDate": "2018-06-25",
+    "numberOfKilometers": "40000",
+    "doors": "4",
+    "price": "18000",
+    "currency": "USD",
+    "countOfOwners": "2",
+    "services": [
+      {
+        "date": "2020-12-15",
+        "kilometers": "20000",
+        "description": "Cambio de neumáticos"
+      },
+      {
+        "date": "2022-05-30",
+        "kilometers": "35000",
+        "description": "Cambio de frenos"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "brand": "Chevrolet",
+    "model": "Malibu",
+    "manufacturingDate": "2017-11-10",
+    "numberOfKilometers": "50000",
+    "doors": "4",
+    "price": "15000",
+    "currency": "USD",
+    "countOfOwners": "3",
+    "services": [
+      {
+        "date": "2019-08-20",
+        "kilometers": "25000",
+        "description": "Cambio de aceite y filtro"
+      },
+      {
+        "date": "2021-04-10",
+        "kilometers": "45000",
+        "description": "Cambio de bujías"
+      }
+    ]
+  }
+]
