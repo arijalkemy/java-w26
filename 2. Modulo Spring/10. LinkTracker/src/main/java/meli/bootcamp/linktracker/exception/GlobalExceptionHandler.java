@@ -15,21 +15,15 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionDTO);
     }
 
-    @ExceptionHandler(NoPasswordException.class)
-    public ResponseEntity<?> noPasswordException(NoPasswordException ex){
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<?> unauthorizedException(UnauthorizedException ex){
         ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionDTO);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(exceptionDTO);
     }
 
-    @ExceptionHandler(PasswordErrorException.class)
-    public ResponseEntity<?> passwordErrorException(PasswordErrorException ex){
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<?> forbiddenException(ForbiddenException ex){
         ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionDTO);
-    }
-
-    @ExceptionHandler(InactiveLinkException.class)
-    public ResponseEntity<?> inactiveLinkException(InactiveLinkException ex){
-        ExceptionDTO exceptionDTO = new ExceptionDTO(ex.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exceptionDTO);
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(exceptionDTO);
     }
 }

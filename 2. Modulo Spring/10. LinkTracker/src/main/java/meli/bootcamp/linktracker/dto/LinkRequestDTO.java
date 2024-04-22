@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RequestLinkDTO {
+public class LinkRequestDTO {
     private String url;
     private String password;
 }

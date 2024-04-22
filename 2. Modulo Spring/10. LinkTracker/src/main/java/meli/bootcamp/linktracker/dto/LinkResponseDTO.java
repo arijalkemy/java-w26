@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MetricsLinkDTO {
+public class LinkResponseDTO {
     private Integer id;
-    private Integer redirectionCount;
+    private String url;
+    private String password;
 }
