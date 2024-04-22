@@ -1,7 +1,9 @@
 package com.bootcampW22.EjercicioGlobal.service;
 
+import com.bootcampW22.EjercicioGlobal.dto.VehicleBrandAverageCapacityDTO;
 import com.bootcampW22.EjercicioGlobal.dto.VehicleDto;
 import com.bootcampW22.EjercicioGlobal.entity.Vehicle;
+import com.bootcampW22.EjercicioGlobal.exception.NoVehiclesForBrandFound;
 import com.bootcampW22.EjercicioGlobal.exception.NotFoundException;
 import com.bootcampW22.EjercicioGlobal.repository.IVehicleRepository;
 import com.bootcampW22.EjercicioGlobal.repository.VehicleRepositoryImpl;
@@ -29,5 +31,17 @@ public class VehicleServiceImpl implements IVehicleService{
         return vehicleList.stream()
                 .map(v -> mapper.convertValue(v,VehicleDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public VehicleBrandAverageCapacityDTO getAverageCapacityForBrand(String brand) {
+        List<Vehicle> vehiclesOfBrand = vehicleRepository.findVehiclesForBrand(brand);
+        if(vehiclesOfBrand.isEmpty()){
+            throw new NoVehiclesForBrandFound("No vehicles were found for brand " + brand);
+        }
+        return new VehicleBrandAverageCapacityDTO(vehiclesOfBrand.stream()
+                .mapToInt(Vehicle::getPassengers)
+                .average()
+                .orElse(0));
     }
 }

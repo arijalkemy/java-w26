@@ -6,10 +6,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
-@ControllerAdvice
+@ControllerAdvice(annotations = RestController.class)
 public class ExceptionController {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<?> notFound(NotFoundException e){
@@ -17,5 +18,9 @@ public class ExceptionController {
         return new ResponseEntity<>(exceptionDto, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(NoVehiclesForBrandFound.class)
+    public ResponseEntity<?> noVehiclesForBrand(NoVehiclesForBrandFound e){
+        return new ResponseEntity<>(new ExceptionDto(e.getMessage()), HttpStatus.NOT_FOUND);
+    }
 
 }

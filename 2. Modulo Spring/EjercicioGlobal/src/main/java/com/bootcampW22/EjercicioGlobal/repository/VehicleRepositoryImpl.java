@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class VehicleRepositoryImpl implements IVehicleRepository{
@@ -22,6 +23,11 @@ public class VehicleRepositoryImpl implements IVehicleRepository{
     @Override
     public List<Vehicle> findAll() {
         return listOfVehicles;
+    }
+
+    @Override
+    public List<Vehicle> findVehiclesForBrand(String brand) {
+        return listOfVehicles.stream().filter(vehicle -> vehicle.getBrand().equalsIgnoreCase(brand)).collect(Collectors.toList());
     }
 
     private void loadDataBase() throws IOException {
