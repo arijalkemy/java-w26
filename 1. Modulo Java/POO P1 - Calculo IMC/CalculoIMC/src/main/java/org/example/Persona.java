@@ -26,6 +26,9 @@ public class Persona {
     }
 
     public int calcularIMC() {
+        if (peso <= 0) {
+            throw new IllegalArgumentException("El peso de la persona no es correcto");
+        }
         double resultado = this.peso / (this.altura * this.altura);
         if (resultado < 20) {
             return -1;
