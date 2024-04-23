@@ -22,12 +22,14 @@ public class PersonaImpl implements IPersona {
         personas.add(new Persona("lucas","martinez", 25, dep3));
         personas.add(new Persona("mariano","paez", 19, dep4));
         personas.add(new Persona("cristian","peralta", 23, dep5));
+        personas.add(new Persona("pepito","palta", 23));
     }
 
     @Override
     public List<DeportistaDTO> verDeportistas() {
         List<DeportistaDTO> deportistas = new ArrayList<>();
         personas.stream()
+                .filter(persona -> persona.getDeporte() != null)
                 .forEach(persona -> deportistas.add(
                         new DeportistaDTO(persona.getNombre(),
                         persona.getApellido(),
