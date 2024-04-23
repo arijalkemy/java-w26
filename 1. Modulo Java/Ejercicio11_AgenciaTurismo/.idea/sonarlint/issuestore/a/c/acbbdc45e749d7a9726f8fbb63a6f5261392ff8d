@@ -1,0 +1,22 @@
+
+¦
+java:S1488:"^Immediately return this expression instead of assigning it to the temporary variable "opcion".(ñøÒùÿÿÿÿ8åŒ©—í1J$78a3aecf-f276-4977-8e22-f4224d2b03c2
+z
+java:S1854"7Remove this useless assignment to local variable "dni".(Ó€ëÙ8Ó ™í1J$44645af1-3f2d-4541-a4a5-8f69f00bb752
+m	java:S106"+Replace this use of System.out by a logger.(«˜·œ8êŒ©—í1J$e76522c6-3ad2-495b-9803-815c545db927
+m	java:S106"+Replace this use of System.out by a logger.(ÎƒÿË8êŒ©—í1J$9e81eca4-8320-49fe-918a-faa46420185e
+r	java:S106#"+Replace this use of System.out by a logger.(†äø´øÿÿÿÿ8ëŒ©—í1J$6ca22afa-0106-4c8b-9516-dd51ffbd83ee
+r	java:S106,"+Replace this use of System.out by a logger.(Öø—¬ûÿÿÿÿ8ëŒ©—í1J$d23412ac-15fa-4cd7-b6b2-d767ab6dfa91
+r	java:S1061"+Replace this use of System.out by a logger.(«¢‰©ûÿÿÿÿ8ëŒ©—í1J$8cf7f6ad-1ec4-4be9-b773-03d6cb39fd1b
+l	java:S1062"+Replace this use of System.out by a logger.(Ôæ­N8ëŒ©—í1J$eb44be33-fa88-4305-94eb-0010b53c0dc4
+m	java:S1063"+Replace this use of System.out by a logger.(áëü‹8ëŒ©—í1J$4f6ac113-a829-40bf-9139-ac9be9c71ec0
+r	java:S1064"+Replace this use of System.out by a logger.(İ–²òÿÿÿÿÿ8ëŒ©—í1J$15c24f81-4fb4-49a4-9004-b15a735bbb1b
+r	java:S1065"+Replace this use of System.out by a logger.(çš¶Éÿÿÿÿÿ8ëŒ©—í1J$bc3b90b5-9ed5-48c9-a262-287607ee7a50
+r	java:S1066"+Replace this use of System.out by a logger.(äÓ¥Îøÿÿÿÿ8ëŒ©—í1J$122531ff-911f-4598-93d6-d3d46ef67a63
+m	java:S1067"+Replace this use of System.out by a logger.(ñ’ß8íŒ©—í1J$c03d1da9-34e2-4cd8-8ebe-5b1ff735802a
+m	java:S1068"+Replace this use of System.out by a logger.(ÙÃı£8íŒ©—í1J$898b3e1f-49d9-4467-85de-75ba53b1e589
+l	java:S1069"+Replace this use of System.out by a logger.(¸´Šl8¢¯—í1J$61e58f78-c4d7-429a-8009-923d38e70905
+“	java:S128K"LEnd this switch case with an unconditional break, return or throw statement.(ÌÊëÎüÿÿÿÿ8ìŒ©—í1J$b71a0934-23f3-45dd-b584-0cfd7d69a13e
+“	java:S128I"LEnd this switch case with an unconditional break, return or throw statement.(µ»ïşıÿÿÿÿ8íŒ©—í1J$703336c6-c460-4c2d-aa76-bc81858b94cb
+m	java:S106T"+Replace this use of System.out by a logger.(íƒ¡µ8‘À±—í1J$105b6cd6-b542-49a1-9927-ae02b7fefca7
+m	java:S106W"+Replace this use of System.out by a logger.(¤¼æ¶8µî¨™í1J$5bd280d8-dff0-46e6-8b3f-0fc24393ad40

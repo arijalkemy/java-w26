@@ -1,0 +1,24 @@
+
+
+java:S1192/"GDefine a constant instead of duplicating this literal "123456" 3 times.(Š Øüÿÿÿÿ8ƒò½˜í1J$b522bcac-f938-47e4-adad-6f6b1e9b3d9d
+‘
+java:S1192/"IDefine a constant instead of duplicating this literal "Cristian" 3 times.(Š Øüÿÿÿÿ8ƒò½˜í1J$bf6597b9-8dcf-4c1e-9ef6-3d73121ae1f1
+
+java:S11927"HDefine a constant instead of duplicating this literal "Total: " 3 times.(ıåÕÂüÿÿÿÿ8ƒò½˜í1J$c73b01b0-c70c-4c29-87c9-e2404fb9b094
+›
+java:S1104"SMake scanner a static final constant or non-public and provide accessors if needed.(¾©´¬øÿÿÿÿ8ƒò½˜í1J$1fa28bf6-85a0-4249-843b-2c35888f076b
+u
+java:S1444"-Make this "public static scanner" field final(¾©´¬øÿÿÿÿ8ƒò½˜í1J$9829ca3d-1a85-406f-94eb-e89fce779f30
+r	java:S106"+Replace this use of System.out by a logger.(ÓºÀåøÿÿÿÿ8‹ò½˜í1J$b70856e7-d557-48df-9923-12c4e4af78fd
+r	java:S106"+Replace this use of System.out by a logger.(ÌÔüÿÿÿÿ8‹ò½˜í1J$a76c9309-7849-4fbe-ad53-1fe053744900
+r	java:S106"+Replace this use of System.out by a logger.(ÓøÛùÿÿÿÿ8‹ò½˜í1J$1bf17a08-d01a-434e-b68e-2bff05e76690
+r	java:S106"+Replace this use of System.out by a logger.(Óâ•ÿÿÿÿÿ8‹ò½˜í1J$1ad1ba2c-4564-48a5-a932-495adf27d544
+m	java:S106$"+Replace this use of System.out by a logger.(¤¼æ¶8Œò½˜í1J$593d5c03-a124-46f9-930e-692fc6cb499d
+m	java:S106-"+Replace this use of System.out by a logger.(×¸ÀŞ8ò½˜í1J$543996c4-9315-4073-8285-83f096133c7a
+r	java:S1067"+Replace this use of System.out by a logger.(ıåÕÂüÿÿÿÿ8ò½˜í1J$49f1a810-143f-4dc7-98d9-21936a1f1edc
+m	java:S1068"+Replace this use of System.out by a logger.(ù„ìƒ8ò½˜í1J$8adbe989-870b-4eb5-abcd-6ae8c453f3ce
+r	java:S106A"+Replace this use of System.out by a logger.(ıåÕÂüÿÿÿÿ8ò½˜í1J$9ee8e766-fe53-412d-964e-df0fdf52a1a8
+r	java:S106B"+Replace this use of System.out by a logger.(ëŞÊ¼şÿÿÿÿ8ò½˜í1J$e9cd31f9-80e7-41a0-9db6-9e74fd5b2b7e
+r	java:S106J"+Replace this use of System.out by a logger.(ıåÕÂüÿÿÿÿ8ò½˜í1J$ca36960c-22be-4bfc-92bd-d833ad647215
+r	java:S106K"+Replace this use of System.out by a logger.(ëŞÊ¼şÿÿÿÿ8ò½˜í1J$66937acf-f70c-452a-aa86-4d1ab23c6c54
+m	java:S106L"+Replace this use of System.out by a logger.(ÉŸ Î8àï¾˜í1J$b53ffd91-948a-46be-a9e4-2caa43e610f4
