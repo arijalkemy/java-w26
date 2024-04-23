@@ -23,7 +23,12 @@ public class ClienteRepository implements IGeneric<Cliente> {
     }
 
     @Override
-    public Cliente buscar(int id) {
-        return this.clientes.get(id);
+    public Cliente buscar(int dni) {
+        return clientes.stream().filter(cliente -> cliente.getDni() == dni)
+                .findFirst().orElse(new Cliente());
+    }
+
+    public Set<Cliente> obtenerTodos(){
+        return clientes;
     }
 }

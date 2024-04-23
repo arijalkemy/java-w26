@@ -1,6 +1,5 @@
 package org.bootcamp.blog.repository;
 
-import org.bootcamp.blog.exception.ExistObjectException;
 import org.bootcamp.blog.exception.NotFoundException;
 import org.bootcamp.blog.model.BlogEntry;
 import org.springframework.stereotype.Repository;

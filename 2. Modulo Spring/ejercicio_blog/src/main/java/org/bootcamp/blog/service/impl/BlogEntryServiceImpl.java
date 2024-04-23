@@ -25,7 +25,8 @@ public class BlogEntryServiceImpl implements BlogEntryService {
         if(blogEntryRepository.validator(blogEntryDTO.getId()))
             throw new ExistObjectException("Ya existe la entrada del blog.");
 
-        return objectMapper.convertValue( blogEntryRepository.save(objectMapper.convertValue(blogEntryDTO, BlogEntry.class))
+        return objectMapper.convertValue(
+                blogEntryRepository.save(objectMapper.convertValue(blogEntryDTO, BlogEntry.class))
                 , BlogEntryDTO.class);
     }
 

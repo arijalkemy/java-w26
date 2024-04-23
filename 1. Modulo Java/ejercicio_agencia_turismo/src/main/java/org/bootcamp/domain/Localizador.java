@@ -12,10 +12,6 @@ public class Localizador {
     private double descuento;
     private double total;
 
-
-    public Localizador(){
-    }
-
     public Localizador(Cliente cliente, List<Reserva> reservas) {
         this.id = ++contadorId;
         this.cliente = cliente;
@@ -54,7 +50,7 @@ public class Localizador {
         sb.append("\nid: ").append(id);
         sb.append("\nInformación cliente: ").append(cliente);
         sb.append("\nreservas: ").append(reservas);
-        sb.append("\nsubtotal: ").append(subtotal);
+        sb.append("\n\nsubtotal: ").append(subtotal);
         sb.append("\ndescuento: ").append(descuento);
         sb.append("\ntotal: ").append(total);
         return sb.toString();
@@ -68,4 +64,27 @@ public class Localizador {
     }
 
 
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
 }

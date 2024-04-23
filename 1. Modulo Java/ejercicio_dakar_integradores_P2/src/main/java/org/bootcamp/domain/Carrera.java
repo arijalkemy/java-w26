@@ -14,6 +14,13 @@ public class Carrera {
         this.listaDeVehiculos = new ArrayList<>();
     }
 
+    public Carrera(Double distancia, Double premioEnDolares, String nombre, Integer cantidadDeVehiculos) {
+        this.distancia = distancia;
+        this.premioEnDolares = premioEnDolares;
+        this.nombre = nombre;
+        this.cantidadDeVehiculos = cantidadDeVehiculos;
+    }
+
     public Double getDistancia() {
         return distancia;
     }
@@ -71,5 +78,10 @@ public class Carrera {
         eliminarVehiculo(vehiculo);
     }
 
+    public Vehiculo ganadorCarrera(){
+        return listaDeVehiculos.stream()
+                .max((veh1, veh2)-> (int) (veh1.obtenerVelocidadMaxima() - veh2.obtenerVelocidadMaxima()))
+                .orElse(new Vehiculo());
+    }
 
 }

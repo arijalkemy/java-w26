@@ -31,7 +31,7 @@ Ejercicio Integradores P1
 
 	ejercicio_series_numericas (cargado)
 	ejercicio_supermercado_economico (cargado)
-	ejercicio_agencia_turismo (sin cargar)
+	ejercicio_agencia_turismo (cargado)
 
 Ejercicio Integradores P2
 
