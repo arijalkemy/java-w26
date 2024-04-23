@@ -4,7 +4,6 @@ public class Inscripcion {
     private int numero;
     private Categoria categoria;
     private Participante participante;
-
     public Inscripcion(int numero, Categoria categoria, Participante participante) {
         if (participante.getEdad() >= categoria.getEdadMinima()) {
             this.numero = numero;
@@ -12,6 +11,14 @@ public class Inscripcion {
             this.participante = participante;
         } else {
             System.out.println("No se pueden inscribir menores");
+        }
+    }
+
+    public double getPrecio() {
+        if (participante.esMayorDeEdad()) {
+            return categoria.getPrecioMayor();
+        } else {
+            return categoria.getPrecioMenor();
         }
     }
 
