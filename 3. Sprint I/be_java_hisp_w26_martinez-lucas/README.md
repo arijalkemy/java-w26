@@ -1,10 +1,9 @@
-# SPRINT 1 - SocialMELI
+# SPRINT 1 - SocialMELI - PARTE INDIVIDUAL
 
 ## Autores
-
-- Marina Sofia Caminos
-- Tomas Donzis
 - Lucas Ezequiel Martinez
-- Matias Daniel Pinto
-- Bruno Ambricca
-- Juan Cruz Caserio
+
+
+Se extrajeron algunos metodos en los servicios 
+y se modificaron algunos DTO para hacer el funcionamiento
+de los nuevos endpoints.
