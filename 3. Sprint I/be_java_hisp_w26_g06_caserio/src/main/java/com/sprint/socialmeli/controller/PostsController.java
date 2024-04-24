@@ -16,7 +16,7 @@ public class PostsController {
 
     // US0005.
     @PostMapping("/post")
-    public ResponseEntity<?> createPost(@RequestBody PostDTO post){
+    public ResponseEntity<?> createPost(@RequestBody PostDTO post) {
         this.postService.createPost(post);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
@@ -24,8 +24,7 @@ public class PostsController {
     // US0006.
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<?> getFollowedPosts(@PathVariable Integer userId,
-                                              @RequestParam(required = false) String order){
+                                              @RequestParam(required = false) String order) {
         return new ResponseEntity<>(postService.getFollowedProductsList(userId, order), HttpStatus.OK);
     }
-
 }
