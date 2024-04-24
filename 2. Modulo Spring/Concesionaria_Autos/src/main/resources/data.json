@@ -1,0 +1,163 @@
+[
+  {
+    "id": 1,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "manufacturingDate": "2015-07-15",
+    "numberOfKilometers": "80000",
+    "doors": "4",
+    "price": "150000",
+    "currency": "USD",
+    "services": [
+      {
+        "date": "2017-10-02",
+        "kilometers": "50000",
+        "description": "Oil change"
+      },
+      {
+        "date": "2019-05-20",
+        "kilometers": "70000",
+        "description": "Replace brake pads"
+      }
+    ],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 2,
+    "brand": "Honda",
+    "model": "Civic",
+    "manufacturingDate": "2018-03-10",
+    "numberOfKilometers": "30000",
+    "doors": "4",
+    "price": "180000",
+    "currency": "USD",
+    "services": [
+      {
+        "date": "2019-06-25",
+        "kilometers": "20000",
+        "description": "Wheel alignment"
+      }
+    ],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 3,
+    "brand": "Ford",
+    "model": "Focus",
+    "manufacturingDate": "2019-09-28",
+    "numberOfKilometers": "20000",
+    "doors": "5",
+    "price": "200000",
+    "currency": "USD",
+    "services": [],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 4,
+    "brand": "Volkswagen",
+    "model": "Golf",
+    "manufacturingDate": "2017-05-05",
+    "numberOfKilometers": "60000",
+    "doors": "5",
+    "price": "120000",
+    "currency": "EUR",
+    "services": [
+      {
+        "date": "2019-01-15",
+        "kilometers": "50000",
+        "description": "Change timing belt"
+      }
+    ],
+    "countOfOwners": "2"
+  },
+  {
+    "id": 5,
+    "brand": "Nissan",
+    "model": "Sentra",
+    "manufacturingDate": "2016-12-20",
+    "numberOfKilometers": "70000",
+    "doors": "4",
+    "price": "100000",
+    "currency": "MXN",
+    "services": [
+      {
+        "date": "2018-08-10",
+        "kilometers": "60000",
+        "description": "Replace battery"
+      }
+    ],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 6,
+    "brand": "Chevrolet",
+    "model": "Spark",
+    "manufacturingDate": "2014-10-15",
+    "numberOfKilometers": "50000",
+    "doors": "5",
+    "price": "80000",
+    "currency": "COP",
+    "services": [],
+    "countOfOwners": "2"
+  },
+  {
+    "id": 7,
+    "brand": "Hyundai",
+    "model": "Elantra",
+    "manufacturingDate": "2020-02-28",
+    "numberOfKilometers": "15000",
+    "doors": "4",
+    "price": "160000",
+    "currency": "USD",
+    "services": [],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 8,
+    "brand": "BMW",
+    "model": "3 Series",
+    "manufacturingDate": "2019-06-10",
+    "numberOfKilometers": "40000",
+    "doors": "4",
+    "price": "250000",
+    "currency": "EUR",
+    "services": [
+      {
+        "date": "2021-01-20",
+        "kilometers": "30000",
+        "description": "Replace tires"
+      }
+    ],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 9,
+    "brand": "Audi",
+    "model": "A4",
+    "manufacturingDate": "2017-09-20",
+    "numberOfKilometers": "60000",
+    "doors": "4",
+    "price": "200000",
+    "currency": "EUR",
+    "services": [],
+    "countOfOwners": "1"
+  },
+  {
+    "id": 10,
+    "brand": "Mercedes-Benz",
+    "model": "C-Class",
+    "manufacturingDate": "2018-11-25",
+    "numberOfKilometers": "45000",
+    "doors": "4",
+    "price": "280000",
+    "currency": "EUR",
+    "services": [
+      {
+        "date": "2022-03-10",
+        "kilometers": "40000",
+        "description": "Change oil"
+      }
+    ],
+    "countOfOwners": "1"
+  }
+]

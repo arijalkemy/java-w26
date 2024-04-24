@@ -3,6 +3,7 @@ package org.example.starwars.service;
 import lombok.Data;
 import org.example.starwars.dto.CharacterDTO;
 import org.example.starwars.repository.CharacterRepository;
+import org.example.starwars.repository.CharacterRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
