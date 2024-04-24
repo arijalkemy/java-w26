@@ -45,7 +45,7 @@ public class PostServiceImpl implements IPostService {
             LocalDate date = LocalDate.parse(postDTO.getDate(), formatter);
             return new Post(product, date, postDTO.getCategory(), postDTO.getPrice());
         } catch (DateTimeException | IllegalArgumentException e) {
-            throw new BadRequestException("Formato inválido " + e.getMessage());
+            throw new BadRequestException("Invalid format: " + e.getMessage());
         }
     }
 
@@ -117,10 +117,11 @@ public class PostServiceImpl implements IPostService {
         }
         if(post.getHas_promo()){
             try{
-                PromoPost promoPost = new PromoPost(buildProduct(post),
+                Post promoPost = new Post(buildProduct(post),
                         LocalDate.parse(post.getDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy")),
                         post.getCategory(),
                         post.getPrice(),
+                        post.getHas_promo(),
                         post.getDiscount());
 
                 postRepository.save(promoPost, post.getUser_id());
@@ -140,7 +141,7 @@ public class PostServiceImpl implements IPostService {
             throw new NotFoundException("Seller with id: "+ userId + " does not exist");
         }
         return new UserWithPromoPostsDTO(userId, seller.getUser().getUserName(),
-                postRepository.findBySellerId(userId).stream().filter(post -> post instanceof PromoPost).count());
+                postRepository.findBySellerId(userId).stream().filter(Post::getHasPromo).count());
     }
 
     private List<PostResponseDTO> sortList(List<PostResponseDTO> dtos, DateOrderType orderType){

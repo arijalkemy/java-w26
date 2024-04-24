@@ -36,7 +36,7 @@ public class ExceptionController {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<?> httpNotReadable(HttpMessageNotReadableException e) {
-        ExceptionDto exceptionDto = new ExceptionDto("Datos del vehículo mal formados o incompletos.");
+        ExceptionDto exceptionDto = new ExceptionDto(e.getMessage());
         return new ResponseEntity<>(exceptionDto, HttpStatus.BAD_REQUEST);
     }
 
