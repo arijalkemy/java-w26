@@ -1,11 +1,11 @@
 {
 	"info": {
-		"_postman_id": "70a73e58-1734-44d3-b67b-4367f2e9425c",
+		"_postman_id": "c1b5f3fc-dcdd-4874-8cbd-a74199fae0b8",
 		"name": "SPRINT_1",
 		"description": "This template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n### How to use this template:\n\n- Replace the content given brackets (()) with your API's details.\n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n- The API has [rate and usage limits](https://postman.postman.co/workspace/Collection-Templates~6311738d-2e70-441f-ae12-78caf078c5b7/collection/22517504-e9c28f47-1253-44af-a2f3-20dce4da1f18?ctx=documentation#rate-and-usage-limits).\n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33876685",
-		"_collection_link": "https://bootcamp-grupo-6.postman.co/workspace/Bootcamp---Grupo-6-Workspace~5175ac1c-b1d1-4dbd-8e64-4032679b4622/collection/33876685-70a73e58-1734-44d3-b67b-4367f2e9425c?action=share&source=collection_link&creator=33876685"
+		"_exporter_id": "34295947",
+		"_collection_link": "https://bold-meadow-809897.postman.co/workspace/SPRINT_1_BOOTCAMP~7a63b65d-3367-41e5-bf0d-6e497ace5dd9/collection/34295947-c1b5f3fc-dcdd-4874-8cbd-a74199fae0b8?action=share&source=collection_link&creator=34295947"
 	},
 	"item": [
 		{
@@ -248,13 +248,13 @@
 			"name": "Products",
 			"item": [
 				{
-					"name": "5.createProduct",
+					"name": "5.createPost",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"22-04-2025\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -371,6 +371,93 @@
 							"body": "{\n    \"user_id\": 0,\n    \"posts\": \n        [ \n            {\n                “user_id”: 123,\n                \"post_id\": 32,\n                \"date\": \"01-05-2021\",\n                \"product\": {\n                    \"product_id\": 62,\n                    \"product_name\": \"Headset RGB Inalámbrico\",\n                    \"type\": \"Gamer\",\n                    \"brand\": \"Razer\",\n                    \"color\": \"Green with RGB\",\n                    \"notes\": \"Sin Batería\"\n                },\n                \"category\": 120,\n                \"price\": 2800.69\n            },\n            {\n                “user_id”: 234,\n                \"post_id\": 18,\n                \"date\": \"29-04-2021\",\n                \"product\": {\n                    \"product_id\": 1,\n                    \"productName\": \"Silla Gamer\",\n                    \"type\": \"Gamer\",\n                    \"brand\": \"Racer\",\n                    \"color\": \"Red & Black\",\n                    \"notes\": \"Special Edition\"\n                },\n                \"category\": 100,\n                \"price\": 15000.50\n            }\n        ]\n}\n"
 						}
 					]
+				},
+				{
+					"name": "10.createPromoPost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"23-04-2025\",\n    \"product\": {\n        \"product_id\": 2,\n        \"product_name\": \"Silla Gamer2\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 60.6\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/products/promo-post",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"promo-post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11. countListPromo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products/promo-post/count?user_id={{SELLER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "{{SELLER_ID}}"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12. listPromo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products/promo-post/list?user_id={{SELLER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"promo-post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "{{SELLER_ID}}"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
