@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "a2e98833-f387-442a-94ec-4e5c2e7ad4b4",
+		"name": "Blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33873654"
+	},
+	"item": [
+		{
+			"name": "Crear EntradaBlog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Vacacionando en Brasil\",\n    \"autor\": \"Benito Palacios\",\n    \"fechaPublicacion\": \"2024-04-23\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{HOST}}/blogs"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todas las EntradaBlog",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Vacacionando en Brasil\",\n    \"autor\": \"Benito Palacios\",\n    \"fechaPublicacion\": \"2024-04-23\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{HOST}}/blogs"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar una EntradaBlog por id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"titulo\": \"Vacacionando en Brasil\",\n    \"autor\": \"Benito Palacios\",\n    \"fechaPublicacion\": \"2024-04-23\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{HOST}}/blogs"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
