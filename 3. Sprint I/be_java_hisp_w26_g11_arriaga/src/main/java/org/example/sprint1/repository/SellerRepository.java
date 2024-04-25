@@ -103,10 +103,10 @@ public class SellerRepository implements ISellerRepository {
         // últimas dos semanas
         return posts.stream()
                 .filter(post ->
-                    (post.getDate().isAfter(twoWeeksBefore) ||
-                    post.getDate().isEqual(twoWeeksBefore)) &&
-                    (post.getDate().isBefore(currentDate) ||
-                    post.getDate().isEqual(currentDate))
+                        (post.getDate().isAfter(twoWeeksBefore) ||
+                                post.getDate().isEqual(twoWeeksBefore)) &&
+                                (post.getDate().isBefore(currentDate) ||
+                                        post.getDate().isEqual(currentDate))
                 )
                 .toList();
     }

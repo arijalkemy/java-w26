@@ -39,9 +39,7 @@ public class FollowService implements IFollowService {
         boolean cusomerResult = customerRepository.userIdToFollowCustomer(userId, userIdToFollow);
         boolean sellerResult = sellerRepository.userIdToFollowSeller(userId, userIdToFollow);
 
-        if (sellerResult || cusomerResult) {
-            throw new BadRequestException("id no encontrado");
-        }
+        if (sellerResult || cusomerResult) throw new BadRequestException("id no encontrado en el servidor");
     }
 
 

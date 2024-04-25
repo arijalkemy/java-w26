@@ -36,7 +36,7 @@
         "discount": 0.0
       }
     ],
-    "followers": [234, 235, 236, 237, 238]
+    "followers": []
   },
   {
     "seller_id": 102,
@@ -75,7 +75,7 @@
         "discount": 0.0
       }
     ],
-    "followers": [239, 240, 241, 242, 243]
+    "followers": []
   },
   {
     "seller_id": 103,
@@ -114,7 +114,7 @@
         "discount": 0.0
       }
     ],
-    "followers": [234, 236, 238, 240, 242]
+    "followers": []
   },
   {
     "seller_id": 104,
@@ -153,6 +153,6 @@
         "discount": 5.0
       }
     ],
-    "followers": [234, 236, 238, 240, 242]
+    "followers": []
   }
 ]
