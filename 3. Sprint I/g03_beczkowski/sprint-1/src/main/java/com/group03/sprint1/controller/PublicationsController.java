@@ -1,6 +1,7 @@
 package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
+import com.group03.sprint1.dto.response.PublicationPromoResponseDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IPublicationsService;
@@ -33,21 +34,30 @@ public class PublicationsController {
 
     @PostMapping("/post")
     public ResponseEntity<String> createPublication(@RequestBody PublicationDTO publication) {
-        usersService.createPublication(publication);
+        productsService.createPublication(publication);
         return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
     }
 
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<ResponseIdPublicationsDTO> getFollowedLastTwoWeeksPublications(@PathVariable Integer userId,
                                                                                          @RequestParam(required = false) String order) {
-
         ResponseIdPublicationsDTO responseTwoWeeksPublicationsDTO = new ResponseIdPublicationsDTO();
-
         List<PublicationDTO> publicationsDTOList = productsService.findFollowedLastTwoWeeksPublications(userId, order);
-
         responseTwoWeeksPublicationsDTO.setPublications(publicationsDTOList);
         responseTwoWeeksPublicationsDTO.setUserId(userId);
 
         return new ResponseEntity<>(responseTwoWeeksPublicationsDTO, HttpStatus.OK);
+    }
+
+    /*----------- INDIVIDUAL ---------------*/
+    @PostMapping("/promo-post")
+    public ResponseEntity<String> createPublicationPromo(@RequestBody PublicationDTO publication) {
+        productsService.createPublicationPromo(publication);
+        return new ResponseEntity<>("Publication promo created successfully", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<PublicationPromoResponseDTO> getPublicationPromoCount(@RequestParam Integer user_id) {
+        return new ResponseEntity<>(productsService.getPublicationPromoCount(user_id), HttpStatus.OK);
     }
 }

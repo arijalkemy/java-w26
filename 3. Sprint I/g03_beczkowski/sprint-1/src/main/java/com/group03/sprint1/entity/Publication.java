@@ -1,5 +1,7 @@
 package com.group03.sprint1.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,4 +25,10 @@ public class Publication {
     private Product product;
     private Integer category;
     private Double price;
+    @JsonProperty("has_promo")
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnore(value = false)
+    private boolean hasPromo;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Double discount;
 }

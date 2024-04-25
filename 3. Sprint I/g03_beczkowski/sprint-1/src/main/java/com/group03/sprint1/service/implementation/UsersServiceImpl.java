@@ -205,20 +205,4 @@ public class UsersServiceImpl implements IUsersService {
         return sellers.stream().map(p -> objectMapper.convertValue(p, SellersWithPublicationDTO.class)).toList();
     }
 
-    @Override
-    public SellerDTO createPublication(PublicationDTO publicationDTO) {
-
-        if(usersRepository.findSellerById(publicationDTO.getUser_id()) == null) {
-            throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUser_id());
-        }
-
-        Publication publication = objectMapper.convertValue(publicationDTO, Publication.class);
-
-        if(Utils.isNull(publication)) {
-            throw new BadRequestException("Request cannot be null");
-        }
-
-        Seller seller = usersRepository.createPublication(publication);
-        return objectMapper.convertValue(seller, SellerDTO.class);
-    }
 }
