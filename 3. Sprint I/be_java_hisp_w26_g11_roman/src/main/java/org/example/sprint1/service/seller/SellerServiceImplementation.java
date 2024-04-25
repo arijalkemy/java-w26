@@ -107,12 +107,13 @@ public class SellerServiceImplementation implements ISellerService {
             // Mapea Post -> PostDTO y se agrega a una list de PostDTO
             listPostDto.addAll(
                     entry.getValue().stream()
-                            .map(v -> mapper.convertValue(v, PostDTO.class))
+                            .map(v -> {
+                                PostDTO postDTO = mapper.convertValue(v, PostDTO.class);
+                                postDTO.setSellerId(entry.getKey());
+                                return postDTO;
+                            })
                             .toList()
             );
-
-            // A cada elemento de la lista se le asigna el id del seller que hizo la publicación
-            listPostDto.forEach(post -> post.setSellerId(entry.getKey()));
         }
 
         return listPostDto;
