@@ -1,6 +1,7 @@
 package org.example.g14.controller;
 
 import org.example.g14.dto.CreatePostDto;
+import org.example.g14.dto.UserWithPromoPostsCountDto;
 import org.example.g14.service.IPostService;
 import org.example.g14.dto.PostDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +26,13 @@ public class ProductController {
     }
 
     @PostMapping("/promo-post")
-    public ResponseEntity<?> createPromoPost(@RequestBody CreatePostDto createPromoPostDto) {
+    public ResponseEntity<Void> createPromoPost(@RequestBody CreatePostDto createPromoPostDto) {
         postService.addWithPromo(createPromoPostDto);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<?> getCountOfPromoPostsBySeller(@RequestParam("user_id") Integer userId) {
+    public ResponseEntity<UserWithPromoPostsCountDto> getCountOfPromoPostsBySeller(@RequestParam("user_id") Integer userId) {
 
         return ResponseEntity.ok(
             postService.getCountOfPromoPostsBySeller(userId)
