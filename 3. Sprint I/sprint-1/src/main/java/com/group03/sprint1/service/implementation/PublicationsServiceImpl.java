@@ -105,4 +105,22 @@ public class PublicationsServiceImpl implements IPublicationsService {
         return objectMapper.convertValue(seller, SellerDTO.class);
 
     }
+
+    @Override
+    public Long countPublicationsWithPromoByUser(Integer userId){
+        Seller seller = usersRepository.findSellerById(userId);
+        if(Utils.isNull(seller)) {
+            throw new NotFoundException("There is not seller with ID: " + userId);
+        }
+        if(seller.getPublications().isEmpty()) {
+            throw new BadRequestException("There are no publications with the specified user.");
+        }
+
+        Long sellerPublicationsCount = seller.getPublications().stream()
+                .filter(publication -> Utils.isNotNull(publication.getHasPromo()))
+                .filter(publication -> publication.getHasPromo())
+                .count();
+
+        return sellerPublicationsCount;
+    }
 }

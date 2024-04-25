@@ -2,6 +2,8 @@ package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
+import com.group03.sprint1.dto.response.SellerPromoPublicationsResponseDTO;
+import com.group03.sprint1.dto.response.SellerResponseDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IPublicationsService;
 import com.group03.sprint1.service.IUsersService;
@@ -56,4 +58,20 @@ public class PublicationsController {
         usersService.createPublication(publication);
         return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
     }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<SellerPromoPublicationsResponseDTO> getPromoPostCount(@RequestParam(required = true) Integer userId) {
+        SellerPromoPublicationsResponseDTO responseDTO = new SellerPromoPublicationsResponseDTO();
+
+        String userName = usersService.getSellerUserNameById(userId);
+        Long promoProductsCount =  productsService.countPublicationsWithPromoByUser(userId);
+
+        responseDTO.setUserId(userId);
+        responseDTO.setUserName(userName);
+        responseDTO.setPromoProductsCount(promoProductsCount);
+
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+
 }

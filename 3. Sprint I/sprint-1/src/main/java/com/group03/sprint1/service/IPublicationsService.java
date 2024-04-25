@@ -10,4 +10,6 @@ public interface IPublicationsService {
     List<PublicationDTO> findFollowedLastTwoWeeksPublications(Integer userId, String order);
 
     SellerDTO createPublicationWithPromo(PublicationDTO publicationDTO);
+
+    Long countPublicationsWithPromoByUser(Integer userId);
 }

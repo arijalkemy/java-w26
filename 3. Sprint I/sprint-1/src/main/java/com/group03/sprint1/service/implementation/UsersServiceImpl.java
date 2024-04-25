@@ -221,4 +221,14 @@ public class UsersServiceImpl implements IUsersService {
         Seller seller = usersRepository.createPublication(publication);
         return objectMapper.convertValue(seller, SellerDTO.class);
     }
+
+    @Override
+    public String getSellerUserNameById(int id){
+        String userName = usersRepository.findSellerById(id).getUserName();
+        if(Utils.isNull(userName)) {
+            throw new NotFoundException("There is not seller with ID: " + id);
+        }
+
+        return userName;
+    }
 }

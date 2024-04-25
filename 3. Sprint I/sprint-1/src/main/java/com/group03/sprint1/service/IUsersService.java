@@ -14,6 +14,8 @@ import java.util.List;
 
 public interface IUsersService {
 
+    String getSellerUserNameById(int id);
+
     SellerResponseDTO showSellerFollowers(Integer userId, String order);
 
     SellerFollowersDTO getFollowers(Integer userId);
