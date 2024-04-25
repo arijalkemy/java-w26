@@ -27,4 +27,8 @@ public class ProductController {
     public ResponseEntity<?> GetDiscountedCount(@RequestParam Integer user_id){
         return new ResponseEntity<>(this.postService.CountProductsInPromoByOwner(user_id),HttpStatus.OK);
     }
+    @GetMapping("/products/promo-post/list")
+    public ResponseEntity<?> GetDiscountedItemsBySeller(@RequestParam Integer user_id){
+        return new ResponseEntity<>(this.postService.ProductsWithDiscountByOwner(user_id),HttpStatus.OK);
+    }
 }
