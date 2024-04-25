@@ -13,7 +13,8 @@
       "color": "Graphite",
       "notes": "256GB, OLED Display"
     },
-    "idUser": 1
+    "idUser": 1,
+    "hasPromo": true
   },
   {
     "id": 2,
@@ -29,7 +30,8 @@
       "color": "Black",
       "notes": "65-inch, 4K UHD"
     },
-    "idUser": 2
+    "idUser": 2,
+    "hasPromo": false
   },
   {
     "id": 3,
@@ -45,7 +47,8 @@
       "color": "White",
       "notes": "Active Noise Cancellation"
     },
-    "idUser": 3
+    "idUser": 3,
+    "hasPromo": false
   },
   {
     "id": 4,
@@ -61,7 +64,8 @@
       "color": "Silver",
       "notes": "Core i7, 16GB RAM"
     },
-    "idUser": 4
+    "idUser": 4,
+    "hasPromo": true
   },
   {
     "id": 5,
@@ -77,7 +81,8 @@
       "color": "White",
       "notes": "7-inch OLED Screen"
     },
-    "idUser": 5
+    "idUser": 5,
+    "hasPromo": true
   },
   {
     "id": 6,
@@ -93,7 +98,8 @@
       "color": "Black",
       "notes": "GPS, Heart Rate Monitor"
     },
-    "idUser": 6
+    "idUser": 6,
+    "hasPromo": false
   },
   {
     "id": 7,
@@ -109,7 +115,8 @@
       "color": "Silver",
       "notes": "Noise Cancelling, Bluetooth"
     },
-    "idUser": 7
+    "idUser": 7,
+    "hasPromo": true
   },
   {
     "id": 8,
@@ -125,7 +132,8 @@
       "color": "Black",
       "notes": "5.3K Video, 23MP Photos"
     },
-    "idUser": 8
+    "idUser": 8,
+    "hasPromo": false
   },
   {
     "id": 9,
@@ -141,7 +149,8 @@
       "color": "White",
       "notes": "Rotating Screen, Alexa Built-in"
     },
-    "idUser": 9
+    "idUser": 9,
+    "hasPromo": false
   },
   {
     "id": 10,
@@ -157,7 +166,8 @@
       "color": "Black",
       "notes": "Heart Rate, Sleep Tracking"
     },
-    "idUser": 10
+    "idUser": 10,
+    "hasPromo": true
   },
   {
     "id": 11,
@@ -173,7 +183,8 @@
       "color": "Black",
       "notes": "Noise Cancelling, Bluetooth"
     },
-    "idUser": 11
+    "idUser": 11,
+    "hasPromo": false
   },
   {
     "id": 12,
@@ -189,7 +200,8 @@
       "color": "Space Gray",
       "notes": "10.9-inch Liquid Retina Display"
     },
-    "idUser": 12
+    "idUser": 12,
+    "hasPromo": true
   },
   {
     "id": 13,
@@ -205,7 +217,8 @@
       "color": "Gray",
       "notes": "5.4K Video, 1-inch CMOS Sensor"
     },
-    "idUser": 13
+    "idUser": 13,
+    "hasPromo": false
   },
   {
     "id": 14,
@@ -221,7 +234,8 @@
       "color": "Black",
       "notes": "55-inch, 4K UHD"
     },
-    "idUser": 14
+    "idUser": 14,
+    "hasPromo": true
   },
   {
     "id": 15,
@@ -237,7 +251,8 @@
       "color": "Black",
       "notes": "24MP Full-Frame Sensor"
     },
-    "idUser": 15
+    "idUser": 15,
+    "hasPromo": true
   },
   {
     "id": 16,
@@ -253,7 +268,8 @@
       "color": "White",
       "notes": "49-inch, 240Hz Refresh Rate"
     },
-    "idUser": 16
+    "idUser": 16,
+    "hasPromo": true
   },
   {
     "id": 17,
@@ -269,7 +285,8 @@
       "color": "Black",
       "notes": "RGB Lighting, Mechanical Switches"
     },
-    "idUser": 17
+    "idUser": 17,
+    "hasPromo": false
   },
   {
     "id": 18,
@@ -285,7 +302,8 @@
       "color": "Black",
       "notes": "20MP Full-Frame Sensor"
     },
-    "idUser": 18
+    "idUser": 18,
+    "hasPromo": true
   },
   {
     "id": 19,
@@ -301,7 +319,8 @@
       "color": "Blue",
       "notes": "Waterproof, 8-hour Battery"
     },
-    "idUser": 19
+    "idUser": 19,
+    "hasPromo": false
   },
   {
     "id": 20,
@@ -317,7 +336,8 @@
       "color": "Black",
       "notes": "4K, 120fps, 1TB SSD"
     },
-    "idUser": 20
+    "idUser": 20,
+    "hasPromo": false
   },
   {
     "id": 21,
@@ -333,7 +353,8 @@
       "color": "White",
       "notes": "ANC, Wireless Charging"
     },
-    "idUser": 21
+    "idUser": 21,
+    "hasPromo": true
   },
   {
     "id": 22,
@@ -349,7 +370,8 @@
       "color": "White",
       "notes": "4K, 120fps, 825GB SSD"
     },
-    "idUser": 22
+    "idUser": 22,
+    "hasPromo": false
   },
   {
     "id": 23,
@@ -365,7 +387,8 @@
       "color": "Charcoal",
       "notes": "7-inch Screen, Google Assistant"
     },
-    "idUser": 23
+    "idUser": 23,
+    "hasPromo": false
   },
   {
     "id": 24,
@@ -381,7 +404,8 @@
       "color": "Silver",
       "notes": "GPS, Heart Rate Monitor"
     },
-    "idUser": 24
+    "idUser": 24,
+    "hasPromo": true
   },
   {
     "id": 25,
@@ -397,7 +421,8 @@
       "color": "Platinum",
       "notes": "13-inch, Intel Core i7"
     },
-    "idUser": 25
+    "idUser": 25,
+    "hasPromo": false
   },
   {
     "id": 26,
@@ -413,7 +438,8 @@
       "color": "Space Gray",
       "notes": "Core i7, 16GB RAM"
     },
-    "idUser": 26
+    "idUser": 26,
+    "hasPromo": false
   },
   {
     "id": 27,
@@ -429,6 +455,7 @@
       "color": "Black",
       "notes": "Waterproof, 20-hour Battery"
     },
-    "idUser": 27
+    "idUser": 27,
+    "hasPromo": true
   }
 ]
