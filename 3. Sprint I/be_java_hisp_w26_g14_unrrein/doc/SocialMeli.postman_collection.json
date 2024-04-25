@@ -838,6 +838,34 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "0012 getPostsFromFollowed with promo OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/list?has_promo=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "has_promo",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
