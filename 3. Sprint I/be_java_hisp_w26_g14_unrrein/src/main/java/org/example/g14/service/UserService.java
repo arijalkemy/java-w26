@@ -36,7 +36,7 @@ public class UserService implements IUserService{
         return new UserWithFollowersCountDto(
                 user.getId(),
                 user.getName(),
-                (int) user.getIdFollowers().stream().count());
+                user.getIdFollowers().size());
     }
 
     @Override
