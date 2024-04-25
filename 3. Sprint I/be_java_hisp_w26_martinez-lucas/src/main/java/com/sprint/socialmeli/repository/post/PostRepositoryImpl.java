@@ -3,10 +3,7 @@ package com.sprint.socialmeli.repository.post;
 import com.sprint.socialmeli.entity.Post;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class PostRepositoryImpl implements IPostRepository{
@@ -29,4 +26,5 @@ public class PostRepositoryImpl implements IPostRepository{
     public List<Post> findPromoBySellerId(Integer sellerId) {
         return postMap.getOrDefault(sellerId, new ArrayList<>()).stream().filter(post -> post.isHas_promo()).toList();
     }
+
 }

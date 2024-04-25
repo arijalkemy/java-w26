@@ -1,7 +1,6 @@
 package com.sprint.socialmeli.dto.post;
 
 import com.sprint.socialmeli.dto.user.UserResponseDTO;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.io.Serializable;
