@@ -5,6 +5,7 @@ import org.example.g14.dto.PromoPostDto;
 import org.example.g14.service.IPostService;
 import org.example.g14.dto.PostDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,5 +36,10 @@ public class ProductController {
     public ResponseEntity<Void> addPromoPost(@RequestBody CreatePostDto promoPostDto){
         postService.addPromoPost(promoPostDto);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<Integer> getPromoProdCountByUserId(@RequestParam("user_id") int userId){
+        return new ResponseEntity<>(postService.getPromoProdCountByUserId(userId), HttpStatus.OK);
     }
 }

@@ -108,4 +108,15 @@ public class PostService implements IPostService {
 
         postRepository.save(postToAdd);
     }
+
+    @Override
+    public int getPromoProdCountByUserId(int userId) {
+        if (userRepository.getById(userId).isEmpty()){
+            throw new NotFoundException("No se encontró el usuario con id " + userId);
+        } else if (postRepository.findAllByUser(userId).isEmpty()) {
+            throw new BadRequestException("El usuario no es vendedor");
+        }
+
+        return (int)postRepository.findAllByUser(userId).stream().filter(Post::isHasPromo).count();
+    }
 }
