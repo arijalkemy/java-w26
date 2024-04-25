@@ -5,6 +5,6 @@ import org.mercadolibre.NotNullTeam.model.Post;
 import java.util.List;
 
 public interface IPostRepository {
-    void createPost(Post post);
-    List<Post> getPostsBySellerIdTwoWeeksAgo(Long sellerId);
+    Long createPost(Post post);
+    List<Post> getPostsByWeeksAgo(int weeks, Long sellerId);
 }

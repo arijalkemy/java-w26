@@ -1,6 +1,5 @@
 package org.mercadolibre.NotNullTeam.model;
 
-import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;

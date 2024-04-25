@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface ISellerRepository {
     Optional<Seller> findById(Long id);
     void save(Seller seller);
+    void update(Seller seller);
 }

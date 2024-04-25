@@ -9,5 +9,4 @@ public interface ISellerService {
     SellerResponseDTO getListFollowers(Long userId);
 
     SellerResponseDTO getListFollowersOrdered(Long userId, String order);
-
 }

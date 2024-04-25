@@ -2,25 +2,21 @@ package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
-import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
+import org.mercadolibre.NotNullTeam.mapper.PostMapper;
+import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Post;
-import org.mercadolibre.NotNullTeam.model.Product;
 import org.mercadolibre.NotNullTeam.model.Seller;
 import org.mercadolibre.NotNullTeam.repository.IBuyerRepository;
 import org.mercadolibre.NotNullTeam.repository.IPostRepository;
 import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
 import org.mercadolibre.NotNullTeam.service.IPostService;
-import org.mercadolibre.NotNullTeam.service.ISellerServiceInternal;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -28,75 +24,39 @@ public class PostServiceImpl implements IPostService {
     final IPostRepository iPostRepository;
     final ISellerRepository iSellerRepository;
     final IBuyerRepository iBuyerRepository;
-    final ISellerServiceInternal iSellerServiceInternal;
+
 
     @Override
-    public void createPost(PostDTO postDTO) {
-        iPostRepository.createPost(postDtoToPost(postDTO));
+    public Long createPost(PostDTO postDTO) {
+        return iPostRepository.createPost(PostMapper.postDtoToPost(postDTO, findSellerById(postDTO.getUser_id())));
     }
 
-    private Post postDtoToPost(PostDTO postDTO) {
-        return new Post(findSellerById(postDTO.getUser_id()),
-                LocalDate.parse(postDTO.getDate(), DateTimeFormatter.ofPattern("dd-MM-yyyy")),
-                productDtoToProduct(postDTO.getProduct()),
-                postDTO.getCategory(),
-                postDTO.getPrice());
+    private Seller findSellerById(Long id){
+        return iSellerRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Seller"));
     }
 
-    private Seller findSellerById(Long id) {
-        return iSellerRepository.findById(id).orElseThrow(() -> new NotFoundException("Seller"));
-    }
-
-    private Product productDtoToProduct(ProductDTO productDTO) {
-        return new Product(productDTO.getProduct_id(),
-                productDTO.getProduct_name(),
-                productDTO.getType(),
-                productDTO.getBrand(),
-                productDTO.getColor(),
-                productDTO.getNotes());
+    private Buyer findBuyerById(Long id){
+        return iBuyerRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Buyer"));
     }
 
     @Override
-    public PostsByFollowedDTO getPostsBySellerTwoWeeksAgo(Long userId, String order) {
-        List<Post> posts = new ArrayList<>();
+    public PostsByFollowedDTO getPostsByWeeksAgo(Long userId, String order) {
+        Buyer buyer = findBuyerById(userId);
+        final int WEEKS = 2;
 
-        iBuyerRepository
-                .findById(userId)
-                .orElseThrow(() -> new NotFoundException("Buyer"))
-                .getFollowedList()
+        List<Post> posts = buyer.getFollowedList()
                 .stream()
-                .map(post -> iPostRepository.getPostsBySellerIdTwoWeeksAgo(post.getUser().getId()))
-                .forEach(posts::addAll);
+                .flatMap(post -> iPostRepository.getPostsByWeeksAgo(WEEKS, post.getUser().getId()).stream())
+                .collect(Collectors.toList());
 
-        if (order.equals("date_asc")) {
+        if(order.equals("date_asc")) {
             posts.sort(Comparator.comparing(Post::getDate));
-        }
-        else {
+        }else{
             posts.sort(Comparator.comparing(Post::getDate).reversed());
         }
 
-        return postToPostByFollowed(userId, posts);
-    }
-
-    private PostsByFollowedDTO postToPostByFollowed(Long id, List<Post> posts) {
-        return new PostsByFollowedDTO(id, posts.stream().map(this::postToPostResponseDto).toList());
-    }
-
-    private PostResponseDTO postToPostResponseDto(Post post) {
-        return new PostResponseDTO(post.getSeller().getUser().getId(),
-                post.getId(),
-                post.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
-                productToProductDto(post.getProduct()),
-                post.getCategory(),
-                post.getPrice());
-    }
-
-    private ProductDTO productToProductDto(Product product) {
-        return new ProductDTO(product.getId(),
-                product.getName(),
-                product.getType(),
-                product.getBrand(),
-                product.getColor(),
-                product.getNotes());
+        return PostMapper.postToPostByFollowed(userId, posts);
     }
 }

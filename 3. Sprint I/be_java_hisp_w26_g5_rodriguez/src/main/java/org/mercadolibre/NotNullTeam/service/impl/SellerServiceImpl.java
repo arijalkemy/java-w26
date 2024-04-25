@@ -1,10 +1,11 @@
 package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseWithNotSellerListDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.SellerFollowersCountDto;
 import org.mercadolibre.NotNullTeam.DTO.response.SellerResponseDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
+import org.mercadolibre.NotNullTeam.mapper.BuyerMapper;
+import org.mercadolibre.NotNullTeam.mapper.SellerMapper;
 import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Seller;
 import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
@@ -29,34 +30,21 @@ public class SellerServiceImpl implements ISellerService, ISellerServiceInternal
         return new SellerFollowersCountDto(seller.getUser().getId(), seller.getUser().getName(), followersCount);
     }
 
-
-
     @Override
     public Seller findById(Long id){
-        return iSellerRepository
-                .findById(id)
-                .orElseThrow(() -> new NotFoundException("Seller"));
+        return findSellerById(id, "Seller");
     }
   
     @Override
     public SellerResponseDTO getListFollowers(Long userId) {
-        Seller seller = iSellerRepository
-                .findById(userId)
-                .orElseThrow(() -> new NotFoundException("Seller"));
+        Seller seller = findSellerById(userId, "Seller");
 
-        return new SellerResponseDTO(
-                seller.getUser().getId(),
-                seller.getUser().getName(),
-                seller.getFollowersList().stream().map(
-                        s -> new BuyerResponseWithNotSellerListDTO(
-                                s.getUser().getId(),s.getUser().getName())).toList());
+        return SellerMapper.toSellerResponseDTO(seller, BuyerMapper.toListBuyerResponseWithNotSellerListDTO(seller.getFollowersList()));
     }
 
     @Override
     public SellerResponseDTO getListFollowersOrdered(Long userId, String order) {
-        Seller seller = iSellerRepository
-                .findById(userId)
-                .orElseThrow(() -> new NotFoundException("No se encontro el vendedor con ID = " + userId));
+        Seller seller = findSellerById(userId, "No se encontro el vendedor con ID = " + userId);
 
         List<Buyer> followersList = seller.getFollowersList();
 
@@ -66,15 +54,11 @@ public class SellerServiceImpl implements ISellerService, ISellerServiceInternal
             followersList.sort(Comparator.comparing(Buyer::getUsername).reversed());
         }
 
-        return new SellerResponseDTO(
-                seller.getUser().getId(),
-                seller.getUsername(),
-                followersList.stream().map(
-                        x -> new BuyerResponseWithNotSellerListDTO(
-                                x.getUser().getId(),
-                                x.getUsername()
-                        )
-                ).toList()
-        );
+        return SellerMapper.toSellerResponseDTO(seller, BuyerMapper.toListBuyerResponseWithNotSellerListDTO(seller.getFollowersList()));
+    }
+
+    private Seller findSellerById(Long id, String message){
+        return iSellerRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(message));
     }
 }

@@ -3,7 +3,6 @@ package org.mercadolibre.NotNullTeam.repository.impl;
 import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.repository.IBuyerRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +30,11 @@ public class BuyerRepositoryImpl implements IBuyerRepository {
         return buyers.stream().anyMatch(
                 b -> Objects.equals(b.getUser().getId(), id)
         );
+    }
+
+    @Override
+    public void update(Buyer buyer) {
+        //No se implementa porque no hay base de datos y los objetos estan en memoria.
     }
 
     @Override

@@ -7,9 +7,10 @@ import org.mercadolibre.NotNullTeam.DTO.response.SellerPromosCountResponse;
 import org.mercadolibre.NotNullTeam.DTO.response.SellerPromosResponse;
 
 public interface IPostService {
-    void createPost(PostDTO postDTO);
-    PostsByFollowedDTO getPostsBySellerTwoWeeksAgo(Long userId, String order);
-    void newProductPromo(PostPromoRequestDto request);
+    Long createPost(PostDTO postDTO);
+    PostsByFollowedDTO getPostsByWeeksAgo(Long userId, String order);
+
+    Long newProductPromo(PostPromoRequestDto request);
 
     SellerPromosCountResponse getCountPromosBySellerId(Long userId);
 

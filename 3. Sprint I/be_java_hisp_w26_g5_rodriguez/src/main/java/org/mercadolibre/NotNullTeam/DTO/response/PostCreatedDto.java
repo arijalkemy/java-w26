@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 public class PostCreatedDto {
+    private Long id;
     private String message;
     private LocalDate date;
 }
