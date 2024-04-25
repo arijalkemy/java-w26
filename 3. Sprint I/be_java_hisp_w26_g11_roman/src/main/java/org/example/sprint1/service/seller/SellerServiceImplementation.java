@@ -99,6 +99,12 @@ public class SellerServiceImplementation implements ISellerService {
 
     }
 
+    @Override
+    public List<PostDTO> getPromosFromFollowingWithTwoWeeksOld(int userId) {
+        return getPostsFromFollowingWithTwoWeeksOld(userId, Optional.of("date_asc")).getPosts().stream().filter(PostDTO::isHasPromo).toList();
+
+    }
+
 
     private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
         List<PostDTO> listPostDto = new ArrayList<>();
