@@ -21,15 +21,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}8080/users/235/follow/101",
+					"raw": "{{base_url}}8080/users/240/follow/103",
 					"host": [
 						"{{base_url}}8080"
 					],
 					"path": [
 						"users",
-						"235",
+						"240",
 						"follow",
-						"101"
+						"103"
 					]
 				}
 			},
@@ -81,13 +81,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/users/234/followed/list",
+					"raw": "{{base_url}}8080/users/240/followed/list",
 					"host": [
 						"{{base_url}}8080"
 					],
 					"path": [
 						"users",
-						"234",
+						"240",
 						"followed",
 						"list"
 					]
@@ -146,22 +146,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/products/followed/234/list",
+					"raw": "{{base_url}}8080/products/followed/240/list?order=date_desc",
 					"host": [
 						"{{base_url}}8080"
 					],
 					"path": [
 						"products",
 						"followed",
-						"234",
+						"240",
 						"list"
 					],
 					"query": [
 						{
 							"key": "order",
 							"value": "date_desc",
-							"description": "Fecha descendente (de más nueva a más antigua)",
-							"disabled": true
+							"description": "Fecha descendente (de más nueva a más antigua)"
 						},
 						{
 							"key": "order",
@@ -264,7 +263,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user_id\": 104,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 100,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}\n",
+					"raw": "{\n    \"user_id\": 101,\n    \"date\": \"20-04-2024\",\n    \"product\": {\n        \"product_id\": 100,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -291,7 +290,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/products/promo-post/count?user_id=104",
+					"raw": "localhost:8080/products/promo-post/count?user_id=101",
 					"host": [
 						"localhost"
 					],
@@ -304,8 +303,29 @@
 					"query": [
 						{
 							"key": "user_id",
-							"value": "104"
+							"value": "101"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bonus: Promociones de productos que un usuario sigue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/followed/240/promotions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"240",
+						"promotions"
 					]
 				}
 			},
