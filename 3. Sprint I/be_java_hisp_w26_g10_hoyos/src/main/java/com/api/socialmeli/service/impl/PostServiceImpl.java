@@ -153,4 +153,11 @@ public class PostServiceImpl implements IPostService {
             throw new NotFoundException("No se encuentran descuentos asociados al vendedor");
         return promoCount.size();
     }
+    @Override
+    public List<PromoPostDto> ProductsWithDiscountByOwner(Integer userId) {
+        List<PromoPostDto> promoList = postsInPromo.stream().filter(e -> e.getHas_promo().equals(true) && e.getUser_id().equals(userId)).toList();
+        if(promoList.isEmpty())
+            throw new NotFoundException("No se encuentran descuentos asociados al vendedor");
+        return promoList;
+    }
 }
