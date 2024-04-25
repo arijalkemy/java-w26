@@ -24,4 +24,6 @@ public class Post {
     private Product product;
     private Integer category;
     private Double price;
+    private boolean has_promo;
+    private double discount;
 }
