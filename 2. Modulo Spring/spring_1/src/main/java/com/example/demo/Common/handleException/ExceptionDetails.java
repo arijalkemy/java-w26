@@ -23,4 +23,5 @@ public class ExceptionDetails {
         this.message = exception.getMessage();
         this.uri = url.getRequestURI();
     }
+    
 }
