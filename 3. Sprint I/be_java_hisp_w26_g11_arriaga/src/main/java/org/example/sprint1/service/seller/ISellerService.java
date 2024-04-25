@@ -1,6 +1,6 @@
 package org.example.sprint1.service.seller;
 
-import org.example.sprint1.dto.PostDTO;
+import org.example.sprint1.dto.ResponsePromoCountDTO;
 import org.example.sprint1.dto.RequestPostDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
 import org.example.sprint1.entity.Post;
@@ -13,4 +13,5 @@ public interface ISellerService {
      public Post addPost(RequestPostDTO postDTO);
      public List<Seller> getSellers();
      ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, Optional<String> order);
+     ResponsePromoCountDTO getPromoPostCount(int userId);
 }
