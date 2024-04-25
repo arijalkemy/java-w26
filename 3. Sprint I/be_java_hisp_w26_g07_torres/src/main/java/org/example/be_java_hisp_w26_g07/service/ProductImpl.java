@@ -102,6 +102,8 @@ public class ProductImpl implements IProductService {
         SimplePostDto simplePostDto = mapper.convertValue(postReqDto, SimplePostDto.class);
         Post post = mapper.convertValue(simplePostDto, Post.class);
         post.setId(PostUtil.increaseCounter());
+        post.setHasPromo(postReqDto.getHasPromo());
+        post.setDiscount(postReqDto.getDiscount());
         Product product = mapper.convertValue(postReqDto.getProduct(), Product.class);
         Product foundProduct = iUserRepository.findProductById(product.getId());
         if (foundProduct != null) {
@@ -116,11 +118,17 @@ public class ProductImpl implements IProductService {
     }
 
     @Override
-    public SuccessResponseDto getPromoPostsBySellerId(Integer userId) {
+    public PromoPostResDto getPromoPostsBySellerId(Integer userId) {
         User foundUser = iUserRepository.findById(userId);
         if (foundUser == null) {
             throw new BadRequestException("El usuario con id "+userId+" no existe");
         }
-        return null;
+        List<Post> postByUser = iUserRepository.getPromoPostsBySellerId(userId);
+        if (postByUser == null) {
+            throw new BadRequestException("No se encontraron posts para el vendedor con id "+userId);
+        }
+        int postsCount = postByUser.size();
+
+        return new PromoPostResDto(foundUser.getId(), foundUser.getName(), postsCount);
     }
 }

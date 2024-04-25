@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Repository
 public class UserRepositoryImpl implements IUserRepository {
@@ -125,5 +126,13 @@ public class UserRepositoryImpl implements IUserRepository {
     @Override
     public void createProduct(Product newProduct) {
         productMap.put(newProduct.getId(), newProduct);
+    }
+
+    @Override
+    public List<Post> getPromoPostsBySellerId(Integer userId) {
+        return postMap.values().stream()
+                .filter(p -> p.getUserId().equals(userId) &&
+                        p.getHasPromo() != null && p.getHasPromo())
+                .collect(Collectors.toList());
     }
 }

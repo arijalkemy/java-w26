@@ -1,5 +1,6 @@
 package org.example.be_java_hisp_w26_g07.repository.interfaces;
 
+import org.example.be_java_hisp_w26_g07.dto.SuccessResponseDto;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -25,4 +26,5 @@ public interface IUserRepository {
     Product findProductById(Integer productId);
 
     void createProduct(Product newProduct);
+    List<Post> getPromoPostsBySellerId(Integer userId);
 }
