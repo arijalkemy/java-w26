@@ -92,12 +92,35 @@ public class ProductImpl implements IProductService {
     }
 
     @Override
-    public SuccessResponseDto createPromoPost(PromoPostReqDto post) {
-        return null;
+    public SuccessResponseDto createPromoPost(PromoPostReqDto postReqDto) {
+        User foundUser = iUserRepository.findById(postReqDto.getUserId());
+        if (foundUser == null) {
+            throw new BadRequestException("El usuario con id "+postReqDto.getUserId()+" no existe");
+        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        SimplePostDto simplePostDto = mapper.convertValue(postReqDto, SimplePostDto.class);
+        Post post = mapper.convertValue(simplePostDto, Post.class);
+        post.setId(PostUtil.increaseCounter());
+        Product product = mapper.convertValue(postReqDto.getProduct(), Product.class);
+        Product foundProduct = iUserRepository.findProductById(product.getId());
+        if (foundProduct != null) {
+            throw new BadRequestException("Un producto con ese id ya existe, por favor actualice el id");
+        }
+        iUserRepository.createProduct(product);
+        post.setProductId(product.getId());
+
+        iUserRepository.addPost(post);
+        if (!foundUser.getIsSeller()) foundUser.setIsSeller(true);
+        return new SuccessResponseDto("Post con promoción creado exitosamente");
     }
 
     @Override
     public SuccessResponseDto getPromoPostsBySellerId(Integer userId) {
+        User foundUser = iUserRepository.findById(userId);
+        if (foundUser == null) {
+            throw new BadRequestException("El usuario con id "+userId+" no existe");
+        }
         return null;
     }
 }

@@ -24,8 +24,4 @@ public class Product {
     private String color;
     @JsonProperty("notes")
     private String notes;
-    @JsonIgnore
-    private Boolean hasPromo;
-    @JsonIgnore
-    private Double discount;
 }

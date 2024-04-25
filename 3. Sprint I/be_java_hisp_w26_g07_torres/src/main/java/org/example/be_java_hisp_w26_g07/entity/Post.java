@@ -32,5 +32,8 @@ public class Post {
     private Integer categoryId;
     @JsonProperty("price")
     private Double price;
-
+    @JsonIgnore
+    private Boolean hasPromo;
+    @JsonIgnore
+    private Double discount;
 }

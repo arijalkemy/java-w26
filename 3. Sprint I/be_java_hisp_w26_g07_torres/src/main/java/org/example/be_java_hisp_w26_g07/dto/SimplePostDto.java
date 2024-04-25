@@ -1,5 +1,6 @@
 package org.example.be_java_hisp_w26_g07.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -34,4 +35,9 @@ public class SimplePostDto {
     @NotNull
     @JsonProperty("price")
     private double price;
+    @JsonIgnore
+    @JsonProperty("has_promo")
+    private Boolean hasDouble;
+    @JsonIgnore
+    private Double discount;
 }
