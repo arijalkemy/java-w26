@@ -2,9 +2,9 @@ package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
-import com.group03.sprint1.dto.response.SellerWithPromoDTO;
+import com.group03.sprint1.dto.response.SellerWithPromoCountDTO;
+import com.group03.sprint1.dto.response.SellerWithPromoListDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
-import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.service.IPublicationsService;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.PublicationsServiceImpl;
@@ -61,8 +61,13 @@ public class PublicationsController {
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<SellerWithPromoDTO> getPromoCountBySeller(@RequestParam Integer userId){
+    public ResponseEntity<SellerWithPromoCountDTO> getPromoCountBySeller(@RequestParam Integer userId){
         return ResponseEntity.ok().body(usersService.getPromoCountBySeller(userId));
+    }
+
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<SellerWithPromoListDTO> getPromoListBySeller(@RequestParam Integer userId){
+        return ResponseEntity.ok().body(usersService.getPromoListBySeller(userId));
     }
 
 }

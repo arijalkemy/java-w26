@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SellerWithPromoDTO {
+public class SellerWithPromoCountDTO {
     @JsonProperty("user_id")
     private Integer userId;
     @JsonProperty("user_name")
