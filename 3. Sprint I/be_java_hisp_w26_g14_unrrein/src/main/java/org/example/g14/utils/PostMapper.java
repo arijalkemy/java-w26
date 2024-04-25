@@ -2,24 +2,19 @@ package org.example.g14.utils;
 
 import lombok.NoArgsConstructor;
 import org.example.g14.dto.CreatePostDto;
+import org.example.g14.dto.PostDto;
+import org.example.g14.dto.ProductDto;
 import org.example.g14.exception.BadRequestException;
 import org.example.g14.model.Post;
 import org.example.g14.model.Product;
 
 @NoArgsConstructor
 public class PostMapper {
-    public Post createPostDtoToPost(CreatePostDto createPostDto) {
-        if(createPostDto.getDate() == null || createPostDto.getCategory() == 0 ||
-            createPostDto.getPrice() == 0 || createPostDto.getIdUser() == 0) {
+
+    public static Post createPostDtoToPost(CreatePostDto createPostDto) {
+
+        if (!Validation.isValid(createPostDto))
             throw new BadRequestException("Campos inválidos y/o faltantes.");
-        }
-        if(createPostDto.getProduct() == null ||
-            createPostDto.getProduct().getId() == 0 || createPostDto.getProduct().getName() == null ||
-            createPostDto.getProduct().getType() == null || createPostDto.getProduct().getBrand() == null ||
-            createPostDto.getProduct().getColor() == null || createPostDto.getProduct().getNotes() == null
-        ) {
-            throw new BadRequestException("Campos inválidos y/o faltantes.");
-        }
 
         return new Post(
             createPostDto.getDate(),
@@ -34,6 +29,27 @@ public class PostMapper {
                 createPostDto.getProduct().getNotes()
             ),
             createPostDto.getIdUser()
+        );
+    }
+
+    public static PostDto toDto(Post entity) {
+
+        ProductDto productDto = new ProductDto(
+            entity.getProduct().getId(),
+            entity.getProduct().getName(),
+            entity.getProduct().getType(),
+            entity.getProduct().getBrand(),
+            entity.getProduct().getColor(),
+            entity.getProduct().getNotes()
+        );
+
+        return new PostDto(
+            entity.getIdUser(),
+            entity.getId(),
+            entity.getDate(),
+            productDto,
+            entity.getCategory(),
+            entity.getPrice()
         );
     }
 }

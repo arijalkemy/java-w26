@@ -2,7 +2,6 @@ package org.example.g14.service;
 
 import org.example.g14.dto.CreatePostDto;
 import org.example.g14.dto.PostDto;
-import org.example.g14.dto.ProductDto;
 import org.example.g14.exception.BadRequestException;
 import org.example.g14.exception.NotFoundException;
 import org.example.g14.model.Post;
@@ -18,20 +17,22 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class PostService implements IPostService {
+
     @Autowired
     IPostRepository postRepository;
 
     @Autowired
     IUserRepository userRepository;
 
+
     @Override
     public void add(CreatePostDto createPostDto) {
-        PostMapper postMapper = new PostMapper();
-        Post post = postMapper.createPostDtoToPost(createPostDto);
+
+        Post post = PostMapper.createPostDtoToPost(createPostDto);
 
         Optional<User> usuario = userRepository.getById(post.getIdUser());
         if(usuario.isEmpty()) {
@@ -68,25 +69,7 @@ public class PostService implements IPostService {
         }
 
         return recentPosts.stream()
-                .map(post -> {
-
-                    ProductDto productDto = new ProductDto();
-                    productDto.setId(post.getProduct().getId());
-                    productDto.setName(post.getProduct().getName());
-                    productDto.setType(post.getProduct().getType());
-                    productDto.setBrand(post.getProduct().getBrand());
-                    productDto.setColor(post.getProduct().getColor());
-                    productDto.setNotes(post.getProduct().getNotes());
-
-                    return new PostDto(
-                            post.getIdUser(),
-                            post.getId(),
-                            post.getDate(),
-                            productDto,
-                            post.getCategory(),
-                            post.getPrice()
-                    );
-                })
-                .collect(Collectors.toList());
+                .map(PostMapper::toDto)
+                .toList();
     }
 }

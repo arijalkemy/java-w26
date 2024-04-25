@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @JsonPropertyOrder({ "product_id", "product_name", "type", "brand", "color", "notes" })
 public class ProductDto {
     @JsonProperty("product_id")
-    private int id;
+    private Integer id;
     @JsonProperty("product_name")
     private String name;
     private String type;

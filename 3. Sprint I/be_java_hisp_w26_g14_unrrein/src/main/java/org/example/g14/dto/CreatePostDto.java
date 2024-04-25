@@ -1,11 +1,10 @@
 package org.example.g14.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.g14.utils.CustomLocalDateDeserializer;
 
 import java.time.LocalDate;
 
@@ -13,11 +12,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreatePostDto {
-    @JsonProperty("user_id")
-    private int idUser;
-    @JsonDeserialize(using = CustomLocalDateDeserializer.class)
-    private LocalDate date;
+
+    @JsonProperty("user_id") private Integer idUser;
+    @JsonFormat(pattern = "dd-MM-yyyy") private LocalDate date;
     private ProductDto product;
-    private int category;
-    private double price;
+    private Integer category;
+    private Double price;
+    @JsonProperty("has_promo") private Boolean hasPromo;
+    private Double discount;
 }
