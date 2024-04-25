@@ -33,4 +33,9 @@ public class ProductController {
     public ResponseEntity<?> postPromoPost(@RequestBody PostDTO postDTO) {
         return new ResponseEntity<>(productService.savePost(postDTO), HttpStatus.OK);
     }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getPromoPostCount(@RequestParam(name = "user_id") Integer userId) {
+        return new ResponseEntity<>(productService.getPromoPostCount(userId), HttpStatus.OK);
+    }
 }

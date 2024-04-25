@@ -8,4 +8,5 @@ public interface IProductRepository {
     void savePost(Post post);
     Boolean existsPost(Integer postId);
     List<Post> getAllPosts();
+    Integer getPromoPostCount(Integer userId);
 }

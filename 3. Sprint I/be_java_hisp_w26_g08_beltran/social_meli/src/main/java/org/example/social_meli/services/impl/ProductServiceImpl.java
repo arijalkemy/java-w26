@@ -2,11 +2,13 @@ package org.example.social_meli.services.impl;
 
 import org.example.social_meli.dto.FollowListDTO;
 import org.example.social_meli.dto.PostDTO;
+import org.example.social_meli.dto.UserDTO;
 import org.example.social_meli.dto.UserResponseDTO;
 import org.example.social_meli.exceptions.BadRequestException;
 import org.example.social_meli.exceptions.ConflictException;
 import org.example.social_meli.exceptions.NotFoundException;
 import org.example.social_meli.model.Post;
+import org.example.social_meli.model.User;
 import org.example.social_meli.repository.IProductRepository;
 import org.example.social_meli.repository.IUserRepository;
 import org.example.social_meli.services.IProductService;
@@ -84,6 +86,18 @@ public class ProductServiceImpl implements IProductService {
         return (orderBy.equals("date_asc")?
                 getOrderedSellersPostsFollowedByUserAsc(response):
                 getOrderedSellersPostsFollowedByUserDesc(response));
+    }
+
+    @Override
+    public UserDTO getPromoPostCount(Integer userId) {
+        User user = userRepository.findById(userId);
+        if (user == null) {
+            throw new NotFoundException("No existe un usuario con el id " + userId);
+        }
+
+        return new UserDTO(user.getUser_id(),
+                user.getUser_name(),
+                productRepository.getPromoPostCount(userId));
     }
 
     private FollowListDTO getOrderedSellersPostsFollowedByUserAsc(FollowListDTO response){

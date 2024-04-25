@@ -55,4 +55,12 @@ public class ProductRepository implements IProductRepository {
     public List<Post> getAllPosts() {
         return postList;
     }
+
+    @Override
+    public Integer getPromoPostCount(Integer userId) {
+        return postList.stream()
+                .filter(post -> post.getUser_id().equals(userId) && post.isHas_promo())
+                .toList()
+                .size();
+    }
 }
