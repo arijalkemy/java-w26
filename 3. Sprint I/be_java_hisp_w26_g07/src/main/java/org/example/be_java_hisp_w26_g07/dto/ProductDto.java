@@ -1,14 +1,14 @@
-package org.example.be_java_hisp_w26_g07.entity;
+package org.example.be_java_hisp_w26_g07.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductDto {
     @JsonProperty("product_id")
     private Integer id;
     @JsonProperty("product_name")

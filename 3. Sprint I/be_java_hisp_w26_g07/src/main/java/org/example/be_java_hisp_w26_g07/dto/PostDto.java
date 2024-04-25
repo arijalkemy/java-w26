@@ -8,7 +8,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.be_java_hisp_w26_g07.entity.Product;
 
 import java.time.LocalDate;
 
@@ -25,7 +24,7 @@ public class PostDto {
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate date;
     @JsonProperty("product")
-    private Product product;
+    private ProductDto product;
     @JsonProperty("category")
     private String category;
     @JsonProperty("price")

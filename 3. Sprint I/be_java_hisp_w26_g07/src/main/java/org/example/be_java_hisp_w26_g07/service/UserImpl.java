@@ -132,13 +132,16 @@ public class UserImpl implements IUserService {
 
     @Override
     public SuccessResponseDto unfollow(Integer userId, Integer userIdToUnfollow) {
-        User foundUser = iUserRepository.findById(userId);
-        if (foundUser == null) {
-            throw new NotFoundException("El usuario no fue encontrado");
+        User followerUser = iUserRepository.findById(userId);
+        User sellerUser = iUserRepository.findById(userIdToUnfollow);
+        if (followerUser == null || sellerUser == null) {
+            Integer idNotFound = followerUser == null ? userId : userIdToUnfollow;
+            String errorMsg = String.format("El usuario con el id %s no fue encontrado", idNotFound);
+            throw new NotFoundException(errorMsg);
         }
-        boolean followDeleted = iUserRepository.unfollow(foundUser, userIdToUnfollow);
+        boolean followDeleted = iUserRepository.unfollow(followerUser, sellerUser);
         if (!followDeleted) {
-            throw new BadRequestException("No se encontró el usuario para dejar de seguir");
+            throw new BadRequestException("No se pudo completar la acción");
         }
         return new SuccessResponseDto("Se ha dejado de seguir al usuario");
     }

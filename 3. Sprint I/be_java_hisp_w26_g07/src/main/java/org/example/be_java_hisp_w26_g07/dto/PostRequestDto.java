@@ -29,7 +29,7 @@ public class PostRequestDto {
     private LocalDate date;
     @NotNull
     @JsonProperty("product")
-    private Product product;
+    private ProductDto product;
     @NotNull
     @JsonProperty("category")
     private Integer category;
