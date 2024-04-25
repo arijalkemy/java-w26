@@ -28,12 +28,12 @@ public class ProductServiceImpl implements ProductService {
 
     public Product convertToProductRequestDTO(ProductRequestDTO productDto) {
         Product product = new Product();
-        product.setBrand(product.getBrand());
-        product.setType(product.getType());
-        product.setId(product.getId());
-        product.setNotes(product.getNotes());
-        product.setName(product.getName());
-        product.setColor(product.getColor());
+        product.setBrand(productDto.getBrand());
+        product.setType(productDto.getType());
+        product.setId(productDto.getProductId());
+        product.setNotes(productDto.getNotes());
+        product.setName(productDto.getProductName());
+        product.setColor(productDto.getColor());
         return product;
     }
 

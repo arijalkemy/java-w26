@@ -15,4 +15,5 @@ public interface PostService {
     MessageResponseDTO addPostPromo(PostPromoDTO dto);
     PromoQuantityResponseDTO calculatePostPromoBySeller(int sellerId);
     PromoListBySeller findAllPromoBySeller(int sellerId);
+    PostPromoResponseDTO removePromo(int postId);
 }

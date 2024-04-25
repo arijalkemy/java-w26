@@ -76,7 +76,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public MessageResponseDTO addPost(PostRequestDTO dto) {
-        if(sellerService.existSeller(dto.getUserId())){
+        if(!sellerService.existSeller(dto.getUserId())){
             throw new BadRequestException("Seller doesn't exists"); //AGREGADO
         }
         Post post = parsePostDtoToModelWithOutDiscount(dto);
@@ -87,12 +87,12 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public MessageResponseDTO addPostPromo(PostPromoDTO dto) {
-        if(sellerService.existSeller(dto.getUserId())){
+        if(!sellerService.existSeller(dto.getUserId())){
             throw new BadRequestException("Seller not exists");
         }
         Post post = parsePostPromoDtoToModel(dto);
-        productService.addProduct(dto.getProduct());
         repository.add(post);
+        productService.addProduct(dto.getProduct());
         return new MessageResponseDTO("The product was successfully publish");
     }
 
@@ -119,6 +119,12 @@ public class PostServiceImpl implements PostService {
         promoListBySeller.setPosts(repository.findWithPromo(sellerId).stream()
                 .map(this::convertToPostPromoResponseDTO).toList());
         return promoListBySeller;
+    }
+
+    @Override
+    public PostPromoResponseDTO removePromo(int postId) {
+        Post post = repository.removePromo(postId);
+        return convertToPostPromoResponseDTO(post);
     }
 
 

@@ -1,5 +1,6 @@
 package bootcamp.sprint.grupo02.sprintI.repository.implementations;
 
+import bootcamp.sprint.grupo02.sprintI.dto.response.PostPromoResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.model.Post;
 import bootcamp.sprint.grupo02.sprintI.model.Product;
 import bootcamp.sprint.grupo02.sprintI.repository.PostRepository;
@@ -15,8 +16,6 @@ import java.util.Optional;
 public class PostRepositoryImpl implements PostRepository {
 
     private List<Post> posts;
-
-    
 
     public PostRepositoryImpl() {
         this.posts = new ArrayList<>();
@@ -45,7 +44,7 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public Optional<Post> findById(int id) {
-        return Optional.empty();
+        return posts.stream().filter(p -> p.getId() == id).findFirst();
     }
 
     @Override
@@ -66,5 +65,12 @@ public class PostRepositoryImpl implements PostRepository {
     @Override
     public List<Post> findWithPromo(int sellerId) {
         return posts.stream().filter(p -> p.isHasPromo() && p.getSellerId() == sellerId).toList();
+    }
+
+    @Override
+    public Post removePromo(int postId) {
+        Post post = findById(postId).get();
+        post.setHasPromo(false);
+        return post;
     }
 }

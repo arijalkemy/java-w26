@@ -1,10 +1,7 @@
 package bootcamp.sprint.grupo02.sprintI.controller;
 
 import bootcamp.sprint.grupo02.sprintI.dto.request.PostPromoDTO;
-import bootcamp.sprint.grupo02.sprintI.dto.response.MessageResponseDTO;
-import bootcamp.sprint.grupo02.sprintI.dto.response.PostListByBuyerResponseDTO;
-import bootcamp.sprint.grupo02.sprintI.dto.response.PromoListBySeller;
-import bootcamp.sprint.grupo02.sprintI.dto.response.PromoQuantityResponseDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.*;
 import bootcamp.sprint.grupo02.sprintI.service.PostService;
 import org.springframework.web.bind.annotation.*;
 import bootcamp.sprint.grupo02.sprintI.dto.request.PostRequestDTO;
@@ -45,5 +42,9 @@ public class ProductController {
     @GetMapping("/promo-post/count/list/{userId}")
     public ResponseEntity<PromoListBySeller> getAllPromoBySeller(@PathVariable int userId){
         return ResponseEntity.ok(postService.findAllPromoBySeller(userId));
+    }
+    @PutMapping("/promo-post/delete/{postId}")
+    public ResponseEntity<PostPromoResponseDTO> updatePromo(@PathVariable int postId){
+        return ResponseEntity.ok(postService.removePromo(postId));
     }
 }
