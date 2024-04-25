@@ -40,7 +40,6 @@ public class SellerRepositoryImpl implements SellerRepository {
                 .stream()
                 .filter(seller -> seller.getId() == id)
                 .findFirst();
-
     }
 
     @Override

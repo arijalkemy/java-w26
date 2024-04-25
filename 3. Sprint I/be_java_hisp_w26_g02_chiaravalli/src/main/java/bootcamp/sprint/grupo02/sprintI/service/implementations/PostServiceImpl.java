@@ -10,6 +10,7 @@ import bootcamp.sprint.grupo02.sprintI.exception.BadRequestException;
 import bootcamp.sprint.grupo02.sprintI.exception.NotFoundException;
 import bootcamp.sprint.grupo02.sprintI.model.Post;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
+import bootcamp.sprint.grupo02.sprintI.repository.SellerRepository;
 import bootcamp.sprint.grupo02.sprintI.service.BuyerService;
 import bootcamp.sprint.grupo02.sprintI.service.ProductService;
 import bootcamp.sprint.grupo02.sprintI.service.SellerService;
@@ -42,6 +43,7 @@ public class PostServiceImpl implements PostService {
     private final ProductService productService;
     private final SellerService sellerService;
 
+    private final SellerRepository  sellerRepository;
     private final PostRepository postRepository;
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
@@ -101,14 +103,22 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public MessageResponseDTO createPost(PostDTO dto) {
-            Post post = parsePostDtoToModelWithOutDiscount(dto);
-            repository.add(post);
-            productService.addProduct(dto.getProduct());
-            return new MessageResponseDTO("Ok");
+        Optional<Seller> optionalSeller = sellerRepository.findById(dto.getUserId());
+        if (optionalSeller.isEmpty()) {
+            throw new NotFoundException("Seller with ID " + dto.getUserId()+ " does not exist");
+        }
+        Post post = parsePostDtoToModelWithOutDiscount(dto);
+        repository.add(post);
+        productService.addProduct(dto.getProduct());
+        return new MessageResponseDTO("Ok");
     }
 
     @Override
     public MessageResponseDTO createPromoPost(PromoPostDTO dto) {
+        Optional<Seller> optionalSeller = sellerRepository.findById(dto.getUserId());
+        if (optionalSeller.isEmpty()) {
+            throw new NotFoundException("Seller with ID " + dto.getUserId()+ " does not exist");
+        }
         Post post = parsePostDtoToModelWithDiscount(dto);
         repository.add(post);
         productService.addProduct(dto.getProduct());
@@ -117,6 +127,10 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PromoPostResponseDTO countPromoPosts(int id) {
+        Optional<Seller> optionalSeller = sellerRepository.findById(id);
+        if (optionalSeller.isEmpty()) {
+            throw new NotFoundException("Seller with ID " + id + " does not exist");
+        }
         Seller seller = sellerService.findById(id);
         List<Post> sellerPosts = postRepository.findBySellerId(id);
 
