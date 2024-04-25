@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.example.sprint1.dto.RequestPostDTO;
 import org.example.sprint1.dto.RequestPostPromoDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
+import org.example.sprint1.dto.SellerPromosDTO;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.BadRequestException;
 import org.example.sprint1.service.seller.ISellerService;
@@ -56,6 +57,11 @@ public class SellerController {
             @RequestParam Optional<String> order
     ) {
         return new ResponseEntity<>(sellerService.getPostsFromFollowingWithTwoWeeksOld(userId, order), HttpStatus.OK);
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<SellerPromosDTO> getSellerPromosCount(@RequestParam int user_id){
+        return new ResponseEntity<>(sellerService.getSellersPromosCount(user_id), HttpStatus.OK);
     }
 
 }

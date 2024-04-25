@@ -2,19 +2,15 @@ package org.example.sprint1.service.seller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.example.sprint1.dto.PostDTO;
 import org.example.sprint1.dto.RequestPostDTO;
-import org.example.sprint1.dto.RequestPostPromoDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
+import org.example.sprint1.dto.SellerPromosDTO;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.BadRequestException;
 import org.example.sprint1.exception.NotFoundException;
-import org.example.sprint1.repository.CustomerRepository;
 import org.example.sprint1.repository.ICustomerRepository;
 import org.example.sprint1.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,6 +86,17 @@ public class SellerServiceImplementation implements ISellerService {
             listPostDto.sort(Comparator.comparing(PostDTO::getDate).reversed());
 
         return new ResponsePostDTO(userId, listPostDto);
+    }
+
+    @Override
+    public SellerPromosDTO getSellersPromosCount(int userId) {
+        Seller seller = sellerRepository.getSellerById(userId);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.findAndRegisterModules();
+
+       return  mapper.convertValue(seller, SellerPromosDTO.class);
+
     }
 
 
