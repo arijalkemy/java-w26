@@ -1,0 +1,461 @@
+[
+  {
+    "id": 1,
+    "date": "2024-04-11",
+    "price": 50.99,
+    "category": 1,
+    "discount": 0.1,
+    "product": {
+      "id": 1,
+      "name": "iPhone 14 Pro",
+      "type": "Smartphone",
+      "brand": "Apple",
+      "color": "Graphite",
+      "notes": "256GB, OLED Display"
+    },
+    "idUser": 1,
+    "hasPromo": true
+  },
+  {
+    "id": 2,
+    "date": "2024-04-12",
+    "price": 39.99,
+    "category": 2,
+    "discount": 0.05,
+    "product": {
+      "id": 2,
+      "name": "Sony Bravia X900H",
+      "type": "Smart TV",
+      "brand": "Sony",
+      "color": "Black",
+      "notes": "65-inch, 4K UHD"
+    },
+    "idUser": 2,
+    "hasPromo": false
+  },
+  {
+    "id": 3,
+    "date": "2024-04-13",
+    "price": 29.99,
+    "category": 3,
+    "discount": 0.15,
+    "product": {
+      "id": 3,
+      "name": "AirPods Pro",
+      "type": "Wireless Earbuds",
+      "brand": "Apple",
+      "color": "White",
+      "notes": "Active Noise Cancellation"
+    },
+    "idUser": 3,
+    "hasPromo": false
+  },
+  {
+    "id": 4,
+    "date": "2024-04-14",
+    "price": 19.99,
+    "category": 4,
+    "discount": 0.2,
+    "product": {
+      "id": 4,
+      "name": "Dell XPS 13",
+      "type": "Laptop",
+      "brand": "Dell",
+      "color": "Silver",
+      "notes": "Core i7, 16GB RAM"
+    },
+    "idUser": 4,
+    "hasPromo": true
+  },
+  {
+    "id": 5,
+    "date": "2024-04-15",
+    "price": 59.99,
+    "category": 5,
+    "discount": 0.25,
+    "product": {
+      "id": 5,
+      "name": "Nintendo Switch OLED",
+      "type": "Gaming Console",
+      "brand": "Nintendo",
+      "color": "White",
+      "notes": "7-inch OLED Screen"
+    },
+    "idUser": 5,
+    "hasPromo": true
+  },
+  {
+    "id": 6,
+    "date": "2024-04-16",
+    "price": 49.99,
+    "category": 6,
+    "discount": 0.3,
+    "product": {
+      "id": 6,
+      "name": "Samsung Galaxy Watch 4",
+      "type": "Smartwatch",
+      "brand": "Samsung",
+      "color": "Black",
+      "notes": "GPS, Heart Rate Monitor"
+    },
+    "idUser": 6,
+    "hasPromo": false
+  },
+  {
+    "id": 7,
+    "date": "2024-04-17",
+    "price": 69.99,
+    "category": 7,
+    "discount": 0.35,
+    "product": {
+      "id": 7,
+      "name": "Bose QuietComfort 45",
+      "type": "Headphones",
+      "brand": "Bose",
+      "color": "Silver",
+      "notes": "Noise Cancelling, Bluetooth"
+    },
+    "idUser": 7,
+    "hasPromo": true
+  },
+  {
+    "id": 8,
+    "date": "2024-04-18",
+    "price": 79.99,
+    "category": 8,
+    "discount": 0.4,
+    "product": {
+      "id": 8,
+      "name": "GoPro HERO10 Black",
+      "type": "Action Camera",
+      "brand": "GoPro",
+      "color": "Black",
+      "notes": "5.3K Video, 23MP Photos"
+    },
+    "idUser": 8,
+    "hasPromo": false
+  },
+  {
+    "id": 9,
+    "date": "2024-04-19",
+    "price": 89.99,
+    "category": 9,
+    "discount": 0.45,
+    "product": {
+      "id": 9,
+      "name": "Amazon Echo Show 10",
+      "type": "Smart Display",
+      "brand": "Amazon",
+      "color": "White",
+      "notes": "Rotating Screen, Alexa Built-in"
+    },
+    "idUser": 9,
+    "hasPromo": false
+  },
+  {
+    "id": 10,
+    "date": "2024-04-20",
+    "price": 99.99,
+    "category": 10,
+    "discount": 0.5,
+    "product": {
+      "id": 10,
+      "name": "Fitbit Charge 5",
+      "type": "Fitness Tracker",
+      "brand": "Fitbit",
+      "color": "Black",
+      "notes": "Heart Rate, Sleep Tracking"
+    },
+    "idUser": 10,
+    "hasPromo": true
+  },
+  {
+    "id": 11,
+    "date": "2024-04-21",
+    "price": 109.99,
+    "category": 11,
+    "discount": 0.55,
+    "product": {
+      "id": 11,
+      "name": "Sony WH-1000XM4",
+      "type": "Wireless Headphones",
+      "brand": "Sony",
+      "color": "Black",
+      "notes": "Noise Cancelling, Bluetooth"
+    },
+    "idUser": 11,
+    "hasPromo": false
+  },
+  {
+    "id": 12,
+    "date": "2024-04-22",
+    "price": 119.99,
+    "category": 12,
+    "discount": 0.6,
+    "product": {
+      "id": 12,
+      "name": "iPad Air (2022)",
+      "type": "Tablet",
+      "brand": "Apple",
+      "color": "Space Gray",
+      "notes": "10.9-inch Liquid Retina Display"
+    },
+    "idUser": 12,
+    "hasPromo": true
+  },
+  {
+    "id": 13,
+    "date": "2024-04-23",
+    "price": 129.99,
+    "category": 13,
+    "discount": 0.65,
+    "product": {
+      "id": 13,
+      "name": "DJI Air 2S",
+      "type": "Drone",
+      "brand": "DJI",
+      "color": "Gray",
+      "notes": "5.4K Video, 1-inch CMOS Sensor"
+    },
+    "idUser": 13,
+    "hasPromo": false
+  },
+  {
+    "id": 14,
+    "date": "2024-04-24",
+    "price": 139.99,
+    "category": 14,
+    "discount": 0.7,
+    "product": {
+      "id": 14,
+      "name": "LG CX OLED",
+      "type": "TV",
+      "brand": "LG",
+      "color": "Black",
+      "notes": "55-inch, 4K UHD"
+    },
+    "idUser": 14,
+    "hasPromo": true
+  },
+  {
+    "id": 15,
+    "date": "2024-04-25",
+    "price": 149.99,
+    "category": 15,
+    "discount": 0.75,
+    "product": {
+      "id": 15,
+      "name": "Sony Alpha A7 III",
+      "type": "Mirrorless Camera",
+      "brand": "Sony",
+      "color": "Black",
+      "notes": "24MP Full-Frame Sensor"
+    },
+    "idUser": 15,
+    "hasPromo": true
+  },
+  {
+    "id": 16,
+    "date": "2024-04-26",
+    "price": 159.99,
+    "category": 16,
+    "discount": 0.8,
+    "product": {
+      "id": 16,
+      "name": "Samsung Odyssey G9",
+      "type": "Gaming Monitor",
+      "brand": "Samsung",
+      "color": "White",
+      "notes": "49-inch, 240Hz Refresh Rate"
+    },
+    "idUser": 16,
+    "hasPromo": true
+  },
+  {
+    "id": 17,
+    "date": "2024-04-27",
+    "price": 169.99,
+    "category": 17,
+    "discount": 0.85,
+    "product": {
+      "id": 17,
+      "name": "Razer BlackWidow V3",
+      "type": "Gaming Keyboard",
+      "brand": "Razer",
+      "color": "Black",
+      "notes": "RGB Lighting, Mechanical Switches"
+    },
+    "idUser": 17,
+    "hasPromo": false
+  },
+  {
+    "id": 18,
+    "date": "2024-04-28",
+    "price": 179.99,
+    "category": 18,
+    "discount": 0.9,
+    "product": {
+      "id": 18,
+      "name": "Canon EOS R6",
+      "type": "Mirrorless Camera",
+      "brand": "Canon",
+      "color": "Black",
+      "notes": "20MP Full-Frame Sensor"
+    },
+    "idUser": 18,
+    "hasPromo": true
+  },
+  {
+    "id": 19,
+    "date": "2024-04-29",
+    "price": 189.99,
+    "category": 19,
+    "discount": 0.95,
+    "product": {
+      "id": 19,
+      "name": "Bose SoundLink Color II",
+      "type": "Bluetooth Speaker",
+      "brand": "Bose",
+      "color": "Blue",
+      "notes": "Waterproof, 8-hour Battery"
+    },
+    "idUser": 19,
+    "hasPromo": false
+  },
+  {
+    "id": 20,
+    "date": "2024-04-30",
+    "price": 199.99,
+    "category": 20,
+    "discount": 0.1,
+    "product": {
+      "id": 20,
+      "name": "Xbox Series X",
+      "type": "Gaming Console",
+      "brand": "Microsoft",
+      "color": "Black",
+      "notes": "4K, 120fps, 1TB SSD"
+    },
+    "idUser": 20,
+    "hasPromo": false
+  },
+  {
+    "id": 21,
+    "date": "2024-05-01",
+    "price": 209.99,
+    "category": 21,
+    "discount": 0.15,
+    "product": {
+      "id": 21,
+      "name": "Anker Soundcore Liberty Air 2 Pro",
+      "type": "True Wireless Earbuds",
+      "brand": "Anker",
+      "color": "White",
+      "notes": "ANC, Wireless Charging"
+    },
+    "idUser": 21,
+    "hasPromo": true
+  },
+  {
+    "id": 22,
+    "date": "2024-05-02",
+    "price": 219.99,
+    "category": 22,
+    "discount": 0.2,
+    "product": {
+      "id": 22,
+      "name": "PlayStation 5",
+      "type": "Gaming Console",
+      "brand": "Sony",
+      "color": "White",
+      "notes": "4K, 120fps, 825GB SSD"
+    },
+    "idUser": 22,
+    "hasPromo": false
+  },
+  {
+    "id": 23,
+    "date": "2024-05-03",
+    "price": 229.99,
+    "category": 23,
+    "discount": 0.25,
+    "product": {
+      "id": 23,
+      "name": "Google Nest Hub (2nd Gen)",
+      "type": "Smart Display",
+      "brand": "Google",
+      "color": "Charcoal",
+      "notes": "7-inch Screen, Google Assistant"
+    },
+    "idUser": 23,
+    "hasPromo": false
+  },
+  {
+    "id": 24,
+    "date": "2024-05-04",
+    "price": 239.99,
+    "category": 24,
+    "discount": 0.3,
+    "product": {
+      "id": 24,
+      "name": "Garmin Fenix 7",
+      "type": "Smartwatch",
+      "brand": "Garmin",
+      "color": "Silver",
+      "notes": "GPS, Heart Rate Monitor"
+    },
+    "idUser": 24,
+    "hasPromo": true
+  },
+  {
+    "id": 25,
+    "date": "2024-05-05",
+    "price": 249.99,
+    "category": 25,
+    "discount": 0.35,
+    "product": {
+      "id": 25,
+      "name": "Microsoft Surface Pro 8",
+      "type": "Tablet",
+      "brand": "Microsoft",
+      "color": "Platinum",
+      "notes": "13-inch, Intel Core i7"
+    },
+    "idUser": 25,
+    "hasPromo": false
+  },
+  {
+    "id": 26,
+    "date": "2024-05-06",
+    "price": 259.99,
+    "category": 26,
+    "discount": 0.4,
+    "product": {
+      "id": 26,
+      "name": "Huawei MateBook X Pro",
+      "type": "Laptop",
+      "brand": "Huawei",
+      "color": "Space Gray",
+      "notes": "Core i7, 16GB RAM"
+    },
+    "idUser": 26,
+    "hasPromo": false
+  },
+  {
+    "id": 27,
+    "date": "2024-05-07",
+    "price": 269.99,
+    "category": 27,
+    "discount": 0.45,
+    "product": {
+      "id": 27,
+      "name": "JBL Charge 5",
+      "type": "Bluetooth Speaker",
+      "brand": "JBL",
+      "color": "Black",
+      "notes": "Waterproof, 20-hour Battery"
+    },
+    "idUser": 27,
+    "hasPromo": true
+  }
+]
