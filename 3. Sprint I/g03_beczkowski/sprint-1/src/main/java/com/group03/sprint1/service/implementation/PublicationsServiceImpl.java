@@ -5,6 +5,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
 import com.group03.sprint1.dto.response.PublicationPromoResponseDTO;
+import com.group03.sprint1.dto.response.PublicationResponseDTO;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
 import com.group03.sprint1.entity.UserData;
@@ -28,14 +29,12 @@ import java.util.stream.Collectors;
 @Service
 public class PublicationsServiceImpl implements IPublicationsService {
 
-    private final IProductsRepository productsRepository;
     private final IUsersRepository usersRepository;
 
     private ObjectMapper objectMapper;
 
     public PublicationsServiceImpl(ProductsRepositoryImpl productsRepository,
                                    UsersRepositoryImpl usersRepository){
-        this.productsRepository = productsRepository;
         this.usersRepository = usersRepository;
         this.objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
     }
@@ -106,7 +105,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
         return filterListByOrder(filteredPublications, order);
     }
 
-    /*----------- INDIVIDUAL ---------------*/
+    /*----------- INDIVIDUAL y BONUS ---------------*/
 
     @Override
     public void createPublicationPromo(PublicationDTO publicationDTO) {
@@ -119,14 +118,34 @@ public class PublicationsServiceImpl implements IPublicationsService {
 
     @Override
     public PublicationPromoResponseDTO getPublicationPromoCount(Integer userId) {
-        Seller seller = usersRepository.findSellerById(userId);
-        if (Utils.isNull(seller)) {
-            throw new NotFoundException("The seller with ID: " + userId + " does not exist.");
-        }
-
-        Integer countPromosPublication = Math.toIntExact(seller.getPublications().stream().filter(Publication::isHasPromo).count());
+        Seller seller = findSeller(userId);
+        Integer countPromosPublication = Math.toIntExact(seller.getPublications()
+                                                        .stream().filter(Publication::isHasPromo).count());
 
         return new PublicationPromoResponseDTO(seller.getUserId(),
                 seller.getUserName(), countPromosPublication);
+    }
+
+    @Override
+    public PublicationResponseDTO getPublicationsPromo(Integer userId) {
+        Seller seller = findSeller(userId);
+        List<PublicationDTO> listPublications = seller.getPublications().stream()
+                .filter(Publication::isHasPromo)
+                .map(p -> (objectMapper.convertValue(p, PublicationDTO.class)))
+                .toList();
+
+        if (listPublications.isEmpty()) {
+            throw new NotFoundException("There are no promo publications in the user with ID " + seller.getUserId());
+        }
+
+        return new PublicationResponseDTO(seller.getUserId(), seller.getUserName(), listPublications);
+    }
+
+    private Seller findSeller(Integer userId) {
+        Seller seller = usersRepository.findSellerById(userId);
+        if (Utils.isNull(seller)) {
+            throw new NotFoundException("There is not seller with ID: " + userId);
+        }
+        return seller;
     }
 }

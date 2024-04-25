@@ -2,6 +2,7 @@ package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.PublicationPromoResponseDTO;
+import com.group03.sprint1.dto.response.PublicationResponseDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IPublicationsService;
@@ -49,7 +50,7 @@ public class PublicationsController {
         return new ResponseEntity<>(responseTwoWeeksPublicationsDTO, HttpStatus.OK);
     }
 
-    /*----------- INDIVIDUAL ---------------*/
+    /*----------- INDIVIDUAL y BONUS ---------------*/
     @PostMapping("/promo-post")
     public ResponseEntity<String> createPublicationPromo(@RequestBody PublicationDTO publication) {
         productsService.createPublicationPromo(publication);
@@ -60,4 +61,10 @@ public class PublicationsController {
     public ResponseEntity<PublicationPromoResponseDTO> getPublicationPromoCount(@RequestParam Integer user_id) {
         return new ResponseEntity<>(productsService.getPublicationPromoCount(user_id), HttpStatus.OK);
     }
+
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<PublicationResponseDTO> getPublicationsPromo(@RequestParam Integer user_id) {
+        return new ResponseEntity<>(productsService.getPublicationsPromo(user_id), HttpStatus.OK);
+    }
+
 }
