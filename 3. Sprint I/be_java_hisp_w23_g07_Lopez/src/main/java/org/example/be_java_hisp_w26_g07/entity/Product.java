@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-
     @JsonProperty("product_id")
     private Integer id;
     @JsonProperty("product_name")
@@ -22,6 +21,4 @@ public class Product {
     private String color;
     @JsonProperty("notes")
     private String notes;
-    @JsonProperty("postId")
-    private Integer postId;
 }

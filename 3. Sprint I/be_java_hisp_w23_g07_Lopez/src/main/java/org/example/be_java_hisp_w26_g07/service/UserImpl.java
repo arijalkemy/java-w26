@@ -53,11 +53,12 @@ public class UserImpl implements IUserService {
     @Override
     public FollowedResponseDto findFollowedUsers(Integer id, String order) {
         User user = iUserRepository.findById(id);
+        if (user == null) throw new NotFoundException("Vendedor no encontrado");
         Stream<UserInfoFollowsDto> userInfoFollowsDtos = user.getFollowedIds().stream()
                 .map(followedId -> iUserRepository.findById(followedId))
                 .map(followedUser -> new UserInfoFollowsDto(followedUser.getId(), followedUser.getName()));
         List<UserInfoFollowsDto> list;
-        if (order.equals("name_desc")) {
+        if (order != null && order.equals("name_desc")) {
             list = userInfoFollowsDtos.sorted(Comparator.comparing(UserInfoFollowsDto::getName).reversed())
                     .collect(Collectors.toList());
 
@@ -65,8 +66,6 @@ public class UserImpl implements IUserService {
             list = userInfoFollowsDtos.sorted(Comparator.comparing(UserInfoFollowsDto::getName))
                     .collect(Collectors.toList());
         }
-
-
         return new FollowedResponseDto(id, user.getName(), list);
 
     }
@@ -80,7 +79,7 @@ public class UserImpl implements IUserService {
 
         FollowersResponseDto followersResponseDto = new FollowersResponseDto();
 
-        List<UserInfoFollowsDto> userInfoFollowsDto = getUserInfoFollowers(seller.getFollowedIds());
+        List<UserInfoFollowsDto> userInfoFollowsDto = getUserInfoFollowers(seller.getFollowerIds());
         getUserInfoFollowsDtoByOrder(userInfoFollowsDto, order);
         followersResponseDto.setFollowers(userInfoFollowsDto);
         followersResponseDto.setId(seller.getId());
@@ -132,13 +131,16 @@ public class UserImpl implements IUserService {
 
     @Override
     public SuccessResponseDto unfollow(Integer userId, Integer userIdToUnfollow) {
-        User foundUser = iUserRepository.findById(userId);
-        if (foundUser == null) {
-            throw new NotFoundException("El usuario no fue encontrado");
+        User followerUser = iUserRepository.findById(userId);
+        User sellerUser = iUserRepository.findById(userIdToUnfollow);
+        if (followerUser == null || sellerUser == null) {
+            Integer idNotFound = followerUser == null ? userId : userIdToUnfollow;
+            String errorMsg = String.format("El usuario con el id %s no fue encontrado", idNotFound);
+            throw new NotFoundException(errorMsg);
         }
-        boolean followDeleted = iUserRepository.unfollow(foundUser, userIdToUnfollow);
+        boolean followDeleted = iUserRepository.unfollow(followerUser, sellerUser);
         if (!followDeleted) {
-            throw new BadRequestException("No se encontró el usuario para dejar de seguir");
+            throw new BadRequestException("No se pudo completar la acción");
         }
         return new SuccessResponseDto("Se ha dejado de seguir al usuario");
     }

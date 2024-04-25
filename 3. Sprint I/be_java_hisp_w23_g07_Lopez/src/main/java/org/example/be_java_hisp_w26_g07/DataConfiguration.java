@@ -1,12 +1,18 @@
 package org.example.be_java_hisp_w26_g07;
 
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,16 +61,35 @@ public class DataConfiguration {
 
         List<User> users = new ArrayList<>();
 
-        users.add(new User(1, "Monica", lis1, List.of(2, 3, 4, 8, 9), List.of(2, 3, 4), true));
-        users.add(new User(2, "Santiago", lis2, List.of(1, 3, 5, 6, 9), List.of(1, 3), true));
-        users.add(new User(3, "Cristian", lis3, List.of(1, 2, 5, 6, 9), List.of(1, 2, 4), true));
-        users.add(new User(4, "Edwin", lis4, List.of(3, 1, 7, 8), List.of(1), true));
-        users.add(new User(5, "Bryann", new ArrayList<>(), new ArrayList<>(), List.of(2, 3), false));
-        users.add(new User(6, "Carlos", new ArrayList<>(), new ArrayList<>(), List.of(2, 3), false));
-        users.add(new User(7, "Cristopher", new ArrayList<>(), new ArrayList<>(), List.of(4), false));
-        users.add(new User(8, "Leandro", new ArrayList<>(), new ArrayList<>(), List.of(1, 4), false));
-        users.add(new User(9, "Martin", new ArrayList<>(), new ArrayList<>(), List.of(1, 2, 3), false));
+        users.add(new User(1, "Monica", lis1, List.of(2, 3, 4), List.of(2, 3, 4, 8, 9), true));
+        users.add(new User(2, "Santiago", lis2, List.of(1, 3), List.of(1, 3, 5, 6, 9), true));
+        users.add(new User(3, "Cristian", lis3, List.of(1, 2, 4), List.of(1, 2, 5, 6, 9), true));
+        users.add(new User(4, "Edwin", lis4, List.of(1), List.of(3, 1, 7, 8), true));
+        users.add(new User(5, "Bryann", new ArrayList<>(), List.of(2, 3), new ArrayList<>(), false));
+        users.add(new User(6, "Carlos", new ArrayList<>(), List.of(2, 3), new ArrayList<>(), false));
+        users.add(new User(7, "Cristopher", new ArrayList<>(), List.of(4), new ArrayList<>(), false));
+        users.add(new User(8, "Leandro", new ArrayList<>(), List.of(1, 4), new ArrayList<>(), false));
+        users.add(new User(9, "Martin", new ArrayList<>(), List.of(1, 2, 3), new ArrayList<>(), false));
 
         return users;
+    }
+
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
+
+        return builder -> {
+
+            // formatter
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+            DateTimeFormatter dateTimeFormatter =  DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+            // deserializers
+            builder.deserializers(new LocalDateDeserializer(dateFormatter));
+            builder.deserializers(new LocalDateTimeDeserializer(dateTimeFormatter));
+
+            // serializers
+            builder.serializers(new LocalDateSerializer(dateFormatter));
+            builder.serializers(new LocalDateTimeSerializer(dateTimeFormatter));
+        };
     }
 }

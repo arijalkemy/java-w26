@@ -13,5 +13,6 @@ public class FollowedResponseDto {
     private int id;
     @JsonProperty("user_name")
     private String name;
+    @JsonProperty("followed")
     private List<UserInfoFollowsDto> followed;
 }

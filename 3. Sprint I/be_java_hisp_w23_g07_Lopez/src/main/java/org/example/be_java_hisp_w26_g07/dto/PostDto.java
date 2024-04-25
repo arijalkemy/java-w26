@@ -25,9 +25,10 @@ public class PostDto {
     @JsonProperty("date")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
     @JsonProperty("product")
-    private Product product;
+    private ProductDto product;
     @JsonProperty("category")
     private String category;
     @JsonProperty("price")

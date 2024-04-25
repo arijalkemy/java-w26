@@ -1,5 +1,6 @@
 package org.example.be_java_hisp_w26_g07.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -29,7 +30,7 @@ public class PostRequestDto {
     private LocalDate date;
     @NotNull
     @JsonProperty("product")
-    private Product product;
+    private ProductDto product;
     @NotNull
     @JsonProperty("category")
     private Integer category;
