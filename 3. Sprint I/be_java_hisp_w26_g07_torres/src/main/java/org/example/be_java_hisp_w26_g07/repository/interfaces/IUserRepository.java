@@ -1,16 +1,20 @@
 package org.example.be_java_hisp_w26_g07.repository.interfaces;
 
 import org.example.be_java_hisp_w26_g07.entity.Post;
+import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
 
 import java.util.List;
 
 public interface IUserRepository {
-    List<User> findAll();
-
     User findById(Integer id);
 
-    Boolean addFollowerById(Integer id, Integer userToFollow);
+    public Boolean addFollowerById(Integer id, Integer sellerId);
+
+    List<Integer> followerIdBySellerId(Integer sellerId);
+    List<Integer> followedIdByUserId(Integer userId);
+
+    public void addPost(Post newPost);
 
     Boolean userFollowSeller(Integer id, Integer userToFollow);
 
@@ -18,4 +22,7 @@ public interface IUserRepository {
 
     List<Post> findProductByFollow(User user);
 
+    Product findProductById(Integer productId);
+
+    void createProduct(Product newProduct);
 }

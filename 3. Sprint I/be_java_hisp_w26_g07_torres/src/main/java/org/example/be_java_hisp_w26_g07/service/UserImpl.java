@@ -31,9 +31,9 @@ public class UserImpl implements IUserService {
      * @param sellerId vendedor a seguir
      */
     @Override
-    public Boolean userFollowSeller(Integer userId, Integer sellerId) {
-        User seller = iUserRepository.findById(sellerId);
+    public SuccessResponseDto userFollowSeller(Integer userId, Integer sellerId) {
         User follower = iUserRepository.findById(userId);
+        User seller = iUserRepository.findById(sellerId);
         if (userId.equals(sellerId)) {
             throw new BadRequestException("El id del usuario no puede ser igual al vendedor");
         }
@@ -44,17 +44,19 @@ public class UserImpl implements IUserService {
             throw new BadRequestException("El usuario a seguir con el id " + sellerId + " no es vendedor");
         }
         if (iUserRepository.userFollowSeller(userId, sellerId)) {
-            return false;
+            throw new BadRequestException("El usuario ya se encuentra siguendo a este vendedor");
         }
         iUserRepository.addFollowerById(userId, sellerId);
-        return true;
+        return new SuccessResponseDto("Se ha seguido correctamente al usuario "+sellerId);
     }
 
     @Override
     public FollowedResponseDto findFollowedUsers(Integer id, String order) {
         User user = iUserRepository.findById(id);
-        Stream<UserInfoFollowsDto> userInfoFollowsDtos = user.getFollowedIds().stream()
-                .map(followedId -> iUserRepository.findById(followedId))
+        List<Integer> followedIdList = iUserRepository.followedIdByUserId(id);
+
+        Stream<UserInfoFollowsDto> userInfoFollowsDtos = followedIdList.stream()
+                .map(iUserRepository::findById)
                 .map(followedUser -> new UserInfoFollowsDto(followedUser.getId(), followedUser.getName()));
         List<UserInfoFollowsDto> list;
         if (order.equals("name_desc")) {
@@ -80,7 +82,9 @@ public class UserImpl implements IUserService {
 
         FollowersResponseDto followersResponseDto = new FollowersResponseDto();
 
-        List<UserInfoFollowsDto> userInfoFollowsDto = getUserInfoFollowers(seller.getFollowerIds());
+        List<Integer> followerIdList = iUserRepository.followerIdBySellerId(userId);
+
+        List<UserInfoFollowsDto> userInfoFollowsDto = getUserInfoFollowers(followerIdList);
         getUserInfoFollowsDtoByOrder(userInfoFollowsDto, order);
         followersResponseDto.setFollowers(userInfoFollowsDto);
         followersResponseDto.setId(seller.getId());
@@ -101,7 +105,9 @@ public class UserImpl implements IUserService {
         if (!user.getIsSeller()) {
             throw new NotAcceptable("Existe el usuario pero no es vendedor");
         }
-        return new CountFollowersResponseDto(user.getId(), user.getName(), user.getFollowerIds().size());
+        List<Integer> followerIdList = iUserRepository.followerIdBySellerId(Integer.parseInt(userId));
+        int followerCount = followerIdList == null ? 0 : followerIdList.size();
+        return new CountFollowersResponseDto(user.getId(), user.getName(), followerCount);
     }
 
     private void getUserInfoFollowsDtoByOrder(List<UserInfoFollowsDto> userInfoFollowsDto,

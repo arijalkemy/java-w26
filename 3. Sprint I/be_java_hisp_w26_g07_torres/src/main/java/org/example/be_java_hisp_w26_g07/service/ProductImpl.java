@@ -3,7 +3,9 @@ package org.example.be_java_hisp_w26_g07.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.be_java_hisp_w26_g07.dto.PostDto;
 import org.example.be_java_hisp_w26_g07.dto.PostRequestDto;
+import org.example.be_java_hisp_w26_g07.dto.SimplePostDto;
 import org.example.be_java_hisp_w26_g07.entity.Post;
+import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
 import org.example.be_java_hisp_w26_g07.exception.BadRequestException;
 import org.example.be_java_hisp_w26_g07.exception.NotFoundException;
@@ -62,10 +64,19 @@ public class ProductImpl implements IProductService {
             throw new BadRequestException("El usuario no existe");
         }
         ObjectMapper mapper = new ObjectMapper();
-        Post post = mapper.convertValue(postRequestDto, Post.class);
+        SimplePostDto simplePostDto = mapper.convertValue(postRequestDto, SimplePostDto.class);
+        Post post = mapper.convertValue(simplePostDto, Post.class);
         post.setId(PostUtil.increaseCounter());
-        myUser.getPosts().add(post);
-        myUser.setIsSeller(true);
+        Product product = mapper.convertValue(postRequestDto.getProduct(), Product.class);
+        Product foundProduct = iUserRepository.findProductById(product.getId());
+        if (foundProduct != null) {
+            throw new BadRequestException("Un producto con ese id ya existe, por favor actualice el id");
+        }
+        iUserRepository.createProduct(product);
+        post.setProductId(product.getId());
+
+        iUserRepository.addPost(post);
+        if (!myUser.getIsSeller()) myUser.setIsSeller(true);
         return mapper.convertValue(post, PostDto.class);
     }
 }

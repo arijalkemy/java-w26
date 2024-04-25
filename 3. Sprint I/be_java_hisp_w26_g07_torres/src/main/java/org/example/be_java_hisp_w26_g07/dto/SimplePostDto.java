@@ -1,11 +1,13 @@
-package org.example.be_java_hisp_w26_g07.entity;
+package org.example.be_java_hisp_w26_g07.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,24 +15,23 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
-
+public class SimplePostDto {
+    @NotNull
     @JsonProperty("user_id")
     private Integer userId;
-    @JsonProperty("post_id")
-    private Integer id;
+    @NotNull
+    @PastOrPresent
     @JsonProperty("date")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate date;
-    @JsonProperty("product")
-    @JsonIgnore
-    private Integer productId;
+    @NotNull
     @JsonProperty("category")
-    private Integer categoryId;
+    private Integer category;
+    @NotNull
     @JsonProperty("price")
-    private Double price;
-
+    private double price;
 }

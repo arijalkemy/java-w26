@@ -16,12 +16,6 @@ public class User {
     private Integer id;
     @JsonProperty("user_name")
     private String name;
-    @JsonProperty("posts")
-    private List<Post> posts;
-    @JsonProperty("followerIds")
-    private List<Integer> followerIds;
-    @JsonProperty("followedIds")
-    private List<Integer> followedIds;
     @JsonProperty("isSeller")
     private Boolean isSeller;
 }

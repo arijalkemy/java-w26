@@ -21,7 +21,7 @@ public class UserController {
 
     @PostMapping("/{userId}/follow/{userIdToFollow}")
     public ResponseEntity<?> follow(@PathVariable Integer userId, @PathVariable Integer userIdToFollow) {
-        return new ResponseEntity<>(userService.userFollowSeller(userId, userIdToFollow), HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(userService.userFollowSeller(userId, userIdToFollow), HttpStatus.OK);
     }
 
     @GetMapping("/{userId}/followers/count")
@@ -30,13 +30,13 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/followers/list")
-    public ResponseEntity<FollowersResponseDto> listOfFollowersSellesrs(@PathVariable Integer userId,
+    public ResponseEntity<FollowersResponseDto> getFollowersList(@PathVariable Integer userId,
                                                                         @RequestParam(required = false) String order) {
         return new ResponseEntity<>(userService.findFollowersByOrder(userId, order), HttpStatus.OK);
     }
 
     @GetMapping("/{userId}/followed/list")
-    public ResponseEntity<FollowedResponseDto> followersList(@PathVariable Integer userId,
+    public ResponseEntity<FollowedResponseDto> getFollowedList(@PathVariable Integer userId,
                                                              @RequestParam String order) {
         return new ResponseEntity<>(userService.findFollowedUsers(userId, order), HttpStatus.OK);
     }

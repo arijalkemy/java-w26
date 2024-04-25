@@ -6,7 +6,7 @@ import org.example.be_java_hisp_w26_g07.dto.FollowersResponseDto;
 import org.example.be_java_hisp_w26_g07.dto.SuccessResponseDto;
 
 public interface IUserService {
-    Boolean userFollowSeller(Integer userId, Integer sellerId);
+    SuccessResponseDto userFollowSeller(Integer userId, Integer sellerId);
 
     FollowedResponseDto findFollowedUsers(Integer id, String order);
 
