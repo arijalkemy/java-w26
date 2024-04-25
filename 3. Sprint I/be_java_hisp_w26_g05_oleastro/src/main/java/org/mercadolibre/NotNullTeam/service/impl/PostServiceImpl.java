@@ -7,6 +7,7 @@ import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.SellerPromoPostCountDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
 import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Post;
@@ -119,5 +120,24 @@ public class PostServiceImpl implements IPostService {
                 product.getBrand(),
                 product.getColor(),
                 product.getNotes());
+    }
+
+    @Override
+    public SellerPromoPostCountDTO getPromoPostCount(Long sellerId) {
+        Seller seller = iSellerRepository
+                .findById(sellerId)
+                .orElseThrow(
+                        () -> new NotFoundException("No existe vendedor con ID " + sellerId)
+                );
+
+        return new SellerPromoPostCountDTO(
+                seller.getUser().getId(),
+                seller.getUsername(),
+                iPostRepository.getPostsBySeller(sellerId)
+                        .stream()
+                        .filter(Post::getHasPromo)
+                        .toList()
+                        .size()
+        );
     }
 }

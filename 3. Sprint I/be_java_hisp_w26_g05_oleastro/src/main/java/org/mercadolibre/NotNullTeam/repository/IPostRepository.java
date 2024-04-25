@@ -7,4 +7,6 @@ import java.util.List;
 public interface IPostRepository {
     void createPost(Post post);
     List<Post> getPostsBySellerIdTwoWeeksAgo(Long sellerId);
+
+    List<Post> getPostsBySeller(Long sellerId);
 }

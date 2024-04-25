@@ -33,6 +33,15 @@ public class PostController {
         );
     }
 
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getPromoPostCountForUser(
+            @RequestParam(value = "user_id", required = true) Long userId
+    ) {
+        return ResponseEntity.ok(
+                iPostService.getPromoPostCount(userId)
+        );
+    }
+
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<?> getPostsBySellerTwoWeeksAgo(
             @PathVariable Long userId,
