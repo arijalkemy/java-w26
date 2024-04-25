@@ -1,14 +1,17 @@
 
-# US 0012
+
+# Bonus (Desarrollo individual extra)
+
+## US 0012
 
 Obtener listado de productos que tienen en promoción los vendedores
 seguidos por un usuario, informando también el precio con descuento.
 
 Esto es una extensión del requerimiento US 0006.
 
-Method: GET
-URL: /products/followed/{userId}/list?has_promo=true
-Ejemplo: /products/4/followed/list?has_promo=true
+Method: GET  
+URL: `/products/followed/{userId}/list?has_promo=true`  
+Ejemplo: `/products/4/followed/list?has_promo=true`  
 
 Response:
 ```json
