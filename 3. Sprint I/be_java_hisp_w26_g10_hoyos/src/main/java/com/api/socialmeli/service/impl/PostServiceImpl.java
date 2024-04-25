@@ -145,4 +145,12 @@ public class PostServiceImpl implements IPostService {
         postsInPromo.add(promoPostDto);
         return promoPostDto;
     }
+    @Override
+    public Integer CountProductsInPromoByOwner(Integer userId) {
+        List<PromoPostDto> promoCount = postsInPromo.stream().filter(e -> e.getHas_promo().equals(true) &&
+                                                                          e.getUser_id().equals(userId)).toList();
+        if(promoCount.isEmpty())
+            throw new NotFoundException("No se encuentran descuentos asociados al vendedor");
+        return promoCount.size();
+    }
 }
