@@ -5,9 +5,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.sprint1.dto.PostDTO;
-import org.example.sprint1.dto.RequestPostDTO;
-import org.example.sprint1.dto.ResponsePostDTO;
+import org.example.sprint1.dto.*;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
@@ -92,6 +90,19 @@ public class SellerServiceImplementation implements ISellerService {
         return new ResponsePostDTO(userId, listPostDto);
     }
 
+    @Override
+    public ResponsePromoDTO getPostsWithPromo(int userId) {
+        Seller seller = sellerRepository.filterSellerById(userId);
+        if(seller == null) throw new NotFoundException("No existe un cendedor con ese ID");
+
+        // Cuenta el total de publicaciones con promoción
+        int numberOfPromos = seller.getPosts().stream()
+                .filter(Post::isHasPromo)
+                .toList()
+                .size();
+
+        return new ResponsePromoDTO(seller.getSellerId(), seller.getSellerName(), numberOfPromos);
+    }
 
     private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
         List<PostDTO> listPostDto = new ArrayList<>();
