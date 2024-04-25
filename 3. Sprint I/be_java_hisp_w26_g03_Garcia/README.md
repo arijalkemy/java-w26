@@ -28,6 +28,9 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
   - [Dar de alta una publicación](#5-dar-de-alta-una-publicación)
   - [Publicaciones de un vendedor que un usuario sigue en las últimas dos semanas](#6-6-obtener-un-listado-de-las-publicaciones-realizadas-por-los-vendedores-que-un-usuario-sigue-en-las-últimas-dos-semanas)
   - [Poder realizar la acción de “Unfollow”](#7-poder-realizar-la-acción-de-unfollow)
+  - [Dar de alta publicación de promoción](#10-llevar-a-cabo-la-publicación-de-un-nuevo-producto-en-promoción)
+  - [Cantidad de productos en promoción](#11-obtener-la-cantidad-de-productos-en-promoción-de-un-determinado-vendedor)
+  - [Lista de productos en promoción](#12-obtener-la-lista-de-productos-en-promoción-de-un-determinado-vendedor)
 
 ## Entidades
 
@@ -301,4 +304,118 @@ POST /users/{userId}/unfollow/{userIdToUnfollow}
 | userId | Integer | Número que identifica a un usario de tipo `Buyer`  |
 | userIdToUnfollow | Integer | Número que identifica a un usario de tipo `Seller` |
 
+
+### 10. Llevar a cabo la publicación de un nuevo producto en promoción
+
+```http
+POST /products/promo-post
+```
+
+#### Payload
+
+| Parámetro | Tipo | Descripción                                                                      |
+|-------|------|----------------------------------------------------------------------------------|
+| userId | Integer | Número que identifica a un usario de tipo `Seller`                               |
+| date | LocalDate | Fecha de la publicación en formato dd-MM-yyyy                                    |
+| detail | Product | Detalle del producto                                                             |
+| category | Integer | Identificador que sirve para conocer la categoría a la que pertenece un producto |
+| price | Double | Precio del producto                                                              |
+| has_promo | boolean | Campo true o false para determinar si un producto está en promoción o no                                                              |
+| discount | Double | En caso de que un producto estuviese en promoción ,establece el monto de descuento.                                                              |
+
+
+
+Ejemplo:
+
+```http
+{
+    "user_id": 234,
+    "date": "29-04-2021",
+    "product": {
+        "product_id": 1,
+        "product_name": "Silla Gamer",
+        "type": "Gamer",
+        "brand": "Racer",
+        "color": "Red & Black",
+        "notes": "Special Edition"
+    },
+    "category": 100,
+    "price": 1500.50,
+    "has_promo": true,
+    "discount": 0.25
+}
+```
+
+### 11. Obtener la cantidad de productos en promoción de un determinado vendedor
+
+```http
+GET /products/promo-post/count?user_id={userId}
+```
+
+#### Response
+
+```http
+{  
+   "user_id" : 234,
+   "user_name": "vendedor1",
+   "promo_products_count": 23
+}
+
+```
+
+#### Filtros/Parámetros:
+
+| Parámetro        | Tipo    | Descripción                                                            |
+|------------------|---------|------------------------------------------------------------------------|
+| userId           | Integer | Número que identifica a un usario de tipo `Seller`                     |
+| userName         | String  | Cadena de caracteres que representa el nombre del usuario              |
+| promo_products_count | Integer | Cantidad numérica de productos en promoción de un determinado usuario. |
+
+### 12. Obtener la lista de productos en promoción de un determinado vendedor
+
+```http
+GET /products/promo-post/list?user_id={userId}
+```
+
+#### Response
+
+```http
+{
+    "user_id": 234,
+    "user_name": "vendedor1",
+    "posts": [
+        {
+            “user_id”: 234
+            "post_id": 18,
+            "date": "29-04-2021",
+            "product": {
+                "product_id": 1,
+                "product_name": "Silla Gamer",
+                "type": "Gamer",
+                "brand": "Racer",
+                "color": "Red & Black",
+                "notes": "Special Edition"
+            },
+            "category": "100",
+            "price": 15000.50,
+            "has_promo": true,
+            "discount": 0.25
+        }
+    ]
+}
+
+
+```
+
+#### Filtros/Parámetros:
+
+| Parámetro | Tipo | Descripción                                                                      |
+|-------|------|----------------------------------------------------------------------------------|
+| userId | Integer | Número que identifica a un usario de tipo `Seller`                               |
+| date | LocalDate | Fecha de la publicación en formato dd-MM-yyyy                                    |
+| detail | Product | Detalle del producto                                                             |
+| category | Integer | Identificador que sirve para conocer la categoría a la que pertenece un producto |
+| price | Double | Precio del producto                                                              |
+| has_promo | boolean | Campo true o false para determinar si un producto está en promoción o no                                                              |
+| discount | Double | En caso de que un producto estuviese en promoción ,establece el monto de descuento.                                                              |
 
