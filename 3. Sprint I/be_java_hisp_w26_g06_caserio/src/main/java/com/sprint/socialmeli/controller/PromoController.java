@@ -1,7 +1,7 @@
 package com.sprint.socialmeli.controller;
 
-import com.sprint.socialmeli.dto.post.PostPromoDTO;
 import com.sprint.socialmeli.dto.post.PromoCountResponseDTO;
+import com.sprint.socialmeli.dto.post.PromoPostDTO;
 import com.sprint.socialmeli.service.post.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class PromoController {
 
     // US0010
     @PostMapping()
-    public ResponseEntity<?> createPostWithPromo(@RequestBody PostPromoDTO promo) {
+    public ResponseEntity<?> createPostWithPromo(@RequestBody PromoPostDTO promo) {
         this.postService.createPostWithPromo(promo);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
@@ -30,7 +30,6 @@ public class PromoController {
         return new ResponseEntity<>(promoCountResponseDTO, HttpStatus.OK);
     }
 
-    //TODO: Arreglar esta retornando directamente el post y tiene que ser un usuario y adentro los post promos
     // US0012
     @GetMapping("/list")
     public ResponseEntity<?> listPromos(@RequestParam Integer userId) {

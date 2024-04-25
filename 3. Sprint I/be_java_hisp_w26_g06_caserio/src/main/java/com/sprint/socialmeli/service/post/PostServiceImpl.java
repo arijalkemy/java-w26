@@ -89,54 +89,50 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
-    public void createPostWithPromo(PostPromoDTO promo) {
-        boolean userNotFound = this.usersRepository
-                .findSellerByPredicate(c -> c.getUser().getUserId().equals(promo.getUser_id()))
-                .isEmpty();
-        if (userNotFound) {
-            throw new BadRequestException("Seller with id: " + promo.getUser_id() + " does not exist");
-        } else {
-            Post newPost = Parser.parsePostWithPromoDTO(promo);
-            this.postRepository.save(newPost, promo.getUser_id());
-        }
+    public void createPostWithPromo(PromoPostDTO promo) {
+        this.usersRepository
+                .findSellerByPredicate(c -> c.getUser().getUserId().equals(promo.getUser_id())).stream().findFirst().orElseThrow(
+                        () -> new BadRequestException("Seller with id: " + promo.getUser_id() + " does not exist")
+                );
+
+        Post newPost = Parser.parsePostWithPromoDTO(promo);
+        this.postRepository.save(newPost, promo.getUser_id());
+
     }
 
     @Override
     public PromoCountResponseDTO getPromosCountById(Integer seller_id) {
         Seller seller = this.usersRepository
-                .findSellerByPredicate(c -> c.getUser().getUserId().equals(seller_id)).stream().findFirst().orElse(null);
+                .findSellerByPredicate(c -> c.getUser().getUserId().equals(seller_id)).stream().findFirst().orElseThrow(
+                        () -> new BadRequestException("Seller with id: " + seller_id + " does not exist")
+                );
 
-        if (seller == null) {
-            throw new BadRequestException("Seller with id: " + seller_id + " does not exist");
-        } else {
-            Integer counter = 0;
-            List<Post> posts = postRepository.findBySellerId(seller_id);
-            if (!posts.isEmpty()) {
-                counter = (int) posts.stream().filter(Post::isHasPromo).count();
-            }
-            return new PromoCountResponseDTO(counter, seller.getUser().getUserName(), seller_id);
+        int counter = 0;
+        List<Post> posts = postRepository.findBySellerId(seller_id);
+        if (!posts.isEmpty()) {
+            counter = (int) posts.stream().filter(Post::isHasPromo).count();
         }
+        return new PromoCountResponseDTO(counter, seller.getUser().getUserName(), seller_id);
+
     }
 
     @Override
-    public List<PromoListResponseDTO> getPromosListById(Integer seller_id) {
+    public PromoListDTO getPromosListById(Integer seller_id) {
         Seller seller = this.usersRepository
-                .findSellerByPredicate(c -> c.getUser().getUserId().equals(seller_id)).stream().findFirst().orElse(null);
+                .findSellerByPredicate(c -> c.getUser().getUserId().equals(seller_id)).stream().findFirst().orElseThrow(
+                        () -> new BadRequestException("Seller with id: " + seller_id + " does not exist")
+                );
 
-        if (seller == null) {
-            throw new BadRequestException("Seller with id: " + seller_id + " does not exist");
-        } else {
+        List<Post> posts = postRepository.findBySellerId(seller_id);
 
-            List<Post> posts = postRepository.findBySellerId(seller_id);
+        List<PromoResponseDTO> promos = posts.stream().filter(Post::isHasPromo).map(p -> {
+            Product pr = p.getProduct();
+            return new PromoResponseDTO(seller_id, p.getId(), p.getPostDate().toString(),
+                    new ProductDTO(pr.getId(), pr.getName(), pr.getType(), pr.getBrand(), pr.getColor(), pr.getNotes()),
+                    p.getCategory(), p.getPrice(), p.isHasPromo(), p.getDiscount());
+        }).toList();
+        return new PromoListDTO(seller_id, seller.getUser().getUserName(), promos);
 
-            return posts.stream().filter(Post::isHasPromo).map(p -> {
-                Product pr = p.getProduct();
-                return new PromoListResponseDTO(seller_id, p.getPostDate().toString(),
-                        new ProductDTO(pr.getId(), pr.getName(), pr.getType(), pr.getBrand(), pr.getColor(), pr.getNotes()),
-                        p.getCategory(), p.getPrice(), p.isHasPromo(), p.getDiscount());
-            }).toList();
-
-        }
     }
 
     private List<PostResponseDTO> sortList(List<PostResponseDTO> dtos, DateOrderType orderType) {

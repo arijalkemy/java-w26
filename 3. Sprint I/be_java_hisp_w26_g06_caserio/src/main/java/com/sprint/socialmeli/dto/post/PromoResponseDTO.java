@@ -7,8 +7,9 @@ import java.io.Serializable;
 
 @Getter
 @AllArgsConstructor
-public class PromoListResponseDTO implements Serializable {
+public class PromoResponseDTO implements Serializable {
     private final Integer user_id;
+    private final Integer post_id;
     private final String date; //Entra como dd/MM/yyyy
     private final ProductDTO product;
     private final Integer category;

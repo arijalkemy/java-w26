@@ -1,7 +1,7 @@
 package com.sprint.socialmeli.utils;
 
 import com.sprint.socialmeli.dto.post.PostDTO;
-import com.sprint.socialmeli.dto.post.PostPromoDTO;
+import com.sprint.socialmeli.dto.post.PromoPostDTO;
 import com.sprint.socialmeli.entity.Post;
 import com.sprint.socialmeli.entity.Product;
 import com.sprint.socialmeli.exception.BadRequestException;
@@ -30,7 +30,7 @@ public class Parser {
         }
     }
 
-    public static Post parsePostWithPromoDTO(PostPromoDTO postPromoDTO) {
+    public static Post parsePostWithPromoDTO(PromoPostDTO postPromoDTO) {
         try {
             Product product = new Product(
                     postPromoDTO.getProduct().getProduct_id(),
