@@ -2,6 +2,7 @@ package com.api.socialmeli.service.impl;
 
 import com.api.socialmeli.dto.PostDto;
 import com.api.socialmeli.dto.PostsByFollowedDto;
+import com.api.socialmeli.dto.PromoPostDto;
 import com.api.socialmeli.entity.Buyer;
 import com.api.socialmeli.entity.Post;
 import com.api.socialmeli.entity.Seller;
@@ -31,6 +32,7 @@ public class PostServiceImpl implements IPostService {
 
     // MCaldera - Declaracion de array para almacenamiento de datos
     private final List<Post> posts = new ArrayList<>();
+    private final List<PromoPostDto> postsInPromo = new ArrayList<>();
     private int postId;
 
     @Override
@@ -135,5 +137,12 @@ public class PostServiceImpl implements IPostService {
         } else {
             throw new BadRequestException("El orden pedido no es valido");
         }
+    }
+    @Override
+    public PromoPostDto publishPromoPost(PromoPostDto promoPostDto) {
+        generatePostId();
+        promoPostDto.setPost_id(postId);
+        postsInPromo.add(promoPostDto);
+        return promoPostDto;
     }
 }
