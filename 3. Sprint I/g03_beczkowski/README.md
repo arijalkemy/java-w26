@@ -13,6 +13,7 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
 - [Endpoints](#endpoints)
   - [Cear una publicación promo](#1-dar-de-alta-una-publicación-de-promo)
   - [Obtener cantidad de publicaciones promo de un vendedor](#2-obtener-el-resultado-de-la-cantidad-de-publicaciones-con-promo-de-un-vendedor)
+  - [Listado de publicaciones con promo de un vendedor](#3-listado-de-publicaciones-con-promo-de-un-vendedor)
 
 ## Entidades
 
@@ -85,6 +86,44 @@ GET /products/promo-post/count
     "user_id": 234,
     "user_name": "vendedor1",
     "promo_products_count": 23
+}
+```
+
+#### Filtros/Parámetros:
+
+| Parámetro | Tipo | Descripción |
+|-------|------|----------------------------------------------------------------|
+| userId | Integer | Número que identifica a un usario de tipo `Seller` |
+
+### 3. Listado de publicaciones con promo de un vendedor
+
+```http
+GET /products/promo-post/list
+```
+#### Response
+```http
+{
+    "user_id": 1,
+    "user_name": "nombre_vendedor_1",
+    "posts": [
+        {
+            "date": "2021-04-29",
+            "product": {
+                "type": "Gamer",
+                "brand": "Racer",
+                "color": "Red & Black",
+                "notes": "Special Edition",
+                "product_id": 1,
+                "product_name": "Silla Gamer"
+            },
+            "category": 100,
+            "price": 1500.5,
+            "discount": 0.25,
+            "user_id": 1,
+            "post_id": 0,
+            "has_promo": true
+        }
+    ]
 }
 ```
 
