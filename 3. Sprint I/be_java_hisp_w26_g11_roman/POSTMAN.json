@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "84cc40fd-4b1e-42ff-a503-5152bf4aa3cd",
+		"_postman_id": "1e52ec09-c2cd-4580-b393-4021196b3d50",
 		"name": "Social Meli",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34022843",
-		"_collection_link": "https://grey-star-517560.postman.co/workspace/ELOTE-PREPARADO-CON-CHILE-DEL-Q~a7b21f0d-71cb-47c2-8b7d-32894bf4ab41/collection/34296738-84cc40fd-4b1e-42ff-a503-5152bf4aa3cd?action=share&source=collection_link&creator=34022843"
+		"_exporter_id": "34022843"
 	},
 	"item": [
 		{
@@ -243,9 +242,9 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}:8080/users/235/unfollow/101",
+					"raw": "localhost:8080/users/235/unfollow/101",
 					"host": [
-						"{{base_url}}"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
@@ -253,6 +252,60 @@
 						"235",
 						"unfollow",
 						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0010 Add Post with Promo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 104,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 100,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/promo-post",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0011 Get Promos Count from Seller",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/promo-post/count?user_id=104",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "104"
+						}
 					]
 				}
 			},
