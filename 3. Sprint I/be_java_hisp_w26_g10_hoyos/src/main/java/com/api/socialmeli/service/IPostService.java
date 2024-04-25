@@ -12,4 +12,6 @@ public interface IPostService {
     PostDto publishPost(PostDto postDto);
 
     PromoPostDto publishPromoPost(PromoPostDto promoPostDto);
+    
+    Integer CountProductsInPromoByOwner(Integer userId);
 }
