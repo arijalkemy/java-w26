@@ -2,6 +2,7 @@ package org.example.g14.service;
 
 import org.example.g14.dto.CreatePostDto;
 import org.example.g14.dto.PostDto;
+import org.example.g14.dto.UserWithPromoPostsCountDto;
 import org.example.g14.exception.BadRequestException;
 import org.example.g14.exception.NotFoundException;
 import org.example.g14.model.Post;
@@ -50,6 +51,26 @@ public class PostService implements IPostService {
             throw new BadRequestException("Para crear una promo, el campo 'has_promo' debe tener valor 'true'");
 
         add(createPromoPostDto);
+    }
+
+    @Override
+    public UserWithPromoPostsCountDto getCountOfPromoPostsBySeller(Integer userId) {
+
+        User user = userRepository.getById(userId)
+            .orElseThrow(() -> new NotFoundException("No se encontró el usuario con id: " + userId));
+
+        List<Post> userPosts = postRepository.findAllByUser(userId);
+
+        if (userPosts.isEmpty())
+            throw new BadRequestException("El usuario con el ID:" + userId + " no es un vendedor");
+
+        long promoPostsCount = userPosts.stream().filter(Post::isHasPromo).count();
+
+        return new UserWithPromoPostsCountDto(
+            user.getId(),
+            user.getName(),
+            (int) promoPostsCount
+        );
     }
 
     @Override

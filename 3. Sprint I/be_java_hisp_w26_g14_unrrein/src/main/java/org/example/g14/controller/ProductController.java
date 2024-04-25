@@ -30,6 +30,14 @@ public class ProductController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getCountOfPromoPostsBySeller(@RequestParam("user_id") Integer userId) {
+
+        return ResponseEntity.ok(
+            postService.getCountOfPromoPostsBySeller(userId)
+        );
+    }
+
     @GetMapping("/followed/{user_id}/list")
     public ResponseEntity<List<PostDto>> getPostsFromFollowed(@PathVariable("user_id") int userId,
                                                               @RequestParam(required = false) String order){
