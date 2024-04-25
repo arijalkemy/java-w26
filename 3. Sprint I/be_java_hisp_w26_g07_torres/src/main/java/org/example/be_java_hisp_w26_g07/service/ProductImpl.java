@@ -1,9 +1,7 @@
 package org.example.be_java_hisp_w26_g07.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.be_java_hisp_w26_g07.dto.PostDto;
-import org.example.be_java_hisp_w26_g07.dto.PostRequestDto;
-import org.example.be_java_hisp_w26_g07.dto.SimplePostDto;
+import org.example.be_java_hisp_w26_g07.dto.*;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -33,13 +31,23 @@ public class ProductImpl implements IProductService {
     @Override
     public List<PostDto> findProductByFollow(Integer userID, String order) {
         ObjectMapper mapper = new ObjectMapper();
-        List<Post> postsList = iUserRepository.findProductByFollow(iUserRepository.findById(userID));
+        User foundUser = iUserRepository.findById(userID);
+        if (foundUser == null) {
+            throw new BadRequestException("El usuario con id "+userID+" no existe");
+        }
+        List<Post> postsList = iUserRepository.findProductByFollow(foundUser);
         if (postsList.isEmpty()) {
             throw new NotFoundException("No se encontraron publicaciones para las ultimas dos semanas.");
         }
         getPostOrderByDate(postsList, order);
         return postsList.stream()
-                .map(post -> mapper.convertValue(post, PostDto.class))
+                .map(post -> {
+                    PostDto mappedPostDto = mapper.convertValue(post, PostDto.class);
+                    Product product = iUserRepository.findProductById(mappedPostDto.getId());
+                    ProductDto mappedProductDto = mapper.convertValue(product, ProductDto.class);
+                    mappedPostDto.setProduct(mappedProductDto);
+                    return mappedPostDto;
+                })
                 .collect(Collectors.toList());
     }
 
@@ -77,6 +85,19 @@ public class ProductImpl implements IProductService {
 
         iUserRepository.addPost(post);
         if (!myUser.getIsSeller()) myUser.setIsSeller(true);
-        return mapper.convertValue(post, PostDto.class);
+        PostDto createdPost = mapper.convertValue(post, PostDto.class);
+        ProductDto createdProduct = mapper.convertValue(product, ProductDto.class);
+        createdPost.setProduct(createdProduct);
+        return createdPost;
+    }
+
+    @Override
+    public SuccessResponseDto createPromoPost(PromoPostReqDto post) {
+        return null;
+    }
+
+    @Override
+    public SuccessResponseDto getPromoPostsBySellerId(Integer userId) {
+        return null;
     }
 }

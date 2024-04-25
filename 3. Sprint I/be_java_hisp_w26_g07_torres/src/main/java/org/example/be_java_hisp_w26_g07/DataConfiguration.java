@@ -77,16 +77,16 @@ public class DataConfiguration {
     @Bean
     HashMap<Integer, Product> getInitialProducts() {
         List<Product> productList = List.of(
-                new Product(1, "Chair", "Furniture", "Furniture Co.", "Brown", "Comfortable chair for home or office"),
-                new Product(2, "Desk", "Furniture", "Furniture Co.", "Black", "Sturdy desk for work or study"),
-                new Product(3, "Sofa", "Furniture", "Furniture Co.", "Gray", "Modern sofa for living room"),
-                new Product(4, "Lamp", "Decor", "Decor Store", "White", "Elegant lamp for home decor"),
-                new Product(5, "Table", "Furniture", "Furniture Co.", "Oak", "Solid wood table for dining"),
-                new Product(6, "TV Stand", "Furniture", "Furniture Co.", "Walnut", "TV stand with storage shelves"),
-                new Product(7, "Bookshelf", "Furniture", "Furniture Co.", "Cherry", "Classic bookshelf for home library"),
-                new Product(8, "Mirror", "Decor", "Decor Store", "Silver", "Decorative mirror for wall"),
-                new Product(9, "Bed", "Furniture", "Furniture Co.", "Gray", "Comfortable bed for a good night's sleep"),
-                new Product(10, "Chair", "Furniture", "Furniture Co.", "Red", "Modern chair with metal legs")
+                new Product(1, "Chair", "Furniture", "Furniture Co.", "Brown", "Comfortable chair for home or office", false, 0.0),
+                new Product(2, "Desk", "Furniture", "Furniture Co.", "Black", "Sturdy desk for work or study", false, 0.0),
+                new Product(3, "Sofa", "Furniture", "Furniture Co.", "Gray", "Modern sofa for living room", false, 0.0),
+                new Product(4, "Lamp", "Decor", "Decor Store", "White", "Elegant lamp for home decor", false, 0.0),
+                new Product(5, "Table", "Furniture", "Furniture Co.", "Oak", "Solid wood table for dining", false, 0.0),
+                new Product(6, "TV Stand", "Furniture", "Furniture Co.", "Walnut", "TV stand with storage shelves", false, 0.0),
+                new Product(7, "Bookshelf", "Furniture", "Furniture Co.", "Cherry", "Classic bookshelf for home library", false, 0.0),
+                new Product(8, "Mirror", "Decor", "Decor Store", "Silver", "Decorative mirror for wall", false, 0.0),
+                new Product(9, "Bed", "Furniture", "Furniture Co.", "Gray", "Comfortable bed for a good night's sleep", false, 0.0),
+                new Product(10, "Chair", "Furniture", "Furniture Co.", "Red", "Modern chair with metal legs", false, 0.0)
         );
         HashMap<Integer, Product> productHashMap = new HashMap<>();
 

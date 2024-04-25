@@ -3,6 +3,8 @@ package org.example.be_java_hisp_w26_g07.controller;
 import jakarta.validation.Valid;
 import org.example.be_java_hisp_w26_g07.dto.PostDto;
 import org.example.be_java_hisp_w26_g07.dto.PostRequestDto;
+import org.example.be_java_hisp_w26_g07.dto.PromoPostReqDto;
+import org.example.be_java_hisp_w26_g07.dto.SuccessResponseDto;
 import org.example.be_java_hisp_w26_g07.service.interfaces.IProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +30,15 @@ public class ProductController {
         return new ResponseEntity<>(productService.findProductByFollow(userId, order), HttpStatus.OK);
     }
 
+    @PostMapping("/promo-post")
+    public ResponseEntity<?> createPromoPost(@RequestBody @Valid PromoPostReqDto post) {
+        SuccessResponseDto successResponseDto = productService.createPromoPost(post);
+        return new ResponseEntity<>(successResponseDto, HttpStatus.OK);
+    }
 
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getPromoPostsBySellerId(@RequestParam Integer user_id) {
+        SuccessResponseDto successResponseDto = productService.getPromoPostsBySellerId(user_id);
+        return new ResponseEntity<>(successResponseDto, HttpStatus.OK);
+    }
 }
