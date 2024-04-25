@@ -3,20 +3,17 @@ package com.group03.sprint1.service.implementation;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.SellerFollowersDTO;
-import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
-import com.group03.sprint1.dto.response.UserDataResponseDTO;
+import com.group03.sprint1.dto.response.*;
 import com.group03.sprint1.entity.Seller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
-import com.group03.sprint1.dto.response.SellerResponseDTO;
 import com.group03.sprint1.entity.Buyer;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
 import com.group03.sprint1.exception.entity.NotFoundException;
 import com.group03.sprint1.exception.entity.BadRequestException;
 import com.group03.sprint1.entity.UserData;
-import com.group03.sprint1.dto.response.BuyerResponseDTO;
 import com.group03.sprint1.repository.IUsersRepository;
 import com.group03.sprint1.repository.implementation.UsersRepositoryImpl;
 import com.group03.sprint1.service.IUsersService;
@@ -209,8 +206,8 @@ public class UsersServiceImpl implements IUsersService {
     @Override
     public SellerDTO createPublication(PublicationDTO publicationDTO) {
 
-        if(usersRepository.findSellerById(publicationDTO.getUser_id()) == null) {
-            throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUser_id());
+        if(usersRepository.findSellerById(publicationDTO.getUserId()) == null) {
+            throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUserId());
         }
 
         Publication publication = objectMapper.convertValue(publicationDTO, Publication.class);
@@ -222,4 +219,35 @@ public class UsersServiceImpl implements IUsersService {
         Seller seller = usersRepository.createPublication(publication);
         return objectMapper.convertValue(seller, SellerDTO.class);
     }
+
+    @Override
+    public void createPromoPublication(PublicationDTO publicationDTO) {
+        Boolean hasPromo = publicationDTO.getHasPromo();
+        Double discount = publicationDTO.getDiscount();
+        if (hasPromo == null || discount == null){
+            throw new BadRequestException("The product you are trying to post has no valid promotion.");
+        }
+        createPublication(publicationDTO);
+    }
+
+    @Override
+    public SellerWithPromoDTO getPromoCountBySeller(Integer userId) {
+        Seller seller = usersRepository.findSellerById(userId);
+
+        if (Utils.isNull(seller)){
+            throw new BadRequestException("There is not seller with ID: " + userId);
+        }
+
+        Integer countPromo = (int) seller.getPublications().stream()
+                .filter(p -> p.getHasPromo() != null && p.getHasPromo())
+                .count();
+
+        SellerWithPromoDTO sellerWithPromoDTO = new SellerWithPromoDTO(seller.getUserId(),
+                                                                        seller.getUserName(),
+                                                                        countPromo);
+
+        return sellerWithPromoDTO;
+    }
+
+
 }

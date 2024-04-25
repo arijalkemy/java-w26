@@ -5,7 +5,9 @@ import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
 import com.group03.sprint1.dto.response.BuyerResponseDTO;
 import com.group03.sprint1.dto.response.SellerResponseDTO;
+import com.group03.sprint1.dto.response.SellerWithPromoDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
+import com.group03.sprint1.entity.Publication;
 
 import java.util.Comparator;
 import java.util.List;
@@ -21,4 +23,6 @@ public interface IUsersService {
     <T> List<T> orderByLetter(List<T> list, Comparator<? super T> comparator);
     List<SellersWithPublicationDTO> showAllSellers();
     SellerDTO createPublication(PublicationDTO publicationDTO);
+    void createPromoPublication(PublicationDTO publicationDTO);
+    SellerWithPromoDTO getPromoCountBySeller(Integer userId);
 }

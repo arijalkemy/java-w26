@@ -2,7 +2,9 @@ package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
+import com.group03.sprint1.dto.response.SellerWithPromoDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
+import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.service.IPublicationsService;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.PublicationsServiceImpl;
@@ -50,4 +52,17 @@ public class PublicationsController {
 
         return new ResponseEntity<>(responseTwoWeeksPublicationsDTO, HttpStatus.OK);
     }
+
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<String> createPromoPublication(@RequestBody PublicationDTO publicationDTO){
+        usersService.createPromoPublication(publicationDTO);
+        return new ResponseEntity<>("Promo post created succesfully.", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<SellerWithPromoDTO> getPromoCountBySeller(@RequestParam Integer userId){
+        return ResponseEntity.ok().body(usersService.getPromoCountBySeller(userId));
+    }
+
 }
