@@ -40,9 +40,13 @@ public class ProductController {
     }
 
     @GetMapping("/followed/{user_id}/list")
-    public ResponseEntity<List<PostDto>> getPostsFromFollowed(@PathVariable("user_id") int userId,
-                                                              @RequestParam(required = false) String order){
-        List<PostDto> posts = postService.getPostsFromFollowed(userId, order);
-        return ResponseEntity.ok(posts);
+    public ResponseEntity<List<? extends PostDto>> getPostsFromFollowed(
+        @PathVariable("user_id") int userId,
+        @RequestParam(required = false) String order,
+        @RequestParam(value = "has_promo", required = false) Boolean hasPromo
+    ) {
+        return ResponseEntity.ok(
+            postService.getPostsFromFollowed(userId, order, hasPromo)
+        );
     }
 }

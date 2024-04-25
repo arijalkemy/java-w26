@@ -10,5 +10,5 @@ public interface IPostService {
     void add(CreatePostDto createPostDto);
     void addWithPromo(CreatePostDto createPromoPostDto);
     UserWithPromoPostsCountDto getCountOfPromoPostsBySeller(Integer userId);
-    List<PostDto> getPostsFromFollowed(int userId, String order);
+    List<? extends PostDto> getPostsFromFollowed(int userId, String order, Boolean hasPromo);
 }

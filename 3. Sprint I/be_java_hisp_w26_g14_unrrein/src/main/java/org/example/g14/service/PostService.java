@@ -74,7 +74,8 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public List<PostDto> getPostsFromFollowed(int userId, String order) {
+    public List<? extends PostDto> getPostsFromFollowed(int userId, String order, Boolean hasPromo) {
+
         User user = userRepository.getById(userId).orElseThrow(() -> new NotFoundException("Usuario no encontrado"));
 
         List<Integer> followedVendors = user.getIdFollows();
@@ -99,8 +100,20 @@ public class PostService implements IPostService {
             recentPosts.sort(Comparator.comparing(Post::getDate).reversed());
         }
 
-        return recentPosts.stream()
-                .map(PostMapper::mapToDto)
+        List<? extends PostDto> result;
+
+        if (hasPromo == Boolean.TRUE) {
+            result = recentPosts.stream()
+                .filter(Post::isHasPromo)
+                .map(PostMapper::mapToPostWithDiscountDto)
                 .toList();
+        }
+        else {
+            result = recentPosts.stream()
+                .map(PostMapper::mapToPostDto)
+                .toList();
+        }
+
+        return result;
     }
 }
