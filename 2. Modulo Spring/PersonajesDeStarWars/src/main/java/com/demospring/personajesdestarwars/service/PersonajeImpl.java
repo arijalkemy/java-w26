@@ -6,6 +6,7 @@ import com.demospring.personajesdestarwars.repository.PersonajesJSON;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonajeImpl implements IPersonajes {
@@ -13,11 +14,9 @@ public class PersonajeImpl implements IPersonajes {
 
     @Override
     public List<PersonajeDTO> getPersonaje(String name) {
-        List<Personaje> personajes = personajesRepository.getPersonajes().stream().filter(personaje -> personaje.getName().contains(name)).toList();
-        List<PersonajeDTO> personajesDTO = new ArrayList<>();
-        for (Personaje personaje : personajes) {
-            personajesDTO.add(new PersonajeDTO(personaje.getName(), personaje.getHeight(), personaje.getMass(), personaje.getGender(), personaje.getHomeworld(), personaje.getSpecies()));
-        }
-        return personajesDTO;
+        return personajesRepository.getPersonajes().stream()
+                .filter(personaje -> personaje.getName().contains(name))
+                .map(personaje -> new PersonajeDTO(personaje.getName(), personaje.getHeight(), personaje.getMass(), personaje.getGender(), personaje.getHomeworld(), personaje.getSpecies()))
+                .toList();
     }
 }
