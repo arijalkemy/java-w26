@@ -29,6 +29,11 @@ public class PostServiceImpl implements IPostService {
     @Autowired
     IUsersRepository usersRepository;
 
+    /**
+     * @param postDTO A DTO with the post to create
+     * @throws BadRequestException if the seller id of the post not exists
+     * Checks if the seller exists and calls the post repository to save the new post
+     */
     @Override
     public void createPost(PostDTO postDTO) {
         boolean userNotFound = this.usersRepository
@@ -42,6 +47,13 @@ public class PostServiceImpl implements IPostService {
         }
     }
 
+    /**
+     *
+     * @param postDTO A DTO with the post information
+     * @return the post entity
+     * @throws BadRequestException if the format is not valid
+     * Maps a post dto to post entity
+     */
     private static Post parsePostDTO(PostDTO postDTO) {
         try {
             Product product = new Product(
@@ -60,6 +72,14 @@ public class PostServiceImpl implements IPostService {
         }
     }
 
+    /**
+     *
+     * @param customer_id customer id
+     * @param order Optional String to order the posts by date (date_asc, date_desc)
+     * @return A DTO with the list of posts of the followed sellers
+     * @throws NotFoundException if Customer not exists
+     * @throws BadRequestException if the order type is not empty and not valid
+     */
     @Override
     public FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order){
         List<Customer> customers = usersRepository
@@ -108,6 +128,12 @@ public class PostServiceImpl implements IPostService {
         return new FollowedProductsResponseDTO(customer_id, postResponseDTOList);
     }
 
+    /**
+     *
+     * @param dtos list of dto to order
+     * @param orderType enum (date_asc, date_desc)
+     * @return A sorted list of dto according to the order type
+     */
     private List<PostResponseDTO> sortList(List<PostResponseDTO> dtos, DateOrderType orderType){
         return switch (orderType) {
             case DATE_ASC -> dtos.stream()
@@ -120,6 +146,12 @@ public class PostServiceImpl implements IPostService {
         };
     }
 
+    /**
+     *
+     * @param orderType String with the order
+     * @return true if is valid order type else return false
+     * Checks if the order type matches with the DateOrderType enum
+     */
     private boolean isValidOrderType(String orderType) {
         return orderType == null || Arrays.stream(DateOrderType.values())
                 .anyMatch(type -> type.name().equalsIgnoreCase(orderType));

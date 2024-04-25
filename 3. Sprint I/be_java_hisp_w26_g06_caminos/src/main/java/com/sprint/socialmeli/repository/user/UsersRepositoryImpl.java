@@ -26,6 +26,11 @@ public class UsersRepositoryImpl implements IUsersRepository{
         loadDatabase("Seller");
     }
 
+    /**
+     *
+     * @param userType String of the type of user (Customer, Seller)
+     * Load the list of Customer or Seller by a Json file
+     */
     private void loadDatabase(String userType) {
         try{
             File file = ResourceUtils.getFile("classpath:static/" + userType + ".json");
@@ -46,12 +51,21 @@ public class UsersRepositoryImpl implements IUsersRepository{
         }
     }
 
-
+    /**
+     *
+     * @param predicate filter expression to apply
+     * @return a List of customer entities that comply with the predicate
+     */
     @Override
     public List<Customer> findCustomerByPredicate(Predicate<Customer> predicate) {
         return customerList.stream().filter(predicate).toList();
     }
 
+    /**
+     *
+     * @param predicate filter expression to apply
+     * @return a List of sellers entities that comply with the predicate
+     */
     @Override
     public List<Seller> findSellerByPredicate(Predicate<Seller> predicate) {
         return sellerList.stream().filter(predicate).toList();
