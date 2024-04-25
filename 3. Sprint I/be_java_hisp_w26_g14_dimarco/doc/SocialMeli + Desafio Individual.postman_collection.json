@@ -1,0 +1,788 @@
+{
+	"info": {
+		"_postman_id": "792925a7-8dcc-4541-a004-29949bf3c505",
+		"name": "SocialMeli + Desafio Individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0001 follow OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:8080/users/1/follow/20"
+			},
+			"response": []
+		},
+		{
+			"name": "0001 follow BAD_REQUEST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:8080/users/1/follow/34"
+			},
+			"response": []
+		},
+		{
+			"name": "0001 follow NOT_FOUND",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:8080/users/356/follow/34"
+			},
+			"response": []
+		},
+		{
+			"name": "0002 countFollowersBySeller OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/users/1/followers/count"
+			},
+			"response": []
+		},
+		{
+			"name": "0002 countFollowersBySeller NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/users/37/followers/count"
+			},
+			"response": []
+		},
+		{
+			"name": "0003 get followers OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/15/followers/list"
+			},
+			"response": []
+		},
+		{
+			"name": "0003 get followers BAD REQUEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/30/followers/list"
+			},
+			"response": []
+		},
+		{
+			"name": "0003 get followers NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/332/followers/list"
+			},
+			"response": []
+		},
+		{
+			"name": "0004 get followed OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/15/followed/list"
+			},
+			"response": []
+		},
+		{
+			"name": "0004 get followed NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/users/332/followed/list"
+			},
+			"response": []
+		},
+		{
+			"name": "US 0005: Dar de alta una nueva publicación - 200 OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/products/post"
+			},
+			"response": []
+		},
+		{
+			"name": "US 0005: Dar de alta una nueva publicación - 400 Bad Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/products/post"
+			},
+			"response": [
+				{
+					"name": "US 0005: Dar de alta una nueva publicación - 400 Bad Request (Campos faltantes en Post)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 20,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products/post"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Apr 2024 13:50:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Campos inválidos y/o faltantes.\"\n}"
+				},
+				{
+					"name": "US 0005: Dar de alta una nueva publicación - 400 Bad Request (Campos faltantes en Product)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 20,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products/post"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Apr 2024 13:51:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Campos inválidos y/o faltantes.\"\n}"
+				},
+				{
+					"name": "US 0005: Dar de alta una nueva publicación - 400 Bad Request (Product faltante)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 20,\n    \"date\": \"29-04-2021\",\n    \n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products/post"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Apr 2024 13:50:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Campos inválidos y/o faltantes.\"\n}"
+				},
+				{
+					"name": "US 0005: Dar de alta una nueva publicación - 400 Bad Request (Date inválida)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 20,\n    \"date\": \"29-04-2021aaaaa\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products/post"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Apr 2024 13:53:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Campos inválidos y/o faltantes.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "0006 getPostsFromFollowed OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/products/followed/1/list"
+			},
+			"response": []
+		},
+		{
+			"name": "0006 getPostsFromFollowed NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/products/followed/100/list"
+			},
+			"response": []
+		},
+		{
+			"name": "0007 - Unfollow User - OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{HOST}}/users/1/unfollow/6"
+			},
+			"response": []
+		},
+		{
+			"name": "0007 - Unfollow User - Not Found",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{HOST}}/users/40/unfollow/20"
+			},
+			"response": []
+		},
+		{
+			"name": "0007 - Unfollow User - Conflict (Not a follower)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{HOST}}/users/1/unfollow/20"
+			},
+			"response": []
+		},
+		{
+			"name": "0007 - Unfollow User - Bad Request (User ID is not an int)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "{{HOST}}/users/asdf/unfollow/20"
+			},
+			"response": []
+		},
+		{
+			"name": "0008 getFollowersAsc OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=name_asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"followers",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0008 getFollowersDesc OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=name_desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"followers",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0008 getFollowersDesc BAD REQUEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/1/followers/list?order=pedro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"followers",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "pedro"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0009 orderAscFeature0006",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/list?order=date_asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "date_asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0009 orderDescFeature0006",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/list?order=date_desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "date_desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0009 orderFeature0006 BAD REQUEST",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/list?order=date_descendente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "date_descendente"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0009 noOrderDescFeature0006",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/followed/1/list?order=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"followed",
+						"1",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0010: Llevar a cabo la publicación de un nuevo producto en promoción",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/products/promo-post"
+			},
+			"response": [
+				{
+					"name": "US 0010: Llevar a cabo la publicación de un nuevo producto en promoción",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 23,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25s\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/products/promo-post"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 Apr 2024 20:07:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Campos inválidos y/o faltantes.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "US 0011: Obtener la cantidad de productos en promoción de un determinado vendedor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/count?user_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "US 0011: Obtener la cantidad de productos en promoción de un determinado vendedor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/promo-post/count?user_id=30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 Apr 2024 20:20:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario con el ID: 30 no es un vendedor\"\n}"
+				}
+			]
+		},
+		{
+			"name": "US BONUS: Pausar todas las publicaciones de un vendedor",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/post/pause?user_id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"pause"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "US BONUS:",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/post/pause?user_id=30",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"post",
+								"pause"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 Apr 2024 20:20:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario con el ID: 30 no es un vendedor\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
