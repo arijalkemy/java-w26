@@ -1,6 +1,7 @@
 package com.api.socialmeli.controller;
 
 import com.api.socialmeli.dto.PostDto;
+import com.api.socialmeli.dto.PromoPostDto;
 import com.api.socialmeli.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,5 +20,9 @@ public class ProductController {
     @PostMapping("/products/post")
     public ResponseEntity<?> NewPost(@RequestBody PostDto postDto){
         return new ResponseEntity(this.postService.publishPost(postDto), HttpStatus.OK);
+    }
+    @PostMapping("/products/promo-post")
+    public ResponseEntity<?> NewPromoPost(@RequestBody PromoPostDto promoPostDto){
+        return new ResponseEntity<>(this.postService.publishPromoPost(promoPostDto),HttpStatus.OK);
     }
 }
