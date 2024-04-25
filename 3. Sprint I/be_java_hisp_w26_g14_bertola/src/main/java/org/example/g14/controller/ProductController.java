@@ -1,6 +1,7 @@
 package org.example.g14.controller;
 
 import org.example.g14.dto.CreatePostDto;
+import org.example.g14.dto.PromoPostDto;
 import org.example.g14.service.IPostService;
 import org.example.g14.dto.PostDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,11 @@ public class ProductController {
                                                               @RequestParam(required = false) String order){
         List<PostDto> posts = postService.getPostsFromFollowed(userId, order);
         return ResponseEntity.ok(posts);
+    }
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<Void> addPromoPost(@RequestBody CreatePostDto promoPostDto){
+        postService.addPromoPost(promoPostDto);
+        return ResponseEntity.ok().build();
     }
 }

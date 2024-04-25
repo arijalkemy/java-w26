@@ -33,7 +33,9 @@ public class PostMapper {
                 createPostDto.getProduct().getColor(),
                 createPostDto.getProduct().getNotes()
             ),
-            createPostDto.getIdUser()
+            createPostDto.getIdUser(),
+            createPostDto.isHasPromo(),
+            createPostDto.getDiscount()
         );
     }
 }

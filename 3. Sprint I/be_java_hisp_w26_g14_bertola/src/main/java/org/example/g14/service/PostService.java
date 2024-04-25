@@ -1,8 +1,10 @@
 package org.example.g14.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.g14.dto.CreatePostDto;
 import org.example.g14.dto.PostDto;
 import org.example.g14.dto.ProductDto;
+import org.example.g14.dto.PromoPostDto;
 import org.example.g14.exception.BadRequestException;
 import org.example.g14.exception.NotFoundException;
 import org.example.g14.model.Post;
@@ -84,9 +86,26 @@ public class PostService implements IPostService {
                             post.getDate(),
                             productDto,
                             post.getCategory(),
-                            post.getPrice()
+                            post.getPrice(),
+                            post.isHasPromo()
                     );
                 })
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void addPromoPost(CreatePostDto promoPostDto) {
+        PostMapper postMapper = new PostMapper();
+        Post postToAdd = postMapper.createPostDtoToPost(promoPostDto);
+
+        if (!postToAdd.isHasPromo()) {
+            throw new BadRequestException("El producto debe estar en promocion");
+        } else if (postToAdd.getDiscount() <=0) {
+            throw new BadRequestException("El producto debe tener descuento");
+        } else if (userRepository.getById(postToAdd.getIdUser()).isEmpty()) {
+            throw new NotFoundException("No se encontró al usuario con id " + postToAdd.getIdUser());
+        }
+
+        postRepository.save(postToAdd);
     }
 }
