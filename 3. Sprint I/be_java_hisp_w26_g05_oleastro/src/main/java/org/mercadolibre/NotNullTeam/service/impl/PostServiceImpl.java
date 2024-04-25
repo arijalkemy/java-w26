@@ -1,8 +1,10 @@
 package org.mercadolibre.NotNullTeam.service.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
@@ -32,6 +34,25 @@ public class PostServiceImpl implements IPostService {
     @Override
     public void createPost(PostDTO postDTO) {
         iPostRepository.createPost(postDtoToPost(postDTO));
+    }
+
+    @Override
+    public void createPost(PromoPostDTO promoPostDTO) {
+        iPostRepository.createPost(promoPostDtoToPost(promoPostDTO));
+    }
+
+    private Post promoPostDtoToPost(PromoPostDTO promoPostDTO) {
+        return new Post(
+                findSellerById(promoPostDTO.getUser_id()),
+                LocalDate.parse(
+                        promoPostDTO.getDate(),
+                        DateTimeFormatter.ofPattern("dd-MM-yyyy")
+                ),
+                productDtoToProduct(promoPostDTO.getProduct()),
+                promoPostDTO.getCategory(),
+                promoPostDTO.getPrice(),
+                promoPostDTO.getDiscount()
+        );
     }
 
     private Post postDtoToPost(PostDTO postDTO) {

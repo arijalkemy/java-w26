@@ -2,6 +2,7 @@ package org.mercadolibre.NotNullTeam.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostCreatedDto;
 import org.mercadolibre.NotNullTeam.service.IPostService;
 import org.springframework.http.HttpStatus;
@@ -23,9 +24,19 @@ public class PostController {
                 new PostCreatedDto("Post created successfully", LocalDate.now()), HttpStatus.CREATED);
     }
 
+    @PostMapping("/promo-post")
+    public ResponseEntity<?> createPromoPost(@RequestBody PromoPostDTO promoPostDTO) {
+        iPostService.createPost(promoPostDTO);
+        return new ResponseEntity<>(
+                new PostCreatedDto("Promo post created successfully", LocalDate.now()),
+                HttpStatus.CREATED
+        );
+    }
+
     @GetMapping("/followed/{userId}/list")
-    public ResponseEntity<?> getPostsBySellerTwoWeeksAgo(@PathVariable Long userId,
-                                                         @RequestParam(required = false, defaultValue = "date_desc") String order){
+    public ResponseEntity<?> getPostsBySellerTwoWeeksAgo(
+            @PathVariable Long userId,
+            @RequestParam(required = false, defaultValue = "date_desc") String order){
         return ResponseEntity.ok(iPostService.getPostsBySellerTwoWeeksAgo(userId, order));
     }
 }
