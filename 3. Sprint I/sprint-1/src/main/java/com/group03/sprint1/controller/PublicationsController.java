@@ -50,4 +50,10 @@ public class PublicationsController {
 
         return new ResponseEntity<>(responseTwoWeeksPublicationsDTO, HttpStatus.OK);
     }
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<String> createPublicationWithPromo(@RequestBody PublicationDTO publication) {
+        usersService.createPublication(publication);
+        return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
+    }
 }

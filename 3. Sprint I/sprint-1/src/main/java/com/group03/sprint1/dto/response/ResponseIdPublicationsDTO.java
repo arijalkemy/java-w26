@@ -5,13 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ResponseIdPublicationsDTO {
+public class ResponseIdPublicationsDTO implements Serializable {
 
     private Integer userId;
     private List<PublicationDTO> publications;
