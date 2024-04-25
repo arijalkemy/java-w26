@@ -9,6 +9,7 @@ import org.example.g14.model.User;
 import org.example.g14.repository.IPostRepository;
 import org.example.g14.repository.IUserRepository;
 import org.example.g14.utils.PostMapper;
+import org.example.g14.utils.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -32,14 +32,24 @@ public class PostService implements IPostService {
     @Override
     public void add(CreatePostDto createPostDto) {
 
-        Post post = PostMapper.createPostDtoToPost(createPostDto);
+        if (!Validation.isValid(createPostDto))
+            throw new BadRequestException("Campos inválidos y/o faltantes.");
 
-        Optional<User> usuario = userRepository.getById(post.getIdUser());
-        if(usuario.isEmpty()) {
-            throw new NotFoundException("No se encontró el usuario con id: " + post.getIdUser());
-        }
+        Post post = PostMapper.mapToEntity(createPostDto);
+
+        userRepository.getById(post.getIdUser())
+            .orElseThrow(() -> new NotFoundException("No se encontró el usuario con id: " + post.getIdUser()));
 
         postRepository.save(post);
+    }
+
+    @Override
+    public void addWithPromo(CreatePostDto createPromoPostDto) {
+
+        if (createPromoPostDto.getHasPromo() != Boolean.TRUE)
+            throw new BadRequestException("Para crear una promo, el campo 'has_promo' debe tener valor 'true'");
+
+        add(createPromoPostDto);
     }
 
     @Override
@@ -69,7 +79,7 @@ public class PostService implements IPostService {
         }
 
         return recentPosts.stream()
-                .map(PostMapper::toDto)
+                .map(PostMapper::mapToDto)
                 .toList();
     }
 }

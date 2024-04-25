@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     @Autowired
     IPostService postService;
 
@@ -20,6 +21,12 @@ public class ProductController {
         @RequestBody CreatePostDto createPostDto
     ) {
         postService.add(createPostDto);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<?> createPromoPost(@RequestBody CreatePostDto createPromoPostDto) {
+        postService.addWithPromo(createPromoPostDto);
         return ResponseEntity.ok().build();
     }
 

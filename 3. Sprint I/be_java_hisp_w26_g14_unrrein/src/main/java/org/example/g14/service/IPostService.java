@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IPostService {
     void add(CreatePostDto createPostDto);
+    void addWithPromo(CreatePostDto createPromoPostDto);
     List<PostDto> getPostsFromFollowed(int userId, String order);
-
 }

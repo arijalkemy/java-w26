@@ -1,20 +1,15 @@
 package org.example.g14.utils;
 
-import lombok.NoArgsConstructor;
 import org.example.g14.dto.CreatePostDto;
 import org.example.g14.dto.PostDto;
 import org.example.g14.dto.ProductDto;
-import org.example.g14.exception.BadRequestException;
 import org.example.g14.model.Post;
 import org.example.g14.model.Product;
 
-@NoArgsConstructor
+
 public class PostMapper {
 
-    public static Post createPostDtoToPost(CreatePostDto createPostDto) {
-
-        if (!Validation.isValid(createPostDto))
-            throw new BadRequestException("Campos inválidos y/o faltantes.");
+    public static Post mapToEntity(CreatePostDto createPostDto) {
 
         return new Post(
             createPostDto.getDate(),
@@ -28,11 +23,13 @@ public class PostMapper {
                 createPostDto.getProduct().getColor(),
                 createPostDto.getProduct().getNotes()
             ),
-            createPostDto.getIdUser()
+            createPostDto.getIdUser(),
+            createPostDto.getHasPromo() != null ? createPostDto.getHasPromo() : false,
+            createPostDto.getDiscount() != null ? createPostDto.getDiscount() : 0
         );
     }
 
-    public static PostDto toDto(Post entity) {
+    public static PostDto mapToDto(Post entity) {
 
         ProductDto productDto = new ProductDto(
             entity.getProduct().getId(),
