@@ -385,7 +385,7 @@ GET /products/promo-post/list?user_id={userId}
     "user_name": "vendedor1",
     "posts": [
         {
-            “user_id”: 234
+            “user_id”: 234,
             "post_id": 18,
             "date": "29-04-2021",
             "product": {
