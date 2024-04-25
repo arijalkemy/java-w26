@@ -32,16 +32,16 @@ public class DataConfiguration {
         LocalDate date9 = LocalDate.of(2023, 11, 23);
         LocalDate date10 = LocalDate.of(2024, 04, 24);
 
-        Post post1 = new Post(1, 1, date1, new Product(1, "Chair", "Furniture", "Furniture Co.", "Brown", "Comfortable chair for home or office", 1), "Furniture", 99.99, false, 0D);
-        Post post2 = new Post(1, 2, date2, new Product(2, "Desk", "Furniture", "Furniture Co.", "Black", "Sturdy desk for work or study", 2), "Furniture", 199.99, false, 0D);
-        Post post3 = new Post(1, 3, date3, new Product(3, "Sofa", "Furniture", "Furniture Co.", "Gray", "Modern sofa for living room", 3), "Furniture", 499.99, false, 0D);
-        Post post4 = new Post(1, 4, date4, new Product(4, "Lamp", "Decor", "Decor Store", "White", "Elegant lamp for home decor", 4), "Decor", 29.99, false, 0D);
-        Post post5 = new Post(2, 5, date5, new Product(5, "Table", "Furniture", "Furniture Co.", "Oak", "Solid wood table for dining", 5), "Furniture", 299.99, false, 0D);
-        Post post6 = new Post(2, 6, date6, new Product(6, "TV Stand", "Furniture", "Furniture Co.", "Walnut", "TV stand with storage shelves", 6), "Furniture", 199.99, false, 0D);
-        Post post7 = new Post(3, 7, date7, new Product(7, "Bookshelf", "Furniture", "Furniture Co.", "Cherry", "Classic bookshelf for home library", 7), "Furniture", 149.99, false, 0D);
-        Post post8 = new Post(4, 8, date8, new Product(8, "Mirror", "Decor", "Decor Store", "Silver", "Decorative mirror for wall", 8), "Decor", 49.99, false, 0D);
-        Post post9 = new Post(4, 9, date9, new Product(9, "Bed", "Furniture", "Furniture Co.", "Gray", "Comfortable bed for a good night's sleep", 9), "Furniture", 699.99, false, 0D);
-        Post post10 = new Post(4, 10, date10, new Product(10, "Chair", "Furniture", "Furniture Co.", "Red", "Modern chair with metal legs", 10), "Furniture", 79.99, false, 0D);
+        Post post1 = new Post(1, 1, date1, new Product(1, "Chair", "Furniture", "Furniture Co.", "Brown", "Comfortable chair for home or office"), "Furniture", 99.99, false, 0D);
+        Post post2 = new Post(1, 2, date2, new Product(2, "Desk", "Furniture", "Furniture Co.", "Black", "Sturdy desk for work or study"), "Furniture", 199.99, false, 0D);
+        Post post3 = new Post(1, 3, date3, new Product(3, "Sofa", "Furniture", "Furniture Co.", "Gray", "Modern sofa for living room"), "Furniture", 499.99, false, 0D);
+        Post post4 = new Post(1, 4, date4, new Product(4, "Lamp", "Decor", "Decor Store", "White", "Elegant lamp for home decor"), "Decor", 29.99, false, 0D);
+        Post post5 = new Post(2, 5, date5, new Product(5, "Table", "Furniture", "Furniture Co.", "Oak", "Solid wood table for dining"), "Furniture", 299.99, false, 0D);
+        Post post6 = new Post(2, 6, date6, new Product(6, "TV Stand", "Furniture", "Furniture Co.", "Walnut", "TV stand with storage shelves"), "Furniture", 199.99, false, 0D);
+        Post post7 = new Post(3, 7, date7, new Product(7, "Bookshelf", "Furniture", "Furniture Co.", "Cherry", "Classic bookshelf for home library"), "Furniture", 149.99, false, 0D);
+        Post post8 = new Post(4, 8, date8, new Product(8, "Mirror", "Decor", "Decor Store", "Silver", "Decorative mirror for wall"), "Decor", 49.99, false, 0D);
+        Post post9 = new Post(4, 9, date9, new Product(9, "Bed", "Furniture", "Furniture Co.", "Gray", "Comfortable bed for a good night's sleep"), "Furniture", 699.99, false, 0D);
+        Post post10 = new Post(4, 10, date10, new Product(10, "Chair", "Furniture", "Furniture Co.", "Red", "Modern chair with metal legs"), "Furniture", 79.99, false, 0D);
 
         List<Post> lis1 = new ArrayList<>();
         List<Post> lis2 = new ArrayList<>();

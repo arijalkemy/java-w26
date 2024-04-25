@@ -73,13 +73,29 @@ public class UserRepositoryImpl implements IUserRepository {
     }
 
     @Override
-    public boolean unfollow(User user, Integer followedId) {
-        int uInd = users.indexOf(user);
-        List<Integer> oldFollows = new ArrayList<>(user.getFollowedIds());
-        boolean isRemoved = oldFollows.remove(Integer.valueOf(followedId));
-        user.setFollowedIds(oldFollows);
-        users.set(uInd, user);
-        return isRemoved;
+    public boolean unfollow(User user, User sellerUser) {
+        int userInd = users.indexOf(user);
+        int sellerInd = users.indexOf(sellerUser);
+
+        // Copy of the user's follows
+        List<Integer> oldFollows = new ArrayList<>(user.getFollowerIds());
+        boolean followRemoved = oldFollows.remove(Integer.valueOf(sellerUser.getId()));
+
+        // Copy of the seller's followers
+        List<Integer> oldFollowers = new ArrayList<>(sellerUser.getFollowedIds());
+        boolean followerRemoved = oldFollowers.remove(Integer.valueOf(user.getId()));
+
+        if (followRemoved && followerRemoved) {
+            // Update the follows of the user
+            user.setFollowerIds(oldFollows);
+            users.set(userInd, user);
+            // Update the followers of the seller
+            sellerUser.setFollowedIds(oldFollowers);
+            users.set(sellerInd, sellerUser);
+        }
+
+        // Update the followers of the seller
+        return followRemoved && followerRemoved;
     }
 
 

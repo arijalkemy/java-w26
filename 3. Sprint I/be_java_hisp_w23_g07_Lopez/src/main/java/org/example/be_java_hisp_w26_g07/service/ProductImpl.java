@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.example.be_java_hisp_w26_g07.dto.PostDto;
 import org.example.be_java_hisp_w26_g07.dto.PostRequestDto;
+import org.example.be_java_hisp_w26_g07.dto.PromoPostCountDto;
 import org.example.be_java_hisp_w26_g07.dto.PromoPostDto;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -84,6 +85,17 @@ public class ProductImpl implements IProductService {
         myUser.getPosts().add(promoPost);
         myUser.setIsSeller(true);
         return true;
+
+    }
+
+    @Override
+    public PromoPostCountDto getPromoPostCount(Integer userId) {
+        User myUser = iUserRepository.findById(userId);
+        if(myUser == null ){
+            throw new NotFoundException("El usuario no se encuentra en la base de datos");
+        }
+        Long count =myUser.getPosts().stream().filter(e-> e.isHasPromo()).count();
+        return new PromoPostCountDto(userId, myUser.getName(), count);
 
     }
 }

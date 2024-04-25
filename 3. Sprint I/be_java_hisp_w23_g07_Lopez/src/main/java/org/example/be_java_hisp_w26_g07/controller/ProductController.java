@@ -3,6 +3,7 @@ package org.example.be_java_hisp_w26_g07.controller;
 import jakarta.validation.Valid;
 import org.example.be_java_hisp_w26_g07.dto.PostDto;
 import org.example.be_java_hisp_w26_g07.dto.PostRequestDto;
+import org.example.be_java_hisp_w26_g07.dto.PromoPostCountDto;
 import org.example.be_java_hisp_w26_g07.dto.PromoPostDto;
 import org.example.be_java_hisp_w26_g07.service.interfaces.IProductService;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,14 @@ public class ProductController {
         }else {
             return ResponseEntity.badRequest().build();
         }
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getPromoPostCount(@RequestParam("user_id") Integer userId){
+        PromoPostCountDto post = productService.getPromoPostCount(userId);
+        return ResponseEntity.ok(post);
+
+
     }
 
 
