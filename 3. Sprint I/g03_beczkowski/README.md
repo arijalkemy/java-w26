@@ -9,16 +9,10 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
 ## Tabla de contenidos
 
 - [Entidades](#entidades)
-    - [Product](#5-product)
-- [Diagrama de clases](#diagrama-de-clases)
+    - [Publication](#1-publication)
 - [Endpoints](#endpoints)
-  - [Seguir a un usuario](#1-seguir-a-un-usuario)
-  - [Cantidad de usuarios que siguen a un vendedor](#2-obtener-el-resultado-de-la-cantidad-de-usuarios-que-siguen-a-un-determinado-vendedor)
-  - [Usuarios que siguen a un vendedor](#3-obtener-el-listado-de-todos-los-usuarios-que-siguen-a-un-determinado-vendedor)
-  - [Vendedores a los cuales sigue un usuario](#4-obtener-un-listado-de-todos-los-vendedores-a-los-cuales-sigue-un-determinado-usuario)
-  - [Dar de alta una publicación](#5-dar-de-alta-una-publicación)
-  - [Publicaciones de un vendedor que un usuario sigue en las últimas dos semanas](#6-6-obtener-un-listado-de-las-publicaciones-realizadas-por-los-vendedores-que-un-usuario-sigue-en-las-últimas-dos-semanas)
-  - [Poder realizar la acción de “Unfollow”](#7-poder-realizar-la-acción-de-unfollow)
+  - [Cear una publicación promo](#1-dar-de-alta-una-publicación-de-promo)
+  - [Obtener cantidad de publicaciones promo de un vendedor](#2-obtener-el-resultado-de-la-cantidad-de-publicaciones-con-promo-de-un-vendedor)
 
 ## Entidades
 
