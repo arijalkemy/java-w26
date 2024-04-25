@@ -3,11 +3,14 @@ package com.group03.sprint1.controller;
 import com.group03.sprint1.dto.SellerFollowersDTO;
 import com.group03.sprint1.dto.response.BuyerResponseDTO;
 import com.group03.sprint1.dto.response.SellerResponseDTO;
+import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.UsersServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -51,5 +54,11 @@ public class UsersController {
                                           @PathVariable Integer userIdToUnfollow) {
         usersService.unfollowUser(userId, userIdToUnfollow);
         return ResponseEntity.ok().build();
+    }
+
+    /*----------- INDIVIDUAL y BONUS ---------------*/
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<List<SellersWithPublicationDTO>> getUsersWithPromoPublications() {
+        return ResponseEntity.ok().body(usersService.getUsersWithPromoPublications());
     }
 }

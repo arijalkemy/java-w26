@@ -20,4 +20,5 @@ public interface IUsersService {
     BuyerResponseDTO showBuyerFollowed(Integer userId, String order);
     <T> List<T> orderByLetter(List<T> list, Comparator<? super T> comparator);
     List<SellersWithPublicationDTO> showAllSellers();
+    List<SellersWithPublicationDTO> getUsersWithPromoPublications();
 }

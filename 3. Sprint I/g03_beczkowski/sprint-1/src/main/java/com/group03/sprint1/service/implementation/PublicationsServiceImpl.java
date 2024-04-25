@@ -112,7 +112,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
         if (publicationDTO.isHasPromo()) {
             createPublication(publicationDTO);
         } else {
-            throw new BadRequestException("This publication with seller ID: " + publicationDTO.getUserId() + " dont have any promo.");
+            throw new BadRequestException("This is not a publication promo");
         }
     }
 

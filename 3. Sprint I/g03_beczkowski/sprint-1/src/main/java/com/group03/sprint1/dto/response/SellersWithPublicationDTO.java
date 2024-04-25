@@ -22,4 +22,10 @@ public class SellersWithPublicationDTO {
     private List<UserDataResponseDTO> followers;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<PublicationDTO> publications;
+
+    public SellersWithPublicationDTO(Integer id, String name, List<PublicationDTO> publications) {
+        this.userId = id;
+        this.userName = name;
+        this.publications = publications;
+    }
 }
