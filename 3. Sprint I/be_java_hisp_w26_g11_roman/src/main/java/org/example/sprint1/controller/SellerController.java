@@ -38,12 +38,12 @@ public class SellerController {
 
     @Validated
     @PostMapping("/promo-post")
-    public ResponseEntity<RequestPostPromoDTO> addPostPromo(@Valid @RequestBody RequestPostPromoDTO postPromoDTO, BindingResult result){
+    public ResponseEntity<Void> addPostPromo(@Valid @RequestBody RequestPostPromoDTO postPromoDTO, BindingResult result){
         if(result.hasErrors()){
             throw new BadRequestException("Bad Request");
         }
         sellerService.addPost(postPromoDTO);
-        return ResponseEntity.ok().body(postPromoDTO);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/list")
@@ -60,8 +60,8 @@ public class SellerController {
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<SellerPromosDTO> getSellerPromosCount(@RequestParam int user_id){
-        return new ResponseEntity<>(sellerService.getSellersPromosCount(user_id), HttpStatus.OK);
+    public ResponseEntity<SellerPromosDTO> getSellerPromosCount(@RequestParam("user_id") int userId){
+        return new ResponseEntity<>(sellerService.getSellersPromosCount(userId), HttpStatus.OK);
     }
 
 }
