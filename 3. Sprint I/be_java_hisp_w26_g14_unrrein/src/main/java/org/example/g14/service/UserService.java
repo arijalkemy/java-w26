@@ -40,7 +40,7 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public UserFollowDto follow(int userId, int userIdToFollow) {
+    public UserFollowedDto follow(int userId, int userIdToFollow) {
         if(userId == userIdToFollow){
             throw new BadRequestException("No te podes seguir a vos mismo maquina");
         }
@@ -67,7 +67,7 @@ public class UserService implements IUserService{
         user.getIdFollows().add(userToFollow.getId());
 
         userRepository.save(user);
-        return new UserFollowDto(user.getName(),user.getIdFollows(),userToFollow.getIdFollowers());
+        return transferToUserFollowedDto(user);
     }
 
     private enum NameOrder{
@@ -129,7 +129,7 @@ public class UserService implements IUserService{
 
         User user = getUserById(id);
 
-        if(user.getIdFollowers().size() == 0)
+        if (postRepository.findAllByUser(id).isEmpty())
             throw new BadRequestException("No es un vendedor");
 
         UserFollowersDto userFollowersDto = new UserFollowersDto(user.getId(),
@@ -153,16 +153,17 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public UserFollowDto unfollowSeller(int followerUserId, int sellerUserId) {
+    public UserFollowedDto unfollowSeller(int followerUserId, int sellerUserId) {
 
         User followerUser = getUserById(followerUserId);
 
         // Check if Seller User exists
-        getUserById(sellerUserId);
+        User sellerUser = getUserById(sellerUserId);
 
         // 'Integer.valueof' is needed because List.remove has an overload por a plain int parameter
         // that treats that parameter as an index in the List, not as the Object we are trying to remove.
         boolean wasFollowing = followerUser.getIdFollows().remove(Integer.valueOf(sellerUserId));
+        sellerUser.getIdFollowers().remove(Integer.valueOf(followerUserId));
 
         if (!wasFollowing)
             throw new ConflictException(
@@ -170,16 +171,27 @@ public class UserService implements IUserService{
             );
 
         userRepository.save(followerUser);
+        userRepository.save(sellerUser);
 
-        return new UserFollowDto(
-            followerUser.getName(),
-            followerUser.getIdFollowers(),
-            followerUser.getIdFollows()
-        );
+        return transferToUserFollowedDto(followerUser);
     }
 
     private UserDto transferToUserDto(User user){
         return new UserDto(user.getId(), user.getName());
+    }
+
+    private UserFollowedDto transferToUserFollowedDto(User user) {
+
+        List<UserDto> followedUsers = user.getIdFollows().stream()
+            .map(this::getUserById)
+            .map(this::transferToUserDto)
+            .toList();
+
+        return new UserFollowedDto(
+            user.getId(),
+            user.getName(),
+            followedUsers
+        );
     }
 
     private User getUserById(int id){
