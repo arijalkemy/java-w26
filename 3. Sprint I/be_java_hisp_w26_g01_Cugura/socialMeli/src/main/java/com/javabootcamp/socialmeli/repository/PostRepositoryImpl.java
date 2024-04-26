@@ -50,4 +50,12 @@ public class PostRepositoryImpl implements PostRepository {
             .filter(p -> p.getUser().getId().equals(userId) && p.getHasPromo())
             .count();
     }
+
+    @Override
+    public List<Post> findPostWithPromoBySellerId(Integer userId) {
+        return postsList
+            .stream() 
+            .filter(p -> p.getHasPromo() && p.getUser().getId().equals(userId))
+            .toList();
+    }
 }

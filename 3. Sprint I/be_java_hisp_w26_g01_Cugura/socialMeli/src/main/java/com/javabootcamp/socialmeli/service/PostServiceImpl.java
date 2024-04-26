@@ -3,7 +3,9 @@ package com.javabootcamp.socialmeli.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javabootcamp.socialmeli.dto.PostDto;
 import com.javabootcamp.socialmeli.dto.PromoPostDto;
-import com.javabootcamp.socialmeli.dto.SellerPromoDto;
+import com.javabootcamp.socialmeli.dto.SellerCountPromoDto;
+import com.javabootcamp.socialmeli.dto.SellerWithPromoPostDto;
+import com.javabootcamp.socialmeli.exception.EntityNotFoundException;
 import com.javabootcamp.socialmeli.model.Post;
 import com.javabootcamp.socialmeli.model.Product;
 import com.javabootcamp.socialmeli.model.User;
@@ -99,9 +101,18 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public SellerPromoDto countPromoPostBySeller(Integer userId) {
+    public SellerCountPromoDto countPromoPostBySeller(Integer userId) {
         User seller = userService.searchUserById(userId);
         Integer cantPromos = postRepository.countPromosByUser(userId);
-        return new SellerPromoDto(userId,seller.getUsername(),cantPromos);
+        return new SellerCountPromoDto(userId,seller.getUsername(),cantPromos);
+    }
+
+    @Override
+    public SellerWithPromoPostDto searchAllPromoPostBySeller(Integer userId) {
+        List<Post> postWithPromo = postRepository.findPostWithPromoBySellerId(userId);
+        if(postWithPromo.isEmpty()){
+            throw new EntityNotFoundException("Does not exists promo post for seller id");
+        }
+        return DtoMapper.convertToSellerWithPromoPostDto(postWithPromo);
     }
 }

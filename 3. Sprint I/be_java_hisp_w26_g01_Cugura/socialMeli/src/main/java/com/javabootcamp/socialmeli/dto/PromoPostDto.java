@@ -24,23 +24,3 @@ public class PromoPostDto {
     private Boolean hasPromo;
     private Double discount;
 }
-
-/**
- * {
-    "user_id": 234,
-    "date": "29-04-2021",
-    "product": {
-        "product_id": 1,
-        "product_name": "Silla Gamer",
-        "type": "Gamer",
-        "brand": "Racer",
-        "color": "Red & Black",
-        "notes": "Special Edition"
-    },
-    "category": 100,
-    "price": 1500.50,
-    "has_promo": true,
-    "discount": 0.25
-}
-
- */

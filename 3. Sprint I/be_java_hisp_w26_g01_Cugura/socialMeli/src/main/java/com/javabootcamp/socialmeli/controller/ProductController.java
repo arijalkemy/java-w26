@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.javabootcamp.socialmeli.dto.PostDto;
 import com.javabootcamp.socialmeli.dto.PromoPostDto;
-import com.javabootcamp.socialmeli.dto.SellerPromoDto;
+import com.javabootcamp.socialmeli.dto.SellerCountPromoDto;
+import com.javabootcamp.socialmeli.dto.SellerWithPromoPostDto;
 import com.javabootcamp.socialmeli.service.PostService;
 
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -43,14 +43,29 @@ public class ProductController {
         return ResponseEntity.status(200).body(response);
     }
 
+    /**
+     * Endpoint que agrega un posteo con promocion
+     * @param promoPostDto objeto de tipo PromoPostDto para el guardado del recurso
+     * @return ResponseEntity<Void> (bodyless). Unicamente devuelve código http
+     */
     @PostMapping("/promo-post")
     public ResponseEntity<Void> postPromoPost(@RequestBody PromoPostDto promoPostDto){
         postService.addPostWithPromo(promoPostDto);
         return ResponseEntity.ok().build();
     }
 
+    /**
+     * Endpoint que cuenta cuando posteos con promo posee un vendedor 
+     * @param userId id del vendedor
+     * @return ResponseEntity<SellerPromoDto>. Lista de objetos de tipo SellerPromoDto, junto al codigo http
+     */
     @GetMapping("/promo-post/count")
-    public ResponseEntity<SellerPromoDto> getAllPromoPostFromSeller(@RequestParam("user_id") Integer userId){
+    public ResponseEntity<SellerCountPromoDto> getCountPromoPostFromSeller(@RequestParam("user_id") Integer userId){
         return ResponseEntity.ok(postService.countPromoPostBySeller(userId));
+    }
+
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<SellerWithPromoPostDto> getAllPromoPostBySeller(@RequestParam("user_id") Integer userId){
+        return ResponseEntity.ok(postService.searchAllPromoPostBySeller(userId));
     }
 }
