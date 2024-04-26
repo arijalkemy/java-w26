@@ -6,6 +6,7 @@ public enum TipoVehiculo {
     CARRO(1000D, 4);
 
 
+
     private Double peso;
     private Integer ruedas;
 
