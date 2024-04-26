@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "product_name": "Product A",
+    "type": "Type X",
+    "brand": "Brand Alpha",
+    "color": "Red",
+    "notes": "This is product A."
+  },
+  {
+    "id": 2,
+    "product_name": "Product B",
+    "type": "Type Y",
+    "brand": "Brand Beta",
+    "color": "Blue",
+    "notes": "This is product B."
+  },
+  {
+    "id": 3,
+    "product_name": "Product C",
+    "type": "Type Z",
+    "brand": "Brand Gamma",
+    "color": "Green",
+    "notes": "This is product C."
+  },
+  {
+    "id": 4,
+    "product_name": "Product D",
+    "type": "Type X",
+    "brand": "Brand Delta",
+    "color": "Yellow",
+    "notes": "This is product D."
+  },
+  {
+    "id": 5,
+    "product_name": "Product E",
+    "type": "Type Y",
+    "brand": "Brand Epsilon",
+    "color": "Orange",
+    "notes": "This is product E."
+  },
+  {
+    "id": 6,
+    "product_name": "Product F",
+    "type": "Type Z",
+    "brand": "Brand Zeta",
+    "color": "Purple",
+    "notes": "This is product F."
+  },
+  {
+    "id": 7,
+    "product_name": "Product G",
+    "type": "Type X",
+    "brand": "Brand Theta",
+    "color": "White",
+    "notes": "This is product G."
+  },
+  {
+    "id": 8,
+    "product_name": "Product H",
+    "type": "Type Y",
+    "brand": "Brand Iota",
+    "color": "Black",
+    "notes": "This is product H."
+  },
+  {
+    "id": 9,
+    "product_name": "Product I",
+    "type": "Type Z",
+    "brand": "Brand Kappa",
+    "color": "Brown",
+    "notes": "This is product I."
+  },
+  {
+    "id": 10,
+    "product_name": "Product J",
+    "type": "Type X",
+    "brand": "Brand Lambda",
+    "color": "Gray",
+    "notes": "This is product J."
+  },
+  {
+    "id": 11,
+    "product_name": "Product K",
+    "type": "Type Y",
+    "brand": "Brand Mu",
+    "color": "Cyan",
+    "notes": "This is product K."
+  },
+  {
+    "id": 12,
+    "product_name": "Product L",
+    "type": "Type Z",
+    "brand": "Brand Nu",
+    "color": "Magenta",
+    "notes": "This is product L."
+  },
+  {
+    "id": 13,
+    "product_name": "Product M",
+    "type": "Type X",
+    "brand": "Brand Xi",
+    "color": "Lime",
+    "notes": "This is product M."
+  },
+  {
+    "id": 14,
+    "product_name": "Product N",
+    "type": "Type Y",
+    "brand": "Brand Omicron",
+    "color": "Indigo",
+    "notes": "This is product N."
+  },
+  {
+    "id": 15,
+    "product_name": "Product O",
+    "type": "Type Z",
+    "brand": "Brand Pi",
+    "color": "Teal",
+    "notes": "This is product O."
+  },
+  {
+    "id": 16,
+    "product_name": "Product P",
+    "type": "Type X",
+    "brand": "Brand Rho",
+    "color": "Silver",
+    "notes": "This is product P."
+  },
+  {
+    "id": 17,
+    "product_name": "Product Q",
+    "type": "Type Y",
+    "brand": "Brand Sigma",
+    "color": "Gold",
+    "notes": "This is product Q."
+  },
+  {
+    "id": 18,
+    "product_name": "Product R",
+    "type": "Type Z",
+    "brand": "Brand Tau",
+    "color": "Platinum",
+    "notes": "This is product R."
+  },
+  {
+    "id": 19,
+    "product_name": "Product S",
+    "type": "Type X",
+    "brand": "Brand Upsilon",
+    "color": "Bronze",
+    "notes": "This is product S."
+  },
+  {
+    "id": 20,
+    "product_name": "Product T",
+    "type": "Type Y",
+    "brand": "Brand Phi",
+    "color": "Copper",
+    "notes": "This is product T."
+  },
+  {
+    "id": 21,
+    "product_name": "Product U",
+    "type": "Type Z",
+    "brand": "Brand Chi",
+    "color": "Rose Gold",
+    "notes": "This is product U."
+  },
+  {
+    "id": 22,
+    "product_name": "Product V",
+    "type": "Type X",
+    "brand": "Brand Psi",
+    "color": "Titanium",
+    "notes": "This is product V."
+  },
+  {
+    "id": 23,
+    "product_name": "Product W",
+    "type": "Type Y",
+    "brand": "Brand Omega",
+    "color": "Nickel",
+    "notes": "This is product W."
+  },
+  {
+    "id": 24,
+    "product_name": "Product X",
+    "type": "Type Z",
+    "brand": "Brand Alpha",
+    "color": "Steel",
+    "notes": "This is product X."
+  },
+  {
+    "id": 25,
+    "product_name": "Product Y",
+    "type": "Type X",
+    "brand": "Brand Beta",
+    "color": "Bronze",
+    "notes": "This is product Y."
+  }
+]
