@@ -483,3 +483,65 @@ Ejemplo:
     }
 ```
 
+### 15. Obtener un listado de todos los compradores
+
+```http
+GET /users/show_buyers
+```
+#### Response
+
+```http
+[
+    {
+        "followed": [
+            {
+                "user_id": 1,
+                "user_name": "nombre_vendedor_1"
+            },
+            {
+                "user_id": 3,
+                "user_name": "nombre_vendedor_1"
+            },
+            {
+                "user_id": 2,
+                "user_name": "nombre_vendedor_2"
+            }
+        ],
+        "user_id": 12345,
+        "user_name": "nombre_de_usuario_1"
+    },
+    {
+        "followed": [
+            {
+                "user_id": 3,
+                "user_name": "nombre_vendedor_3"
+            },
+            {
+                "user_id": 4,
+                "user_name": "nombre_vendedor_4"
+            }
+        ],
+        "user_id": 67890,
+        "user_name": "nombre_de_usuario_2"
+    },
+    {
+        "followed": [
+            {
+                "user_id": 5,
+                "user_name": "nombre_vendedor_5"
+            }
+        ],
+        "user_id": 24680,
+        "user_name": "nombre_de_usuario_3"
+    }
+]
+```
+
+| Parámetro | Tipo           | Descripción                                              |
+|-----------|----------------|----------------------------------------------------------|
+| user_id   | Integer        | Número que identifica a un usario de tipo `Buyer`        |
+| user_name | String         | Cadena de caracteres que representa el nombre del usuario |
+| followed  | List<UserData> | Listado de la información de cada `Seller` seguido       |
+
+
+

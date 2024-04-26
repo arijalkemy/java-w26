@@ -22,4 +22,5 @@ public interface IUsersService {
     SellerWithPromoListDTO getPromoListBySeller(Integer userId);
     String deletePostOfSeller(Integer userId, Integer postId);
     String updatePostOfSeller(Integer userId, Integer postId, PublicationDTO publication);
+    List<BuyerResponseDTO> getListBuyers();
 }

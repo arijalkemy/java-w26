@@ -314,5 +314,15 @@ public class UsersServiceImpl implements IUsersService {
         return "Post with id: " + postId + " updated succesfully.";
     }
 
+    @Override
+    public List<BuyerResponseDTO> getListBuyers() {
+        List<Buyer> buyersList = usersRepository.showBuyers();
+
+        List<BuyerResponseDTO> buyerListResponse = buyersList.stream()
+                                    .map(b -> objectMapper.convertValue(b, BuyerResponseDTO.class))
+                                    .toList();
+        return buyerListResponse;
+    }
+
 
 }

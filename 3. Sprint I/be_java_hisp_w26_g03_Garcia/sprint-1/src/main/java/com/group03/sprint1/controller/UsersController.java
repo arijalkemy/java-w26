@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -66,4 +68,11 @@ public class UsersController {
                                                              @RequestBody PublicationDTO publicationDTO){
         return ResponseEntity.ok().body(usersService.updatePostOfSeller(userId, postId, publicationDTO));
     }
+
+    @GetMapping("/show_buyers")
+    public ResponseEntity<List<BuyerResponseDTO>> getBuyers(){
+        List<BuyerResponseDTO> response = usersService.getListBuyers();
+        return ResponseEntity.ok().body(response);
+    }
+
 }
