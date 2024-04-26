@@ -5,6 +5,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.example.sprint1.dto.PostDTO;
 import org.example.sprint1.dto.RequestPostDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
+import org.example.sprint1.dto.ResponsePromoCountDTO;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
@@ -87,6 +88,22 @@ public class SellerServiceImplementation implements ISellerService {
             listPostDto.sort(Comparator.comparing(PostDTO::getDate).reversed());
 
         return new ResponsePostDTO(userId, listPostDto);
+    }
+
+    @Override
+    public ResponsePromoCountDTO getPromoPostCount(int userId) {
+        //obtengo el seller
+        Seller seller =  sellerRepository.getSellerById(userId);
+
+        //si no hay seller no existe
+        if(seller == null) throw new NotFoundException("No existe id");
+
+        //obtengo la lista de promociones
+        List<Post> hasPromo =  seller.getPosts().stream().filter(Post::isHasPromo).toList();
+
+        if(hasPromo.isEmpty()) throw new NotFoundException("No hay promociones");
+
+        return new ResponsePromoCountDTO(userId, seller.getSellerName(), hasPromo.size());
     }
 
 
