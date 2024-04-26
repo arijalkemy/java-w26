@@ -1,6 +1,5 @@
 package com.meli.be_java_hisp_w26_g09.service.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.be_java_hisp_w26_g09.dto.*;
 import com.meli.be_java_hisp_w26_g09.entity.Post;
 import com.meli.be_java_hisp_w26_g09.entity.Role;
@@ -10,7 +9,7 @@ import com.meli.be_java_hisp_w26_g09.exception.NotFoundException;
 import com.meli.be_java_hisp_w26_g09.repository.IPostRepository;
 import com.meli.be_java_hisp_w26_g09.repository.IProductRepository;
 import com.meli.be_java_hisp_w26_g09.repository.IUserRepository;
-import com.meli.be_java_hisp_w26_g09.service.IProductService;
+import com.meli.be_java_hisp_w26_g09.service.IPostService;
 import com.meli.be_java_hisp_w26_g09.util.mapper.PostMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-public class ProductServiceImpl implements IProductService {
+public class PostServiceImpl implements IPostService {
     @Autowired
     IProductRepository productRepository;
     @Autowired
