@@ -2,6 +2,7 @@ package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsWithPromoDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PromosCountDTO;
@@ -63,18 +64,20 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
-    public Long createPostWithPromo(org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDTO postWithPromoDTO) {
+    public Long createPostWithPromo(PostWithPromoDTO postWithPromoDTO) {
         return iPostRepository.createPost(PostMapper.postWithPromoDtoToPost(postWithPromoDTO,
                 findSellerById(postWithPromoDTO.getUser_id())));
     }
 
     @Override
     public PromosCountDTO getCantPromosSellersByUserId(Long userId) {
+        String sellerName = findSellerById(userId).getUsername();
+        int countPostsWithPromo = iPostRepository.getCantPromosSellersByUserId(userId);
+
         return PostMapper.toPromosCountDTO(userId,
-                iSellerRepository.findById(userId)
-                        .orElseThrow(() -> new NotFoundException("Seller"))
-                        .getUsername(),
-                iPostRepository.getCantPromosSellersByUserId(userId));
+                sellerName,
+                countPostsWithPromo
+        );
     }
 
     @Override

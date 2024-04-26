@@ -38,14 +38,12 @@ public class PostController {
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<?> getCantPromosSellersByUserId(@RequestParam(required = true)
-                                                          Long user_id){
+    public ResponseEntity<?> getCantPromosSellersByUserId(@RequestParam Long user_id){
         return ResponseEntity.ok(iPostService.getCantPromosSellersByUserId(user_id));
     }
 
     @GetMapping("/promo-posts-week/list")
-    public ResponseEntity<?> getTopWeekPromosByUserId(@RequestParam(required = true)
-                                                        Long user_id){
+    public ResponseEntity<?> getTopWeekPromosByUserId(@RequestParam Long user_id){
         return ResponseEntity.ok(iPostService.getTopWeekPromosByUserId(user_id));
     }
 

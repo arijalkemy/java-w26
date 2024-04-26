@@ -1,6 +1,7 @@
 package org.mercadolibre.NotNullTeam.mapper;
 
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.*;
 import org.mercadolibre.NotNullTeam.model.Post;
@@ -62,7 +63,7 @@ public class PostMapper {
         );
     }
 
-    public static Post postWithPromoDtoToPost(org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDTO postWithPromoDTO, Seller seller) {
+    public static Post postWithPromoDtoToPost(PostWithPromoDTO postWithPromoDTO, Seller seller) {
         return new Post(seller,
                 LocalDate.parse(postWithPromoDTO.getDate(),
                         DateTimeFormatter.ofPattern("dd-MM-yyyy")),
