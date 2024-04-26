@@ -16,4 +16,6 @@ public interface PostService {
     PromoQuantityResponseDTO calculatePostPromoBySeller(int sellerId);
     PromoListBySeller findAllPromoBySeller(int sellerId);
     PostPromoResponseDTO removePromo(int postId);
-}
+    List<PostResponseDTO> searchAllBySellers(List<Integer> sellersId, String order);
+    List<PostResponseDTO> searchBySellersBetween(List<Integer> sellersIs, String order, Long period);
+    }

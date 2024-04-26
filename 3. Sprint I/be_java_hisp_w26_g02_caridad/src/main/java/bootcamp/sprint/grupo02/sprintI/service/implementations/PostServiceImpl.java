@@ -35,6 +35,30 @@ public class PostServiceImpl implements PostService {
     private final SellerService sellerService;
     private final ProductService productService;
 
+    public List<PostResponseDTO> searchAllBySellers(List<Integer> sellersId, String order) {
+
+        Comparator<PostResponseDTO> comparator = Comparator.comparing(PostResponseDTO::getDate);
+
+        if(DateOrder.DATE_DESC.toString().equalsIgnoreCase(order)) {
+            comparator = comparator.reversed();
+        }
+
+        return  sellersId.stream()
+                .map(repository::findBySellerId)
+                .flatMap(List::stream)
+                .map(this::convertToPostResponseDTO)
+                .sorted(comparator)
+                .toList();
+    }
+
+    @Override
+    public List<PostResponseDTO> searchBySellersBetween(List<Integer> sellersIs, String order, Long period) {
+        return  this.searchAllBySellers(sellersIs, order)
+                .stream()
+                .filter(p -> p.getDate().isAfter(LocalDate.now().minusDays(period)))
+                .toList();
+    }
+
     @Override
     public List<PostResponseDTO> getAllBySellerId(int seller, String order) {
         if(order.equals(DateOrder.DATE_ASC.toString().toLowerCase())) {
@@ -61,17 +85,18 @@ public class PostServiceImpl implements PostService {
                 .toList();
     }
 
+
     @Override
     public PostListByBuyerResponseDTO findPostsByBuyer(int id, String order) {
-        List<Seller> sellers = buyerService.getAllSellers(id);
-        PostListByBuyerResponseDTO postListByBuyerResponseDTO = new PostListByBuyerResponseDTO();
-        postListByBuyerResponseDTO.setUserId(id);
-        List<PostResponseDTO> postList = new ArrayList<>();
-        for(Seller seller : sellers){
-            postList.addAll(getBySellerIdLastTwoWeeks(seller.getId(), order));
-            postListByBuyerResponseDTO.setPosts(postList);
-        }
-        return postListByBuyerResponseDTO;
+        List<Integer> sellers = buyerService.getAllSellers(id)
+                .stream()
+                .map(Seller::getId)
+                .toList();
+
+        return PostListByBuyerResponseDTO.builder()
+                .userId(id)
+                .posts(searchBySellersBetween(sellers, order, 14L))
+                .build();
     }
 
     @Override

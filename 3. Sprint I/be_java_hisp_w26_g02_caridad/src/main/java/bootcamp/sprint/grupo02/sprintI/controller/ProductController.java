@@ -43,7 +43,7 @@ public class ProductController {
     public ResponseEntity<PromoListBySeller> getAllPromoBySeller(@PathVariable int userId){
         return ResponseEntity.ok(postService.findAllPromoBySeller(userId));
     }
-    @PutMapping("/promo-post/delete/{postId}")
+    @PatchMapping("/promo-post/delete/{postId}")
     public ResponseEntity<PostPromoResponseDTO> updatePromo(@PathVariable int postId){
         return ResponseEntity.ok(postService.removePromo(postId));
     }
