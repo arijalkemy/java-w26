@@ -13,6 +13,7 @@ import com.group03.sprint1.exception.entity.BadRequestException;
 import com.group03.sprint1.repository.IUsersRepository;
 import com.group03.sprint1.repository.implementation.UsersRepositoryImpl;
 import com.group03.sprint1.service.IUsersService;
+import com.group03.sprint1.utils.Constants;
 import com.group03.sprint1.utils.Utils;
 import org.springframework.stereotype.Service;
 import java.util.Comparator;
@@ -92,10 +93,10 @@ public class UsersServiceImpl implements IUsersService {
         if (Utils.isNotNull(seller)) {
 
             if (Utils.isNotNull(order)) {
-                if (order.equals("name_asc")){
+                if (order.equals(Constants.NAME_ASCENDANT)){
                     seller.setFollowers(orderByLetter(
                             seller.getFollowers(), Comparator.comparing(buyer -> buyer.getUserName())));
-                }else if(order.equals("name_desc")){
+                }else if(order.equals(Constants.NAME_DESCENDANT)){
                     seller.setFollowers(orderByLetter(
                             seller.getFollowers(), Comparator.comparing(
                                     (UserData buyer) -> buyer.getUserName()).reversed()));
@@ -133,10 +134,10 @@ public class UsersServiceImpl implements IUsersService {
         }
 
         if (Utils.isNotNull(order)) {
-            if (order.equals("name_asc")){
+            if (order.equals(Constants.NAME_ASCENDANT)){
                 buyer.setFollowed(orderByLetter(
                         buyer.getFollowed(), Comparator.comparing(seller -> seller.getUserName())));
-            }else if(order.equals("name_desc")){
+            }else if(order.equals(Constants.NAME_DESCENDANT)){
                 buyer.setFollowed(orderByLetter(
                         buyer.getFollowed(), Comparator.comparing(
                                 (UserData seller) -> seller.getUserName()).reversed()));
@@ -178,7 +179,7 @@ public class UsersServiceImpl implements IUsersService {
         UserData sellerDelete = lstSellers.stream().filter(u -> u.getUserId()
                 .equals(seller.getUserId())).findFirst().orElse(null);
 
-        if (buyerDelete == null || sellerDelete == null) {
+        if (Utils.isNull(buyerDelete) || Utils.isNull(sellerDelete)) {
             throw new BadRequestException("There is not a follower with ID: " + buyer.getUserId());
         }
 
