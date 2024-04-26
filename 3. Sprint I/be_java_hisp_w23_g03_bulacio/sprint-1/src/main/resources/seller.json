@@ -14,7 +14,7 @@
     ],
     "publications": [
       {
-        "user_id": 123,
+        "user_id": 1,
         "date": "2024-04-20",
         "post_id": 1000,
         "product": {
@@ -32,7 +32,7 @@
   },
   {
     "user_id": 2,
-    "user_name": "nombre_vendedor_1",
+    "user_name": "nombre_vendedor_2",
     "followers": [
       {
         "user_id": 12345,
@@ -45,7 +45,7 @@
     ],
     "publications": [
       {
-        "user_id": 124,
+        "user_id": 2,
         "date": "2024-04-18",
         "post_id": 1001,
         "product": {

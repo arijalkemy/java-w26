@@ -207,8 +207,8 @@ public class UsersServiceImpl implements IUsersService {
     @Override
     public SellerDTO createPublication(PublicationDTO publicationDTO) {
 
-        if(usersRepository.findSellerById(publicationDTO.getUser_id()) == null) {
-            throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUser_id());
+        if(usersRepository.findSellerById(publicationDTO.getUserId()) == null) {
+            throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUserId());
         }
 
         Publication publication = objectMapper.convertValue(publicationDTO, Publication.class);

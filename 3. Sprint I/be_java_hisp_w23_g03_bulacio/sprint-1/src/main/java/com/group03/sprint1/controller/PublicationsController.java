@@ -3,7 +3,7 @@ package com.group03.sprint1.controller;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.PublicationListDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
-import com.group03.sprint1.dto.response.SellerPromotionCountResponseDTO;
+import com.group03.sprint1.dto.response.SellerPromoCountResponseDTO;
 import com.group03.sprint1.service.IPublicationsService;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.PublicationsServiceImpl;
@@ -54,9 +54,9 @@ public class PublicationsController {
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<SellerPromotionCountResponseDTO> getSellerPublicationsWithPromotionCount(@RequestParam Integer userId) {
-        SellerPromotionCountResponseDTO sellerPromotionCountResponseDTO = publicationsService.countPublicationsInPromotionForSeller(userId);
-        return new ResponseEntity<>(sellerPromotionCountResponseDTO, HttpStatus.OK);
+    public ResponseEntity<SellerPromoCountResponseDTO> getSellerPublicationsWithPromotionCount(@RequestParam Integer userId) {
+        SellerPromoCountResponseDTO sellerPromoCountResponseDTO = publicationsService.countPublicationsInPromotionForSeller(userId);
+        return new ResponseEntity<>(sellerPromoCountResponseDTO, HttpStatus.OK);
     }
 
     @GetMapping("/all")

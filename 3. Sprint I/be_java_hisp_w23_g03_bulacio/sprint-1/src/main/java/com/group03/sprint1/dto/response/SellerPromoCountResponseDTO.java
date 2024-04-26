@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SellerPromotionCountResponseDTO implements Serializable {
+public class SellerPromoCountResponseDTO implements Serializable {
     @JsonProperty("user_id")
     private Integer userId;
     @JsonProperty("user_name")

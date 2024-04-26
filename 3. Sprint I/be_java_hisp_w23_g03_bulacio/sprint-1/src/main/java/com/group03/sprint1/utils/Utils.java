@@ -47,7 +47,7 @@ public class Utils {
                 publications = publications.stream()
                         .sorted((p1, p2) -> {
                             int comparison = Comparator.comparing(Publication::calculateTotalPrice).compare(p1, p2);
-                            return order.equals(Constants.PRICE_ORDER_ASCENDANT) ? comparison : -comparison;
+                            return order.equals(Constants.TOTAL_PRICE_ORDER_ASCENDANT) ? comparison : -comparison;
                         })
                         .collect(Collectors.toList());
             }

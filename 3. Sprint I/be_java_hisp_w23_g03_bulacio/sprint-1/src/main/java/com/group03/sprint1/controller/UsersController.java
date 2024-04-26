@@ -17,7 +17,7 @@ import java.util.List;
 public class UsersController {
 
     private final IUsersService usersService;
-  
+
     public UsersController(UsersServiceImpl usersService) {
         this.usersService = usersService;
 
@@ -32,7 +32,7 @@ public class UsersController {
 
     @GetMapping("/{userId}/followers/count")
     public ResponseEntity<SellerFollowersDTO> getFollowersCount(@PathVariable Integer userId) {
-        SellerFollowersDTO sellerFollowersDTO= usersService.getFollowers(userId);
+        SellerFollowersDTO sellerFollowersDTO = usersService.getFollowers(userId);
         return new ResponseEntity<SellerFollowersDTO>(sellerFollowersDTO, HttpStatus.OK);
     }
 
@@ -60,6 +60,4 @@ public class UsersController {
     public ResponseEntity<List<SellersWithPublicationDTO>> getAllSellers() {
         return new ResponseEntity<>(usersService.showAllSellers(), HttpStatus.OK);
     }
-
-//    @PostMapping("{userId}/addToCart/{publicationId}")
 }

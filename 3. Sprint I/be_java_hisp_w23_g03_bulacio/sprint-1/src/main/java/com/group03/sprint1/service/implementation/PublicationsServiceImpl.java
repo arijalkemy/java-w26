@@ -5,7 +5,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.Mapper;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.PublicationListDTO;
-import com.group03.sprint1.dto.response.SellerPromotionCountResponseDTO;
+import com.group03.sprint1.dto.response.SellerPromoCountResponseDTO;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
 import com.group03.sprint1.entity.UserData;
@@ -55,14 +55,14 @@ public class PublicationsServiceImpl implements IPublicationsService {
     }
 
     @Override
-    public SellerPromotionCountResponseDTO countPublicationsInPromotionForSeller(Integer userId) {
+    public SellerPromoCountResponseDTO countPublicationsInPromotionForSeller(Integer userId) {
         Seller seller = usersRepository.findSellerById(userId);
 
         if (Utils.isNull(seller)) {
             throw new BadRequestException("There is not seller with ID: " + userId);
         }
 
-        SellerPromotionCountResponseDTO responseDTO = new SellerPromotionCountResponseDTO();
+        SellerPromoCountResponseDTO responseDTO = new SellerPromoCountResponseDTO();
         responseDTO.setUserId(userId);
         responseDTO.setUserName(seller.getUserName());
         responseDTO.setPromoProductsCount(
