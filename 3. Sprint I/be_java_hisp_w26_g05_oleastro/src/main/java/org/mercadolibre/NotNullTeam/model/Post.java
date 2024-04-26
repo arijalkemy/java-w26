@@ -41,10 +41,6 @@ public class Post {
     }
 
     public Double getFinalPrice() {
-        if (hasPromo) {
-            return price - (price * discount);
-        } else {
-            return price;
-        }
+        return hasPromo ? price - ( price * discount ) : price;
     }
 }
