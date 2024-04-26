@@ -135,4 +135,16 @@ public class UserRepositoryImpl implements IUserRepository {
                         p.getHasPromo() != null && p.getHasPromo())
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Post> getPostsBySellerId(Integer userId) {
+        return postMap.values().stream()
+                .filter(p -> p.getUserId().equals(userId))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Category getCategoryById(Integer categoryId) {
+        return categoryMap.get(categoryId);
+    }
 }

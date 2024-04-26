@@ -13,4 +13,5 @@ public interface IProductService {
     PostDto createPost(PostRequestDto postRequestDto);
     SuccessResponseDto createPromoPost(PromoPostReqDto postReqDto);
     PromoPostResDto getPromoPostsBySellerId(Integer userId);
+    StatisticsDto getStatistics(Integer userId);
 }

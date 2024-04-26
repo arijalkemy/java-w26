@@ -38,4 +38,10 @@ public class ProductController {
         PromoPostResDto successResponseDto = productService.getPromoPostsBySellerId(user_id);
         return new ResponseEntity<>(successResponseDto, HttpStatus.OK);
     }
+
+    @GetMapping("/posts/statistics")
+    public ResponseEntity<?> getStatistics(@RequestParam Integer user_id) {
+        StatisticsDto statisticsDto = productService.getStatistics(user_id);
+        return new ResponseEntity<>(statisticsDto, HttpStatus.OK);
+    }
 }

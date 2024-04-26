@@ -2,6 +2,7 @@ package org.example.be_java_hisp_w26_g07.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.be_java_hisp_w26_g07.dto.*;
+import org.example.be_java_hisp_w26_g07.entity.Category;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -16,7 +17,9 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -130,5 +133,40 @@ public class ProductImpl implements IProductService {
         int postsCount = postByUser.size();
 
         return new PromoPostResDto(foundUser.getId(), foundUser.getName(), postsCount);
+    }
+
+    // Statistics with posts by (year or month), quantity on promo vs total, quantity by categories
+    @Override
+    public StatisticsDto getStatistics(Integer userId) {
+        List<Post> allPosts = iUserRepository.getPostsBySellerId(userId);
+
+        Map<String, Integer> postsByYear = new HashMap<>();
+        Map<String, Integer> postsByCategory = new HashMap<>();
+        for (Post post : allPosts) {
+            String key = Integer.toString(post.getDate().getYear());
+            if (!postsByYear.containsKey(key)) {
+                postsByYear.put(key, 0);
+            }
+            Integer currCount = postsByYear.get(key);
+            postsByYear.put(key, currCount + 1);
+
+            Category category = iUserRepository.getCategoryById(post.getCategoryId());
+            if (category != null) {
+                String catName = category.getDescription();
+                if (!postsByCategory.containsKey(catName)) {
+                    postsByCategory.put(catName, 0);
+                }
+                Integer currCatCount = postsByCategory.get(catName);
+                postsByCategory.put(catName, currCatCount + 1);
+            }
+        }
+
+        PromoRatioDto promoRatioDto = new PromoRatioDto();
+        List<Post> promoPosts = iUserRepository.getPromoPostsBySellerId(userId);
+        promoRatioDto.setInPromo(promoPosts.size());
+        promoRatioDto.setTotal(allPosts.size());
+
+
+        return new StatisticsDto(userId, postsByYear, promoRatioDto, postsByCategory);
     }
 }
