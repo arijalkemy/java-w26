@@ -1,7 +1,9 @@
 package org.example.sprint1.controller;
 
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.example.sprint1.dto.RequestPostDTO;
+import org.example.sprint1.dto.RequestPromoPostDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.BadRequestException;
@@ -32,6 +34,17 @@ public class SellerController {
         postService.addPost(postDTO);
         return ResponseEntity.ok().build();
     }
+
+    @Validated
+    @PostMapping("/promo-post")
+    public ResponseEntity<Void> addPromoPost(@Valid @RequestBody RequestPromoPostDTO postDTO, BindingResult result){
+        if(result.hasErrors()){
+            throw new BadRequestException("Bad Request");
+        }
+        postService.addPost(postDTO);
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/list")
     public ResponseEntity<List<Seller>> getAllSellers(){
         return new ResponseEntity<>(postService.getSellers(), HttpStatus.OK);
