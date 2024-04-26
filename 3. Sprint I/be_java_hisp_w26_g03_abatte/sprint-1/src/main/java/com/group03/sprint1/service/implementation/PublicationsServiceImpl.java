@@ -3,7 +3,9 @@ package com.group03.sprint1.service.implementation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.PublicationDTO;
-import com.group03.sprint1.dto.SellerDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
+import com.group03.sprint1.dto.response.PublicationPromoCountResponseDTO;
+import com.group03.sprint1.dto.response.PublicationResponseDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
@@ -96,7 +98,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
     }
 
     @Override
-    public SellerDTO createPublication(PublicationDTO publicationDTO) {
+    public MessageResponseDTO createPublication(PublicationDTO publicationDTO) {
 
         if(usersRepository.findSellerById(publicationDTO.getUser_id()) == null) {
             throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUser_id());
@@ -108,7 +110,42 @@ public class PublicationsServiceImpl implements IPublicationsService {
             throw new BadRequestException("Request cannot be null");
         }
 
-        Seller seller = usersRepository.createPublication(publication);
-        return objectMapper.convertValue(seller, SellerDTO.class);
+        usersRepository.createPublication(publication);
+        return new MessageResponseDTO("Post created successfully.");
+    }
+
+    @Override
+    public MessageResponseDTO createPublicationWithPromotion(PublicationDTO publicationDTO) {
+        if(publicationDTO.getHas_promo()) {
+            Publication publication = objectMapper.convertValue(publicationDTO, Publication.class);
+            usersRepository.createPublication(publication);
+            return new MessageResponseDTO("Post with promo created successfully.");
+        }else{
+        throw new BadRequestException("Not promo in the specified publication.");
+        }
+    }
+
+    @Override
+    public PublicationPromoCountResponseDTO getPublicationPromoCount(Integer userId) {
+        Seller seller = usersRepository.findSellerById(userId);
+        Integer countPromosPublication = Math.toIntExact(seller.getPublications()
+                .stream().filter(p -> p.getHasPromo() != null).count());
+
+        return new PublicationPromoCountResponseDTO(seller.getUserId(),
+                seller.getUserName(), countPromosPublication);
+    }
+
+    @Override
+    public PublicationResponseDTO getPublicationsPromo(Integer userId) {
+        Seller seller = usersRepository.findSellerById(userId);
+        List<PublicationDTO> listPublications = seller.getPublications().stream()
+                .filter(p -> p.getHasPromo() != null)
+                .map(p -> objectMapper.convertValue(p, PublicationDTO.class)).toList();
+
+        if(listPublications.isEmpty()) {
+            throw new NotFoundException("There are no publications with the specified user.");
+        }
+
+        return new PublicationResponseDTO(seller.getUserId(), seller.getUserName(), listPublications);
     }
 }

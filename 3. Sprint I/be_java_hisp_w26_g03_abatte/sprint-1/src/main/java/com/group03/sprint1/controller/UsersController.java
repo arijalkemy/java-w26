@@ -2,6 +2,7 @@ package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.SellerFollowersDTO;
 import com.group03.sprint1.dto.response.BuyerResponseDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.SellerResponseDTO;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.UsersServiceImpl;
@@ -21,10 +22,9 @@ public class UsersController {
     }
 
     @PostMapping("/{userId}/follow/{userIdToFollow}")
-    public ResponseEntity<?> followUser(@PathVariable Integer userId,
-                                        @PathVariable Integer userIdToFollow) {
-        usersService.followUser(userId, userIdToFollow);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<MessageResponseDTO> followUser(@PathVariable Integer userId,
+                                                         @PathVariable Integer userIdToFollow) {
+        return ResponseEntity.ok().body(usersService.followUser(userId, userIdToFollow));
     }
 
     @GetMapping("/{userId}/followers/count")
@@ -47,9 +47,8 @@ public class UsersController {
     }
 
     @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
-    public ResponseEntity<?> unfollowUser(@PathVariable Integer userId,
+    public ResponseEntity<MessageResponseDTO> unfollowUser(@PathVariable Integer userId,
                                           @PathVariable Integer userIdToUnfollow) {
-        usersService.unfollowUser(userId, userIdToUnfollow);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(usersService.unfollowUser(userId, userIdToUnfollow));
     }
 }

@@ -1,21 +1,19 @@
-package com.group03.sprint1.dto;
+package com.group03.sprint1.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.List;
-
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class SellerDTO implements Serializable {
+@NoArgsConstructor
+public class PublicationPromoCountResponseDTO {
+
     @JsonProperty("user_id")
     private Integer userId;
     @JsonProperty("user_name")
     private String userName;
-    private List<BuyerDTO> followers;
-    private List<PublicationDTO> publications;
+    @JsonProperty("promo_products_count")
+    private Integer promoProductsCount;
 }

@@ -1,13 +1,13 @@
 package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
-import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
-import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
+import com.group03.sprint1.dto.response.*;
 import com.group03.sprint1.service.IPublicationsService;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.PublicationsServiceImpl;
 import com.group03.sprint1.service.implementation.UsersServiceImpl;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,15 +29,8 @@ public class PublicationsController {
     }
 
     @PostMapping("/post")
-    public ResponseEntity<String> createPublication(@RequestBody PublicationDTO publication) {
-        productsService.createPublication(publication);
-        return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
-    }
-
-    @PostMapping("/promo-post")
-    public ResponseEntity<String> createPublicationWithPromo(@RequestBody PublicationDTO publication) {
-        productsService.createPublication(publication);
-        return new ResponseEntity<>("Post with Promo created successfully", HttpStatus.CREATED);
+    public ResponseEntity<MessageResponseDTO> createPublication(@RequestBody PublicationDTO publication) {
+        return new ResponseEntity<>(productsService.createPublication(publication), HttpStatus.CREATED);
     }
 
     @GetMapping("/followed/{userId}/list")
@@ -52,5 +45,20 @@ public class PublicationsController {
         responseTwoWeeksPublicationsDTO.setUserId(userId);
 
         return new ResponseEntity<>(responseTwoWeeksPublicationsDTO, HttpStatus.OK);
+    }
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<MessageResponseDTO> createPublicationWithPromo(@RequestBody PublicationDTO publication) {
+        return new ResponseEntity<>(productsService.createPublicationWithPromotion(publication), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<PublicationPromoCountResponseDTO> getPromoCountPublications(@RequestParam Integer user_id) {
+        return new ResponseEntity<>(productsService.getPublicationPromoCount(user_id), HttpStatus.OK);
+    }
+
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<PublicationResponseDTO> getPromoListPublications(@RequestParam Integer user_id) {
+        return new ResponseEntity<>(productsService.getPublicationsPromo(user_id), HttpStatus.OK);
     }
 }

@@ -1,5 +1,6 @@
 package com.group03.sprint1.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,10 @@ public class PublicationDTO implements Serializable {
     private ProductDTO product;
     private Integer category;
     private Double price;
+    @JsonProperty("has_promo")
+    @JsonIgnore(value = false)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean has_promo;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private double discount;
+    private Double discount;
 }

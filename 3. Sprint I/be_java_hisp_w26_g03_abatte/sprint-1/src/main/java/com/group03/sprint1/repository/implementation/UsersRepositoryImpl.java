@@ -92,13 +92,12 @@ public class UsersRepositoryImpl implements IUsersRepository {
     }
 
     @Override
-    public Seller createPublication(Publication publication) {
+    public void createPublication(Publication publication) {
         publication.setPostId(counter++);
         Seller seller = findSellerById(publication.getUserId());
         List<Publication> publications = seller.getPublications();
         publications.add(publication);
         seller.setPublications(publications);
-        return seller;
     }
 
     public List<Buyer> showBuyers(){
