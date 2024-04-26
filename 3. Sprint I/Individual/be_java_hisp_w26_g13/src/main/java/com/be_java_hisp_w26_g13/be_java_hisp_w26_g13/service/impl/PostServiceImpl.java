@@ -1,9 +1,6 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.impl;
 
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ExceptionDto;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ProductDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PromoPostDTO;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.*;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Post;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.User;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.BadRequestException;
@@ -126,6 +123,18 @@ public class PostServiceImpl implements IPostService {
         List<PromoPostDTO> postDtoList = new ArrayList<>();
         posts.forEach(p -> postDtoList.add(mapper.convertValue(p, PromoPostDTO.class)));
         return postDtoList;
+    }
+
+    @Override
+    public UserPromoPostCountDTO retrieveUserPromoPostCount(Integer userId) {
+        User user = userRepository.findById(userId);
+        if (user == null) {
+            throw new BadRequestException("User with id " + userId + " does not exist.");
+        }
+        List<Post> userPosts = postRepository.getPostBy(userId);
+        List<Post> userPromoPosts = userPosts.stream().filter(Post::isHasPromo).toList();
+
+        return new UserPromoPostCountDTO(userId, user.getUserName(), userPromoPosts.size());
     }
 
     private Boolean isBadRequestPostDto(PostDTO postDto){

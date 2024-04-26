@@ -40,4 +40,10 @@ public class ProductController {
     public ResponseEntity<?> createPromoPost(@RequestBody PromoPostDTO promoPostDto) {
         return ResponseEntity.status(HttpStatus.OK).body(postService.createWithPromotion(promoPostDto));
     }
+
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getUserPromoPostCount(@RequestParam Integer user_id) {
+        return ResponseEntity.status(HttpStatus.OK).body(postService.retrieveUserPromoPostCount(user_id));
+
+    }
 }
