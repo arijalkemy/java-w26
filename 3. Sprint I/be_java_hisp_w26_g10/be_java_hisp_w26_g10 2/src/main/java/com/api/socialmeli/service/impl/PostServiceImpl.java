@@ -8,6 +8,7 @@ import com.api.socialmeli.entity.Seller;
 import com.api.socialmeli.exception.BadRequestException;
 import com.api.socialmeli.exception.NotFoundException;
 import com.api.socialmeli.repository.IPostRepository;
+import com.api.socialmeli.repository.ISellerRepository;
 import com.api.socialmeli.service.IBuyerService;
 import com.api.socialmeli.service.IPostService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,6 +29,8 @@ public class PostServiceImpl implements IPostService {
 
     @Autowired
     private IPostRepository postRepository;
+    @Autowired
+    private ISellerRepository sellerRepository;
 
     // MCaldera - Declaracion de array para almacenamiento de datos
     private final List<Post> posts = new ArrayList<>();
@@ -35,6 +38,15 @@ public class PostServiceImpl implements IPostService {
 
     @Override
     public PostDto publishPost(PostDto postDto) {
+        Integer userId = postDto.getUser_id();
+
+        boolean found = sellerRepository.getAll().stream().anyMatch(seller -> seller.getUser_id() == userId);
+
+
+        if (!found) {
+            throw new BadRequestException("No hay vendedor con el id: " + userId);
+        }
+
         // generacion de consecutivo 'post_id'
         generatePostId();
         // seteo de consecutivo generado
@@ -42,17 +54,18 @@ public class PostServiceImpl implements IPostService {
         // conversion de dto a objeto
         Post post = convertToPost(postDto);
         // se almacena el objeto en el array
-        posts.add(post);
+        postRepository.savePost(post);
+        //posts.add(post);
         // se retorna el dto generado para la respuesta
         return postDto;
     }
 
     // MCaldera - funcion de generacion de consecutivo de 'post_id'
-    private int generatePostId(){
-        if (posts.isEmpty()){
+    private int generatePostId() {
+        if (posts.isEmpty()) {
             postId = this.postRepository.searchPostId();
-        }else {
-            postId = (posts.stream().mapToInt(Post::getPost_id).max().orElse(0) +1);
+        } else {
+            postId = (posts.stream().mapToInt(Post::getPost_id).max().orElse(0) + 1);
         }
         return postId;
     }
@@ -97,7 +110,7 @@ public class PostServiceImpl implements IPostService {
         con ayuda de la funcion finIdInPost y tambien se filtra con con las fecha minDate y maxDate para obtener
         las de los ultimos quince dias
          */
-        List<Post> postsFollowed= postRepository.getAll().stream().
+        List<Post> postsFollowed = postRepository.getAll().stream().
                 filter(post -> findIdInPost(post.getUser_id(), ids) && post.getDate().isAfter(minDate)
                         && post.getDate().isBefore(maxDate)).toList();
 
@@ -108,7 +121,7 @@ public class PostServiceImpl implements IPostService {
         }
 
         //Se llama a la funcion para ordenar las publicaciones segun los el parametro de order
-        postsFollowed = orderPostByDate(postsFollowed,order);
+        postsFollowed = orderPostByDate(postsFollowed, order);
 
         //Se crea el mapper para transformar las publicaciones a dto
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
@@ -120,8 +133,8 @@ public class PostServiceImpl implements IPostService {
         return postByFollowedDto;
     }
 
-     /*Determina si el post es del vendedor que esta siguiendo, con la lista de ids de los vendedores que sigue
-       y el id del creador de la publicacion*/
+    /*Determina si el post es del vendedor que esta siguiendo, con la lista de ids de los vendedores que sigue
+      y el id del creador de la publicacion*/
     private boolean findIdInPost(Integer idUser, List<Integer> ids) {
         return ids.stream().anyMatch(id -> id.equals(idUser));
     }

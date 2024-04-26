@@ -5,7 +5,6 @@ import com.api.socialmeli.entity.Post;
 import java.util.List;
 
 public interface IPostRepository {
-    Post save();
     Post getById(int id);
 
     List<Post> getAll();
@@ -13,4 +12,6 @@ public interface IPostRepository {
     void delete(int id);
 
     int searchPostId();
+
+    void savePost(Post post);
 }

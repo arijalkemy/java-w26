@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostDto {
-    private int user_id;
+    private Integer user_id;
     private int post_id;
     private LocalDate date;
     private ProductDto product;

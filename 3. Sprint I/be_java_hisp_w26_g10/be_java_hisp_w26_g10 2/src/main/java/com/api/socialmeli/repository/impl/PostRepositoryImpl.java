@@ -21,11 +21,6 @@ public class PostRepositoryImpl implements IPostRepository {
     }
 
     @Override
-    public Post save() {
-        return null;
-    }
-
-    @Override
     public Post getById(int id) {
         return null;
     }
@@ -69,5 +64,10 @@ public class PostRepositoryImpl implements IPostRepository {
     public int searchPostId(){
         int max = this.post.stream().mapToInt(Post::getPost_id).max().orElse(0);
         return max + 1;
+    }
+
+    @Override
+    public void savePost(Post post){
+        this.post.add(post);
     }
 }
