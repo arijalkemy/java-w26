@@ -11,6 +11,7 @@ import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
 @Data
 public class PostWithPromoDto {
     private Long user_id;
+    private String user_name;
     private Long post_id;
     private String date;
     ProductDTO product;
