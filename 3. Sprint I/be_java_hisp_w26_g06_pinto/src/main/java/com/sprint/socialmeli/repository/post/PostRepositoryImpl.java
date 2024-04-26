@@ -1,6 +1,7 @@
 package com.sprint.socialmeli.repository.post;
 
 import com.sprint.socialmeli.entity.Post;
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ import java.util.Map;
 @Repository
 public class PostRepositoryImpl implements IPostRepository{
     Map<Integer, List<Post>> postMap = new HashMap<>();
+
+    @Getter // Individuals
+    Map<Integer, Double> promoPostMap = new HashMap<>();
 
     /**
      *
@@ -34,5 +38,11 @@ public class PostRepositoryImpl implements IPostRepository{
     @Override
     public List<Post> findBySellerId(Integer sellerId) {
         return postMap.getOrDefault(sellerId, new ArrayList<>());
+    }
+
+    // Individual
+    @Override
+    public void saveDiscountByPostId(Integer postId, Double discount) {
+        this.promoPostMap.put(postId, discount);
     }
 }

@@ -3,6 +3,7 @@ package com.sprint.socialmeli.mappers;
 import com.sprint.socialmeli.dto.post.PostDTO;
 import com.sprint.socialmeli.dto.post.PostResponseDTO;
 import com.sprint.socialmeli.dto.post.ProductDTO;
+import com.sprint.socialmeli.dto.post.PromoPostResponseDTO;
 import com.sprint.socialmeli.entity.Post;
 import com.sprint.socialmeli.entity.Product;
 import com.sprint.socialmeli.exception.BadRequestException;
@@ -13,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 
 public class PostMapper {
 
-    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     public static Post mapToEntity(PostDTO postDTO ){
         try {
@@ -40,6 +41,20 @@ public class PostMapper {
         );
     }
 
+    public static PromoPostResponseDTO mapToPromoPostResponseDto(
+            Integer sellerId, Post post, Double discount){
+        return new PromoPostResponseDTO(
+                sellerId,
+                post.getId(),
+                formatter.format(post.getPostDate()),
+                PostMapper.mapProductToDto(post.getProduct()),
+                post.getCategory(),
+                post.getPrice(),
+                true,
+                discount
+        );
+    }
+
     private static Product mapProductToEntity(ProductDTO productDTO){
         return new Product(
                 productDTO.getProduct_id(),
@@ -51,7 +66,7 @@ public class PostMapper {
         );
     }
 
-    private static ProductDTO mapProductToDto(Product product){
+    public static ProductDTO mapProductToDto(Product product){
         return new ProductDTO(
                 product.getId(),
                 product.getName(),
@@ -61,6 +76,8 @@ public class PostMapper {
                 product.getNotes()
         );
     }
+
+
 
 
 
