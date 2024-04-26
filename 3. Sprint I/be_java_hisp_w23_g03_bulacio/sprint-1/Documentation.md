@@ -36,7 +36,7 @@ public class PublicationDTO implements Serializable {
     
     @JsonProperty("total_price")
     public double calculateTotalPrice() {
-        if (has_promo) {
+        if (hasPromo) {
             return price * (1 - discount);
         } else {
             return price;
