@@ -95,13 +95,21 @@ public class PostServiceImpl implements IPostService {
             throw new NotFoundException("User with id " + post.getUserId() + " does not exist.");
         }
         if (productRepository.findById(post.getProduct().getProductId()) == null) {
-            throw new NotFoundException("User with id " + post.getProduct().getProductId() + " does not exist.");
+            throw new NotFoundException("Product with id " + post.getProduct().getProductId() + " does not exist.");
         }
         if (post.getDate().isBefore(LocalDate.now())) {
             throw  new IncorrectDateException("The provided date in the post is before the current date.");
         }
     }
 
+    /**
+     * Creates a promotion post from the promoPostDTO received. Performs validations regarding the
+     * product in the post, which must exist and be valid, and other attributes. The user in the promoPostDTO
+     * must exist, and the promo post must have a promotion with a valid discount amount.
+     * @param promoPostDTO the promotion post to create.
+     * @return a DTO containing a message stating the promo post creation, or throws an exception if
+     * there was a validation issue.
+     */
     @Override
     public ExceptionDto createWithPromotion(PromoPostDTO promoPostDTO) {
         validatePromotionPost(promoPostDTO);
@@ -117,6 +125,11 @@ public class PostServiceImpl implements IPostService {
         return new ExceptionDto("The post with promotion has been successfully created");
     }
 
+    /**
+     * Retrieves all the posts from the postRepository and returns them.
+     * @return a list of PromoPostDTO, containing every single post in the database
+     * @see PromoPostDTO
+     */
     @Override
     public List<PromoPostDTO> getAll() {
         List<Post> posts = postRepository.getAll();
@@ -126,6 +139,11 @@ public class PostServiceImpl implements IPostService {
         return postDtoList;
     }
 
+    /**
+     * Returns the amount of promotion posts the user with the received userId has.
+     * @param userId the id of the user to return the promo post count from
+     * @return a DTO containing the user id, username, and the amount of promotion posts the user has
+     */
     @Override
     public UserPromoPostCountDTO retrieveUserPromoPostCount(Integer userId) {
         User user = userRepository.findById(userId);
@@ -142,6 +160,13 @@ public class PostServiceImpl implements IPostService {
         return userPosts.stream().filter(Post::isHasPromo).toList();
     }
 
+    /**
+     * Returns the list of promotion posts that the user with the received userId has published.
+     * If the user has no promotion posts, returns an empty list.
+     * @param userId id of the user to return the promo posts from
+     * @return a DTO containing the user id, username and the user's promo post list
+     * @see UserPromoPostsDTO
+     */
     @Override
     public UserPromoPostsDTO retrieveUserPromoPostList(Integer userId) {
         User user = userRepository.findById(userId);
@@ -153,6 +178,12 @@ public class PostServiceImpl implements IPostService {
         return new UserPromoPostsDTO(userId, user.getUserName(), promoPostsDTO);
     }
 
+    /**
+     * Returns a list of the posts with the maximum discount amount. If there are
+     * no promotion products, it returns every available post (discount = 0.0).
+     * @return a list of the posts that have the maximum discount
+     * @see PromoPostDTO
+     */
     @Override
     public List<PromoPostDTO> retrievePostWithMaxDiscount() {
         List<Post> posts = postRepository.getMaxDiscountPosts();
