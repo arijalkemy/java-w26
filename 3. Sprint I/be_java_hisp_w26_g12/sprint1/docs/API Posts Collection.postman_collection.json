@@ -1,0 +1,798 @@
+{
+	"info": {
+		"_postman_id": "b773189e-7e27-43d1-9f23-cf0b0c60b79e",
+		"name": "API Posts Collection",
+		"description": "## Overview\n\nThis Postman collection is designed to facilitate the testing and development of API endpoints. It leverages an environment variable to easily switch the host URL and includes a variety of example tests for each endpoint to ensure functionality.\n\n## Setting Up the Environment\n\nBefore you start using the collection, you need to set up an environment in Postman to use a variable for the host URL. This allows you to easily switch between different environments (e.g., development, staging, production) without modifying the requests directly.\n\n## Examples\n\nFor each endpoint in the collection, there are pre-written examples that demonstrate how to verify the response. These tests are tailored to each endpoint.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34292067",
+		"_collection_link": "https://meli-bots-sprint1.postman.co/workspace/MELI-Bots~51a437aa-fa42-490b-9c31-a84165f7ad1a/collection/34292067-b773189e-7e27-43d1-9f23-cf0b0c60b79e?action=share&source=collection_link&creator=34292067"
+	},
+	"item": [
+		{
+			"name": "0001 - Follow a User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/users/{userID}/follow/{userIdToFollow}",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"users",
+						"{userID}",
+						"follow",
+						"{userIdToFollow}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0001 - Follow a User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/follow/10",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"follow",
+								"10"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0001 - Follow a User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/follow/11",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"follow",
+								"11"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0001 - Follow a User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/follow/12",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"follow",
+								"12"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0002 - Get Followers Count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/users/{userId}/followers/count",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"users",
+						"{userId}",
+						"followers",
+						"count"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0002 - Get Followers Count",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followers/count",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followers",
+								"count"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0003 - Get Followers List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/users/{userId}/followers/list",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"users",
+						"{userId}",
+						"followers",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0003 - Get Followers List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followers/list",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followers",
+								"list"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0008 - Get Followers List By Order Asc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followers/list?order=name_asc",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0008 - Get Followers List By Order Desc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followers/list?order=name_desc",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0004 - Get FolloweD List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/users/{userId}/followed/list",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"users",
+						"{userId}",
+						"followed",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0004 - Get FolloweD List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followed/list",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followed",
+								"list"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0008 - Get FolloweD List By Order Asc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followed/list?order=name_asc",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0008 - Get FolloweD List By Order Desc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/followed/list?order=name_desc",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0005 - Create New Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 50,\n    \"user_id\": 11,\n    \"date\": \"14-04-2024\",\n    \"category\": 1,\n    \"price\": 10.99,\n    \"product\": {\n      \"id\": 1,\n      \"product_name\": \"Product A\",\n      \"type\": \"Type X\",\n      \"brand\": \"Brand Alpha\",\n      \"color\": \"Red\",\n      \"notes\": \"This is product A.\"\n    }\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/products/post",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"products",
+						"post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0005 - Create New Post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 190,\n    \"user_id\": 10,\n    \"date\": \"15-04-2024\",\n    \"category\": 1,\n    \"price\": 25,\n    \"product\": {\n      \"id\": 15,\n      \"product_name\": \"Product WQ\",\n      \"type\": \"Type X\",\n      \"brand\": \"Brand Alpha\",\n      \"color\": \"Red\",\n      \"notes\": \"This is product WQ.\"\n    }\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Host}}/products/post",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"post"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0005 - Create New Post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 110,\n    \"user_id\": 11,\n    \"date\": \"16-03-2024\",\n    \"category\": 1,\n    \"price\": 37.11,\n    \"product\": {\n      \"id\": 20,\n      \"product_name\": \"Product ZZ\",\n      \"type\": \"Type X\",\n      \"brand\": \"Brand Alpha\",\n      \"color\": \"Red\",\n      \"notes\": \"This is product ZZ.\"\n    }\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Host}}/products/post",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"post"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0006 - Get Posts from Followed Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/products/followed/{userId}/list",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"products",
+						"followed",
+						"{userId}",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0006 - Get Posts from Followed Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/products/followed/3/list",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"followed",
+								"3",
+								"list"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0009 - Get Posts from Followed Users By Order Asc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/products/followed/3/list?order=date_asc",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"followed",
+								"3",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_asc"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "0009 - Get Posts from Followed Users By Order Desc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/products/followed/3/list?order=date_desc",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"followed",
+								"3",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0007 - Unfollow a User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/users/{userID}/follow/{userIdToFollow}",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"users",
+						"{userID}",
+						"follow",
+						"{userIdToFollow}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0007 - Unfollow a User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/users/3/unfollow/11",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"users",
+								"3",
+								"unfollow",
+								"11"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0010 - Create New Promo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 101,\n    \"user_id\": 11,\n    \"date\": \"17-04-2024\",\n    \"category\": 1,\n    \"price\": 40.55,\n    \"product\": {\n      \"id\": 22,\n      \"product_name\": \"Product TT\",\n      \"type\": \"Type X\",\n      \"brand\": \"Brand Alpha\",\n      \"color\": \"Red\",\n      \"notes\": \"This is product TT.\"\n    },\n    \"has_promo\": true,\n    \"discount\": 0.15\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Host}}/products/promo-post",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"products",
+						"promo-post"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0010 - Create New Promo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 102,\n    \"user_id\": 11,\n    \"date\": \"19-04-2024\",\n    \"category\": 1,\n    \"price\": 24.99,\n    \"product\": {\n      \"id\": 25,\n      \"product_name\": \"Product aa\",\n      \"type\": \"Type X\",\n      \"brand\": \"Brand Alpha\",\n      \"color\": \"Red\",\n      \"notes\": \"This is product aa.\"\n    },\n    \"has_promo\": true,\n    \"discount\": 0.20\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Host}}/products/promo-post",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"promo-post"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0011 - Get Products Count in Promo By UserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/products/promo-post/count?user_id={userId}",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{userId}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "0011 - Get Products Count in Promo By UserId",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Host}}/products/promo-post/count?user_id=11",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "0012 - Get Products List in Promo By UserId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/products/promo-post/list?user_id={userId}",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"products",
+						"promo-post",
+						"list"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "{userId}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/users",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Host}}/products/posts",
+					"host": [
+						"{{Host}}"
+					],
+					"path": [
+						"products",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

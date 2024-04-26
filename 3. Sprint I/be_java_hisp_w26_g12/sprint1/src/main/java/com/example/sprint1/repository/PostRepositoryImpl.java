@@ -9,6 +9,7 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.Comparator;
@@ -89,12 +90,13 @@ public class PostRepositoryImpl implements IPostRepository {
      */
     @Override
     public List<Post> getResentPost(Integer userId) {
-
         LocalDate twoWeeksAgo = LocalDate.now().minusWeeks(2);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        return  listOfPosts.stream()
+        return listOfPosts.stream()
                 .filter(post -> post.getUser_id().equals(userId))
-                .filter(post -> LocalDate.parse(post.getDate()).isAfter(twoWeeksAgo))
+                .filter(post -> LocalDate.parse(post.getDate(), formatter).isAfter(twoWeeksAgo))
                 .collect(Collectors.toList());
     }
+
 }

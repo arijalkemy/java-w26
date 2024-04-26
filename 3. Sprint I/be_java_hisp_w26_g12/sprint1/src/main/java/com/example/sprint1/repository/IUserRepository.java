@@ -10,4 +10,7 @@ public interface IUserRepository {
     Optional<User> getUserById(int id);
 
     void updateUserFollowerDelete(User user, User userToFollow);
+
+    void addPost(Integer id, Integer postId);
+
 }
