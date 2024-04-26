@@ -27,4 +27,5 @@ public interface IUserService {
 
     FollowListDto getFollowedOrdered(Integer userId, String order);
 
+    void addPostToUser(Integer userId, Integer postId);
 }

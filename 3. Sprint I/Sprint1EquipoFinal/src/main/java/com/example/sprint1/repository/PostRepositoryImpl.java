@@ -1,6 +1,7 @@
 package com.example.sprint1.repository;
 
 import com.example.sprint1.model.Post;
+import com.example.sprint1.model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
