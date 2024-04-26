@@ -8,10 +8,10 @@ import java.io.Serializable;
 @Getter
 @AllArgsConstructor
 public class ProductDTO implements Serializable {
-    private final Integer product_id;
-    private final String product_name;
-    private final String type;
-    private final String brand;
-    private final String color;
-    private final String notes;
+    private Integer product_id;
+    private String product_name;
+    private String type;
+    private String brand;
+    private String color;
+    private String notes;
 }

@@ -1,7 +1,6 @@
 package com.sprint.socialmeli.controller;
 
-import com.sprint.socialmeli.dto.post.FollowedProductsResponseDTO;
-import com.sprint.socialmeli.dto.post.PostDTO;
+import com.sprint.socialmeli.dto.post.*;
 import com.sprint.socialmeli.service.post.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,6 +37,45 @@ public class PostsController {
     public ResponseEntity<FollowedProductsResponseDTO> getFollowedPosts(@PathVariable Integer userId,
                                                                         @RequestParam(required = false) String order){
         return new ResponseEntity<>(postService.getFollowedProductsList(userId, order), HttpStatus.OK);
+    }
+
+
+    // US00010. INDIVIDUAL Martinez Lucas
+
+    /***
+     *
+     * @param promoRequestDTO dto with the promo post data
+     * @return a dto with the id of the post promo created
+     */
+    @PostMapping("promo-post")
+    public ResponseEntity<PostPromoCreatedDto> createPromoPost(@RequestBody PostPromoRequestDTO promoRequestDTO){
+        Integer idCreated = postService.createPromoPost(promoRequestDTO);
+        return new ResponseEntity<>(new PostPromoCreatedDto(idCreated), HttpStatus.CREATED);
+    }
+
+    // US00011. INDIVIDUAL Martinez Lucas
+    /***
+     *
+     * @param user_id the seller id
+     * @return a Dto with the count of promo post which a seller has published
+     */
+    @GetMapping("promo-post/count")
+    public ResponseEntity<PostPromoCountResponseDTO> getPromoPostBySeller(@RequestParam int user_id){
+        PostPromoCountResponseDTO postPromoCount = postService.getPostPromoCount(user_id);
+        return new ResponseEntity<>(postPromoCount, HttpStatus.OK);
+    }
+
+    // US00012. INDIVIDUAL Martinez Lucas
+
+    /***
+     *
+     * @param user_id the seller id
+     * @return a Dto with the list of promo post which a seller has published
+     */
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<PostPromoListResponseDTO> getPromoPostListBySeller(@RequestParam int user_id){
+        PostPromoListResponseDTO postPromoList = postService.getPostPromoList(user_id);
+        return new ResponseEntity<>(postPromoList, HttpStatus.OK);
     }
 
 }

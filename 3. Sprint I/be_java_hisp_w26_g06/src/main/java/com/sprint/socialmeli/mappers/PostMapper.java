@@ -1,15 +1,15 @@
 package com.sprint.socialmeli.mappers;
 
-import com.sprint.socialmeli.dto.post.PostDTO;
-import com.sprint.socialmeli.dto.post.PostResponseDTO;
-import com.sprint.socialmeli.dto.post.ProductDTO;
+import com.sprint.socialmeli.dto.post.*;
 import com.sprint.socialmeli.entity.Post;
 import com.sprint.socialmeli.entity.Product;
+import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.exception.BadRequestException;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class PostMapper {
 
@@ -62,7 +62,46 @@ public class PostMapper {
         );
     }
 
+    // INDIVIDUAL
+    public static Post mapPromoPostRequestToPost(PostPromoRequestDTO postPromoRequestDTO){
 
+        Post post = new Post(
+                mapProductToEntity(postPromoRequestDTO.getProduct()),
+                LocalDate.parse(postPromoRequestDTO.getDate(), formatter),
+                postPromoRequestDTO.getCategory(),
+                postPromoRequestDTO.getPrice()
+        );
 
+        post.setHas_promo(true);
+        post.setDiscount(postPromoRequestDTO.getDiscount());
 
+        return post;
+    }
+
+    public static PostPromoDTO mapPostToPostPromoDto(Post post, int userId){
+        return new PostPromoDTO(
+                userId,
+                post.getId(),
+                post.getPostDate().format(formatter),
+                mapProductToDto(post.getProduct()),
+                post.getCategory(),
+                post.getPrice(),
+                post.isHas_promo(),
+                post.getDiscount()
+        );
+    }
+
+    public static PostPromoListResponseDTO createPostPromoListDto(Seller seller, List<PostPromoDTO> postPromosDto){
+        return new PostPromoListResponseDTO(
+                seller.getUser().getUserId(),
+                seller.getUser().getUserName(),
+                postPromosDto
+        );
+    }
+
+    public static PostPromoCountResponseDTO createPostPromoCountDto(Seller seller, int count){
+        return new PostPromoCountResponseDTO(
+               seller.getUser().getUserId(), seller.getUser().getUserName(), count
+        );
+    }
 }

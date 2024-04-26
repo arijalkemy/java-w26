@@ -107,7 +107,7 @@ public class PostServiceImpl implements IPostService {
 
     // US00010. INDIVIDUAL
     @Override
-    public void createPromoPost(PostPromoRequestDTO postPromo) {
+    public Integer createPromoPost(PostPromoRequestDTO postPromo) {
         Seller seller = findSellerOrThrowError(postPromo.getUser_id());
 
         Post post = new Post(
