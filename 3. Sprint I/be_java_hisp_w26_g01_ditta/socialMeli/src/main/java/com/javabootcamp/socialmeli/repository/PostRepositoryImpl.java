@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import com.javabootcamp.socialmeli.model.Post;
+import com.javabootcamp.socialmeli.model.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -43,5 +44,12 @@ public class PostRepositoryImpl implements PostRepository {
         return findByTwoWeeksAgo(sellersId).stream().sorted(Comparator.comparing(Post::getDate).reversed()).toList();
     }
 
+    @Override
+    public Long countPromoPostBySeller(User user) {
+        return postsList.stream()
+                .filter(p -> p.getUser().equals(user) && p.getHasPromo())
+                .mapToInt(p -> p.getId())
+                .count();
+    }
 
 }
