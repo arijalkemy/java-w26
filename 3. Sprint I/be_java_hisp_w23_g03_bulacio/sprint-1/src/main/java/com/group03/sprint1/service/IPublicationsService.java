@@ -10,5 +10,5 @@ public interface IPublicationsService {
     SellerPromotionCountResponseDTO countPublicationsInPromotionForSeller(Integer userId);
     List<PublicationDTO> findFollowedLastTwoWeeksPublications(Integer userId, String order);
 
-    PublicationListDTO getAllPublications(String productName, Double minTotal, Double maxTotal);
+    PublicationListDTO getAllPublications(String productName, Double minTotal, Double maxTotal, String order);
 }

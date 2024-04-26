@@ -2,6 +2,7 @@ package com.group03.sprint1.service.implementation;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.group03.sprint1.dto.Mapper;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.PublicationListDTO;
 import com.group03.sprint1.dto.response.SellerPromotionCountResponseDTO;
@@ -109,7 +110,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
     }
 
     @Override
-    public PublicationListDTO getAllPublications(String productName, Double minTotal, Double maxTotal) {
+    public PublicationListDTO getAllPublications(String productName, Double minTotal, Double maxTotal, String order) {
         List<Seller> sellers = usersRepository.showSellers();
         List<Publication> publications = new ArrayList<>();
 
@@ -117,28 +118,10 @@ public class PublicationsServiceImpl implements IPublicationsService {
             publications.addAll(seller.getPublications());
         }
 
-        if (Utils.isNotNull(productName)) {
-            publications = publications.stream().filter(p ->
-                    p.getProduct().getProductName().toLowerCase().contains(productName.toLowerCase()))
-                    .collect(Collectors.toList());
-        }
+        publications = Utils.searchProductByName(publications, productName);
+        publications = Utils.getPublicationsInRange(publications, minTotal, maxTotal);
+        publications = Utils.sortPublicationsByTotalPrice(publications, order);
 
-        if (Utils.isNotNull(minTotal)) {
-            publications = publications.stream().filter(p ->
-                p.calculateTotalPrice() > minTotal
-            ).collect(Collectors.toList());
-        }
-
-        if (Utils.isNotNull(maxTotal)) {
-            publications = publications.stream().filter(p ->
-                    p.calculateTotalPrice() < maxTotal
-            ).collect(Collectors.toList());
-        }
-
-        List<PublicationDTO> publicationDTOS = publications.stream().map(
-                p->objectMapper.convertValue(p, PublicationDTO.class)
-        ).collect(Collectors.toList());
-
-        return new PublicationListDTO(publicationDTOS);
+        return new PublicationListDTO(Mapper.mapPublicationListToDTO(publications));
     }
 }

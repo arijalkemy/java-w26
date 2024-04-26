@@ -63,9 +63,14 @@ public class PublicationsController {
     public ResponseEntity<PublicationListDTO> getAllPublications(
             @RequestParam(required = false) String productName,
             @RequestParam(required = false) Double minTotal,
-            @RequestParam(required = false) Double maxTotal
+            @RequestParam(required = false) Double maxTotal,
+            @RequestParam(required = false) String order
     ) {
-        PublicationListDTO publicationListDTO = publicationsService.getAllPublications(productName, minTotal, maxTotal);
+        PublicationListDTO publicationListDTO = publicationsService.getAllPublications(
+                productName,
+                minTotal,
+                maxTotal,
+                order);
         return new ResponseEntity<>(publicationListDTO, HttpStatus.OK);
     }
 }

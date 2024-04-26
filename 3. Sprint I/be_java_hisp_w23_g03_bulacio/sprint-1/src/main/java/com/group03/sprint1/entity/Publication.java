@@ -28,6 +28,10 @@ public class Publication {
     private double discount;
 
     public Double calculateTotalPrice() {
-        return price * (1 - discount);
+        if (hasPromo) {
+            return price * (1 - discount);
+        } else {
+            return price;
+        }
     }
 }
