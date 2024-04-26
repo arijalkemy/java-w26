@@ -11,9 +11,9 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
 - [Entidades](#entidades)
     - [Publication](#1-publication)
 - [Endpoints](#endpoints)
-  - [Cear una publicación promo](#1-dar-de-alta-una-publicación-de-promo)
-  - [Obtener cantidad de publicaciones promo de un vendedor](#2-obtener-el-resultado-de-la-cantidad-de-publicaciones-con-promo-de-un-vendedor)
-  - [Listado de publicaciones con promo de un vendedor](#3-listado-de-publicaciones-con-promo-de-un-vendedor)
+  - [Cear una publicación promo](#10-dar-de-alta-una-publicación-de-promo)
+  - [Obtener cantidad de publicaciones promo de un vendedor](#11-obtener-el-resultado-de-la-cantidad-de-publicaciones-con-promo-de-un-vendedor)
+  - [Listado de publicaciones con promo de un vendedor](#12-listado-de-publicaciones-con-promo-de-un-vendedor)
 
 ## Entidades
 
@@ -38,7 +38,7 @@ Es la publicación de un producto que realiza un vendedor.
 
 ## Endpoints
 
-### 1. Dar de alta una publicación de promo
+### 10. Dar de alta una publicación de promo
 
 ```http
 POST /products/promo-post
@@ -75,7 +75,7 @@ Ejemplo:
 }
 ```
 
-### 2. Obtener el resultado de la cantidad de publicaciones con promo de un vendedor
+### 11. Obtener el resultado de la cantidad de publicaciones con promo de un vendedor
 
 ```http
 GET /products/promo-post/count
@@ -95,7 +95,7 @@ GET /products/promo-post/count
 |-------|------|----------------------------------------------------------------|
 | userId | Integer | Número que identifica a un usario de tipo `Seller` |
 
-### 3. Listado de publicaciones con promo de un vendedor
+### 12. Listado de publicaciones con promo de un vendedor
 
 ```http
 GET /products/promo-post/list
@@ -132,3 +132,103 @@ GET /products/promo-post/list
 | Parámetro | Tipo | Descripción |
 |-------|------|----------------------------------------------------------------|
 | userId | Integer | Número que identifica a un usario de tipo `Seller` |
+
+### 13. Obtener el resultado de la cantidad de publicaciones con promo de todos los vendedores
+
+```http
+GET /products/promo-post/count/list
+```
+#### Response
+```http
+[
+    {
+        "user_id": 1,
+        "user_name": "nombre_vendedor_1",
+        "promo_products_count": 1
+    },
+    {
+        "user_id": 2,
+        "user_name": "nombre_vendedor_1",
+        "promo_products_count": 2
+    }
+]
+```
+### 14. Listado de publicaciones con promo mayor al descuento ingresado
+
+```http
+GET /products/promo-post/list/{discount}
+```
+#### Response
+```http
+[
+    {
+        "user_id": 1,
+        "user_name": "nombre_vendedor_1",
+        "posts": [
+            {
+                "date": "2021-04-29",
+                "product": {
+                    "type": "Gamer",
+                    "brand": "Racer",
+                    "color": "Red & Black",
+                    "notes": "Special Edition",
+                    "product_id": 4,
+                    "product_name": "Silla Gamer"
+                },
+                "category": 100,
+                "price": 1500.5,
+                "discount": 0.26,
+                "user_id": 1,
+                "post_id": 2,
+                "has_promo": true
+            }
+        ]
+    },
+    {
+        "user_id": 2,
+        "user_name": "nombre_vendedor_1",
+        "posts": [
+            {
+                "date": "2021-04-29",
+                "product": {
+                    "type": "Gamer",
+                    "brand": "Racer",
+                    "color": "Red & Black",
+                    "notes": "Special Edition",
+                    "product_id": 4,
+                    "product_name": "Silla Gamer"
+                },
+                "category": 100,
+                "price": 1500.5,
+                "discount": 0.26,
+                "user_id": 2,
+                "post_id": 0,
+                "has_promo": true
+            },
+            {
+                "date": "2021-04-29",
+                "product": {
+                    "type": "Gamer",
+                    "brand": "Racer",
+                    "color": "Red & Black",
+                    "notes": "Special Edition",
+                    "product_id": 4,
+                    "product_name": "Silla Gamer"
+                },
+                "category": 100,
+                "price": 1500.5,
+                "discount": 0.26,
+                "user_id": 2,
+                "post_id": 1,
+                "has_promo": true
+            }
+        ]
+    }
+]
+```
+
+#### Filtros/Parámetros:
+
+| Parámetro | Tipo   | Descripción                                                                        |
+|-----------|--------|------------------------------------------------------------------------------------|
+| discount  | Double | Número de descuento para filtrar las publicaciones, deben ser mayor o igual a este |
