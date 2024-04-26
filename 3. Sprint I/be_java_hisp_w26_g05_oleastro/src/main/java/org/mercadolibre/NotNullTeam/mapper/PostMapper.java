@@ -3,9 +3,7 @@ package org.mercadolibre.NotNullTeam.mapper;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerPromoPostCountDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.*;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.model.Product;
 import org.mercadolibre.NotNullTeam.model.Seller;
@@ -85,6 +83,27 @@ public class PostMapper {
                         .filter(Post::getHasPromo)
                         .toList()
                         .size()
+        );
+    }
+
+    public static PostFinalPriceDTO postFinalPriceDTO(Post post) {
+        return new PostFinalPriceDTO(
+                post.getSeller().getUser().getId(),
+                post.getId(),
+                post.getPrice(),
+                post.getHasPromo(),
+                post.getDiscount(),
+                post.getFinalPrice()
+        );
+    }
+
+    public static SellerPostFinalPriceListDTO sellerPostFinalPriceListDTO(
+            Seller seller, List<Post> posts
+    ) {
+        return new SellerPostFinalPriceListDTO(
+                seller.getUser().getId(),
+                seller.getUsername(),
+                posts.stream().map(PostMapper::postFinalPriceDTO).toList()
         );
     }
 }

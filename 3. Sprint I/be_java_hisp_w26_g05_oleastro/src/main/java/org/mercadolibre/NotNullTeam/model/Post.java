@@ -39,4 +39,12 @@ public class Post {
         this.discount = discount;
         currentId++;
     }
+
+    public Double getFinalPrice() {
+        if (hasPromo) {
+            return price - (price * discount);
+        } else {
+            return price;
+        }
+    }
 }

@@ -51,4 +51,15 @@ public class PostController {
                 iPostService.getPromoPostCount(userId)
         );
     }
+
+    @GetMapping("/post/list")
+    public ResponseEntity<?> getPostFinalPriceListForUser(
+            @RequestParam(value = "user_id") Long userId,
+            @RequestParam(value = "order", required = false, defaultValue = "price_asc") String order
+    ) {
+        return new ResponseEntity<>(
+                iPostService.getSellerPostFinalPriceList(userId, order),
+                HttpStatus.OK
+        );
+    }
 }

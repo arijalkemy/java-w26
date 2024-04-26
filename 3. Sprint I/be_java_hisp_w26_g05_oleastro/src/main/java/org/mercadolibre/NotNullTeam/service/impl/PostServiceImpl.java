@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.SellerPostFinalPriceListDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.SellerPromoPostCountDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
 import org.mercadolibre.NotNullTeam.mapper.PostMapper;
@@ -16,6 +17,7 @@ import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
 import org.mercadolibre.NotNullTeam.service.IPostService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -77,5 +79,25 @@ public class PostServiceImpl implements IPostService {
         Seller seller = findSellerById(sellerId);
         List<Post> promoPostList = iPostRepository.getPostsBySeller(sellerId);
         return PostMapper.sellerPromoPostCountDTO(seller, promoPostList);
+    }
+
+    @Override
+    public SellerPostFinalPriceListDTO getSellerPostFinalPriceList(Long sellerId, String order) {
+        Seller seller = findSellerById(sellerId);
+
+        List<Post> postList = new ArrayList<>(
+                iPostRepository.getPostsBySeller(sellerId)
+        );
+
+        if (order.equals("price_desc")) {
+            postList.sort(Comparator.comparing(Post::getFinalPrice).reversed());
+        } else {
+            postList.sort(Comparator.comparing(Post::getFinalPrice));
+        }
+
+        return PostMapper.sellerPostFinalPriceListDTO(
+                seller,
+                postList
+        );
     }
 }
