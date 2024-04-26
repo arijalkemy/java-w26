@@ -1,5 +1,6 @@
 package com.sprint.socialmeli.controller;
 
+import com.sprint.socialmeli.dto.post.NewPromoDTO;
 import com.sprint.socialmeli.dto.post.PromoCountResponseDTO;
 import com.sprint.socialmeli.dto.post.PromoPostDTO;
 import com.sprint.socialmeli.service.post.IPostService;
@@ -15,12 +16,11 @@ public class PromoController {
     @Autowired
     IPostService postService;
 
-
     // US0010
     @PostMapping()
-    public ResponseEntity<?> createPostWithPromo(@RequestBody PromoPostDTO promo) {
-        this.postService.createPostWithPromo(promo);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<NewPromoDTO> createPostWithPromo(@RequestBody PromoPostDTO promo) {
+        NewPromoDTO promoDto = this.postService.createPostWithPromo(promo);
+        return new ResponseEntity<>(promoDto, HttpStatus.OK);
     }
 
     // US0011
@@ -36,6 +36,4 @@ public class PromoController {
 
         return new ResponseEntity<>(postService.getPromosListById(userId), HttpStatus.OK);
     }
-
-
 }

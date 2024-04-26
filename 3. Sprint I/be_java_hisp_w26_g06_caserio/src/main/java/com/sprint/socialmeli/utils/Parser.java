@@ -1,14 +1,15 @@
 package com.sprint.socialmeli.utils;
 
-import com.sprint.socialmeli.dto.post.PostDTO;
-import com.sprint.socialmeli.dto.post.PromoPostDTO;
+import com.sprint.socialmeli.dto.post.*;
 import com.sprint.socialmeli.entity.Post;
 import com.sprint.socialmeli.entity.Product;
+import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.exception.BadRequestException;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Parser {
 
@@ -46,5 +47,24 @@ public class Parser {
         } catch (DateTimeException | IllegalArgumentException e) {
             throw new BadRequestException("Formato inválido " + e.getMessage());
         }
+    }
+
+    public static PromoCountResponseDTO parsePromoCountDto(Seller seller, int count) {
+        return new PromoCountResponseDTO(count, seller.getUser().getUserName(), seller.getUser().getUserId());
+    }
+
+    public static PromoResponseDTO parsePromoResponseDTO(Integer sellerId, Post promo) {
+
+        return new PromoResponseDTO(sellerId, promo.getId(), promo.getPostDate().toString(),
+                parseProductDTO(promo.getProduct()),
+                promo.getCategory(), promo.getPrice(), promo.isHasPromo(), promo.getDiscount());
+    }
+
+    private static ProductDTO parseProductDTO(Product product) {
+        return new ProductDTO(product.getId(), product.getName(), product.getType(), product.getBrand(), product.getColor(), product.getNotes());
+    }
+
+    public static PromoListDTO parsePromoListDTO(List<PromoResponseDTO> promos, Seller seller) {
+        return new PromoListDTO(seller.getUser().getUserId(), seller.getUser().getUserName(), promos);
     }
 }

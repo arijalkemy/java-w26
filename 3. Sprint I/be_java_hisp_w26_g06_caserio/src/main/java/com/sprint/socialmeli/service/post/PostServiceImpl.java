@@ -3,7 +3,6 @@ package com.sprint.socialmeli.service.post;
 import com.sprint.socialmeli.dto.post.*;
 import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Post;
-import com.sprint.socialmeli.entity.Product;
 import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.exception.BadRequestException;
 import com.sprint.socialmeli.exception.NotFoundException;
@@ -11,6 +10,7 @@ import com.sprint.socialmeli.repository.post.IPostRepository;
 import com.sprint.socialmeli.repository.user.IUsersRepository;
 import com.sprint.socialmeli.utils.DateOrderType;
 import com.sprint.socialmeli.utils.Parser;
+import com.sprint.socialmeli.utils.UserChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -89,50 +89,37 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
-    public void createPostWithPromo(PromoPostDTO promo) {
-        this.usersRepository
-                .findSellerByPredicate(c -> c.getUser().getUserId().equals(promo.getUser_id())).stream().findFirst().orElseThrow(
-                        () -> new BadRequestException("Seller with id: " + promo.getUser_id() + " does not exist")
-                );
+    public NewPromoDTO createPostWithPromo(PromoPostDTO promo) {
+        UserChecker.checkAndGetSeller(promo.getUser_id());
 
         Post newPost = Parser.parsePostWithPromoDTO(promo);
         this.postRepository.save(newPost, promo.getUser_id());
-
+        return new NewPromoDTO(newPost.getId());
     }
 
     @Override
     public PromoCountResponseDTO getPromosCountById(Integer seller_id) {
-        Seller seller = this.usersRepository
-                .findSellerByPredicate(c -> c.getUser().getUserId().equals(seller_id)).stream().findFirst().orElseThrow(
-                        () -> new BadRequestException("Seller with id: " + seller_id + " does not exist")
-                );
+        Seller seller = UserChecker.checkAndGetSeller(seller_id);
 
         int counter = 0;
         List<Post> posts = postRepository.findBySellerId(seller_id);
         if (!posts.isEmpty()) {
             counter = (int) posts.stream().filter(Post::isHasPromo).count();
         }
-        return new PromoCountResponseDTO(counter, seller.getUser().getUserName(), seller_id);
-
+        return Parser.parsePromoCountDto(seller, counter);
     }
 
     @Override
     public PromoListDTO getPromosListById(Integer seller_id) {
-        Seller seller = this.usersRepository
-                .findSellerByPredicate(c -> c.getUser().getUserId().equals(seller_id)).stream().findFirst().orElseThrow(
-                        () -> new BadRequestException("Seller with id: " + seller_id + " does not exist")
-                );
+        Seller seller = UserChecker.checkAndGetSeller(seller_id);
 
         List<Post> posts = postRepository.findBySellerId(seller_id);
 
-        List<PromoResponseDTO> promos = posts.stream().filter(Post::isHasPromo).map(p -> {
-            Product pr = p.getProduct();
-            return new PromoResponseDTO(seller_id, p.getId(), p.getPostDate().toString(),
-                    new ProductDTO(pr.getId(), pr.getName(), pr.getType(), pr.getBrand(), pr.getColor(), pr.getNotes()),
-                    p.getCategory(), p.getPrice(), p.isHasPromo(), p.getDiscount());
-        }).toList();
-        return new PromoListDTO(seller_id, seller.getUser().getUserName(), promos);
+        List<PromoResponseDTO> promos = posts.stream().filter(Post::isHasPromo).map(p ->
+                Parser.parsePromoResponseDTO(seller_id, p)
+        ).toList();
 
+        return Parser.parsePromoListDTO(promos, seller);
     }
 
     private List<PostResponseDTO> sortList(List<PostResponseDTO> dtos, DateOrderType orderType) {

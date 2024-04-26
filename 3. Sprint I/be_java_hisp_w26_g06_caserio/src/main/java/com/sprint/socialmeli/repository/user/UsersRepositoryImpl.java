@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Repository
-public class UsersRepositoryImpl implements IUsersRepository{
+public class UsersRepositoryImpl implements IUsersRepository {
     private List<Customer> customerList = new ArrayList<>();
     private List<Seller> sellerList = new ArrayList<>();
 
@@ -27,13 +27,14 @@ public class UsersRepositoryImpl implements IUsersRepository{
     }
 
     private void loadDatabase(String userType) {
-        try{
+        try {
             File file = ResourceUtils.getFile("classpath:static/" + userType + ".json");
             ObjectMapper objectMapper = new ObjectMapper();
             List<User> users = objectMapper.readValue(
-                    file, new TypeReference<List<User>>(){}
+                    file, new TypeReference<List<User>>() {
+                    }
             );
-            switch (userType){
+            switch (userType) {
                 case "Customer":
                     customerList = users.stream().map(Customer::new).toList();
                 case "Seller":
@@ -57,4 +58,13 @@ public class UsersRepositoryImpl implements IUsersRepository{
         return sellerList.stream().filter(predicate).toList();
     }
 
+    @Override
+    public Customer findCustomerById(Integer id) {
+        return customerList.stream().filter(c -> c.getUser().getUserId().equals(id)).findFirst().orElse(null);
+    }
+
+    @Override
+    public Seller findSellerById(Integer id) {
+        return sellerList.stream().filter(s -> s.getUser().getUserId().equals(id)).findFirst().orElse(null);
+    }
 }
