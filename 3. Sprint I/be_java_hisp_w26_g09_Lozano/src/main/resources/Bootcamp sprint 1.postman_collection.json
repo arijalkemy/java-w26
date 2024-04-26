@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "5c0ee3f4-bcfa-4eb0-8c34-0702451359d4",
+		"_postman_id": "931113ee-71b6-4c74-9c09-c01f1be5f751",
 		"name": "Bootcamp sprint 1",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -10,19 +10,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/users/1/follow/9",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"1",
-						"follow",
-						"9"
-					]
-				}
+				"url": "localhost:8080/users/1/follow/9"
 			},
 			"response": []
 		},
@@ -31,19 +19,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/users/2/followers/count",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"2",
-						"followers",
-						"count"
-					]
-				}
+				"url": "localhost:8080/users/2/followers/count"
 			},
 			"response": []
 		},
@@ -52,19 +28,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/users/2/followers/list",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"2",
-						"followers",
-						"list"
-					]
-				}
+				"url": "localhost:8080/users/2/followers/list"
 			},
 			"response": []
 		},
@@ -73,19 +37,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/users/1/followed/list",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"1",
-						"followed",
-						"list"
-					]
-				}
+				"url": "localhost:8080/users/1/followed/list"
 			},
 			"response": []
 		},
@@ -103,17 +55,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "localhost:8080/products/post",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"post"
-					]
-				}
+				"url": "localhost:8080/products/post"
 			},
 			"response": []
 		},
@@ -122,19 +64,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/products/followed/1/list",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"followed",
-						"1",
-						"list"
-					]
-				}
+				"url": "localhost:8080/products/followed/1/list"
 			},
 			"response": []
 		},
@@ -143,19 +73,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "localhost:8080/users/1/unfollow/2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users",
-						"1",
-						"unfollow",
-						"2"
-					]
-				}
+				"url": "localhost:8080/users/1/unfollow/2"
 			},
 			"response": []
 		},
@@ -234,6 +152,84 @@
 						{
 							"key": "order",
 							"value": "date_asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0010",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 4,\n    \"date\": \"2012-04-20\",\n    \"product\": {\n        \"product_id\": 2,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.1\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/products/promo-post"
+			},
+			"response": []
+		},
+		{
+			"name": "US 0011",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/promo-post/count?userId=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 0012 Bonus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/products/get-all-post"
+			},
+			"response": []
+		},
+		{
+			"name": "US 0013 Bonus",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/delete-post?id=19",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"delete-post"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "19"
 						}
 					]
 				}
