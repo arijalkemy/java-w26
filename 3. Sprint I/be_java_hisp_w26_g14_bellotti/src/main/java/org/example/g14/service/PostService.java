@@ -41,6 +41,7 @@ public class PostService implements IPostService {
         postRepository.save(post);
     }
 
+    //10
     @Override
     public void addWithPromo(CreatePostDto createPostDto) {
         if(!createPostDto.isHasPromo())
@@ -102,18 +103,16 @@ public class PostService implements IPostService {
                 .collect(Collectors.toList());
     }
 
+    //11
     @Override
     public UserWithPostPromoCount getCountOfPromo(int userId) {
         User user = getById(userId);
 
-        List<Post> postByUser = postRepository.findAllByUser(userId);
-        if(postByUser.size()==0)
-            throw new BadRequestException("El usuario no es vendedor");
-
         return new UserWithPostPromoCount(
                 user.getId(),
                 user.getName(),
-                (int)postByUser.stream()
+                (int)getPostAndValidateSeller(userId)
+                        .stream()
                         .filter(p->p.isHasPromo())
                         .count()
         );
@@ -123,20 +122,19 @@ public class PostService implements IPostService {
     public PostDto putToPromo(int userId, int postId) {
         getById(userId);
 
-        List<Post> posts = postRepository.findAllByUser(userId);
-        if(posts.size()==0)
-            throw new BadRequestException("No sos usuario vendedor");
-
-        Post post = posts.stream()
+        Post post = getPostAndValidateSeller(userId).stream()
                 .filter(p->p.getId() == postId)
-                .findFirst().orElse(null);
+                .findFirst()
+                .orElse(null);
+
         if(post == null)
             throw new BadRequestException("No es una publicacion tuya");
 
         if(post.isHasPromo())
             throw new ConflictException("La publicacion ya se encuentra en promocion");
 
-        post = postRepository.modifyToPromo(post);
+        post.setHasPromo(true);
+        postRepository.save(post);
 
         return new PostMapper().createPostToPostDto(post);
     }
@@ -148,5 +146,13 @@ public class PostService implements IPostService {
             throw new NotFoundException("El usuario no existe");
 
         return user.get();
+    }
+
+    private List<Post> getPostAndValidateSeller(int userId){
+        List<Post> posts = postRepository.findAllByUser(userId);
+        if(posts.size()==0)
+            throw new BadRequestException("No sos usuario vendedor");
+
+        return posts;
     }
 }

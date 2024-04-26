@@ -34,18 +34,6 @@ public class PostRepository implements IPostRepository{
     }
 
     @Override
-    public Post modifyToPromo(Post post) {
-        int index = listOfPosts.indexOf(post);
-
-        post.setHasPromo(true);
-
-        listOfPosts.set(index, post);
-
-        return post;
-    }
-
-
-    @Override
     public List<Post> findAllByUser(int idUser) {
         return listOfPosts.stream()
                 .filter(post -> post.getIdUser() == idUser)
@@ -54,8 +42,18 @@ public class PostRepository implements IPostRepository{
 
     @Override
     public void save(Post post) {
-        post.setId(postId);
-        listOfPosts.add(post);
-        postId++;
+        if(post.getId()>0){
+            for (int i = 0; i < listOfPosts.size(); ++i) {
+                if (listOfPosts.get(i).getId() == post.getId()) {
+
+                    listOfPosts.set(i, post);
+                    break;
+                }
+            }
+        }else{
+            post.setId(postId);
+            listOfPosts.add(post);
+            postId++;
+        }
     }
 }

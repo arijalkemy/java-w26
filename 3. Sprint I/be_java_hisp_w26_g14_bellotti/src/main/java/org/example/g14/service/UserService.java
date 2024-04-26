@@ -24,8 +24,6 @@ public class UserService implements IUserService{
     @Autowired
     IPostRepository postRepository;
 
-    ObjectMapper mapper = new ObjectMapper();
-
     @Override
     public UserWithFollowersCountDto countFollowersBySeller(int id) {
         User user = getUserById(id);

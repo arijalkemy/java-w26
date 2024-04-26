@@ -32,18 +32,20 @@ public class ProductController {
         return ResponseEntity.ok(posts);
     }
 
+    //10
     @PostMapping("/promo-post")
     public ResponseEntity<Void> createPostPromo(@RequestBody CreatePostDto createPostDto){
         postService.addWithPromo(createPostDto);
         return ResponseEntity.ok().build();
     }
 
+    //11
     @GetMapping("/promo-post")
     public ResponseEntity<UserWithPostPromoCount> getCountOfPromo(@RequestParam("user_id") int userId){
         return new ResponseEntity<>(postService.getCountOfPromo(userId), HttpStatus.OK);
     }
 
-    //ADICIONAL EXCERCISE
+    //12
     @PutMapping("/{user_id}/promo-put/{post_id}")
     public ResponseEntity<?> modifyPostToPromo(@PathVariable("user_id") int userId,
                                                @PathVariable("post_id") int postId){

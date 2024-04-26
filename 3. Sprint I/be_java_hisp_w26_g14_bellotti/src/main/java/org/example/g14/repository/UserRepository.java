@@ -46,7 +46,6 @@ public class UserRepository implements IUserRepository{
     public void save(User user) {
 
         boolean isUpdate = false;
-
         for (int i = 0; i < listOfUsers.size(); ++i) {
 
             if (listOfUsers.get(i).getId() == user.getId()) {
