@@ -238,7 +238,7 @@ Ejemplo:
 }
 ```
 
-### 6. 6: Obtener un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las últimas dos semanas
+### 6. Obtener un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las últimas dos semanas
 
 ```http
 GET /products/followed/{userId}/list
@@ -301,4 +301,123 @@ POST /users/{userId}/unfollow/{userIdToUnfollow}
 | userId | Integer | Número que identifica a un usario de tipo `Buyer`  |
 | userIdToUnfollow | Integer | Número que identifica a un usario de tipo `Seller` |
 
+
+### 8. Llevar a cabo la publicación de un nuevo producto en promoción
+
+```http
+POST /products/promo-post
+```
+
+#### Request
+
+```http
+{
+  "user_id": 234,
+  "date": "2021-04-29",
+  "product": {
+      "product_id": 1,
+      "product_name": "Silla Gamer",
+      "type": "Gamer",
+      "brand": "Racer",
+      "color": "Red & Black",
+      "notes": "Special Edition"
+  },
+  "category": 100,
+  "price": 1500.50,
+  "has_promo": true,
+  "discount": 0.25
+}
+```
+
+#### Filtros/Parámetros
+| Parámetro   | Tipo       | Descripción                              |
+|-------------|------------|------------------------------------------|
+| user_id     | int        | Número que identifica a cada usuario    |
+| date        | LocalDate  | Fecha de la publicación en formato dd-MM-yyyy |
+| product_id  | int        | Número identificatorio de un producto asociado a una publicación |
+| product_name| String     | Nombre del producto                      |
+| type        | String     | Tipo de producto                         |
+| brand       | String     | Marca del producto                       |
+| color       | String     | Color del producto                       |
+| notes       | String     | Notas u observaciones del producto       |
+| category    | int        | Identificador de la categoría del producto |
+| price       | double     | Precio del producto                      |
+| has_promo   | boolean    | Indica si el producto está en promoción |
+| discount    | double     | Monto de descuento en caso de promoción  |
+
+### 9. Obtener la cantidad de productos en promoción de un determinado vendedor
+
+```http
+GET /products/promo-post/count?user_id={userId}
+```
+
+#### Response
+
+```http
+{  
+   "user_id" : 234,
+   "user_name": "vendedor1",
+   "promo_products_count": 23
+}
+```
+
+#### Filtros/Parámetros
+
+| Parámetro           | Tipo   | Descripción                                 |
+|---------------------|--------|---------------------------------------------|
+| user_id             | int    | Número que identifica a cada usuario       |
+| user_name           | String | Nombre del usuario                          |
+| promo_products_count| int    | Cantidad numérica de productos en promoción |
+
+
+### 10. Obtener un listado de todos los productos en promoción de un determinado vendedor
+
+```http
+GET /products/promo-post/list?user_id={userId}
+```
+
+#### Response
+```http
+{
+    "user_id": 234,
+    "user_name": "vendedor1",
+    "posts": [
+        {
+            “user_id”: 234
+            "post_id": 18,
+            "date": "29-04-2021",
+            "product": {
+                "product_id": 1,
+                "product_name": "Silla Gamer",
+                "type": "Gamer",
+                "brand": "Racer",
+                "color": "Red & Black",
+                "notes": "Special Edition"
+            },
+            "category": "100",
+            "price": 15000.50,
+            "has_promo": true,
+            "discount": 0.25
+        }
+    ]
+}
+```
+
+#### Filtros/Parámetros
+| Parámetro   | Tipo       | Descripción                                          |
+|-------------|------------|------------------------------------------------------|
+| user_id     | int        | Número que identifica a cada usuario                |
+| user_name   | String     | Nombre del usuario                                   |
+| post_id     | int        | Número identificatorio de cada una de las publicaciones |
+| date        | LocalDate  | Fecha de la publicación en formato dd-MM-yyyy        |
+| product_id  | int        | Número identificatorio de un producto asociado a una publicación |
+| product_name| String     | Nombre del producto                                  |
+| type        | String     | Tipo de producto                                     |
+| brand       | String     | Marca del producto                                   |
+| color       | String     | Color del producto                                   |
+| notes       | String     | Notas u observaciones del producto                   |
+| category    | int        | Identificador de la categoría del producto           |
+| price       | double     | Precio del producto                                  |
+| has_promo   | boolean    | Indica si el producto está en promoción              |
+| discount    | double     | Monto de descuento en caso de promoción              |
 
