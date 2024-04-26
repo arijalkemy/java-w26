@@ -1,6 +1,6 @@
-package com.example;
+package com.example.MorseCodigo;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
