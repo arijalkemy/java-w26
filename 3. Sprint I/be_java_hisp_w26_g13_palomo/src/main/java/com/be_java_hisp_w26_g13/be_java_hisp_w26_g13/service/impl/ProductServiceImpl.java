@@ -135,12 +135,13 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public List<ProductPostCountDTO> productPostCount() {
         LocalDate twoWeeksAgo = LocalDate.now().minusDays(14);
+        // get product last two weeks
         List<Product> postList = postRepository.getAll()
-                .stream().filter(x->x.getDate().isAfter(twoWeeksAgo)&& x.getDate().isBefore(LocalDate.now()))
+                .stream().filter(x->x.getDate().isAfter(twoWeeksAgo)&& x.getDate().isBefore(LocalDate.now().plusDays(1)))
                 .map(Post::getProduct).toList();
 
         List<ProductPostCountDTO> productPostCountDTOList = new ArrayList<>();
-
+        // group by product id and count product
         Map<Integer,Long> productCountMap = postList.stream()
                 .collect(Collectors.groupingBy(Product::getProductId, Collectors.counting()));
 
