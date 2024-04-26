@@ -9,4 +9,7 @@ import java.util.function.Predicate;
 public interface IUsersRepository {
     List<Customer> findCustomerByPredicate(Predicate<Customer> predicate);
     List<Seller> findSellerByPredicate(Predicate<Seller> predicate);
+    Customer findCustomerById(Integer id);
+    Seller findSellerById(Integer id);
+
 }

@@ -6,8 +6,8 @@ import com.sprint.socialmeli.dto.user.UserWithPromoPostsDTO;
 
 public interface IPostService {
 
-    void createPost(PostDTO post);
+    Integer createPost(PostDTO post);
     FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order);
-    void createPromoPost(PromoPostRequestDTO post);
+    Integer createPromoPost(PromoPostRequestDTO post);
     UserWithPromoPostsDTO getPromoPostsBySeller(Integer userId);
 }

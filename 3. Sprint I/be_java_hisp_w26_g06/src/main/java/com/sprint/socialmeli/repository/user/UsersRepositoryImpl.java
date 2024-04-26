@@ -71,4 +71,13 @@ public class UsersRepositoryImpl implements IUsersRepository{
         return sellerList.stream().filter(predicate).toList();
     }
 
+    @Override
+    public Customer findCustomerById(Integer id) {
+        return customerList.stream().filter(c -> c.getUser().getUserId().equals(id)).findFirst().orElse(null);
+    }
+
+    @Override
+    public Seller findSellerById(Integer id) {
+        return sellerList.stream().filter(s -> s.getUser().getUserId().equals(id)).findFirst().orElse(null);
+    }
 }
