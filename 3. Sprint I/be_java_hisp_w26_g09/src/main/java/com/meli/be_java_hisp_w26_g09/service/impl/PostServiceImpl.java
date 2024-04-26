@@ -35,6 +35,9 @@ public class PostServiceImpl implements IPostService {
         if (post.getPrice() < 0)
             throw new BadRequestException("The price cannot be negative");
 
+        if (post.getCategory() <= 0)
+            throw new BadRequestException("The category is not valid");
+
         post.setHasPromo(false);
         if (post.getDiscount() != null && post.getDiscount() != 0.0)
             throw new BadRequestException("Cannot add a promo post on this end point");

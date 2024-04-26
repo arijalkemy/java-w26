@@ -1,6 +1,7 @@
 package com.meli.be_java_hisp_w26_g09.util.mapper;
 
 import com.meli.be_java_hisp_w26_g09.dto.UserDTO;
+import com.meli.be_java_hisp_w26_g09.entity.Role;
 import com.meli.be_java_hisp_w26_g09.entity.User;
 import org.springframework.stereotype.Component;
 
@@ -71,15 +72,29 @@ public class UserMapper {
         return userDTO;
     }
 
-    public UserDTO userFollowersToUserDTO(User user) {
+    public UserDTO userFollowersToUserDTO(User user, List<User> users) {
         if (user == null || user.getUserId() == null)
             return new UserDTO();
 
-        UserDTO userDTO = userToUserDTO(user);
-        userDTO.setFollowers(userDTO.getFollowed());
-        userDTO.setFollowed(null);
-        userDTO.getFollowers().forEach(userDto -> userDto.setFollowed(null));
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(user.getUserId());
+        userDTO.setUserName(user.getUserName());
+        userDTO.setFollowers(listUserToListUserDTOwithoutFolloweds(users));
         return userDTO;
+    }
+
+    public List<UserDTO> listUserToListUserDTOwithoutFolloweds(List<User> users){
+        RoleMapper roleMapper = new RoleMapper();
+        List<UserDTO> result = new ArrayList<>();
+        for (User u: users){
+            result.add(new UserDTO(u.getUserId(),
+                    u.getUserName(),
+                    roleMapper.roleToRoleDTO(u.getRole()),
+                    null,
+                    null,
+                    null));
+        }
+        return result;
     }
 
 

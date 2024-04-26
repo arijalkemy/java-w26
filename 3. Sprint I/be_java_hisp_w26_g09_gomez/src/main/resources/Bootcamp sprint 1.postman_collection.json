@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "e1a92f1a-1e51-4dfa-8d98-67117730e47e",
+		"_postman_id": "5c0ee3f4-bcfa-4eb0-8c34-0702451359d4",
 		"name": "Bootcamp sprint 1",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34294754"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -235,131 +234,6 @@
 						{
 							"key": "order",
 							"value": "date_asc"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "US 0010 Individual",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"user_id\": 2,\n    \"date\": \"2024-04-25\",\n    \"product\": {\n      \"product_id\": 22,\n      \"product_name\": \"Sony WH-1000XM4 Wireless Noise-Canceling Headphones\",\n      \"type\": \"Headphones\",\n      \"brand\": \"Sony\",\n      \"color\": \"Silver\",\n      \"notes\": \"Industry-leading noise cancelation, Alexa voice control, Touch Sensor controls\"\n    },\n    \"category\": 2,\n    \"price\": 299.99,\n    \"has_promo\": true,\n    \"discount\": 0.15\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:8080/products/promo-post",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"promo-post"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "US 0011 Individual",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/products/promo-post/count?user_id=17",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"promo-post",
-						"count"
-					],
-					"query": [
-						{
-							"key": "user_id",
-							"value": "17"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "US 0012 Individual",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/products/promo-post/list?user_id=2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"promo-post",
-						"list"
-					],
-					"query": [
-						{
-							"key": "user_id",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener todos los usuarios - Bonus",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/users",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener todos los post de un vendedor",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/products/list?user_id=17",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"products",
-						"list"
-					],
-					"query": [
-						{
-							"key": "user_id",
-							"value": "17"
 						}
 					]
 				}

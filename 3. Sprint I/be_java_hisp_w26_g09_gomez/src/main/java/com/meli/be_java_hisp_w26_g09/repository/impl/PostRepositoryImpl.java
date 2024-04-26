@@ -9,12 +9,16 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class PostRepositoryImpl implements IPostRepository {
     List<Post> listOfPost = new ArrayList<>();
     Integer counter;
+
     public PostRepositoryImpl() throws IOException {
         loadDataBase();
         counter = Objects.requireNonNull(listOfPost.stream()
@@ -42,10 +46,5 @@ public class PostRepositoryImpl implements IPostRepository {
     @Override
     public List<Post> findAll() {
         return listOfPost;
-    }
-
-    @Override
-    public List<Post> findByUserId(int userId) {
-        return listOfPost.stream().filter(post -> post.getUserId() == userId).toList();
     }
 }

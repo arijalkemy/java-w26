@@ -8,6 +8,4 @@ public interface IPostRepository {
     void createPost(Post post);
 
     List<Post> findAll();
-
-    List<Post> findByUserId(int userId);
 }

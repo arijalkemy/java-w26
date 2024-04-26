@@ -17,7 +17,6 @@ import java.util.List;
         "posts"
 })
 public class PostPromoDTO {
-
     @JsonProperty("user_id")
     private Integer userId;
     @JsonProperty("user_name")

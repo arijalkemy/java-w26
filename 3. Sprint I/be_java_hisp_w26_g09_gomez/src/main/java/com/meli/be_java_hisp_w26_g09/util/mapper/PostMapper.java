@@ -64,5 +64,4 @@ public class PostMapper {
                 mapper.convertValue(post.getProduct(), ProductDTO.class), post.getCategory(), post.getPrice())));
         return  postForListDTOS;
     }
-
 }
