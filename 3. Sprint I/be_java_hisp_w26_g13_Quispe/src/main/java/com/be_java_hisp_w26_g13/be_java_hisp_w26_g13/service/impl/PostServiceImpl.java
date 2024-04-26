@@ -134,6 +134,15 @@ public class PostServiceImpl implements IPostService {
         if(month == null && year == null){
             throw new BadRequestException("The request is invalid or missing required data.");
         }
+        if(Integer.parseInt(month) < 1 || Integer.parseInt(month) > 12){
+            throw new BadRequestException("The month must be between 1 and 12.");
+        }
+        if(Integer.parseInt(year) < 0){
+            throw new BadRequestException("The year must be greater than 0.");
+        }
+        if (year.length() != 4) {
+            throw new BadRequestException("The year must have 4 digits.");
+        }
         List<Post> posts = user.getPosts();
         List<Post> postFilter = posts.stream().filter(post -> post.getDate().getMonthValue() == Integer.parseInt(month) && post.getDate().getYear() == Integer.parseInt(year)).toList();
         List<PostPromoDTO> response = postFilter.stream().map(post -> mapper.convertValue(post, PostPromoDTO.class)).toList();
