@@ -72,4 +72,9 @@ public class PublicationsController {
         return ResponseEntity.ok().body(productsService.getAllPublicationsPromoCount());
     }
 
+    @GetMapping("/promo-post/list/{discount}")
+    public ResponseEntity<List<PublicationResponseDTO>> getPublicationsWithDiscountGreaterThan(@PathVariable Double discount) {
+        return new ResponseEntity<>(productsService.getPublicationsWithDiscountGreaterThan(discount), HttpStatus.OK);
+    }
+
 }

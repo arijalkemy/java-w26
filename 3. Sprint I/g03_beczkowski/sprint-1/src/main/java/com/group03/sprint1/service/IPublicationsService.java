@@ -15,4 +15,5 @@ public interface IPublicationsService {
     PublicationPromoResponseDTO getPublicationPromoCount(Integer userId);
     PublicationResponseDTO getPublicationsPromo(Integer userId);
     List<PublicationPromoResponseDTO> getAllPublicationsPromoCount();
+    List<PublicationResponseDTO> getPublicationsWithDiscountGreaterThan(Double discount);
 }

@@ -153,7 +153,9 @@ public class PublicationsServiceImpl implements IPublicationsService {
 
     @Override
     public List<PublicationPromoResponseDTO> getAllPublicationsPromoCount() {
-        List<Seller> sellers = usersRepository.findAllSellers().stream().filter(s -> !s.getPublications().isEmpty()).toList();
+        List<Seller> sellers = usersRepository.findAllSellers().stream()
+                .filter(s -> !s.getPublications().isEmpty()).toList();
+
         List<PublicationPromoResponseDTO> listPublicationPromoResponseDTO = new ArrayList<>();
 
         sellers.forEach( s -> {
@@ -174,5 +176,34 @@ public class PublicationsServiceImpl implements IPublicationsService {
         }
 
         return listPublicationPromoResponseDTO;
+    }
+
+    @Override
+    public List<PublicationResponseDTO> getPublicationsWithDiscountGreaterThan(Double discount) {
+        List<Seller> sellers = usersRepository.findAllSellers().stream()
+                .filter(s -> !s.getPublications().isEmpty()).toList();
+
+        List<PublicationResponseDTO> listPublicationsResponseDTO = new ArrayList<>();
+
+        sellers.forEach( s -> {
+            List<PublicationDTO> listPublications = new ArrayList<>();
+            for (Publication publication: s.getPublications()) {
+                if (publication.isHasPromo() && publication.getDiscount().compareTo(discount) >= 0) {
+                    listPublications.add(objectMapper.convertValue(publication, PublicationDTO.class));
+                }
+            }
+            if (!listPublications.isEmpty()) {
+                listPublications = listPublications.stream()
+                        .sorted(Comparator.comparing(PublicationDTO::getDiscount)).toList();
+                listPublicationsResponseDTO.add(new PublicationResponseDTO(s.getUserId(),
+                        s.getUserName(), listPublications));
+            }
+        });
+
+        if (listPublicationsResponseDTO.isEmpty()) {
+            throw new BadRequestException("There are no users with promo publications with discount greater than " + discount);
+        }
+
+        return listPublicationsResponseDTO;
     }
 }
