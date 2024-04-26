@@ -45,6 +45,15 @@ Below are the available endpoints:
 | date_asc | Sorting by publication date in Ascending order |
 | date_desc | Sorting by publication date in Descending order |
 
+- `US-009 GET /products/promo-post`: Get all the products that are on promotion
+
+- `US-010 GET /products/promo-post/count?user_id=userID`: Obtain all the products that are on promotion from a certain seller
+
+- `US-Bonus1 GET /products/promo-post/list?user_id=userID`: Obtain all the products that are on promotion from a certain seller
+
+- `US-Bonus2 GET /products/list`: Obtain all products
+
+- `US-Bonus3 GET /products/search?name=monitor`: Obtain all products that contain a certain word in their name
 ## Postman Collection 📦
 
 A Postman collection with request examples to test the MELI Social API services is included. The collection provides examples of all available operations.
