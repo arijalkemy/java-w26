@@ -1,9 +1,12 @@
 package com.Ejercicio.Deportistas.Service;
 
-import org.springframework.stereotype.Component;
-
+import com.Ejercicio.Deportistas.Entity.DTO.PersonDTO;
+import com.Ejercicio.Deportistas.Entity.Sport;
 import java.util.List;
-@Component
-public interface Sport {
+import java.util.Optional;
+
+public interface ISport {
     List<Sport> getSports();
+
+    Optional<String> getLevelSportBy(String name);
 }

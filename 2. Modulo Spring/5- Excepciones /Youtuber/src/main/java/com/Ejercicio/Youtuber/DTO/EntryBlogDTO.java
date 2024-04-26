@@ -1,2 +1,4 @@
-package com.Ejercicio.Youtuber.DTO;public class EntryBlogDTO {
+package com.Ejercicio.Youtuber.DTO;
+
+public class EntryBlogDTO {
 }

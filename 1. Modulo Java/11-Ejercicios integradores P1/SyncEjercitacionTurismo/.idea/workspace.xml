@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0755471c-4f1c-4bfa-a115-5c8b8f869cd4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/Controller/EntryBlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/DTO/EntryBlogDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/Entity/EntryBlog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/Repository/EntryBlogRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/Repository/IEntryBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/Service/EntryBlogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/5- Excepciones /Youtuber/src/main/java/com/Ejercicio/Youtuber/Service/IEntryBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/CodeReview/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/CodeReview/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/CodeReview/src/main/java/com/bootcampW22/EjercicioGlobal/dto/VehicleRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/CodeReview/src/main/java/com/bootcampW22/EjercicioGlobal/dto/VehicleResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/CodeReview/src/main/java/com/bootcampW22/EjercicioGlobal/exception/BadRequestException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Garage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/src/main/java/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/target/classes/Garage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../10-Recapitando Java (Generics + Wrapper + Lambda + Streams)/SyncEjercitacionVehiculosRecapitulandoJava/target/classes/Vehicle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/CRUDRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/CRUDRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/ClientImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/ClientImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/TicketImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionIntegradoraSupermercado/src/main/java/Repository/TicketImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionOrdenamientoBurbuja/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionOrdenamientoBurbuja/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AsyncEjercitacionOrdenamientoBurbuja/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AsyncEjercitacionOrdenamientoBurbuja/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Analitics.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Locators.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Reserve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AgenciaViajes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Localizador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RepositorioClientes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Reserva.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/MotorCycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/MotorCycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Race.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/Dakar/src/main/java/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Clothing.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Clothing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../14-Ejercicios Integradores P2 VIVO/SaveTheRopaS.A/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../9-Clases Abstractas e inferfaces VIVO/2- Ejercicio Documentos/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../9-Clases Abstractas e inferfaces VIVO/2- Ejercicio Documentos/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../SyncEjercitacionPOO2/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/Controller/ConverterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/Controller/ConverterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/Service/Convert.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/Service/Convert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/ServiceImpl/ConvertImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/2-Introducción a Spring - P2 - PG VIVO/CodigoMorse/src/main/java/com/Ejercicio/CodigoMorse/ServiceImpl/ConvertImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Controller/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Controller/SportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Controller/SportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Entity/DTO/PersonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Entity/DTO/PersonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Entity/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Entity/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Entity/Sport.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Entity/Sport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Repository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/IPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/IPerson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/IPersonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/IPersonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/ISport.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/ISport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/ISportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/2-Deportistas/src/main/java/com/Ejercicio/Deportistas/Service/ISportServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/3-Covid/src/main/java/com/Ejercicio/Covid/Service/PersonServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/3-Covid/src/main/java/com/Ejercicio/Covid/Service/PersonServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/Edades/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/Edades/src/main/java/com/Ejercicio/Edades/Controller/AgeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/Edades/src/main/java/com/Ejercicio/Edades/Service/BirthToAge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/3- Ejercicios, DTO y Response Entity VIVO/Edades/src/main/java/com/Ejercicio/Edades/ServiceImpl/BirthToAgeImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Controller/CharacterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Controller/CharacterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/DTO/CharacterDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/DTO/CharacterDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Entity/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Entity/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Repository/CharacterCharacterRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Repository/CharacterRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Repository/ICharacterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Repository/ICharacterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Service/CharacterServiceImplService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Service/CharacterServiceImplService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Service/ICharacterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../2. Modulo Spring/4-Arquitectura Multicapa - P1 - VIVO/StarWars/src/main/java/com/Ejercicio/StarWars/Service/ICharacterService.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f0MiqoiuKtAfDPwKeqWr4yCHQp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/brdonato/RepositoryW26/java-w26/1. Modulo Java/11-Ejercicios Integradores P1/SyncEjercitacionTurismo",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0755471c-4f1c-4bfa-a115-5c8b8f869cd4" name="Changes" comment="" />
+      <created>1712933673013</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712933673013</updated>
+      <workItem from="1712933674171" duration="4623000" />
+      <workItem from="1713677941983" duration="61000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

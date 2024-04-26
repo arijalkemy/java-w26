@@ -1,26 +1,35 @@
 package com.Ejercicio.StarWars.Service;
 
-
+import com.Ejercicio.StarWars.DTO.CharacterDTO;
 import com.Ejercicio.StarWars.Entity.Character;
-import com.Ejercicio.StarWars.Repository.IRepository;
-import lombok.RequiredArgsConstructor;
+import com.Ejercicio.StarWars.Repository.ICharacterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
-public class CharacterServiceImpl implements ICharacter {
+public class CharacterServiceImplService implements ICharacterService {
 
-    private final IRepository iRepository;
+    @Autowired
+    ICharacterRepository iCharacterRepository;
 
     @Override
     public void saveCharacters(List<Character> requestCharacterList) {
-            iRepository.saveCharacter(requestCharacterList);
+            iCharacterRepository.saveCharacter(requestCharacterList);
     }
 
     @Override
-    public List<Character> getCharacters() {
-        return iRepository.getCharacters();
+    public List<Character> searchCharacters() {
+        return iCharacterRepository.findCharacters();
+    }
+
+    @Override
+    public Character searchCharacterBy(String name) {
+        List<Character> characterList = iCharacterRepository.findCharacters();
+        return characterList.stream()
+                .filter(character -> character.getName().equals(name))
+                .findAny()
+                .orElse(null);
     }
 
 }

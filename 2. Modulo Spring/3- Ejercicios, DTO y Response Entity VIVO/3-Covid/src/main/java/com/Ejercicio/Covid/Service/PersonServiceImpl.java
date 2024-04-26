@@ -4,7 +4,6 @@ import com.Ejercicio.Covid.DTO.PersonDto;
 import com.Ejercicio.Covid.Repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

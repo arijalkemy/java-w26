@@ -1,2 +1,25 @@
-package com.bootcampW22.EjercicioGlobal.dto;public class VehicleRequestDTO {
+package com.bootcampW22.EjercicioGlobal.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.io.Serializable;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class VehicleRequestDto implements Serializable {
+    private Long id;
+    private String brand;
+    private String model;
+    private String registration;
+    private String color;
+    private int year;
+    private String max_speed;
+    private int passengers;
+    private String fuel_type;
+    private String transmission;
+    private double height;
+    private double width;
+    private double weight;
 }
