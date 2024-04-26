@@ -2,28 +2,19 @@ package com.group03.sprint1.service.implementation;
 
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.group03.sprint1.dto.SellerFollowersDTO;
-import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
-import com.group03.sprint1.dto.response.UserDataResponseDTO;
+import com.group03.sprint1.dto.SellerNumberOfFollowersDTO;
+import com.group03.sprint1.dto.response.*;
 import com.group03.sprint1.entity.Seller;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.group03.sprint1.dto.PublicationDTO;
-import com.group03.sprint1.dto.SellerDTO;
-import com.group03.sprint1.dto.response.SellerResponseDTO;
 import com.group03.sprint1.entity.Buyer;
-import com.group03.sprint1.entity.Publication;
-import com.group03.sprint1.entity.Seller;
-import com.group03.sprint1.exception.entity.NotFoundException;
 import com.group03.sprint1.exception.entity.BadRequestException;
 import com.group03.sprint1.entity.UserData;
-import com.group03.sprint1.dto.response.BuyerResponseDTO;
 import com.group03.sprint1.repository.IUsersRepository;
 import com.group03.sprint1.repository.implementation.UsersRepositoryImpl;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.utils.Utils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,7 +33,7 @@ public class UsersServiceImpl implements IUsersService {
     }
 
     @Override
-    public SellerFollowersDTO getFollowers(Integer userId) {
+    public SellerNumberOfFollowersDTO getFollowers(Integer userId) {
         // 1- Recorrer la lista con todos los sellers y filtrarlos por id
         Seller seller = usersRepository.findSellerById(userId);
 
@@ -51,16 +42,16 @@ public class UsersServiceImpl implements IUsersService {
 
         //Cargo el DTO para poder responder en el Controller
 
-        SellerFollowersDTO sellerFollowersDTO = new SellerFollowersDTO();
-        sellerFollowersDTO.setUserId(seller.getUserId());
-        sellerFollowersDTO.setUsername(seller.getUserName());
-        sellerFollowersDTO.setFollowers(numberOffollowers);
-        return sellerFollowersDTO;
+        SellerNumberOfFollowersDTO sellerNumberOfFollowersDTO = new SellerNumberOfFollowersDTO();
+        sellerNumberOfFollowersDTO.setUserId(seller.getUserId());
+        sellerNumberOfFollowersDTO.setUsername(seller.getUserName());
+        sellerNumberOfFollowersDTO.setFollowers(numberOffollowers);
+        return sellerNumberOfFollowersDTO;
 
     }
 
     @Override
-    public void followUser(Integer userId, Integer userIdToFollow) {
+    public MessageResponseDTO followUser(Integer userId, Integer userIdToFollow) {
         Seller seller = usersRepository.findSellerById(userIdToFollow);
         Buyer buyer = usersRepository.findBuyerById(userId);
 
@@ -73,6 +64,7 @@ public class UsersServiceImpl implements IUsersService {
 
         addFollowers(seller, buyer);
         usersRepository.follow(seller, buyer);
+        return new MessageResponseDTO("Successfully followed user: " + userIdToFollow);
     }
 
     private void addFollowers(Seller seller, Buyer buyer) {
@@ -83,7 +75,7 @@ public class UsersServiceImpl implements IUsersService {
         UserData buyerAdd = lstBuyers.stream().filter(u -> u.getUserId()
                 .equals(buyer.getUserId())).findFirst().orElse(null);
 
-        if (sellerAdd != null || buyerAdd != null) {
+        if (Utils.isNotNull(sellerAdd) || Utils.isNotNull(buyerAdd)) {
             throw new BadRequestException("There is already a follower with ID: " + sellerAdd.getUserId());
         }
 
@@ -167,7 +159,7 @@ public class UsersServiceImpl implements IUsersService {
     }
 
     @Override
-    public void unfollowUser(Integer userId, Integer userIdToUnFollow) {
+    public MessageResponseDTO unfollowUser(Integer userId, Integer userIdToUnFollow) {
         Seller seller = usersRepository.findSellerById(userIdToUnFollow);
         Buyer buyer = usersRepository.findBuyerById(userId);
 
@@ -180,6 +172,7 @@ public class UsersServiceImpl implements IUsersService {
 
         deleteFollowers(seller, buyer);
         usersRepository.unfollow(seller, buyer);
+        return new MessageResponseDTO("Successfully unfollowed user: " + userIdToUnFollow);
     }
 
     private void deleteFollowers(Seller seller, Buyer buyer) {
@@ -190,7 +183,7 @@ public class UsersServiceImpl implements IUsersService {
         UserData sellerDelete = lstSellers.stream().filter(u -> u.getUserId()
                 .equals(seller.getUserId())).findFirst().orElse(null);
 
-        if (buyerDelete == null || sellerDelete == null) {
+        if (Utils.isNull(buyerDelete) || Utils.isNull(sellerDelete)) {
             throw new BadRequestException("There is not a follower with ID: " + buyer.getUserId());
         }
 
@@ -199,12 +192,6 @@ public class UsersServiceImpl implements IUsersService {
         lstSellers.remove(sellerDelete);
         buyer.setFollowed(lstSellers);
 
-    }
-
-    @Override
-    public List<SellersWithPublicationDTO> showAllSellers() {
-        List<Seller> sellers = usersRepository.findAllSellers();
-        return sellers.stream().map(p -> objectMapper.convertValue(p, SellersWithPublicationDTO.class)).toList();
     }
 
 }

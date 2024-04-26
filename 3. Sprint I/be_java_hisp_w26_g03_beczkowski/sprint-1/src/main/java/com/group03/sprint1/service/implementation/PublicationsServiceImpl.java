@@ -3,17 +3,15 @@ package com.group03.sprint1.service.implementation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.PublicationDTO;
-import com.group03.sprint1.dto.SellerDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.PublicationPromoResponseDTO;
 import com.group03.sprint1.dto.response.PublicationResponseDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
-import com.group03.sprint1.dto.response.UserDataResponseDTO;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
 import com.group03.sprint1.entity.UserData;
 import com.group03.sprint1.exception.entity.BadRequestException;
 import com.group03.sprint1.exception.entity.NotFoundException;
-import com.group03.sprint1.repository.IProductsRepository;
 import com.group03.sprint1.repository.IUsersRepository;
 import com.group03.sprint1.repository.implementation.ProductsRepositoryImpl;
 import com.group03.sprint1.repository.implementation.UsersRepositoryImpl;
@@ -41,6 +39,12 @@ public class PublicationsServiceImpl implements IPublicationsService {
         this.objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
     }
 
+    @Override
+    public List<SellersWithPublicationDTO> showAllSellers() {
+        List<Seller> sellers = usersRepository.findAllSellers();
+        return sellers.stream().map(p -> objectMapper.convertValue(p, SellersWithPublicationDTO.class)).toList();
+    }
+
     private List<PublicationDTO> filterListByOrder(List<PublicationDTO> publicationDTOList, String order){
         if (Utils.isNotNull(order) && order.equals(Constants.ORDER_ASCENDANT)) {
             return publicationDTOList.stream()
@@ -55,7 +59,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
     }
 
     @Override
-    public SellerDTO createPublication(PublicationDTO publicationDTO) {
+    public MessageResponseDTO createPublication(PublicationDTO publicationDTO) {
 
         if(usersRepository.findSellerById(publicationDTO.getUserId()) == null) {
             throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUserId());
@@ -67,8 +71,8 @@ public class PublicationsServiceImpl implements IPublicationsService {
             throw new BadRequestException("Request cannot be null");
         }
 
-        Seller seller = usersRepository.createPublication(publication);
-        return objectMapper.convertValue(seller, SellerDTO.class);
+        usersRepository.createPublication(publication);
+        return new MessageResponseDTO("Post created successfully.");
     }
 
     @Override
@@ -90,7 +94,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
 
         for (UserData sellerUser : userSellersFollowed) {
             Seller seller = usersRepository.findSellerById(sellerUser.getUserId());
-            if (Utils.isNotNull(seller) && seller.getPublications() != null) {
+            if (Utils.isNotNull(seller) && Utils.isNotNull(seller.getPublications())) {
                 filteredPublications.addAll(
                         seller.getPublications().stream()
                                 .filter(publication -> publication.getDate() != null && publication.getDate().isAfter(LocalDate.now().minusWeeks(2)))
@@ -110,12 +114,13 @@ public class PublicationsServiceImpl implements IPublicationsService {
     /*----------- INDIVIDUAL y BONUS ---------------*/
 
     @Override
-    public void createPublicationPromo(PublicationDTO publicationDTO) {
+    public MessageResponseDTO createPublicationPromo(PublicationDTO publicationDTO) {
         if (publicationDTO.isHasPromo()) {
             createPublication(publicationDTO);
         } else {
             throw new BadRequestException("This is not a publication promo");
         }
+        return new MessageResponseDTO("Post promo created successfully.");
     }
 
     @Override

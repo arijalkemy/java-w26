@@ -1,10 +1,7 @@
 package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
-import com.group03.sprint1.dto.response.PublicationPromoResponseDTO;
-import com.group03.sprint1.dto.response.PublicationResponseDTO;
-import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
-import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
+import com.group03.sprint1.dto.response.*;
 import com.group03.sprint1.service.IPublicationsService;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.PublicationsServiceImpl;
@@ -21,22 +18,20 @@ public class PublicationsController {
 
     private final IPublicationsService productsService;
 
-    private IUsersService usersService;
 
     public PublicationsController(PublicationsServiceImpl publicationsService, UsersServiceImpl usersServiceImpl) {
         this.productsService = publicationsService;
-        this.usersService = usersServiceImpl;
+
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<SellersWithPublicationDTO>> getAllProducts() {
-        return new ResponseEntity<>(usersService.showAllSellers(), HttpStatus.OK);
+        return new ResponseEntity<>(productsService.showAllSellers(), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public ResponseEntity<String> createPublication(@RequestBody PublicationDTO publication) {
-        productsService.createPublication(publication);
-        return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
+    public ResponseEntity<MessageResponseDTO> createPublication(@RequestBody PublicationDTO publication) {
+        return new ResponseEntity<>(productsService.createPublication(publication), HttpStatus.CREATED);
     }
 
     @GetMapping("/followed/{userId}/list")
@@ -52,9 +47,8 @@ public class PublicationsController {
 
     /*----------- INDIVIDUAL y BONUS ---------------*/
     @PostMapping("/promo-post")
-    public ResponseEntity<String> createPublicationPromo(@RequestBody PublicationDTO publication) {
-        productsService.createPublicationPromo(publication);
-        return new ResponseEntity<>("Publication promo created successfully", HttpStatus.CREATED);
+    public ResponseEntity<MessageResponseDTO> createPublicationPromo(@RequestBody PublicationDTO publication) {
+        return new ResponseEntity<>(productsService.createPublicationPromo(publication), HttpStatus.CREATED);
     }
 
     @GetMapping("/promo-post/count")

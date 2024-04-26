@@ -1,16 +1,14 @@
 package com.group03.sprint1.controller;
 
-import com.group03.sprint1.dto.SellerFollowersDTO;
+import com.group03.sprint1.dto.SellerNumberOfFollowersDTO;
 import com.group03.sprint1.dto.response.BuyerResponseDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.SellerResponseDTO;
-import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.UsersServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -24,16 +22,15 @@ public class UsersController {
     }
 
     @PostMapping("/{userId}/follow/{userIdToFollow}")
-    public ResponseEntity<?> followUser(@PathVariable Integer userId,
-                                        @PathVariable Integer userIdToFollow) {
-        usersService.followUser(userId, userIdToFollow);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<MessageResponseDTO> followUser(@PathVariable Integer userId,
+                                                         @PathVariable Integer userIdToFollow) {
+        return ResponseEntity.ok().body(usersService.followUser(userId, userIdToFollow));
     }
 
     @GetMapping("/{userId}/followers/count")
-    public ResponseEntity<SellerFollowersDTO> getFollowersCount(@PathVariable Integer userId) {
-        SellerFollowersDTO sellerFollowersDTO= usersService.getFollowers(userId);
-        return new ResponseEntity<SellerFollowersDTO>(sellerFollowersDTO, HttpStatus.OK);
+    public ResponseEntity<SellerNumberOfFollowersDTO> getFollowersCount(@PathVariable Integer userId) {
+        SellerNumberOfFollowersDTO sellerNumberOfFollowersDTO = usersService.getFollowers(userId);
+        return new ResponseEntity<SellerNumberOfFollowersDTO>(sellerNumberOfFollowersDTO, HttpStatus.OK);
     }
 
     @GetMapping("/{userId}/followers/list")
@@ -50,10 +47,9 @@ public class UsersController {
     }
 
     @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
-    public ResponseEntity<?> unfollowUser(@PathVariable Integer userId,
+    public ResponseEntity<MessageResponseDTO> unfollowUser(@PathVariable Integer userId,
                                           @PathVariable Integer userIdToUnfollow) {
-        usersService.unfollowUser(userId, userIdToUnfollow);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(usersService.unfollowUser(userId, userIdToUnfollow));
     }
 
 }
