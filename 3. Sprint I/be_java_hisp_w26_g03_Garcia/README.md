@@ -31,6 +31,7 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
   - [Dar de alta publicación de promoción](#10-llevar-a-cabo-la-publicación-de-un-nuevo-producto-en-promoción)
   - [Cantidad de productos en promoción](#11-obtener-la-cantidad-de-productos-en-promoción-de-un-determinado-vendedor)
   - [Lista de productos en promoción](#12-obtener-la-lista-de-productos-en-promoción-de-un-determinado-vendedor)
+  - [Eliminar publicación](#12-eliminar-publicación-de-vendedor)
 
 ## Entidades
 
@@ -418,4 +419,65 @@ GET /products/promo-post/list?user_id={userId}
 | price | Double | Precio del producto                                                              |
 | has_promo | boolean | Campo true o false para determinar si un producto está en promoción o no                                                              |
 | discount | Double | En caso de que un producto estuviese en promoción ,establece el monto de descuento.                                                              |
+
+### 13. Eliminar publicación de vendedor
+
+```http
+DEL /users/userId/delete_post/postId
+```
+
+#### Filtros/Parámetros:
+
+| Parámetro | Tipo    | Descripción                                        |
+|-----------|---------|----------------------------------------------------|
+| userId    | Integer | Número que identifica a un usario de tipo `Seller` |
+| postId    | Integer | Número que identifica a una publicación            |
+
+### 14. Actualizar publicación de vendedor
+
+```http
+PUT /users/userId/update_post/postId
+```
+
+#### Filtros/Parámetros:
+
+| Parámetro | Tipo    | Descripción                                        |
+|-----------|---------|----------------------------------------------------|
+| userId    | Integer | Número que identifica a un usario de tipo `Seller` |
+| postId    | Integer | Número que identifica a una publicación            |
+
+#### Payload
+
+| Parámetro | Tipo | Descripción                                                                                     |
+|-------|------|-------------------------------------------------------------------------------------------------|
+| date | LocalDate | Fecha de la publicación en formato dd-MM-yyyy                                    |
+| detail | Product | Detalle del producto                                                                            |
+| category | Integer | Identificador que sirve para conocer la categoría a la que pertenece un producto                |
+| price | Double | Precio del producto                                                                             |
+| userId    | Integer | Número que identifica a un usario de tipo `Seller` |
+| postId    | Integer | Número que identifica a una publicación            |
+| has_promo | boolean | Campo true o false para determinar si un producto está en promoción o no [Opcional]             |
+| discount | Double | En caso de que un producto estuviese en promoción ,establece el monto de descuento. [Opcional]  |
+
+
+
+Ejemplo:
+
+```http
+{
+    "date": "2024-04-18",
+    "product": {
+        "product_id": 1,
+        "product_name": "Silla Gamer",
+        "type": "Gamer",
+        "brand": "Racer",
+        "color": "Red & Black",
+        "notes": "Special Edition"
+    },
+    "category": 100,
+    "price": 20000000000.0504034,
+    "user_id": 124,
+    "post_id": 0
+    }
+```
 

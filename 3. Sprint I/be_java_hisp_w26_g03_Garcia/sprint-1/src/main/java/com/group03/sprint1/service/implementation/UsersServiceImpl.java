@@ -105,11 +105,11 @@ public class UsersServiceImpl implements IUsersService {
             }
 
             SellerResponseDTO sellerResponseDTO = new SellerResponseDTO(
-                    seller.getUserId(),
-                    seller.getUserName(),
-                    seller.getFollowers().stream()
-                            .map(ModelConversionService::convertToDTO)
-                            .collect(Collectors.toList()), null);
+                                                        seller.getUserId(),
+                                                        seller.getUserName(),
+                                                        seller.getFollowers().stream()
+                                                                .map(ModelConversionService::convertToDTO)
+                                                                .collect(Collectors.toList()), null);
             return sellerResponseDTO;
 
         } else {
@@ -120,9 +120,6 @@ public class UsersServiceImpl implements IUsersService {
     private class ModelConversionService {
         public static UserDataResponseDTO convertToDTO(UserData userData) {
             return new UserDataResponseDTO(userData.getUserId(), userData.getUserName());
-        }
-        public static UserData convertToEntity(UserDataResponseDTO dto) {
-            return new UserData(dto.getUserId(), dto.getUserName());
         }
     }
 
@@ -264,6 +261,57 @@ public class UsersServiceImpl implements IUsersService {
                 listPromo);
 
         return sellerWithPromoListDTO;
+    }
+
+    @Override
+    public String deletePostOfSeller(Integer userId, Integer postId) {
+        Seller seller = usersRepository.findSellerById(userId);
+
+        if (Utils.isNull(seller)){
+            throw new BadRequestException("There is not seller with ID: " + userId);
+        }
+
+        List<Publication> publications = seller.getPublications();
+
+        Publication publicationToDelete = publications.stream()
+                                            .filter(p -> (p.getPostId()) == postId)
+                                            .findFirst()
+                                            .orElse(null);
+
+        if (Utils.isNull(publicationToDelete)){
+            throw new BadRequestException("There is no post with ID: " + postId);
+        }
+
+        publications.remove(publicationToDelete);
+
+        return "Post with id: " + postId + " deleted succesfully.";
+    }
+
+    @Override
+    public String updatePostOfSeller(Integer userId, Integer postId, PublicationDTO publicationDTO) {
+        Seller seller = usersRepository.findSellerById(userId);
+
+        if (Utils.isNull(seller)){
+            throw new BadRequestException("There is not seller with ID: " + userId);
+        }
+
+        List<Publication> publications = seller.getPublications();
+
+        Integer publicationToUpdateIndex = publications.indexOf(publications.stream()
+                .filter(p -> (p.getPostId()) == postId)
+                .findFirst()
+                .orElse(null));
+
+        if (publicationToUpdateIndex == -1){
+            throw new BadRequestException("There is no post with ID: " + postId);
+        }
+
+        Publication publication = objectMapper.convertValue(publicationDTO, Publication.class);
+
+        publications.set(publicationToUpdateIndex, publication);
+
+
+        return "Post with id: " + postId + " updated succesfully.";
     }
 
 

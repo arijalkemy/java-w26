@@ -4,6 +4,7 @@ import com.group03.sprint1.dto.SellerFollowersDTO;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
 import com.group03.sprint1.dto.response.*;
+import com.group03.sprint1.entity.Publication;
 
 import java.util.Comparator;
 import java.util.List;
@@ -19,4 +20,6 @@ public interface IUsersService {
     void createPromoPublication(PublicationDTO publicationDTO);
     SellerWithPromoCountDTO getPromoCountBySeller(Integer userId);
     SellerWithPromoListDTO getPromoListBySeller(Integer userId);
+    String deletePostOfSeller(Integer userId, Integer postId);
+    String updatePostOfSeller(Integer userId, Integer postId, PublicationDTO publication);
 }

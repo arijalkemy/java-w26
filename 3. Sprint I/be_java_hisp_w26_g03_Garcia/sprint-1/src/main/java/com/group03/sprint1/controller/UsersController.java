@@ -1,5 +1,6 @@
 package com.group03.sprint1.controller;
 
+import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerFollowersDTO;
 import com.group03.sprint1.dto.response.BuyerResponseDTO;
 import com.group03.sprint1.dto.response.SellerResponseDTO;
@@ -51,5 +52,18 @@ public class UsersController {
                                           @PathVariable Integer userIdToUnfollow) {
         usersService.unfollowUser(userId, userIdToUnfollow);
         return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{userId}/delete_post/{postId}")
+    public ResponseEntity<String> deletePostOfSeller(@PathVariable Integer userId,
+                                                    @PathVariable Integer postId){
+        return ResponseEntity.ok().body(usersService.deletePostOfSeller(userId, postId));
+    }
+
+    @PutMapping("/{userId}/update_post/{postId}")
+    public ResponseEntity<String> updatePostOfSeller(@PathVariable Integer userId,
+                                                             @PathVariable Integer postId,
+                                                             @RequestBody PublicationDTO publicationDTO){
+        return ResponseEntity.ok().body(usersService.updatePostOfSeller(userId, postId, publicationDTO));
     }
 }
