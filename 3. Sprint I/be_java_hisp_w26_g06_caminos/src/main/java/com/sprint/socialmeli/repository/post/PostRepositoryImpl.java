@@ -35,4 +35,20 @@ public class PostRepositoryImpl implements IPostRepository{
     public List<Post> findBySellerId(Integer sellerId) {
         return postMap.getOrDefault(sellerId, new ArrayList<>());
     }
+
+    @Override
+    public List<Post> findPromoBySellerId(Integer sellerId) {
+        List<Post> postList = findBySellerId(sellerId);
+        return postList.stream().filter(Post::isHasPromo).toList();
+    }
+
+    @Override
+    public Map<Integer, Long> getTotalByPromoPost() {
+        Map<Integer, Long> result = new HashMap<>();
+        for(Integer sellerId : postMap.keySet()) {
+            result.put(sellerId, postMap.get(sellerId).stream().filter(Post::isHasPromo).count());
+        }
+        return result;
+    }
+
 }

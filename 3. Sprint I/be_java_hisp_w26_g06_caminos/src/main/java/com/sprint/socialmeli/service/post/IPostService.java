@@ -1,10 +1,14 @@
 package com.sprint.socialmeli.service.post;
-import com.sprint.socialmeli.dto.post.FollowedProductsResponseDTO;
-import com.sprint.socialmeli.dto.post.PostDTO;
+import com.sprint.socialmeli.dto.post.*;
+
+import java.util.List;
 
 public interface IPostService {
 
-    void createPost(PostDTO post);
+    Integer createPost(PostDTO post);
     FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order);
-
+    void createPromoPost(PromoPostDTO postDTO);
+    PromoPostCountResponseDTO getPromoPostCount(Integer sellerId);
+    List<PromoPostCountResponseDTO> getAllPromoPostCount();
+    List<PromoPostResponseDTO> getPromoPosts(Integer sellerId);
 }

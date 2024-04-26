@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UsersController {
 
-    private IUsersService _usersService;
+    private IUsersService usersService;
 
     public UsersController(IUsersService usersService){
-        this._usersService = usersService;
+        this.usersService = usersService;
     }
 
     /**
@@ -30,7 +30,7 @@ public class UsersController {
             @PathVariable("userId") Integer userId,
             @PathVariable("userIdToFollow") Integer userIdToFollow) {
 
-        _usersService.follow(userId, userIdToFollow);
+        usersService.follow(userId, userIdToFollow);
 
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
@@ -43,7 +43,7 @@ public class UsersController {
      */
     @GetMapping("/{userId}/followers/count")
     public ResponseEntity<FollowerCountResponseDTO> countFollowers(@PathVariable("userId") Integer userId) {
-        FollowerCountResponseDTO followerCount = _usersService.getFollowersCount(userId);
+        FollowerCountResponseDTO followerCount = usersService.getFollowersCount(userId);
         return new ResponseEntity<>(followerCount, HttpStatus.OK);
     }
 
@@ -58,7 +58,7 @@ public class UsersController {
     public ResponseEntity<FollowersResponseDTO> listFollowers(@PathVariable("userId") Integer userId,
                                            @RequestParam(required = false) String order) {
 
-        FollowersResponseDTO followers = _usersService.getfollowers(userId, order);
+        FollowersResponseDTO followers = usersService.getFollowers(userId, order);
 
         return new ResponseEntity<>(followers, HttpStatus.OK);
     }
@@ -73,7 +73,7 @@ public class UsersController {
     @GetMapping("/{userId}/followed/list")
     public ResponseEntity<FollowedResponseDTO> listFollowedUsers(@PathVariable("userId") Integer userId,
                                                                  @RequestParam(required = false) String order) {
-        return new ResponseEntity<>(_usersService.listFollowedUsers(userId, order), HttpStatus.OK);
+        return new ResponseEntity<>(usersService.listFollowedUsers(userId, order), HttpStatus.OK);
     }
 
     /**
@@ -85,7 +85,7 @@ public class UsersController {
      */
     @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
     public ResponseEntity<String> unfollow(@PathVariable Integer userId, @PathVariable Integer userIdToUnfollow) {
-        _usersService.unfollow(userId, userIdToUnfollow);
+        usersService.unfollow(userId, userIdToUnfollow);
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 

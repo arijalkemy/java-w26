@@ -10,5 +10,5 @@ import java.util.List;
 @AllArgsConstructor
 public class FollowedProductsResponseDTO implements Serializable {
     private final Integer user_id;
-    private final List<PostResponseDTO> posts;
+    private final List<PostDTO> posts;
 }

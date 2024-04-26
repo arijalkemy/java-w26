@@ -13,13 +13,17 @@ public class Post {
     private LocalDate postDate;
     private Integer category;
     private double price;
+    private boolean hasPromo;
+    private double discount;
     private static Integer idCounter = 0;
 
-    public Post(Product product, LocalDate postDate, Integer category, double price) {
+    public Post(Product product, LocalDate postDate, Integer category, double price, boolean hasPromo, double discount) {
         this.product = product;
         this.postDate = postDate;
         this.category = category;
         this.price = price;
+        this.hasPromo = hasPromo;
+        this.discount = discount;
         this.id = idCounter++;
     }
 }

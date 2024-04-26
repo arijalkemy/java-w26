@@ -5,10 +5,12 @@ import com.sprint.socialmeli.dto.user.UserResponseDTO;
 import com.sprint.socialmeli.dto.user.FollowedResponseDTO;
 import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Seller;
+import com.sprint.socialmeli.mappers.UserMapper;
 import com.sprint.socialmeli.repository.user.IUsersRepository;
 import com.sprint.socialmeli.exception.*;
 import com.sprint.socialmeli.dto.user.FollowerCountResponseDTO;
 import com.sprint.socialmeli.utils.NameOrderType;
+import com.sprint.socialmeli.utils.UserChecker;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -17,13 +19,15 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.sprint.socialmeli.mappers.UserMapper.*;
+
 @Service
 public class UsersServiceImpl implements IUsersService {
 
-    private IUsersRepository _usersRepository;
+    private IUsersRepository usersRepository;
 
     public UsersServiceImpl(IUsersRepository usersRepository) {
-        this._usersRepository = usersRepository;
+        this.usersRepository = usersRepository;
     }
 
     /**
@@ -36,38 +40,15 @@ public class UsersServiceImpl implements IUsersService {
      */
     @Override
     public void follow(Integer customerId, Integer sellerId) {
-        Customer customer = checkAndGetUser(customerId, sellerId);
+
+        Customer customer = UserChecker.checkAndGetCustomer(customerId);
+        UserChecker.checkAndGetSeller(sellerId);
 
         if (customer.getFollowed().stream().anyMatch(f -> f.equals(sellerId))) {
             throw new ConflictException("The user already follows the seller: " + sellerId);
         }
 
         customer.follow(sellerId);
-    }
-
-    /**
-     *
-     * @param customerId Customer id
-     * @param sellerId Seller id
-     * @return a Customer entity
-     * @throws NotFoundException if any of the users not exists in the repository
-     * Checks if the users exists in the repository
-     */
-    private Customer checkAndGetUser(Integer customerId, Integer sellerId) {
-        List<Customer> customer = _usersRepository
-                .findCustomerByPredicate(c -> c.getUser().getUserId().equals(customerId));
-
-        List<Seller> seller = _usersRepository.findSellerByPredicate(s -> s.getUser().getUserId().equals(sellerId));
-
-        if (customer.isEmpty()) {
-            throw new NotFoundException("Customer with ID: " + customerId + " not found");
-        }
-
-        if (seller.isEmpty()) {
-            throw new NotFoundException("Seller with ID: " + sellerId + " not found");
-        }
-
-        return customer.get(0);
     }
 
     /**
@@ -80,12 +61,13 @@ public class UsersServiceImpl implements IUsersService {
      */
     @Override
     public void unfollow(Integer userId, Integer userIdToUnfollow) {
-        Customer customer = checkAndGetUser(userId, userIdToUnfollow);
+
+        Customer customer = UserChecker.checkAndGetCustomer(userId);
+        UserChecker.checkAndGetSeller(userIdToUnfollow);
 
         if (customer.getFollowed().stream().noneMatch(f -> f.equals(userIdToUnfollow))) {
             throw new BadRequestException("The user " + userId + " doesn't follow the seller: " + userIdToUnfollow);
         }
-
 
         customer.unfollow(userIdToUnfollow);
     }
@@ -102,25 +84,18 @@ public class UsersServiceImpl implements IUsersService {
      */
     @Override
     public FollowedResponseDTO listFollowedUsers(Integer userId, String order) {
-        List<Customer> customers = _usersRepository
-                .findCustomerByPredicate(c -> c.getUser().getUserId().equals(userId));
-
-        if (customers.isEmpty()) {
-            throw new NotFoundException("Customer with ID: " + userId + " not found");
-        }
+        Customer customer = UserChecker.checkAndGetCustomer(userId);
 
         if (!isValidOrderType(order)) {
             throw new BadRequestException("Invalid order type: " + order);
         }
 
-        Customer customer = customers.get(0);
-
-        List<Seller> followedSellers = _usersRepository
+        List<Seller> followedSellers = usersRepository
                 .findSellerByPredicate(s -> customer.getFollowed().contains(s.getUser().getUserId()));
 
         List<UserResponseDTO> followed = followedSellers
                 .stream()
-                .map(s -> new UserResponseDTO(s.getUser().getUserId(), s.getUser().getUserName()))
+                .map(UserMapper::mapSellerToUserResponseDto)
                 .collect(Collectors.toList());
 
         if (order != null) {
@@ -128,7 +103,7 @@ public class UsersServiceImpl implements IUsersService {
             followed = sortList(followed, orderType);
         }
 
-        return new FollowedResponseDTO(customer.getUser().getUserId(), customer.getUser().getUserName(), followed);
+        return mapUserToFollowedResponseDto(customer, followed);
     }
 
     /**
@@ -142,23 +117,18 @@ public class UsersServiceImpl implements IUsersService {
      * and order if the order is present
      */
     @Override
-    public FollowersResponseDTO getfollowers(Integer sellerId, String orderType) {
+    public FollowersResponseDTO getFollowers(Integer sellerId, String orderType) {
 
-        Seller seller = _usersRepository
-                .findSellerByPredicate(s -> s.getUser().getUserId().equals(sellerId))
-                .stream()
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Seller with ID: " + sellerId + " not found"));
-
+        Seller seller = UserChecker.checkAndGetSeller(sellerId);
 
         if (!isValidOrderType(orderType)) {
             throw new BadRequestException("Invalid order type: " + orderType);
         }
 
-        List<Customer> followers = _usersRepository.findCustomerByPredicate(c -> c.getFollowed().contains(sellerId));
+        List<Customer> followers = usersRepository.findCustomerByPredicate(c -> c.getFollowed().contains(sellerId));
         List<UserResponseDTO> usersDto = followers
                 .stream()
-                .map(f -> new UserResponseDTO(f.getUser().getUserId(), f.getUser().getUserName()))
+                .map(UserMapper::mapCustomerToUserResponseDto)
                 .toList();
 
         if (orderType != null) {
@@ -166,9 +136,7 @@ public class UsersServiceImpl implements IUsersService {
             usersDto = sortList(usersDto, order);
         }
 
-        String sellerName = seller.getUser().getUserName();
-
-        return new FollowersResponseDTO(sellerId, sellerName, usersDto);
+        return mapUserToFollowerResponseDto(seller, usersDto);
     }
 
     /**
@@ -209,23 +177,16 @@ public class UsersServiceImpl implements IUsersService {
      */
     @Override
     public FollowerCountResponseDTO getFollowersCount(Integer sellerId) {
-        Seller seller = _usersRepository
-                .findSellerByPredicate(s -> s.getUser().getUserId().equals(sellerId))
-                .stream()
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Seller with ID: " + sellerId + " not found"));
 
-        Integer followersCount = _usersRepository
+        Seller seller = UserChecker.checkAndGetSeller(sellerId);
+
+        Integer followersCount = usersRepository
                 .findCustomerByPredicate(customer -> customer.getFollowed()
                         .stream()
                         .anyMatch(s -> s.equals(sellerId)))
                 .size();
 
-        return new FollowerCountResponseDTO(
-                sellerId,
-                seller.getUser().getUserName(),
-                followersCount
-        );
+        return mapUserToFollowerCountDto(seller, followersCount);
 
     }
 }

@@ -18,13 +18,13 @@ public class PostsController {
     /**
      * Endpoint US0005
      * @param post DTO of post
-     * @return Ok Status
+     * @return an Integer with the post id
      * Calls postService to create new post
      */
     @PostMapping("/post")
-    public ResponseEntity<Void> createPost(@RequestBody PostDTO post){
-        this.postService.createPost(post);
-        return ResponseEntity.status(HttpStatus.OK).build();
+    public ResponseEntity<Integer> createPost(@RequestBody PostDTO post){
+        Integer idCreated = this.postService.createPost(post);
+        return new ResponseEntity<>(idCreated, HttpStatus.OK);
     }
 
     /**
