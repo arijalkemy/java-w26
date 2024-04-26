@@ -6,14 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class PostDTO {
-    @JsonProperty("post_id")
-    private int postId;
+@AllArgsConstructor
+public class CreatePostDTO {
     @JsonProperty("user_id")
     private int userId;
     @JsonProperty("date")
@@ -25,4 +21,8 @@ public class PostDTO {
     private int category;
     @JsonProperty("price")
     private double price;
+    @JsonProperty("has_promo")
+    private Boolean hasPromo = false;
+    @JsonProperty("discount")
+    private Double discount = 0.0;
 }
