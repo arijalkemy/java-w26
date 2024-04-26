@@ -44,6 +44,10 @@ public class ProductController {
     @GetMapping("/promo-post/count")
     public ResponseEntity<?> getUserPromoPostCount(@RequestParam Integer user_id) {
         return ResponseEntity.status(HttpStatus.OK).body(postService.retrieveUserPromoPostCount(user_id));
+    }
 
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<?> getUserPromoPostList(@RequestParam Integer user_id) {
+        return ResponseEntity.status(HttpStatus.OK).body(postService.retrieveUserPromoPostList(user_id));
     }
 }

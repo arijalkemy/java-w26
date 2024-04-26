@@ -128,13 +128,30 @@ public class PostServiceImpl implements IPostService {
     @Override
     public UserPromoPostCountDTO retrieveUserPromoPostCount(Integer userId) {
         User user = userRepository.findById(userId);
+        List<Post> userPromoPosts = findUserPromoPosts(userId);
+        return new UserPromoPostCountDTO(userId, user.getUserName(), userPromoPosts.size());
+    }
+
+    private List<Post> findUserPromoPosts(Integer userId) {
+        User user = userRepository.findById(userId);
         if (user == null) {
             throw new BadRequestException("User with id " + userId + " does not exist.");
         }
         List<Post> userPosts = postRepository.getPostBy(userId);
-        List<Post> userPromoPosts = userPosts.stream().filter(Post::isHasPromo).toList();
+        return userPosts.stream().filter(Post::isHasPromo).toList();
+    }
 
-        return new UserPromoPostCountDTO(userId, user.getUserName(), userPromoPosts.size());
+    @Override
+    public UserPromoPostsDTO retrieveUserPromoPostList(Integer userId) {
+        User user = userRepository.findById(userId);
+        List<Post> userPromoPosts = findUserPromoPosts(userId);
+        List<PromoPostDTO> promoPostsDTO = new ArrayList<>();
+        ObjectMapper mapper = JsonMapper.builder()
+                .addModule(new JavaTimeModule())
+                .build();
+        userPromoPosts.forEach(p -> promoPostsDTO.add(mapper.convertValue(p, PromoPostDTO.class)));
+
+        return new UserPromoPostsDTO(userId, user.getUserName(), promoPostsDTO);
     }
 
     private Boolean isBadRequestPostDto(PostDTO postDto){

@@ -146,12 +146,12 @@ public class UserServiceImpl implements IUserService {
             for (UserMinimalData followed : user.getFollowed()) {
                 followedList.add(new UserDTO(followed.getUserId(), followed.getUserName()));
             }
-            List<PostDTO> postList = new ArrayList<>();
+            List<PromoPostDTO> postList = new ArrayList<>();
             ObjectMapper mapper = JsonMapper.builder()
                     .addModule(new JavaTimeModule())
                     .build();
             for (Post post : user.getPosts()) {
-                postList.add(mapper.convertValue(post, PostDTO.class));
+                postList.add(mapper.convertValue(post, PromoPostDTO.class));
             }
             fullUsersDTO.add(new FullUserDTO(user.getUserId(), user.getUserName(), followerList, followedList, postList));
         }
