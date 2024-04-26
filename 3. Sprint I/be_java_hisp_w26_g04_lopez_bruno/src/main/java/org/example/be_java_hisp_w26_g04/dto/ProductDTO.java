@@ -2,6 +2,7 @@ package org.example.be_java_hisp_w26_g04.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonPropertyOrder({"productId", "productName", "typeProduct", "brand", "color", "notes"})
 public class ProductDTO {
     @JsonAlias("productId")
     @JsonProperty("product_id")
