@@ -10,6 +10,7 @@ import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IPostRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IProductRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IUserRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IPostService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -32,6 +33,12 @@ public class PostServiceImpl implements IPostService {
     @Autowired
     IPostRepository postRepository;
 
+    private ObjectMapper getMapper() {
+        return JsonMapper.builder()
+                .addModule(new JavaTimeModule())
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false)
+                .build();
+    }
 
     /**
      *  Creates a new post based on the provided PostDTO object. This method validates the incoming data,
@@ -48,9 +55,7 @@ public class PostServiceImpl implements IPostService {
     public ExceptionDto create(PostDTO postDTO){
         if(isBadRequestPostDto(postDTO)){ throw new BadRequestException("The request is invalid or missing required data."); }
 
-        ObjectMapper mapper = JsonMapper.builder()
-                .addModule(new JavaTimeModule())
-                .build();
+        ObjectMapper mapper = getMapper();
         Post post = mapper.convertValue(postDTO, Post.class);
 
         validatePostRelationships(post);
@@ -101,9 +106,7 @@ public class PostServiceImpl implements IPostService {
     public ExceptionDto createWithPromotion(PromoPostDTO promoPostDTO) {
         validatePromotionPost(promoPostDTO);
 
-        ObjectMapper mapper = JsonMapper.builder()
-                .addModule(new JavaTimeModule())
-                .build();
+        ObjectMapper mapper = getMapper();
         Post promoPost = mapper.convertValue(promoPostDTO, Post.class);
 
         validatePostRelationships(promoPost);
@@ -117,9 +120,7 @@ public class PostServiceImpl implements IPostService {
     @Override
     public List<PromoPostDTO> getAll() {
         List<Post> posts = postRepository.getAll();
-        ObjectMapper mapper = JsonMapper.builder()
-                .addModule(new JavaTimeModule())
-                .build();
+        ObjectMapper mapper = getMapper();
         List<PromoPostDTO> postDtoList = new ArrayList<>();
         posts.forEach(p -> postDtoList.add(mapper.convertValue(p, PromoPostDTO.class)));
         return postDtoList;
@@ -146,9 +147,7 @@ public class PostServiceImpl implements IPostService {
         User user = userRepository.findById(userId);
         List<Post> userPromoPosts = findUserPromoPosts(userId);
         List<PromoPostDTO> promoPostsDTO = new ArrayList<>();
-        ObjectMapper mapper = JsonMapper.builder()
-                .addModule(new JavaTimeModule())
-                .build();
+        ObjectMapper mapper = getMapper();
         userPromoPosts.forEach(p -> promoPostsDTO.add(mapper.convertValue(p, PromoPostDTO.class)));
 
         return new UserPromoPostsDTO(userId, user.getUserName(), promoPostsDTO);

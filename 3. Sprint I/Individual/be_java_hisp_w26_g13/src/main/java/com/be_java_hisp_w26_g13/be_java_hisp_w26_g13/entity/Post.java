@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @Setter
 @Data
 public class Post {
+    @JsonProperty("post_id")
+    private int postId;
     @JsonProperty("user_id")
     private int userId;
     @JsonFormat(pattern = "dd-MM-yyyy")
@@ -25,7 +27,8 @@ public class Post {
     @JsonProperty("has_promo")
     private boolean hasPromo;
 
-    public Post(int userId, LocalDate date, Product product, int category, Double price) {
+    public Post(int postId, int userId, LocalDate date, Product product, int category, Double price) {
+        this.postId = postId;
         this.userId = userId;
         this.date = date;
         this.product = product;

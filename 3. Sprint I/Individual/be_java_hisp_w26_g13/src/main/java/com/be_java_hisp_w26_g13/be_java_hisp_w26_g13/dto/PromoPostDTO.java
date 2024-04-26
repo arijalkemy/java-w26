@@ -12,6 +12,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PromoPostDTO {
+    @JsonProperty("post_id")
+    private int postId;
     @JsonProperty("user_id")
     private int userId;
     @JsonProperty("date")

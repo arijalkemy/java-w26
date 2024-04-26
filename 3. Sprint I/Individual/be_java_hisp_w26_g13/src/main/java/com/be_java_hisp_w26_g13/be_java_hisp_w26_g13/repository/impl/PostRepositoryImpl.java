@@ -46,9 +46,9 @@ public class PostRepositoryImpl implements IPostRepository {
             int category = random.nextInt(5) + 1;
             double price = 100.0 + (random.nextDouble() * 1000.0);
 
-            Post post = new Post(userId, date, product, category, price);
+            Post post = new Post(i + 1,userId, date, product, category, price);
             //cuando se crea un post lo agrego al user correspondiente en la lista de userRepository
-            List<User> userList =userRepository.getAll();
+            List<User> userList = userRepository.getAll();
             for (User user: userList){
                 if (user.getUserId() == userId){
                     user.getPosts().add(post);
@@ -64,7 +64,10 @@ public class PostRepositoryImpl implements IPostRepository {
     }
 
     @Override
-    public void create(Post post){ listPost.add(post); }
+    public void create(Post post){
+        post.setPostId(this.listPost.size() + 1);
+        listPost.add(post);
+    }
 
     @Override
     public List<Post> getPostBy(int userId) {
