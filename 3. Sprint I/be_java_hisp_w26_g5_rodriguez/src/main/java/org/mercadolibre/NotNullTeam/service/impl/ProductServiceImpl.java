@@ -2,7 +2,8 @@ package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductFilterDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProducts;
+import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProductsResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.product.FiltersResponse;
 import org.mercadolibre.NotNullTeam.mapper.ProductMapper;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.service.external.IProductService;
@@ -20,7 +21,7 @@ public class ProductServiceImpl implements IProductService {
     private final IPostServiceInternal postServiceInternal;
 
     @Override
-    public FilterProducts searchProducts(ProductFilterDTO productFilterDTO) {
+    public FilterProductsResponse searchProducts(ProductFilterDTO productFilterDTO) {
         List<Post> posts = postServiceInternal.findAll();
 
         List<Post> listFiltered = posts
@@ -34,10 +35,18 @@ public class ProductServiceImpl implements IProductService {
                 .filter(byMaxPrice(productFilterDTO))
                 .toList();
 
-        return FilterProducts
+        long amountWithPromo = listFiltered.stream().filter(Post::getHasPromo).count();
+
+        FiltersResponse filtersResponse = FiltersResponse
                 .builder()
                 .brands(getBrands(listFiltered))
                 .types(getTypes(listFiltered))
+                .has_promo(amountWithPromo)
+                .build();
+
+        return FilterProductsResponse
+                .builder()
+                .filters(filtersResponse)
                 .products(ProductMapper.postToMainProductResponse(listFiltered))
                 .build();
     }

@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.response.brand.BrandBasicResponse;
-import org.mercadolibre.NotNullTeam.DTO.response.type.TypeBasicResponse;
 
 import java.util.List;
 
@@ -13,8 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class FilterProducts {
-    private List<BrandBasicResponse> brands;
-    private List<TypeBasicResponse> types;
+public class FilterProductsResponse {
+    private FiltersResponse filters;
     private List<MainProductResponse> products;
 }

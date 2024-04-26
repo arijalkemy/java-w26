@@ -1,8 +1,8 @@
 package org.mercadolibre.NotNullTeam.service.external;
 
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductFilterDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProducts;
+import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProductsResponse;
 
 public interface IProductService {
-    FilterProducts searchProducts(ProductFilterDTO productFilterDTO);
+    FilterProductsResponse searchProducts(ProductFilterDTO productFilterDTO);
 }

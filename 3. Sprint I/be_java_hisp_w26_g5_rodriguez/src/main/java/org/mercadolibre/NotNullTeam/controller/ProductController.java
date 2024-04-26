@@ -2,7 +2,7 @@ package org.mercadolibre.NotNullTeam.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductFilterDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProducts;
+import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProductsResponse;
 import org.mercadolibre.NotNullTeam.service.external.IProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class ProductController {
     private final IProductService service;
 
     @GetMapping("/list")
-    public ResponseEntity<FilterProducts> getProductsFilters(
+    public ResponseEntity<FilterProductsResponse> getProductsFilters(
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String type,
             @RequestParam(required = false) String brand,
@@ -37,7 +37,7 @@ public class ProductController {
                 .has_promo(has_promo)
                 .build();
 
-        FilterProducts response = service.searchProducts(productFilterDTO);
+        FilterProductsResponse response = service.searchProducts(productFilterDTO);
         return ResponseEntity.ok(response);
     }
 }
