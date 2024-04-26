@@ -2,19 +2,16 @@ package org.example.sprint1.service.seller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.example.sprint1.dto.*;
+import org.example.sprint1.dto.PostDTO;
+import org.example.sprint1.dto.RequestPostDTO;
+import org.example.sprint1.dto.ResponsePostDTO;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.BadRequestException;
 import org.example.sprint1.exception.NotFoundException;
-import org.example.sprint1.repository.CustomerRepository;
 import org.example.sprint1.repository.ICustomerRepository;
 import org.example.sprint1.repository.ISellerRepository;
-import org.example.sprint1.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +24,7 @@ public class SellerServiceImplementation implements ISellerService {
     @Autowired
     ICustomerRepository customerRepository;
 
+    private final static String ORDER_ASC = "date_asc";
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -38,7 +36,7 @@ public class SellerServiceImplementation implements ISellerService {
     public Post addPost(RequestPostDTO postDTO) {
 
 //        Revisar si existe el Usuario
-        Seller seller = sellerRepository.filterSellerById(postDTO.getUserId());
+        Seller seller = sellerRepository.getSellerById(postDTO.getUserId());
         if (seller == null) {
             throw new NotFoundException("No existe un Vendedor con ese ID");
         }
@@ -69,7 +67,7 @@ public class SellerServiceImplementation implements ISellerService {
     }
 
     @Override
-    public ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, Optional<String> order) {
+    public ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, String order) {
         // Obtiene customer con userId
         Customer customer = customerRepository.findCustomerById(userId);
         if(customer == null){
@@ -82,8 +80,8 @@ public class SellerServiceImplementation implements ISellerService {
         // Convierte el map en list de PostDto para poder generar un ResponsePostDTO
         List<PostDTO> listPostDto = mappingPostToPostDto(postsByFollowing);
 
-        // Ordenamos la lista según se pida
-        if(order.isPresent() && order.get().equals("date_asc"))
+        // Ordenamos la lista según el query param
+        if(ORDER_ASC.equals(order))
             listPostDto.sort(Comparator.comparing(PostDTO::getDate));
         else
             listPostDto.sort(Comparator.comparing(PostDTO::getDate).reversed());
@@ -91,46 +89,12 @@ public class SellerServiceImplementation implements ISellerService {
         return new ResponsePostDTO(userId, listPostDto);
     }
 
-    @Override
-    public ResponsePromoCountDTO getPromoPostCount(int userId) {
-        //obtengo el seller
-        Seller seller =  sellerRepository.filterSellerById(userId);
-
-        //si no hay seller no existe
-        if(seller == null) throw new NotFoundException("No existe id");
-
-        //obtengo la lista de promociones
-        List<Post> hasPromo =  seller.getPosts().stream().filter(Post::isHasPromo).toList();
-
-        if(hasPromo.isEmpty()) throw new NotFoundException("No hay promociones");
-
-        return new ResponsePromoCountDTO(userId, seller.getSellerName(), hasPromo.size());
-    }
-
-    @Override
-    public ResponsePromoNoCountDTO getPromoNoPostCount(int userId, boolean notPromo) {
-        //obtengo el seller
-        Seller seller =  sellerRepository.filterSellerById(userId);
-
-        //si no hay seller no existe
-        if(seller == null) throw new NotFoundException("No existe id");
-
-        //obtengo la lista de promociones
-        List<Post> hasPromo =  seller.getPosts().stream().filter(value -> value.isHasPromo() == !notPromo).toList();
-
-        if(hasPromo.isEmpty()) throw new NotFoundException("No hay promociones");
-
-        if(!notPromo)  return new ResponsePromoNoCountDTO(userId, seller.getSellerName(), hasPromo.size());
-
-        return new ResponsePromoNoCountDTO(userId, seller.getSellerName(), hasPromo.size(), notPromo);
-    }
-
 
     private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
         List<PostDTO> listPostDto = new ArrayList<>();
 
         for (Map.Entry<Integer, List<Post>> entry : posts.entrySet()) {
-            // Mapea Post -> PostDTO y se agrega a una list de PostDTO
+            // Mapea Post -> PostDTO y agrega un idSeller
             listPostDto.addAll(
                     entry.getValue().stream()
                             .map(v -> {

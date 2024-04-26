@@ -1,4 +1,5 @@
-[
+
+  [
   {
     "seller_id": 101,
     "seller_name": "TechGear",
@@ -36,7 +37,7 @@
         "discount": 0.0
       }
     ],
-    "followers": []
+    "followers": [234, 235, 236, 237, 238, 239, 240, 242, 243]
   },
   {
     "seller_id": 102,
@@ -75,7 +76,7 @@
         "discount": 0.0
       }
     ],
-    "followers": []
+    "followers": [236, 241, 242, 243]
   },
   {
     "seller_id": 103,
@@ -112,47 +113,46 @@
         "price": 249.99,
         "has_promo": false,
         "discount": 0.0
-      }
-    ],
-    "followers": []
+      }],
+    "followers": [238, 240, 242]
   },
-  {
-    "seller_id": 104,
-    "seller_name": "Joaquín",
-    "posts": [
-      {
-        "post_id": 207,
-        "date": "10-04-2024",
-        "product": {
-          "product_id": 306,
-          "product_name": "PC Gamer Master Raze",
-          "type": "Computación",
-          "brand": "JoaquinComputer",
-          "color": "White",
-          "notes": "Incluye perifericos"
+    {
+      "seller_id": 104,
+      "seller_name": "Joaquín",
+      "posts": [
+        {
+          "post_id": 207,
+          "date": "10-04-2024",
+          "product": {
+            "product_id": 306,
+            "product_name": "PC Gamer Master Raze",
+            "type": "Computación",
+            "brand": "JoaquinComputer",
+            "color": "White",
+            "notes": "Incluye perifericos"
+          },
+          "category": 10,
+          "price": 9999.99,
+          "has_promo": true,
+          "discount": 20.0
         },
-        "category": 10,
-        "price": 9999.99,
-        "has_promo": true,
-        "discount": 20.0
-      },
-      {
-        "post_id": 208,
-        "date": "09-04-2024",
-        "product": {
-          "product_id": 307,
-          "product_name": "Laptop",
-          "type": "Computación",
-          "brand": "JoaquinComputer",
-          "color": "Black",
-          "notes": "Incluye ventilador externo"
-        },
-        "category": 10,
-        "price": 5499.99,
-        "has_promo": true,
-        "discount": 5.0
-      }
-    ],
-    "followers": []
-  }
-]
+        {
+          "post_id": 208,
+          "date": "09-04-2024",
+          "product": {
+            "product_id": 307,
+            "product_name": "Laptop",
+            "type": "Computación",
+            "brand": "JoaquinComputer",
+            "color": "Black",
+            "notes": "Incluye ventilador externo"
+          },
+          "category": 10,
+          "price": 5499.99,
+          "has_promo": true,
+          "discount": 5.0
+        }
+      ],
+      "followers": [234, 235, 237, 238, 240, 242, 243]
+    }
+  ]

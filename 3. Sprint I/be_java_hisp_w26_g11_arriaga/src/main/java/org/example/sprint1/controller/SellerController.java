@@ -1,9 +1,7 @@
 package org.example.sprint1.controller;
 
 import jakarta.validation.Valid;
-import org.example.sprint1.dto.ResponsePromoCountDTO;
 import org.example.sprint1.dto.RequestPostDTO;
-import org.example.sprint1.dto.ResponsetPostPromoDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.BadRequestException;
@@ -42,27 +40,9 @@ public class SellerController {
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<ResponsePostDTO> getPostsFromFollowingWithTwoWeeksOld(
             @PathVariable int userId,
-            @RequestParam Optional<String> order
+            @RequestParam(required = false) String order
     ) {
         return new ResponseEntity<>(postService.getPostsFromFollowingWithTwoWeeksOld(userId, order), HttpStatus.OK);
-    }
-
-    @PostMapping("/promo-post")
-    ResponseEntity<?>  addPromoPost(@RequestBody ResponsetPostPromoDTO postDTO){
-        postService.addPost(postDTO);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
-    @GetMapping("/promo-post/count")
-    ResponseEntity<ResponsePromoCountDTO> getPromoPostCount(@RequestParam("user_id") int userId){
-        return new ResponseEntity<>(postService.getPromoPostCount(userId), HttpStatus.OK);
-    }
-
-    @GetMapping("/promo-post-no/count")
-    ResponseEntity<?> getPromoNoPostCount(@RequestParam("user_id") int userId,
-                                                              @RequestParam(value = "not_promo", required = false)
-                                                              boolean notPromo){
-        return new ResponseEntity<>(postService.getPromoNoPostCount(userId, notPromo), HttpStatus.OK);
     }
 
 }
