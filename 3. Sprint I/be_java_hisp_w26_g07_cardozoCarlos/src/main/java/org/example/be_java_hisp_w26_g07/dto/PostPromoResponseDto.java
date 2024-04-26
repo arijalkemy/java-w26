@@ -7,37 +7,47 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.example.be_java_hisp_w26_g07.entity.Product;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PostRequestDto {
-    @NotNull
+@NoArgsConstructor
+public class PostPromoResponseDto {
     @JsonProperty("user_id")
+    @NotNull
     private Integer userId;
 
     @PastOrPresent
     @JsonProperty("date")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @NotNull()
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
 
-    @NotNull
     @JsonProperty("product")
+    @NotNull
     private ProductDto product;
-    @NotNull
     @JsonProperty("category")
-    private Integer category;
     @NotNull
+    private String category;
     @JsonProperty("price")
-    private double price;
+    @NotNull
+    private Double price;
+    @JsonProperty("has_promo")
+    @NotNull
+    private boolean hasPromo;
+    @JsonProperty("discount")
+    @NotNull
+    @DecimalMin("0.01")
+    @DecimalMax("1")
+    private Double discount;
 }

@@ -53,22 +53,13 @@ public class UserImpl implements IUserService {
     @Override
     public FollowedResponseDto findFollowedUsers(Integer id, String order) {
         User user = iUserRepository.findById(id);
-        Stream<UserInfoFollowsDto> userInfoFollowsDtos = user.getFollowedIds().stream()
-                .map(followedId -> iUserRepository.findById(followedId))
-                .map(followedUser -> new UserInfoFollowsDto(followedUser.getId(), followedUser.getName()));
-        List<UserInfoFollowsDto> list;
-        if (order.equals("name_desc")) {
-            list = userInfoFollowsDtos.sorted(Comparator.comparing(UserInfoFollowsDto::getName).reversed())
-                    .collect(Collectors.toList());
-
-        } else {
-            list = userInfoFollowsDtos.sorted(Comparator.comparing(UserInfoFollowsDto::getName))
-                    .collect(Collectors.toList());
-        }
-
-
-        return new FollowedResponseDto(id, user.getName(), list);
-
+        if (user == null) throw new NotFoundException("El usuario no existe");
+        List<UserInfoFollowsDto> userInfoFollowsDtos = user.getFollowedIds().stream()
+                .map(followedId -> {
+                    User currentUser = iUserRepository.findById(followedId);
+                    return new UserInfoFollowsDto(currentUser.getId(), currentUser.getName());
+                }).toList();
+        return new FollowedResponseDto(id, user.getName(), getUserInfoFollowsDtoByOrder(userInfoFollowsDtos, order));
     }
 
     @Override
@@ -81,7 +72,7 @@ public class UserImpl implements IUserService {
         FollowersResponseDto followersResponseDto = new FollowersResponseDto();
 
         List<UserInfoFollowsDto> userInfoFollowsDto = getUserInfoFollowers(seller.getFollowerIds());
-        getUserInfoFollowsDtoByOrder(userInfoFollowsDto, order);
+        userInfoFollowsDto = getUserInfoFollowsDtoByOrder(userInfoFollowsDto, order);
         followersResponseDto.setFollowers(userInfoFollowsDto);
         followersResponseDto.setId(seller.getId());
         followersResponseDto.setName(seller.getName());
@@ -104,19 +95,18 @@ public class UserImpl implements IUserService {
         return new CountFollowersResponseDto(user.getId(), user.getName(), user.getFollowerIds().size());
     }
 
-    private void getUserInfoFollowsDtoByOrder(List<UserInfoFollowsDto> userInfoFollowsDto,
+    private List<UserInfoFollowsDto> getUserInfoFollowsDtoByOrder(List<UserInfoFollowsDto> userInfoFollowsDto,
                                               String order) {
-        if (order == null) return;
+        if (order == null) return userInfoFollowsDto;
 
-        switch (order) {
-            case "name_asc":
-                userInfoFollowsDto.sort(Comparator.comparing(UserInfoFollowsDto::getName));
-                break;
-            case "name_desc":
-                userInfoFollowsDto.sort(Comparator.comparing(UserInfoFollowsDto::getName).reversed());
-                break;
-            default:
-        }
+        return switch (order) {
+            case "name_asc" ->
+                    userInfoFollowsDto.stream().sorted(Comparator.comparing(UserInfoFollowsDto::getName)).toList();
+            case "name_desc" ->
+                    userInfoFollowsDto.stream().sorted(Comparator.comparing(UserInfoFollowsDto::getName).reversed())
+                            .toList();
+            default -> userInfoFollowsDto;
+        };
 
     }
 

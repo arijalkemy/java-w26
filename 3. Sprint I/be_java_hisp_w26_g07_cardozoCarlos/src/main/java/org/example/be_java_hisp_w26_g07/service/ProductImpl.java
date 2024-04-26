@@ -71,7 +71,7 @@ public class ProductImpl implements IProductService {
     }
 
     @Override
-    public PostPromoRequestDto createPostWithPromo(PostPromoRequestDto postPromoRequestDto) {
+    public PostPromoResponseDto createPostWithPromo(PostPromoRequestDto postPromoRequestDto) {
         User myUser = iUserRepository.findById(postPromoRequestDto.getUserId());
         if (myUser == null) throw new BadRequestException("El usuario no existe");
 
@@ -82,7 +82,7 @@ public class ProductImpl implements IProductService {
         myUser.getPosts().add(post);
         myUser.setIsSeller(true);
 
-        return mapper.convertValue(post, PostPromoRequestDto.class);
+        return mapper.convertValue(post, PostPromoResponseDto.class);
     }
 
     @Override
@@ -131,6 +131,23 @@ public class ProductImpl implements IProductService {
         });
         if (listOfProductsByName.isEmpty()) throw new NotFoundException("No se encontraron productos con el nombre");
         return listOfProductsByName;
+    }
+
+    @Override
+    public List<ProductResponseDto> findProductsWithDiscountBySeller(Integer sellerId) {
+        User seller = iUserRepository.findById(sellerId);
+
+        List<ProductResponseDto> products = seller.getPosts().stream().filter(p->p.isHasPromo()).map(
+                p -> {
+                    Double priceDicount = p.getPrice() - (p.getPrice() * p.getDiscount());
+                    return new ProductResponseDto(seller.getId(), seller.getName(), p.getProduct().getId()
+                            , p.getProduct().getName(), p.getProduct().getType(), p.getProduct().getBrand(),
+                            p.getProduct().getColor(), p.getProduct().getNotes(), p.getCategory(),
+                            p.getPrice(),
+                            p.getDiscount(), priceDicount);
+                }).toList();
+        if (products.isEmpty()) throw new NotFoundException("No se encontraron productos con el descuento");
+        return products;
     }
 
     private List<ProductResponseDto> getListOfProductsWithDiscountByUser(List<User> users, Double discount) {

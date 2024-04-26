@@ -32,7 +32,7 @@ public class ProductController {
     //EJERCICIOS INDIVIDUALES
 
     @PostMapping("promo-post")
-    public ResponseEntity<PostPromoRequestDto> addPostWithPromo(@RequestBody @Valid PostPromoRequestDto postPromo) {
+    public ResponseEntity<PostPromoResponseDto> addPostWithPromo(@RequestBody @Valid PostPromoRequestDto postPromo) {
         return new ResponseEntity<>(productService.createPostWithPromo(postPromo), HttpStatus.OK);
     }
 
@@ -44,7 +44,7 @@ public class ProductController {
     //BONUS INDIVIDUAL
 
     //ENCONTRAR PRODUCTOS EN DESCUENTO MAYOR O IGUAL AL SOLICITADO DE LOS USUARIOS QUE SIGUE
-    @GetMapping("promo-post/promos/user/{userId}")
+    @GetMapping("promo-post/user/{userId}")
     public ResponseEntity<List<ProductResponseDto>> getPromosByUser(@PathVariable Integer userId, @RequestParam Double discount) {
         return new ResponseEntity<>(productService.findProductsWithDiscountByFollowers(discount,userId), HttpStatus.OK);
     }
@@ -58,5 +58,10 @@ public class ProductController {
     @GetMapping("name/{name}")
     public ResponseEntity<List<ProductResponseDto>> getProductByName(@PathVariable String name) {
         return new ResponseEntity<>(productService.findProductsByNameProduct(name), HttpStatus.OK);
+    }
+
+    @GetMapping("promo-post/seller/{sellerId}")
+    public ResponseEntity<List<ProductResponseDto>> getPromosBySeller(@PathVariable Integer sellerId) {
+        return new ResponseEntity<>(productService.findProductsWithDiscountBySeller(sellerId), HttpStatus.OK);
     }
 }

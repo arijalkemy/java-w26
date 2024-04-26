@@ -7,9 +7,10 @@ import java.util.List;
 public interface IProductService {
     List<PostDto> findProductByFollow(Integer userID, String order);
     PostDto createPost(PostRequestDto postRequestDto);
-    PostPromoRequestDto createPostWithPromo(PostPromoRequestDto postPromoRequestDto);
+    PostPromoResponseDto createPostWithPromo(PostPromoRequestDto postPromoRequestDto);
     PromoPostCountResponseDto getPromoCountByUser(Integer id);
     List<ProductResponseDto> findProductsWithDiscountByFollowers(Double discount, Integer userID);
     List<ProductResponseDto> findProductsWithDiscount(Double discount);
     List<ProductResponseDto> findProductsByNameProduct(String name);
+    List<ProductResponseDto>  findProductsWithDiscountBySeller(Integer sellerId);
 }
