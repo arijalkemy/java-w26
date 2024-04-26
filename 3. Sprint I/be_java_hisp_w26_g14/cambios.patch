@@ -1,0 +1,164 @@
+diff --git a/src/main/java/org/example/g14/dto/UserFollowDto.java b/src/main/java/org/example/g14/dto/UserFollowDto.java
+deleted file mode 100644
+index d7d5b9f..0000000
+--- a/src/main/java/org/example/g14/dto/UserFollowDto.java
++++ /dev/null
+@@ -1,16 +0,0 @@
+-package org.example.g14.dto;
+-
+-import lombok.AllArgsConstructor;
+-import lombok.Data;
+-import lombok.NoArgsConstructor;
+-
+-import java.util.List;
+-
+-@Data
+-@AllArgsConstructor
+-@NoArgsConstructor
+-public class UserFollowDto {
+-    private String name;
+-    private List<Integer> idFollowers;
+-    private List<Integer> idFollows;
+-}
+diff --git a/src/main/java/org/example/g14/service/IUserService.java b/src/main/java/org/example/g14/service/IUserService.java
+index 133a0a6..df7b2a8 100644
+--- a/src/main/java/org/example/g14/service/IUserService.java
++++ b/src/main/java/org/example/g14/service/IUserService.java
+@@ -1,18 +1,16 @@
+ package org.example.g14.service;
+ 
+-import org.example.g14.dto.UserFollowDto;
+ import org.example.g14.dto.UserFollowedDto;
+ 
+-import org.example.g14.model.User;
+ import org.example.g14.dto.UserWithFollowersCountDto;
+ 
+ import org.example.g14.dto.UserFollowersDto;
+ 
+ public interface IUserService {
++    
+     UserFollowedDto getListOfFollowedSellers(int userId, String order);
+-    UserFollowDto follow(int userId, int userIdToFollow);
++    UserFollowedDto follow(int userId, int userIdToFollow);
++    UserFollowedDto unfollowSeller(int followerUserId, int sellerUserId);
+     UserFollowersDto getAllFolowers(int id, String order);
+-    UserFollowDto unfollowSeller(int followerUserId, int sellerUserId);
+     UserWithFollowersCountDto countFollowersBySeller(int id);
+-
+ }
+diff --git a/src/main/java/org/example/g14/service/UserService.java b/src/main/java/org/example/g14/service/UserService.java
+index 26e53b7..9babdec 100644
+--- a/src/main/java/org/example/g14/service/UserService.java
++++ b/src/main/java/org/example/g14/service/UserService.java
+@@ -36,38 +36,34 @@ public class UserService implements IUserService{
+         return new UserWithFollowersCountDto(
+                 user.getId(),
+                 user.getName(),
+-                (int) user.getIdFollowers().stream().count());
++                user.getIdFollowers().size());
+     }
+ 
+     @Override
+-    public UserFollowDto follow(int userId, int userIdToFollow) {
++    public UserFollowedDto follow(int userId, int userIdToFollow) {
++
+         if(userId == userIdToFollow){
+             throw new BadRequestException("No te podes seguir a vos mismo maquina");
+         }
+ 
+-        Optional<User> userOptional = userRepository.getById(userId);
+-        Optional<User> userToFollowOptional = userRepository.getById(userIdToFollow);
+-
+-        if (userOptional.isEmpty() || userToFollowOptional.isEmpty()) {
+-            throw new NotFoundException("No se encontró uno o ambos usuarios");
+-        }
++        User user = getUserById(userId);
++        User userToFollow = getUserById(userIdToFollow);
+ 
+         if(postRepository.findAllByUser(userIdToFollow).isEmpty()){
+             throw new BadRequestException("El usuario con el ID: " + userIdToFollow + " no es un vendedor");
+         }
+ 
+-        User user = userOptional.get();
+-        User userToFollow = userToFollowOptional.get();
+-
+         if(user.getIdFollows().contains(userIdToFollow)){
+             throw new ConflictException("El usuario con id " + userId + " ya sigue al usuario con id " + userIdToFollow);
+         }
+ 
+-
+         user.getIdFollows().add(userToFollow.getId());
++        userToFollow.getIdFollowers().add(user.getId());
+ 
+         userRepository.save(user);
+-        return new UserFollowDto(user.getName(),user.getIdFollows(),userToFollow.getIdFollowers());
++        userRepository.save(userToFollow);
++
++        return transferToUserFollowedDto(user);
+     }
+ 
+     private enum NameOrder{
+@@ -129,7 +125,7 @@ public class UserService implements IUserService{
+ 
+         User user = getUserById(id);
+ 
+-        if(user.getIdFollowers().size() == 0)
++        if (postRepository.findAllByUser(id).isEmpty())
+             throw new BadRequestException("No es un vendedor");
+ 
+         UserFollowersDto userFollowersDto = new UserFollowersDto(user.getId(),
+@@ -153,16 +149,17 @@ public class UserService implements IUserService{
+     }
+ 
+     @Override
+-    public UserFollowDto unfollowSeller(int followerUserId, int sellerUserId) {
++    public UserFollowedDto unfollowSeller(int followerUserId, int sellerUserId) {
+ 
+         User followerUser = getUserById(followerUserId);
+ 
+         // Check if Seller User exists
+-        getUserById(sellerUserId);
++        User sellerUser = getUserById(sellerUserId);
+ 
+         // 'Integer.valueof' is needed because List.remove has an overload por a plain int parameter
+         // that treats that parameter as an index in the List, not as the Object we are trying to remove.
+         boolean wasFollowing = followerUser.getIdFollows().remove(Integer.valueOf(sellerUserId));
++        sellerUser.getIdFollowers().remove(Integer.valueOf(followerUserId));
+ 
+         if (!wasFollowing)
+             throw new ConflictException(
+@@ -170,18 +167,29 @@ public class UserService implements IUserService{
+             );
+ 
+         userRepository.save(followerUser);
++        userRepository.save(sellerUser);
+ 
+-        return new UserFollowDto(
+-            followerUser.getName(),
+-            followerUser.getIdFollowers(),
+-            followerUser.getIdFollows()
+-        );
++        return transferToUserFollowedDto(followerUser);
+     }
+ 
+     private UserDto transferToUserDto(User user){
+         return new UserDto(user.getId(), user.getName());
+     }
+ 
++    private UserFollowedDto transferToUserFollowedDto(User user) {
++
++        List<UserDto> followedUsers = user.getIdFollows().stream()
++            .map(this::getUserById)
++            .map(this::transferToUserDto)
++            .toList();
++
++        return new UserFollowedDto(
++            user.getId(),
++            user.getName(),
++            followedUsers
++        );
++    }
++
+     private User getUserById(int id){
+         Optional<User> user = userRepository.getById(id);
+         if(user.isEmpty())
