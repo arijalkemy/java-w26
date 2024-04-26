@@ -25,17 +25,17 @@ public class ProductController {
         return new ResponseEntity<>(productService.savePromoPost(promoPostDTO), HttpStatus.OK);
     }
 
-    @GetMapping(value = "post/promo-post/count", params = "user_id")
+    @GetMapping(value = "/post/promo-post/count", params = "user_id")
     public ResponseEntity<?> countPromoPostBySeller(@RequestParam("user_id") Integer userId){
         return new ResponseEntity<>(productService.countPromoPostBySeller(userId), HttpStatus.OK);
     }
 
-    @GetMapping(value="post/promo-post/list", params = "user_id")
+    @GetMapping(value="/post/promo-post/list", params = "user_id")
     public ResponseEntity<?> getPromoPostsBySeller(@RequestParam("user_id") Integer userId){
         return new ResponseEntity<>(productService.getPromoPostsBySeller(userId), HttpStatus.OK);
     }
 
-    @GetMapping(value="post/promo-post/{userId}list", params = "order")
+    @GetMapping(value="/post/promo-post/{userId}/list", params = "order")
     public ResponseEntity<?> getOrderedPromoPostsBySeller(@PathVariable Integer userId, @RequestParam("order") String order){
         return new ResponseEntity<>(productService.getOrderedPromoPostsBySeller(userId,order), HttpStatus.OK);
     }

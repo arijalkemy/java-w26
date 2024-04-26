@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "7dc3011c-3b46-427c-ad0b-b52e6fccf50a",
-		"name": "Spring 1",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34294002"
+		"_postman_id": "ad58a488-b07e-4d4a-9c47-ff92016103d5",
+		"name": "Sprint 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34289762"
 	},
 	"item": [
 		{
@@ -11,17 +11,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "{{server}}users/1/unfollow/2",
-					"host": [
-						"{{server}}users"
-					],
-					"path": [
-						"1",
-						"unfollow",
-						"2"
-					]
-				}
+				"url": "{{server}}users/1/unfollow/2"
 			},
 			"response": []
 		},
@@ -30,17 +20,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{server}}users/2/followers/list",
-					"host": [
-						"{{server}}users"
-					],
-					"path": [
-						"2",
-						"followers",
-						"list"
-					]
-				}
+				"url": "{{server}}users/2/followers/list"
 			},
 			"response": []
 		},
@@ -49,17 +29,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "{{server}}users/1/follow/2",
-					"host": [
-						"{{server}}users"
-					],
-					"path": [
-						"1",
-						"follow",
-						"2"
-					]
-				}
+				"url": "{{server}}users/1/follow/2"
 			},
 			"response": []
 		},
@@ -68,18 +38,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{server}}users/2/followers/count/",
-					"host": [
-						"{{server}}users"
-					],
-					"path": [
-						"2",
-						"followers",
-						"count",
-						""
-					]
-				}
+				"url": "{{server}}users/2/followers/count/"
 			},
 			"response": []
 		},
@@ -88,17 +47,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{server}}users/1/followed/list",
-					"host": [
-						"{{server}}users"
-					],
-					"path": [
-						"1",
-						"followed",
-						"list"
-					]
-				}
+				"url": "{{server}}users/1/followed/list"
 			},
 			"response": []
 		},
@@ -116,15 +65,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{server}}products/post",
-					"host": [
-						"{{server}}products"
-					],
-					"path": [
-						"post"
-					]
-				}
+				"url": "{{server}}products/post"
 			},
 			"response": []
 		},
@@ -183,17 +124,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{server}}products/followed/1/list",
-					"host": [
-						"{{server}}products"
-					],
-					"path": [
-						"followed",
-						"1",
-						"list"
-					]
-				}
+				"url": "{{server}}products/followed/1/list"
 			},
 			"response": []
 		},
@@ -244,6 +175,63 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "us-012",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}products/post/promo-post/count?user_id=2",
+					"host": [
+						"{{server}}products"
+					],
+					"path": [
+						"post",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "us-010",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "us-011",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "us-013-1",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "us-013-2",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

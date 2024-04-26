@@ -7,6 +7,7 @@ import org.example.social_meli.exceptions.NotFoundException;
 import org.example.social_meli.model.FollowerList;
 import org.example.social_meli.model.Post;
 import org.example.social_meli.model.PromoPost;
+import org.example.social_meli.model.User;
 import org.example.social_meli.repository.IProductRepository;
 import org.example.social_meli.repository.IUserRepository;
 import org.example.social_meli.services.IProductService;
@@ -64,7 +65,7 @@ public class ProductServiceImpl implements IProductService {
         if (productRepository.existsPost(promoPostDTO.getPost_id())){
             throw new ConflictException("Ya existe un post con el id " + promoPostDTO.getPost_id());
         }
-        if(!userRepository.existsSellerById(promoPostDTO.getUser_id())){
+        if(!userRepository.existsById(promoPostDTO.getUser_id())){
             throw new NotFoundException("No existe un usuario con el id " + promoPostDTO.getUser_id());
         }
 
@@ -74,10 +75,10 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public PromoPostResponseDTO countPromoPostBySeller(Integer id) {
-        FollowerList seller = userRepository.findSellerById(id);
+        User seller = userRepository.findById(id);
         return new PromoPostResponseDTO(
-                seller.getUser().getUser_id(),
-                seller.getUser().getUser_name(),
+                seller.getUser_id(),
+                seller.getUser_name(),
                 (int) productRepository.getAllPromoPosts()
                         .stream()
                         .filter(p -> p.getUser_id().equals(id)).filter(PromoPost::isHas_promo).count()
@@ -85,7 +86,7 @@ public class ProductServiceImpl implements IProductService {
     }
 
     public PromoPostListDTO getPromoPostsBySeller(Integer id){
-        FollowerList seller = userRepository.findSellerById(id);
+        User seller = userRepository.findById(id);
         List<PromoPostDTO> promoPostDTOList = getAllPromoPosts();
 
         if(!promoPostDTOList.isEmpty()){
@@ -95,8 +96,8 @@ public class ProductServiceImpl implements IProductService {
         }
 
         return new PromoPostListDTO(
-                seller.getUser().getUser_id(),
-                seller.getUser().getUser_name(),
+                seller.getUser_id(),
+                seller.getUser_name(),
                 promoPostDTOList
         );
     }
