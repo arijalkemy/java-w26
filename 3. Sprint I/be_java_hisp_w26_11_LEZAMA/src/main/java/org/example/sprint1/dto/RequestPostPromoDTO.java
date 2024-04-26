@@ -36,6 +36,7 @@ public class RequestPostPromoDTO {
     private double price;
 
     @NotNull
+    @JsonProperty("has_promo")
     private boolean hasPromo;
 
     @Positive

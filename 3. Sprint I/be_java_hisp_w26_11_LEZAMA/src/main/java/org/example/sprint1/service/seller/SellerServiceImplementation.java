@@ -124,7 +124,7 @@ public class SellerServiceImplementation implements ISellerService {
         if(hasPromo.isEmpty()){throw new NotFoundException("No existe un Vendedor con ese ID");}
         ResponseCountPromoDTO responseCountPromoDTO = new ResponseCountPromoDTO(
                 userId,
-                hasPromo.toString(),
+                seller.getSellerName(),
                 hasPromo.size()
         );
         return responseCountPromoDTO;
