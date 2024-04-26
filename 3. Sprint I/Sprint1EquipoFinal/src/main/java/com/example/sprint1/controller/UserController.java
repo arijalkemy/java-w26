@@ -31,7 +31,7 @@ public class UserController {
      * @param userIdToFollow
      * @return
      */
-    @PatchMapping("/{userID}/follow/{userIdToFollow}")
+    @PostMapping("/{userID}/follow/{userIdToFollow}")
     public ResponseEntity<?> postNewFollower(@PathVariable Integer userID, @PathVariable Integer userIdToFollow){
         userService.addFollower(userID,userIdToFollow);
         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -98,7 +98,7 @@ public class UserController {
      * @param userIdToUnfollow
      * @return
      */
-    @PatchMapping("/{userId}/unfollow/{userIdToUnfollow}")
+    @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
     public ResponseEntity<?> setUnfollow(@PathVariable Integer userId, @PathVariable Integer userIdToUnfollow) {
         try {
             // Call the service to process the unfollow action
