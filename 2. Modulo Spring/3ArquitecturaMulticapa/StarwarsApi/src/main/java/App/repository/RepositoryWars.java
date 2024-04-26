@@ -27,19 +27,19 @@ public class RepositoryWars {
             for (JsonNode objeto : jsonNode) {
                 // Extraer datos de cada objeto
                 String nombre = objeto.get("name").asText();
-                String altura = objeto.get("height").asText();
-                String masa = objeto.get("mass").asText();
+                Integer altura = objeto.get("height").asInt();
+                Integer masa = objeto.get("mass").asInt();
                 String colorCabello = objeto.get("hair_color").asText();
                 String colorPiel = objeto.get("skin_color").asText();
                 String colorOjos = objeto.get("eye_color").asText();
-                String añoNacimiento = objeto.get("birth_year").asText();
-                String género = objeto.get("gender").asText();
+                String anoNacimiento = objeto.get("birth_year").asText();
+                String genero = objeto.get("gender").asText();
                 String planetaNatal = objeto.get("homeworld").asText();
                 String especie = objeto.get("species").asText();
 
                 // Crear un objeto CharacterTDO con los datos extraídos
                 CharacterTDO character = new CharacterTDO(nombre, altura, masa, colorCabello, colorPiel, colorOjos,
-                        añoNacimiento, género, planetaNatal, especie);
+                        anoNacimiento, genero, planetaNatal, especie);
                 characterList.add(character);
 
             }
