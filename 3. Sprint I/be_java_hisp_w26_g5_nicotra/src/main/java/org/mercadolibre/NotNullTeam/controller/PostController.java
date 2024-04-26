@@ -34,9 +34,7 @@ public class PostController {
     //EJERCICIO INDIVIDUAL 0010
     @PostMapping("/promo-post")
     public ResponseEntity<PostCreatedDto> createPostWithPromo(@RequestBody PostWithPromoDto postDto) {
-        Long postId = iPostService.createPostWithPromo(postDto);
-        return new ResponseEntity<>(
-                new PostCreatedDto(postId, "Post created successfully", LocalDate.now()), HttpStatus.CREATED);
+        return new ResponseEntity<>(iPostService.createPostWithPromo(postDto), HttpStatus.CREATED);
     }
 
     //EJERCICIO INDIVIDUAL 0011

@@ -61,7 +61,12 @@ public class PostMapper {
 
     public static PostWithPromoDto postToPostWithPromoDto(Post post) {
         return new PostWithPromoDto(
-                postToPostResponseDto(post),
+                post.getSeller().getUser().getId(),
+                post.getId(),
+                post.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
+                productToProductDto(post.getProduct()),
+                post.getCategory(),
+                post.getPrice(),
                 post.getHasPromo(),
                 post.getDiscount());
     }

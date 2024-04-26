@@ -3,6 +3,7 @@ package org.mercadolibre.NotNullTeam.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDto;
+import org.mercadolibre.NotNullTeam.DTO.response.PostCreatedDto;
 import org.mercadolibre.NotNullTeam.DTO.response.PostPromoCountDto;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
@@ -16,6 +17,7 @@ import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
 import org.mercadolibre.NotNullTeam.service.IPostService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -63,11 +65,12 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
-    public Long createPostWithPromo(PostWithPromoDto postDto) {
+    public PostCreatedDto createPostWithPromo(PostWithPromoDto postDto) {
         Seller seller = findSellerById(postDto.getUser_id());
-
-        return iPostRepository.createPost(PostMapper.postWithPromoDtoToPost(
+        Long postId = iPostRepository.createPost(PostMapper.postWithPromoDtoToPost(
                 postDto, seller));
+
+        return new PostCreatedDto(postId, "Post created successfully", LocalDate.now());
     }
 
     @Override
