@@ -35,16 +35,4 @@ public class PostRepositoryImpl implements IPostRepository{
     public List<Post> findBySellerId(Integer sellerId) {
         return postMap.getOrDefault(sellerId, new ArrayList<>());
     }
-
-    // INDIVIDUAL
-
-    /***
-     *
-     * @param sellerId Integer of the seller id
-     * @return a List of promo post from the seller
-     */
-    @Override
-    public List<Post> findPromoPostsBySellerId(Integer sellerId) {
-        return postMap.getOrDefault(sellerId, new ArrayList<>()).stream().filter(post -> post.isHas_promo()).toList();
-    }
 }

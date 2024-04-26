@@ -1,10 +1,10 @@
 package com.sprint.socialmeli.service.post;
 
-import com.sprint.socialmeli.dto.post.*;
+import com.sprint.socialmeli.dto.post.FollowedProductsResponseDTO;
+import com.sprint.socialmeli.dto.post.PostDTO;
+import com.sprint.socialmeli.dto.post.PostResponseDTO;
 import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Post;
-import com.sprint.socialmeli.entity.Seller;
-import com.sprint.socialmeli.entity.User;
 import com.sprint.socialmeli.exception.BadRequestException;
 import com.sprint.socialmeli.exception.NotFoundException;
 import com.sprint.socialmeli.mappers.PostMapper;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.*;
 
-import static com.sprint.socialmeli.mappers.PostMapper.*;
+import static com.sprint.socialmeli.mappers.PostMapper.mapPostToPostResponseDto;
 
 @Service
 public class PostServiceImpl implements IPostService {
@@ -76,61 +76,6 @@ public class PostServiceImpl implements IPostService {
         }
 
         return new FollowedProductsResponseDTO(customer_id, postResponseDTOList);
-    }
-
-
-    // US00010. INDIVIDUAL
-
-    /***
-     *
-     * @param postPromo a Dto with the post promo data to create
-     * @return an integer with the id created
-     */
-    @Override
-    public Integer createPromoPost(PostPromoRequestDTO postPromo) {
-
-        Seller seller = UserChecker.checkAndGetSeller(postPromo.getUser_id());
-
-        Post post = PostMapper.mapPromoPostRequestToPost(postPromo);
-
-        postRepository.save(post, seller.getUser().getUserId());
-
-        return post.getId();
-
-    }
-
-    // US00011. INDIVIDUAL
-    /***
-     *
-     * @param sellerId
-     * @return a Dto with the seller id, name and a count of promo posts
-     */
-    @Override
-    public PostPromoCountResponseDTO getPostPromoCount(int sellerId) {
-
-        Seller seller = UserChecker.checkAndGetSeller(sellerId);
-
-        int countOfPromoPosts = postRepository.findPromoPostsBySellerId(sellerId).size();
-
-        return createPostPromoCountDto(seller, countOfPromoPosts);
-    }
-
-    // US00012. INDIVIDUAL BONUS
-
-    /***
-     *
-     * @param sellerId
-     * @return a Dto with the seller id, name and a list of promo posts
-     */
-    @Override
-    public PostPromoListResponseDTO getPostPromoList(int sellerId) {
-
-        Seller seller = UserChecker.checkAndGetSeller(sellerId);
-
-        List<PostPromoDTO> postPromosDto = postRepository.findPromoPostsBySellerId(sellerId)
-                .stream().map(p -> mapPostToPostPromoDto(p, sellerId)).toList();
-
-        return createPostPromoListDto(seller, postPromosDto);
     }
 
     /**

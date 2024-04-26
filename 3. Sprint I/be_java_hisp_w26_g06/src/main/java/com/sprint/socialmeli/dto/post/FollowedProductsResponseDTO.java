@@ -9,6 +9,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class FollowedProductsResponseDTO implements Serializable {
-    private Integer user_id;
-    private List<PostResponseDTO> posts;
+    private final Integer user_id;
+    private final List<PostResponseDTO> posts;
 }

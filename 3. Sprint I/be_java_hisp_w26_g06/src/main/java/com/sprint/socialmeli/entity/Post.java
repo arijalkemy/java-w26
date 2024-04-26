@@ -13,8 +13,6 @@ public class Post {
     private LocalDate postDate;
     private Integer category;
     private double price;
-    private boolean has_promo;
-    private double discount;
     private static Integer idCounter = 0;
 
     public Post(Product product, LocalDate postDate, Integer category, double price) {
@@ -22,8 +20,6 @@ public class Post {
         this.postDate = postDate;
         this.category = category;
         this.price = price;
-        this.discount = 0;
-        this.has_promo = false;
         this.id = idCounter++;
     }
 }
