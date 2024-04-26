@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Repository
 public class CustomerRepository implements ICustomerRepository {
@@ -57,14 +56,16 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return customersList;
-    }
-
-    @Override
     public List<Customer> getCustomersThatFollowsSellersById(int id) {
         return  customersList.stream()
                 .filter( v -> v.getSellers().contains(id))
                 .toList();
     }
+
+    @Override
+    public List<Customer> getAllCustomers() {
+        return customersList;
+    }
+
+    
 }

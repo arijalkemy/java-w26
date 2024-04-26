@@ -3,29 +3,21 @@
 		"_postman_id": "84cc40fd-4b1e-42ff-a503-5152bf4aa3cd",
 		"name": "Social Meli",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34022843",
-		"_collection_link": "https://grey-star-517560.postman.co/workspace/ELOTE-PREPARADO-CON-CHILE-DEL-Q~a7b21f0d-71cb-47c2-8b7d-32894bf4ab41/collection/34296738-84cc40fd-4b1e-42ff-a503-5152bf4aa3cd?action=share&source=collection_link&creator=34022843"
+		"_exporter_id": "34358459",
+		"_collection_link": "https://grey-star-517560.postman.co/workspace/ELOTE-PREPARADO-CON-CHILE-DEL-Q~a7b21f0d-71cb-47c2-8b7d-32894bf4ab41/collection/34296738-84cc40fd-4b1e-42ff-a503-5152bf4aa3cd?action=share&source=collection_link&creator=34358459"
 	},
 	"item": [
 		{
-			"name": "0001 follow",
+			"name": "0001",
 			"request": {
 				"method": "POST",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{base_url}}8080/users/235/follow/101",
+					"raw": "localhost:8080/users/235/follow/101",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"235",
@@ -42,10 +34,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/users/101/followers/count",
+					"raw": "localhost:8080/users/101/followers/count",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"101",
@@ -57,15 +50,16 @@
 			"response": []
 		},
 		{
-			"name": "0003 Followers List",
+			"name": "0003",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/users/101/followers/list",
+					"raw": "localhost:8080/users/101/followers/list",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"101",
@@ -77,15 +71,16 @@
 			"response": []
 		},
 		{
-			"name": "0004 Followed List",
+			"name": "0004",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/users/234/followed/list",
+					"raw": "localhost:8080/users/234/followed/list",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"234",
@@ -97,7 +92,7 @@
 			"response": []
 		},
 		{
-			"name": "0005 Add Post",
+			"name": "0005",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -111,31 +106,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}8080/products/post",
+					"raw": "localhost:8080/products/post",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"products",
 						"post"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SELLERS LIST",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}8080/products/list",
-					"host": [
-						"{{base_url}}8080"
-					],
-					"path": [
-						"products",
-						"list"
 					]
 				}
 			},
@@ -147,10 +125,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/products/followed/234/list",
+					"raw": "localhost:8080/products/followed/234/list",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"products",
 						"followed",
@@ -176,15 +155,37 @@
 			"response": []
 		},
 		{
+			"name": "0007",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users/235/unfollow/101",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"235",
+						"unfollow",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "0008 Followers Order",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/users/101/followers/list?order=name_desc",
+					"raw": "localhost:8080/users/101/followers/list?order=name_desc",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"101",
@@ -212,10 +213,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}8080/users/234/followed/list?order=name_asc",
+					"raw": "localhost:8080/users/234/followed/list?order=name_asc",
 					"host": [
-						"{{base_url}}8080"
+						"localhost"
 					],
+					"port": "8080",
 					"path": [
 						"users",
 						"234",
@@ -225,12 +227,12 @@
 					"query": [
 						{
 							"key": "order",
-							"value": "name_asc"
+							"value": "name_desc",
+							"disabled": true
 						},
 						{
 							"key": "order",
-							"value": "name_desc",
-							"disabled": true
+							"value": "name_asc"
 						}
 					]
 				}
@@ -238,21 +240,54 @@
 			"response": []
 		},
 		{
-			"name": "0007",
+			"name": "0011",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}:8080/users/235/unfollow/101",
+					"raw": "localhost:8080/products/promo-post/count?user_id=102",
 					"host": [
-						"{{base_url}}"
+						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"users",
-						"235",
-						"unfollow",
-						"101"
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "102"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0010",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 102,\n    \"date\": \"29-04-2024\",\n    \"product\": {\n        \"product_id\": 3112,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/promo-post",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post"
 					]
 				}
 			},

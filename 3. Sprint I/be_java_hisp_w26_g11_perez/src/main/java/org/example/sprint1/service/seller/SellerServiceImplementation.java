@@ -2,19 +2,17 @@ package org.example.sprint1.service.seller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.example.sprint1.dto.*;
+import org.example.sprint1.dto.PostDTO;
+import org.example.sprint1.dto.RequestPostDTO;
+import org.example.sprint1.dto.ResponsePostDTO;
+import org.example.sprint1.dto.ResponsePromoDTO;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.BadRequestException;
 import org.example.sprint1.exception.NotFoundException;
-import org.example.sprint1.repository.CustomerRepository;
 import org.example.sprint1.repository.ICustomerRepository;
-import org.example.sprint1.repository.SellerRepository;
-import org.example.sprint1.utils.Mapper;
+import org.example.sprint1.repository.ISellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +21,11 @@ import java.util.*;
 @Service
 public class SellerServiceImplementation implements ISellerService {
     @Autowired
-    SellerRepository sellerRepository;
+    ISellerRepository sellerRepository;
     @Autowired
     ICustomerRepository customerRepository;
+
+    private final static String ORDER_ASC = "date_asc";
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -37,7 +37,7 @@ public class SellerServiceImplementation implements ISellerService {
     public Post addPost(RequestPostDTO postDTO) {
 
 //        Revisar si existe el Usuario
-        Seller seller = sellerRepository.filterSellerById(postDTO.getUserId());
+        Seller seller = sellerRepository.getSellerById(postDTO.getUserId());
         if (seller == null) {
             throw new NotFoundException("No existe un Vendedor con ese ID");
         }
@@ -68,7 +68,7 @@ public class SellerServiceImplementation implements ISellerService {
     }
 
     @Override
-    public ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, Optional<String> order) {
+    public ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, String order) {
         // Obtiene customer con userId
         Customer customer = customerRepository.findCustomerById(userId);
         if(customer == null){
@@ -79,11 +79,10 @@ public class SellerServiceImplementation implements ISellerService {
         Map<Integer, List<Post>> postsByFollowing = sellerRepository.findPostsByFollowing(customer.getSellers());
 
         // Convierte el map en list de PostDto para poder generar un ResponsePostDTO
-        Mapper m = new Mapper();
-        List<PostDTO> listPostDto = m.mappingPostToPostDto(postsByFollowing);
+        List<PostDTO> listPostDto = mappingPostToPostDto(postsByFollowing);
 
-        // Ordenamos la lista según se pida
-        if(order.isPresent() && order.get().equals("date_asc"))
+        // Ordenamos la lista según el query param
+        if(ORDER_ASC.equals(order))
             listPostDto.sort(Comparator.comparing(PostDTO::getDate));
         else
             listPostDto.sort(Comparator.comparing(PostDTO::getDate).reversed());
@@ -91,9 +90,29 @@ public class SellerServiceImplementation implements ISellerService {
         return new ResponsePostDTO(userId, listPostDto);
     }
 
+
+    private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
+        List<PostDTO> listPostDto = new ArrayList<>();
+
+        for (Map.Entry<Integer, List<Post>> entry : posts.entrySet()) {
+            // Mapea Post -> PostDTO y agrega un idSeller
+            listPostDto.addAll(
+                    entry.getValue().stream()
+                            .map(v -> {
+                                PostDTO postDTO = mapper.convertValue(v, PostDTO.class);
+                                postDTO.setSellerId(entry.getKey());
+                                return postDTO;
+                            })
+                            .toList()
+            );
+        }
+
+        return listPostDto;
+    }
+
     @Override
     public ResponsePromoDTO getPostsWithPromo(int userId) {
-        Seller seller = sellerRepository.filterSellerById(userId);
+        Seller seller = sellerRepository.getSellerById(userId);
         if(seller == null) throw new NotFoundException("No existe un cendedor con ese ID");
 
         // Cuenta el total de publicaciones con promoción
@@ -104,5 +123,4 @@ public class SellerServiceImplementation implements ISellerService {
 
         return new ResponsePromoDTO(seller.getSellerId(), seller.getSellerName(), numberOfPromos);
     }
-
 }

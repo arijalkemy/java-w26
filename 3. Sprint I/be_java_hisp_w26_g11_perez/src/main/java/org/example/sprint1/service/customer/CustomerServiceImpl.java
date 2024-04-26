@@ -12,14 +12,11 @@ import org.example.sprint1.exception.NotFoundException;
 import org.example.sprint1.repository.ICustomerRepository;
 import org.example.sprint1.repository.SellerRepository;
 import org.example.sprint1.service.seller.ISellerService;
-import org.example.sprint1.utils.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService {

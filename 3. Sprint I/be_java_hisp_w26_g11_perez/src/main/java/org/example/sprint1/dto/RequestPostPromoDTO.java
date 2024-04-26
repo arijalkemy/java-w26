@@ -9,7 +9,7 @@ import lombok.Data;
 public class RequestPostPromoDTO extends RequestPostDTO {
     @JsonProperty("has_promo")
     @NotNull
-    private boolean hasPromo;
+    private Boolean hasPromo;
     @NotNull
     @Min(1)
     private double discount;

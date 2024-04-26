@@ -33,13 +33,6 @@ public class SellerController {
         postService.addPost(postDTO);
         return ResponseEntity.ok().build();
     }
-
-    @PostMapping("/promo-post")
-    public ResponseEntity<?> addPromoPost(@Valid @RequestBody RequestPostPromoDTO post){
-        postService.addPost(post);
-        return new ResponseEntity<>("Publicación creada con éxito", HttpStatus.OK);
-    }
-
     @GetMapping("/list")
     public ResponseEntity<List<Seller>> getAllSellers(){
         return new ResponseEntity<>(postService.getSellers(), HttpStatus.OK);
@@ -48,13 +41,20 @@ public class SellerController {
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<ResponsePostDTO> getPostsFromFollowingWithTwoWeeksOld(
             @PathVariable int userId,
-            @RequestParam Optional<String> order
+            @RequestParam(required = false) String order
     ) {
         return new ResponseEntity<>(postService.getPostsFromFollowingWithTwoWeeksOld(userId, order), HttpStatus.OK);
+    }
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<?> addPromoPost(@Valid @RequestBody RequestPostPromoDTO post){
+        postService.addPost(post);
+        return new ResponseEntity<>("Publicación creada con éxito", HttpStatus.OK);
     }
 
     @GetMapping("/promo-post/count")
     public ResponseEntity<?> getPostsWithPromo(@RequestParam("user_id") int userId) {
         return new ResponseEntity<>(postService.getPostsWithPromo(userId), HttpStatus.OK);
     }
+
 }

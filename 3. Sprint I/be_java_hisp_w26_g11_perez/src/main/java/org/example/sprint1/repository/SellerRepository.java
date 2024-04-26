@@ -15,10 +15,9 @@ import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Repository
 public class SellerRepository implements ISellerRepository {
-    private List<Seller> sellersList = new ArrayList<>();
+    private final List<Seller> sellersList = new ArrayList<>();
 
     public SellerRepository() throws IOException {
         loadSellers();
@@ -32,28 +31,25 @@ public class SellerRepository implements ISellerRepository {
         }));
     }
 
-    public Seller filterSellerById(int id){
-        return sellersList.stream().filter(seller -> seller.getSellerId() == id)
-                .findFirst()
-                .orElse(null);
+    @Override
+    public List<Seller> getSellersList() {
+        return sellersList;
     }
 
+    @Override
     public boolean productIdExists(int id) {
         return sellersList.stream()
                 .anyMatch(seller -> seller.productIdExists(id));
     }
 
-    @Override
-    public List<Seller> getAllSellers() {
-        return sellersList;
-    }
 
     @Override
     public Seller getSellerById(int id) {
         return sellersList.stream().filter(v -> v.getSellerId() == id ).findFirst().orElse(null);
     }
 
-    public boolean postIdExist(int id){
+    @Override
+    public boolean postIdExist(int id) {
         return sellersList.stream().anyMatch(seller -> seller.getPosts()
                 .stream().anyMatch(post -> post.getPostId() == id));
     }
@@ -82,7 +78,7 @@ public class SellerRepository implements ISellerRepository {
 
         // Obtenemos cada seller que el customer sigue
         for (Integer sellerId : sellers) {
-            sellersMatch.add(filterSellerById(sellerId));
+            sellersMatch.add(getSellerById(sellerId));
         }
 
         // Agregamos a una lista todos los post que cumplen con las especificaciones
@@ -116,9 +112,15 @@ public class SellerRepository implements ISellerRepository {
                 .toList();
     }
 
+    @Override
     public List<Seller> getCustomersThatFollowsSellersById(int id) {
         return  sellersList.stream()
                 .filter( v -> v.getFollowers().contains(id))
                 .toList();
+    }
+
+    @Override
+    public List<Seller> getAllSellers() {
+        return sellersList;
     }
 }

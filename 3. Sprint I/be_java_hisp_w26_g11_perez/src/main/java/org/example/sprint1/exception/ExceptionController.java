@@ -1,6 +1,5 @@
 package org.example.sprint1.exception;
 
-import jakarta.validation.ValidationException;
 import org.example.sprint1.dto.ExceptionDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
