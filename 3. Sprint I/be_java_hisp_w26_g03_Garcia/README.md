@@ -31,7 +31,9 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
   - [Dar de alta publicación de promoción](#10-llevar-a-cabo-la-publicación-de-un-nuevo-producto-en-promoción)
   - [Cantidad de productos en promoción](#11-obtener-la-cantidad-de-productos-en-promoción-de-un-determinado-vendedor)
   - [Lista de productos en promoción](#12-obtener-la-lista-de-productos-en-promoción-de-un-determinado-vendedor)
-  - [Eliminar publicación](#12-eliminar-publicación-de-vendedor)
+  - [Eliminar publicación](#13-eliminar-publicación-de-vendedor)
+  - [Actualizar publicación](#14-actualizar-publicación-de-vendedor)
+
 
 ## Entidades
 
