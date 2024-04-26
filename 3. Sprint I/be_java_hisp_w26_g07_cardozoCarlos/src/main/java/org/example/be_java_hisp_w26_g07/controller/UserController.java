@@ -1,14 +1,13 @@
 package org.example.be_java_hisp_w26_g07.controller;
 
-import org.example.be_java_hisp_w26_g07.dto.CountFollowersResponseDto;
-import org.example.be_java_hisp_w26_g07.dto.FollowedResponseDto;
-import org.example.be_java_hisp_w26_g07.dto.FollowersResponseDto;
-import org.example.be_java_hisp_w26_g07.dto.SuccessResponseDto;
+import org.example.be_java_hisp_w26_g07.dto.*;
 import org.example.be_java_hisp_w26_g07.service.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -45,5 +44,10 @@ public class UserController {
     public ResponseEntity<SuccessResponseDto> unfollow(@PathVariable Integer userId, @PathVariable Integer userIdToUnfollow) {
         SuccessResponseDto responseDto = userService.unfollow(userId, userIdToUnfollow);
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
+    }
+
+    @GetMapping("find/{userId}")
+    public ResponseEntity<List<UserDistanceResponeDto>> findUsersByKm(@PathVariable Integer userId, @RequestParam Integer distance) {
+        return new ResponseEntity<>(userService.findUsersByKm(userId, distance), HttpStatus.OK);
     }
 }

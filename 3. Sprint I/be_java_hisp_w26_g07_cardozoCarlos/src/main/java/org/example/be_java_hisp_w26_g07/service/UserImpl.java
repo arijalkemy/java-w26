@@ -135,4 +135,39 @@ public class UserImpl implements IUserService {
         }
         return new SuccessResponseDto("Se ha dejado de seguir al usuario");
     }
+
+    @Override
+    public List<UserDistanceResponeDto> findUsersByKm(Integer userId, Integer distance) {
+        List<User> userList = iUserRepository.findAll();
+        User user = iUserRepository.findById(userId);
+        if(user == null) throw new NotFoundException("Usuario no encontrado");
+        List<UserDistanceResponeDto> userDistanceResponeDtoList = new ArrayList<>();
+        userList = userList.stream().filter(u-> calculateDistanceKm(u.getLocation().getLatitud(),
+                u.getLocation().getLongitud(), user.getLocation().getLatitud(), user.getLocation().getLongitud())
+                <= distance && u.getId() != userId && u.getIsSeller()).toList();
+        userDistanceResponeDtoList = userList.stream().map(u-> {
+            return new UserDistanceResponeDto(u.getId(),u.getName(), String.format("%.2f",calculateDistanceKm(u.getLocation().getLatitud(),
+                    u.getLocation().getLongitud(), user.getLocation().getLatitud(), user.getLocation().getLongitud())),u.getPosts());
+        }).toList();
+        if(userDistanceResponeDtoList.isEmpty()) throw new NotFoundException("No se encontraron usuarios cercanos");
+        return userDistanceResponeDtoList;
+    }
+
+    private double haversine(double val) {
+        return Math.pow(Math.sin(val / 2), 2);
+    }
+
+    private double calculateDistanceKm(double startLat, double startLong, double endLat, double endLong) {
+        final int EARTH_RADIUS = 6371;
+        double disLat = Math.toRadians((endLat - startLat));
+        double disLong = Math.toRadians((endLong - startLong));
+
+        startLat = Math.toRadians(startLat);
+        endLat = Math.toRadians(endLat);
+
+        double a = haversine(disLat) + Math.cos(startLat) * Math.cos(endLat) * haversine(disLong);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return EARTH_RADIUS * c;
+    }
 }

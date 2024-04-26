@@ -4,6 +4,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import org.example.be_java_hisp_w26_g07.entity.Location;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -61,20 +62,21 @@ public class DataConfiguration {
 
         List<User> users = new ArrayList<>();
 
-        users.add(new User(1, "Monica", lis1, List.of(2, 3, 4, 8, 9), List.of(2, 3, 4), true));
-        users.add(new User(2, "Santiago", lis2, List.of(1, 3, 5, 6, 9), List.of(1, 3), true));
-        users.add(new User(3, "Cristian", lis3, List.of(1, 2, 5, 6, 9), List.of(1, 2, 4), true));
-        users.add(new User(4, "Edwin", lis4, List.of(3, 1, 7, 8), List.of(1), true));
-        users.add(new User(5, "Bryann", new ArrayList<>(), new ArrayList<>(), List.of(2, 3), false));
-        users.add(new User(6, "Carlos", new ArrayList<>(), new ArrayList<>(), List.of(2, 3), false));
-        users.add(new User(7, "Cristopher", new ArrayList<>(), new ArrayList<>(), List.of(4), false));
-        users.add(new User(8, "Leandro", new ArrayList<>(), new ArrayList<>(), List.of(1, 4), false));
-        users.add(new User(9, "Martin", new ArrayList<>(), new ArrayList<>(), List.of(1, 2, 3), false));
+        users.add(new User(1, "Monica", lis1, List.of(2, 3, 4, 8, 9), List.of(2, 3, 4), true, new Location(1,1,4.678982f, -74.050439f)));
+        users.add(new User(2, "Santiago", lis2, List.of(1, 3, 5, 6, 9), List.of(1, 3), true, new Location(2,2,4.674920f, -74.069291f)));
+        users.add(new User(3, "Cristian", lis3, List.of(1, 2, 5, 6, 9), List.of(1, 2, 4), true, new Location(3,3, 4.704249f, -74.048779f)));
+        users.add(new User(10, "Cristian 2", lis3, List.of(1, 2, 5, 6, 9), List.of(1, 2, 4), true, new Location(10,10   , 4.674607f, -74.088508f)));
+        users.add(new User(4, "Edwin", lis4, List.of(3, 1, 7, 8), List.of(1), true, new Location(4,4,4.530030f, -74.341262f)));
+        users.add(new User(5, "Bryann", new ArrayList<>(), new ArrayList<>(), List.of(2, 3), false, new Location(5,5, 4.594104f, -74.167647f)));
+        users.add(new User(6, "Carlos", new ArrayList<>(), new ArrayList<>(), List.of(2, 3), false, new Location(6,6, 4.624817f, -74.163671f)));
+        users.add(new User(7, "Cristopher", new ArrayList<>(), new ArrayList<>(), List.of(4), false, new Location(7,7, 4.579737f, -74.094921f)));
+        users.add(new User(8, "Leandro", new ArrayList<>(), new ArrayList<>(), List.of(1, 4), false, new Location(8,8, 4.583040f, -74.113475f)));
+        users.add(new User(9, "Martin", new ArrayList<>(), new ArrayList<>(), List.of(1, 2, 3), false, new Location(9,9, 4.621515f, -74.151163f)));
 
         return users;
     }
 
-    @Bean
+    /*
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
 
         return builder -> {
@@ -91,5 +93,5 @@ public class DataConfiguration {
             builder.serializers(new LocalDateSerializer(dateFormatter));
             builder.serializers(new LocalDateTimeSerializer(dateTimeFormatter));
         };
-    }
+    }*/
 }

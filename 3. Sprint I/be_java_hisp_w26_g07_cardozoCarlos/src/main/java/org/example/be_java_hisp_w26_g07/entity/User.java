@@ -24,4 +24,6 @@ public class User {
     private List<Integer> followedIds;
     @JsonProperty("isSeller")
     private Boolean isSeller;
+    @JsonProperty("location")
+    private Location location;
 }

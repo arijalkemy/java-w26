@@ -1,5 +1,6 @@
 package org.example.be_java_hisp_w26_g07.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -26,6 +27,7 @@ public class Post {
     @JsonProperty("date")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
     @JsonProperty("product")
     private Product product;
