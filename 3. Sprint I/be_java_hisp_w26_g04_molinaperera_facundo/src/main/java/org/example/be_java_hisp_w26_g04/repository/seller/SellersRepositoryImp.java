@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.example.be_java_hisp_w26_g04.dto.PostPromoDTO;
 import org.example.be_java_hisp_w26_g04.dto.PromoDTO;
 import org.example.be_java_hisp_w26_g04.model.Post;
 import org.example.be_java_hisp_w26_g04.model.Seller;
@@ -25,6 +26,7 @@ public class SellersRepositoryImp implements ISellerRepository {
     private Set<Seller> sellers;
     private int idCounter;
     private List<PromoDTO>listPromoDTO = new ArrayList<>();
+    private List<PostPromoDTO>listProductDTO = new ArrayList<>();
 
     public SellersRepositoryImp() throws IOException {
         populate();
@@ -65,7 +67,8 @@ public class SellersRepositoryImp implements ISellerRepository {
     }
 
     @Override
-    public void addPromoDTO(int userId, String userName) {
+    public void addPromoDTO(int userId, String userName, PostPromoDTO postPromoDTO) {
+        listProductDTO.add(postPromoDTO);
         Optional<PromoDTO> optionalPromoDTO= listPromoDTO.stream().filter(x-> x.getSellerId()==userId).findFirst();
         if(optionalPromoDTO.isPresent()){
             optionalPromoDTO.get().increasePromoProductCount();

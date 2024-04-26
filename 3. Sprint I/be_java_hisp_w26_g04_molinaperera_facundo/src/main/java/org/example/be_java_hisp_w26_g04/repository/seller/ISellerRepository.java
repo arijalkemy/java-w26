@@ -1,6 +1,7 @@
 package org.example.be_java_hisp_w26_g04.repository.seller;
 
 
+import org.example.be_java_hisp_w26_g04.dto.PostPromoDTO;
 import org.example.be_java_hisp_w26_g04.dto.PromoDTO;
 import org.example.be_java_hisp_w26_g04.model.Post;
 import org.example.be_java_hisp_w26_g04.model.Seller;
@@ -12,7 +13,7 @@ import java.util.Optional;
 public interface ISellerRepository extends ICRUD<Seller> {
     List<Post> getPosts();
 
-    void addPromoDTO(int userId, String userName);
+    void addPromoDTO(int userId, String userName, PostPromoDTO postPromoDTO);
 
     Optional<PromoDTO> findPromoById(int userId);
 }

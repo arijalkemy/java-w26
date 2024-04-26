@@ -134,7 +134,8 @@ public class SellerService implements ISellerService {
     @Override
     public void createNewPromoPost(PostPromoDTO postPromo){
         Seller seller=ObjectExist.getObjectFromOptional(sellerRepository.findById(postPromo.getUserId()));
-        sellerRepository.addPromoDTO(seller.getUserId(), seller.getUserName());
+        sellerRepository.addPromoDTO(seller.getUserId(), seller.getUserName(), postPromo);
+
         addPost(objectMapper.convertValue(postPromo, Post.class));
     }
     @Override
