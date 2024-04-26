@@ -1,6 +1,7 @@
 package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.PublicationListDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
 import com.group03.sprint1.dto.response.SellerPromoCountResponseDTO;
@@ -47,17 +48,40 @@ public class PublicationsController {
         return new ResponseEntity<>(responseTwoWeeksPublicationsDTO, HttpStatus.OK);
     }
 
+    /**
+     * Endpoint para crear una publicación con promoción.
+     *
+     * @param publication Objeto PublicationDTO con los datos de la publicación a guardar.
+     * @return ResponseEntity con el mensaje de éxito y el código de estado HTTP.
+     */
+
     @PostMapping("/promo-post")
-    public ResponseEntity<String> postPublicationWithPromotion(@RequestBody PublicationDTO publication) {
-        usersService.createPublication(publication);
-        return new ResponseEntity<>("Post with promotion created successfully", HttpStatus.CREATED);
+    public ResponseEntity<MessageResponseDTO> postPublicationWithPromotion(@RequestBody PublicationDTO publication) {
+        return new ResponseEntity<>(usersService.createPublication(publication), HttpStatus.CREATED);
     }
+
+    /**
+     * Endpoint para obtener la cantidad de publicaciones con promoción de un vendedor.
+     *
+     * @param userId ID del vendedor.
+     * @return ResponseEntity con body de tipo SellerPromoCountResponseDTO el código de estado HTTP.
+     */
 
     @GetMapping("/promo-post/count")
     public ResponseEntity<SellerPromoCountResponseDTO> getSellerPublicationsWithPromotionCount(@RequestParam Integer userId) {
         SellerPromoCountResponseDTO sellerPromoCountResponseDTO = publicationsService.countPublicationsInPromotionForSeller(userId);
         return new ResponseEntity<>(sellerPromoCountResponseDTO, HttpStatus.OK);
     }
+
+    /**
+     * Endpoint para obtener todas las publicaciones.
+     *
+     * @param productName Nombre del producto.
+     * @param minTotal Precio total mínimo.
+     * @param maxTotal Precio total máximo.
+     * @param order Criterio de ordenamiento, valores posibles: "total_price_asc" o "total_price_desc".
+     * @return ResponseEntity con body de tipo PublicationListDTO y el código de estado HTTP.
+     */
 
     @GetMapping("/all")
     public ResponseEntity<PublicationListDTO> getAllPublications(

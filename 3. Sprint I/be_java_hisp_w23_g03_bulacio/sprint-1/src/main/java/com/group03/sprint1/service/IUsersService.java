@@ -4,6 +4,7 @@ import com.group03.sprint1.dto.SellerFollowersDTO;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
 import com.group03.sprint1.dto.response.BuyerResponseDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.SellerResponseDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 
@@ -18,5 +19,5 @@ public interface IUsersService {
     BuyerResponseDTO showBuyerFollowed(Integer userId, String order);
     <T> List<T> orderByLetter(List<T> list, Comparator<? super T> comparator);
     List<SellersWithPublicationDTO> showAllSellers();
-    SellerDTO createPublication(PublicationDTO publicationDTO);
+    MessageResponseDTO createPublication(PublicationDTO publicationDTO);
 }

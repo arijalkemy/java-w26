@@ -3,19 +3,16 @@ package com.group03.sprint1.service.implementation;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.SellerFollowersDTO;
-import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
-import com.group03.sprint1.dto.response.UserDataResponseDTO;
+import com.group03.sprint1.dto.response.*;
 import com.group03.sprint1.entity.Seller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
-import com.group03.sprint1.dto.response.SellerResponseDTO;
 import com.group03.sprint1.entity.Buyer;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.exception.entity.NotFoundException;
 import com.group03.sprint1.exception.entity.BadRequestException;
 import com.group03.sprint1.entity.UserData;
-import com.group03.sprint1.dto.response.BuyerResponseDTO;
 import com.group03.sprint1.repository.IUsersRepository;
 import com.group03.sprint1.repository.implementation.UsersRepositoryImpl;
 import com.group03.sprint1.service.IUsersService;
@@ -205,7 +202,7 @@ public class UsersServiceImpl implements IUsersService {
     }
 
     @Override
-    public SellerDTO createPublication(PublicationDTO publicationDTO) {
+    public MessageResponseDTO createPublication(PublicationDTO publicationDTO) {
 
         if(usersRepository.findSellerById(publicationDTO.getUserId()) == null) {
             throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUserId());
@@ -217,7 +214,7 @@ public class UsersServiceImpl implements IUsersService {
             throw new BadRequestException("Request cannot be null");
         }
 
-        Seller seller = usersRepository.createPublication(publication);
-        return objectMapper.convertValue(seller, SellerDTO.class);
+        usersRepository.createPublication(publication);
+        return new MessageResponseDTO("Publication created successfully");
     }
 }

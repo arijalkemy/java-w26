@@ -127,19 +127,19 @@ GET /products/all
 
 **Query Params:**
 
-| Parámetro | Tipo | Descripción                                                                                                          |
-| --- | --- |----------------------------------------------------------------------------------------------------------------------|
-| `order` | String | Ordena las publicaciones por el precio total de forma ascendente o descendente. Posibles valores: price_asc, min_asc |
-| `min_price` | double | Filtra las publicaciones por precio mínimo.                                                                          |
-| `max_price` | double | Filtra las publicaciones por precio máximo.                                                                          |
-| `product_name` | String | Filtra las publicaciones por nombre de producto.                                                                     |
+| Parámetro     | Tipo | Descripción                                                                                                          |
+|---------------| --- |----------------------------------------------------------------------------------------------------------------------|
+| `order`       | String | Ordena las publicaciones por el precio total de forma ascendente o descendente. Posibles valores: price_asc, min_asc |
+| `minPrice`    | double | Filtra las publicaciones por precio mínimo.                                                                          |
+| `maxPrice`    | double | Filtra las publicaciones por precio máximo.                                                                          |
+| `productName` | String | Filtra las publicaciones por nombre de producto.                                                                     |
 
 Estos filtros son opcionales, por lo que se pueden combinar o utilizar de forma individual según sea necesario.
 
 **Ejemplo:**
 
 ```http
-GET /products/all?order=asc&min_price=100&max_price=500&product_name=Teclado
+GET /products/all?order=total_price_asc&minTotal=500&maxTotal=1000&productName=Teclado
 ```
 
 Respuesta:
@@ -147,24 +147,6 @@ Respuesta:
 ```json
 {
   "publications": [
-    {
-      "user_id": 2,
-      "post_id": 2,
-      "date": "2021-01-01",
-      "product": {
-        "product_id": 1112,
-        "product_name": "Teclado Caro",
-        "type": "Gamer",
-        "brand": "Logitech",
-        "color": "Red & Black",
-        "notes": "Special Edition"
-      },
-      "category": 100,
-      "price": 995.0,
-      "has_promo": false,
-      "discount": 0.0,
-      "total_price": 995.0
-    },
     {
       "user_id": 2,
       "post_id": 3,
@@ -182,6 +164,24 @@ Respuesta:
       "has_promo": true,
       "discount": 0.5,
       "total_price": 750.0
+    },
+    {
+      "user_id": 2,
+      "post_id": 2,
+      "date": "2021-01-01",
+      "product": {
+        "product_id": 1112,
+        "product_name": "Teclado Caro",
+        "type": "Gamer",
+        "brand": "Logitech",
+        "color": "Red & Black",
+        "notes": "Special Edition"
+      },
+      "category": 100,
+      "price": 995.0,
+      "has_promo": false,
+      "discount": 0.0,
+      "total_price": 995.0
     }
   ]
 }
