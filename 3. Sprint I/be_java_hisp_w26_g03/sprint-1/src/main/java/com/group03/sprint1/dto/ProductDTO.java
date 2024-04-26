@@ -1,5 +1,6 @@
 package com.group03.sprint1.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.io.Serializable;
@@ -8,8 +9,10 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO implements Serializable {
-    private Integer product_id;
-    private String product_name;
+    @JsonProperty("product_id")
+    private Integer productId;
+    @JsonProperty("product_name")
+    private String productName;
     private String type;
     private String brand;
     private String color;

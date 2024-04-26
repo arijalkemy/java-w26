@@ -4,7 +4,6 @@ import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IPublicationsService;
-import com.group03.sprint1.service.IUsersService;
 import com.group03.sprint1.service.implementation.PublicationsServiceImpl;
 import com.group03.sprint1.service.implementation.UsersServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -19,24 +18,37 @@ public class PublicationsController {
 
     private final IPublicationsService productsService;
 
-    private IUsersService usersService;
-
-    public PublicationsController(PublicationsServiceImpl publicationsService, UsersServiceImpl usersServiceImpl) {
+    public PublicationsController(PublicationsServiceImpl publicationsService) {
         this.productsService = publicationsService;
-        this.usersService = usersServiceImpl;
     }
 
+    /**
+     * Obtiene todos los vendedores que tengan una publicacion creada.
+     * @return Devuelve todos los vendedores con publicaciones que existan en la base de datos.
+     */
     @GetMapping("/all")
     public ResponseEntity<List<SellersWithPublicationDTO>> getAllProducts() {
-        return new ResponseEntity<>(usersService.showAllSellers(), HttpStatus.OK);
+        return new ResponseEntity<>(productsService.showAllSellers(), HttpStatus.OK);
     }
 
+    /**
+     * Crea una nueva publicacion para un vendedor especifico, utilizando los datos proporcionados en PublicationDTO.
+     * @param publication
+     * @return Devuelve un mensaje de exito en el cuerpo de la respuesta.
+     */
     @PostMapping("/post")
     public ResponseEntity<String> createPublication(@RequestBody PublicationDTO publication) {
-        usersService.createPublication(publication);
+        productsService.createPublication(publication);
         return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
     }
 
+    /**
+     * Obtiene un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las últimas dos semanas.
+     * En el caso que reciba un order como query param, el resultado se ordenará de manera ascendente o descendente segun la fecha.
+     * @param userId
+     * @param order
+     * @return Devuelve una lista de publicaciones de las ultimas dos semanas.
+     */
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<ResponseIdPublicationsDTO> getFollowedLastTwoWeeksPublications(@PathVariable Integer userId,
                                                                                          @RequestParam(required = false) String order) {

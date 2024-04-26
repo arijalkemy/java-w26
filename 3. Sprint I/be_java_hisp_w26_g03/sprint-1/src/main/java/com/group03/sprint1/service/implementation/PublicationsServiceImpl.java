@@ -3,6 +3,8 @@ package com.group03.sprint1.service.implementation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.PublicationDTO;
+import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
+import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
 import com.group03.sprint1.entity.UserData;
 import com.group03.sprint1.exception.entity.BadRequestException;
@@ -69,10 +71,10 @@ public class PublicationsServiceImpl implements IPublicationsService {
 
         for (UserData sellerUser : userSellersFollowed) {
             Seller seller = usersRepository.findSellerById(sellerUser.getUserId());
-            if (Utils.isNotNull(seller) && seller.getPublications() != null) {
+            if (Utils.isNotNull(seller) &&  Utils.isNotNull(seller.getPublications())) {
                 filteredPublications.addAll(
                         seller.getPublications().stream()
-                                .filter(publication -> publication.getDate() != null && publication.getDate().isAfter(LocalDate.now().minusWeeks(2)))
+                                .filter(publication -> Utils.isNotNull(publication.getDate()) && publication.getDate().isAfter(LocalDate.now().minusWeeks(Constants.WEEKS_TO_FIND)))
                                 .map(publication -> objectMapper.convertValue(publication, PublicationDTO.class))
                                 .collect(Collectors.toList())
                 );
@@ -84,5 +86,27 @@ public class PublicationsServiceImpl implements IPublicationsService {
         }
 
         return filterListByOrder(filteredPublications, order);
+    }
+
+    @Override
+    public List<SellersWithPublicationDTO> showAllSellers() {
+        List<Seller> sellers = usersRepository.findAllSellers();
+        return sellers.stream().map(p -> objectMapper.convertValue(p, SellersWithPublicationDTO.class)).toList();
+    }
+
+    @Override
+    public void createPublication(PublicationDTO publicationDTO) {
+
+        if(Utils.isNull(usersRepository.findSellerById(publicationDTO.getUserId()))) {
+            throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUserId());
+        }
+
+        Publication publication = objectMapper.convertValue(publicationDTO, Publication.class);
+
+        if(Utils.isNull(publication)) {
+            throw new BadRequestException("Request cannot be null");
+        }
+
+        usersRepository.createPublication(publication);
     }
 }

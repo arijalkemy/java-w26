@@ -1,6 +1,6 @@
 # Grupo 03 - Sprint 1 - SocialMeli
 
-En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, __SocialMeli__.
+En este proyecto desarrollaremos una API para la nueva herramienta de Mercado Libre, __SocialMeli__.
 
 ## Integrantes
 

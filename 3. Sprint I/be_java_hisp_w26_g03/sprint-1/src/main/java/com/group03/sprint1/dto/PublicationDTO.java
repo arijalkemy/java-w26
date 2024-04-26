@@ -1,5 +1,6 @@
 package com.group03.sprint1.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,8 +13,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PublicationDTO implements Serializable {
-    private Integer user_id;
-    private Integer post_id;
+    @JsonProperty("user_id")
+    private Integer userId;
+    @JsonProperty("post_id")
+    private Integer postId;
     private LocalDate date;
     private ProductDTO product;
     private Integer category;

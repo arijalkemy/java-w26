@@ -22,5 +22,6 @@ public class SellerResponseDTO implements Serializable {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<UserDataResponseDTO> followers;
     @JsonIgnore
+    @JsonProperty("posts")
     private List<PublicationDTO> publications;
 }
