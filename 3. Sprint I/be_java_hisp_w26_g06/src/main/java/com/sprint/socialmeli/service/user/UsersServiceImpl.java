@@ -4,77 +4,47 @@ import com.sprint.socialmeli.dto.user.FollowersResponseDTO;
 import com.sprint.socialmeli.dto.user.UserResponseDTO;
 import com.sprint.socialmeli.dto.user.FollowedResponseDTO;
 import com.sprint.socialmeli.entity.Customer;
-import com.sprint.socialmeli.entity.IFollower;
 import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.repository.user.IUsersRepository;
 import com.sprint.socialmeli.exception.*;
 import com.sprint.socialmeli.dto.user.FollowerCountResponseDTO;
 import com.sprint.socialmeli.utils.NameOrderType;
+import com.sprint.socialmeli.utils.UserChecker;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class UsersServiceImpl implements IUsersService {
 
-    private IUsersRepository _usersRepository;
+    private IUsersRepository usersRepository;
 
     public UsersServiceImpl(IUsersRepository usersRepository) {
-        this._usersRepository = usersRepository;
+        this.usersRepository = usersRepository;
     }
 
     /**
      *
-     * @param userId Customer id
+     * @param customerId Customer id
      * @param sellerId Seller id
      * @throws ConflictException when a customer already follows the seller
      * Checks if the users exists, and if the user already follows the seller only then
      * calls the follow method from customer.
      */
     @Override
-    public void follow(Integer userId, Integer sellerId) {
-        IFollower follower = checkAndGetUser(userId, sellerId);
+    public void follow(Integer customerId, Integer sellerId) {
+        Customer customer = UserChecker.checkAndGetCustomer(customerId);
+        UserChecker.checkAndGetSeller(sellerId);
 
-        if( follower.getFollowed().containsKey(sellerId) ){
-            throw  new ConflictException("The user already follows the seller: " + sellerId);
+        if (customer.getFollowed().stream().anyMatch(f -> f.equals(sellerId))) {
+            throw new ConflictException("The user already follows the seller: " + sellerId);
         }
 
-        LocalDate now = LocalDate.now();
-        follower.follow(sellerId, now);
-    }
-
-    /**
-     *
-     * @param userId Customer id
-     * @param sellerId Seller id
-     * @return a Customer entity
-     * @throws NotFoundException if any of the users not exists in the repository
-     * Checks if the users exists in the repository
-     */
-    private IFollower checkAndGetUser(Integer userId, Integer sellerId) {
-        if(Objects.equals(userId, sellerId)){
-            throw new BadRequestException("Ids should be different");
-        }
-
-        IFollower resp = _usersRepository
-                .findCustomerByPredicate(c -> c.getUser().getUserId().equals(userId)).stream()
-                .findFirst().orElse(null);
-
-        _usersRepository.findSellerByPredicate(s -> s.getUser().getUserId().equals(sellerId))
-                .stream().findFirst()
-                .orElseThrow(() -> new NotFoundException("Seller with ID: " + userId + " not found"));
-
-        if (resp == null) {
-            resp = _usersRepository.findSellerByPredicate(s -> s.getUser().getUserId().equals(userId))
-                    .stream().findFirst()
-                    .orElseThrow(() -> new NotFoundException("User with ID: " + userId + " not found"));
-        }
-
-
-        return resp;
+        customer.follow(sellerId);
     }
 
     /**
@@ -87,13 +57,15 @@ public class UsersServiceImpl implements IUsersService {
      */
     @Override
     public void unfollow(Integer userId, Integer userIdToUnfollow) {
-        IFollower follower = checkAndGetUser(userId, userIdToUnfollow);
+        Customer customer = UserChecker.checkAndGetCustomer(userId);
+        UserChecker.checkAndGetSeller(userIdToUnfollow);
 
-        if( follower.getFollowed().get(userIdToUnfollow) == null ) {
+        if (customer.getFollowed().stream().noneMatch(f -> f.equals(userIdToUnfollow))) {
             throw new BadRequestException("The user " + userId + " doesn't follow the seller: " + userIdToUnfollow);
         }
 
-        follower.unfollow(userIdToUnfollow);
+
+        customer.unfollow(userIdToUnfollow);
     }
 
     /**
@@ -108,21 +80,14 @@ public class UsersServiceImpl implements IUsersService {
      */
     @Override
     public FollowedResponseDTO listFollowedUsers(Integer userId, String order) {
-        List<Customer> customers = _usersRepository
-                .findCustomerByPredicate(c -> c.getUser().getUserId().equals(userId));
-
-        if (customers.isEmpty()) {
-            throw new NotFoundException("Customer with ID: " + userId + " not found");
-        }
+        Customer customer = UserChecker.checkAndGetCustomer(userId);
 
         if (!isValidOrderType(order)) {
             throw new BadRequestException("Invalid order type: " + order);
         }
 
-        Customer customer = customers.get(0);
-
-        List<Seller> followedSellers = _usersRepository
-                .findSellerByPredicate(s -> customer.getFollowed().get(s.getUser().getUserId()) != null);
+        List<Seller> followedSellers = usersRepository
+                .findSellerByPredicate(s -> customer.getFollowed().contains(s.getUser().getUserId()));
 
         List<UserResponseDTO> followed = followedSellers
                 .stream()
@@ -148,20 +113,15 @@ public class UsersServiceImpl implements IUsersService {
      * and order if the order is present
      */
     @Override
-    public FollowersResponseDTO getfollowers(Integer sellerId, String orderType) {
+    public FollowersResponseDTO getFollowers(Integer sellerId, String orderType) {
 
-        Seller seller = _usersRepository
-                .findSellerByPredicate(s -> s.getUser().getUserId().equals(sellerId))
-                .stream()
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Seller with ID: " + sellerId + " not found"));
-
+        Seller seller = UserChecker.checkAndGetSeller(sellerId);
 
         if (!isValidOrderType(orderType)) {
             throw new BadRequestException("Invalid order type: " + orderType);
         }
 
-        List<Customer> followers = _usersRepository.findCustomerByPredicate(c -> c.getFollowed().get(sellerId) != null );
+        List<Customer> followers = usersRepository.findCustomerByPredicate(c -> c.getFollowed().contains(sellerId));
         List<UserResponseDTO> usersDto = followers
                 .stream()
                 .map(f -> new UserResponseDTO(f.getUser().getUserId(), f.getUser().getUserName()))
@@ -172,9 +132,7 @@ public class UsersServiceImpl implements IUsersService {
             usersDto = sortList(usersDto, order);
         }
 
-        String sellerName = seller.getUser().getUserName();
-
-        return new FollowersResponseDTO(sellerId, sellerName, usersDto);
+        return new FollowersResponseDTO(sellerId, seller.getUser().getUserName(), usersDto);
     }
 
     /**
@@ -214,35 +172,13 @@ public class UsersServiceImpl implements IUsersService {
      * Get the count of follows of the customers and matches with seller id
      */
     @Override
-    public FollowerCountResponseDTO getFollowersCount(Integer sellerId, String dateSince, String dateTo) {
-        Seller seller = _usersRepository
-                .findSellerByPredicate(s -> s.getUser().getUserId().equals(sellerId))
-                .stream()
-                .findFirst()
-                .orElseThrow(() -> new NotFoundException("Seller with ID: " + sellerId + " not found"));
-
-        Integer followersCount = 0;
-        if( dateSince == null && dateTo == null ) {
-            followersCount = _usersRepository
-                    .findCustomerByPredicate(customer -> customer.getFollowed()
-                            .get(sellerId) != null )
-                    .size();
-        } else if ( dateSince.isEmpty() || dateTo.isEmpty() ) {
-            throw new BadRequestException("Invalid date");
-        }else {
-            LocalDate dateSinceFormatter = LocalDate.parse(dateSince, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            LocalDate dateToFormatter = LocalDate.parse(dateTo, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            followersCount = _usersRepository
-                    .findCustomerByPredicate(customer -> {
-                        LocalDate date = customer.getFollowed()
-                                .get(sellerId);
-                        return date != null &&
-                                !date.isBefore( dateSinceFormatter ) &&
-                                !date.isAfter( dateToFormatter );
-                    } )
-                    .size();
-        }
-
+    public FollowerCountResponseDTO getFollowersCount(Integer sellerId) {
+        Seller seller = UserChecker.checkAndGetSeller(sellerId);
+        Integer followersCount = usersRepository
+                .findCustomerByPredicate(customer -> customer.getFollowed()
+                        .stream()
+                        .anyMatch(s -> s.equals(sellerId)))
+                .size();
 
         return new FollowerCountResponseDTO(
                 sellerId,

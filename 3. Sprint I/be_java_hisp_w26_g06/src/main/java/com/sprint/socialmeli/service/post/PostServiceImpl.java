@@ -7,12 +7,12 @@ import com.sprint.socialmeli.dto.post.ProductDTO;
 import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Post;
 import com.sprint.socialmeli.entity.Product;
-import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.exception.BadRequestException;
 import com.sprint.socialmeli.exception.NotFoundException;
 import com.sprint.socialmeli.repository.post.IPostRepository;
 import com.sprint.socialmeli.repository.user.IUsersRepository;
 import com.sprint.socialmeli.utils.DateOrderType;
+import com.sprint.socialmeli.utils.UserChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,42 +33,21 @@ public class PostServiceImpl implements IPostService {
     /**
      * @param postDTO A DTO with the post to create
      * @throws BadRequestException if the seller id of the post not exists
-     *                             Checks if the seller exists and calls the post repository to save the new post
+     * Checks if the seller exists and calls the post repository to save the new post
      */
     @Override
     public void createPost(PostDTO postDTO) {
-        for (Integer userId : postDTO.getUser_id()) {
-            usersRepository
-                    .findSellerByPredicate(c -> c.getUser().getUserId().equals(userId))
-                    .stream().findFirst()
-                    .orElseThrow(() -> new NotFoundException("User with ID: " + userId + " not found"));
-        }
-        if (!followingIsMutual(postDTO.getUser_id())) {
-            throw new BadRequestException("All sellers should follow each other");
-        }
+        UserChecker.checkAndGetSeller(postDTO.getUser_id());
         Post newPost = parsePostDTO(postDTO);
-        for (Integer userId : postDTO.getUser_id()) {
-            this.postRepository.save(newPost, userId);
-        }
-    }
-
-    private boolean followingIsMutual(List<Integer> userId) {
-        for (Integer id : userId) {
-            Seller seller = this.usersRepository.findSellerByPredicate(s -> s.getUser().getUserId().equals(id))
-                    .stream().findAny().get();
-            if (!seller.getFollowed().keySet()
-                    .containsAll(userId.stream().filter(otherId -> !otherId.equals(id)).toList())) {
-                return false;
-            }
-        }
-        return true;
+        this.postRepository.save(newPost, postDTO.getUser_id());
     }
 
     /**
+     *
      * @param postDTO A DTO with the post information
      * @return the post entity
      * @throws BadRequestException if the format is not valid
-     *                             Maps a post dto to post entity
+     * Maps a post dto to post entity
      */
     private static Post parsePostDTO(PostDTO postDTO) {
         try {
@@ -89,22 +68,18 @@ public class PostServiceImpl implements IPostService {
     }
 
     /**
+     *
      * @param customer_id customer id
-     * @param order       Optional String to order the posts by date (date_asc, date_desc)
+     * @param order Optional String to order the posts by date (date_asc, date_desc)
      * @return A DTO with the list of posts of the followed sellers
-     * @throws NotFoundException   if Customer not exists
+     * @throws NotFoundException if Customer not exists
      * @throws BadRequestException if the order type is not empty and not valid
      */
     @Override
-    public FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order) {
-        List<Customer> customers = usersRepository
-                .findCustomerByPredicate(c -> c.getUser().getUserId().equals(customer_id));
+    public FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order){
+        Customer customer = UserChecker.checkAndGetCustomer(customer_id);
 
-        if (customers.isEmpty()) {
-            throw new NotFoundException("Customer with ID: " + customer_id + " not found");
-        }
-
-        if (!isValidOrderType(order)) {
+        if(!isValidOrderType(order)){
             throw new BadRequestException("Invalid order type: " + order);
         }
 
@@ -116,13 +91,12 @@ public class PostServiceImpl implements IPostService {
 
         LocalDate now = LocalDate.now();
         LocalDate weekPoint = now.minusWeeks(2);
-        for (Integer sellerId : customers.get(0).getFollowed().keySet()) {
+        for (Integer sellerId : customer.getFollowed()) {
             postResponseDTOList.addAll(postRepository.findBySellerId(sellerId)
                     .stream()
                     .filter(post -> post.getPostDate().isAfter(weekPoint))
                     .map(p -> new PostResponseDTO(
-                            List.of(sellerId), //We only care about the sellers we follow (there could be repeated)
-                                                //Could be solved by adding new attribute user_ids in Post entity.
+                            sellerId,
                             p.getId(),
                             formatter.format(p.getPostDate()),
                             new ProductDTO(
@@ -136,7 +110,7 @@ public class PostServiceImpl implements IPostService {
                             p.getPrice())).toList());
         }
 
-        if (order != null) {
+        if (order != null){
             DateOrderType orderType = DateOrderType.valueOf(order.toUpperCase());
             postResponseDTOList = sortList(postResponseDTOList, orderType);
         }
@@ -145,11 +119,12 @@ public class PostServiceImpl implements IPostService {
     }
 
     /**
-     * @param dtos      list of dto to order
+     *
+     * @param dtos list of dto to order
      * @param orderType enum (date_asc, date_desc)
      * @return A sorted list of dto according to the order type
      */
-    private List<PostResponseDTO> sortList(List<PostResponseDTO> dtos, DateOrderType orderType) {
+    private List<PostResponseDTO> sortList(List<PostResponseDTO> dtos, DateOrderType orderType){
         return switch (orderType) {
             case DATE_ASC -> dtos.stream()
                     .sorted(Comparator.comparing(PostResponseDTO::getDate))
@@ -162,6 +137,7 @@ public class PostServiceImpl implements IPostService {
     }
 
     /**
+     *
      * @param orderType String with the order
      * @return true if is valid order type else return false
      * Checks if the order type matches with the DateOrderType enum

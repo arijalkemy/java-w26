@@ -1,14 +1,12 @@
 package com.sprint.socialmeli.entity;
 
 import lombok.Data;
-
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
-public class Customer implements IFollower{
-    private Map<Integer, LocalDate> followed = new HashMap<>();
+public class Customer {
+    private List<Integer> followed = new ArrayList<>();
     private User user;
 
     public Customer(User user) {
@@ -20,16 +18,16 @@ public class Customer implements IFollower{
      * @param userIdToFollow seller id
      * add the seller id to the followed list
      */
-    public void follow(Integer userIdToFollow, LocalDate date){
-        followed.put(userIdToFollow, date);
+    public void follow(Integer userIdToFollow){
+        followed.add(userIdToFollow);
     }
 
     /**
      *
-     * @param userIdToUnfollow seller id
+     * @param userIdToFollow seller id
      * remove the seller id from the followed list
      */
-    public void unfollow(Integer userIdToUnfollow){
-        followed.remove(userIdToUnfollow);
+    public void unfollow(Integer userIdToFollow){
+        followed.remove(userIdToFollow);
     }
 }
