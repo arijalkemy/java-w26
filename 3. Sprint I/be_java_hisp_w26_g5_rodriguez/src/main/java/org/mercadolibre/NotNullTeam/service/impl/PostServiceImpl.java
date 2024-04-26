@@ -84,7 +84,7 @@ public class PostServiceImpl implements IPostService {
         Seller seller = iSellerServiceInternal.findById(userId);
         int promosCount = iPostRepository.getPostsPromoBySellerId(userId).size();
 
-        return SellerMapper.toSellerPromosCountResponse(seller, promosCount);
+        return SellerMapper.sellerToSellerPromosCountResponse(seller, promosCount);
     }
 
     @Override
@@ -92,6 +92,6 @@ public class PostServiceImpl implements IPostService {
         Seller seller = iSellerServiceInternal.findById(userId);
         List<Post> posts = iPostRepository.getPostsPromoBySellerId(userId);
 
-        return SellerMapper.toSellerPromosResponse(seller, posts);
+        return SellerMapper.sellerToSellerPromosResponse(seller, posts);
     }
 }

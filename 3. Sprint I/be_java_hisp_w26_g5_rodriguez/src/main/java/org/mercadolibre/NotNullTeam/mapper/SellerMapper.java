@@ -24,7 +24,8 @@ public class SellerMapper {
         return new SellerResponseDTO(seller.getUser().getId(), seller.getUser().getName(), buyers);
     }
 
-    public static SellerPromosResponse toSellerPromosResponse(Seller seller, List<Post> posts) {
+    public static SellerPromosResponse sellerToSellerPromosResponse(Seller seller,
+                                                                   List<Post> posts) {
         List<PostPromoResponse> postPromoResponses = posts
                 .stream()
                 .map(PostMapper::toPostPromoResponse)
@@ -38,7 +39,7 @@ public class SellerMapper {
                 .build();
     }
 
-    public static SellerPromosCountResponse toSellerPromosCountResponse(Seller seller,
+    public static SellerPromosCountResponse sellerToSellerPromosCountResponse(Seller seller,
                                                                         int promosCount) {
         return SellerPromosCountResponse
                 .builder()

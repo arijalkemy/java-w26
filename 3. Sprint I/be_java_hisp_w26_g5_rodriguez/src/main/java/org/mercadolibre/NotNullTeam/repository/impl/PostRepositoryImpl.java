@@ -46,7 +46,7 @@ public class PostRepositoryImpl implements IPostRepository {
     @Override
     public List<Post> getPostsPromoBySellerId(Long sellerId) {
         List<Post> posts = getPostsBySellerId(sellerId).stream().filter(Post::getHasPromo).toList();
-        if (posts.isEmpty()) return posts;//case not seller found
+        if (posts.isEmpty()) return posts;//case not seller found. list void.
         else return posts.stream().filter(Post::getHasPromo).toList();
 
     }
