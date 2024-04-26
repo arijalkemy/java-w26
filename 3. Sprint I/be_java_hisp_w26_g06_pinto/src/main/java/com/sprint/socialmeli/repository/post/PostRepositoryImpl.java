@@ -1,7 +1,6 @@
 package com.sprint.socialmeli.repository.post;
 
 import com.sprint.socialmeli.entity.Post;
-import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -13,10 +12,12 @@ import java.util.Map;
 public class PostRepositoryImpl implements IPostRepository{
     Map<Integer, List<Post>> postMap = new HashMap<>();
 
-    // INDIVIDUAL
-    @Getter
-    Map<Integer, Double> promoPostMap = new HashMap<>(); //
-
+    /**
+     *
+     * @param post Post entity
+     * @param sellerId Seller id
+     * Adds the new post to the postMap by the seller ID
+     */
     @Override
     public void save(Post post, Integer sellerId) {
         List<Post> postList = findBySellerId(sellerId);
@@ -24,15 +25,14 @@ public class PostRepositoryImpl implements IPostRepository{
         postMap.put(sellerId, postList);
     }
 
+    /**
+     *
+     * @param sellerId seller id
+     * @return the list of the posts entities
+     * Search by the seller id the list of posts, if not found returns a empty list
+     */
     @Override
     public List<Post> findBySellerId(Integer sellerId) {
         return postMap.getOrDefault(sellerId, new ArrayList<>());
     }
-
-    // INDIVIDUAL
-    @Override
-    public void saveDiscountByPostId(Integer postId, Double discount) {
-        this.promoPostMap.put(postId,discount);
-    }
-
 }
