@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 
 @Repository
 public class PostRepositoryImpl implements IPostRepository{
@@ -51,4 +52,16 @@ public class PostRepositoryImpl implements IPostRepository{
         return result;
     }
 
+    @Override
+    public List<Integer> getPromoSellerIds() {
+
+        List<Integer> sellerIds = new ArrayList<>();
+        for(Map.Entry<Integer, List<Post>> entry : postMap.entrySet()) {
+            if(entry.getValue().stream().anyMatch(Post::isHasPromo)) {
+                sellerIds.add(entry.getKey());
+            }
+        }
+
+        return sellerIds;
+    }
 }

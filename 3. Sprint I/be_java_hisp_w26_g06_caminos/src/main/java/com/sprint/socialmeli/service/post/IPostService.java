@@ -10,5 +10,6 @@ public interface IPostService {
     void createPromoPost(PromoPostDTO postDTO);
     PromoPostCountResponseDTO getPromoPostCount(Integer sellerId);
     List<PromoPostCountResponseDTO> getAllPromoPostCount();
-    List<PromoPostResponseDTO> getPromoPosts(Integer sellerId);
+    FollowedProductsResponseDTO getPromoPost(Integer sellerId);
+    List<FollowedProductsResponseDTO>  getAllPromoPost();
 }

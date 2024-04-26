@@ -59,9 +59,13 @@ public class PostsController {
         }
     }
 
-    @GetMapping("/promo-post/{user_id}/list")
-    public ResponseEntity<?> getPromoPosts(@PathVariable Integer user_id){
-        return new ResponseEntity<>(postService.getPromoPosts(user_id), HttpStatus.OK);
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<?> getPromoPosts(@RequestParam(required = false) Integer user_id){
+        if(user_id != null){
+            return new ResponseEntity<>(postService.getPromoPost(user_id), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(postService.getAllPromoPost(), HttpStatus.OK);
+        }
     }
 
 }

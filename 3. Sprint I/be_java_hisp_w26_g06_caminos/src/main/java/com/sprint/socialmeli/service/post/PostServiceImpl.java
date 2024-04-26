@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static com.sprint.socialmeli.mappers.PostMapper.*;
@@ -150,16 +149,25 @@ public class PostServiceImpl implements IPostService {
     // BONUS
     // Obtener todas las promos de un vendedor
     @Override
-    public List<PromoPostResponseDTO> getPromoPosts(Integer sellerId) {
+    public FollowedProductsResponseDTO getPromoPost(Integer sellerId) {
         UserChecker.checkAndGetSeller(sellerId);
 
         List<Post> promoPosts= postRepository.findPromoBySellerId(sellerId);
-        List<PromoPostResponseDTO> promoPostResponseDTOList = new ArrayList<>();
+        List<PostDTO> promoPostResponseDTOList = new ArrayList<>();
 
         for(Post promoPost : promoPosts){
             promoPostResponseDTOList.add(mapPostToPromoPostResponseDto(promoPost, sellerId));
         }
+        return new FollowedProductsResponseDTO(sellerId, promoPostResponseDTOList);
+    }
+
+    public List<FollowedProductsResponseDTO>  getAllPromoPost() {
+        List<FollowedProductsResponseDTO> promoPostResponseDTOList = new ArrayList<>();
+        List<Integer> sellers = postRepository.getPromoSellerIds();
+        sellers.stream().map(this::getPromoPost).forEach(promoPostResponseDTOList::add);
+        
         return promoPostResponseDTOList;
     }
+    
 }
 

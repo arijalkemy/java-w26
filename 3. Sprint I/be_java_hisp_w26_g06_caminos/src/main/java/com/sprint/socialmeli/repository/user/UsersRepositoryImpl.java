@@ -80,4 +80,5 @@ public class UsersRepositoryImpl implements IUsersRepository{
     public Seller findSellerById(Integer id) {
         return sellerList.stream().filter(s -> s.getUser().getUserId().equals(id)).findFirst().orElse(null);
     }
+
 }

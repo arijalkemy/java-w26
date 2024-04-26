@@ -74,7 +74,7 @@ public class PostMapper {
         );
     }
 
-    public static PromoPostResponseDTO mapPostToPromoPostResponseDto(Post post, Integer userId){
+    public static PostDTO mapPostToPromoPostResponseDto(Post post, Integer userId){
         return new PromoPostResponseDTO(
                 userId,
                 post.getId(),

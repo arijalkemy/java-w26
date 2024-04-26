@@ -10,4 +10,5 @@ public interface IPostRepository {
     List<Post> findBySellerId(Integer sellerId);
     List<Post> findPromoBySellerId(Integer sellerId);
     Map<Integer, Long> getTotalByPromoPost();
+    List<Integer> getPromoSellerIds();
 }
