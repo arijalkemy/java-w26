@@ -9,8 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserFollowDto {
-    private String name;
-    private List<Integer> idFollowers;
-    private List<Integer> idFollows;
+public class CartPriceDto {
+    private List<CartPostDto> products;
+    private double totalPrice;
 }

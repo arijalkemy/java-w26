@@ -1,0 +1,3 @@
+Mercado Libre ha introducido varias funcionalidades que mejoran la experiencia de sus usuarios, como el seguimiento de vendedores y la obtención de publicaciones recientes. Con esta base, la empresa está interesada en brindar más herramientas para facilitar las compras y aumentar la interacción en su plataforma.
+
+Con el objetivo de ofrecer una experiencia de compra más integrada, Mercado Libre ha decidido añadir una funcionalidad que permita a los usuarios calcular el precio final de una o más publicaciones seleccionadoas. Esta funcionalidad permitirá a los usuarios estimar el costo total de su carrito de compras antes de proceder con la compra.

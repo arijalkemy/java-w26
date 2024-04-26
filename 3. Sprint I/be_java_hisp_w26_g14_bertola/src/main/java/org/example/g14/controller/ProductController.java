@@ -1,5 +1,6 @@
 package org.example.g14.controller;
 
+import org.example.g14.dto.CartPriceDto;
 import org.example.g14.dto.CreatePostDto;
 import org.example.g14.dto.PromoPostDto;
 import org.example.g14.service.IPostService;
@@ -18,9 +19,7 @@ public class ProductController {
     IPostService postService;
 
     @PostMapping("/post")
-    public ResponseEntity<Void> createPost(
-        @RequestBody CreatePostDto createPostDto
-    ) {
+    public ResponseEntity<Void> createPost(@RequestBody CreatePostDto createPostDto) {
         postService.add(createPostDto);
         return ResponseEntity.ok().build();
     }
@@ -41,5 +40,10 @@ public class ProductController {
     @GetMapping("/promo-post/count")
     public ResponseEntity<Integer> getPromoProdCountByUserId(@RequestParam("user_id") int userId){
         return new ResponseEntity<>(postService.getPromoProdCountByUserId(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("/cart/total-price")
+    public ResponseEntity<?> getCartTotalPrice(@RequestBody List<Integer> cart) {
+        return new ResponseEntity<>(postService.getCartTotalPrice(cart), HttpStatus.OK);
     }
 }

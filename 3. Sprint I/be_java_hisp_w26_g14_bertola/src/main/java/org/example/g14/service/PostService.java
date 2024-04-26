@@ -1,13 +1,12 @@
 package org.example.g14.service;
 
+import ch.qos.logback.core.read.ListAppender;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.g14.dto.CreatePostDto;
-import org.example.g14.dto.PostDto;
-import org.example.g14.dto.ProductDto;
-import org.example.g14.dto.PromoPostDto;
+import org.example.g14.dto.*;
 import org.example.g14.exception.BadRequestException;
 import org.example.g14.exception.NotFoundException;
 import org.example.g14.model.Post;
+import org.example.g14.model.Product;
 import org.example.g14.model.User;
 import org.example.g14.repository.IPostRepository;
 import org.example.g14.repository.IUserRepository;
@@ -118,5 +117,49 @@ public class PostService implements IPostService {
         }
 
         return (int)postRepository.findAllByUser(userId).stream().filter(Post::isHasPromo).count();
+    }
+
+    @Override
+    public CartPriceDto getCartTotalPrice(List<Integer> cart) {
+        if (cart == null || cart.isEmpty() || cart.contains(null)) {
+            throw new BadRequestException("La lista de productos no puede estar vacía o contener valores nulos.");
+        }
+
+        List<Post> cartPosts = postRepository.findByPostId(cart);
+
+        if (cartPosts.size() != cart.size()) {
+            throw new NotFoundException("No se encontraron todas las publicaciones especificadas.");
+        }
+
+        double totalPrice = cartPosts.stream().mapToDouble(post -> {
+                    double price = post.getPrice();
+                    return post.isHasPromo() ? price * (1 - post.getDiscount()) : price;
+            }).sum();
+
+        List<CartPostDto> cartPostsDto = cartPosts.stream().map(post -> {
+                double postPrice = post.isHasPromo() ? post.getPrice() * (1 - post.getDiscount()) : post.getPrice();
+
+                ProductDto productDto = new ProductDto(
+                        post.getProduct().getId(),
+                        post.getProduct().getName(),
+                        post.getProduct().getType(),
+                        post.getProduct().getBrand(),
+                        post.getProduct().getColor(),
+                        post.getProduct().getNotes()
+                );
+
+                return new CartPostDto(
+                        post.getIdUser(),
+                        post.getId(),
+                        post.getDate(),
+                        productDto,
+                        post.getCategory(),
+                        post.getPrice(),
+                        post.isHasPromo(),
+                        post.getDiscount(),
+                        postPrice);
+            }).collect(Collectors.toList());
+
+        return new CartPriceDto(cartPostsDto, totalPrice);
     }
 }

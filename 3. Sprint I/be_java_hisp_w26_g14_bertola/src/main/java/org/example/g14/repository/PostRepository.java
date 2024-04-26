@@ -29,7 +29,7 @@ public class PostRepository implements IPostRepository{
         });
 
         listOfPosts = posts;
-        postId = posts.size();
+        postId = posts.size() + 1;
     }
 
     @Override
@@ -44,5 +44,10 @@ public class PostRepository implements IPostRepository{
         post.setId(postId);
         listOfPosts.add(post);
         postId++;
+    }
+
+    @Override
+    public List<Post> findByPostId(List<Integer> listOfIDs) {
+        return listOfPosts.stream().filter(p -> listOfIDs.contains(p.getId())).toList();
     }
 }
