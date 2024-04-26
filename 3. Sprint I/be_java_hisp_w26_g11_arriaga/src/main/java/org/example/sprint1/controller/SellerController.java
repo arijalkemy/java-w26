@@ -58,4 +58,11 @@ public class SellerController {
         return new ResponseEntity<>(postService.getPromoPostCount(userId), HttpStatus.OK);
     }
 
+    @GetMapping("/promo-post-no/count")
+    ResponseEntity<?> getPromoNoPostCount(@RequestParam("user_id") int userId,
+                                                              @RequestParam(value = "not_promo", required = false)
+                                                              boolean notPromo){
+        return new ResponseEntity<>(postService.getPromoNoPostCount(userId, notPromo), HttpStatus.OK);
+    }
+
 }
