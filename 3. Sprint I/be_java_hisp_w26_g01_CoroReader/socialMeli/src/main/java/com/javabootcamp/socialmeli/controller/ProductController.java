@@ -1,8 +1,10 @@
 package com.javabootcamp.socialmeli.controller;
 
 import com.javabootcamp.socialmeli.dto.LastPostDto;
+import com.javabootcamp.socialmeli.dto.PromoRequestDto;
 import com.javabootcamp.socialmeli.enums.OrderType;
 import com.javabootcamp.socialmeli.service.ProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,6 +40,15 @@ public class ProductController {
             response = productService.getPostFromLastTwoWeeks(userId);
         }
         return ResponseEntity.status(200).body(response);
+    }
+    @PostMapping("/promo-post")
+    public ResponseEntity<?> postPromo(@RequestBody PromoRequestDto promo){
+        postService.addPromo(promo);
+        return ResponseEntity.ok().build();
+    }
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<?> getCountPromos(@RequestParam Integer user_id){
+        return new  ResponseEntity(postService.countPromoByIdUSer(user_id), HttpStatus.OK);
     }
 
 
