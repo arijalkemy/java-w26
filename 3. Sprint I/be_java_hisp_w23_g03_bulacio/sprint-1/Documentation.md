@@ -130,8 +130,8 @@ GET /products/all
 | Parámetro     | Tipo | Descripción                                                                                                          |
 |---------------| --- |----------------------------------------------------------------------------------------------------------------------|
 | `order`       | String | Ordena las publicaciones por el precio total de forma ascendente o descendente. Posibles valores: price_asc, min_asc |
-| `minPrice`    | double | Filtra las publicaciones por precio mínimo.                                                                          |
-| `maxPrice`    | double | Filtra las publicaciones por precio máximo.                                                                          |
+| `minTotal`    | double | Filtra las publicaciones por precio total mínimo.                                                                          |
+| `maxTotal`    | double | Filtra las publicaciones por precio total máximo.                                                                          |
 | `productName` | String | Filtra las publicaciones por nombre de producto.                                                                     |
 
 Estos filtros son opcionales, por lo que se pueden combinar o utilizar de forma individual según sea necesario.
