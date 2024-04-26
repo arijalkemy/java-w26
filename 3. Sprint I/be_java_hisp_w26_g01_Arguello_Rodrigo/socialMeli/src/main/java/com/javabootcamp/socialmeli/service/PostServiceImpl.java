@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javabootcamp.socialmeli.dto.PostDto;
 import com.javabootcamp.socialmeli.dto.PostPromoDto;
 import com.javabootcamp.socialmeli.dto.ProductDto;
+import com.javabootcamp.socialmeli.dto.SellerWithCountProductsPromoDto;
 import com.javabootcamp.socialmeli.model.Post;
 import com.javabootcamp.socialmeli.model.Product;
 import com.javabootcamp.socialmeli.model.User;
@@ -88,6 +89,19 @@ public class PostServiceImpl implements PostService {
 
 
         postRepository.add(post);
+    }
+
+    @Override
+    public SellerWithCountProductsPromoDto findCountProductsPromo(int idUser) {
+
+        User user = userService.searchUserById(idUser);
+
+        SellerWithCountProductsPromoDto sellerWithCountProductsPromo = new SellerWithCountProductsPromoDto();
+        sellerWithCountProductsPromo.setUserName(user.getUsername());
+        sellerWithCountProductsPromo.setUserId(user.getId());
+        sellerWithCountProductsPromo.setPromoProductsCount(postRepository.findCountPromoPostByUserId(idUser));
+
+        return sellerWithCountProductsPromo;
     }
 
     @Override

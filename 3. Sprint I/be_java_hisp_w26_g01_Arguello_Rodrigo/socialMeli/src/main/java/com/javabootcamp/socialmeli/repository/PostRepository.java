@@ -9,4 +9,6 @@ public interface PostRepository {
     List<Post> findByTwoWeeksAgo(List<Integer> sellersId);
     List<Post> findByTwoWeeksAgoOrderAsc(List<Integer> sellersId);
     List<Post> findByTwoWeeksAgoOrderDesc(List<Integer> sellersId);
+
+    long findCountPromoPostByUserId(int idUser);
 }

@@ -43,5 +43,8 @@ public class PostRepositoryImpl implements PostRepository {
         return findByTwoWeeksAgo(sellersId).stream().sorted(Comparator.comparing(Post::getDate).reversed()).toList();
     }
 
-
+    @Override
+    public long findCountPromoPostByUserId(int idUser) {
+        return postsList.stream().filter( p -> p.getUser().getId() == idUser && p.getHasPromo() == true).count();
+    }
 }
