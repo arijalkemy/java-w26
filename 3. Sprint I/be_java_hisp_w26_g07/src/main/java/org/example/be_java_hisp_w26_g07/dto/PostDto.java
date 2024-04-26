@@ -1,5 +1,6 @@
 package org.example.be_java_hisp_w26_g07.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -22,11 +23,12 @@ public class PostDto {
     @JsonProperty("date")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
     @JsonProperty("product")
     private ProductDto product;
     @JsonProperty("category")
-    private String category;
+    private Integer category;
     @JsonProperty("price")
     private Double price;
 }

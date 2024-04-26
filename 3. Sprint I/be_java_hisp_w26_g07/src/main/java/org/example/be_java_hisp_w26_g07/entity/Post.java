@@ -27,7 +27,7 @@ public class Post {
     @JsonProperty("product")
     private Product product;
     @JsonProperty("category")
-    private String category;
+    private Integer category;
     @JsonProperty("price")
     private Double price;
 
