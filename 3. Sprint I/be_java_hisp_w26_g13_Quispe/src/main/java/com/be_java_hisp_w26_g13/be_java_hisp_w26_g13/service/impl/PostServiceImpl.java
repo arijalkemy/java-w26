@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -115,6 +116,25 @@ public class PostServiceImpl implements IPostService {
             }
         }
         return new ResponsePromoPostDTO(user.getUserId(), user.getUserName(), count);
+    }
+
+    @Override
+    public List<PostPromoDTO> getPostByUser(int userId, String month, String year) {
+        ObjectMapper mapper = JsonMapper.builder()
+                .addModule(new JavaTimeModule())
+                .build();
+        User user = userRepository.findById(userId);
+
+        if (user == null) {
+            throw new NotFoundException("User with id " + userId + " does not exist.");
+        }
+        if(month == null && year == null){
+            throw new BadRequestException("The request is invalid or missing required data.");
+        }
+        List<Post> posts = user.getPosts();
+        List<Post> postFilter = posts.stream().filter(post -> post.getDate().getMonthValue() == Integer.parseInt(month) && post.getDate().getYear() == Integer.parseInt(year)).toList();
+        List<PostPromoDTO> response = postFilter.stream().map(post -> mapper.convertValue(post, PostPromoDTO.class)).toList();
+        return response;
     }
 
 
