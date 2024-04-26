@@ -20,6 +20,7 @@ public class SellersWithPublicationDTO {
     private String userName;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<UserDataResponseDTO> followers;
+    @JsonProperty("posts")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<PublicationDTO> publications;
 

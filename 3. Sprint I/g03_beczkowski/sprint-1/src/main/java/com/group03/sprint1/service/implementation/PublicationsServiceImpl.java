@@ -6,6 +6,8 @@ import com.group03.sprint1.dto.PublicationDTO;
 import com.group03.sprint1.dto.SellerDTO;
 import com.group03.sprint1.dto.response.PublicationPromoResponseDTO;
 import com.group03.sprint1.dto.response.PublicationResponseDTO;
+import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
+import com.group03.sprint1.dto.response.UserDataResponseDTO;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
 import com.group03.sprint1.entity.UserData;
@@ -147,5 +149,30 @@ public class PublicationsServiceImpl implements IPublicationsService {
             throw new NotFoundException("There is not seller with ID: " + userId);
         }
         return seller;
+    }
+
+    @Override
+    public List<PublicationPromoResponseDTO> getAllPublicationsPromoCount() {
+        List<Seller> sellers = usersRepository.findAllSellers().stream().filter(s -> !s.getPublications().isEmpty()).toList();
+        List<PublicationPromoResponseDTO> listPublicationPromoResponseDTO = new ArrayList<>();
+
+        sellers.forEach( s -> {
+            int count = 0;
+            for (Publication publication: s.getPublications()) {
+                if (publication.isHasPromo()) {
+                    count++;
+                }
+            }
+            if (count > 0) {
+                listPublicationPromoResponseDTO.add(new PublicationPromoResponseDTO(s.getUserId(),
+                        s.getUserName(), count));
+            }
+        });
+
+        if (listPublicationPromoResponseDTO.isEmpty()) {
+            throw new BadRequestException("There are no users with promo publications");
+        }
+
+        return listPublicationPromoResponseDTO;
     }
 }

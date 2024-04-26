@@ -15,6 +15,6 @@ public class PublicationPromoResponseDTO implements Serializable {
     private Integer userId;
     @JsonProperty("user_name")
     private String userName;
-   @JsonProperty("promo_products_count")
+    @JsonProperty("promo_products_count")
     private Integer promoProductsCount;
 }

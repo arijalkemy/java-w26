@@ -207,29 +207,4 @@ public class UsersServiceImpl implements IUsersService {
         return sellers.stream().map(p -> objectMapper.convertValue(p, SellersWithPublicationDTO.class)).toList();
     }
 
-    @Override
-    public List<SellersWithPublicationDTO> getUsersWithPromoPublications() {
-        List<Seller> sellers = usersRepository.findAllSellers().stream().filter(s -> !s.getPublications().isEmpty()).toList();
-        List<SellersWithPublicationDTO> listSellersWithPublicationDTOS = new ArrayList<>();
-
-        for (Seller seller: sellers) {
-            List<PublicationDTO> listPublications = new ArrayList<>();
-            for (Publication publication: seller.getPublications()) {
-                if (publication.isHasPromo()) {
-                    listPublications.add(objectMapper.convertValue(publication, PublicationDTO.class));
-                }
-            }
-            if (!listPublications.isEmpty()) {
-                listSellersWithPublicationDTOS.add(new SellersWithPublicationDTO(seller.getUserId(),
-                        seller.getUserName(), listPublications));
-            }
-        }
-
-        if (listSellersWithPublicationDTOS.isEmpty()) {
-            throw new BadRequestException("There are no users with promo publications");
-        }
-
-        return listSellersWithPublicationDTOS;
-    }
-
 }

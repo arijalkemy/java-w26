@@ -14,4 +14,5 @@ public interface IPublicationsService {
     void createPublicationPromo(PublicationDTO publication);
     PublicationPromoResponseDTO getPublicationPromoCount(Integer userId);
     PublicationResponseDTO getPublicationsPromo(Integer userId);
+    List<PublicationPromoResponseDTO> getAllPublicationsPromoCount();
 }

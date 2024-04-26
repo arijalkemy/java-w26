@@ -67,4 +67,9 @@ public class PublicationsController {
         return new ResponseEntity<>(productsService.getPublicationsPromo(user_id), HttpStatus.OK);
     }
 
+    @GetMapping("/promo-post/count/list")
+    public ResponseEntity<List<PublicationPromoResponseDTO>> getAllPublicationsPromoCount() {
+        return ResponseEntity.ok().body(productsService.getAllPublicationsPromoCount());
+    }
+
 }

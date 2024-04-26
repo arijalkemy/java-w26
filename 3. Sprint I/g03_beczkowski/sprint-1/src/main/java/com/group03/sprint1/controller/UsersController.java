@@ -56,9 +56,4 @@ public class UsersController {
         return ResponseEntity.ok().build();
     }
 
-    /*----------- INDIVIDUAL y BONUS ---------------*/
-    @GetMapping("/promo-post/list")
-    public ResponseEntity<List<SellersWithPublicationDTO>> getUsersWithPromoPublications() {
-        return ResponseEntity.ok().body(usersService.getUsersWithPromoPublications());
-    }
 }
