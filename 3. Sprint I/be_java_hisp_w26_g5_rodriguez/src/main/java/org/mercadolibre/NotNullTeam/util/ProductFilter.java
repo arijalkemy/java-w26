@@ -9,16 +9,6 @@ import java.util.function.Predicate;
 
 public class ProductFilter {
 
-    public static Predicate<Post> byProperty(Function<Post, String> propertyExtractor,
-                                             String value) {
-        return post -> value == null || propertyExtractor.apply(post).equalsIgnoreCase(value);
-    }
-
-    public static Predicate<Post> byPrice(Function<Post, Double> priceExtractor, Double value,
-                                          BiFunction<Double, Double, Boolean> comparator) {
-        return post -> value == null || comparator.apply(priceExtractor.apply(post), value);
-    }
-
     public static Predicate<Post> byName(ProductFilterDTO productFilterDTO) {
         return byProperty(post -> post.getProduct().getName(), productFilterDTO.getName());
     }
@@ -45,6 +35,16 @@ public class ProductFilter {
         return byPrice(Post::getPrice,
                 productFilterDTO.getMax_price(),
                 (postPrice, maxPrice) -> postPrice <= maxPrice);
+    }
+
+    public static Predicate<Post> byProperty(Function<Post, String> propertyExtractor,
+                                             String value) {
+        return post -> value == null || propertyExtractor.apply(post).equalsIgnoreCase(value);
+    }
+
+    public static Predicate<Post> byPrice(Function<Post, Double> priceExtractor, Double value,
+                                          BiFunction<Double, Double, Boolean> comparator) {
+        return post -> value == null || comparator.apply(priceExtractor.apply(post), value);
     }
 
 }

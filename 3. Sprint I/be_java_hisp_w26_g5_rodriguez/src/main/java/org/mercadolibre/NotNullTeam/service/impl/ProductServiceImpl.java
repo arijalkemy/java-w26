@@ -2,14 +2,15 @@ package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductFilterDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.product.MainProductResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.brand.BrandBasicResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProducts;
+import org.mercadolibre.NotNullTeam.mapper.BrandMapper;
 import org.mercadolibre.NotNullTeam.mapper.ProductMapper;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.service.external.IProductService;
 import org.mercadolibre.NotNullTeam.service.internal.IPostServiceInternal;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.mercadolibre.NotNullTeam.util.ProductFilter.*;
@@ -21,10 +22,8 @@ public class ProductServiceImpl implements IProductService {
     private final IPostServiceInternal postServiceInternal;
 
     @Override
-    public List<MainProductResponse> searchProducts(ProductFilterDTO productFilterDTO) {
+    public FilterProducts searchProducts(ProductFilterDTO productFilterDTO) {
         List<Post> posts = postServiceInternal.findAll();
-
-        if (posts.isEmpty()) return new ArrayList<>();
 
         List<Post> listFiltered = posts
                 .stream()
@@ -36,7 +35,23 @@ public class ProductServiceImpl implements IProductService {
                 .filter(byMaxPrice(productFilterDTO))
                 .toList();
 
-        if (listFiltered.isEmpty()) return ProductMapper.postToMainProductResponse(posts);
-        else return ProductMapper.postToMainProductResponse(listFiltered);
+        return FilterProducts
+                .builder()
+                .brands(getBrands(listFiltered))
+                .products(ProductMapper.postToMainProductResponse(listFiltered))
+                .build();
+    }
+
+    private List<BrandBasicResponse> getBrands(List<Post> posts) {
+        List<String> brandNames = posts
+                .stream()
+                .map(post -> post.getProduct().getBrand())
+                .distinct()
+                .toList();
+
+        return brandNames
+                .stream()
+                .map(brand -> BrandMapper.toBrandBasicResponse(brand, posts))
+                .toList();
     }
 }
