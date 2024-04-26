@@ -3,10 +3,7 @@ package org.example.sprint1.service.seller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import org.example.sprint1.dto.PostDTO;
-import org.example.sprint1.dto.RequestPostDTO;
-import org.example.sprint1.dto.RequestPromoPostDTO;
-import org.example.sprint1.dto.ResponsePostDTO;
+import org.example.sprint1.dto.*;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
@@ -116,4 +113,19 @@ public class SellerServiceImplementation implements ISellerService {
 
         return listPostDto;
     }
+
+    @Override
+    public CountPromoPostsDTO countPromoPosts(int userId){
+        Seller seller = sellerRepository.getSellerById(userId);
+        if(seller == null){
+            throw new NotFoundException("Vendedor no encontrado");
+        }
+        int promoProductsCount = (int) seller.getPosts().stream()
+                .filter(Post::isHasPromo)
+                .count();
+
+        return new CountPromoPostsDTO(userId, seller.getSellerName(), promoProductsCount);
+    }
+
+
 }

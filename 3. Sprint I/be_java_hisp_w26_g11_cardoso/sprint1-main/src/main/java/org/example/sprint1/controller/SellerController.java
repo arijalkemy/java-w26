@@ -2,6 +2,7 @@ package org.example.sprint1.controller;
 
 import jakarta.validation.Valid;
 import org.apache.coyote.Response;
+import org.example.sprint1.dto.CountPromoPostsDTO;
 import org.example.sprint1.dto.RequestPostDTO;
 import org.example.sprint1.dto.RequestPromoPostDTO;
 import org.example.sprint1.dto.ResponsePostDTO;
@@ -56,6 +57,11 @@ public class SellerController {
             @RequestParam Optional<String> order
     ) {
         return new ResponseEntity<>(postService.getPostsFromFollowingWithTwoWeeksOld(userId, order), HttpStatus.OK);
+    }
+
+    @GetMapping ("/promo-post/count")
+    ResponseEntity<CountPromoPostsDTO> countPromoPosts(@RequestParam("user_id")int userId){
+        return new ResponseEntity<CountPromoPostsDTO>(postService.countPromoPosts(userId), HttpStatus.OK);
     }
 
 }
