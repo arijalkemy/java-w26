@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "username": "alice",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 2,
+    "username": "bob",
+    "userType": "SELLER"
+  },
+  {
+    "id": 3,
+    "username": "charlie",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 4,
+    "username": "diana",
+    "userType": "SELLER"
+  },
+  {
+    "id": 5,
+    "username": "eric",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 6,
+    "username": "frank",
+    "userType": "SELLER"
+  },
+  {
+    "id": 7,
+    "username": "grace",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 8,
+    "username": "harry",
+    "userType": "SELLER"
+  },
+  {
+    "id": 9,
+    "username": "irene",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 10,
+    "username": "jack",
+    "userType": "SELLER"
+  },
+  {
+    "id": 11,
+    "username": "kate",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 12,
+    "username": "leon",
+    "userType": "SELLER"
+  },
+  {
+    "id": 13,
+    "username": "mary",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 14,
+    "username": "nathan",
+    "userType": "SELLER"
+  },
+  {
+    "id": 15,
+    "username": "olivia",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 16,
+    "username": "peter",
+    "userType": "SELLER"
+  },
+  {
+    "id": 17,
+    "username": "quinn",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 18,
+    "username": "rachel",
+    "userType": "SELLER"
+  },
+  {
+    "id": 19,
+    "username": "sam",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 20,
+    "username": "tina",
+    "userType": "SELLER"
+  },
+  {
+    "id": 21,
+    "username": "ulysses",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 22,
+    "username": "violet",
+    "userType": "SELLER"
+  },
+  {
+    "id": 23,
+    "username": "winston",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 24,
+    "username": "xander",
+    "userType": "SELLER"
+  },
+  {
+    "id": 25,
+    "username": "yara",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 26,
+    "username": "zeke",
+    "userType": "SELLER"
+  },
+  {
+    "id": 27,
+    "username": "ava",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 28,
+    "username": "ben",
+    "userType": "SELLER"
+  },
+  {
+    "id": 29,
+    "username": "claire",
+    "userType": "CLIENT"
+  },
+  {
+    "id": 30,
+    "username": "david",
+    "userType": "SELLER"
+  }
+]
