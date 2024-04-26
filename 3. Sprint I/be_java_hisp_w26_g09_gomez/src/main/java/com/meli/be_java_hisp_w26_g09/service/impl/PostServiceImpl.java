@@ -146,6 +146,72 @@ public class PostServiceImpl implements IPostService {
         return new PostPromoDTO(sellerId, userRepository.findById(sellerId).get().getUserName(), posts);
     }
 
+    @Override
+    public List<PostDTO> getAllPostByCategory(Integer categoryId) {
+        if(categoryId == null || categoryId <= 0) throw new BadRequestException("The id provided is not valid");
+
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(post -> Objects.equals(post.getCategory(), categoryId)).toList();
+
+        if(posts.isEmpty()) throw new NotFoundException("Couldn't find posts with the category");
+
+        return posts.stream().map(postMapper::postToPostDTO).toList();
+    }
+
+    @Override
+    public List<PostDTO> getAllPostByPriceRange(Double minPrice, Double maxPrice) {
+        if((minPrice == null || minPrice < 0) || (maxPrice == null || maxPrice < 0))
+            throw new BadRequestException("The ranges can't be null or less than 0");
+
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(post -> post.getPrice() >= minPrice && post.getPrice() <= maxPrice)
+                .toList();
+
+        if(posts.isEmpty()) throw new NotFoundException("Couldn't find post between the range");
+
+        return posts.stream().map(postMapper::postToPostDTO).toList();
+    }
+
+    @Override
+    public List<PostDTO> getAllPostsByProductBrand(String brand) {
+        if(brand == null) throw new BadRequestException("Brand can't be null");
+
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(post -> post.getProduct().getBrand().equalsIgnoreCase(brand))
+                .toList();
+
+        if(posts.isEmpty()) throw new NotFoundException("Couldn't find posts with the brand");
+
+        return posts.stream().map(postMapper::postToPostDTO).toList();
+    }
+
+    @Override
+    public List<PostDTO> getAllPostByProductName(String name) {
+        if(name == null) throw new BadRequestException("Name can't be null");
+
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(post -> post.getProduct().getProductName().toLowerCase().contains(name.toLowerCase()))
+                .toList();
+
+        if(posts.isEmpty()) throw new NotFoundException("Couldn't find posts with the name");
+
+        return posts.stream().map(postMapper::postToPostDTO).toList();
+    }
+
+    @Override
+    public List<PostDTO> getAllPostByProductTypeAndColor(String type, String color) {
+        if(type == null || color == null) throw new BadRequestException("Type and color can't be null");
+
+        List<Post> posts = postRepository.findAll().stream()
+                .filter(post -> post.getProduct().getType().equalsIgnoreCase(type)
+                        && post.getProduct().getColor().equalsIgnoreCase(color))
+                .toList();
+
+        if(posts.isEmpty()) throw new NotFoundException("Couldn't find posts with the type and color");
+
+        return posts.stream().map(postMapper::postToPostDTO).toList();
+    }
+
     private boolean validate(PostDTO post) {
         return Stream.of(post.getUserId(),
                 post.getDate(),

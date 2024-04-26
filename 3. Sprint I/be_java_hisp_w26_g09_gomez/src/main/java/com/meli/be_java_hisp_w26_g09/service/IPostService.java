@@ -12,5 +12,9 @@ public interface IPostService {
     PostPromoDTO getAllPostsBySeller(Integer sellerId);
     PromoCountDTO getPromoCountBySeller(Integer sellerId);
     PostPromoDTO getAllPromoPostsBySeller(Integer sellerId);
-
+    List<PostDTO> getAllPostByCategory(Integer categoryId);
+    List<PostDTO> getAllPostByPriceRange(Double minPrice, Double maxPrice);
+    List<PostDTO> getAllPostsByProductBrand(String brand);
+    List<PostDTO> getAllPostByProductName(String name);
+    List<PostDTO> getAllPostByProductTypeAndColor(String type, String color);
 }
