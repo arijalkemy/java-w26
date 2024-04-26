@@ -34,17 +34,21 @@ public class UserServiceImpl implements IUserService {
     public void followUser(Integer user_id, Integer user_id_to_follow) {
 
         if (!userRepository.existsById(user_id) || !userRepository.existsById(user_id_to_follow)) {
+            //Bonus Diana
             throw new BadRequestException("Uno o ambos usuarios no existen");
         }
         User user = userRepository.findById(user_id);
         User userToFollow = userRepository.findById(user_id_to_follow);
         if (user_id.equals(user_id_to_follow)) {
+            //Bonus Diana
             throw new BadRequestException("No puedes seguirte a ti mismo");
         }
         if (!userToFollow.getIsSeller()) {
+            //Bonus Diana
             throw new BadRequestException("No puede seguirlo, el usuario no es vendedor.");
         }
         if (user.getIsSeller()){
+            //Bonus Diana
             throw new BadRequestException("El vendedor no puede seguir a otro vendedor");
         }
         FollowerList seller = userRepository.findSellerByUser(userToFollow) ==null?
