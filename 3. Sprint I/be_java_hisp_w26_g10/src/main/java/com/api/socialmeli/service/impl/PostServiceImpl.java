@@ -26,7 +26,6 @@ public class PostServiceImpl implements IPostService {
 
     @Autowired
     private IBuyerService buyerService;
-
     @Autowired
     private IPostRepository postRepository;
     @Autowired
@@ -35,6 +34,13 @@ public class PostServiceImpl implements IPostService {
     // MCaldera - Declaracion de array para almacenamiento de datos
     private final List<Post> posts = new ArrayList<>();
     private int postId;
+
+    @Override
+    public Post getPostById(Integer id) {
+        Post post = postRepository.getById(id);
+        if (post == null) throw new NotFoundException("El post no existe o no se encuentra registrado.");
+        return post;
+    }
 
     @Override
     public PostDto publishPost(PostDto postDto) {
@@ -80,39 +86,19 @@ public class PostServiceImpl implements IPostService {
         }
     }
 
+    //La funcion devuelve el listado de post de los vendedores que sigue filtrados por fecha
     @Override
     public PostsByFollowedDto getPostsByFollowed(Integer userId, String order) {
         //Se busca el comprador y se guarda en una instacia de buyer con el id del usuario recibido
         Buyer buyer = buyerService.getBuyerById(userId);
 
-        if (buyer == null) {
-            //Si no se encontro el comprador lanza la excepcion Not Found Exception
-            throw new NotFoundException("No se encontro el usuario con id: " + userId);
-        }
-
         //Se crea la instancia del DTO que se va a devolver al controlador y se coloca el id del comprador en el dto
         PostsByFollowedDto postByFollowedDto = new PostsByFollowedDto();
         postByFollowedDto.setUser_id(userId);
 
-        //Se obtine la lista de ids de los compradores que sigue el comprador
-        List<Integer> ids = buyer.getFollowed().stream().map(Seller::getUser_id).toList();
-        if (ids.isEmpty()) {
-            //Si no esta siguiendo a nadie devuelve en dto al controlador
-            postByFollowedDto.setPosts(new ArrayList<>());
-            return postByFollowedDto;
-        }
-
-        //Se crean las fechas minima y maxima para comprender el periodo de los ultimos 15 dias
-        LocalDate minDate = LocalDate.now().minusDays(15);
-        LocalDate maxDate = LocalDate.now().plusDays(1);
-
-        /*Se obtien todos las publicaciones, se filtra por las que fueron creadas por los vendedores que sigue
-        con ayuda de la funcion finIdInPost y tambien se filtra con con las fecha minDate y maxDate para obtener
-        las de los ultimos quince dias
-         */
-        List<Post> postsFollowed = postRepository.getAll().stream().
-                filter(post -> findIdInPost(post.getUser_id(), ids) && post.getDate().isAfter(minDate)
-                        && post.getDate().isBefore(maxDate)).toList();
+        /*Con ayuda de la funcion se obtiene las publicaciones de los vendedores a los que sigue
+        filtrado por fecha*/
+        List<Post> postsFollowed = getPostsByFollowedFilter(buyer);
 
         if (postsFollowed.isEmpty()) {
             //Si los vendedores que sigue no tiene publicaciones devuelve el dto al controlador
@@ -148,5 +134,28 @@ public class PostServiceImpl implements IPostService {
         } else {
             throw new BadRequestException("El orden pedido no es valido");
         }
+    }
+
+    /*La funcion devuelve el listado de las publicaciones de los vendedores a los que sigue
+    filtrados  por el criterio de fecha*/
+    private List<Post> getPostsByFollowedFilter(Buyer buyer){
+        //Se obtine la lista de ids de los compradores que sigue el comprador
+        List<Integer> ids = buyer.getFollowed().stream().map(Seller::getUser_id).toList();
+        if (ids.isEmpty()) {
+            //Si no esta siguiendo a nadie devuelve a la funcion
+            return new ArrayList<>();
+        }
+
+        //Se crean las fechas minima y maxima para comprender el periodo de los ultimos 15 dias
+        LocalDate minDate = LocalDate.now().minusDays(15);
+        LocalDate maxDate = LocalDate.now().plusDays(1);
+
+        /*Se obtien todos las publicaciones, se filtra por las que fueron creadas por los vendedores que sigue
+        con ayuda de la funcion finIdInPost y tambien se filtra con con las fecha minDate y maxDate para obtener
+        las de los ultimos quince dias
+         */
+        return postRepository.getAll().stream().
+                filter(post -> findIdInPost(post.getUser_id(), ids) && post.getDate().isAfter(minDate)
+                        && post.getDate().isBefore(maxDate)).toList();
     }
 }
