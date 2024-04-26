@@ -25,4 +25,9 @@ public class SellerRepositoryImpl implements ISellerRepository {
     public void save(Seller seller) {
         sellers.add(seller);
     }
+
+    @Override
+    public void update(Seller seller) {
+        //No se implementa porque no hay base de datos y los objetos estan en memoria.
+    }
 }
