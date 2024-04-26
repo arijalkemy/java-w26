@@ -16,13 +16,9 @@ import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
 import org.mercadolibre.NotNullTeam.service.IPostService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static org.mercadolibre.NotNullTeam.mapper.PostMapper.productDtoToProduct;
 
 @Service
 @RequiredArgsConstructor
@@ -68,40 +64,18 @@ public class PostServiceImpl implements IPostService {
 
     @Override
     public Long createPost(PromoPostDTO promoPostDTO) {
-        return iPostRepository.createPost(promoPostDtoToPost(promoPostDTO));
-    }
-
-    private Post promoPostDtoToPost(PromoPostDTO promoPostDTO) {
-        return new Post(
-                findSellerById(promoPostDTO.getUser_id()),
-                LocalDate.parse(
-                        promoPostDTO.getDate(),
-                        DateTimeFormatter.ofPattern("dd-MM-yyyy")
-                ),
-                productDtoToProduct(promoPostDTO.getProduct()),
-                promoPostDTO.getCategory(),
-                promoPostDTO.getPrice(),
-                promoPostDTO.isHas_promo(),
-                promoPostDTO.getDiscount()
+        return iPostRepository.createPost(
+                PostMapper.promoPostDtoToPost(
+                        promoPostDTO,
+                        findSellerById(promoPostDTO.getUser_id())
+                )
         );
     }
 
     @Override
     public SellerPromoPostCountDTO getPromoPostCount(Long sellerId) {
-        Seller seller = iSellerRepository
-                .findById(sellerId)
-                .orElseThrow(
-                        () -> new NotFoundException("No existe vendedor con ID " + sellerId)
-                );
-
-        return new SellerPromoPostCountDTO(
-                seller.getUser().getId(),
-                seller.getUsername(),
-                iPostRepository.getPostsBySeller(sellerId)
-                        .stream()
-                        .filter(Post::getHasPromo)
-                        .toList()
-                        .size()
-        );
+        Seller seller = findSellerById(sellerId);
+        List<Post> promoPostList = iPostRepository.getPostsBySeller(sellerId);
+        return PostMapper.sellerPromoPostCountDTO(seller, promoPostList);
     }
 }

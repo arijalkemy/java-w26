@@ -2,8 +2,10 @@ package org.mercadolibre.NotNullTeam.mapper;
 
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.SellerPromoPostCountDTO;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.model.Product;
 import org.mercadolibre.NotNullTeam.model.Seller;
@@ -47,6 +49,21 @@ public class PostMapper {
                 postDTO.getPrice());
     }
 
+    public static Post promoPostDtoToPost(PromoPostDTO promoPostDTO, Seller seller) {
+        return new Post(
+                seller,
+                LocalDate.parse(
+                        promoPostDTO.getDate(),
+                        DateTimeFormatter.ofPattern("dd-MM-yyyy")
+                ),
+                productDtoToProduct(promoPostDTO.getProduct()),
+                promoPostDTO.getCategory(),
+                promoPostDTO.getPrice(),
+                promoPostDTO.isHas_promo(),
+                promoPostDTO.getDiscount()
+        );
+    }
+
     public static Product productDtoToProduct(ProductDTO productDTO) {
         return new Product(productDTO.getProduct_id(),
                 productDTO.getProduct_name(),
@@ -54,5 +71,20 @@ public class PostMapper {
                 productDTO.getBrand(),
                 productDTO.getColor(),
                 productDTO.getNotes());
+    }
+
+    public static SellerPromoPostCountDTO sellerPromoPostCountDTO(
+            Seller seller,
+            List<Post> promoPostList
+    ) {
+        return new SellerPromoPostCountDTO(
+                seller.getUser().getId(),
+                seller.getUsername(),
+                promoPostList
+                        .stream()
+                        .filter(Post::getHasPromo)
+                        .toList()
+                        .size()
+        );
     }
 }
