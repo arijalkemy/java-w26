@@ -15,6 +15,7 @@ import org.example.sprint1.exception.BadRequestException;
 import org.example.sprint1.exception.NotFoundException;
 import org.example.sprint1.repository.CustomerRepository;
 import org.example.sprint1.repository.ICustomerRepository;
+import org.example.sprint1.repository.ISellerRepository;
 import org.example.sprint1.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ import java.util.*;
 @Service
 public class SellerServiceImplementation implements ISellerService {
     @Autowired
-    SellerRepository sellerRepository;
+    ISellerRepository sellerRepository;
     @Autowired
     ICustomerRepository customerRepository;
 
@@ -100,12 +101,13 @@ public class SellerServiceImplementation implements ISellerService {
             // Mapea Post -> PostDTO y se agrega a una list de PostDTO
             listPostDto.addAll(
                     entry.getValue().stream()
-                            .map(v -> mapper.convertValue(v, PostDTO.class))
+                            .map(v -> {
+                                PostDTO postDTO = mapper.convertValue(v, PostDTO.class);
+                                postDTO.setSellerId(entry.getKey());
+                                return postDTO;
+                            })
                             .toList()
             );
-
-            // A cada elemento de la lista se le asigna el id del seller que hizo la publicación
-            listPostDto.forEach(post -> post.setSellerId(entry.getKey()));
         }
 
         return listPostDto;

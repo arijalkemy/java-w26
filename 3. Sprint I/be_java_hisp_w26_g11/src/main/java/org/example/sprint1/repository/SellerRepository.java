@@ -32,12 +32,19 @@ public class SellerRepository implements ISellerRepository {
         }));
     }
 
+    @Override
+    public List<Seller> getSellersList() {
+        return sellersList;
+    }
+
+    @Override
     public Seller filterSellerById(int id){
         return sellersList.stream().filter(seller -> seller.getSellerId() == id)
                 .findFirst()
                 .orElse(null);
     }
 
+    @Override
     public boolean productIdExists(int id) {
         return sellersList.stream()
                 .anyMatch(seller -> seller.productIdExists(id));
@@ -48,7 +55,8 @@ public class SellerRepository implements ISellerRepository {
         return sellersList.stream().filter(v -> v.getSellerId() == id ).findFirst().orElse(null);
     }
 
-    public boolean postIdExist(int id){
+    @Override
+    public boolean postIdExist(int id) {
         return sellersList.stream().anyMatch(seller -> seller.getPosts()
                 .stream().anyMatch(post -> post.getPostId() == id));
     }
@@ -103,10 +111,10 @@ public class SellerRepository implements ISellerRepository {
         // últimas dos semanas
         return posts.stream()
                 .filter(post ->
-                    (post.getDate().isAfter(twoWeeksBefore) ||
-                    post.getDate().isEqual(twoWeeksBefore)) &&
-                    (post.getDate().isBefore(currentDate) ||
-                    post.getDate().isEqual(currentDate))
+                        (post.getDate().isAfter(twoWeeksBefore) ||
+                                post.getDate().isEqual(twoWeeksBefore)) &&
+                                (post.getDate().isBefore(currentDate) ||
+                                        post.getDate().isEqual(currentDate))
                 )
                 .toList();
     }
