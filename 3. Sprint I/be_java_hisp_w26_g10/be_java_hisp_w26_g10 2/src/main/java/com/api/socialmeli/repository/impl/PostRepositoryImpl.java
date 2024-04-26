@@ -22,7 +22,8 @@ public class PostRepositoryImpl implements IPostRepository {
 
     @Override
     public Post getById(int id) {
-        return null;
+        return post.stream().filter(
+                post1 -> post1.getUser_id().equals(id)).findFirst().orElse(null);
     }
 
     @Override
@@ -71,3 +72,4 @@ public class PostRepositoryImpl implements IPostRepository {
         this.post.add(post);
     }
 }
+

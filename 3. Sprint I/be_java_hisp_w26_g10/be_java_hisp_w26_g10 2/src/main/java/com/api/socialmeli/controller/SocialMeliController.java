@@ -11,6 +11,7 @@ import com.api.socialmeli.entity.Buyer;
 import com.api.socialmeli.service.IBuyerService;
 
 @RestController
+@RequestMapping("/users")
 public class SocialMeliController {
 
     @Autowired
@@ -22,22 +23,28 @@ public class SocialMeliController {
     @Autowired
     private IPostService postService;
 
-    @GetMapping("/users")
+    @GetMapping()
     public ResponseEntity<List<Buyer>> getAll(){
         return new ResponseEntity<List<Buyer>>(buyerService.getAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/users/{userId}/follow/{userIdToFollow}")
+    @PostMapping("/{userId}/follow/{userIdToFollow}")
     public ResponseEntity<Buyer> followUser(@PathVariable Integer userId, @PathVariable Integer userIdToFollow){
         return new ResponseEntity<Buyer>(buyerService.followUser(userId, userIdToFollow), HttpStatus.OK);
     }
 
-    @GetMapping("/users/{userId}/followers/count")
+    /*
+    US 0002: Obtener el resultado de la cantidad de usuarios que siguen a un determinado vendedor
+     */
+    @GetMapping("/{userId}/followers/count")
     public ResponseEntity<?> getCountOfSellerFollowers(@PathVariable Integer userId){
         return new ResponseEntity<>(iSellerService.getCountOfSellerFollowers(userId), HttpStatus.OK);
     }
 
-    @GetMapping("/users/{userId}/followers/list")
+    /*
+    * US 00003 - Obtener un listado de todos los usuarios que siguen a un determinado vendedor (¿Quién me sigue?)
+    * */
+    @GetMapping("/{userId}/followers/list")
     public ResponseEntity<?> getFollowersOfSeller(
         @PathVariable("userId") int userId,
         @RequestParam(name = "order", defaultValue = "", required = false) String order)
@@ -45,23 +52,19 @@ public class SocialMeliController {
         return new ResponseEntity<>(iSellerService.getFollowersOfSeller(userId, order), HttpStatus.OK);
     }
 
-
-    @GetMapping("/products/followed/{userId}/list")
-    public ResponseEntity<?> getPostsByFollowed(@PathVariable Integer userId, @RequestParam(required = false) String order) {
-        return ResponseEntity.ok().body(postService.getPostsByFollowed(userId, order));
-    }
-
-    //Se realiza la función del controller para direccionar el endpoint 4 y el respectivo 8 del API
-    @GetMapping("/users/{userId}/followed/list")
+    /*
+    US 0004 and US0008: Se realiza la función del controller para direccionar el endpoint 4 y el respectivo 8 del API
+    */
+    @GetMapping("/{userId}/followed/list")
     public ResponseEntity<?> getFollowedListById(@PathVariable Integer userId,@RequestParam(required = false) String order){
-        return ResponseEntity.status(HttpStatus.OK).body(buyerService.getFollowedListByUser(userId,order));
+        return ResponseEntity.status(HttpStatus.OK).body(buyerService.GetFollowedListByUser(userId,order));
     }
 
 
     /*
-    US 0007: endpoint
+    US 0007: Se realiza la función del controller para direccionar el punto 7, dejar de seguir a un vendedor.
     */
-    @PostMapping("/users/{userId}/unfollow/{userIdToUnfollow}")
+    @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
     public ResponseEntity<?> unfollowUser(@PathVariable Integer userId,
                                           @PathVariable Integer userIdToUnfollow){
         buyerService.unfollowUser(userId,userIdToUnfollow);
