@@ -2,7 +2,9 @@ package org.mercadolibre.NotNullTeam.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDto;
 import org.mercadolibre.NotNullTeam.DTO.response.PostCreatedDto;
+import org.mercadolibre.NotNullTeam.DTO.response.PostPromoCountDto;
 import org.mercadolibre.NotNullTeam.service.IPostService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,5 +29,25 @@ public class PostController {
     public ResponseEntity<?> getPostsByWeeksAgo(@PathVariable Long userId,
                                                 @RequestParam(required = false, defaultValue = "date_desc") String order){
         return ResponseEntity.ok(iPostService.getPostsByWeeksAgo(userId, order));
+    }
+
+    //EJERCICIO INDIVIDUAL 0010
+    @PostMapping("/promo-post")
+    public ResponseEntity<PostCreatedDto> createPostWithPromo(@RequestBody PostWithPromoDto postDto) {
+        Long postId = iPostService.createPostWithPromo(postDto);
+        return new ResponseEntity<>(
+                new PostCreatedDto(postId, "Post created successfully", LocalDate.now()), HttpStatus.CREATED);
+    }
+
+    //EJERCICIO INDIVIDUAL 0011
+    @GetMapping("/promo-post/count")
+    public ResponseEntity<PostPromoCountDto> getCountPostPromo(@RequestParam Long userId) {
+        return ResponseEntity.ok(iPostService.getCountPostPromo(userId));
+    }
+
+    //EJERCICIO INDIVIDUAL 0012
+    @GetMapping("/promo-post/most-discount/{sellerId}")
+    public ResponseEntity<PostWithPromoDto> getMostDiscountBySellerId(@PathVariable Long sellerId){
+        return ResponseEntity.ok(iPostService.getMostDiscountBySellerId(sellerId));
     }
 }

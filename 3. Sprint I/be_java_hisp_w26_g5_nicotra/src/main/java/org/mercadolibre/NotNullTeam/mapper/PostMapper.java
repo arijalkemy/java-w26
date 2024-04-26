@@ -1,6 +1,7 @@
 package org.mercadolibre.NotNullTeam.mapper;
 
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDto;
 import org.mercadolibre.NotNullTeam.DTO.request.ProductDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
@@ -45,6 +46,24 @@ public class PostMapper {
                 productDtoToProduct(postDTO.getProduct()),
                 postDTO.getCategory(),
                 postDTO.getPrice());
+    }
+
+    public static Post postWithPromoDtoToPost(PostWithPromoDto postDTO, Seller seller) {
+        return new Post(seller,
+                LocalDate.parse(postDTO.getDate(),
+                        DateTimeFormatter.ofPattern("dd-MM-yyyy")),
+                productDtoToProduct(postDTO.getProduct()),
+                postDTO.getCategory(),
+                postDTO.getPrice(),
+                postDTO.getHas_promo(),
+                postDTO.getDiscount());
+    }
+
+    public static PostWithPromoDto postToPostWithPromoDto(Post post) {
+        return new PostWithPromoDto(
+                postToPostResponseDto(post),
+                post.getHasPromo(),
+                post.getDiscount());
     }
 
     public static Product productDtoToProduct(ProductDTO productDTO) {

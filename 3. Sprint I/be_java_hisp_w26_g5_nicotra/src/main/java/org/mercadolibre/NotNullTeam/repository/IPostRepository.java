@@ -7,4 +7,5 @@ import java.util.List;
 public interface IPostRepository {
     Long createPost(Post post);
     List<Post> getPostsByWeeksAgo(int weeks, Long sellerId);
+    List<Post> getPostsPromo(Long sellerId);
 }

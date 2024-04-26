@@ -27,4 +27,16 @@ public class Post {
         this.discount = 0.0;
         currentId++;
     }
+
+    public Post(Seller seller, LocalDate date, Product product, int category, Double price, Boolean hasPromo, Double discount) {
+        this.id = currentId;
+        this.seller = seller;
+        this.date = date;
+        this.product = product;
+        this.category = category;
+        this.price = price;
+        this.hasPromo = hasPromo;
+        this.discount = discount;
+        currentId++;
+    }
 }

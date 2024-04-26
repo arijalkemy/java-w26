@@ -36,4 +36,11 @@ public class PostRepositoryImpl implements IPostRepository {
                 .filter(post -> ChronoUnit.WEEKS.between(post.getDate(), LocalDate.now()) <= weeks)
                 .toList() : new ArrayList<>();
     }
+
+    @Override
+    public List<Post> getPostsPromo(Long sellerId){
+        return posts.containsKey(sellerId) ? posts.get(sellerId).stream()
+                .filter(Post::getHasPromo)
+                .toList() : new ArrayList<>();
+    }
 }

@@ -2,6 +2,8 @@ package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.PostWithPromoDto;
+import org.mercadolibre.NotNullTeam.DTO.response.PostPromoCountDto;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
 import org.mercadolibre.NotNullTeam.mapper.PostMapper;
@@ -58,5 +60,31 @@ public class PostServiceImpl implements IPostService {
         }
 
         return PostMapper.postToPostByFollowed(userId, posts);
+    }
+
+    @Override
+    public Long createPostWithPromo(PostWithPromoDto postDto) {
+        Seller seller = findSellerById(postDto.getUser_id());
+
+        return iPostRepository.createPost(PostMapper.postWithPromoDtoToPost(
+                postDto, seller));
+    }
+
+    @Override
+    public PostPromoCountDto getCountPostPromo(Long sellerId) {
+        Seller seller = findSellerById(sellerId);
+        List<Post> postsWithPromo = iPostRepository.getPostsPromo(sellerId);
+
+        return new PostPromoCountDto(sellerId, seller.getUsername(), postsWithPromo.size());
+    }
+    @Override
+    public PostWithPromoDto getMostDiscountBySellerId(Long sellerId) {
+        List<Post> postsWithPromo = iPostRepository.getPostsPromo(sellerId);
+
+        Post mostDiscount = postsWithPromo.stream()
+                .max(Comparator.comparing(Post::getDiscount))
+                .orElseThrow(() -> new NotFoundException("Post with promo"));
+
+        return PostMapper.postToPostWithPromoDto(mostDiscount);
     }
 }
