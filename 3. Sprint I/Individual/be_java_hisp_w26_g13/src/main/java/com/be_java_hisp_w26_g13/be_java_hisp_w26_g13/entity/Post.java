@@ -21,4 +21,17 @@ public class Post {
     private Product product;
     private int category;
     private Double price;
+    private Double discount;
+    @JsonProperty("has_promo")
+    private boolean hasPromo;
+
+    public Post(int userId, LocalDate date, Product product, int category, Double price) {
+        this.userId = userId;
+        this.date = date;
+        this.product = product;
+        this.category = category;
+        this.price = price;
+        this.discount = 0.0;
+        this.hasPromo = false;
+    }
 }

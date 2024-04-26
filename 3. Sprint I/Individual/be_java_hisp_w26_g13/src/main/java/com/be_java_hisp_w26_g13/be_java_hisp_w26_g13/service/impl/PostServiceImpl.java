@@ -3,7 +3,9 @@ package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.impl;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ExceptionDto;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ProductDTO;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PromoPostDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Post;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.User;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.BadRequestException;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.IncorrectDateException;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.NotFoundException;
@@ -18,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class PostServiceImpl implements IPostService {
@@ -52,16 +56,76 @@ public class PostServiceImpl implements IPostService {
                 .build();
         Post post = mapper.convertValue(postDTO, Post.class);
 
-        if(userRepository.findById(post.getUserId()) == null){
+        validatePostRelationships(post);
+        postRepository.create(post);
+        User user = userRepository.findById(post.getUserId());
+        user.getPosts().add(post);
+
+        return new ExceptionDto("The post has been successfully created");
+    }
+
+    private void validatePromotionPost(PromoPostDTO promoPostDTO) {
+        if (promoPostDTO.getDate() == null || promoPostDTO.getDate().isEmpty()) {
+            throw new BadRequestException("The promotion post date is missing or invalid.");
+        }
+        if (promoPostDTO.getPrice() <= 0) {
+            throw new BadRequestException("The promotion post price cannot be less than zero.");
+        }
+        if (promoPostDTO.getDiscount() >= 1 || promoPostDTO.getDiscount() <= 0) {
+            throw new BadRequestException("The promotion post discount must be between 0 and 1.");
+        }
+        if (promoPostDTO.getCategory() <= 0) {
+            throw new BadRequestException("The promotion post category must be greater than 0");
+        }
+        if (promoPostDTO.getUserId() < 0) {
+            throw new BadRequestException("The promotion post user ID must be a positive integer.");
+        }
+        if (promoPostDTO.getProduct() == null || isBadRequestProductDto(promoPostDTO.getProduct())) {
+            throw new BadRequestException("The product in the promotion post is invalid or missing required data.");
+        }
+        if (!promoPostDTO.isHasPromo()) {
+            throw new BadRequestException("A promotion post must have a promotion.");
+        }
+    }
+
+    private void validatePostRelationships(Post post) {
+        if (userRepository.findById(post.getUserId()) == null) {
             throw new NotFoundException("User with id " + post.getUserId() + " does not exist.");
-        } if(productRepository.findById(post.getProduct().getProductId()) == null){
+        }
+        if (productRepository.findById(post.getProduct().getProductId()) == null) {
             throw new NotFoundException("User with id " + post.getProduct().getProductId() + " does not exist.");
-        } if(post.getDate().isBefore(LocalDate.now())){
+        }
+        if (post.getDate().isBefore(LocalDate.now())) {
             throw  new IncorrectDateException("The provided date in the post is before the current date.");
         }
+    }
 
-        postRepository.create(post);
-        return new ExceptionDto("The post has been successfully created");
+    @Override
+    public ExceptionDto createWithPromotion(PromoPostDTO promoPostDTO) {
+        validatePromotionPost(promoPostDTO);
+
+        ObjectMapper mapper = JsonMapper.builder()
+                .addModule(new JavaTimeModule())
+                .build();
+        Post promoPost = mapper.convertValue(promoPostDTO, Post.class);
+
+        validatePostRelationships(promoPost);
+        postRepository.create(promoPost);
+        User user = userRepository.findById(promoPost.getUserId());
+        user.getPosts().add(promoPost);
+
+        return new ExceptionDto("The post with promotion has been successfully created");
+    }
+
+    @Override
+    public List<PromoPostDTO> getAll() {
+        List<Post> posts = postRepository.getAll();
+        ObjectMapper mapper = JsonMapper.builder()
+                .addModule(new JavaTimeModule())
+                .build();
+        List<PromoPostDTO> postDtoList = new ArrayList<>();
+        posts.forEach(p -> postDtoList.add(mapper.convertValue(p, PromoPostDTO.class)));
+        return postDtoList;
     }
 
     private Boolean isBadRequestPostDto(PostDTO postDto){

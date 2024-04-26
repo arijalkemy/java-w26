@@ -1,6 +1,9 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.controller;
 
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostDTO;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PromoPostDTO;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Post;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IPostRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IUserRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IPostService;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IProductService;
@@ -17,9 +20,6 @@ public class ProductController {
     @Autowired
     IPostService postService;
 
-    @Autowired
-    IUserRepository userRepository;
-
     @PostMapping ("/post")
     public ResponseEntity<?> createPost(@RequestBody PostDTO postDto){
         return new ResponseEntity<>(postService.create(postDto), HttpStatus.OK);
@@ -32,7 +32,12 @@ public class ProductController {
     }
 
     @GetMapping("/test")
-    public  ResponseEntity<?> test(){
-        return new ResponseEntity<>(userRepository.getAll(), HttpStatus.OK);
+    public  ResponseEntity<?> test() {
+        return new ResponseEntity<>(postService.getAll(), HttpStatus.OK);
+    }
+
+    @PostMapping("/promo-post")
+    public ResponseEntity<?> createPromoPost(@RequestBody PromoPostDTO promoPostDto) {
+        return ResponseEntity.status(HttpStatus.OK).body(postService.createWithPromotion(promoPostDto));
     }
 }

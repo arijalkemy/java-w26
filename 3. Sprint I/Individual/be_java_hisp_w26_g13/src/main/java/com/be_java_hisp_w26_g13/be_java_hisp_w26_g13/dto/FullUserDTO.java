@@ -20,4 +20,6 @@ public class FullUserDTO {
     private List<UserDTO> followers;
     @JsonProperty("followed")
     private List<UserDTO> followed;
+    @JsonProperty("posts")
+    private List<PostDTO> posts;
 }
