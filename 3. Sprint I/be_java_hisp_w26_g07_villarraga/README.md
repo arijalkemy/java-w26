@@ -446,3 +446,39 @@ Obtener un listado de productos en un rango determinado
   }
 ]
 ```
+</td>
+    </tr>
+  </tbody>
+</table>
+
+## US 0014
+Obtener el acomulado de productos por categoria
+
+<table>
+  <tbody>
+    <tr>
+      <th>Method</th>
+      <th>Url</th>
+      <th>Response</th>
+    </tr>
+    <tr>
+      <td align="center">Get</td>
+      <td align="center"> /products/price?min={min_price}&max={max_price} </td>
+<td>
+
+```json
+[
+  {
+    "category_name": "Decor",
+    "count": 2
+  },
+  {
+    "category_name": "Furniture",
+    "count": 8
+  }
+]
+```
+</td>
+    </tr>
+  </tbody>
+</table>
