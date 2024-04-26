@@ -9,5 +9,9 @@ import java.util.Map;
 public interface ISellerRepository {
     public Seller getSellerById(int id);
     Map<Integer, List<Post>> findPostsByFollowing(List<Integer> sellers);
-    boolean userIdToFollowSeller(int userId, int userIdToFollow);
+    public boolean userIdToFollowSeller(int userId, int userIdToFollow);
+    Seller filterSellerById(int id);
+    boolean productIdExists(int id);
+    boolean postIdExist(int id);
+    List<Seller> getSellersList();
 }
