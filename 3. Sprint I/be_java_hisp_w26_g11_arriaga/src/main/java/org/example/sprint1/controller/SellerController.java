@@ -47,15 +47,25 @@ public class SellerController {
         return new ResponseEntity<>(postService.getPostsFromFollowingWithTwoWeeksOld(userId, order), HttpStatus.OK);
     }
 
+    //end point individual
     @PostMapping("/promo-post")
     ResponseEntity<?>  addPromoPost(@RequestBody ResponsetPostPromoDTO postDTO){
         postService.addPost(postDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    //end point individual
     @GetMapping("/promo-post/count")
     ResponseEntity<ResponsePromoCountDTO> getPromoPostCount(@RequestParam("user_id") int userId){
         return new ResponseEntity<>(postService.getPromoPostCount(userId), HttpStatus.OK);
+    }
+
+    //bonus
+    @GetMapping("/promo-post-no/count")
+    ResponseEntity<?> getPromoNoPostCount(@RequestParam("user_id") int userId,
+                                          @RequestParam(value = "not_promo", required = false)
+                                          boolean notPromo){
+        return new ResponseEntity<>(postService.getPromoNoPostCount(userId, notPromo), HttpStatus.OK);
     }
 
 }

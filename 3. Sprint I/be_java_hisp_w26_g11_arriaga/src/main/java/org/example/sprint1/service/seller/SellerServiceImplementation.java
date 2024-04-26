@@ -2,10 +2,7 @@ package org.example.sprint1.service.seller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.example.sprint1.dto.PostDTO;
-import org.example.sprint1.dto.RequestPostDTO;
-import org.example.sprint1.dto.ResponsePostDTO;
-import org.example.sprint1.dto.ResponsePromoCountDTO;
+import org.example.sprint1.dto.*;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Post;
 import org.example.sprint1.entity.Seller;
@@ -104,6 +101,24 @@ public class SellerServiceImplementation implements ISellerService {
         if(hasPromo.isEmpty()) throw new NotFoundException("No hay promociones");
 
         return new ResponsePromoCountDTO(userId, seller.getSellerName(), hasPromo.size());
+    }
+
+    @Override
+    public ResponsePromoNoCountDTO getPromoNoPostCount(int userId, boolean notPromo) {
+        //obtengo el seller
+        Seller seller =  sellerRepository.getSellerById(userId);
+
+        //si no hay seller no existe
+        if(seller == null) throw new NotFoundException("No existe id");
+
+        //obtengo la lista de promociones
+        List<Post> hasPromo =  seller.getPosts().stream().filter(value -> value.isHasPromo() == !notPromo).toList();
+
+        if(hasPromo.isEmpty()) throw new NotFoundException("No hay promociones");
+
+        if(!notPromo)  return new ResponsePromoNoCountDTO(userId, seller.getSellerName(), hasPromo.size());
+
+        return new ResponsePromoNoCountDTO(userId, seller.getSellerName(), hasPromo.size(), notPromo);
     }
 
 
