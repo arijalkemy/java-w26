@@ -30,7 +30,7 @@ public class PostRepository implements IPostRepository{
         });
 
         listOfPosts = posts;
-        postId = posts.size();
+        postId = posts.size() + 1;
     }
 
     @Override
