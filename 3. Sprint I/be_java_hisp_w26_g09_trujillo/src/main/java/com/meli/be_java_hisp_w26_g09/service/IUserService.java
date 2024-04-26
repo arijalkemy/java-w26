@@ -21,6 +21,6 @@ public interface IUserService {
 
     ResponseDTO follow(Integer userId, Integer userIdToFollow);
 
-    UserDTO getFollowedCount(Integer id);
+    UserDTO getFollowersCount(Integer id);
 
 }

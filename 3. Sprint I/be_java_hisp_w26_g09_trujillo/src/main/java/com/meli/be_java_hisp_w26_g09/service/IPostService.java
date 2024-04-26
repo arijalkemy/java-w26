@@ -10,9 +10,14 @@ import java.util.List;
 
 public interface IPostService {
     ResponseDTO addPost(PostDTO post);
+
     ProductFollowedListDTO findFollowedPostsLastTwoWeeks(int userID);
+
     ProductFollowedListDTO findFollowedPostsLastTwoWeeksSorted(int userID, String order);
+
     ResponseDTO createPostWithPromo(PostDTO post);
+
     PromoProductsDTO getPromoProducts(int userID);
+
     List<Post> getAllPromosForId(int userID);
 }

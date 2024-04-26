@@ -35,6 +35,9 @@ public class PostServiceImpl implements IPostService {
         if (post.getPrice() < 0)
             throw new BadRequestException("The price cannot be negative");
 
+        if (post.getCategory() <= 0)
+            throw new BadRequestException("The category is not valid");
+
         post.setHasPromo(false);
         if (post.getDiscount() != null && post.getDiscount() != 0.0)
             throw new BadRequestException("Cannot add a promo post on this end point");
@@ -108,6 +111,23 @@ public class PostServiceImpl implements IPostService {
     }
 
     @Override
+    public PromoProductsDTO getPromoProducts(int userID) {
+        User user = userRepository.findById(userID).orElseThrow(() -> new NotFoundException("User not found"));
+        if(user.getRole() == null || user.getRole().getIdRole().equals(Role.ID_CUSTOMER))
+            throw new BadRequestException("The customer can't create posts");
+        int count = postRepository.findAll().stream().filter(post -> post.getUserId().equals(userID)).mapToInt(post -> post.getHasPromo() ? 1 : 0).sum();
+        return postMapper.postPromoProduct(user, count);
+    }
+
+    @Override
+    public List<Post> getAllPromosForId(int userID) {
+        User user = userRepository.findById(userID).orElseThrow(() -> new NotFoundException("User not found"));
+        if(user.getRole() == null || user.getRole().getIdRole().equals(Role.ID_CUSTOMER))
+            throw new BadRequestException("The customer can't create posts");
+        return postRepository.findAll().stream().filter(post -> post.getUserId().equals(userID) && post.getHasPromo()).toList();
+    }
+
+    @Override
     public ResponseDTO createPostWithPromo(PostDTO post)
     {
         if (post.getPrice() < 0)
@@ -137,24 +157,5 @@ public class PostServiceImpl implements IPostService {
         postRepository.createPost(postEntity);
         return new ResponseDTO("Post has been created");
     }
-
-    @Override
-    public PromoProductsDTO getPromoProducts(int userID) {
-        User user = userRepository.findById(userID).orElseThrow(() -> new NotFoundException("User not found"));
-        if(user.getRole() == null || user.getRole().getIdRole().equals(Role.ID_CUSTOMER))
-            throw new BadRequestException("The customer can't create posts");
-        int count = postRepository.findAll().stream().filter(post -> post.getUserId().equals(userID)).mapToInt(post -> post.getHasPromo() ? 1 : 0).sum();
-        return postMapper.postPromoProduct(user, count);
-    }
-
-    @Override
-    public List<Post> getAllPromosForId(int userID) {
-        User user = userRepository.findById(userID).orElseThrow(() -> new NotFoundException("User not found"));
-        if(user.getRole() == null || user.getRole().getIdRole().equals(Role.ID_CUSTOMER))
-            throw new BadRequestException("The customer can't create posts");
-        return postRepository.findAll().stream().filter(post -> post.getUserId().equals(userID) && post.getHasPromo()).toList();
-    }
-
-
 
 }

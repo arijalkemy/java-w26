@@ -4,11 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.be_java_hisp_w26_g09.dto.PostDTO;
 import com.meli.be_java_hisp_w26_g09.dto.PostForListDTO;
 import com.meli.be_java_hisp_w26_g09.dto.ProductDTO;
-import com.meli.be_java_hisp_w26_g09.dto.PromoProductsDTO;
 import com.meli.be_java_hisp_w26_g09.entity.Post;
 import com.meli.be_java_hisp_w26_g09.entity.Product;
-import org.springframework.stereotype.Component;
 import com.meli.be_java_hisp_w26_g09.entity.User;
+import org.springframework.stereotype.Component;
+import com.meli.be_java_hisp_w26_g09.dto.PromoProductsDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,26 +38,8 @@ public class PostMapper {
         followedPostsLastTwoWeeks.forEach(post -> postForListDTOS.add(new PostForListDTO(post.getUserId(),
                 post.getId(),
                 post.getDate(),
-                mapper.convertValue(post.getProduct(), ProductDTO.class),
-                post.getCategory(),
-                post.getPrice())));
+                mapper.convertValue(post.getProduct(), ProductDTO.class), post.getCategory(), post.getPrice())));
         return  postForListDTOS;
-    }
-
-    public PostDTO postCreatedListToPostForListDTOS(PostDTO post)
-    {
-        ObjectMapper mapper = new ObjectMapper();
-
-        return new PostDTO(post.getUserId(),
-                post.getUserId(),
-                post.getUserName(),
-                post.getDate(),
-                mapper.convertValue(post.getProduct(), ProductDTO.class),
-                post.getCategory(),
-                post.getPrice(),
-                post.getHasPromo(),
-                post.getDiscount()
-        );
     }
 
     public PromoProductsDTO postPromoProduct(User user, int count)

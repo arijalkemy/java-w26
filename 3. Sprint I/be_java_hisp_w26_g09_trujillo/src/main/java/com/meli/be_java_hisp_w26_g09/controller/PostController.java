@@ -23,7 +23,7 @@ public class PostController {
 
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<?> getFollowedUsersPostsLastTwoWeeks(@PathVariable Integer userId,
-                                             @RequestParam(required = false) String order) {
+                                                               @RequestParam(required = false) String order) {
         if (order == null || order.isEmpty())
             return ResponseEntity.ok(productService.findFollowedPostsLastTwoWeeks(userId));
 

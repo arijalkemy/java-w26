@@ -56,13 +56,11 @@ public class UserServiceImpl implements IUserService {
                 .filter(user -> user.getFollowed() != null && user.getFollowed().stream().map(User::getUserId).
                         anyMatch(userId -> userId.equals(userFollowers.get().getUserId()))).toList();
 
-        userFollowers.get().setFollowed(followers);
-
-        return userMapper.userFollowersToUserDTO(userFollowers.get());
+        return userMapper.userFollowersToUserDTO(userFollowers.get(), followers);
     }
 
     @Override
-    public UserDTO getFollowedCount(Integer id) {
+    public UserDTO getFollowersCount(Integer id) {
         UserDTO user = getFollowersById(id);
         user.setFollowersCount(user.getFollowers().size());
         user.setFollowers(null);
@@ -139,7 +137,6 @@ public class UserServiceImpl implements IUserService {
             throw new NotFoundException("The user with id " + userId + " was not found.");
 
         User customer = userOptional.get();
-
         userOptional = userRepository.findById(userIdToFollow);
 
         if (userOptional.isEmpty())
@@ -157,6 +154,6 @@ public class UserServiceImpl implements IUserService {
 
         userRepository.addFollowed(customer, seller);
 
-        return new ResponseDTO("The user with id " + userId + " is follow  to " + userIdToFollow);
+        return new ResponseDTO("The user with id " + userId + " is follow to " + userIdToFollow);
     }
 }

@@ -2,7 +2,6 @@ package com.meli.be_java_hisp_w26_g09.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
 import java.io.Serializable;
@@ -17,7 +16,6 @@ public class PostDTO implements Serializable {
     private Integer postId;
     @JsonProperty("user_id")
     private Integer userId;
-    private String userName;
     private Date date;
     private ProductDTO product;
     private Integer category;

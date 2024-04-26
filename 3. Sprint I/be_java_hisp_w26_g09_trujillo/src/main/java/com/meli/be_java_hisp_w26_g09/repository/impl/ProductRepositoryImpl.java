@@ -42,7 +42,5 @@ public class ProductRepositoryImpl implements IProductRepository {
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        return listOfProduct;
-    }
+    public List<Product> getAllProducts() {return listOfProduct;}
 }
