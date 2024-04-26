@@ -35,7 +35,7 @@ public class SellerServiceImplementation implements ISellerService {
     public Post addPost(RequestPostDTO postDTO) {
 
 //        Revisar si existe el Usuario
-        Seller seller = sellerRepository.filterSellerById(postDTO.getUserId());
+        Seller seller = sellerRepository.getSellerById(postDTO.getUserId());
         if (seller == null) {
             throw new NotFoundException("No existe un Vendedor con ese ID");
         }
@@ -111,7 +111,7 @@ public class SellerServiceImplementation implements ISellerService {
         /**
          * En el caso de que si exista el seller lo mandamos a buscar al repository
          */
-        Seller seller = sellerRepository.filterSellerById(id);
+        Seller seller = sellerRepository.getSellerById(id);
 
         return new SellersProductsCountDto(id,
                 seller.getSellerName(),

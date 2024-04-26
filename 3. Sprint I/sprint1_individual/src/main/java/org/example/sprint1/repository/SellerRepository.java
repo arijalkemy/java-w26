@@ -35,12 +35,6 @@ public class SellerRepository implements ISellerRepository {
         }));
     }
 
-    public Seller filterSellerById(int id){
-        return sellersList.stream().filter(seller -> seller.getSellerId() == id)
-                .findFirst()
-                .orElse(null);
-    }
-
     public boolean productIdExists(int id) {
         return sellersList.stream()
                 .anyMatch(seller -> seller.productIdExists(id));
@@ -87,7 +81,7 @@ public class SellerRepository implements ISellerRepository {
 
     @Override
     public void postNewPoroductWithPromotion(PostDTO  v) {
-        Seller seller = filterSellerById(v.getSellerId());
+        Seller seller = getSellerById(v.getSellerId());
         // Generar un numero random entero para usarlo como posible id del nuevo post
         int postId = (int) Math.floor(Math.random()*1000+1);
 
@@ -120,7 +114,7 @@ public class SellerRepository implements ISellerRepository {
 
         // Obtenemos cada seller que el customer sigue
         for (Integer sellerId : sellers) {
-            sellersMatch.add(filterSellerById(sellerId));
+            sellersMatch.add(getSellerById(sellerId));
         }
 
         // Agregamos a una lista todos los post que cumplen con las especificaciones
