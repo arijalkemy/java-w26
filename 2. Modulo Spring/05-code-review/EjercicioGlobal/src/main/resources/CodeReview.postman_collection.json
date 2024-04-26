@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "2c3620b7-7916-4966-974a-59730bb1530d",
+		"name": "CodeReview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Listar todos los vehiculos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"registration\": \"ABC123\",\n    \"color\": \"Silver\",\n    \"year\": 2018,\n    \"max_speed\": \"120\",\n    \"passengers\": 5,\n    \"fuel_type\": \"gasoline\",\n    \"transmission\": \"automatic\",\n    \"height\": 56.5,\n    \"width\": 70.2,\n    \"weight\": 2800\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar vehiculos por año y color",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/color/green/year/1990",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"color",
+						"green",
+						"year",
+						"1990"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar vehiculos por marca y rango de años",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/brand/bmw/between/2000/2003",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"brand",
+						"bmw",
+						"between",
+						"2000",
+						"2003"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener velocidad promedio por marca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/average_speed/brand/bmw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"average_speed",
+						"brand",
+						"bmw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear multiples vehiculos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"brand\": \"Toyota\",\n        \"model\": \"Corolla\",\n        \"registration\": \"ABC123\",\n        \"color\": \"Silver\",\n        \"year\": 2018,\n        \"max_speed\": \"120\",\n        \"passengers\": 5,\n        \"fuel_type\": \"gasoline\",\n        \"transmission\": \"automatic\",\n        \"height\": 56.5,\n        \"width\": 70.2,\n        \"weight\": 2800\n    },\n    {\n        \"brand\": \"Honda\",\n        \"model\": \"Civic\",\n        \"registration\": \"XYZ456\",\n        \"color\": \"Black\",\n        \"year\": 2019,\n        \"max_speed\": \"130\",\n        \"passengers\": 5,\n        \"fuel_type\": \"gasoline\",\n        \"transmission\": \"automatic\",\n        \"height\": 55.9,\n        \"width\": 70.8,\n        \"weight\": 2805\n    },\n    {\n        \"brand\": \"Ford\",\n        \"model\": \"Mustang\",\n        \"registration\": \"DEF789\",\n        \"color\": \"Red\",\n        \"year\": 2020,\n        \"max_speed\": \"150\",\n        \"passengers\": 4,\n        \"fuel_type\": \"gasoline\",\n        \"transmission\": \"manual\",\n        \"height\": 54.3,\n        \"width\": 74.1,\n        \"weight\": 3700\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicles/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar velocidad maxima de un vehiculo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"max_speed\": \"180\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicles/1/update_speed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"1",
+						"update_speed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar vehiculos por tipo de combustible",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/fuel_type/gas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"fuel_type",
+						"gas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar un vehiculo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar vehiculos por tipo de transmision",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/transmission/manual",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"transmission",
+						"manual"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar tipo de combustible de un vehiculo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fuel_type\": \"gas\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicles/1/update_fuel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"1",
+						"update_fuel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener la capacidad promedio de personas por marca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/average_capacity/brand/toyota",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"average_capacity",
+						"brand",
+						"toyota"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar vehiculos por dimensiones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/dimensions?min_length=10&max_length=50&min_width=70&max_width=170",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"dimensions"
+					],
+					"query": [
+						{
+							"key": "min_length",
+							"value": "10"
+						},
+						{
+							"key": "max_length",
+							"value": "50"
+						},
+						{
+							"key": "min_width",
+							"value": "70"
+						},
+						{
+							"key": "max_width",
+							"value": "170"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar vehiculos por rango de peso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehicles/weight?weight_min=180&weight_max=200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"weight"
+					],
+					"query": [
+						{
+							"key": "weight_min",
+							"value": "180"
+						},
+						{
+							"key": "weight_max",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear un vehiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"registration\": \"ABC123\",\n    \"color\": \"Silver\",\n    \"year\": 2018,\n    \"max_speed\": \"120\",\n    \"passengers\": 5,\n    \"fuel_type\": \"gasoline\",\n    \"transmission\": \"automatic\",\n    \"height\": 56.5,\n    \"width\": 70.2,\n    \"weight\": 2800\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
