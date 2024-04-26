@@ -14,6 +14,7 @@ import org.example.sprint1.exception.NotFoundException;
 import org.example.sprint1.repository.CustomerRepository;
 import org.example.sprint1.repository.ICustomerRepository;
 import org.example.sprint1.repository.SellerRepository;
+import org.example.sprint1.utils.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,6 @@ public class SellerServiceImplementation implements ISellerService {
     SellerRepository sellerRepository;
     @Autowired
     ICustomerRepository customerRepository;
-
 
     ObjectMapper mapper = new ObjectMapper();
 
@@ -79,7 +79,8 @@ public class SellerServiceImplementation implements ISellerService {
         Map<Integer, List<Post>> postsByFollowing = sellerRepository.findPostsByFollowing(customer.getSellers());
 
         // Convierte el map en list de PostDto para poder generar un ResponsePostDTO
-        List<PostDTO> listPostDto = mappingPostToPostDto(postsByFollowing);
+        Mapper m = new Mapper();
+        List<PostDTO> listPostDto = m.mappingPostToPostDto(postsByFollowing);
 
         // Ordenamos la lista según se pida
         if(order.isPresent() && order.get().equals("date_asc"))
@@ -104,22 +105,4 @@ public class SellerServiceImplementation implements ISellerService {
         return new ResponsePromoDTO(seller.getSellerId(), seller.getSellerName(), numberOfPromos);
     }
 
-    private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
-        List<PostDTO> listPostDto = new ArrayList<>();
-
-        for (Map.Entry<Integer, List<Post>> entry : posts.entrySet()) {
-            // Mapea Post -> PostDTO y se agrega a una list de PostDTO
-            listPostDto.addAll(
-                    entry.getValue().stream()
-                            .map(v -> {
-                                PostDTO postDTO = mapper.convertValue(v, PostDTO.class);
-                                postDTO.setSellerId(entry.getKey());
-                                return postDTO;
-                            })
-                            .toList()
-            );
-        }
-
-        return listPostDto;
-    }
 }

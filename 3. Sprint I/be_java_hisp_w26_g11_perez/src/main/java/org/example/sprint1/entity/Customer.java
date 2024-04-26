@@ -1,6 +1,7 @@
 package org.example.sprint1.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,6 +12,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer {
     @JsonProperty("user_id")
     private int userId;
@@ -18,6 +21,7 @@ public class Customer {
     private String userName;
     @JsonProperty("following")
     private List<Integer> sellers;
+    private List<Integer> categories;
 
     public void addSeller(int sellerId) {
         sellers.add(sellerId);

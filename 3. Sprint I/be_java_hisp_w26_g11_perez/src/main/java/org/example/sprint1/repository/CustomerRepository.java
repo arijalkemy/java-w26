@@ -57,6 +57,11 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
+    public List<Customer> getAllCustomers() {
+        return customersList;
+    }
+
+    @Override
     public List<Customer> getCustomersThatFollowsSellersById(int id) {
         return  customersList.stream()
                 .filter( v -> v.getSellers().contains(id))

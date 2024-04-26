@@ -44,6 +44,11 @@ public class SellerRepository implements ISellerRepository {
     }
 
     @Override
+    public List<Seller> getAllSellers() {
+        return sellersList;
+    }
+
+    @Override
     public Seller getSellerById(int id) {
         return sellersList.stream().filter(v -> v.getSellerId() == id ).findFirst().orElse(null);
     }

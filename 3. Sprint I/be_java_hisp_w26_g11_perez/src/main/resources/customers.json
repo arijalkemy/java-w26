@@ -2,51 +2,61 @@
   {
     "user_id": 234,
     "user_name": "Alice",
-    "following": [101, 102, 103, 104]
+    "following": [101, 102, 103, 104],
+    "categories": [1, 3, 5]
   },
   {
     "user_id": 235,
     "user_name": "Bob",
-    "following": [104, 105, 106]
+    "following": [104, 105, 106],
+    "categories": []
   },
   {
     "user_id": 236,
     "user_name": "Charlie",
-    "following": [107, 108, 109]
+    "following": [107, 108, 109],
+    "categories": [2, 4]
   },
   {
     "user_id": 237,
     "user_name": "David",
-    "following": [110, 101, 102]
+    "following": [110, 101, 102],
+    "categories": [7, 9, 10]
   },
   {
     "user_id": 238,
     "user_name": "Ella",
-    "following": [103, 104, 105]
+    "following": [103, 104, 105],
+    "categories": []
   },
   {
     "user_id": 239,
     "user_name": "Frank",
-    "following": [106, 107, 108]
+    "following": [106, 107, 108],
+    "categories": [6]
   },
   {
     "user_id": 240,
     "user_name": "Grace",
-    "following": [109, 110, 101]
+    "following": [109, 110, 101],
+    "categories": [8, 10]
   },
   {
     "user_id": 241,
     "user_name": "Henry",
-    "following": [102, 103, 104]
+    "following": [102, 103, 104],
+    "categories": [1, 2, 4]
   },
   {
     "user_id": 242,
     "user_name": "Ivy",
-    "following": [105, 106, 107]
+    "following": [105, 106, 107],
+    "categories": [3, 6, 9]
   },
   {
     "user_id": 243,
     "user_name": "Jack",
-    "following": [108, 109, 110]
+    "following": [108, 109, 110],
+    "categories": [5]
   }
 ]
