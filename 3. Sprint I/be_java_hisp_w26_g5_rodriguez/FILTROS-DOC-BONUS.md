@@ -26,19 +26,30 @@ los productos que tienen un precio menor o igual a este valor.
 Respuesta:
 El servicio responde con un objeto FilterProductsResponse que contiene:
 1) Lista de productos encontrados. Cada producto debera tener: 
-1.a) id: Long
-1.b) nombre: String
-1.c) precio: Double
-1.d) si tiene promo : boolean
-1.e) descuento: Double
+   1.a) id: Long.
+
+   1.b) nombre: String.
+
+   1.c) precio: Double.
+
+   1.d) si tiene promo : boolean.
+
+   1.e) descuento: Double.
 
 2) Este objeto tambien incluye un objeto de respuesta que contiene los filtros marca, tipo y promo.
-2.a) Marca y Tipo son objetos que tienen su respectivo nombre y cantidad de elementos encontrados.
-2.b) Promo es un dato priminivo long que representa la cantidad de productos con promo encontrados.
+
+   2.a) Marca y Tipo son objetos que tienen su respectivo nombre y cantidad de elementos encontrados.
+
+   2.b) Promo es un dato priminivo long que representa la cantidad de productos con promo encontrados.
 
 Ejemplo de solicitud:
-GET localhost:8080/product/list?name=mouse
-GET localhost:8080/product/list?type=Gamer
-GET localhost:8080/product/list?type=Gamer&brand=Racer
-GET localhost:8080/product/list?type=Gamer&brand=Racer&has_promo=true
+
+  GET localhost:8080/product/list?name=mouse
+
+  GET localhost:8080/product/list?type=Gamer
+
+  GET localhost:8080/product/list?type=Gamer&brand=Racer
+
+  GET localhost:8080/product/list?type=Gamer&brand=Racer&has_promo=true
+
 
