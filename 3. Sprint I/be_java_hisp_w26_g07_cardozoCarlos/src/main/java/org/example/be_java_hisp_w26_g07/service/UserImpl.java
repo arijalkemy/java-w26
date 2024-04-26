@@ -69,15 +69,13 @@ public class UserImpl implements IUserService {
         if (seller == null) throw new NotFoundException("Vendedor no encontrado");
         if (!seller.getIsSeller()) throw new BadRequestException("El usuario no es un vendedor");
 
-        FollowersResponseDto followersResponseDto = new FollowersResponseDto();
 
         List<UserInfoFollowsDto> userInfoFollowsDto = getUserInfoFollowers(seller.getFollowerIds());
         userInfoFollowsDto = getUserInfoFollowsDtoByOrder(userInfoFollowsDto, order);
-        followersResponseDto.setFollowers(userInfoFollowsDto);
-        followersResponseDto.setId(seller.getId());
-        followersResponseDto.setName(seller.getName());
 
-        return followersResponseDto;
+
+        return new FollowersResponseDto(seller.getId(), seller.getName(),
+                userInfoFollowsDto);
     }
 
     @Override

@@ -1,12 +1,14 @@
 package org.example.be_java_hisp_w26_g07.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor()
 @Data
 public class FollowersResponseDto {
