@@ -1,43 +1,51 @@
-package org.example.be_java_hisp_w26_g07.entity;
+package org.example.be_java_hisp_w26_g07.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
 
-@Data
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
-public class Post {
+public class PromotionPostDto {
+    @NotNull
     @JsonProperty("user_id")
     private Integer userId;
-    @JsonProperty("post_id")
-    private Integer id;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @NotNull
+    @PastOrPresent
+    @JsonProperty("date")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate date;
-    private Product product;
-    private String category;
+    @NotNull
+    @JsonProperty("product")
+    private ProductDto product;
+    @NotNull
+    @JsonProperty("category")
+    private Integer category;
+    @NotNull
     @JsonProperty("price")
     private Double price;
+    @NotNull
     @JsonProperty("has_promo")
     private Boolean hasPromo;
+    @NotNull
     private Double discount;
 
-    public Post(Integer userId, Integer id, LocalDate date, Product product, String category, Double price) {
-        this.userId = userId;
-        this.id = id;
-        this.date = date;
-        this.product = product;
-        this.category = category;
-        this.price = price;
+    public PromotionPostDto() {
+        super();
     }
 }

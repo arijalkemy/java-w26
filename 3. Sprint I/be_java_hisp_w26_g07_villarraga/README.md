@@ -395,3 +395,54 @@ Obtener un listado de todos los productos en promoción de un determinado vended
     </tr>
   </tbody>
 </table>
+
+## Individual
+### US 0013
+Obtener un listado de productos en un rango determinado
+
+<table>
+  <tbody>
+    <tr>
+      <th>Method</th>
+      <th>Url</th>
+      <th>Response</th>
+    </tr>
+    <tr>
+      <td align="center">Get</td>
+      <td align="center"> /products/price?min={min_price}&max={max_price} </td>
+<td>
+
+```json
+[
+  {
+    "user_id": 3,
+    "post_id": 7,
+    "date": "2024-04-21",
+    "product": {
+      "product_id": 7,
+      "product_name": "Bookshelf",
+      "type": "Furniture",
+      "brand": "Furniture Co.",
+      "color": "Cherry",
+      "notes": "Classic bookshelf for home library"
+    },
+    "category": "Furniture",
+    "price": 149.99
+  },
+  {
+    "user_id": 1,
+    "post_id": 2,
+    "date": "2023-11-16",
+    "product": {
+      "product_id": 2,
+      "product_name": "Desk",
+      "type": "Furniture",
+      "brand": "Furniture Co.",
+      "color": "Black",
+      "notes": "Sturdy desk for work or study"
+    },
+    "category": "Furniture",
+    "price": 199.99
+  }
+]
+```

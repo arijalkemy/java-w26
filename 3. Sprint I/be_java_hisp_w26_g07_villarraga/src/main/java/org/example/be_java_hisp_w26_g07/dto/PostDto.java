@@ -1,6 +1,7 @@
 package org.example.be_java_hisp_w26_g07.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PostDto {
     @JsonProperty("user_id")
     private Integer userId;
@@ -31,4 +33,7 @@ public class PostDto {
     private String category;
     @JsonProperty("price")
     private Double price;
+    @JsonProperty("has_promo")
+    private Boolean hasPromo;
+    private Double discount;
 }

@@ -4,6 +4,7 @@ import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IUserRepository {
     List<User> findAll();
@@ -18,4 +19,9 @@ public interface IUserRepository {
 
     List<Post> findProductByFollow(User user);
 
+    List<Post> findPostPromotionByUserId(Integer userId);
+
+    List<Post> findProductsBetweenPrice(Double minPrice, Double maxPrice);
+
+    Map<String, Integer> findCategoryProducts();
 }

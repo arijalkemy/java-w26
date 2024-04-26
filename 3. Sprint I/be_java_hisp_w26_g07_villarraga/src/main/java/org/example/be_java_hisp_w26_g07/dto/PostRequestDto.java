@@ -11,12 +11,13 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.example.be_java_hisp_w26_g07.entity.Product;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-@AllArgsConstructor
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PostRequestDto {
     @NotNull
@@ -36,5 +37,5 @@ public class PostRequestDto {
     private Integer category;
     @NotNull
     @JsonProperty("price")
-    private double price;
+    private Double price;
 }

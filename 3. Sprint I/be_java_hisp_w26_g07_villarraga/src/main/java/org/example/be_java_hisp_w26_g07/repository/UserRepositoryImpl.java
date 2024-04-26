@@ -1,5 +1,6 @@
 package org.example.be_java_hisp_w26_g07.repository;
 
+import org.example.be_java_hisp_w26_g07.dto.PostDto;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.User;
 import org.example.be_java_hisp_w26_g07.repository.interfaces.IUserRepository;
@@ -7,8 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Repository
@@ -100,5 +100,37 @@ public class UserRepositoryImpl implements IUserRepository {
 
         // Update the followers of the seller
         return followRemoved && followerRemoved;
+    }
+
+    @Override
+    public List<Post> findPostPromotionByUserId(Integer userId) {
+        User user = findById(userId);
+        return user.getPosts().stream()
+                .filter(post -> post.getHasPromo() != null && post.getHasPromo())
+                .toList();
+    }
+
+    @Override
+    public List<Post> findProductsBetweenPrice(Double minPrice, Double maxPrice) {
+        return findAll().stream()
+                .map(user -> user.getPosts()
+                        .stream()
+                        .filter(post -> post.getPrice() >= minPrice && post.getPrice() <= maxPrice).toList())
+                .flatMap(List::stream)
+                .sorted(Comparator.comparing(Post::getPrice))
+                .toList();
+    }
+
+    @Override
+    public Map<String, Integer> findCategoryProducts() {
+        Map<String, Integer> total = new HashMap<>();
+        findAll().stream().map(User::getPosts).flatMap(List::stream).forEach(post -> {
+            if (total.containsKey(post.getCategory())) {
+                total.put(post.getCategory(), total.get(post.getCategory()) + 1);
+            } else {
+                total.put(post.getCategory(), 1);
+            }
+        });
+        return total;
     }
 }
