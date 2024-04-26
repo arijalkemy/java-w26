@@ -12,8 +12,10 @@ En este proyecto desarrollaremos un API la nueva herramienta de Mercado Libre, _
     - [Publication](#1-publication)
 - [Endpoints](#endpoints)
   - [Cear una publicación promo](#10-dar-de-alta-una-publicación-de-promo)
-  - [Obtener cantidad de publicaciones promo de un vendedor](#11-obtener-el-resultado-de-la-cantidad-de-publicaciones-con-promo-de-un-vendedor)
+  - [Cantidad de publicaciones promo de un vendedor](#11-obtener-el-resultado-de-la-cantidad-de-publicaciones-con-promo-de-un-vendedor)
   - [Listado de publicaciones con promo de un vendedor](#12-listado-de-publicaciones-con-promo-de-un-vendedor)
+  - [Cantidad de publicaciones promo de todos los vendedores](#13-obtener-la-cantidad-de-publicaciones-con-promo-de-todos-los-vendedores)
+  - [Listado de publicaciones con promo mayor a un descuento](#14-listado-de-publicaciones-con-promo-mayor-al-descuento-ingresado)
 
 ## Entidades
 
@@ -133,7 +135,7 @@ GET /products/promo-post/list
 |-------|------|----------------------------------------------------------------|
 | userId | Integer | Número que identifica a un usario de tipo `Seller` |
 
-### 13. Obtener el resultado de la cantidad de publicaciones con promo de todos los vendedores
+### 13. Obtener la cantidad de publicaciones con promo de todos los vendedores
 
 ```http
 GET /products/promo-post/count/list
