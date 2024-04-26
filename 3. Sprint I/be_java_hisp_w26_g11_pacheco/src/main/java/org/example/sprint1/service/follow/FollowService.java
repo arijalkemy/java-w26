@@ -1,26 +1,18 @@
 package org.example.sprint1.service.follow;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.sprint1.dto.BasicCustomerDto;
-import org.example.sprint1.dto.BasicSellerDTO;
-import org.example.sprint1.dto.ExceptionDTO;
+import org.example.sprint1.dto.*;
 import org.example.sprint1.exception.BadRequestException;
+import org.example.sprint1.repository.ICustomerRepository;
+import org.example.sprint1.repository.ISellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.example.sprint1.entity.Customer;
 import org.example.sprint1.entity.Seller;
 import org.example.sprint1.exception.NotFoundException;
-import org.example.sprint1.dto.SellerFollowerDto;
-import org.example.sprint1.repository.CustomerRepository;
-import org.example.sprint1.repository.SellerRepository;
-import org.example.sprint1.dto.FollowedSellersDTO;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Comparator;
 import java.util.stream.Stream;
-
 import java.util.stream.Collectors;
 
 
@@ -28,14 +20,14 @@ import java.util.stream.Collectors;
 public class FollowService implements IFollowService {
 
     @Autowired
-    CustomerRepository customerRepository;
+    ICustomerRepository customerRepository;
     @Autowired
-    SellerRepository sellerRepository;
+    ISellerRepository sellerRepository;
 
 
     @Override
     public void userIdToFollow(int userId, int userIdToFollow) {
-        //se optiene el resultado si existen id
+        // se optiene el resultado si existen id
         boolean cusomerResult = customerRepository.userIdToFollowCustomer(userId, userIdToFollow);
         boolean sellerResult = sellerRepository.userIdToFollowSeller(userId, userIdToFollow);
 
@@ -46,12 +38,14 @@ public class FollowService implements IFollowService {
 
 
     @Override
-    public int countFollowers(int sellerId) {
+    public CountFollowersDTO countFollowers(int sellerId) {
         Seller seller = sellerRepository.getSellerById(sellerId);
         if(seller == null){
             throw new NotFoundException("Vendedor no encontrado");
         }
-        return seller.getFollowers().size();
+        return new CountFollowersDTO(
+                sellerId,seller.getSellerName(),seller.getFollowers().size()
+        );
     }
 
 
