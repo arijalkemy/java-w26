@@ -1,8 +1,6 @@
 package org.example.social_meli.services.impl;
 
-import org.example.social_meli.dto.FollowListDTO;
-import org.example.social_meli.dto.PostDTO;
-import org.example.social_meli.dto.UserResponseDTO;
+import org.example.social_meli.dto.*;
 import org.example.social_meli.exceptions.BadRequestException;
 import org.example.social_meli.exceptions.ConflictException;
 import org.example.social_meli.exceptions.NotFoundException;
@@ -84,6 +82,33 @@ public class ProductServiceImpl implements IProductService {
         return (orderBy.equals("date_asc")?
                 getOrderedSellersPostsFollowedByUserAsc(response):
                 getOrderedSellersPostsFollowedByUserDesc(response));
+    }
+
+    @Override
+    public PromProductCountResponseDTO getCountOfProductPromBySeller(Integer userId) {
+        if (!userRepository.existsSellerById(userId)) {
+            throw new NotFoundException("El vendedor con " + userId+" no existe");
+        }
+        Integer count = Math.toIntExact(productRepository.getAllPosts()
+                .stream()
+                .filter(post -> post.getUser_id().equals(userId))
+                .filter(postUser -> postUser.getHas_promo().equals(true))
+                .count());
+        String name = userRepository.findById(userId).getUser_name();
+        return new PromProductCountResponseDTO(userId, name, count);
+    }
+
+    @Override
+    public PostsPromDTO getPostsProductPromBySellerId(Integer userId) {
+        if (!userRepository.existsSellerById(userId)) {
+            throw new NotFoundException("El vendedor con " + userId+" no existe");
+        }
+        List<PostDTO> postDTOList = getAllPosts()
+                .stream().filter(post -> post.getUser_id().equals(userId))
+                .filter(postSeller -> postSeller.getHas_promo().equals(true))
+                .toList();
+        String name = userRepository.findById(userId).getUser_name();
+        return new PostsPromDTO(userId, name, postDTOList);
     }
 
     private FollowListDTO getOrderedSellersPostsFollowedByUserAsc(FollowListDTO response){

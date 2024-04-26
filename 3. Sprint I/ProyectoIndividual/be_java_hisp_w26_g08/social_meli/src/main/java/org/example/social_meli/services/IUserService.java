@@ -1,5 +1,6 @@
 package org.example.social_meli.services;
 
+import org.example.social_meli.dto.PromProductCountResponseDTO;
 import org.example.social_meli.dto.UserResponseDTO;
 import org.example.social_meli.dto.UserCountResponseDTO;
 

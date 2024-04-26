@@ -55,4 +55,5 @@ public class ProductRepository implements IProductRepository {
     public List<Post> getAllPosts() {
         return postList;
     }
+
 }
