@@ -9,5 +9,5 @@ public interface IPostService {
     FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order);
     void createPromoPost(PostPromoRequestDTO postPromo); // Individual
     PostPromoCountResponseDTO getPostPromoCount(int userId); // Individual
-    PostPromoListResponseDTO getPostPromoList(int userId);
+    PostPromoListResponseDTO getPostPromoList(int userId); // Individual
 }

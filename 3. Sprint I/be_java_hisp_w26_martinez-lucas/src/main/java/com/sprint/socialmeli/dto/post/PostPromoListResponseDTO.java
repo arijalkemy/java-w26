@@ -1,6 +1,5 @@
 package com.sprint.socialmeli.dto.post;
 
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.sprint.socialmeli.dto.user.UserResponseDTO;
 import lombok.Getter;
 
