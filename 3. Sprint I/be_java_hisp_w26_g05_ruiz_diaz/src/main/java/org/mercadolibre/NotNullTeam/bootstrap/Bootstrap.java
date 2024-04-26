@@ -27,8 +27,8 @@ public class Bootstrap implements InitializingBean {
         User userFour = new User(4L, "Agustin Diaz");
         User userFive = new User(5L, "Bernardo Thomas");
 
-        Buyer buyerOne = new Buyer(userOne, new ArrayList<>());
-        Buyer buyerTwo = new Buyer(userTwo, new ArrayList<>());
+        Buyer buyerOne = new Buyer(userOne, new ArrayList<>(), new ArrayList<>());
+        Buyer buyerTwo = new Buyer(userTwo, new ArrayList<>(), new ArrayList<>());
         Seller sellerOne = new Seller(userThree,  new ArrayList<>(List.of(buyerOne, buyerTwo)));
         Seller sellerTwo = new Seller(userFour,  new ArrayList<>(List.of(buyerOne, buyerTwo)));
         Seller sellerThree = new Seller(userFive,  new ArrayList<>(List.of(buyerOne, buyerTwo)));

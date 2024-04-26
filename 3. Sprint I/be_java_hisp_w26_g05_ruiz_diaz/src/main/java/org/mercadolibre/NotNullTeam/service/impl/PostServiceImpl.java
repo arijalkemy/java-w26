@@ -6,7 +6,9 @@ import org.mercadolibre.NotNullTeam.DTO.response.PostWithPromoResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PromotionPostCountOfASellerResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PromotionPostListOfASellerResponseDTO;
+import org.mercadolibre.NotNullTeam.exception.error.DiscountMustBeGreaterThanZeroException;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
+import org.mercadolibre.NotNullTeam.exception.error.ProductPromoWithoutHasPromoOnFalseException;
 import org.mercadolibre.NotNullTeam.mapper.PostMapper;
 import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Post;
@@ -82,6 +84,14 @@ public class PostServiceImpl implements IPostService {
 
     @Override
     public PostWithPromoResponseDTO createPostWithPromo(PostDTO postPromoRequestDTO) {
+
+        if(!postPromoRequestDTO.getHas_promo()){
+            throw new ProductPromoWithoutHasPromoOnFalseException("El post debe tener has_promo en true");
+        }
+        if(postPromoRequestDTO.getDiscount() <= 0){
+            throw new DiscountMustBeGreaterThanZeroException("El descuento debe ser mayor a 0");
+        }
+
         Post post = PostMapper.postDtoToPost(postPromoRequestDTO, findSellerById(postPromoRequestDTO.getUser_id()));
 
         iPostRepository.createPost(post);

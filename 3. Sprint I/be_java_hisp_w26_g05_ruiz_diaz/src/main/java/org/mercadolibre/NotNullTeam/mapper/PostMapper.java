@@ -32,6 +32,12 @@ public class PostMapper {
         );
     }
 
+    public static List<PostWithPromoResponseDTO> listOfPostToListOfPostResponseDto(List<Post> posts) {
+        return posts.stream()
+                .map(PostMapper::postToPostWithPromoDTO)
+                .toList();
+    }
+
     public static PostWithPromoResponseDTO postToPostWithPromoDTO(Post post) {
         return new PostWithPromoResponseDTO(
                 post.getId(),

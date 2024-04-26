@@ -13,4 +13,8 @@ public interface IBuyerService {
     BuyerResponseDTO getFollowedListOrdered(Long userId, String order);
 
     void unfollowSeller(Long userId, Long userIdToUnfollow);
+
+    void favoritePost(Long userId, Long postId);
+
+    void unfavoritePost(Long userId, Long postId);
 }

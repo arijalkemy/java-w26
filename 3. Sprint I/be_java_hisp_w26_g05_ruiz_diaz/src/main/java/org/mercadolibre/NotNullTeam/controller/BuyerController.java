@@ -51,4 +51,18 @@ public class BuyerController {
         );
     }
 
+    @PostMapping("{userId}/favorite/{postId}")
+    public ResponseEntity<?> favoritePost(@PathVariable Long userId,
+                                           @PathVariable Long postId) {
+        iBuyerService.favoritePost(userId, postId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("{userId}/unfavorite/{postId}")
+    public ResponseEntity<?> unfavoritePost(@PathVariable Long userId,
+                                          @PathVariable Long postId) {
+        iBuyerService.unfavoritePost(userId, postId);
+        return ResponseEntity.noContent().build();
+    }
+
 }

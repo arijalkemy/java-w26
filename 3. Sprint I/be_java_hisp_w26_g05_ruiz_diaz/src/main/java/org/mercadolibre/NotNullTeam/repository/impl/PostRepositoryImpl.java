@@ -6,10 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class PostRepositoryImpl implements IPostRepository {
@@ -43,5 +40,15 @@ public class PostRepositoryImpl implements IPostRepository {
         return posts.containsKey(userId) ?
                 posts.get(userId).stream().filter(Post::getHasPromo).toList() :
                 new ArrayList<>();
+    }
+
+    @Override
+    public Optional<Post> findPostByPostId(Long postId) {
+        return posts
+                .values()
+                .stream()
+                .flatMap(List::stream)
+                .filter(post -> post.getId().equals(postId))
+                .findFirst();
     }
 }

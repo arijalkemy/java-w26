@@ -18,7 +18,11 @@ public class BuyerMapper {
     }
 
     public static BuyerResponseWithNotSellerListDTO toBuyerResponseWithNotSellerListDTO(Buyer buyer) {
-        return new BuyerResponseWithNotSellerListDTO(buyer.getUser().getId(), buyer.getUser().getName());
+        return new BuyerResponseWithNotSellerListDTO(
+                buyer.getUser().getId(),
+                buyer.getUser().getName(),
+                PostMapper.listOfPostToListOfPostResponseDto(buyer.getFavoritePosts())
+        );
     }
 
     public static List<BuyerResponseWithNotSellerListDTO> toListBuyerResponseWithNotSellerListDTO(List<Buyer> buyerList) {
