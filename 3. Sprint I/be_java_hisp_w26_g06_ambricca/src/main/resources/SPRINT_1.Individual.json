@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "1d97a141-46c5-4402-9616-199da39337e5",
+		"name": "SPRINT_1",
+		"description": "This template contains a boilerplate for documentation that you can quickly customize and reuse.\n\n### How to use this template:\n\n- Replace the content given brackets (()) with your API's details.\n- Tips are formatted in `codespan` - feel free to read and remove them.\n    \n\n---\n\n`Start with a brief overview of what your API offers.`\n\nThe ((product name)) provides many API products, tools, and resources that enable you to ((add product value here)).\n\n`You can also list the APIs you offer, link to the relevant pages, or do both in this section.`\n\n## **Getting started guide**\n\n`List the steps or points required to start using your APIs. Make sure to cover everything required to reach success with your API as quickly as possible.`\n\nTo start using the ((add APIs here)), you need to -\n\n`The points given below are from The Postman API's documentation. You can reference it to write your own getting started guide.`\n\n- You must use a valid API Key to send requests to the API endpoints. You can get your API key from Postman's [integrations dashboard](https://go.postman.co/settings/me/api-keys).\n- The API has [rate and usage limits](https://postman.postman.co/workspace/Collection-Templates~6311738d-2e70-441f-ae12-78caf078c5b7/collection/22517504-e9c28f47-1253-44af-a2f3-20dce4da1f18?ctx=documentation#rate-and-usage-limits).\n- The API only responds to HTTPS-secured communications. Any requests sent via HTTP return an HTTP 301 redirect to the corresponding HTTPS resources.\n- The API returns request responses in JSON format. When an API request returns an error, it is sent in the JSON response as an error key.\n    \n\n## Authentication\n\n`Add details on the authorization keys/tokens required, steps that cover how to get them, and the relevant error codes.`\n\nThe ((product name)) API uses ((add your API's authorization type)) for authentication.\n\n`The details given below are from the Postman API's documentation. You can reference it to write your own authentication section.`\n\nPostman uses API keys for authentication. You can generate a Postman API key in the [API keys](https://postman.postman.co/settings/me/api-keys) section of your Postman account settings.\n\nYou must include an API key in each request to the Postman API with the X-Api-Key request header.\n\n### Authentication error response\n\nIf an API key is missing, malformed, or invalid, you will receive an HTTP 401 Unauthorized response code.\n\n## Rate and usage limits\n\n`Use this section to cover your APIs' terms of use. Include API limits, constraints, and relevant error codes, so consumers understand the permitted API usage and practices.`\n\n`The example given below is from The Postman API's documentation. Use it as a reference to write your APIs' terms of use.`\n\nAPI access rate limits apply at a per-API key basis in unit time. The limit is 300 requests per minute. Also, depending on your plan, you may have usage limits. If you exceed either limit, your request will return an HTTP 429 Too Many Requests status code.\n\nEach API response returns the following set of headers to help you identify your use status:\n\n| Header | Description |\n| --- | --- |\n| `X-RateLimit-Limit` | The maximum number of requests that the consumer is permitted to make per minute. |\n| `X-RateLimit-Remaining` | The number of requests remaining in the current rate limit window. |\n| `X-RateLimit-Reset` | The time at which the current rate limit window resets in UTC epoch seconds. |\n\n### 503 response\n\nAn HTTP `503` response from our servers indicates there is an unexpected spike in API access traffic. The server is usually operational within the next five minutes. If the outage persists or you receive any other form of an HTTP `5XX` error, [contact support](https://support.postman.com/hc/en-us/requests/new/).\n\n### **Need some help?**\n\n`Add links that customers can refer to whenever they need help.`\n\nIn case you have questions, go through our tutorials ((link to your video or help documentation here)). Or visit our FAQ page ((link to the relevant page)).\n\nOr you can check out our community forum, there’s a good chance our community has an answer for you. Visit our developer forum ((link to developer forum)) to review topics, ask questions, and learn from others.\n\n`You can also document or add links to libraries, code examples, and other resources needed to make a request.`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "1.followSeller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{CUSTOMER_ID}}/follow/{{SELLER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{CUSTOMER_ID}}",
+								"follow",
+								"{{SELLER_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.countFollowersBySeller",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{SELLER_ID}}/followers/count",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{SELLER_ID}}",
+								"followers",
+								"count"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "2.countFollowersBySeller",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/0/followers/count",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"0",
+										"followers",
+										"count"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": 234,\n    \"user_name\": \"vendedor1\",\n    \"followers_count\": 35\n}"
+						}
+					]
+				},
+				{
+					"name": "3.listFollowersBySeller",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{SELLER_ID}}/followers/list",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{SELLER_ID}}",
+								"followers",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "3.listFollowersBySeller",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/0/followers/list",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"0",
+										"followers",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": 0,\n    \"user_name\": \"vendedor1\",\n    \"followers\": [\n        {\n            \"user_id\": 4698,\n            \"user_name\": \"usuario1\"\n        },\n        {\n            \"user_id\": 1536,\n            \"user_name\": \"usuario2\"\n        },\n        {\n            \"user_id\": 2236,\n            \"user_name\": \"usuario3\"\n        }\n    ]\n}\n"
+						}
+					]
+				},
+				{
+					"name": "3.1.listFollowersBySeller",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{SELLER_ID}}/followers/list?order=name_desc",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{SELLER_ID}}",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "3.listFollowersBySeller",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/users/0/followers/list",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"users",
+										"0",
+										"followers",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": 0,\n    \"user_name\": \"vendedor1\",\n    \"followers\": [\n        {\n            \"user_id\": 4698,\n            \"user_name\": \"usuario1\"\n        },\n        {\n            \"user_id\": 1536,\n            \"user_name\": \"usuario2\"\n        },\n        {\n            \"user_id\": 2236,\n            \"user_name\": \"usuario3\"\n        }\n    ]\n}\n"
+						}
+					]
+				},
+				{
+					"name": "4.listFollowsByBuyer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{CUSTOMER_ID}}/followed/list",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{CUSTOMER_ID}}",
+								"followed",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.1.listFollowsByBuyer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{CUSTOMER_ID}}/followed/list?order=name_desc",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{CUSTOMER_ID}}",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7.unfollowSeller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/users/{{CUSTOMER_ID}}/unfollow/{{SELLER_ID}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"users",
+								"{{CUSTOMER_ID}}",
+								"unfollow",
+								"{{SELLER_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The `/me` endpoints let you manage information about the authenticated user."
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "5.createProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/products/post",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.listProductsByFilters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products/followed/{{CUSTOMER_ID}}/list",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"followed",
+								"{{CUSTOMER_ID}}",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "6.listProductsByFilters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/products/followed/0/list",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"0",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": 0,\n    \"posts\": \n        [ \n            {\n                “user_id”: 123,\n                \"post_id\": 32,\n                \"date\": \"01-05-2021\",\n                \"product\": {\n                    \"product_id\": 62,\n                    \"product_name\": \"Headset RGB Inalámbrico\",\n                    \"type\": \"Gamer\",\n                    \"brand\": \"Razer\",\n                    \"color\": \"Green with RGB\",\n                    \"notes\": \"Sin Batería\"\n                },\n                \"category\": 120,\n                \"price\": 2800.69\n            },\n            {\n                “user_id”: 234,\n                \"post_id\": 18,\n                \"date\": \"29-04-2021\",\n                \"product\": {\n                    \"product_id\": 1,\n                    \"productName\": \"Silla Gamer\",\n                    \"type\": \"Gamer\",\n                    \"brand\": \"Racer\",\n                    \"color\": \"Red & Black\",\n                    \"notes\": \"Special Edition\"\n                },\n                \"category\": 100,\n                \"price\": 15000.50\n            }\n        ]\n}\n"
+						}
+					]
+				},
+				{
+					"name": "6.1.listProductsByFilters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/products/followed/{{CUSTOMER_ID}}/list?order=date_desc",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"products",
+								"followed",
+								"{{CUSTOMER_ID}}",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "6.listProductsByFilters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/products/followed/0/list",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"0",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n    \"user_id\": 0,\n    \"posts\": \n        [ \n            {\n                “user_id”: 123,\n                \"post_id\": 32,\n                \"date\": \"01-05-2021\",\n                \"product\": {\n                    \"product_id\": 62,\n                    \"product_name\": \"Headset RGB Inalámbrico\",\n                    \"type\": \"Gamer\",\n                    \"brand\": \"Razer\",\n                    \"color\": \"Green with RGB\",\n                    \"notes\": \"Sin Batería\"\n                },\n                \"category\": 120,\n                \"price\": 2800.69\n            },\n            {\n                “user_id”: 234,\n                \"post_id\": 18,\n                \"date\": \"29-04-2021\",\n                \"product\": {\n                    \"product_id\": 1,\n                    \"productName\": \"Silla Gamer\",\n                    \"type\": \"Gamer\",\n                    \"brand\": \"Racer\",\n                    \"color\": \"Red & Black\",\n                    \"notes\": \"Special Edition\"\n                },\n                \"category\": 100,\n                \"price\": 15000.50\n            }\n        ]\n}\n"
+						}
+					]
+				},
+				{
+					"name": "10.createPromoProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\t\n{\n\n    \"user_id\": 1,\n\n    \"date\": \"29-04-2021\",\n\n    \"product\": {\n\n        \"product_id\": 1,\n\n        \"product_name\": \"Silla Gamer\",\n\n        \"type\": \"Gamer\",\n\n        \"brand\": \"Racer\",\n\n        \"color\": \"Red & Black\",\n\n        \"notes\": \"Special Edition\"\n\n    },\n\n    \"category\": 100,\n\n    \"price\": 1500.50,\n\n    \"has_promo\": true,\n\n    \"discount\": 0.25\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "11.listPromoPostCount",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "12.listPromoPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://farming-simulator.pstmn.io"
+		}
+	]
+}
