@@ -1,0 +1,1008 @@
+{
+	"info": {
+		"_postman_id": "14fe082f-1a46-4a76-8e91-076dd0fdd04d",
+		"name": "Sprint 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34294755"
+	},
+	"item": [
+		{
+			"name": "Equipo",
+			"item": [
+				{
+					"name": "US 0001 Add Follow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/:userId/follow/:userIdToFollow",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"follow",
+								":userIdToFollow"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								},
+								{
+									"key": "userIdToFollow",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0002 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/users/1/followers/count"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0002 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/users/a/followers/count"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0002 - NOT FOUND",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/users/9999/followers/count"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0002 - NOT ACCEPTABLE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/users/5/followers/count"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0003 List Followers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/:userId/followers/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"followers",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0003 List Followers desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/3/followers/list?order=name_desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0003 List Followers asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/3/followers/list?order=name_asc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0003 List Followers Not Found",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/users/10/followers/list"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0004 List Followed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/10/followed/list?order=name_desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"10",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0005 Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-1996\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/products/post"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0006 products list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/followed/:userId/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"followed",
+								":userId",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0007 unfollow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/:userId/unfollow/:userIdToUnfollow",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								":userId",
+								"unfollow",
+								":userIdToUnfollow"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "userIdToUnfollow",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0008 Followers By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/3/followed/list?order=name_asc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"3",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0008 List Followed desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/1/followed/list?order=name_desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0008 List Followed asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/1/followed/list?order=name_asc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0009 date_asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/followed/:userId/list?order=data_asc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"followed",
+								":userId",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "data_asc"
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0009 data_desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products/followed/:userId/list?order=date_desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"followed",
+								":userId",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								}
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Individual",
+			"item": [
+				{
+					"name": "US 0010 - OK",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"19-04-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/products/promo-post"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0010 - NOT FOUND",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"date\": \"2024-04-19\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/products/promo-post"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0011 - OK",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/promo-post/count?user_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0011 - NOT ACCEPTABLE",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/promo-post/count?user_id=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0011 - NOT FOUND",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/promo-post/count?user_id=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0011 - BAD REQUEST",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/promo-post/count?user_id=1A",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1A"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Opcional",
+			"item": [
+				{
+					"name": "US 0012 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/promo-post/list?user_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0012 - NOT ACCEPTABLE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/promo-post/list?user_id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0012 - NOT FOUND",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/promo-post/list?user_id=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0012 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/promo-post/list?user_id=1b",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"promo-post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0013 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/postsByUser?user_id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"postsByUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0013 - NOT ACCEPTABLE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/postsByUser?user_id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"postsByUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0013 - NOT FOUND",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/postsByUser?user_id=10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"postsByUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0013 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/postsByUser?user_id=1a",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"postsByUser"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "US 0014 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0015 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/color/white"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0015 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/color/ab"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0015 - NO CONTENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/color/gold"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0016 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/category/1"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0016 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/category/9A"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0016 - NO CONTENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/category/10"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0017 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/100.5"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0017 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/100A"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0017 - NO CONTENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/3"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0018 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/40/100"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0018 - BAD REQUEST 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/400/100"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0018 - BAD REQUEST 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/40/10A0"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0018 - NO CONTENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/price/40/41"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0019 - OK",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/discount/60"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0019 - BAD REQUEST",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/discount/60A"
+					},
+					"response": []
+				},
+				{
+					"name": "US 0019 - NO CONTENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/products/filter/discount/97"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
