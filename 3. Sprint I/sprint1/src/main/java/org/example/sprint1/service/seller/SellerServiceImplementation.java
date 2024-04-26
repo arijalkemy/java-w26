@@ -39,7 +39,7 @@ public class SellerServiceImplementation implements ISellerService {
     public Post addPost(RequestPostDTO postDTO) {
 
 //        Revisar si existe el Usuario
-        Seller seller = sellerRepository.filterSellerById(postDTO.getUserId());
+        Seller seller = sellerRepository.getSellerById(postDTO.getUserId());
         if (seller == null) {
             throw new NotFoundException("No existe un Vendedor con ese ID");
         }
