@@ -30,6 +30,10 @@ public class ProductFilter {
         return byProperty(post -> post.getProduct().getColor(), productFilterDTO.getColor());
     }
 
+    public static Predicate<Post> byPromo(ProductFilterDTO productFilterDTO) {
+         return post -> !productFilterDTO.isHas_promo() || post.getHasPromo();
+    }
+
     public static Predicate<Post> byMinPrice(ProductFilterDTO productFilterDTO) {
         return byPrice(Post::getPrice,
                 productFilterDTO.getMin_price(),

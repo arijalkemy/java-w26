@@ -15,6 +15,7 @@ public class ProductFilterDTO {
     private String type;
     private String brand;
     private String color;
+    private boolean has_promo;
     private Double min_price;
     private Double max_price;
 

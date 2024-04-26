@@ -22,6 +22,7 @@ public class ProductController {
             @RequestParam(required = false) String type,
             @RequestParam(required = false) String brand,
             @RequestParam(required = false) String color,
+            @RequestParam(required = false, defaultValue = "false") boolean has_promo,
             @RequestParam(required = false) Double min_price,
             @RequestParam(required = false) Double max_price) {
 
@@ -33,6 +34,7 @@ public class ProductController {
                 .color(color)
                 .min_price(min_price)
                 .max_price(max_price)
+                .has_promo(has_promo)
                 .build();
 
         FilterProducts response = service.searchProducts(productFilterDTO);

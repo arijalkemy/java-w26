@@ -29,6 +29,7 @@ public class ProductServiceImpl implements IProductService {
                 .filter(byType(productFilterDTO))
                 .filter(byBrand(productFilterDTO))
                 .filter(byColor(productFilterDTO))
+                .filter(byPromo(productFilterDTO))
                 .filter(byMinPrice(productFilterDTO))
                 .filter(byMaxPrice(productFilterDTO))
                 .toList();
