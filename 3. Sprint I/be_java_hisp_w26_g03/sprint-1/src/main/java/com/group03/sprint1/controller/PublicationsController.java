@@ -1,6 +1,7 @@
 package com.group03.sprint1.controller;
 
 import com.group03.sprint1.dto.PublicationDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.ResponseIdPublicationsDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.service.IPublicationsService;
@@ -37,9 +38,8 @@ public class PublicationsController {
      * @return Devuelve un mensaje de exito en el cuerpo de la respuesta.
      */
     @PostMapping("/post")
-    public ResponseEntity<String> createPublication(@RequestBody PublicationDTO publication) {
-        productsService.createPublication(publication);
-        return new ResponseEntity<>("Post created successfully", HttpStatus.CREATED);
+    public ResponseEntity<MessageResponseDTO> createPublication(@RequestBody PublicationDTO publication) {
+        return new ResponseEntity<>(productsService.createPublication(publication), HttpStatus.CREATED);
     }
 
     /**

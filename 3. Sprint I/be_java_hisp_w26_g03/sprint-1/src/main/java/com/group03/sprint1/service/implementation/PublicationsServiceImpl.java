@@ -3,6 +3,7 @@ package com.group03.sprint1.service.implementation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.PublicationDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.SellersWithPublicationDTO;
 import com.group03.sprint1.entity.Publication;
 import com.group03.sprint1.entity.Seller;
@@ -95,7 +96,7 @@ public class PublicationsServiceImpl implements IPublicationsService {
     }
 
     @Override
-    public void createPublication(PublicationDTO publicationDTO) {
+    public MessageResponseDTO createPublication(PublicationDTO publicationDTO) {
 
         if(Utils.isNull(usersRepository.findSellerById(publicationDTO.getUserId()))) {
             throw new NotFoundException("There is not seller with ID: " + publicationDTO.getUserId());
@@ -108,5 +109,6 @@ public class PublicationsServiceImpl implements IPublicationsService {
         }
 
         usersRepository.createPublication(publication);
+        return new MessageResponseDTO("Post created successfully.");
     }
 }

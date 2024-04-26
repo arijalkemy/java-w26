@@ -3,6 +3,7 @@ package com.group03.sprint1.service.implementation;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.group03.sprint1.dto.SellerNumberOfFollowersDTO;
+import com.group03.sprint1.dto.response.MessageResponseDTO;
 import com.group03.sprint1.dto.response.UserDataResponseDTO;
 import com.group03.sprint1.entity.Seller;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,7 +54,7 @@ public class UsersServiceImpl implements IUsersService {
     }
 
     @Override
-    public void followUser(Integer userId, Integer userIdToFollow) {
+    public MessageResponseDTO followUser(Integer userId, Integer userIdToFollow) {
         Seller seller = usersRepository.findSellerById(userIdToFollow);
         Buyer buyer = usersRepository.findBuyerById(userId);
 
@@ -66,6 +67,7 @@ public class UsersServiceImpl implements IUsersService {
 
         addFollowers(seller, buyer);
         usersRepository.follow(seller, buyer);
+        return new MessageResponseDTO("Successfully followed user: " + userIdToFollow);
     }
 
     private void addFollowers(Seller seller, Buyer buyer) {
@@ -160,7 +162,7 @@ public class UsersServiceImpl implements IUsersService {
     }
 
     @Override
-    public void unfollowUser(Integer userId, Integer userIdToUnFollow) {
+    public MessageResponseDTO unfollowUser(Integer userId, Integer userIdToUnFollow) {
         Seller seller = usersRepository.findSellerById(userIdToUnFollow);
         Buyer buyer = usersRepository.findBuyerById(userId);
 
@@ -173,6 +175,7 @@ public class UsersServiceImpl implements IUsersService {
 
         deleteFollowers(seller, buyer);
         usersRepository.unfollow(seller, buyer);
+        return new MessageResponseDTO("Successfully unfollowed user: " + userIdToUnFollow);
     }
 
     private void deleteFollowers(Seller seller, Buyer buyer) {
