@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Clase 1 Java/ejerciciosLH/ejercicio2LH/ejercicio2/pom.xml" />
+        <option value="$PROJECT_DIR$/Clase 1 Java/ejerciciosLH/clase1EjerciciosLH/pom.xml" />
+        <option value="$PROJECT_DIR$/Clase 1 Java/introduccionJavaVivo/carreraDeLaSelva/pom.xml" />
+        <option value="$PROJECT_DIR$/Clase 1 Java/temperaturasGlobales/temperaturasGlobales/pom.xml" />
+        <option value="$PROJECT_DIR$/clase 3 Java/ejercicio1Vivo/ejercicio1/pom.xml" />
+        <option value="$PROJECT_DIR$/clase 3 Java/ejercicio1Vivo/ejercicio1Vivo/ejercicio1/pom.xml" />
+        <option value="$PROJECT_DIR$/clase 3 Java/ejercicio2Vivo/ejercicio2/pom.xml" />
+        <option value="$PROJECT_DIR$/clase 3 Java/ejercicio3Vivo/ejercicio3/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="21" project-jdk-type="JavaSDK" />
+</project>

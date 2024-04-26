@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d22dd80-3750-4c1e-b44e-91c2ee92b8f3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/introduccionJavaP2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaP2/src/com/bootcamp/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/.idea/introduccionJavaVivo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Categoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Inscripcion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Participante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/TipoCategoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Categoria$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Categoria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Inscripcion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Participante.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/TipoCategoria.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2f8ZMm9kkEJbdctPVme6cRAkJ4H" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="EjercicioPracticoPoo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d22dd80-3750-4c1e-b44e-91c2ee92b8f3" name="Changes" comment="" />
+      <created>1713184622434</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713184622434</updated>
+      <workItem from="1713184623530" duration="2366000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Persona.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e95d4597-86c5-41b1-8855-bb76ba3b540b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/introduccionJavaP2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaP2/src/com/bootcamp/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/.idea/introduccionJavaVivo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Categoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Inscripcion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/Participante.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/src/main/java/org/example/TipoCategoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Categoria$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Categoria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Inscripcion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/Participante.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Clase 2 Java/introduccionJavaVivo/carreraDeLaSelva/target/classes/org/example/TipoCategoria.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="2f9YGdwKNkPIhfbRiz4pfVmvI4S" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e95d4597-86c5-41b1-8855-bb76ba3b540b" name="Changes" comment="" />
+      <created>1713214665541</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713214665541</updated>
+      <workItem from="1713214666601" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
