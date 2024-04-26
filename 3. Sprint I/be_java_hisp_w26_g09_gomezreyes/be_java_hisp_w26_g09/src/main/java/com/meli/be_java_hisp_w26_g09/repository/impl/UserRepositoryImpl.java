@@ -49,12 +49,7 @@ public class UserRepositoryImpl implements IUserRepository {
 
     @Override
     public void unfollowUser(User userWhoUnfollow, User userToUnfollow) {
-        int index = listOfUser.indexOf(userToUnfollow);
         userWhoUnfollow.getFollowed().remove(userToUnfollow);
-        if (index >= 0)
-            listOfUser.set(index, userWhoUnfollow);
-
-
     }
 
     @Override

@@ -59,9 +59,7 @@ public class UserServiceImpl implements IUserService {
                 .filter(user -> user.getFollowed() != null && user.getFollowed().stream().map(User::getUserId).
                         anyMatch(userId -> userId.equals(userFollowers.get().getUserId()))).toList();
 
-        userFollowers.get().setFollowed(followers);
-
-        return userMapper.userFollowersToUserDTO(userFollowers.get());
+        return userMapper.userFollowersToUserDTO(userFollowers.get(), followers);
     }
 
     @Override
