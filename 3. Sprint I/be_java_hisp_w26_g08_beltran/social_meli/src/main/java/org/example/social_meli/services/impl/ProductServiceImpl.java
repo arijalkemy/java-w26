@@ -100,6 +100,19 @@ public class ProductServiceImpl implements IProductService {
                 productRepository.getPromoPostCount(userId));
     }
 
+    @Override
+    public List<PostDTO> getPromoPostList(Integer userId) {
+        ModelMapper mapper = new ModelMapper();
+        User user = userRepository.findById(userId);
+        if (user == null) {
+            throw new NotFoundException("No existe un usuario con el id " + userId);
+        }
+
+        return productRepository.getPromoPostList(userId).stream()
+                .map(post -> mapper.map(post, PostDTO.class))
+                .toList();
+    }
+
     private FollowListDTO getOrderedSellersPostsFollowedByUserAsc(FollowListDTO response){
         response.setPost(response.getPost()
                 .stream()

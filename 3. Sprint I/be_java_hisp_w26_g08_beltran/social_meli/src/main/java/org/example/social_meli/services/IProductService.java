@@ -12,4 +12,5 @@ public interface IProductService {
     FollowListDTO getSellersPostsFollowedByUser(Integer id);
     FollowListDTO getOrderedSellersPostsFollowedByUser(Integer id, String orderBy);
     UserDTO getPromoPostCount(Integer userId);
+    List<PostDTO> getPromoPostList(Integer userId);
 }

@@ -9,4 +9,5 @@ public interface IProductRepository {
     Boolean existsPost(Integer postId);
     List<Post> getAllPosts();
     Integer getPromoPostCount(Integer userId);
+    List<Post> getPromoPostList(Integer userId);
 }
