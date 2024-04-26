@@ -1,7 +1,15 @@
 # Social MELI
+
 ## Diagrama
+
+![DiseñoRedSocialSocialMeli drawio (1)](https://github.com/evillarraga/be_java_hisp_w26_g07/assets/166527186/15944d5e-ce1e-4533-b472-fd4cfcf864d9)
+
 ## Endpoints
+
+La colección de postman para el desarrollo individual se puede obtener a través del siguiente [enlace a Google Drive](https://drive.google.com/file/d/1TzKFsyWkR5AV_39AoPa4IV1mLbp8RX9h/view?usp=sharing)
+
 ### US 0001
+
 Poder realizar la acción de “Follow” (seguir) a un determinado vendedor
 <table>
   <tbody>
@@ -24,6 +32,7 @@ Poder realizar la acción de “Follow” (seguir) a un determinado vendedor
 </table>
 
 ### US 0002
+
 Obtener el resultado de la cantidad de usuarios que siguen a un determinado vendedor
 <table>
   <tbody>
@@ -39,17 +48,19 @@ Obtener el resultado de la cantidad de usuarios que siguen a un determinado vend
 
 ```json
 {
-   "user_id":234,
-   "user_name":"vendedor1",
-   "followers_count":35
+  "user_id": 234,
+  "user_name": "vendedor1",
+  "followers_count": 35
 }
 ```
+
 </td>
     </tr>
   </tbody>
 </table>
 
 ### US 0003
+
 Obtener un listado de todos los usuarios que siguen a un determinado vendedor (¿Quién me sigue?)
 <table>
   <tbody>
@@ -65,31 +76,33 @@ Obtener un listado de todos los usuarios que siguen a un determinado vendedor (�
 
 ```json
 {
-   "user_id":234,
-   "user_name":"vendedor1",
-   "followers":[
-      {
-         "user_id":4698,
-         "user_name":"usuario1"
-      },
-      {
-         "user_id":1536,
-         "user_name":"usuario2"
-      },
-      {
-         "user_id":2236,
-         "user_name":"usuario3"
-      }
-   ]
+  "user_id": 234,
+  "user_name": "vendedor1",
+  "followers": [
+    {
+      "user_id": 4698,
+      "user_name": "usuario1"
+    },
+    {
+      "user_id": 1536,
+      "user_name": "usuario2"
+    },
+    {
+      "user_id": 2236,
+      "user_name": "usuario3"
+    }
+  ]
 }
 ```
+
 </td>
     </tr>
   </tbody>
 </table>
 
 ### US 0004
-Obtener  un listado de todos los vendedores a los cuales sigue un determinado usuario (¿A quién sigo?)
+
+Obtener un listado de todos los vendedores a los cuales sigue un determinado usuario (¿A quién sigo?)
 <table>
   <tbody>
     <tr>
@@ -104,30 +117,32 @@ Obtener  un listado de todos los vendedores a los cuales sigue un determinado us
 
 ```json
 {
-   "user_id":4698,
-   "user_name":"usuario1",
-   "followed":[
-      {
-         "user_id":234,
-         "user_name":"vendedor1"
-      },
-      {
-         "user_id":6932,
-         "user_name":"vendedor2"
-      },
-      {
-         "user_id":6631,
-         "user_name":"vendedor3"
-      }
-   ]
+  "user_id": 4698,
+  "user_name": "usuario1",
+  "followed": [
+    {
+      "user_id": 234,
+      "user_name": "vendedor1"
+    },
+    {
+      "user_id": 6932,
+      "user_name": "vendedor2"
+    },
+    {
+      "user_id": 6631,
+      "user_name": "vendedor3"
+    }
+  ]
 }
 ```
+
 </td>
     </tr>
   </tbody>
 </table>
 
 ### US 0005
+
 Dar de alta una nueva publicación
 <table>
   <tbody>
@@ -144,20 +159,21 @@ Dar de alta una nueva publicación
 
 ```json
 {
-   "user_id":123,
-   "date":"29-04-2021",
-   "product":{
-      "product_id":1,
-      "product_name":"Silla Gamer",
-      "type":"Gamer",
-      "brand":"Racer",
-      "color":"Red & Black",
-      "notes":"Special Edition"
-   },
-   "category":100,
-   "price":1500.50
+  "user_id": 123,
+  "date": "29-04-2021",
+  "product": {
+    "product_id": 1,
+    "product_name": "Silla Gamer",
+    "type": "Gamer",
+    "brand": "Racer",
+    "color": "Red & Black",
+    "notes": "Special Edition"
+  },
+  "category": 100,
+  "price": 1500.50
 }
 ```
+
 </td>
     <td align="center">
         <ul>
@@ -170,7 +186,9 @@ Dar de alta una nueva publicación
 </table>
 
 ### US 0006
-Obtener un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las últimas dos semanas (para esto tener en cuenta ordenamiento por fecha, publicaciones más recientes primero).
+
+Obtener un listado de las publicaciones realizadas por los vendedores que un usuario sigue en las últimas dos semanas (
+para esto tener en cuenta ordenamiento por fecha, publicaciones más recientes primero).
 <table>
   <tbody>
     <tr>
@@ -185,47 +203,49 @@ Obtener un listado de las publicaciones realizadas por los vendedores que un usu
 
 ```json
 {
-   "user_id":4698,
-   "posts":[
-      {
-         "user_id":123,
-         "post_id":32,
-         "date":"01-05-2021",
-         "product":{
-            "product_id":62,
-            "product_name":"Headset RGB Inalámbrico",
-            "type":"Gamer",
-            "brand":"Razer",
-            "color":"Green with RGB",
-            "notes":"Sin Batería"
-         },
-         "category":120,
-         "price":2800.69
+  "user_id": 4698,
+  "posts": [
+    {
+      "user_id": 123,
+      "post_id": 32,
+      "date": "01-05-2021",
+      "product": {
+        "product_id": 62,
+        "product_name": "Headset RGB Inalámbrico",
+        "type": "Gamer",
+        "brand": "Razer",
+        "color": "Green with RGB",
+        "notes": "Sin Batería"
       },
-      {
-         "user_id":234,
-         "post_id":18,
-         "date":"29-04-2021",
-         "product":{
-            "product_id":1,
-            "productName":"Silla Gamer",
-            "type":"Gamer",
-            "brand":"Racer",
-            "color":"Red & Black",
-            "notes":"Special Edition"
-         },
-         "category":100,
-         "price":15000.50
-      }
-   ]
+      "category": 120,
+      "price": 2800.69
+    },
+    {
+      "user_id": 234,
+      "post_id": 18,
+      "date": "29-04-2021",
+      "product": {
+        "product_id": 1,
+        "productName": "Silla Gamer",
+        "type": "Gamer",
+        "brand": "Racer",
+        "color": "Red & Black",
+        "notes": "Special Edition"
+      },
+      "category": 100,
+      "price": 15000.50
+    }
+  ]
 }
 ```
+
 </td>
     </tr>
   </tbody>
 </table>
 
 ### US 0007
+
 Poder realizar la acción de “Unfollow” (dejar de seguir) a un determinado vendedor.
 <table>
   <tbody>
@@ -241,6 +261,7 @@ Poder realizar la acción de “Unfollow” (dejar de seguir) a un determinado v
 </table>
 
 ### US 0008
+
 Ordenamiento alfabético ascendente y descendente
 <table>
   <tbody>
@@ -261,6 +282,7 @@ Ordenamiento alfabético ascendente y descendente
 </table>
 
 ### US 0009
+
 Ordenamiento por fecha ascendente y descendente
 <table>
   <tbody>
@@ -281,6 +303,7 @@ Ordenamiento por fecha ascendente y descendente
 </table>
 
 ### US 0010
+
 Llevar a cabo la publicación de un nuevo producto en promoción
 <table>
   <tbody>
@@ -297,22 +320,23 @@ Llevar a cabo la publicación de un nuevo producto en promoción
 
 ```json
 {
-   "user_id":234,
-   "date":"29-04-2021",
-   "product":{
-      "product_id":1,
-      "product_name":"Silla Gamer",
-      "type":"Gamer",
-      "brand":"Racer",
-      "color":"Red & Black",
-      "notes":"Special Edition"
-   },
-   "category":100,
-   "price":1500.50,
-   "has_promo":true,
-   "discount":0.25
+  "user_id": 234,
+  "date": "29-04-2021",
+  "product": {
+    "product_id": 1,
+    "product_name": "Silla Gamer",
+    "type": "Gamer",
+    "brand": "Racer",
+    "color": "Red & Black",
+    "notes": "Special Edition"
+  },
+  "category": 100,
+  "price": 1500.50,
+  "has_promo": true,
+  "discount": 0.25
 }
 ```
+
 </td>
     <td align="center">
         <ul>
@@ -325,6 +349,7 @@ Llevar a cabo la publicación de un nuevo producto en promoción
 </table>
 
 ### US 0011
+
 Obtener la cantidad de productos en promoción de un determinado vendedor
 
 <table>
@@ -341,18 +366,21 @@ Obtener la cantidad de productos en promoción de un determinado vendedor
 
 ```json
 {
-   "user_id":234,
-   "user_name":"vendedor1",
-   "promo_products_count":23
+  "user_id": 234,
+  "user_name": "vendedor1",
+  "promo_products_count": 23
 }
 ```
+
 </td>
     </tr>
   </tbody>
 </table>
 
 ### US 0012
-Obtener un listado de todos los productos en promoción de un determinado vendedor
+
+Obtener estadísticas de los posts como cantidad de posts por año, cantidad en promoción vs total y cantidad por
+categoría
 
 <table>
   <tbody>
@@ -363,34 +391,29 @@ Obtener un listado de todos los productos en promoción de un determinado vended
     </tr>
     <tr>
       <td align="center">Get</td>
-      <td align="center"> /products/promo-post/list?user_id={userId} </td>
+      <td align="center"> /products/posts/statistics?user_id={userId} </td>
 <td>
 
 ```json
 {
-   "user_id":234,
-   "user_name":"vendedor1",
-   "posts":[
-      {
-         "user_id":234,
-         "post_id":18,
-         "date":"29-04-2021",
-         "product":{
-            "product_id":1,
-            "product_name":"Silla Gamer",
-            "type":"Gamer",
-            "brand":"Racer",
-            "color":"Red & Black",
-            "notes":"Special Edition"
-         },
-         "category":"100",
-         "price":15000.50,
-         "has_promo":true,
-         "discount":0.25
-      }
-   ]
+  "user_id": 234,
+  "posts_by_year": {
+    "2020": 1,
+    "2021": 2,
+    "2022": 3,
+    "2023": 3
+  },
+  "promo_ratio": {
+    "total": 9,
+    "in_promo": 4
+  },
+  "posts_by_category": {
+    "food": 6,
+    "furniture": 3
+  }
 }
 ```
+
 </td>
     </tr>
   </tbody>
