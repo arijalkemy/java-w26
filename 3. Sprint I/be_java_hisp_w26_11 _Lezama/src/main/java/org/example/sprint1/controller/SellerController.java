@@ -54,4 +54,8 @@ public class SellerController {
     public ResponseEntity<?> getPromoProducts(@RequestParam("user_id") int userId){
         return new ResponseEntity<>(postService.getCountProductsPromo(userId), HttpStatus.OK);
     }
+    @GetMapping("/promo-post")
+    public ResponseEntity<?> getPromoHalfPriceProducts(@RequestParam("user_id") int userId){
+        return new ResponseEntity<>(postService.getHalfPriceProductsPromo(userId), HttpStatus.OK);
+    }
 }

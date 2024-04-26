@@ -13,4 +13,5 @@ public interface ISellerService {
      ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, Optional<String> order);
      public Post addProductPromo(RequestPostPromoDTO promoDTO);
      ResponseCountPromoDTO getCountProductsPromo(int userId);
+     public List<Post> getHalfPriceProductsPromo(int userId);
 }

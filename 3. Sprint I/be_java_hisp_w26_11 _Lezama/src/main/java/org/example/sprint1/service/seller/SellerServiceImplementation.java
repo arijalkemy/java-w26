@@ -133,6 +133,19 @@ public class SellerServiceImplementation implements ISellerService {
         return responseCountPromoDTO;
     }
 
+    @Override
+    public List<Post> getHalfPriceProductsPromo(int userId) {
+        // Obtiene customer con userId
+        Seller seller = sellerRepository.filterSellerById(userId);
+        if(seller == null){
+            throw new NotFoundException("No existe un Vendedor con ese ID");
+        }
+        List<Post> hasPromo = seller.getPosts().stream().filter(Post::isHasPromo).filter(post ->
+                post.getDiscount() >= 0.5).toList();
+        if(hasPromo.isEmpty()){throw new NotFoundException("No existe un Vendedor con ese ID");}
+        return hasPromo;
+    }
+
     private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
         List<PostDTO> listPostDto = new ArrayList<>();
 
