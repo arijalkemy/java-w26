@@ -4,7 +4,6 @@ import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.exception.NotFoundException;
 import com.sprint.socialmeli.repository.user.IUsersRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component

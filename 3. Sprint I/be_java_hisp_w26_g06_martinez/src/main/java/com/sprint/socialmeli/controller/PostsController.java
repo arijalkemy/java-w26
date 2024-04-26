@@ -40,7 +40,7 @@ public class PostsController {
     }
 
 
-    // US00010. INDIVIDUAL Martinez Lucas
+    // US00010. INDIVIDUAL
 
     /***
      *
@@ -53,7 +53,7 @@ public class PostsController {
         return new ResponseEntity<>(new PostPromoCreatedDto(idCreated), HttpStatus.CREATED);
     }
 
-    // US00011. INDIVIDUAL Martinez Lucas
+    // US00011. INDIVIDUAL
     /***
      *
      * @param user_id the seller id
@@ -65,7 +65,7 @@ public class PostsController {
         return new ResponseEntity<>(postPromoCount, HttpStatus.OK);
     }
 
-    // US00012. INDIVIDUAL Martinez Lucas
+    // US00012. INDIVIDUAL
 
     /***
      *

@@ -4,14 +4,13 @@ import com.sprint.socialmeli.dto.post.*;
 import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Post;
 import com.sprint.socialmeli.entity.Seller;
-import com.sprint.socialmeli.entity.User;
 import com.sprint.socialmeli.exception.BadRequestException;
 import com.sprint.socialmeli.exception.NotFoundException;
 import com.sprint.socialmeli.mappers.PostMapper;
 import com.sprint.socialmeli.repository.post.IPostRepository;
 import com.sprint.socialmeli.repository.user.IUsersRepository;
+import com.sprint.socialmeli.service.user.IUsersService;
 import com.sprint.socialmeli.utils.DateOrderType;
-import com.sprint.socialmeli.utils.UserChecker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
@@ -28,6 +27,9 @@ public class PostServiceImpl implements IPostService {
     @Autowired
     IUsersRepository usersRepository;
 
+    @Autowired
+    IUsersService usersService;
+
     /**
      * @param postDTO A DTO with the post to create
      * @throws BadRequestException if the seller id of the post not exists
@@ -35,7 +37,7 @@ public class PostServiceImpl implements IPostService {
      */
     @Override
     public Integer createPost(PostDTO postDTO) {
-        UserChecker.checkAndGetSeller(postDTO.getUser_id());
+        usersService.checkAndGetSeller(postDTO.getUser_id());
         Post newPost = PostMapper.mapToEntity(postDTO);
         this.postRepository.save(newPost, postDTO.getUser_id());
 
@@ -53,7 +55,7 @@ public class PostServiceImpl implements IPostService {
      */
     @Override
     public FollowedProductsResponseDTO getFollowedProductsList(Integer customer_id, String order){
-        Customer customer = UserChecker.checkAndGetCustomer(customer_id);
+        Customer customer = usersService.checkAndGetCustomer(customer_id);
 
         if(!isValidOrderType(order)){
             throw new BadRequestException("Invalid order type: " + order);
@@ -89,7 +91,7 @@ public class PostServiceImpl implements IPostService {
     @Override
     public Integer createPromoPost(PostPromoRequestDTO postPromo) {
 
-        Seller seller = UserChecker.checkAndGetSeller(postPromo.getUser_id());
+        Seller seller = usersService.checkAndGetSeller(postPromo.getUser_id());
 
         Post post = PostMapper.mapPromoPostRequestToPost(postPromo);
 
@@ -108,14 +110,14 @@ public class PostServiceImpl implements IPostService {
     @Override
     public PostPromoCountResponseDTO getPostPromoCount(int sellerId) {
 
-        Seller seller = UserChecker.checkAndGetSeller(sellerId);
+        Seller seller = usersService.checkAndGetSeller(sellerId);
 
         int countOfPromoPosts = postRepository.findPromoPostsBySellerId(sellerId).size();
 
         return createPostPromoCountDto(seller, countOfPromoPosts);
     }
 
-    // US00012. INDIVIDUAL BONUS
+    // US00012. INDIVIDUAL EXTRA
 
     /***
      *
@@ -125,7 +127,7 @@ public class PostServiceImpl implements IPostService {
     @Override
     public PostPromoListResponseDTO getPostPromoList(int sellerId) {
 
-        Seller seller = UserChecker.checkAndGetSeller(sellerId);
+        Seller seller = usersService.checkAndGetSeller(sellerId);
 
         List<PostPromoDTO> postPromosDto = postRepository.findPromoPostsBySellerId(sellerId)
                 .stream().map(p -> mapPostToPostPromoDto(p, sellerId)).toList();
