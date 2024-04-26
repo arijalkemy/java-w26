@@ -62,4 +62,15 @@ public class UserRepositoryImpl implements IUserRepository {
         customer.getFollowed().add(seller);
     }
 
+    @Override
+    public void updateUser(User user) {
+        for (int i = 0; i < listOfUser.size(); i++) {
+            if(listOfUser.get(i).getUserId() == user.getUserId()){
+                listOfUser.set(i, user);
+                break;
+            }
+
+        }
+    }
+
 }

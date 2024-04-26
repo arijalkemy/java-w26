@@ -1,5 +1,6 @@
 package com.meli.be_java_hisp_w26_g09.controller;
 
+import com.meli.be_java_hisp_w26_g09.dto.RoleDTO;
 import com.meli.be_java_hisp_w26_g09.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,5 +53,11 @@ public class UserController {
     public ResponseEntity<?> getFollowedCount(@PathVariable Integer userId) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(userService.getFollowedCount(userId));
+    }
+
+    @PutMapping("/{userId}/registrer-as-seller")
+    public ResponseEntity<?> putResgistrerAsSeller(@PathVariable Integer userId,
+                                                   @RequestBody RoleDTO role){
+        return ResponseEntity.status(HttpStatus.OK).body(userService.customertToSeller(userId, role));
     }
 }

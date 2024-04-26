@@ -14,4 +14,6 @@ public interface IUserRepository {
     void unfollowUser(User userWhoUnfollow, User userToUnfollow);
 
     void addFollowed(User customer, User seller);
+
+    void updateUser(User user);
 }

@@ -15,4 +15,5 @@ public interface IPostService {
     PostDTO findPostById(Integer id);
     UserDTO findPromoPostBySeller(Integer id);
     ResponseDTO updatePost(Integer id, PostDTO post);
+    ResponseDTO removePost(Integer id);
 }

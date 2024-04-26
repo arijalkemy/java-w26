@@ -149,6 +149,10 @@ public class PostServiceImpl implements IPostService {
             throw new BadRequestException("Must include a valid discount");
 
         Post postNew = postRepository.findPostById(idPost);
+        if(postNew==null)
+            throw new BadRequestException("This post doesn't exist");
+        if(postNew.getHasPromo()==true)
+            throw new BadRequestException("This post already is a promo");
         postNew.setHasPromo(true);
         postNew.setDiscount(post.getDiscount());
         postNew.setId(idPost);
@@ -184,6 +188,8 @@ public class PostServiceImpl implements IPostService {
 
     @Override
     public ResponseDTO updatePost(Integer id, PostDTO post) {
+        if(post.getPostId()!=null)
+            throw new BadRequestException("Cannot update the post id");
         Post postNew = postRepository.findPostById(id);
         postNew = postMapper.mergePostDTOToPost(post, postNew);
         postNew.setId(id);
@@ -191,8 +197,18 @@ public class PostServiceImpl implements IPostService {
             throw new BadRequestException("The price cannot be negative");
         if(postNew.getCategory()<0)
             throw new BadRequestException("The category isn't valid");
+        if(postNew.getDiscount()>1 || postNew.getDiscount()<=0)
+            throw new BadRequestException("Must include a valid discount");
         postRepository.updatePost(postNew);
         return new ResponseDTO("Post has been updated correctly");
+    }
+
+    @Override
+    public ResponseDTO removePost(Integer id) {
+        if(postRepository.findPostById(id)==null)
+            throw new BadRequestException("The post doesn't exist");
+        postRepository.deletePost(id);
+        return new ResponseDTO("Post has been deleted");
     }
 
 

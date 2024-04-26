@@ -14,4 +14,6 @@ public interface IPostRepository {
     void updatePost(Post post);
 
     Post findPostById(Integer id);
+
+    void deletePost(Integer id);
 }

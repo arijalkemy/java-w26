@@ -1,6 +1,7 @@
 package com.meli.be_java_hisp_w26_g09.service;
 
 import com.meli.be_java_hisp_w26_g09.dto.ResponseDTO;
+import com.meli.be_java_hisp_w26_g09.dto.RoleDTO;
 import com.meli.be_java_hisp_w26_g09.dto.UserDTO;
 
 import java.util.List;
@@ -22,5 +23,7 @@ public interface IUserService {
     ResponseDTO follow(Integer userId, Integer userIdToFollow);
 
     UserDTO getFollowedCount(Integer id);
+
+    ResponseDTO customertToSeller(Integer id, RoleDTO role);
 
 }

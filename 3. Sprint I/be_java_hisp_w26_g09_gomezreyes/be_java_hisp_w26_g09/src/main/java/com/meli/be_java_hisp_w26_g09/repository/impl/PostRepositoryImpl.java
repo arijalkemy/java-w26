@@ -68,4 +68,14 @@ public class PostRepositoryImpl implements IPostRepository {
     public Post findPostById(Integer id) {
         return listOfPost.stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
     }
+
+    @Override
+    public void deletePost(Integer id) {
+        for (int i = 0; i < listOfPost.size(); i++) {
+            if (listOfPost.get(i).getId().equals(id)) {
+                listOfPost.remove(i);
+                break;
+            }
+        }
+    }
 }

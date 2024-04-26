@@ -61,4 +61,9 @@ public class PostController {
     public ResponseEntity<?> putUpdatePostToPromoPost(@PathVariable Integer postId, @RequestBody PostDTO post){
         return ResponseEntity.status(HttpStatus.OK).body(postService.updatePostToPromoPost(postId,post));
     }
+
+    @DeleteMapping("/post/{postId}/delete")
+    public ResponseEntity<?> deletePost(@PathVariable Integer postId){
+        return ResponseEntity.status(HttpStatus.OK).body(postService.removePost(postId));
+    }
 }

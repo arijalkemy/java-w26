@@ -1,18 +1,21 @@
 package com.meli.be_java_hisp_w26_g09.service.impl;
 
 import com.meli.be_java_hisp_w26_g09.dto.ResponseDTO;
+import com.meli.be_java_hisp_w26_g09.dto.RoleDTO;
 import com.meli.be_java_hisp_w26_g09.dto.UserDTO;
 import com.meli.be_java_hisp_w26_g09.entity.Role;
 import com.meli.be_java_hisp_w26_g09.entity.User;
 import com.meli.be_java_hisp_w26_g09.exception.BadRequestException;
 import com.meli.be_java_hisp_w26_g09.exception.NotContentFollowedException;
 import com.meli.be_java_hisp_w26_g09.exception.NotFoundException;
+import com.meli.be_java_hisp_w26_g09.util.mapper.RoleMapper;
 import com.meli.be_java_hisp_w26_g09.util.mapper.UserMapper;
 import com.meli.be_java_hisp_w26_g09.repository.IUserRepository;
 import com.meli.be_java_hisp_w26_g09.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
 import java.util.Optional;
@@ -67,6 +70,21 @@ public class UserServiceImpl implements IUserService {
         user.setFollowersCount(user.getFollowers().size());
         user.setFollowers(null);
         return user;
+    }
+
+    @Override
+    public ResponseDTO customertToSeller(Integer id, RoleDTO role) {
+        RoleMapper roleMapper = new RoleMapper();
+        Optional<User>  userToUpdate = userRepository.findById(id);
+        if(userToUpdate.isEmpty())
+            throw new BadRequestException("This id is not related with a register user");
+        if(userToUpdate.get().getRole().getIdRole().equals(Role.ID_SELLER))
+            throw new BadRequestException("The user already is a seller");
+        userToUpdate.get().setRole(roleMapper.roleDTOToRole(role));
+        userToUpdate.get().setFollowed(new ArrayList<>());
+        userToUpdate.get().setUserId(id);
+        userRepository.updateUser(userToUpdate.get());
+        return new ResponseDTO("this customer is now a seller");
     }
 
 
