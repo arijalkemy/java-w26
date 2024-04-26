@@ -1,0 +1,9 @@
+org.example.social_meli
+org.example.social_meli.controller
+org.example.social_meli.dto
+org.example.social_meli.exceptions
+org.example.social_meli.model
+org.example.social_meli.repository
+org.example.social_meli.repository.impl
+org.example.social_meli.services
+org.example.social_meli.services.impl
