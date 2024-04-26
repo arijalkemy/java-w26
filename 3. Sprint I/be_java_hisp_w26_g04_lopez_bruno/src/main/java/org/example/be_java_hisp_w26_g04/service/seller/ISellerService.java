@@ -19,5 +19,5 @@ public interface ISellerService {
 
   PromotionsCountByUserResponseDTO getCountPromoByUser(int userId);
 
-  List<PromotionResponseDTO> getPromotionsResponseDTOByUserId(int userId);
+  PromotionResponseDTO getPromotionsResponseDTOByUserId(int userId);
 }

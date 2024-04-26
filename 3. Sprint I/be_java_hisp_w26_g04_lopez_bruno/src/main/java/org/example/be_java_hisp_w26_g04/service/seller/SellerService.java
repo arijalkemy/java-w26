@@ -184,30 +184,30 @@ public class SellerService implements ISellerService {
     }
 
     private List<Promotion> getPromotionsByUserId(int userId){
-            Set<Promotion> promotions = promotionRepository.findAll();
-            return promotions.stream().filter(p -> p.getUserId() == userId).toList();
+        Set<Promotion> promotions = promotionRepository.findAll();
+        return promotions.stream().filter(p -> p.getUserId() == userId).toList();
     }
 
 
     @Override
-    public List<PromotionResponseDTO> getPromotionsResponseDTOByUserId(int userId) {
+    public PromotionResponseDTO getPromotionsResponseDTOByUserId(int userId) {
         Seller seller = ObjectExist.getObjectFromOptional(sellerRepository.findById(userId));
         List<Post> posts = sellerRepository.getPosts();
         String userName = seller.getUserName();
 
-        Set<Promotion> promotions = promotionRepository.findAll();
         List<Promotion> promotionsById = getPromotionsByUserId(userId);
-
-        return promotionsById.stream().map(
+        List<PostResponseDTO> postsDTOs = promotionsById.stream().map(
                 promotion -> {
                     Post post = getPostFromPromotion(posts, promotion);
-                    return createPromotionResponseDTOFromUserIdAndPostAndUserName(
-                            seller.getUserId(),
-                            userName,
-                            post
-                    );
+                    return createPromotionResponseDTOFromPost(post);
                 }
         ).toList();
+
+        return new PromotionResponseDTO(
+                userId,
+                userName,
+                postsDTOs
+        );
     }
 
     private Post getPostFromPromotion(List<Post> posts, Promotion promotion ){
@@ -216,18 +216,10 @@ public class SellerService implements ISellerService {
         return ObjectExist.getObjectFromOptional(optionalPost);
     }
 
-    private PromotionResponseDTO createPromotionResponseDTOFromUserIdAndPostAndUserName(
-            int userId, String userName, Post post
+    private PostResponseDTO createPromotionResponseDTOFromPost(
+            Post post
     ){
-        PostResponseDTO postDTO = objectMapper.convertValue(post, PostResponseDTO.class);
-        return new PromotionResponseDTO(
-                userId,
-                userName,
-                postDTO
-        );
-
-
-
+        return objectMapper.convertValue(post, PostResponseDTO.class);
     }
 
 }
