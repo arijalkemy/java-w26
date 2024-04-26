@@ -8,6 +8,7 @@ import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.BadRequestExcepti
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.NotFoundException;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IUserRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IUserService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -149,7 +150,9 @@ public class UserServiceImpl implements IUserService {
             List<PostDTO> postList = new ArrayList<>();
             ObjectMapper mapper = JsonMapper.builder()
                     .addModule(new JavaTimeModule())
+                    .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false)
                     .build();
+
             for (Post post : user.getPosts()) {
                 postList.add(mapper.convertValue(post, PostDTO.class));
             }

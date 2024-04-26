@@ -126,12 +126,23 @@ public class ProductServiceImpl implements IProductService {
         return new ResponseProductPromoCountDTO(user.getUserId(),user.getUserName(),postList.size());
     }
 
+
+    /**
+     * Retrieves the count of posts for each product within the last two weeks.
+     * @return A list of {@link ProductPostCountDTO} objects containing the product ID, name, and count of posts.
+     */
+
     @Override
     public List<ProductPostCountDTO> productPostCount() {
-        List<Product> postList = postRepository.getAll().stream().map(Post::getProduct).toList();
+        LocalDate twoWeeksAgo = LocalDate.now().minusDays(14);
+        List<Product> postList = postRepository.getAll()
+                .stream().filter(x->x.getDate().isAfter(twoWeeksAgo)&& x.getDate().isBefore(LocalDate.now()))
+                .map(Post::getProduct).toList();
+
         List<ProductPostCountDTO> productPostCountDTOList = new ArrayList<>();
-        
-        Map<Integer,Long> productCountMap = postList.stream().collect(Collectors.groupingBy(Product::getProductId, Collectors.counting()));
+
+        Map<Integer,Long> productCountMap = postList.stream()
+                .collect(Collectors.groupingBy(Product::getProductId, Collectors.counting()));
 
         for (Map.Entry<Integer, Long> entry : productCountMap.entrySet()) {
             Product product = postList.stream().filter(p -> p.getProductId() == entry.getKey()).findFirst().orElse(null);
@@ -140,6 +151,7 @@ public class ProductServiceImpl implements IProductService {
             }
         }
 
+        productPostCountDTOList.sort(Comparator.comparing(ProductPostCountDTO::getProductCount).reversed());
         return productPostCountDTOList;
     }
 }
