@@ -1,4 +1,4 @@
-package org.mercadolibre.NotNullTeam.service;
+package org.mercadolibre.NotNullTeam.service.internal;
 
 import org.mercadolibre.NotNullTeam.model.Seller;
 

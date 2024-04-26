@@ -1,6 +1,11 @@
 package org.mercadolibre.NotNullTeam.mapper;
 
-import org.mercadolibre.NotNullTeam.DTO.response.*;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseWithNotSellerListDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.post.PostPromoResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerPromosCountResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerPromosResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerResponseDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerResponseWithNotBuyerListDTO;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.model.Seller;
 
@@ -25,7 +30,7 @@ public class SellerMapper {
     }
 
     public static SellerPromosResponse sellerToSellerPromosResponse(Seller seller,
-                                                                   List<Post> posts) {
+                                                                    List<Post> posts) {
         List<PostPromoResponse> postPromoResponses = posts
                 .stream()
                 .map(PostMapper::toPostPromoResponse)
@@ -40,7 +45,7 @@ public class SellerMapper {
     }
 
     public static SellerPromosCountResponse sellerToSellerPromosCountResponse(Seller seller,
-                                                                        int promosCount) {
+                                                                              int promosCount) {
         return SellerPromosCountResponse
                 .builder()
                 .user_id(seller.getUser().getId())

@@ -1,18 +1,17 @@
-package org.mercadolibre.NotNullTeam.DTO.request;
+package org.mercadolibre.NotNullTeam.DTO.request.post;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.mercadolibre.NotNullTeam.DTO.request.product.ProductDTO;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PostPromoRequestDto {
+public class PostDTO {
     private Long user_id;
     private String date;
-    private ProductDTO product;
+    ProductDTO product;
     private int category;
-    private double price;
-    private boolean has_promo;
-    private double discount;
+    private Double price;
 }

@@ -50,4 +50,9 @@ public class PostRepositoryImpl implements IPostRepository {
         else return posts.stream().filter(Post::getHasPromo).toList();
 
     }
+
+    @Override
+    public List<Post> getAll() {
+        return  posts.values().stream().flatMap(List::stream).toList();
+    }
 }

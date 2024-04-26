@@ -1,9 +1,9 @@
 package org.mercadolibre.NotNullTeam.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseWithNotSellerListDTO;
-import org.mercadolibre.NotNullTeam.service.IBuyerService;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseWithNotSellerListDTO;
+import org.mercadolibre.NotNullTeam.service.external.IBuyerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

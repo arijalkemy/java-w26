@@ -1,11 +1,11 @@
 package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
-import org.mercadolibre.NotNullTeam.DTO.request.PostPromoRequestDto;
-import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerPromosCountResponse;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerPromosResponse;
+import org.mercadolibre.NotNullTeam.DTO.request.post.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.post.PostPromoRequestDto;
+import org.mercadolibre.NotNullTeam.DTO.response.post.PostsByFollowedDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerPromosCountResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerPromosResponse;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
 import org.mercadolibre.NotNullTeam.mapper.PostMapper;
 import org.mercadolibre.NotNullTeam.mapper.ProductMapper;
@@ -17,8 +17,9 @@ import org.mercadolibre.NotNullTeam.model.Seller;
 import org.mercadolibre.NotNullTeam.repository.IBuyerRepository;
 import org.mercadolibre.NotNullTeam.repository.IPostRepository;
 import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
-import org.mercadolibre.NotNullTeam.service.IPostService;
-import org.mercadolibre.NotNullTeam.service.ISellerServiceInternal;
+import org.mercadolibre.NotNullTeam.service.external.IPostService;
+import org.mercadolibre.NotNullTeam.service.internal.IPostServiceInternal;
+import org.mercadolibre.NotNullTeam.service.internal.ISellerServiceInternal;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -27,7 +28,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class PostServiceImpl implements IPostService {
+public class PostServiceImpl implements IPostService, IPostServiceInternal {
     final IPostRepository iPostRepository;
     final ISellerRepository iSellerRepository;
     final IBuyerRepository iBuyerRepository;
@@ -93,5 +94,10 @@ public class PostServiceImpl implements IPostService {
         List<Post> posts = iPostRepository.getPostsPromoBySellerId(userId);
 
         return SellerMapper.sellerToSellerPromosResponse(seller, posts);
+    }
+
+    @Override
+    public List<Post> findAll() {
+        return iPostRepository.getAll();
     }
 }

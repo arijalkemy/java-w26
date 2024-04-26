@@ -9,5 +9,5 @@ public interface IPostRepository {
     List<Post> getPostsByWeeksAgo(int weeks, Long sellerId);
     List<Post> getPostsBySellerId(Long sellerId);
     List<Post> getPostsPromoBySellerId(Long sellerId);
-
+    List<Post> getAll();
 }

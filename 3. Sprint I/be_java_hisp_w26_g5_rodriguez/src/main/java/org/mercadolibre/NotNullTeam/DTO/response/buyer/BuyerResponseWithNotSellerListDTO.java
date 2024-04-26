@@ -1,4 +1,4 @@
-package org.mercadolibre.NotNullTeam.DTO.response;
+package org.mercadolibre.NotNullTeam.DTO.response.buyer;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

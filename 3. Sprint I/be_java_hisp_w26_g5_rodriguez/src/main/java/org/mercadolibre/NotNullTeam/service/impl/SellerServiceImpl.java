@@ -1,16 +1,16 @@
 package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerFollowersCountDto;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerResponseDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerFollowersCountDto;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerResponseDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
 import org.mercadolibre.NotNullTeam.mapper.BuyerMapper;
 import org.mercadolibre.NotNullTeam.mapper.SellerMapper;
 import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Seller;
 import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
-import org.mercadolibre.NotNullTeam.service.ISellerService;
-import org.mercadolibre.NotNullTeam.service.ISellerServiceInternal;
+import org.mercadolibre.NotNullTeam.service.external.ISellerService;
+import org.mercadolibre.NotNullTeam.service.internal.ISellerServiceInternal;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

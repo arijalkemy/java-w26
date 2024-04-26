@@ -1,7 +1,8 @@
-package org.mercadolibre.NotNullTeam.DTO.response;
+package org.mercadolibre.NotNullTeam.DTO.response.buyer;
 
 
 import lombok.*;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerResponseWithNotBuyerListDTO;
 
 import java.util.List;
 

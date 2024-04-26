@@ -1,7 +1,7 @@
-package org.mercadolibre.NotNullTeam.service;
+package org.mercadolibre.NotNullTeam.service.external;
 
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseWithNotSellerListDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseWithNotSellerListDTO;
 
 import java.util.List;
 

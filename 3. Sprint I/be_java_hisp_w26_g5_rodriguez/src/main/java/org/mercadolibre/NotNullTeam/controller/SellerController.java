@@ -1,8 +1,8 @@
 package org.mercadolibre.NotNullTeam.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerFollowersCountDto;
-import org.mercadolibre.NotNullTeam.service.ISellerService;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerFollowersCountDto;
+import org.mercadolibre.NotNullTeam.service.external.ISellerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

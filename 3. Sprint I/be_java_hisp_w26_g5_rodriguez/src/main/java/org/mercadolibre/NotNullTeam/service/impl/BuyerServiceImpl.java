@@ -1,8 +1,8 @@
 package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.BuyerResponseWithNotSellerListDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseWithNotSellerListDTO;
 import org.mercadolibre.NotNullTeam.exception.error.NotFoundException;
 import org.mercadolibre.NotNullTeam.exception.error.UserAlreadyFollowedException;
 import org.mercadolibre.NotNullTeam.mapper.BuyerMapper;
@@ -11,8 +11,8 @@ import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Seller;
 import org.mercadolibre.NotNullTeam.repository.IBuyerRepository;
 import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
-import org.mercadolibre.NotNullTeam.service.IBuyerService;
-import org.mercadolibre.NotNullTeam.service.ISellerServiceInternal;
+import org.mercadolibre.NotNullTeam.service.external.IBuyerService;
+import org.mercadolibre.NotNullTeam.service.internal.ISellerServiceInternal;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;

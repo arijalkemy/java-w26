@@ -1,7 +1,7 @@
-package org.mercadolibre.NotNullTeam.service;
+package org.mercadolibre.NotNullTeam.service.external;
 
-import org.mercadolibre.NotNullTeam.DTO.response.SellerFollowersCountDto;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerResponseDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerFollowersCountDto;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerResponseDTO;
 
 public interface ISellerService {
     SellerFollowersCountDto getFollowersCount(Long userId);

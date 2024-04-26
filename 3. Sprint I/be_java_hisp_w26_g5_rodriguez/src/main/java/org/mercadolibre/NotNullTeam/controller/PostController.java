@@ -1,12 +1,12 @@
 package org.mercadolibre.NotNullTeam.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
-import org.mercadolibre.NotNullTeam.DTO.request.PostPromoRequestDto;
-import org.mercadolibre.NotNullTeam.DTO.response.PostCreatedDto;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerPromosCountResponse;
-import org.mercadolibre.NotNullTeam.DTO.response.SellerPromosResponse;
-import org.mercadolibre.NotNullTeam.service.IPostService;
+import org.mercadolibre.NotNullTeam.DTO.request.post.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.post.PostPromoRequestDto;
+import org.mercadolibre.NotNullTeam.DTO.response.post.PostCreatedDto;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerPromosCountResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerPromosResponse;
+import org.mercadolibre.NotNullTeam.service.external.IPostService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
