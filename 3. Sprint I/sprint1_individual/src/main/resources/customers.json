@@ -7,32 +7,32 @@
   {
     "user_id": 235,
     "user_name": "Bob",
-    "following": [104, 105, 106]
+    "following": [101, 104]
   },
   {
     "user_id": 236,
     "user_name": "Charlie",
-    "following": [107, 108, 109]
+    "following": [101, 102]
   },
   {
     "user_id": 237,
     "user_name": "David",
-    "following": [110, 101, 102]
+    "following": [104, 101, 102]
   },
   {
     "user_id": 238,
     "user_name": "Ella",
-    "following": [103, 104, 105]
+    "following": [103, 104, 101]
   },
   {
     "user_id": 239,
     "user_name": "Frank",
-    "following": [106, 107, 108]
+    "following": [101]
   },
   {
     "user_id": 240,
     "user_name": "Grace",
-    "following": [109, 110, 101]
+    "following": [101, 103, 104]
   },
   {
     "user_id": 241,
@@ -42,11 +42,11 @@
   {
     "user_id": 242,
     "user_name": "Ivy",
-    "following": [105, 106, 107]
+    "following": [101, 102, 103]
   },
   {
     "user_id": 243,
     "user_name": "Jack",
-    "following": [108, 109, 110]
+    "following": [101, 102, 104]
   }
 ]
