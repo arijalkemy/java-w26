@@ -1,9 +1,11 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.impl;
 
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ProductPostCountDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseProductPromoCountDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Post;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostsByFollowedUsersDTO;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Product;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.User;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.UserMinimalData;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.BadRequestException;
@@ -23,6 +25,8 @@ import java.util.Comparator;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements IProductService {
@@ -100,6 +104,12 @@ public class ProductServiceImpl implements IProductService {
         return new PostsByFollowedUsersDTO(userId, followedVendorsPostList);
     }
 
+
+    /**
+     * *Retrieves the count of promotional products associated with a user by their ID.
+     * @param userId user id
+     * @return  * @return A {@link ResponseProductPromoCountDTO} object containing the user ID, username, and count of promotional posts.
+     */
     @Override
     public ResponseProductPromoCountDTO productPromoCountByUserId(int userId) {
         User user = userRepository.findById(userId);
@@ -113,7 +123,23 @@ public class ProductServiceImpl implements IProductService {
             throw new BadRequestException("User with id " + userId + " does not have promo posts.");
         }
 
-
         return new ResponseProductPromoCountDTO(user.getUserId(),user.getUserName(),postList.size());
+    }
+
+    @Override
+    public List<ProductPostCountDTO> productPostCount() {
+        List<Product> postList = postRepository.getAll().stream().map(Post::getProduct).toList();
+        List<ProductPostCountDTO> productPostCountDTOList = new ArrayList<>();
+        
+        Map<Integer,Long> productCountMap = postList.stream().collect(Collectors.groupingBy(Product::getProductId, Collectors.counting()));
+
+        for (Map.Entry<Integer, Long> entry : productCountMap.entrySet()) {
+            Product product = postList.stream().filter(p -> p.getProductId() == entry.getKey()).findFirst().orElse(null);
+            if (product != null) {
+                productPostCountDTOList.add(new ProductPostCountDTO(product.getProductId(), product.getProductName(),  entry.getValue().intValue()));
+            }
+        }
+
+        return productPostCountDTOList;
     }
 }

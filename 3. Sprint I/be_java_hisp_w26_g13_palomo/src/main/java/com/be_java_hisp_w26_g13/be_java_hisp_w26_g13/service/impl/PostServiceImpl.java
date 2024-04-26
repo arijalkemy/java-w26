@@ -71,6 +71,14 @@ public class PostServiceImpl implements IPostService {
         return new ExceptionDto("The post has been successfully created");
     }
 
+    /**
+     * Creates a promotional post based on the provided CreatePostDTO object. This method validates the incoming data,
+     * specifically checking if the post has a promotion and if the discount is not zero. If these conditions are met,
+     * it delegates the creation of the post to the create method.
+     *
+     * @param postDTO The CreatePostDTO object containing data for creating the promotional post.
+     * @return An ExceptionDto object indicating the status of the operation.
+     */
     @Override
     public ExceptionDto createPromoPost(CreatePostDTO postDTO) {
 

@@ -21,19 +21,19 @@ public class ProductController {
     @Autowired
     IUserRepository userRepository;
 
-    @PostMapping ("/post")
-    public ResponseEntity<?> createPost(@RequestBody CreatePostDTO postDto){
+    @PostMapping("/post")
+    public ResponseEntity<?> createPost(@RequestBody CreatePostDTO postDto) {
         return new ResponseEntity<>(postService.create(postDto), HttpStatus.OK);
     }
 
     //us-0006
     @GetMapping("/followed/{userId}/list")
-    public ResponseEntity<?>followedVendorsLastPosts(@PathVariable int userId, @RequestParam(required = false)String order){
+    public ResponseEntity<?> followedVendorsLastPosts(@PathVariable int userId, @RequestParam(required = false) String order) {
         return new ResponseEntity<>(productService.getPostByFollowedUsers(userId, order), HttpStatus.OK);
     }
 
     @GetMapping("/test")
-    public  ResponseEntity<?> test(){
+    public ResponseEntity<?> test() {
         return new ResponseEntity<>(userRepository.getAll(), HttpStatus.OK);
     }
 
@@ -46,5 +46,11 @@ public class ProductController {
     @GetMapping("/promo-post/count")
     public ResponseEntity<?> productPromoCount(@RequestParam("user_id") int userId) {
         return new ResponseEntity<>(productService.productPromoCountByUserId(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<?> productPostCount()
+    {
+        return new ResponseEntity<>(productService.productPostCount(), HttpStatus.OK);
     }
 }

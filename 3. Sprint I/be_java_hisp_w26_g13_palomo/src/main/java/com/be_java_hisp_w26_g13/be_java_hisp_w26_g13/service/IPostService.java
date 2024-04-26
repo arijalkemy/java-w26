@@ -8,4 +8,5 @@ public interface IPostService {
 
     ExceptionDto create(CreatePostDTO postDto);
     ExceptionDto createPromoPost(CreatePostDTO postDTO);
+
 }
