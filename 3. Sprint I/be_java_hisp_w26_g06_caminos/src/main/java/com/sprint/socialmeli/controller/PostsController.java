@@ -45,8 +45,7 @@ public class PostsController {
     // US00010
     @PostMapping("/promo-post")
     public ResponseEntity<?> createPromoPost(@RequestBody PromoPostDTO post) {
-        postService.createPromoPost(post);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return new ResponseEntity<>(postService.createPromoPost(post), HttpStatus.OK);
     }
 
     // US00011

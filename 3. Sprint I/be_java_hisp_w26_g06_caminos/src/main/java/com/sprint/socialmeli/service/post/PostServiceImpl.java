@@ -118,10 +118,11 @@ public class PostServiceImpl implements IPostService {
 
     // US00010 INDIVIDUAL
     @Override
-    public void createPromoPost(PromoPostDTO promoPostDTO) {
+    public Integer createPromoPost(PromoPostDTO promoPostDTO) {
         UserChecker.checkAndGetSeller(promoPostDTO.getUser_id());
         Post newPost = PostMapper.mapToEntity(promoPostDTO);
         postRepository.save(newPost, promoPostDTO.getUser_id());
+        return newPost.getId();
     }
 
     // US00011
@@ -147,14 +148,11 @@ public class PostServiceImpl implements IPostService {
     }
 
     // BONUS
-    // Obtener todas las promos de un vendedor
     @Override
     public FollowedProductsResponseDTO getPromoPost(Integer sellerId) {
         UserChecker.checkAndGetSeller(sellerId);
-
         List<Post> promoPosts= postRepository.findPromoBySellerId(sellerId);
         List<PostDTO> promoPostResponseDTOList = new ArrayList<>();
-
         for(Post promoPost : promoPosts){
             promoPostResponseDTOList.add(mapPostToPromoPostResponseDto(promoPost, sellerId));
         }
