@@ -2,6 +2,8 @@ package com.javabootcamp.socialmeli.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.javabootcamp.socialmeli.dto.PostDto;
+import com.javabootcamp.socialmeli.dto.PostPromoDto;
+import com.javabootcamp.socialmeli.dto.ProductDto;
 import com.javabootcamp.socialmeli.model.Post;
 import com.javabootcamp.socialmeli.model.Product;
 import com.javabootcamp.socialmeli.model.User;
@@ -55,6 +57,37 @@ public class PostServiceImpl implements PostService {
                     .toList();
         }
         return postDtos;
+    }
+
+    @Override
+    public void addPostPromo(PostPromoDto postPromoDto) {
+        Post newPost = new Post();
+
+        //Búsqueda de usuario
+        User user = userService.searchUserById(postPromoDto.getIdUser());
+
+        //Mapeo de productDto a product
+        ProductDto productDto = postPromoDto.getProduct();
+        Product product = new Product();
+        product.setId(productDto.getId());
+        product.setType(productDto.getType());
+        product.setName(productDto.getName());
+        product.setNotes(productDto.getNotes());
+        product.setColor(productDto.getColor());
+        product.setBrand(productDto.getBrand());
+
+        Post post = new Post(
+                user,
+                CONTADOR.getAndIncrement(),
+                postPromoDto.getDate(),
+                product,
+                postPromoDto.getCategory(),
+                postPromoDto.getPrice(),
+                true,
+                postPromoDto.getDiscount());
+
+
+        postRepository.add(post);
     }
 
     @Override
