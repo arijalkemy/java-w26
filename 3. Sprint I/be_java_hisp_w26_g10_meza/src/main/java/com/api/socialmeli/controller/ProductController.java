@@ -7,9 +7,7 @@ import com.api.socialmeli.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductController {
@@ -27,5 +25,10 @@ public class ProductController {
     public ResponseEntity<?> promoPostPublication(@RequestBody PostWithPromoDto post){
         postService.postPromo(post);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/products/promo-post/count")
+    public ResponseEntity<?> countPromotionProducts(@RequestParam(name = "user") Integer user){
+        return new ResponseEntity<>(postService.getCountPromotionProducts(user), HttpStatus.OK);
     }
 }

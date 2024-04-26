@@ -4,6 +4,7 @@ import com.api.socialmeli.dto.PostWithPromoDto;
 import com.api.socialmeli.dto.PostsByFollowedDto;
 
 import com.api.socialmeli.dto.PostDto;
+import com.api.socialmeli.dto.ProductPromoCountDto;
 import com.api.socialmeli.entity.Post;
 import org.springframework.http.ResponseEntity;
 
@@ -14,4 +15,6 @@ public interface IPostService {
     PostDto publishPost(PostDto postDto);
 
     void postPromo(PostWithPromoDto post);
+
+    ProductPromoCountDto getCountPromotionProducts(Integer user_id);
 }

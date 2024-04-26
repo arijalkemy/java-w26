@@ -3,8 +3,10 @@ package com.api.socialmeli.service.impl;
 import com.api.socialmeli.dto.PostDto;
 import com.api.socialmeli.dto.PostWithPromoDto;
 import com.api.socialmeli.dto.PostsByFollowedDto;
+import com.api.socialmeli.dto.ProductPromoCountDto;
 import com.api.socialmeli.entity.Buyer;
 import com.api.socialmeli.entity.Post;
+import com.api.socialmeli.entity.Product;
 import com.api.socialmeli.entity.Seller;
 import com.api.socialmeli.exception.BadRequestException;
 import com.api.socialmeli.exception.NotFoundException;
@@ -22,6 +24,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements IPostService {
@@ -183,5 +186,34 @@ public class PostServiceImpl implements IPostService {
         postRepository.savePostWithPromo(post);
 
 
+    }
+
+    @Override
+    public ProductPromoCountDto getCountPromotionProducts(Integer user_id) {
+        List<Post> postList = postRepository.getAll();
+        ProductPromoCountDto productPromoCountDto = new ProductPromoCountDto();
+
+        boolean found = sellerRepository.getAll().stream().anyMatch(seller -> seller.getUser_id().equals(user_id));
+
+        if (!found) {
+            throw new BadRequestException("No hay vendedor con el id: " + user_id);
+        }
+
+        Integer promoCount = postList.stream()
+                .filter(post -> post.getUser_id().equals(user_id) && post.isHas_promo())
+                .collect(Collectors.toList()).size();
+
+        List<Seller> sellerList = sellerRepository.getAll();
+
+        for (Seller seller : sellerList){
+            if (seller.getUser_id().equals(user_id)){
+                productPromoCountDto.setUser_id(seller.getUser_id());
+                productPromoCountDto.setUser_name(seller.getUser_name());
+                productPromoCountDto.setPromo_products_count(promoCount);
+                break;
+            }
+        }
+
+        return productPromoCountDto;
     }
 }
