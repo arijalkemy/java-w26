@@ -1,0 +1,62 @@
+[
+  {
+    "user_id": 1,
+    "post_id": 100,
+    "date": "2021-04-29",
+    "product": {
+      "product_id": 1,
+      "product_name": "Silla Gamer",
+      "type": "Gamer",
+      "brand": "Racer",
+      "color": "Red & Black",
+      "notes": "Special Edition"
+    },
+    "category": 100,
+    "price": 1500.50
+  },
+  {
+    "user_id": 2,
+    "post_id": 101,
+    "date": "2021-04-30",
+    "product": {
+      "product_id": 2,
+      "product_name": "Teclado Mecánico",
+      "type": "Teclado",
+      "brand": "Corsair",
+      "color": "Black",
+      "notes": "RGB"
+    },
+    "category": 101,
+    "price": 99.99
+  },
+  {
+    "user_id": 3,
+    "post_id": 102,
+    "date": "2021-05-01",
+    "product": {
+      "product_id": 3,
+      "product_name": "Monitor Curvo",
+      "type": "Monitor",
+      "brand": "Samsung",
+      "color": "Black",
+      "notes": "27 pulgadas"
+    },
+    "category": 102,
+    "price": 399.99
+  },
+  {
+    "user_id": 5,
+    "post_id": 103,
+    "date": "2021-05-02",
+    "product": {
+      "product_id": 4,
+      "product_name": "Mouse Inalámbrico",
+      "type": "Mouse",
+      "brand": "Logitech",
+      "color": "Gray",
+      "notes": "Con batería recargable"
+    },
+    "category": 103,
+    "price": 49.99
+  }
+]
