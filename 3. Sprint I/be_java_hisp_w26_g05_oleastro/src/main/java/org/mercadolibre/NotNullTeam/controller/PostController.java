@@ -19,18 +19,28 @@ public class PostController {
 
     @PostMapping("/post")
     public ResponseEntity<?> createPost(@RequestBody PostDTO postDTO) {
-        iPostService.createPost(postDTO);
+        Long postId = iPostService.createPost(postDTO);
         return new ResponseEntity<>(
-                new PostCreatedDto("Post created successfully", LocalDate.now()), HttpStatus.CREATED);
+                new PostCreatedDto(postId, "Post created successfully", LocalDate.now()), HttpStatus.CREATED);
     }
 
     @PostMapping("/promo-post")
     public ResponseEntity<?> createPromoPost(@RequestBody PromoPostDTO promoPostDTO) {
-        iPostService.createPost(promoPostDTO);
+        Long promoPostId = iPostService.createPost(promoPostDTO);
         return new ResponseEntity<>(
-                new PostCreatedDto("Promo post created successfully", LocalDate.now()),
+                new PostCreatedDto(
+                        promoPostId,
+                        "Promo post created successfully",
+                        LocalDate.now()),
                 HttpStatus.CREATED
         );
+    }
+
+    @GetMapping("/followed/{userId}/list")
+    public ResponseEntity<?> getPostsByWeeksAgo(
+            @PathVariable Long userId,
+            @RequestParam(required = false, defaultValue = "date_desc") String order){
+        return ResponseEntity.ok(iPostService.getPostsByWeeksAgo(userId, order));
     }
 
     @GetMapping("/promo-post/count")
@@ -40,12 +50,5 @@ public class PostController {
         return ResponseEntity.ok(
                 iPostService.getPromoPostCount(userId)
         );
-    }
-
-    @GetMapping("/followed/{userId}/list")
-    public ResponseEntity<?> getPostsBySellerTwoWeeksAgo(
-            @PathVariable Long userId,
-            @RequestParam(required = false, defaultValue = "date_desc") String order){
-        return ResponseEntity.ok(iPostService.getPostsBySellerTwoWeeksAgo(userId, order));
     }
 }

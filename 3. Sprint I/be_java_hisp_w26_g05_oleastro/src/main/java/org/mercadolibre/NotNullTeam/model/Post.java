@@ -1,8 +1,6 @@
 package org.mercadolibre.NotNullTeam.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
@@ -30,14 +28,14 @@ public class Post {
         currentId++;
     }
 
-    public Post(Seller seller, LocalDate date, Product product, int category, Double price, Double discount) {
+    public Post(Seller seller, LocalDate date, Product product, int category, Double price, boolean hasPromo,Double discount) {
         this.id = currentId;
         this.seller = seller;
         this.date = date;
         this.product = product;
         this.category = category;
         this.price = price;
-        this.hasPromo = true;
+        this.hasPromo = hasPromo;
         this.discount = discount;
         currentId++;
     }

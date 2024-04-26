@@ -4,12 +4,10 @@ import org.mercadolibre.NotNullTeam.DTO.request.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.PromoPostDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.PostsByFollowedDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.SellerPromoPostCountDTO;
-import org.mercadolibre.NotNullTeam.model.Seller;
 
 public interface IPostService {
-    void createPost(PostDTO postDTO);
-    void createPost(PromoPostDTO promoPostDTO);
-    PostsByFollowedDTO getPostsBySellerTwoWeeksAgo(Long userId, String order);
-
+    Long createPost(PostDTO postDTO);
+    PostsByFollowedDTO getPostsByWeeksAgo(Long userId, String order);
+    Long createPost(PromoPostDTO promoPostDTO);
     SellerPromoPostCountDTO getPromoPostCount(Long sellerId);
 }
