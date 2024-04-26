@@ -1,5 +1,16 @@
 # Sprint 1 - SocialMeli - Entrega individual
 
+## Tabla de contenidos
+
+- [Objetivo](#objetivo)
+- [Cambios en las entidades](#cambios-en-las-entidades)
+- [Endpoints](#endpoints)
+  - [US 0010 - Crear una nueva publicación en promoción](#us-0010---crear-una-nueva-publicación-en-promoción)
+  - [US 0011 - Obtener la cantidad de productos en promoción de un vendedor](#us-0011---obtener-la-cantidad-de-productos-en-promoción-de-un-vendedor)
+  - [Extra](#extra)
+    - [Obtener un listado de todas las publicaciones](#obtener-un-listado-de-todas-las-publicaciones)
+- [Anotaciones](#anotaciones)
+
 ## Objetivo
 
 El objetivo de esta entrega es agregar funcionalidad extra a la API de __SocialMeli__ que fue previamente desarrollada en grupo.
