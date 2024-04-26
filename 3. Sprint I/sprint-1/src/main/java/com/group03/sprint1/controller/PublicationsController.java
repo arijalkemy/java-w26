@@ -60,7 +60,7 @@ public class PublicationsController {
     }
 
     @GetMapping("/promo-post/count")
-    public ResponseEntity<SellerPromoPublicationsResponseDTO> getPromoPostCount(@RequestParam(required = true) Integer userId) {
+    public ResponseEntity<SellerPromoPublicationsResponseDTO> getPromoPostCount(@RequestParam("user_id") Integer userId) {
         SellerPromoPublicationsResponseDTO responseDTO = new SellerPromoPublicationsResponseDTO();
 
         String userName = usersService.getSellerUserNameById(userId);
@@ -73,5 +73,18 @@ public class PublicationsController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
+    @GetMapping("/promo-post/list")
+    public ResponseEntity<SellerPromoPublicationsResponseDTO> getPublicationsInPromoBySeller(@RequestParam("user_id") Integer userId) {
+        SellerPromoPublicationsResponseDTO responseDTO = new SellerPromoPublicationsResponseDTO();
+
+        String userName = usersService.getSellerUserNameById(userId);
+        List<PublicationDTO> publicationsWithPromo =  productsService.findPublicationsInPromoBySeller(userId);
+
+        responseDTO.setUserId(userId);
+        responseDTO.setUserName(userName);
+        responseDTO.setPublications(publicationsWithPromo);
+
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
 
 }

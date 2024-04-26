@@ -123,4 +123,28 @@ public class PublicationsServiceImpl implements IPublicationsService {
 
         return sellerPublicationsCount;
     }
+
+    @Override
+    public List<PublicationDTO> findPublicationsInPromoBySeller(Integer userId){
+        Seller seller = usersRepository.findSellerById(userId);
+        if(Utils.isNull(seller)) {
+            throw new NotFoundException("There is not seller with ID: " + userId);
+        }
+        if(seller.getPublications().isEmpty()) {
+            throw new BadRequestException("There are no publications with the specified user.");
+        }
+
+        List<PublicationDTO> sellerPublicationsWithPromo = seller.getPublications().stream()
+                .filter(publication -> Utils.isNotNull(publication.getHasPromo()))
+                .filter(publication -> publication.getHasPromo())
+                .map(publication -> objectMapper.convertValue(publication, PublicationDTO.class))
+                .collect(Collectors.toList());
+
+        if(sellerPublicationsWithPromo.isEmpty()) {
+            throw new NotFoundException("There are no publications with promo for the specified user.");
+        }
+
+        return sellerPublicationsWithPromo;
+
+    }
 }

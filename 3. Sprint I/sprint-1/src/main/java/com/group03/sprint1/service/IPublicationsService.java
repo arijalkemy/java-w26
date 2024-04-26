@@ -12,4 +12,6 @@ public interface IPublicationsService {
     SellerDTO createPublicationWithPromo(PublicationDTO publicationDTO);
 
     Long countPublicationsWithPromoByUser(Integer userId);
+
+    List<PublicationDTO> findPublicationsInPromoBySeller(Integer userId);
 }
