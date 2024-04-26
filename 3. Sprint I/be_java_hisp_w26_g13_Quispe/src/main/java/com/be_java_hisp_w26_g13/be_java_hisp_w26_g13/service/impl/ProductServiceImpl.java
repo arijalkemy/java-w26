@@ -10,6 +10,7 @@ import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.NotFoundException
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IPostRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IUserRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IProductService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -66,6 +67,7 @@ public class ProductServiceImpl implements IProductService {
     public PostsByFollowedUsersDTO getPostByFollowedUsers(int userId, String order) {
         ObjectMapper mapper = JsonMapper.builder()
                 .addModule(new JavaTimeModule())
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false)
                 .build();
         User user = userRepository.findById(userId);
         if (user == null) {

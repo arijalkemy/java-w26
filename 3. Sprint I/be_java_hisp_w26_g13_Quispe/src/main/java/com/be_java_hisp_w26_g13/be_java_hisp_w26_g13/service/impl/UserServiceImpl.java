@@ -1,10 +1,6 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.impl;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.FullUserDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseFollowDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseFollowedByUserDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseFollowersCountDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseUserFollowersDTO;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.UserDTO;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.*;
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Post;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.User;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.UserMinimalData;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.InvalidOperation;
@@ -12,6 +8,8 @@ import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.BadRequestExcepti
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.NotFoundException;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IUserRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IUserService;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -148,7 +146,14 @@ public class UserServiceImpl implements IUserService {
             for (UserMinimalData followed : user.getFollowed()) {
                 followedList.add(new UserDTO(followed.getUserId(), followed.getUserName()));
             }
-            fullUsersDTO.add(new FullUserDTO(user.getUserId(), user.getUserName(), followerList, followedList));
+            List<PostDTO> postList = new ArrayList<>();
+            ObjectMapper mapper = JsonMapper.builder()
+                    .addModule(new JavaTimeModule())
+                    .build();
+            for (Post post : user.getPosts()) {
+                postList.add(mapper.convertValue(post, PostDTO.class));
+            }
+            fullUsersDTO.add(new FullUserDTO(user.getUserId(), user.getUserName(), followerList, followedList, postList));
         }
 
         return fullUsersDTO;

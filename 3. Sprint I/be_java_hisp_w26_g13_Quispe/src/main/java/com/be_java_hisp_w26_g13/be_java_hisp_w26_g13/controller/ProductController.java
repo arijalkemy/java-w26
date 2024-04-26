@@ -26,13 +26,6 @@ public class ProductController {
         return new ResponseEntity<>(postService.create(postDto), HttpStatus.OK);
     }
 
-    //us-0012 Obtener la lista de post de un usuario en particular en determinadas mes y anio
-    @GetMapping("/post/{userId}/list")
-    public ResponseEntity<?> getPostByUser(@PathVariable int userId, @RequestParam(required = false) String month, @RequestParam(required = false) String year){
-        return new ResponseEntity<>(postService.getPostByUser(userId, month, year), HttpStatus.OK);
-    }
-
-
     //us-0006
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<?>followedVendorsLastPosts(@PathVariable int userId, @RequestParam(required = false)String order){
@@ -53,6 +46,9 @@ public class ProductController {
     public ResponseEntity<?> getPromoPostCount(@RequestParam("user_id") int userId){
         return new ResponseEntity<>(postService.getPromoPostCount(userId), HttpStatus.OK);
     }
-
+    @GetMapping("/post/{userId}/list")
+    public ResponseEntity<?> getPostByUser(@PathVariable int userId, @RequestParam(required = false) String month, @RequestParam(required = false) String year){
+        return new ResponseEntity<>(postService.getPostByUser(userId, month, year), HttpStatus.OK);
+    }
 
 }
