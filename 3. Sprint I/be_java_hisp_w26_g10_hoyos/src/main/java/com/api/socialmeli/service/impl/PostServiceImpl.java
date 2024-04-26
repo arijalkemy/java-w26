@@ -155,13 +155,20 @@ public class PostServiceImpl implements IPostService {
             ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
             generatePostId();
             promoPostDto.setPost_id(postId);
-            Post post = mapper.convertValue(promoPostDto,Post.class);
+            Post post = convertToPostToPromo(promoPostDto);
             post.setHas_promo(promoPostDto.getHas_promo());
             post.setDiscount(promoPostDto.getDiscount());
             postRepository.getAll().add(post);
             return promoPostDto;
     }
-
+    private Post convertToPostToPromo(PromoPostDto promoPostDto) {
+        try {
+            ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
+            return mapper.convertValue(promoPostDto, Post.class);
+        } catch (Exception e) {
+            throw new BadRequestException("Review the data");
+        }
+    }
     @Override
     public SellerCountPromoProductsDto CountProductsInPromoByOwner(Integer userId) {
         SellerCountPromoProductsDto sellerCountPromoProductsDto = new SellerCountPromoProductsDto();
