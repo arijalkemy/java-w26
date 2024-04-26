@@ -13,10 +13,20 @@ public class Customer {
         this.user = user;
     }
 
+    /**
+     *
+     * @param userIdToFollow seller id
+     * add the seller id to the followed list
+     */
     public void follow(Integer userIdToFollow){
         followed.add(userIdToFollow);
     }
 
+    /**
+     *
+     * @param userIdToFollow seller id
+     * remove the seller id from the followed list
+     */
     public void unfollow(Integer userIdToFollow){
         followed.remove(userIdToFollow);
     }
