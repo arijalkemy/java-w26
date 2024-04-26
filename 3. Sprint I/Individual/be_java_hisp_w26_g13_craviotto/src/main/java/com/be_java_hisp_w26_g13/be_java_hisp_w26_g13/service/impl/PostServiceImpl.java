@@ -153,6 +153,15 @@ public class PostServiceImpl implements IPostService {
         return new UserPromoPostsDTO(userId, user.getUserName(), promoPostsDTO);
     }
 
+    @Override
+    public List<PromoPostDTO> retrievePostWithMaxDiscount() {
+        List<Post> posts = postRepository.getMaxDiscountPosts();
+        ObjectMapper mapper = getMapper();
+        List<PromoPostDTO> maxDiscountPostsDto = new ArrayList<>();
+        posts.forEach(p -> maxDiscountPostsDto.add(mapper.convertValue(p, PromoPostDTO.class)));
+        return maxDiscountPostsDto;
+    }
+
     private Boolean isBadRequestPostDto(PostDTO postDto){
         return postDto.getDate() == null || postDto.getDate().isEmpty() ||
                 postDto.getPrice() <= 0 ||

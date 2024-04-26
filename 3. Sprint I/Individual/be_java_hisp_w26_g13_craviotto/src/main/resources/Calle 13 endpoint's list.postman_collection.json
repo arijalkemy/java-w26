@@ -77,7 +77,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/200/followers/list",
+					"raw": "http://localhost:8080/users/2000/followers/list",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -85,7 +85,7 @@
 					"port": "8080",
 					"path": [
 						"users",
-						"200",
+						"2000",
 						"followers",
 						"list"
 					]
@@ -99,7 +99,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/users/5/followed/list",
+					"raw": "http://localhost:8080/users/15/followed/list?order=name_asc",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -107,9 +107,15 @@
 					"port": "8080",
 					"path": [
 						"users",
-						"5",
+						"15",
 						"followed",
 						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "name_asc"
+						}
 					]
 				}
 			},
@@ -433,6 +439,28 @@
 							"key": "user_id",
 							"value": "1"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS us-0012 Get posts with max discount",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/promo-post/list/max",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"list",
+						"max"
 					]
 				}
 			},

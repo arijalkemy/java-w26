@@ -50,4 +50,11 @@ public class ProductController {
     public ResponseEntity<?> getUserPromoPostList(@RequestParam Integer user_id) {
         return ResponseEntity.status(HttpStatus.OK).body(postService.retrieveUserPromoPostList(user_id));
     }
+
+    // BONUS
+    @GetMapping("/promo-post/list/max")
+    public ResponseEntity<?> getPostsWithMaxDiscount() {
+        return ResponseEntity.status(HttpStatus.OK).body(postService.retrievePostWithMaxDiscount());
+    }
+
 }

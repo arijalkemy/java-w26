@@ -10,4 +10,5 @@ public interface IPostService {
     List<PromoPostDTO> getAll();
     UserPromoPostCountDTO retrieveUserPromoPostCount(Integer userId);
     UserPromoPostsDTO retrieveUserPromoPostList(Integer userId);
+    List<PromoPostDTO> retrievePostWithMaxDiscount();
 }

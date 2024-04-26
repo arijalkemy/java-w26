@@ -11,4 +11,6 @@ public interface IPostRepository {
     void create(Post post);
 
     List<Post> getPostBy(int userId);
+
+    List<Post> getMaxDiscountPosts();
 }

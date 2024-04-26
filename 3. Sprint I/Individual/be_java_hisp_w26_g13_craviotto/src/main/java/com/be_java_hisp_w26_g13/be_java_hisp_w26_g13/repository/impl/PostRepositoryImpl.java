@@ -73,4 +73,10 @@ public class PostRepositoryImpl implements IPostRepository {
     public List<Post> getPostBy(int userId) {
         return listPost.stream().filter(post-> post.getUserId() == userId).toList();
     }
+
+    @Override
+    public List<Post> getMaxDiscountPosts() {
+        double maxDiscount = listPost.stream().map(Post::getDiscount).reduce(Double::max).orElse(0.0);
+        return listPost.stream().filter(p -> p.getDiscount() >= maxDiscount).toList();
+    }
 }
