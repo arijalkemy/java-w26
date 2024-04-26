@@ -1,5 +1,6 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.impl;
 
+import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseVendorPromoCountDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Post;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.PostsByFollowedUsersDTO;
@@ -10,6 +11,7 @@ import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.exception.NotFoundException
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IPostRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IUserRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IProductService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -66,6 +68,7 @@ public class ProductServiceImpl implements IProductService {
     public PostsByFollowedUsersDTO getPostByFollowedUsers(int userId, String order) {
         ObjectMapper mapper = JsonMapper.builder()
                 .addModule(new JavaTimeModule())
+                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false)
                 .build();
         User user = userRepository.findById(userId);
         if (user == null) {
@@ -95,5 +98,23 @@ public class ProductServiceImpl implements IProductService {
         }
 
         return new PostsByFollowedUsersDTO(userId, followedVendorsPostList);
+    }
+
+    @Override
+    public ResponseVendorPromoCountDTO gerUserPromos(int userId) {
+        User user = userRepository.findById(userId);
+        if (user == null) {
+            throw new NotFoundException("User with id " + userId + " does not exist.");
+        }
+        if (user.getPosts().isEmpty()){
+            throw new BadRequestException("User with id " + userId + " is not a vendor");
+        }
+
+        int count = (int) postRepository.getPostBy(userId).stream().filter(Post::isHasPromo).count();
+        if (count == 0){
+            throw new NotFoundException("The vendor " + user.getUserName() + " has not any promos right now");
+        }
+
+        return new ResponseVendorPromoCountDTO(userId, user.getUserName(), count);
     }
 }
