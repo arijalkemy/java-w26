@@ -19,7 +19,6 @@ public class Post {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
     private Product product;
     private Integer category;

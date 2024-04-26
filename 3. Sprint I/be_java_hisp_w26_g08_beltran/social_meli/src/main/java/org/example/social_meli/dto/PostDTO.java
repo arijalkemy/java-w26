@@ -21,7 +21,6 @@ public class PostDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate date;
     private ProductDTO product;
     private Integer category;
