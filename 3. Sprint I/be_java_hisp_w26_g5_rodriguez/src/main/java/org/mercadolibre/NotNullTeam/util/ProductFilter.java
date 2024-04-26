@@ -1,8 +1,13 @@
 package org.mercadolibre.NotNullTeam.util;
 
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductFilterDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.brand.BrandBasicResponse;
+import org.mercadolibre.NotNullTeam.DTO.response.type.TypeBasicResponse;
+import org.mercadolibre.NotNullTeam.mapper.BrandMapper;
+import org.mercadolibre.NotNullTeam.mapper.TypeMapper;
 import org.mercadolibre.NotNullTeam.model.Post;
 
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -45,6 +50,30 @@ public class ProductFilter {
     public static Predicate<Post> byPrice(Function<Post, Double> priceExtractor, Double value,
                                           BiFunction<Double, Double, Boolean> comparator) {
         return post -> value == null || comparator.apply(priceExtractor.apply(post), value);
+    }
+
+
+    public static List<BrandBasicResponse> getBrands(List<Post> posts) {
+        return getProperties(posts,
+                post -> post.getProduct().getBrand(),
+                BrandMapper::toBrandBasicResponse);
+    }
+
+    public static List<TypeBasicResponse> getTypes(List<Post> posts) {
+        return getProperties(posts,
+                post -> post.getProduct().getType(),
+                TypeMapper::toTypeBasicResponse);
+    }
+
+    private static <T> List<T> getProperties(List<Post> posts,
+                                             Function<Post, String> propertyExtractor,
+                                             BiFunction<String, List<Post>, T> mapper) {
+        List<String> propertyNames = posts.stream().map(propertyExtractor).distinct().toList();
+
+        return propertyNames
+                .stream()
+                .map(propertyName -> mapper.apply(propertyName, posts))
+                .toList();
     }
 
 }

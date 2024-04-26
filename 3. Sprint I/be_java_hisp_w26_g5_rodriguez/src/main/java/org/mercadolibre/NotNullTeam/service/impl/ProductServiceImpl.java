@@ -2,9 +2,7 @@ package org.mercadolibre.NotNullTeam.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductFilterDTO;
-import org.mercadolibre.NotNullTeam.DTO.response.brand.BrandBasicResponse;
 import org.mercadolibre.NotNullTeam.DTO.response.product.FilterProducts;
-import org.mercadolibre.NotNullTeam.mapper.BrandMapper;
 import org.mercadolibre.NotNullTeam.mapper.ProductMapper;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.service.external.IProductService;
@@ -38,20 +36,9 @@ public class ProductServiceImpl implements IProductService {
         return FilterProducts
                 .builder()
                 .brands(getBrands(listFiltered))
+                .types(getTypes(listFiltered))
                 .products(ProductMapper.postToMainProductResponse(listFiltered))
                 .build();
     }
 
-    private List<BrandBasicResponse> getBrands(List<Post> posts) {
-        List<String> brandNames = posts
-                .stream()
-                .map(post -> post.getProduct().getBrand())
-                .distinct()
-                .toList();
-
-        return brandNames
-                .stream()
-                .map(brand -> BrandMapper.toBrandBasicResponse(brand, posts))
-                .toList();
-    }
 }

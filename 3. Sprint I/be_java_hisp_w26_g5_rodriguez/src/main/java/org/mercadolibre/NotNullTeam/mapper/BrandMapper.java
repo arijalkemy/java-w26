@@ -8,13 +8,10 @@ import java.util.List;
 public class BrandMapper {
 
     public static BrandBasicResponse toBrandBasicResponse(String name, List<Post> posts) {
-       long amount =  posts
-               .stream()
-               .filter(post -> post.getProduct().getBrand().equals(name))
-               .count();
-        return BrandBasicResponse.builder()
-                .name(name)
-                .amount(amount)
-                .build();
+        long amount = posts
+                .stream()
+                .filter(post -> post.getProduct().getBrand().equals(name))
+                .count();
+        return BrandBasicResponse.builder().name(name).amount(amount).build();
     }
 }
