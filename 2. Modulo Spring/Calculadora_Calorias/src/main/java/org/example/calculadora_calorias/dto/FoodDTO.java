@@ -1,5 +1,6 @@
 package org.example.calculadora_calorias.dto;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.example.calculadora_calorias.model.Ingredient;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@JsonPropertyOrder({"name", "totalCalories"})
 public class FoodDTO implements Serializable {
     List<Ingredient> ingredients;
     String name;
