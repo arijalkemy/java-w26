@@ -29,6 +29,9 @@ public class PostServiceImpl implements IPostService {
     @Autowired
     private IUserRepository userRepository;
 
+    @Autowired
+    private IUserService userService;
+
     /**
      * This method should be called when a new post submission is received. It handles validation,
      * conversion, and storage of the post data.
@@ -46,6 +49,7 @@ public class PostServiceImpl implements IPostService {
             throw new AlreadyInUseException("A post with this ID already exists.");
         }
         postRepository.save(post); // Saves the post to the repository
+        userService.addPostToUser(postDto.getUser_id(),postDto.getId()); // Adds the post to the user's list of posts
         return postDto; // Returns the PostDto, could be enhanced with more data if needed
     }
 

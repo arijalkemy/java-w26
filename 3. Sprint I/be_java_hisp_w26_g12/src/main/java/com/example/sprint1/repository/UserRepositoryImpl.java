@@ -1,5 +1,6 @@
 package com.example.sprint1.repository;
 
+import com.example.sprint1.exception.NotFoundException;
 import com.example.sprint1.model.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,7 +9,6 @@ import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,6 +88,23 @@ public class UserRepositoryImpl implements IUserRepository{
         return listOfUsers.stream()
                 .filter(user -> user.getId().equals(id))
                 .findFirst();
+    }
+
+    /**
+     * Adds a new id in the idPost List
+     * @param id - Integer id used to search an User.
+     * @param postId - Integer id that is going to be added to the list.
+     * @throws NotFoundException - If user is not found.
+     */
+    @Override
+    public void addPost(Integer id, Integer postId) {
+        Optional<User> userToUpdate = getUserById(id);
+        if(userToUpdate.isPresent()){
+            userToUpdate.get().getPosts().add(postId);
+        }
+        else{
+            throw new NotFoundException("User not found");
+        }
     }
 
 }
