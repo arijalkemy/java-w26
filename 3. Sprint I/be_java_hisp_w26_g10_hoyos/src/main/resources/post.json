@@ -1,0 +1,342 @@
+[
+  {
+    "post_id": 1,
+    "date": "2024-08-04",
+    "category": 1,
+    "price": 2290000.0,
+    "user_id": 1,
+    "product": {
+      "product_id": "1",
+      "product_name": "Smartphone Samsung Galaxy S22",
+      "brand": "Samsung",
+      "type": "Tecnología",
+      "color": "Negro",
+      "notes": "Nuevo modelo con cámara mejorada"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 2,
+    "date": "2024-04-09",
+    "category": 2,
+    "price": 350000.0,
+    "user_id": 2,
+    "product": {
+      "product_id": "2",
+      "product_name": "Camisa Polo Ralph Lauren",
+      "brand": "Ralph Lauren",
+      "type": "Ropa",
+      "color": "Azul",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 3,
+    "date": "2024-04-10",
+    "category": 3,
+    "price": 1799000.0,
+    "user_id": 3,
+    "product": {
+      "product_id": "3",
+      "product_name": "Televisor LG 55' OLED",
+      "brand": "LG",
+      "type": "Electrodoméstico",
+      "color": "Negro",
+      "notes": "Modelo 2024 con tecnología OLED"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 4,
+    "date": "2024-04-11",
+    "category": 4,
+    "price": 849000.0,
+    "user_id": 4,
+    "product": {
+      "product_id": "4",
+      "product_name": "Zapatos Nike Air Max",
+      "brand": "Nike",
+      "type": "Calzado",
+      "color": "Blanco",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 5,
+    "date": "2024-04-12",
+    "category": 1,
+    "price": 3999000.0,
+    "user_id": 5,
+    "product": {
+      "product_id": "5",
+      "product_name": "MacBook Pro 2024",
+      "brand": "Apple",
+      "type": "Tecnología",
+      "color": "Gris",
+      "notes": "Nuevo modelo con procesador M2"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 6,
+    "date": "2024-04-13",
+    "category": 2,
+    "price": 70000.0,
+    "user_id": 6,
+    "product": {
+      "product_id": "6",
+      "product_name": "Pantalones Levi's 501",
+      "brand": "Levi's",
+      "type": "Ropa",
+      "color": "Azul",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 7,
+    "date": "2024-04-14",
+    "category": 3,
+    "price": 2799000.0,
+    "user_id": 1,
+    "product": {
+      "product_id": "7",
+      "product_name": "Refrigeradora Samsung Side by Side",
+      "brand": "Samsung",
+      "type": "Electrodoméstico",
+      "color": "Acero inoxidable",
+      "notes": "Gran capacidad y eficiencia energética"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 8,
+    "date": "2024-04-15",
+    "category": 4,
+    "price": 1290000.0,
+    "user_id": 2,
+    "product": {
+      "product_id": "8",
+      "product_name": "Reloj Casio G-Shock",
+      "brand": "Casio",
+      "type": "Accesorio",
+      "color": "Negro",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 9,
+    "date": "2024-04-16",
+    "category": 1,
+    "price": 5490000.0,
+    "user_id": 3,
+    "product": {
+      "product_id": "9",
+      "product_name": "iPhone 15 Pro",
+      "brand": "Apple",
+      "type": "Tecnología",
+      "color": "Oro",
+      "notes": "Con cámara ultra gran angular"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 10,
+    "date": "2024-04-17",
+    "category": 2,
+    "price": 95000.0,
+    "user_id": 4,
+    "product": {
+      "product_id": "10",
+      "product_name": "Gorra Adidas Originals",
+      "brand": "Adidas",
+      "type": "Accesorio",
+      "color": "Negro",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 11,
+    "date": "2024-04-18",
+    "category": 3,
+    "price": 2099000.0,
+    "user_id": 5,
+    "product": {
+      "product_id": "11",
+      "product_name": "Lavadora Whirlpool 12 Kg",
+      "brand": "Whirlpool",
+      "type": "Electrodoméstico",
+      "color": "Blanco",
+      "notes": "Eficiente y bajo consumo de agua"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 12,
+    "date": "2024-04-19",
+    "category": 4,
+    "price": 849000.0,
+    "user_id": 6,
+    "product": {
+      "product_id": "12",
+      "product_name": "Tenis Puma Smash V2",
+      "brand": "Puma",
+      "type": "Calzado",
+      "color": "Negro",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 13,
+    "date": "2024-04-20",
+    "category": 1,
+    "price": 3999000.0,
+    "user_id": 1,
+    "product": {
+      "product_id": "13",
+      "product_name": "Tablet Samsung Galaxy Tab S8",
+      "brand": "Samsung",
+      "type": "Tecnología",
+      "color": "Gris",
+      "notes": "Con pantalla AMOLED de alta resolución"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 14,
+    "date": "2024-04-21",
+    "category": 2,
+    "price": 699000.0,
+    "user_id": 2,
+    "product": {
+      "product_id": "14",
+      "product_name": "Suéter Tommy Hilfiger",
+      "brand": "Tommy Hilfiger",
+      "type": "Ropa",
+      "color": "Rojo",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 15,
+    "date": "2024-04-22",
+    "category": 3,
+    "price": 2799000.0,
+    "user_id": 3,
+    "product": {
+      "product_id": "15",
+      "product_name": "Aspiradora Philips PowerPro Compact",
+      "brand": "Philips",
+      "type": "Electrodoméstico",
+      "color": "Negro",
+      "notes": "Potente y fácil de manejar"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 16,
+    "date": "2024-04-23",
+    "category": 4,
+    "price": 1099000.0,
+    "user_id": 4,
+    "product": {
+      "product_id": "16",
+      "product_name": "Cartera Coach Signature",
+      "brand": "Coach",
+      "type": "Accesorio",
+      "color": "Marrón",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 17,
+    "date": "2024-04-24",
+    "category": 1,
+    "price": 3490000.0,
+    "user_id": 5,
+    "product": {
+      "product_id": "17",
+      "product_name": "Cámara Canon EOS R6",
+      "brand": "Canon",
+      "type": "Tecnología",
+      "color": "Negro",
+      "notes": "Cámara de fotograma completo"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 18,
+    "date": "2024-04-25",
+    "category": 2,
+    "price": 129000.0,
+    "user_id": 6,
+    "product": {
+      "product_id": "18",
+      "product_name": "Polo Lacoste Slim Fit",
+      "brand": "Lacoste",
+      "type": "Ropa",
+      "color": "Azul marino",
+      "notes": ""
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 19,
+    "date": "2024-04-26",
+    "category": 3,
+    "price": 2499000.0,
+    "user_id": 1,
+    "product": {
+      "product_id": "19",
+      "product_name": "Licuadora Oster Xpert Series",
+      "brand": "Oster",
+      "type": "Electrodoméstico",
+      "color": "Negro",
+      "notes": "Potente y silenciosa"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "post_id": 20,
+    "date": "2024-04-27",
+    "category": 4,
+    "price": 899000.0,
+    "user_id": 2,
+    "product": {
+      "product_id": "20",
+      "product_name": "Maleta Samsonite Lite-Shock",
+      "brand": "Samsonite",
+      "type": "Accesorio",
+      "color": "Gris",
+      "notes": "Ultra ligera y resistente"
+    },
+    "has_promo": false,
+    "discount": 0.0
+  }
+]
