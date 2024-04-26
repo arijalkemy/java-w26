@@ -21,6 +21,23 @@ public class PostMapper {
             throw new BadRequestException("Campos inválidos y/o faltantes.");
         }
 
+        if(createPostDto.isHasPromo())
+            return new Post(createPostDto.getDate(),
+                    createPostDto.getPrice(),
+                    createPostDto.getCategory(),
+                    new Product(
+                            createPostDto.getProduct().getId(),
+                            createPostDto.getProduct().getName(),
+                            createPostDto.getProduct().getType(),
+                            createPostDto.getProduct().getBrand(),
+                            createPostDto.getProduct().getColor(),
+                            createPostDto.getProduct().getNotes()
+                    ),
+                    createPostDto.getIdUser(),
+                    createPostDto.isHasPromo(),
+                    createPostDto.getDiscount()
+            );
+
         return new Post(
             createPostDto.getDate(),
             createPostDto.getPrice(),

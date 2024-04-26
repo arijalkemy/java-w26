@@ -1,9 +1,6 @@
 package org.example.g14.service;
 
-import org.example.g14.dto.CreatePostDto;
-import org.example.g14.dto.CreatePostWithPromoDto;
-import org.example.g14.dto.PostDto;
-import org.example.g14.dto.ProductDto;
+import org.example.g14.dto.*;
 import org.example.g14.exception.BadRequestException;
 import org.example.g14.exception.NotFoundException;
 import org.example.g14.model.Post;
@@ -92,7 +89,74 @@ public class PostService implements IPostService {
     }
 
     @Override
-    public void createPostWithPromo(CreatePostWithPromoDto postWithPromo) {
+    public void createPostWithPromo(CreatePostDto postWithPromo) {
+        User user = userRepository.getById(postWithPromo.getIdUser())
+                .orElseThrow(() -> new NotFoundException("No se encontro usuario con ese id"));
 
+        if(postWithPromo.getDiscount() <= 0 || !postWithPromo.isHasPromo())
+            throw new BadRequestException("Campos inválidos y/o faltantes.");
+
+        Post post = new PostMapper().createPostDtoToPost(postWithPromo);
+        postRepository.save(post);
+    }
+
+    @Override
+    public UserWithPromoPostsCountDto getNumberOfPromoPost(int userId) {
+        User user = userRepository.getById(userId)
+                .orElseThrow(() -> new NotFoundException("No se encontro usuario con ese id"));
+
+        List<Post> listOfPromoPost = postRepository.findAllByUser(userId);
+        int postCounter = listOfPromoPost.stream().reduce(0, (acc, post) -> {
+            if(post.isHasPromo())
+                return acc + 1;
+            return acc;
+        }, Integer::sum);
+
+        return new UserWithPromoPostsCountDto(user.getId(), user.getName(), postCounter);
+    }
+
+    @Override
+    public UserResumeDto getResume(int userId) {
+        User user = userRepository.getById(userId)
+                .orElseThrow(() -> new NotFoundException("No se encontro usuario con ese id"));
+
+        List<Post> listOfPosts = postRepository.findAllByUser(userId);
+        int postCounter = listOfPosts.size();
+        int postWithPromoCounter = listOfPosts.stream().reduce(0, (acc, post) -> {
+            if(post.isHasPromo())
+                return acc + 1;
+            return acc;
+        }, Integer::sum);
+        LocalDate dateFirstProduct = listOfPosts.stream()
+                .min(Comparator.comparing(Post::getDate))
+                .get()
+                .getDate();
+        LocalDate dateLastProduct = listOfPosts.stream()
+                .max(Comparator.comparing(Post::getDate))
+                .get()
+                .getDate();
+        double maxPrice = listOfPosts.stream()
+                .max(Comparator.comparing(Post::getPrice))
+                .get()
+                .getPrice();
+        double minPrice = listOfPosts.stream()
+                .min(Comparator.comparing(Post::getPrice))
+                .get()
+                .getPrice();
+        double averagePrice = listOfPosts.stream()
+                .mapToDouble(Post::getPrice)
+                .average()
+                .getAsDouble();
+        double totalPublished = listOfPosts.stream()
+                .mapToDouble(Post::getPrice)
+                .sum();
+        double totalPublishedWithDiscount = listOfPosts.stream()
+                .filter(Post::isHasPromo)
+                .mapToDouble(post -> post.getPrice() * (1 - post.getDiscount()))
+                .sum();
+
+        return new UserResumeDto(user.getId(), user.getName(), postCounter, postWithPromoCounter,
+                dateFirstProduct, dateLastProduct, maxPrice, minPrice, averagePrice, totalPublished,
+                totalPublishedWithDiscount);
     }
 }

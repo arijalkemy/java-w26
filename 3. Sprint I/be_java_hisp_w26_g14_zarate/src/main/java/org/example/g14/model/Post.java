@@ -26,4 +26,15 @@ public class Post {
         this.product = product;
         this.idUser = idUser;
     }
+
+    public Post(LocalDate date, double price, int category, Product product,
+                int idUser, boolean hasPromo, double discount){
+        this.date = date;
+        this.price = price;
+        this.category = category;
+        this.product = product;
+        this.idUser = idUser;
+        this.discount = discount;
+        this.hasPromo = hasPromo;
+    }
 }

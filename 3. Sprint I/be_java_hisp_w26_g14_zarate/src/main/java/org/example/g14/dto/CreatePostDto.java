@@ -20,4 +20,7 @@ public class CreatePostDto {
     private ProductDto product;
     private int category;
     private double price;
+    private double discount = 0;
+    @JsonProperty("has_promo")
+    private boolean hasPromo = false;
 }
