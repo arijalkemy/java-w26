@@ -12,7 +12,7 @@
         "user_name": "nombre_de_usuario_2"
       }
     ],
-    "publications": [
+    "posts": [
       {
         "user_id": 123,
         "date": "2024-04-20",
@@ -42,7 +42,7 @@
         "user_name": "nombre_de_usuario_2"
       }
     ],
-    "publications": [
+    "posts": [
       {
         "user_id": 124,
         "date": "2024-04-18",

@@ -15,6 +15,5 @@ public interface IUsersRepository {
     void unfollow(Seller seller, Buyer buyer);
     List<Seller> findAllSellers();
     void createPublication(Publication publication);
-
     List<UserData> findBuyerSellersFollowedByUserId(Integer userId);
 }

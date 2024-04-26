@@ -13,5 +13,6 @@ public class Seller {
     @JsonProperty("user_name")
     private String userName;
     private List<UserData> followers;
+    @JsonProperty("posts")
     private List<Publication> publications;
 }
