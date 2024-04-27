@@ -8,4 +8,6 @@ import java.util.UUID;
 public interface ILinkRepository {
     Link findById(UUID id);
     Link save(Link link);
+    void updateCountRedirectionsLinkById(UUID id);
+    void deleteLink(UUID linkId);
 }

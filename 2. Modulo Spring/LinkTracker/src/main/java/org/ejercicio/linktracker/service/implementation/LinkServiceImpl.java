@@ -3,17 +3,16 @@ package org.ejercicio.linktracker.service.implementation;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.ejercicio.linktracker.dto.LinkRequestDto;
 import org.ejercicio.linktracker.dto.LinkResponseDto;
+import org.ejercicio.linktracker.dto.MetricsRedirectionDto;
 import org.ejercicio.linktracker.entity.Link;
 import org.ejercicio.linktracker.exception.BadRequestException;
 import org.ejercicio.linktracker.repository.ILinkRepository;
-import org.ejercicio.linktracker.repository.LinkRepository;
 import org.ejercicio.linktracker.service.ILinkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.UUID;
@@ -58,9 +57,24 @@ public class LinkServiceImpl implements ILinkService {
         HttpHeaders headers = new HttpHeaders();
         try {
             headers.setLocation(new URL(link.getLink()).toURI());
+            linkRepository.updateCountRedirectionsLinkById(linkId);
         }catch (MalformedURLException | URISyntaxException e) {
             throw new BadRequestException("Error en la url del link");
         }
         return headers;
+    }
+
+    @Override
+    public MetricsRedirectionDto getMetricsById(UUID linkId) {
+        Link link = linkRepository.findById(linkId);
+        if (link == null) throw new BadRequestException("Link no existente");
+        return new MetricsRedirectionDto(link.getLink(), link.getRedirections());
+    }
+
+    @Override
+    public void invalidateLink(UUID linkId) {
+        Link link = linkRepository.findById(linkId);
+        if (link == null) throw new BadRequestException("Link no existente");
+        linkRepository.deleteLink(linkId);
     }
 }

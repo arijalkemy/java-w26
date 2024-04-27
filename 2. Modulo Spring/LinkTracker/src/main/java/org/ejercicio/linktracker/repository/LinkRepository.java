@@ -26,4 +26,16 @@ public class LinkRepository implements ILinkRepository {
         links.put(link.getId(), link);
         return link;
     }
+
+    @Override
+    public void updateCountRedirectionsLinkById(UUID id) {
+        Link link = links.get(id);
+        link.setRedirections(link.getRedirections() + 1);
+    }
+
+    @Override
+    public void deleteLink(UUID linkId) {
+        Link link = links.get(linkId);
+        links.remove(linkId);
+    }
 }
