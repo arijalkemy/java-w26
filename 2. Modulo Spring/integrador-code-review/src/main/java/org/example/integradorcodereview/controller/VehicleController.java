@@ -21,7 +21,7 @@ public class VehicleController {
     @GetMapping("/")
     @ResponseBody
     public ResponseEntity<?> getAllVehicles(){
-        return new ResponseEntity<>(vehicleService.getAllVehicles(), HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(vehicleService.getAllVehicles(), HttpStatus.OK);
     }
 
     @GetMapping("/{vehicle_id}")
