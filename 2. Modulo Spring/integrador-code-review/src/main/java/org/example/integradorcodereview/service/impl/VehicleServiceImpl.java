@@ -55,7 +55,7 @@ public class VehicleServiceImpl implements IVehicleService{
     public VehicleDto addVehicle(VehicleDto vehicleDto) {
         if (!vehicleRepository.vehicleExists(vehicleDto.getId())){
             Vehicle vehicle = vehicleRepository.addVehicle(objectMapper.convertValue(vehicleDto, Vehicle.class));
-            return vehicleDto;
+            return objectMapper.convertValue(vehicle, VehicleDto.class);
         } else {
             throw new ConflictException("Vehicle with id: " + vehicleDto.getId()+ ", already exists");
         }
@@ -95,7 +95,6 @@ public class VehicleServiceImpl implements IVehicleService{
 
     @Override
     public VehicleMassiveDto addMassiveVehicle(List<VehicleDto> vehicleDtoList) {
-        List<Vehicle> vehiclesToAdd = new ArrayList<>();
         for (VehicleDto v: vehicleDtoList){
             addVehicle(v);
         }
