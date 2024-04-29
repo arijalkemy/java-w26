@@ -7,7 +7,6 @@
 ### IntelliJ IDEA ###
 **/.idea/
 **/target/
-**/test/
 *.class
 *.iws
 *.iml
