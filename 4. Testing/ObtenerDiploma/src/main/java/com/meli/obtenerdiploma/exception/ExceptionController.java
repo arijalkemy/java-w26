@@ -14,13 +14,13 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice(annotations = RestController.class)
-public class ExceptionController extends ResponseEntityExceptionHandler {
-    @Override
+public class ExceptionController {
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return ResponseEntity.badRequest().body(new ExceptionDTO(buildMessage(ex)));
     }
 
-    @Override
+    @ExceptionHandler(value = HttpMessageNotReadableException.class)
     protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return ResponseEntity.badRequest().body(new ExceptionDTO(buildMessage(ex)));
     }
