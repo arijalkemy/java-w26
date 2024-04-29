@@ -5,6 +5,9 @@ public enum TipoVehiculo {
     MOTO(300D, 2),
     CARRO(1000D, 4);
 
+    public static final Integer RUEDAS_MOTO = 2;
+    public static final Integer RUEDAS_CARRO = 4;
+
 
 
     private Double peso;
@@ -19,15 +22,14 @@ public enum TipoVehiculo {
         return peso;
     }
 
-    public void setPeso(Double peso) {
-        this.peso = peso;
-    }
-
     public Integer getRuedas() {
         return ruedas;
     }
 
-    public void setRuedas(Integer ruedas) {
-        this.ruedas = ruedas;
+    @Override
+    public String toString() {
+        return  "TipoVehiculo{" + "peso=" + peso +
+                ", ruedas=" + ruedas +
+                '}';
     }
 }

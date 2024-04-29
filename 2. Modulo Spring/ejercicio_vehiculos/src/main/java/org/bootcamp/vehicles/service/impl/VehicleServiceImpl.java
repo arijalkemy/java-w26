@@ -14,8 +14,11 @@ import java.util.List;
 @Service
 public class VehicleServiceImpl implements VehicleService {
 
-    @Autowired
-    private VehicleRepository vehicleRepository;
+    private final VehicleRepository vehicleRepository;
+
+    public VehicleServiceImpl(VehicleRepository vehicleRepository) {
+        this.vehicleRepository = vehicleRepository;
+    }
 
 
     @Override

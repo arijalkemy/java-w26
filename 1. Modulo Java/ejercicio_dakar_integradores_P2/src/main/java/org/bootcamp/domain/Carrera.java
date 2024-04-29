@@ -10,55 +10,12 @@ public class Carrera {
     private Integer cantidadDeVehiculos;
     private List<Vehiculo> listaDeVehiculos;
 
-    public Carrera() {
-        this.listaDeVehiculos = new ArrayList<>();
-    }
-
     public Carrera(Double distancia, Double premioEnDolares, String nombre, Integer cantidadDeVehiculos) {
+        this.listaDeVehiculos = new ArrayList<>();
         this.distancia = distancia;
         this.premioEnDolares = premioEnDolares;
         this.nombre = nombre;
         this.cantidadDeVehiculos = cantidadDeVehiculos;
-    }
-
-    public Double getDistancia() {
-        return distancia;
-    }
-
-    public void setDistancia(Double distancia) {
-        this.distancia = distancia;
-    }
-
-    public Double getPremioEnDolares() {
-        return premioEnDolares;
-    }
-
-    public void setPremioEnDolares(Double premioEnDolares) {
-        this.premioEnDolares = premioEnDolares;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getCantidadDeVehiculos() {
-        return cantidadDeVehiculos;
-    }
-
-    public void setCantidadDeVehiculos(Integer cantidadDeVehiculos) {
-        this.cantidadDeVehiculos = cantidadDeVehiculos;
-    }
-
-    public List<Vehiculo> getListaDeVehiculos() {
-        return listaDeVehiculos;
-    }
-
-    public void setListaDeVehiculos(List<Vehiculo> listaDeVehiculos) {
-        this.listaDeVehiculos = listaDeVehiculos;
     }
 
     public void darDeAltaVehiculo(Vehiculo vehiculo){
@@ -72,7 +29,7 @@ public class Carrera {
 
     public void eliminarVehiculoConPatente (String unaPatente){
         Vehiculo vehiculo = listaDeVehiculos.stream()
-                .filter((veh)-> veh.getPatente().equals(unaPatente) )
+                .filter(veh-> veh.getPatente().equals(unaPatente) )
                 .findFirst().orElse(null);
 
         eliminarVehiculo(vehiculo);
@@ -84,4 +41,41 @@ public class Carrera {
                 .orElse(new Vehiculo());
     }
 
+    public void socorrer(Vehiculo vehiculo){
+        if(vehiculo.getTipoVehiculo().getRuedas().equals(TipoVehiculo.RUEDAS_MOTO)){
+            System.out.println("\nSocorriendo moto!");
+        }else if(vehiculo.getTipoVehiculo().getRuedas().equals(TipoVehiculo.RUEDAS_CARRO)){
+            System.out.println("\nSocorriendo auto!");
+        }
+        System.out.println("Patente: " + vehiculo.getPatente());
+    }
+
+    public void socorrerPorPatente (String patente){
+        Optional<Vehiculo> vehiculoEncontrado = listaDeVehiculos.stream()
+                .filter(vehiculo -> vehiculo.getPatente().equalsIgnoreCase(patente))
+                .findFirst();
+
+        if(!vehiculoEncontrado.isPresent()){
+            System.out.println("\nNo se encontro el vehículo con la patente " + patente);
+            return; // Para acabar el error
+        }
+
+        socorrer(vehiculoEncontrado.get());
+    }
+
+    public void listadoDeVehiculos(){
+        System.out.println("\n**** Listado de vehículos en la Carrera ****");
+        listaDeVehiculos.forEach(System.out::println);
+    }
+
+    @Override
+    public String toString() {
+        return "Carrera{" +
+                "distancia=" + distancia +
+                ", premioEnDolares=" + premioEnDolares +
+                ", nombre='" + nombre + '\'' +
+                ", cantidadDeVehiculos=" + cantidadDeVehiculos +
+                ", listaDeVehiculos=" + listaDeVehiculos +
+                '}';
+    }
 }

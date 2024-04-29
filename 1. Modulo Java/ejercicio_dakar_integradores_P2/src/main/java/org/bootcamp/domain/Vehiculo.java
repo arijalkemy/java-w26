@@ -20,36 +20,8 @@ public class Vehiculo {
         this.tipoVehiculo = tipoVehiculo;
     }
 
-    public Integer getVelocidad() {
-        return velocidad;
-    }
-
-    public void setVelocidad(Integer velocidad) {
-        this.velocidad = velocidad;
-    }
-
-    public Double getAceleracion() {
-        return aceleracion;
-    }
-
-    public void setAceleracion(Double aceleracion) {
-        this.aceleracion = aceleracion;
-    }
-
-    public Double getAnguloDeGiro() {
-        return anguloDeGiro;
-    }
-
-    public void setAnguloDeGiro(Double anguloDeGiro) {
-        this.anguloDeGiro = anguloDeGiro;
-    }
-
     public String getPatente() {
         return patente;
-    }
-
-    public void setPatente(String patente) {
-        this.patente = patente;
     }
 
     public double obtenerVelocidadMaxima (){
@@ -57,4 +29,17 @@ public class Vehiculo {
                 (anguloDeGiro * ((tipoVehiculo.getPeso()) - tipoVehiculo.getRuedas()) * 100);
     }
 
+    public TipoVehiculo getTipoVehiculo() {
+        return tipoVehiculo;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehiculo{" + "velocidad=" + velocidad +
+                ", aceleracion=" + aceleracion +
+                ", anguloDeGiro=" + anguloDeGiro +
+                ", patente='" + patente + '\'' +
+                ", tipoVehiculo=" + tipoVehiculo +
+                '}';
+    }
 }
