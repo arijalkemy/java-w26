@@ -239,6 +239,215 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "US 00010",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\": 2,\n    \"date\": \"2024-04-04\",\n    \"product\": {\n      \"product_id\": 40,\n      \"product_name\": \"HyperX Cloud II Gaming Headset\",\n      \"type\": \"Headset\",\n      \"brand\": \"HyperX\",\n      \"color\": \"Red\",\n      \"notes\": \"7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable noise-canceling microphone\"\n    },\n    \"category\": 2,\n    \"price\": 99.99,\n    \"has_promo\":false,\n    \"discount\":0.2\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/promo-post",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 00011",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/promo-post/count?user_id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"count"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS 0001",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"has_promo\":true,\n    \"discount\":0.3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/post/2/to-promo-post",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"2",
+						"to-promo-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS 0002",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/post/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS 0003",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/promo-post/list?user_id=4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"promo-post",
+						"list"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS 0004",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"2024-04-22T00:00:00.000+00:00\",\n    \"product\": {\n        \"type\": \"Camera\",\n        \"brand\": \"Canon\",\n        \"color\": \"Black\",\n        \"notes\": \"45MP full-frame CMOS sensor, 8K video recording, Dual Pixel CMOS AF II\",\n        \"product_id\": 7,\n        \"product_name\": \"Canon EOS R5 Mirrorless Camera\"\n    },\n    \"category\": 2,\n    \"price\": 3499.99,\n    \"discount\": 0.4,\n    \"user_id\": 4,\n    \"has_promo\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/post/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS 0005",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_role\": 2,\n    \"name_role\":\"Seller\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/1/registrer-as-seller",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"1",
+						"registrer-as-seller"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BONUS 0006",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/post/2/delete",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"post",
+						"2",
+						"delete"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
