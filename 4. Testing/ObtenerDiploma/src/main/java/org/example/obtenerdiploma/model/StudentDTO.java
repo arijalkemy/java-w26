@@ -1,0 +1,25 @@
+package org.example.obtenerdiploma.model;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.List;
+
+@Getter
+@Setter
+public class StudentDTO {
+    @NotNull(message = "El nombre del estudiante no puede ser nulo")
+    @NotEmpty(message = "El nombre del estudiante no puede ser vacío")
+            @NotBlank(message = "El nombre del estudiante no puede ser vacío")
+    String studentName;
+    @NotNull(message = "El mensaje no puede ser nulo")
+    @NotEmpty( message = "El mensaje no puede ser vacío")
+    String message;
+    Double averageScore;
+    @NotNull(message = "La lista de materias no puede ser nula")
+    @NotEmpty(message = "La lista de materias no puede ser vacía")
+    List<SubjectDTO> subjects;
+}
