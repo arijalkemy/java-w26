@@ -16,12 +16,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice(annotations = RestController.class)
 public class ExceptionController {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-        return ResponseEntity.badRequest().body(new ExceptionDTO(buildMessage(ex)));
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+        return ResponseEntity.badRequest().body(new ExceptionDTO(ex.getFieldErrors().get(0).getDefaultMessage()));
     }
 
     @ExceptionHandler(value = HttpMessageNotReadableException.class)
-    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(new ExceptionDTO(buildMessage(ex)));
     }
 
