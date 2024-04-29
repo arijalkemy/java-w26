@@ -1,8 +1,6 @@
 package org.example.obtenerdiploma.model;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,11 +10,12 @@ import java.util.List;
 @Setter
 public class StudentDTO {
     @NotNull(message = "El nombre del estudiante no puede ser nulo")
-    @NotEmpty(message = "El nombre del estudiante no puede ser vacío")
-            @NotBlank(message = "El nombre del estudiante no puede ser vacío")
+    @NotBlank(message = "El nombre del estudiante no puede ser vacío")
+    @Max(value = 50, message = "El nombre del estudiante no puede tener más de 50 caracteres")
+    @Pattern(regexp = "^[A-Z].*", message = "El nombre del estudiante debe comenzar con una letra mayúscula")
     String studentName;
     @NotNull(message = "El mensaje no puede ser nulo")
-    @NotEmpty( message = "El mensaje no puede ser vacío")
+    @NotEmpty(message = "El mensaje no puede ser vacío")
     String message;
     Double averageScore;
     @NotNull(message = "La lista de materias no puede ser nula")

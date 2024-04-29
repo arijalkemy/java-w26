@@ -26,14 +26,6 @@ public class GlobalExceptionHandler {
         return new ExceptionDetails(LocalDateTime.now(), exception, request);
     }
 
-
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    @ExceptionHandler({MethodArgumentNotValidException.class})
-//    @ResponseBody
-//    protected ExceptionDetails validations(Exception exception, HttpServletRequest request) {
-//        return new ExceptionDetails(LocalDateTime.now(), exception, request);
-//    }
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> customValidationException(MethodArgumentNotValidException e) {
         List<FieldError> errorFields = e.getFieldErrors();
