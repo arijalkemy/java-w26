@@ -1,6 +1,7 @@
-package com.meli.obtenerdiploma.service;
+package spring.obtenerdiploma.service;
 
-import com.meli.obtenerdiploma.model.StudentDTO;
+
+import spring.obtenerdiploma.model.StudentDTO;
 
 public interface IObtenerDiplomaService {
 

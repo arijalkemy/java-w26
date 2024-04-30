@@ -1,8 +1,8 @@
-package com.meli.obtenerdiploma.service;
+package spring.obtenerdiploma.service;
 
-import com.meli.obtenerdiploma.model.StudentDTO;
-import com.meli.obtenerdiploma.model.SubjectDTO;
 import org.springframework.stereotype.Service;
+import spring.obtenerdiploma.model.StudentDTO;
+import spring.obtenerdiploma.model.SubjectDTO;
 
 import java.text.DecimalFormat;
 import java.util.List;
