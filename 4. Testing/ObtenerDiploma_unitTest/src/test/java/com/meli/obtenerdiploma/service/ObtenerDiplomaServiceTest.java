@@ -1,4 +1,4 @@
-package com.meli.obtenerdiploma;
+package com.meli.obtenerdiploma.service;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
@@ -31,28 +31,7 @@ public class ObtenerDiplomaServiceTest {
     @DisplayName("Se obtiene promedio > 9 exitosamente")
     void analyzeScoresMoreThan9Test() {
         // Arrange
-        List<SubjectDTO> subjectDTOList = new ArrayList<SubjectDTO>();
-        subjectDTOList.add(
-                new SubjectDTO(
-                       "Matemática",
-                        9.0
-                )
-        );
-        subjectDTOList.add(
-                new SubjectDTO(
-                        "Física",
-                        10.0
-                )
-        );
-
-        StudentDTO studentDTO = new StudentDTO(
-            1L,
-            "Juan",
-            null,
-            7.33,
-            subjectDTOList
-        );
-
+        StudentDTO studentDTO = createStudentDTO();
         when(studentDAO.findById(1L)).thenReturn(studentDTO);
 
         // Act
@@ -69,28 +48,7 @@ public class ObtenerDiplomaServiceTest {
     @DisplayName("Se obtiene promedio < 9 exitosamente")
     void analyzeScoresLessThan9Test() {
         // Arrange
-        List<SubjectDTO> subjectDTOList = new ArrayList<SubjectDTO>();
-        subjectDTOList.add(
-                new SubjectDTO(
-                        "Matemática",
-                        9.0
-                )
-        );
-        subjectDTOList.add(
-                new SubjectDTO(
-                        "Física",
-                        7.0
-                )
-        );
-
-        StudentDTO studentDTO = new StudentDTO(
-                1L,
-                "Juan",
-                null,
-                7.33,
-                subjectDTOList
-        );
-
+        StudentDTO studentDTO = createStudentDTO();
         when(studentDAO.findById(1L)).thenReturn(studentDTO);
 
         // Act
@@ -120,5 +78,29 @@ public class ObtenerDiplomaServiceTest {
         Assertions.assertThrows(NullPointerException.class, () -> {
             obtenerDiplomaService.analyzeScores(-1L);
         });
+    }
+
+    private StudentDTO createStudentDTO() {
+        List<SubjectDTO> subjectDTOList = new ArrayList<SubjectDTO>();
+        subjectDTOList.add(
+                new SubjectDTO(
+                        "Matemática",
+                        9.0
+                )
+        );
+        subjectDTOList.add(
+                new SubjectDTO(
+                        "Física",
+                        10.0
+                )
+        );
+
+        return new StudentDTO(
+                1L,
+                "Juan",
+                null,
+                7.33,
+                subjectDTOList
+        );
     }
 }

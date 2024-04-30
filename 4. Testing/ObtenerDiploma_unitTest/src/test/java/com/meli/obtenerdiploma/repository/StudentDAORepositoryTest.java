@@ -1,4 +1,4 @@
-package com.meli.obtenerdiploma;
+package com.meli.obtenerdiploma.repository;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 public class StudentDAORepositoryTest {
@@ -49,7 +50,12 @@ public class StudentDAORepositoryTest {
                 "Carlos",
                 "Mensaje",
                 9.7,
-                new ArrayList<SubjectDTO>()
+                new ArrayList<SubjectDTO>(
+                        List.of(
+                                new SubjectDTO("Matemática", 9.0),
+                                new SubjectDTO("Física", 7.0)
+                        )
+                )
         );
 
         // Act
@@ -72,7 +78,7 @@ public class StudentDAORepositoryTest {
     @DisplayName("Estudiante existente eliminado exitosamente")
     void deleteExistentStudentTest() {
         // Act
-        boolean result = studentDAO.delete(2L);
+        boolean result = studentDAO.delete(3L);
 
         // Assert
         Assertions.assertTrue(result);
@@ -82,7 +88,7 @@ public class StudentDAORepositoryTest {
     @DisplayName("Eliminación fallida de estudiante no existente")
     void deleteNotExistentStudentTest() {
         // Act
-        boolean result = studentDAO.delete(1L);
+        boolean result = studentDAO.delete(-1L);
 
         // Assert
         Assertions.assertFalse(result);

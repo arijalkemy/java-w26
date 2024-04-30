@@ -4,16 +4,16 @@
     "studentName": "Juan",
     "subjects": [
       {
-        "name": "Matemática",
+        "name": "Matematica",
         "score": 9
       },
       {
-        "name": "Física",
+        "name": "Fisica",
         "score": 7
       },
       {
-        "name": "Química",
-        "score": 6
+        "name": "Quimica",
+        "score": 8
       }
     ]
   },
