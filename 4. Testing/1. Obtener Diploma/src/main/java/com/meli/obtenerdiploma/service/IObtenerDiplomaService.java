@@ -4,5 +4,5 @@ import com.meli.obtenerdiploma.model.StudentDTO;
 
 public interface IObtenerDiplomaService {
 
-    StudentDTO analyzeScores(Long studentId);
+  StudentDTO analyzeScores(Long studentId);
 }

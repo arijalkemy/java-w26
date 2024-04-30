@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ObtenerDiplomaController {
 
-    @Autowired
-    IObtenerDiplomaService service;
+  @Autowired
+  IObtenerDiplomaService service;
 
-    @GetMapping("/analyzeScores/{studentId}")
-    public StudentDTO analyzeScores(@PathVariable Long studentId) {
-        return service.analyzeScores(studentId);
-    }
+  @GetMapping("/analyzeScores/{studentId}")
+  public StudentDTO analyzeScores(@PathVariable Long studentId) {
+    return service.analyzeScores(studentId);
+  }
 }

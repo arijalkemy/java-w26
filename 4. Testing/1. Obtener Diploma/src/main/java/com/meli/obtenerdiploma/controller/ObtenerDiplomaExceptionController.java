@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ObtenerDiplomaExceptionController {
 
-    @ExceptionHandler(ObtenerDiplomaException.class)
-    ResponseEntity<ErrorDTO> handleGlobalExceptions(ObtenerDiplomaException e) {
-        return new ResponseEntity<>(e.getError(), e.getStatus());
-    }
+  @ExceptionHandler(ObtenerDiplomaException.class)
+  ResponseEntity<ErrorDTO> handleGlobalExceptions(ObtenerDiplomaException e) {
+    return new ResponseEntity<>(e.getError(), e.getStatus());
+  }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    protected ResponseEntity<ErrorDTO> handleValidationExceptions(MethodArgumentNotValidException e) {
-        ErrorDTO error = new ErrorDTO("MethodArgumentNotValidException", e.getBindingResult().getFieldError().getDefaultMessage());
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-    }
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  protected ResponseEntity<ErrorDTO> handleValidationExceptions(MethodArgumentNotValidException e) {
+    ErrorDTO error = new ErrorDTO("MethodArgumentNotValidException", e.getBindingResult().getFieldError().getDefaultMessage());
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    protected ResponseEntity<ErrorDTO> handleValidationExceptions(HttpMessageNotReadableException e) {
-        ErrorDTO error = new ErrorDTO("HttpMessageNotReadableException", e.getMessage());
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-    }
+  @ExceptionHandler(HttpMessageNotReadableException.class)
+  protected ResponseEntity<ErrorDTO> handleValidationExceptions(HttpMessageNotReadableException e) {
+    ErrorDTO error = new ErrorDTO("HttpMessageNotReadableException", e.getMessage());
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
 
 }

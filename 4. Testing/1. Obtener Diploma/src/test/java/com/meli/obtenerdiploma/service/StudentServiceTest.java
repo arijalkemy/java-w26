@@ -1,5 +1,8 @@
 package com.meli.obtenerdiploma.service;
 
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
@@ -10,33 +13,28 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
-
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-
 @ExtendWith(MockitoExtension.class)
 public class StudentServiceTest {
-    @Mock
-    IStudentDAO studentDAO;
+  @Mock
+  IStudentDAO studentDAO;
 
-    @Mock
-    IStudentRepository studentRepository;
+  @Mock
+  IStudentRepository studentRepository;
 
-    @InjectMocks
-    StudentService studentService;
+  @InjectMocks
+  StudentService studentService;
 
-    @BeforeEach
-    void setUp() {
+  @BeforeEach
+  void setUp() {
 
-    }
+  }
 
-    @Test
-    public void sePuedeCrearUnEstudiante() {
-        StudentDTO student = new StudentDTO();
-        student.setStudentName("John Doe");
-        studentService.create(student);
+  @Test
+  public void sePuedeCrearUnEstudiante() {
+    StudentDTO student = new StudentDTO();
+    student.setStudentName("John Doe");
+    studentService.create(student);
 
-        verify(studentDAO, times(1)).save(student);
-    }
+    verify(studentDAO, times(1)).save(student);
+  }
 }
