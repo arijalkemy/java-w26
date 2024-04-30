@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "5968d76f-6986-4b49-9952-5f54b1b45a69",
+		"name": "Obtener Diploma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33873654"
+	},
+	"item": [
+		{
+			"name": "analyzeScores OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Pepe\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemática\",\n            \"score\": 6\n        },\n        {\n            \"name\": \"Lengua\",\n            \"score\": 7\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/analyzeScores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "analyzeScores BadRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"peponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnn\",\n    \"message\": \"pepe\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/analyzeScores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "studentName 2 fallas",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentName\": \"peponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnnpeponnnnnn\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemática\",\n            \"score\": 6\n        },\n        {\n            \"name\": \"Lengua\",\n            \"score\": 7\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/analyzeScores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"analyzeScores"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "sin Subjects",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentName\": \"Pepe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/analyzeScores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"analyzeScores"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "errores en Subjects",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentName\": \"Pepe\",\n    \"subjects\": [\n        {\n            \"name\": \"matemática\"\n        },\n        {\n            \"name\": \"Lengua\",\n            \"score\": 70\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/analyzeScores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"analyzeScores"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
