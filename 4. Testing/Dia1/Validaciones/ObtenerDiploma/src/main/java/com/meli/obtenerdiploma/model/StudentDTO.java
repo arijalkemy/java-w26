@@ -1,9 +1,9 @@
 package com.meli.obtenerdiploma.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -21,5 +21,5 @@ public class StudentDTO {
 
     @NotNull(message = "La lista no puede estar vacía.")
     @NotEmpty(message = "La lista no puede estar vacía.")
-    List<SubjectDTO> subjects;
+    List<@Valid SubjectDTO> subjects;
 }
