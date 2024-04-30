@@ -62,6 +62,7 @@ public class ObtenerDiplomaServiceTest {
         this.studentDTOS = getMockStudents();
     }
 
+    // analyzeScores Tests
     @Test
     @DisplayName("Get valid StudentDto when consulting analyzeScores")
     public void analyzeScoresOk() {
