@@ -1,7 +1,5 @@
 package com.meli.obtenerdiploma.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
@@ -12,9 +10,9 @@ import java.util.List;
 @Getter @Setter
 @ToString
 public class StudentDTO {
-    
-    @NotBlank(message = "The value of student name no should be null")
-    @NotNull
+    @Pattern(regexp = "^[A-Z].*$", message = "El nombre del alumno debe empezar en mayuscula.")
+    @Size(max = 50, message = "La langitud del nombre no puede superar los 50 caracteres.")
+    @NotBlank(message = "El nombre del alumno no puede estar vacio")
     String studentName;
 
 
@@ -23,6 +21,7 @@ public class StudentDTO {
     @Positive
     Double averageScore;
 
-    @Size(min = 1)
+    @NotNull
+    @Size(min = 1, message = "Lista no puede estar vacia.")
     List< @Valid SubjectDTO> subjects;
 }
