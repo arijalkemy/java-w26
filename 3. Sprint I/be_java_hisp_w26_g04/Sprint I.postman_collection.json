@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "821fc111-6a69-4571-bbf4-5d7b0ba0d448",
+		"name": "Sprint I",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34268596"
+	},
+	"item": [
+		{
+			"name": "1",
+			"item": [
+				{
+					"name": "Follow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/follow/234",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"follow",
+								"234"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2",
+			"item": [
+				{
+					"name": "cantidad de seguidores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/123/followers/count",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"123",
+								"followers",
+								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3",
+			"item": [
+				{
+					"name": "seguidores de un vendedor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/123/followers/list",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"123",
+								"followers",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4",
+			"item": [
+				{
+					"name": "vendedores que sigue un usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/followed/list",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"followed",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5",
+			"item": [
+				{
+					"name": "publicacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 123,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}:8080/products/post",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6",
+			"item": [
+				{
+					"name": "Publicaciones de las ultimas dos semanas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/followed/456/list",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"followed",
+								"456",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7",
+			"item": [
+				{
+					"name": "Unfollow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/unfollow/123",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"unfollow",
+								"123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8",
+			"item": [
+				{
+					"name": "lista followers asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/123/followers/list?order=name_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"123",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followers des",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/123/followers/list?order=name_desc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"123",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followed asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/followed/list?order=name_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followed desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/followed/list?order=name_desc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9",
+			"item": [
+				{
+					"name": "publicaciones de sellers que un usuario sigue asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/followed/456/list?order=date_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"followed",
+								"456",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publicaciones de sellers que un usuario sigue desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/followed/456/list?order=date_desc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"followed",
+								"456",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}

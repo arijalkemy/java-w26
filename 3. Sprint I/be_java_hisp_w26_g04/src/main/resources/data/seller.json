@@ -1,0 +1,129 @@
+[
+  {
+    "userId": 123,
+    "userName": "JohnDoe",
+    "listPost": [
+      {
+        "idPost": 1,
+        "userId": 123,
+        "date": "23-04-2022",
+        "category": 1,
+        "price": 50.0,
+        "product": {
+          "productId": 1,
+          "productName": "Product1",
+          "typeProduct": "TypeA",
+          "brand": "BrandX",
+          "color": "Blue",
+          "notes": "Some notes about Product1"
+        }
+      },
+      {
+        "idPost": 2,
+        "userId": 123,
+        "date": "24-04-2024",
+        "category": 2,
+        "price": 75.0,
+        "product": {
+          "productId": 2,
+          "productName": "Product2",
+          "typeProduct": "TypeB",
+          "brand": "BrandY",
+          "color": "Red",
+          "notes": "Some notes about Product2"
+        }
+      },
+      {
+        "idPost": 3,
+        "userId": 123,
+        "date": "23-04-2024",
+        "category": 1,
+        "price": 50.0,
+        "product": {
+          "productId": 1,
+          "productName": "Product1",
+          "typeProduct": "TypeA",
+          "brand": "BrandX",
+          "color": "Blue",
+          "notes": "Some notes about Product1"
+        }
+      }
+    ],
+    "listProduct": [
+      {
+        "productId": 1,
+        "productName": "Product1",
+        "typeProduct": "TypeA",
+        "brand": "BrandX",
+        "color": "Blue",
+        "notes": "Some notes about Product1"
+      },
+      {
+        "productId": 2,
+        "productName": "Product2",
+        "typeProduct": "TypeB",
+        "brand": "BrandY",
+        "color": "Red",
+        "notes": "Some notes about Product2"
+      }
+    ],
+    "followers": [
+      456
+    ]
+  },
+  {
+    "userId": 234,
+    "userName": "JaneSmith",
+    "listPost": [
+      {
+        "idPost": 4,
+        "userId": 234,
+        "date": "16-04-2024",
+        "category": 3,
+        "price": 80.0,
+        "product": {
+          "productId": 3,
+          "productName": "Product3",
+          "typeProduct": "TypeC",
+          "brand": "BrandZ",
+          "color": "Green",
+          "notes": "Some notes about Product3"
+        }
+      },
+      {
+        "idPost": 5,
+        "userId": 234,
+        "date": "28-05-2024",
+        "category": 2,
+        "price": 65.0,
+        "product": {
+          "productId": 4,
+          "productName": "Product4",
+          "typeProduct": "TypeD",
+          "brand": "BrandW",
+          "color": "Yellow",
+          "notes": "Some notes about Product4"
+        }
+      }
+    ],
+    "listProduct": [
+      {
+        "productId": 3,
+        "productName": "Product3",
+        "typeProduct": "TypeC",
+        "brand": "BrandZ",
+        "color": "Green",
+        "notes": "Some notes about Product3"
+      },
+      {
+        "productId": 4,
+        "productName": "Product4",
+        "typeProduct": "TypeD",
+        "brand": "BrandW",
+        "color": "Yellow",
+        "notes": "Some notes about Product4"
+      }
+    ],
+    "followers": [456]
+  }
+]
