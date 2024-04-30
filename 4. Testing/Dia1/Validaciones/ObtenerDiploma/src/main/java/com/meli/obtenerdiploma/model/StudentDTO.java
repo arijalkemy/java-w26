@@ -19,7 +19,7 @@ public class StudentDTO {
 
     Double averageScore;
 
-    @NotNull(message = "La lista no puede estar vacía.")
+    @NotNull(message = "La lista no puede ser nula.")
     @NotEmpty(message = "La lista no puede estar vacía.")
     List<@Valid SubjectDTO> subjects;
 }
