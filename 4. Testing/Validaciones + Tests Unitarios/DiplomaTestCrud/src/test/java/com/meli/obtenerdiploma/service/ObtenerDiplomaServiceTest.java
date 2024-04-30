@@ -5,6 +5,7 @@ import com.meli.obtenerdiploma.model.SubjectDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -50,6 +51,7 @@ class ObtenerDiplomaServiceTest {
     }
 
     @Test
+    @DisplayName("Devuelve promedio")
     void analyzeScores() {
         when(studentDAO.findById(2L)).thenReturn(studentWithHonorsDTO);
         StudentDTO computedStudent = obtenerDiplomaService.analyzeScores(2L);
@@ -58,6 +60,7 @@ class ObtenerDiplomaServiceTest {
     }
 
     @Test
+    @DisplayName("Devuelve mensaje de alumno regular que puede mejorar")
     void analyzeMessageWithoutHonors() {
         when(studentDAO.findById(1L)).thenReturn(studentWithoutHonorsDTO);
         StudentDTO computedStudent = obtenerDiplomaService.analyzeScores(1L);
@@ -69,6 +72,7 @@ class ObtenerDiplomaServiceTest {
     }
 
     @Test
+    @DisplayName("Devuelve alumno con honores y felicitaciones")
     void analyzeMessageWithHonors() {
         when(studentDAO.findById(2L)).thenReturn(studentWithHonorsDTO);
         StudentDTO computedStudent = obtenerDiplomaService.analyzeScores(2L);
