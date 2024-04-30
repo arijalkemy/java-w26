@@ -91,7 +91,6 @@ class ObtenerDiplomaServiceTest {
     studentExpectedDTO.setAverageScore(0.0);
     studentExpectedDTO.setMessage("El alumno Juan ha obtenido un promedio de 0. Puedes mejorar.");
 
-
     // act
     StudentDTO studentResultDTO = obtenerDiplomaService.analyzeScores(1L);
 
