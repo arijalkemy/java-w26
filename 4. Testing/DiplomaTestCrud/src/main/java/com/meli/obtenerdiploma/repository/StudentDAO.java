@@ -37,9 +37,7 @@ public class StudentDAO implements IStudentDAO {
 
     @Override
     public Long save(StudentDTO stu) {
-        //! no tiene sentido
-        boolean removed = this.delete(stu.getId());
-        if (!removed) stu.setId((this.students.size() + 1L));
+        if (this.exists(stu)) delete(stu.getId());
 
         students.add(stu);
 
@@ -47,40 +45,14 @@ public class StudentDAO implements IStudentDAO {
         return stu.getId();
     }
 
-    /**
-     * Elimina un estudiante por id
-     * return true si se elimina correctamente
-     * return false si no se encuentra el estudiante
-     *
-     * @param id
-     * @return
-     */
     @Override
     public boolean delete(Long id) {
-        boolean ret = false;
-
-        try {
-            StudentDTO found = this.findById(id);
-
-            students.remove(found);
-            ret = true;
-            this.saveData();
-
-        } catch (StudentNotFoundException e) {
-        }
-
-        return ret;
+        StudentDTO student = findById(id);
+        return students.remove(student);
     }
 
     public boolean exists(StudentDTO stu) {
-        boolean ret = false;
-
-        try {
-            ret = this.findById(stu.getId()) != null;
-        } catch (StudentNotFoundException e) {
-        }
-
-        return ret;
+        return students.stream().anyMatch(student -> student.getId().equals(stu.getId()));
     }
 
     @Override

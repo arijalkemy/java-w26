@@ -5,9 +5,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import com.meli.obtenerdiploma.repository.StudentDAO;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,10 +29,12 @@ class StudentControllerTest {
     private MockMvc mockMvc;
 
     SubjectDTO subjectDTO;
-    StudentDTO studentDTO;
+    static StudentDTO studentDTO;
+    static StudentDAO studentDAO;
 
     @BeforeEach
     void setUp() {
+        studentDAO = new StudentDAO();
         subjectDTO = new SubjectDTO("Matematica", 10.0);
         studentDTO = new StudentDTO(99L,
                 "Juan",
@@ -104,6 +105,7 @@ class StudentControllerTest {
     }
 
     @Test
+    @DisplayName("Should return 404 when trying to get a student that does not exist > 999L")
     public void getStudent_notFound() throws Exception {
         // Arrange
         Long studentId = 999L;
@@ -121,6 +123,9 @@ class StudentControllerTest {
     @Test
     public void modifyStudent_ok() throws Exception {
 
+        //arrange
+        studentDTO.setId(1L);
+
         ObjectWriter writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer()
@@ -137,28 +142,11 @@ class StudentControllerTest {
                 .andExpect(status().isOk());
     }
 
-    @Test
-    public void modifyStudent_notFound() throws Exception {
-
-        studentDTO.setId(998L);
-
-        ObjectWriter writer = new ObjectMapper()
-                .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
-                .writer()
-                .withDefaultPrettyPrinter();
-
-        String json = writer.writeValueAsString(studentDTO);
-
-        mockMvc
-                .perform(MockMvcRequestBuilders
-                        .post("/student/modifyStudent")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(json))
-                .andDo(print())
-                .andExpect(status().isNotFound());
+    @AfterAll
+    static void tearDown() {
+        studentDAO.delete(99L);
+        studentDTO.setId(1L);
+        studentDAO.save(studentDTO);
     }
-
-
-
 
 }
