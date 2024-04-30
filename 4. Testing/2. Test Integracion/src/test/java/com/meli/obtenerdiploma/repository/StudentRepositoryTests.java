@@ -16,7 +16,7 @@ public class StudentRepositoryTests {
 
   @BeforeEach
   @AfterEach
-  private void setUp() {
+  public void setUp() {
     TestUtilsGenerator.emptyUsersFile();
 
     this.studentDAO = new StudentDAO();
