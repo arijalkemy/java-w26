@@ -3,6 +3,7 @@ package com.meli.obtenerdiploma.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class StudentDTO {
 
     String message;
     Double averageScore;
+
     @Size(min = 1, message = "La lista no puede ser vacia")
+    @Valid
     List<SubjectDTO> subjects;
 }
