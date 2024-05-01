@@ -3,17 +3,17 @@ package com.meli.obtenerdiploma.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.PositiveOrZero;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Getter @Setter
 public class SubjectDTO {
-    @NotEmpty(message = "el campo de nombre es requerido")
-    @Size(min=3, message = "el campo de nombre no puede ser menor a 3 caracteres")
+    @NotEmpty(message = "El campo de la materia no puede estar vacio")
+    @Pattern(regexp = "[A-Z].*", message = "El nombre de la materia debe comenzar con mayuscula")
+    @Size(min=3, message = "La longitud del nombre no puede superar los 30 caracteres")
     String name;
 
-    @NotEmpty(message = "el campo de score es requerido")
-    @PositiveOrZero(message = "el campo de score debe ser positivo o cero")
+    @NotEmpty(message = "La nota no puede estar vacia")
+    @PositiveOrZero(message = "La nota minima es 0.0")
+    @Max(value = 10, message = "La nota minima es 10.0")
     Double score;
 }
