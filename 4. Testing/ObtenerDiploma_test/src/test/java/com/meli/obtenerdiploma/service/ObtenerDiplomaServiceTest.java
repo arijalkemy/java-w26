@@ -2,8 +2,8 @@ package com.meli.obtenerdiploma.service;
 
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
-import com.meli.obtenerdiploma.model.SubjectDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
+import com.meli.obtenerdiploma.utils.StudentsUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -14,9 +14,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,37 +26,9 @@ public class ObtenerDiplomaServiceTest {
 
     public Set<StudentDTO> studentDTOS;
 
-    public Set<StudentDTO> getMockStudents() {
-        return new HashSet<>(
-                List.of(
-                        new StudentDTO(1L, "Juan Manuel", null, null, new ArrayList<>(
-                                List.of(
-                                        new SubjectDTO("Matemática", 9.0),
-                                        new SubjectDTO("Física", 7.0),
-                                        new SubjectDTO("Química", 6.0)
-                                )
-                        )),
-                        new StudentDTO(2L, "Pedro", null, null, new ArrayList<>(
-                                List.of(
-                                        new SubjectDTO("Matemática", 10.0),
-                                        new SubjectDTO("Física", 8.0),
-                                        new SubjectDTO("Química", 4.0)
-                                )
-                        )),
-                        new StudentDTO(3L, "Mariano", null, null, new ArrayList<>(
-                                List.of(
-                                        new SubjectDTO("Matemática", 9.0),
-                                        new SubjectDTO("Física", 7.0),
-                                        new SubjectDTO("Química", 6.0)
-                                )
-                        ))
-                )
-        );
-    }
-
     @BeforeEach
     public void setup() {
-        this.studentDTOS = getMockStudents();
+        this.studentDTOS = StudentsUtils.getMockStudents();
     }
 
     // analyzeScores Tests
