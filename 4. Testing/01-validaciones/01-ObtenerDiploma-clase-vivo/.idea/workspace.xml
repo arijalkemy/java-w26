@@ -23,7 +23,7 @@
         <entry key="$USER_HOME$" value="risso_patron_matias" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
     <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="GitToolBoxStore">
@@ -62,19 +62,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ObtenerDiplomaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ObtenerDiplomaApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ObtenerDiplomaApplication.executor": "Run",
+    "git-widget-placeholder": "gomez__geraldine",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/ggomezromero/Desktop/java-w26/4. Testing/01-validaciones/01-ObtenerDiploma-clase-vivo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/test/java/com/meli/obtenerdiploma" />
@@ -202,6 +210,7 @@
       <option name="presentableId" value="Default" />
       <updated>1619721005383</updated>
       <workItem from="1714420570369" duration="797000" />
+      <workItem from="1714421738968" duration="656000" />
     </task>
     <task id="LOCAL-00001" summary="Spring 2 - Practica TT - Obetener Diploma">
       <created>1619721212242</created>
