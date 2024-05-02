@@ -20,7 +20,7 @@ public class StudentDAO implements IStudentDAO {
 
     private String SCOPE;
 
-    private Set<StudentDTO> students;
+    public Set<StudentDTO> students;
 
 
     public StudentDAO() {
@@ -39,7 +39,8 @@ public class StudentDAO implements IStudentDAO {
     public void save(StudentDTO stu) {
         boolean removed = this.delete(stu.getId());
 
-        if (!removed) stu.setId((this.students.size() + 1L));
+        if (!removed)
+            stu.setId((this.students.size() + 1L));
 
         students.add(stu);
 
