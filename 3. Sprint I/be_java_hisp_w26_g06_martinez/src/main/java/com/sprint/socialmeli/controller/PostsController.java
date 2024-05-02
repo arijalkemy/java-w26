@@ -49,8 +49,11 @@ public class PostsController {
      */
     @PostMapping("promo-post")
     public ResponseEntity<PostPromoCreatedDto> createPromoPost(@RequestBody PostPromoRequestDTO promoRequestDTO){
+
         Integer idCreated = postService.createPromoPost(promoRequestDTO);
+
         return new ResponseEntity<>(new PostPromoCreatedDto(idCreated), HttpStatus.CREATED);
+
     }
 
     // US00011. INDIVIDUAL
@@ -61,8 +64,11 @@ public class PostsController {
      */
     @GetMapping("promo-post/count")
     public ResponseEntity<PostPromoCountResponseDTO> getPromoPostBySeller(@RequestParam int user_id){
+
         PostPromoCountResponseDTO postPromoCount = postService.getPostPromoCount(user_id);
+
         return new ResponseEntity<>(postPromoCount, HttpStatus.OK);
+
     }
 
     // US00012. INDIVIDUAL
@@ -74,8 +80,11 @@ public class PostsController {
      */
     @GetMapping("/promo-post/list")
     public ResponseEntity<PostPromoListResponseDTO> getPromoPostListBySeller(@RequestParam int user_id){
+
         PostPromoListResponseDTO postPromoList = postService.getPostPromoList(user_id);
+
         return new ResponseEntity<>(postPromoList, HttpStatus.OK);
+
     }
 
 }
