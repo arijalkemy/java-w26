@@ -3,9 +3,6 @@ package com.mercadolibre.starwars.repositories;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercadolibre.starwars.dto.CharacterDTO;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
@@ -15,9 +12,8 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-@ExtendWith(MockitoExtension.class)
 public class CharacterRepositoryTest {
-    private CharacterRepository repository;
+    private CharacterRepositoryImpl repository;
 
     @BeforeEach
     public void setup(){
@@ -34,15 +30,15 @@ public class CharacterRepositoryTest {
         List<CharacterDTO> characterDTOS = new ArrayList<>();
         characterDTOS.add(new CharacterDTO(
                 "Luke Skywalker",
-                172,
-                77,
                 "blond",
                 "fair",
                 "blue",
                 "19BBY",
                 "male",
                 "Tatooine",
-                "Human"
+                "Human",
+                172,
+                77
         ));
 
         List<CharacterDTO> obtainsList = repository.findAllByNameContains(query);

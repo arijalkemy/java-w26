@@ -1,5 +1,6 @@
 package com.mercadolibre.starwars.dto;
 
+
 public class CharacterDTO {
   private String name;
   private String hair_color;
@@ -15,7 +16,17 @@ public class CharacterDTO {
   public CharacterDTO() {
   }
 
-  public CharacterDTO(String luke_skywalker, int i, int i1, String blond, String fair, String blue, String s, String male, String tatooine, String human) {
+  public CharacterDTO(String name, String hair_color, String skin_color, String eye_color, String birth_year, String gender, String homeworld, String species, Integer height, Integer mass) {
+    this.name = name;
+    this.hair_color = hair_color;
+    this.skin_color = skin_color;
+    this.eye_color = eye_color;
+    this.birth_year = birth_year;
+    this.gender = gender;
+    this.homeworld = homeworld;
+    this.species = species;
+    this.height = height;
+    this.mass = mass;
   }
 
   public String getName() {

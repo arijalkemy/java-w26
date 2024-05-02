@@ -27,15 +27,15 @@ public class FindServiceTest {
         List<CharacterDTO> characterDTOS = new ArrayList<>();
         characterDTOS.add(new CharacterDTO(
                 "Luke Skywalker",
-                172,
-                77,
                 "blond",
                 "fair",
                 "blue",
                 "19BBY",
                 "male",
                 "Tatooine",
-                "Human"
+                "Human",
+                172,
+                77
         ));
 
         //ACT

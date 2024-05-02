@@ -9,12 +9,13 @@ import org.springframework.util.ResourceUtils;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
 public class CharacterRepositoryImpl implements CharacterRepository {
-  private final List<CharacterDTO> database;
+  public List<CharacterDTO> database;
 
   public CharacterRepositoryImpl() {
     this.database = loadDataBase();
