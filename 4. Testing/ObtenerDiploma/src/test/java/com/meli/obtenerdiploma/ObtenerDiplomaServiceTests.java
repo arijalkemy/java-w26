@@ -82,4 +82,15 @@ public class ObtenerDiplomaServiceTests {
         Assertions.assertEquals(expectedValueUno, obtainedUno);
         Assertions.assertEquals(expectedValueDos, obtainedDos);
     }
+
+    @Test
+    public void datosDeSalidaIgualesAEntrada(){
+        when(studentDAO.findById(idUno)).thenReturn(studentDTOUno);
+
+        StudentDTO expectedValue = studentDTOUno;
+
+        StudentDTO obtained = obtenerDiplomaService.analyzeScores(idUno);
+
+        Assertions.assertEquals(expectedValue, obtained);
+    }
 }
