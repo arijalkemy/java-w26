@@ -1,16 +1,14 @@
 package org.bootcamp.blog.repository;
 
-import org.bootcamp.blog.dto.BlogDTO;
 import org.bootcamp.blog.model.BlogEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @Repository
 public class BlogRepositoryImpl implements IBlogRepository {
-    private List<BlogEntity> blogs;
+    private List<BlogEntity> blogs = new ArrayList<>();
 
     public BlogRepositoryImpl() {
         blogs = loadBlogs();
@@ -30,9 +28,8 @@ public class BlogRepositoryImpl implements IBlogRepository {
     }
 
     @Override
-    public String createBlog(BlogEntity blogEntity) {
+    public void createBlog(BlogEntity blogEntity) {
         blogs.add(blogEntity);
-        return "Blog created successfully";
     }
 
     private List<BlogEntity> loadBlogs() {

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 public class BlogDTO {
-    private int id;
+    private Integer id;
     private String title;
     private String author;
     private String date;

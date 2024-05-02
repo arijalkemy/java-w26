@@ -1,7 +1,7 @@
 package org.bootcamp.blog.service;
 
-import org.apache.catalina.mapper.Mapper;
 import org.bootcamp.blog.dto.BlogDTO;
+import org.bootcamp.blog.exception.ResourceAlreadyExistsException;
 import org.bootcamp.blog.model.BlogEntity;
 import org.bootcamp.blog.repository.IBlogRepository;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,10 @@ public class BlogService implements IBlogService {
     @Override
     public String createBlog(BlogDTO blogDTO) {
         BlogEntity blogEntity = new BlogEntity(blogDTO.getId(), blogDTO.getTitle(), blogDTO.getAuthor(), blogDTO.getDate());
-        return blogRepository.createBlog(blogEntity);
+        if (blogRepository.getBlog(blogEntity.getId()) != null) {
+            throw new ResourceAlreadyExistsException("Blog with id " + blogDTO.getId() + " already exists");
+        }
+        return "Blog created successfully";
     }
 
     @Override

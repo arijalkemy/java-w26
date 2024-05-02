@@ -8,5 +8,5 @@ import java.util.List;
 public interface IBlogRepository {
     List<BlogEntity> getBlogs();
     BlogEntity getBlog(int id);
-    String createBlog(BlogEntity blogEntity);
+    void createBlog(BlogEntity blogEntity);
 }
