@@ -1,6 +1,10 @@
-package com.meli.obtenerdiploma.repository;
+package com.meli.obtenerdiploma.unittest.repository;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
+import com.meli.obtenerdiploma.repository.IStudentDAO;
+import com.meli.obtenerdiploma.repository.IStudentRepository;
+import com.meli.obtenerdiploma.repository.StudentDAO;
+import com.meli.obtenerdiploma.repository.StudentRepository;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
 import org.apache.commons.collections4.CollectionUtils;
 import org.junit.jupiter.api.*;

@@ -1,8 +1,9 @@
-package com.meli.obtenerdiploma.service;
+package com.meli.obtenerdiploma.unittest.service;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
+import com.meli.obtenerdiploma.service.ObtenerDiplomaService;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.SerializationUtils;
@@ -53,7 +54,7 @@ public class ObtenerDiplomaServiceTests {
 
         // assert
         verify(studentDAO, atLeastOnce()).findById(stu.getId());
-        assertEquals("El alumno Marco ha obtenido un promedio de 9.00. Felicitaciones!", stu.getMessage());
+        assertEquals("El alumno Marco ha obtenido un promedio de 9,00. Felicitaciones!", stu.getMessage());
     }
 
     @Test
@@ -67,7 +68,7 @@ public class ObtenerDiplomaServiceTests {
 
         // assert
         verify(studentDAO, atLeastOnce()).findById(stu.getId());
-        assertEquals("El alumno Marco ha obtenido un promedio de 6.00. Puedes mejorar.", stu.getMessage());
+        assertEquals("El alumno Marco ha obtenido un promedio de 6,00. Puedes mejorar.", stu.getMessage());
     }
 
     @Test

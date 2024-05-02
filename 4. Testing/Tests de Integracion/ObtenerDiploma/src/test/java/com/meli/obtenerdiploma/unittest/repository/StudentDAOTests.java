@@ -1,7 +1,9 @@
-package com.meli.obtenerdiploma.repository;
+package com.meli.obtenerdiploma.unittest.repository;
 
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
+import com.meli.obtenerdiploma.repository.IStudentDAO;
+import com.meli.obtenerdiploma.repository.StudentDAO;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
 import org.junit.jupiter.api.*;
 import org.springframework.core.io.ClassPathResource;
