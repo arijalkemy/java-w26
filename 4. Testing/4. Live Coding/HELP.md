@@ -1,25 +1,15 @@
-# Read Me First
-The following was discovered as part of building this project:
+## Dominio:
+El servicio de creación de viajes forma parte de un sistema más grande que proporciona funcionalidades para planificar y gestionar viajes seguros para personas con necesidades especiales.  Este servicio interactúa con otros componentes del sistema, como el repositorio de viajes, el  servicio de búsqueda de personas y la calculadora de demora, para realizar sus funciones. Su  objetivo como equipo es asegurar la calidad de software, como así también su integración entre  componentes.
 
-* The original package name 'com.viajescuidados.viajes-cuidados' is invalid and this project uses 'com.viajescuidados.viajescuidados' instead.
+## Tareas:
 
-# Getting Started
+- Diseñar pruebas unitarias para verificar el correcto funcionamiento de cada paso del método
+  crearViaje.
 
-### Reference Documentation
-For further reference, please consider the following sections:
-
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.5/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.5/maven-plugin/reference/html/#build-image)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.5/reference/htmlsingle/index.html#web)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.2.5/reference/htmlsingle/index.html#using.devtools)
-* [Validation](https://docs.spring.io/spring-boot/docs/3.2.5/reference/htmlsingle/index.html#io.validation)
-
-### Guides
-The following guides illustrate how to use some features concretely:
-
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
-* [Validation](https://spring.io/guides/gs/validating-form-input/)
-
+- Verificar que la persona y los cuidadores se asignan correctamente al nuevo viaje.
+- Asegurarse de que la duración estimada del viaje se calcula correctamente.
+- Diseñar pruebas de integración para verificar que el servicio de creación de viajes interactúa
+  correctamente con los servicios de búsqueda de personas, la calculadora de demora y el repositorio
+  de viajes.
+- Verificar que el nuevo viaje se guarda correctamente en la base de datos.
+- Validar que se devuelve un objeto ViajeResponseDTO con los detalles del viaje creado.
