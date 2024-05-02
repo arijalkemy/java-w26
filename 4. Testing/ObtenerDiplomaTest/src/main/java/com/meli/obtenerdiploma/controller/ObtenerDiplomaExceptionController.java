@@ -30,7 +30,7 @@ public class ObtenerDiplomaExceptionController {
         for (FieldError field : errorFields) {
             formattedErrors.put(field.getField(), field.getDefaultMessage());
         }
-        return new ResponseEntity<>(formattedErrors, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>()
     }
 
 

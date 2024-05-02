@@ -35,7 +35,7 @@ public class CharacterRepositoryImpl implements CharacterRepository {
   private List<CharacterDTO> loadDataBase() {
     File file = null;
     try {
-      file = ResourceUtils.getFile("classpath:starwars_characters.json");
+      file = ResourceUtils.getFile( "classpath:starwars_characters.json");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
