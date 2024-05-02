@@ -9,10 +9,10 @@ import javax.validation.constraints.*;
 @Getter @Setter
 public class SubjectDTO {
     @NotBlank(message = "El nombre de la materia no puede estar vacio")
-    @Max(value = 50, message = "La longitud del nombre no puede superar los 30 caracteres")
+    @Size(max = 30, message = "La longitud del nombre no puede superar los 30 caracteres")
     String name;
 
-    @NotEmpty(message = "La nota no puede estar vacia")
+    @NotNull(message = "La nota no puede estar vacia")
     @Min(value = 0, message = "La minima nota es 0")
     @Max(value = 10, message = "La maxima nota es 10")
     Double score;

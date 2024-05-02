@@ -1,5 +1,6 @@
 package com.mercadolibre.starwars.controller;
 
+import com.mercadolibre.starwars.FindController;
 import com.mercadolibre.starwars.dto.CharacterDTO;
 import com.mercadolibre.starwars.repositories.CharacterRepositoryImpl;
 import com.mercadolibre.starwars.service.FindService;
@@ -16,10 +17,9 @@ import java.util.List;
 @ExtendWith(MockitoExtension.class)
 public class FindControllerTest{
     @Mock
-    private CharacterRepositoryImpl repository;
-
-    @InjectMocks
     private FindService service;
+    @InjectMocks
+    private FindController controller;
 
     @Test
     public void findLukeOk(){

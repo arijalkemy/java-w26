@@ -1,5 +1,6 @@
 package com.mercadolibre.starwars.repositories;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mercadolibre.starwars.dto.CharacterDTO;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,12 +17,18 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class CharacterRepositoryTest {
-    @Mock
-    private CharacterRepositoryImpl characterRepository;
+    private CharacterRepository repository;
+
+    @BeforeEach
+    public void setup(){
+        this.repository = new CharacterRepositoryImpl();
+    }
 
     @Test
     @DisplayName("Buscar un nombre existente")
     public void findAllByNameContainsOk() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+
         String query="luke";
 
         List<CharacterDTO> characterDTOS = new ArrayList<>();
@@ -38,11 +45,13 @@ public class CharacterRepositoryTest {
                 "Human"
         ));
 
-        when(characterRepository.findAllByNameContains(query)).thenReturn(characterDTOS);
+        List<CharacterDTO> obtainsList = repository.findAllByNameContains(query);
 
-        List<CharacterDTO> obtainsList = characterRepository.findAllByNameContains(query);
+        String obtainJson = mapper.writeValueAsString(obtainsList);
+        String actualJson = mapper.writeValueAsString(characterDTOS);
 
-        Assertions.assertEquals(characterDTOS, obtainsList);
+
+        Assertions.assertEquals(actualJson, obtainJson);
     }
 
     @Test
@@ -50,9 +59,7 @@ public class CharacterRepositoryTest {
     public void findAllByNameContainsNotFound() throws Exception {
         String query="pepo";
 
-        when(characterRepository.findAllByNameContains(query)).thenReturn(new ArrayList<>());
-
-        List<CharacterDTO> obtainsList = characterRepository.findAllByNameContains(query);
+        List<CharacterDTO> obtainsList = repository.findAllByNameContains(query);
 
         Assertions.assertEquals(new ArrayList<>(), obtainsList);
     }

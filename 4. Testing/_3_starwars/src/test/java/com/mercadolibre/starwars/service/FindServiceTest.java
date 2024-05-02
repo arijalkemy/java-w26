@@ -18,6 +18,9 @@ public class FindServiceTest {
     @Mock
     CharacterRepositoryImpl repository;
 
+    @InjectMocks
+    FindService service;
+
     @Test
     public void findOk(){
         String query = "Luke";
