@@ -1,0 +1,6 @@
+Modulo correspondiente a Testing
+
+Se realiza el cargue de archivos con las siguientes actividades
+
+-Actividad de validaciones
+	ObtenerDiploma
