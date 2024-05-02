@@ -4,3 +4,7 @@ Se realiza el cargue de archivos con las siguientes actividades
 
 -Actividad de validaciones
 	ObtenerDiploma
+
+-Actividad de testing
+	ObtenerDiploma 2
+
