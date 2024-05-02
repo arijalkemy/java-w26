@@ -48,13 +48,6 @@ class CharacterRepositoryImplTest {
             77,
             172
         );
-        //        List<String> lukeListString = lukeList.stream().map(c -> {
-        //            try {
-        //                return writer.writeValueAsString(c);
-        //            } catch (JsonProcessingException e) {
-        //                throw new RuntimeException(e);
-        //            }
-        //        }).collect(Collectors.toList());
 
         // ----
         List<CharacterDTO> resultList = this.repository.findAllByNameContains("Luke");
