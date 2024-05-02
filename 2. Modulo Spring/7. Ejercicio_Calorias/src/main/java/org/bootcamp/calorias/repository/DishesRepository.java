@@ -42,7 +42,7 @@ public class DishesRepository {
 
     public DishDTO calculateDishCalories(String name, int weight) {
         Dish dish = dishes.stream()
-            .filter(d -> d.getName().equals(name))
+            .filter(d -> d.getName().equalsIgnoreCase(name))
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("Dish not found"));
 
