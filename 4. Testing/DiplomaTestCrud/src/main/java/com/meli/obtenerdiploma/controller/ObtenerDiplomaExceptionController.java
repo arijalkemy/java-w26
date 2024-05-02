@@ -1,6 +1,8 @@
 package com.meli.obtenerdiploma.controller;
 
 import com.meli.obtenerdiploma.exception.ObtenerDiplomaException;
+import com.meli.obtenerdiploma.exception.StudentAllreadyExistException;
+import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,15 +20,30 @@ public class ObtenerDiplomaExceptionController {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    protected ResponseEntity<ErrorDTO> handleValidationExceptions(MethodArgumentNotValidException e) {
-        ErrorDTO error = new ErrorDTO("MethodArgumentNotValidException", e.getBindingResult().getFieldError().getDefaultMessage());
+    protected ResponseEntity<ErrorDTO> handleValidationExceptions(
+            MethodArgumentNotValidException e) {
+        ErrorDTO error = new ErrorDTO("MethodArgumentNotValidException",
+                e.getBindingResult().getFieldError().getDefaultMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    protected ResponseEntity<ErrorDTO> handleValidationExceptions(HttpMessageNotReadableException e) {
+    protected ResponseEntity<ErrorDTO> handleValidationExceptions(
+            HttpMessageNotReadableException e) {
         ErrorDTO error = new ErrorDTO("HttpMessageNotReadableException", e.getMessage());
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(StudentAllreadyExistException.class)
+    protected ResponseEntity<?> handleValidationExceptions(StudentAllreadyExistException e) {
+        ErrorDTO error = new ErrorDTO(e.getClass().getSimpleName(),e.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(StudentNotFoundException.class)
+    protected ResponseEntity<?> handleValidationExceptions(StudentNotFoundException e) {
+        ErrorDTO error = new ErrorDTO(e.getClass().getSimpleName(),e.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
 }

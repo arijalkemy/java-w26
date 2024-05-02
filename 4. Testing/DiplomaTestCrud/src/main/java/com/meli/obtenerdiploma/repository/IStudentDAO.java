@@ -5,6 +5,6 @@ import com.meli.obtenerdiploma.model.StudentDTO;
 public interface IStudentDAO {
     Long save(StudentDTO stu);
     boolean delete(Long id);
-    boolean exists(StudentDTO stu);
+    boolean existsById(Long id);
     StudentDTO findById(Long id);
 }
