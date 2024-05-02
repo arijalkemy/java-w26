@@ -4,6 +4,7 @@ import com.mercadolibre.starwars.dto.CharacterDTO;
 import com.mercadolibre.starwars.service.FindService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +15,7 @@ public class FindController {
   private FindService findService;
 
   @GetMapping("/{query}")
-  public List<CharacterDTO> find(@PathVariable String query) {
+  public List<CharacterDTO> find(@PathVariable @NonNull String query) {
     return findService.find(query);
   }
 }
