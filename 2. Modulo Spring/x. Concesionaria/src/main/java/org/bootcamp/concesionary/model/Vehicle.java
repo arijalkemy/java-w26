@@ -2,23 +2,23 @@ package org.bootcamp.concesionary.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 public class Vehicle {
-    private UUID id;
+    private String id;
     private String brand;
     private String model;
-    private String manufacturingDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date manufacturingDate;
     private Integer numberOfKilometers;
     private String doors;
     private Integer price;
     private String currency;
-    private List<Service> services;
+    private List<VehService> services;
     private String countOfOwners;
-
-
 }

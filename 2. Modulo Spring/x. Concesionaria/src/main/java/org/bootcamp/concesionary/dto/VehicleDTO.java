@@ -1,15 +1,20 @@
 package org.bootcamp.concesionary.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 public class VehicleDTO {
-    private String id;
     private String brand;
     private String model;
-    private String manufacturingDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date manufacturingDate;
     private Integer numberOfKilometers;
     private String doors;
     private Integer price;
