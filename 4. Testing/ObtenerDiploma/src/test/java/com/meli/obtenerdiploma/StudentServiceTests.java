@@ -59,7 +59,7 @@ public class StudentServiceTests {
     @Test
     public void testReadUser() {
         when(studentService.read(1L)).thenReturn(studentDTOUno);
-        
+
         StudentDTO studentDTO = studentService.read(1L);
         Assertions.assertEquals("Uno", studentDTO.getStudentName());
         Assertions.assertEquals(2, studentDTO.getSubjects().size());
