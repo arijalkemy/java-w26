@@ -20,7 +20,7 @@ public class CharacterRepositoryTest {
         CharacterDTO param = new CharacterDTO();
         param.setName("Luke Skywalker");
         param.setHair_color("blond");
-        param.setSkin_color("fair");
+        param.setSkin_color("red");
         param.setEye_color("blue");
         param.setBirth_year("19BBY");
         param.setGender("male");
