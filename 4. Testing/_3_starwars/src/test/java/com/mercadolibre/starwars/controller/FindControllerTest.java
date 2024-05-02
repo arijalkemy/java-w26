@@ -41,7 +41,7 @@ public class FindControllerTest{
         //ACT
         Mockito.when(service.find(query)).thenReturn(characterDTOS);
         //ASSERT
-        Assertions.assertEquals(characterDTOS, service.find(query));
+        Assertions.assertEquals(characterDTOS, controller.find(query));
     }
 
     @Test
@@ -51,6 +51,6 @@ public class FindControllerTest{
         //ACT
         Mockito.when(service.find(query)).thenReturn(new ArrayList<>());
         //ASSERT
-        Assertions.assertEquals(new ArrayList<>(), service.find(query));
+        Assertions.assertEquals(new ArrayList<>(), controller.find(query));
     }
 }

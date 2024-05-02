@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 public class FindController {
   @Autowired
-  private FindService findService;
+  public FindService findService;
 
   @GetMapping("/{query}")
   public List<CharacterDTO> find(@PathVariable String query) {
