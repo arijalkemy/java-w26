@@ -1,0 +1,62 @@
+[
+  {
+    "id": 3,
+    "studentName": "Jorge",
+    "message": null,
+    "averageScore": null,
+    "subjects": [
+      {
+        "name": "Matemáticas",
+        "score": 9
+      },
+      {
+        "name": "Ciencias",
+        "score": 8
+      },
+      {
+        "name": "Historia",
+        "score": 7.5
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "studentName": "Pedro",
+    "message": null,
+    "averageScore": null,
+    "subjects": [
+      {
+        "name": "Matemática",
+        "score": 10
+      },
+      {
+        "name": "Física",
+        "score": 8
+      },
+      {
+        "name": "Química",
+        "score": 4
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "studentName": "Juan",
+    "message": "",
+    "averageScore": 0.0,
+    "subjects": [
+      {
+        "name": "Matemática",
+        "score": 9.0
+      },
+      {
+        "name": "Física",
+        "score": 7.0
+      },
+      {
+        "name": "Química",
+        "score": 6.0
+      }
+    ]
+  }
+]
