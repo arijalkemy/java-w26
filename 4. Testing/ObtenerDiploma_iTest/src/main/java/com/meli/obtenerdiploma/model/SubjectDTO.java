@@ -2,7 +2,7 @@ package com.meli.obtenerdiploma.model;
 
 import lombok.*;
 
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
 import java.io.Serializable;
 
 @Getter @Setter

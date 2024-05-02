@@ -19,15 +19,13 @@ import java.util.*;
 
 public class TestUtilsGenerator {
 
-    private static String SCOPE;
     private static ObjectWriter mapper;
 
-    public static void emptyUsersFile() {
+    public static void emptyUsersFile() throws JsonProcessingException {
         Properties properties = new Properties();
 
         try {
             properties.load(new ClassPathResource("application.properties").getInputStream());
-            SCOPE = properties.getProperty("api.scope");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,13 +33,18 @@ public class TestUtilsGenerator {
         PrintWriter writer = null;
 
         try {
-            writer = new PrintWriter(ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json"));
+            writer = new PrintWriter(ResourceUtils.getFile("classpath:users.json"));
         } catch (
                 IOException e) {
             e.printStackTrace();
         }
 
-        writer.print("[]");
+        List<StudentDTO> studentDTOList = getAllStudentsJson();
+        ObjectWriter objectWriter = new ObjectMapper().configure(SerializationFeature.WRAP_ROOT_VALUE, false)
+                .writer();
+        String studentsStr = objectWriter.writeValueAsString(studentDTOList);
+
+        writer.print(studentsStr);
         writer.close();
     }
 
@@ -99,6 +102,34 @@ public class TestUtilsGenerator {
         return stu;
     }
 
+    static List<StudentDTO> getAllStudentsJson() {
+        StudentDTO studentOne = new StudentDTO(
+                1L,
+                "Juan",
+                null,
+                null,
+                List.of(
+                        new SubjectDTO("Matematica", 9.0),
+                        new SubjectDTO("Fisica", 7.0),
+                        new SubjectDTO("Quimica", 6.0)
+                )
+        );
+
+        StudentDTO studentTwo = new StudentDTO(
+                2L,
+                "Pedro",
+                null,
+                null,
+                List.of(
+                        new SubjectDTO("Matematica", 10.0),
+                        new SubjectDTO("Fisica", 8.0),
+                        new SubjectDTO("Quimica", 4.0)
+                )
+        );
+
+        return List.of(studentOne, studentTwo);
+    }
+
     public static StudentDTO getUserJsonRecord(Long id) {
         SubjectDTO subject1 = new SubjectDTO("Matematica", 9.0);
         SubjectDTO subject2 = new SubjectDTO("Fisica", 7.0);
@@ -124,8 +155,15 @@ public class TestUtilsGenerator {
         StudentDTO stu2 = getStudentWith3Subjects("Marco Polo");
         StudentDTO stu3 = getStudentWith3Subjects("Julio");
         StudentDTO stu4 = getStudentWith3Subjects("Julio Cesar");
+        List<StudentDTO> students = getAllStudentsJson();
 
-        return new HashSet<StudentDTO>(){{add(stu1); add(stu2); add(stu3); add(stu4);}};
+        return new HashSet<StudentDTO>() {{
+            add(stu1);
+            add(stu2);
+            add(stu3);
+            add(stu4);
+            addAll(students);
+        }};
     }
 
     public static void appendNewStudent(StudentDTO stu) {
@@ -136,20 +174,19 @@ public class TestUtilsGenerator {
         PrintWriter writer = null;
 
         try {
-            String content = Files.readString(new File("./src/" + SCOPE + "/resources/users.json").getAbsoluteFile().toPath(), StandardCharsets.US_ASCII);
-            writer = new PrintWriter(ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json"));
+            String content = Files.readString(new File("classpath:users.json").getAbsoluteFile().toPath(), StandardCharsets.US_ASCII);
+            writer = new PrintWriter(ResourceUtils.getFile("classpath:users.json"));
 
             try {
                 String studentAsString = mapper.writeValueAsString(stu);
-                writer.print(content.substring(0, content.length()-1));
-                if (content.length()>2) writer.print(", ");
+                writer.print(content.substring(0, content.length() - 1));
+                if (content.length() > 2) writer.print(", ");
                 writer.print(studentAsString);
                 writer.print("]");
             } catch (JsonProcessingException jsonProcessingException) {
                 jsonProcessingException.printStackTrace();
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

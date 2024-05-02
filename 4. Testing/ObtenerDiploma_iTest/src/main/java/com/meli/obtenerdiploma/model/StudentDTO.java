@@ -1,10 +1,9 @@
 package com.meli.obtenerdiploma.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import java.util.List;
 
 @Getter @Setter

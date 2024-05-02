@@ -1,5 +1,6 @@
 package com.meli.obtenerdiploma.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
 import org.apache.commons.collections4.CollectionUtils;
@@ -18,7 +19,7 @@ public class StudentRepositoryTests {
     IStudentDAO studentDAO;
 
     @BeforeEach @AfterEach
-    private void setUp() {
+    public void setUp() throws JsonProcessingException {
         TestUtilsGenerator.emptyUsersFile();
 
         this.studentDAO = new StudentDAO();
@@ -29,10 +30,14 @@ public class StudentRepositoryTests {
     public void findAllExistentStudents() {
         // arrange
         Set<StudentDTO> students = TestUtilsGenerator.getStudentSet();
-        students.forEach((stu) -> studentDAO.save(stu));
+        students.forEach((stu) -> {
+            studentDAO.save(stu);
+            System.out.println(stu.getStudentName());
+        });
 
         // act
         Set<StudentDTO> foundSet = studentRepo.findAll();
+        foundSet.forEach(st -> System.out.println(st.getStudentName()));
 
         // assert
         Assertions.assertTrue(CollectionUtils.isEqualCollection(students, foundSet));

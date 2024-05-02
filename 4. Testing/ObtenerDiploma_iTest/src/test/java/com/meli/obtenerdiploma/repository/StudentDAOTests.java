@@ -1,5 +1,6 @@
 package com.meli.obtenerdiploma.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
@@ -17,7 +18,7 @@ public class StudentDAOTests {
     IStudentDAO studentDAO;
 
     @BeforeEach @AfterEach
-    private void setUp() {
+    public void setUp() throws JsonProcessingException {
        TestUtilsGenerator.emptyUsersFile();
        this.studentDAO = new StudentDAO();
     }
@@ -32,7 +33,7 @@ public class StudentDAOTests {
 
         // assert
         Assertions.assertTrue(studentDAO.exists(stu));
-        Assertions.assertEquals(1L, stu.getId());
+        Assertions.assertEquals(3L, stu.getId());
         Assertions.assertEquals(studentDAO.findById(stu.getId()), stu);
     }
 
@@ -46,7 +47,7 @@ public class StudentDAOTests {
 
         // assert
         Assertions.assertTrue(studentDAO.exists(stu));
-        Assertions.assertEquals(1L, stu.getId());
+        Assertions.assertEquals(3L, stu.getId());
         Assertions.assertEquals(studentDAO.findById(stu.getId()), stu);
     }
 
@@ -66,11 +67,11 @@ public class StudentDAOTests {
 
         // assert
         Assertions.assertTrue(studentDAO.exists(stu1));
-        Assertions.assertEquals(1L, stu1.getId());
+        Assertions.assertEquals(3L, stu1.getId());
         Assertions.assertEquals(studentDAO.findById(stu1.getId()), stu1);
 
         Assertions.assertTrue(studentDAO.exists(stu2));
-        Assertions.assertEquals(2L, stu2.getId());
+        Assertions.assertEquals(4L, stu2.getId());
         Assertions.assertEquals(studentDAO.findById(stu2.getId()), stu2);
 
     }
@@ -87,7 +88,7 @@ public class StudentDAOTests {
 
         // assert
         Assertions.assertTrue(studentDAO.exists(stu));
-        Assertions.assertEquals(1L, stu.getId());
+        Assertions.assertEquals(3L, stu.getId());
         Assertions.assertEquals(studentDAO.findById(stu.getId()), stu);
     }
 
