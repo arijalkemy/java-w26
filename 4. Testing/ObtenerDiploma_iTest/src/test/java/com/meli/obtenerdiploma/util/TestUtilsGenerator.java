@@ -99,6 +99,26 @@ public class TestUtilsGenerator {
         return stu;
     }
 
+    public static StudentDTO getUserJsonRecord(Long id) {
+        SubjectDTO subject1 = new SubjectDTO("Matematica", 9.0);
+        SubjectDTO subject2 = new SubjectDTO("Fisica", 7.0);
+        SubjectDTO subject3 = new SubjectDTO("Quimica", 6.0);
+
+        List<SubjectDTO> subjects = new ArrayList<>();
+        subjects.add(subject1);
+        subjects.add(subject2);
+        subjects.add(subject3);
+
+        StudentDTO stu = new StudentDTO();
+        stu.setId(id);
+        stu.setStudentName("Juan");
+        stu.setMessage("El alumno Juan ha obtenido un promedio de 7,33. Puedes mejorar.");
+        stu.setAverageScore(7.333333333333333);
+        stu.setSubjects(subjects);
+
+        return stu;
+    }
+
     public static Set<StudentDTO> getStudentSet() {
         StudentDTO stu1 = getStudentWith3Subjects("Marco");
         StudentDTO stu2 = getStudentWith3Subjects("Marco Polo");

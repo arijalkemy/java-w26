@@ -16,15 +16,11 @@ import java.util.Set;
 
 @Repository
 public class StudentRepository implements IStudentRepository {
-
-    private String SCOPE;
-
     public StudentRepository() {
         Properties properties =  new Properties();
 
         try {
             properties.load(new ClassPathResource("application.properties").getInputStream());
-            this.SCOPE = properties.getProperty("api.scope");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,7 +33,7 @@ public class StudentRepository implements IStudentRepository {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            File file = ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json");
+            File file = ResourceUtils.getFile("classpath:users.json");
             loadedData = objectMapper.readValue(file, new TypeReference<Set<StudentDTO>>(){});
         } catch (FileNotFoundException e) {
             e.printStackTrace();
