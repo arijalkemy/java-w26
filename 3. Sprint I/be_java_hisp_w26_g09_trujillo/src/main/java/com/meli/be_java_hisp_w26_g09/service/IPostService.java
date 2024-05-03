@@ -20,4 +20,5 @@ public interface IPostService {
     PromoProductsDTO getPromoProducts(int userID);
 
     List<Post> getAllPromosForId(int userID);
+    
 }
