@@ -1,0 +1,189 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > HouseResponseDTO</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mercadolibre.calculadorametroscuadrados.dto</a>
+</div>
+
+<h1>Coverage Summary for Class: HouseResponseDTO (com.mercadolibre.calculadorametroscuadrados.dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HouseResponseDTO</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (15/30)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (24/28)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.mercadolibre.calculadorametroscuadrados.dto;
+&nbsp;
+&nbsp;public class HouseResponseDTO extends HouseDTO {
+&nbsp;    private Integer squareFeet;
+&nbsp;    private Integer price;
+&nbsp;    private RoomDTO biggest;
+&nbsp;
+<b class="fc">&nbsp;    public HouseResponseDTO() {</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public HouseResponseDTO(HouseDTO house) {</b>
+<b class="fc">&nbsp;        this.setName(house.getName());</b>
+<b class="fc">&nbsp;        this.setAddress(house.getAddress());</b>
+<b class="fc">&nbsp;        this.setRooms(house.getRooms());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object obj) {
+<b class="pc">&nbsp;        if (this == obj) {</b>
+<b class="nc">&nbsp;            return true;</b>
+&nbsp;        }
+<b class="pc">&nbsp;        if (obj == null || getClass() != obj.getClass()) {</b>
+<b class="nc">&nbsp;            return false;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        HouseResponseDTO that = (HouseResponseDTO) obj;</b>
+&nbsp;
+<b class="fc">&nbsp;        boolean hasEqualsRooms = false;</b>
+&nbsp;
+<b class="pc">&nbsp;        if (this.getRooms() != null &amp;&amp; that.getRooms() != null &amp;&amp; this.getRooms().size() == that.getRooms().size()) {</b>
+&nbsp;
+<b class="fc">&nbsp;            hasEqualsRooms = this.getRooms().equals(that.getRooms());</b>
+&nbsp;
+<b class="nc">&nbsp;        } else if (this.getRooms() == null &amp;&amp; that.getRooms() == null) {</b>
+<b class="nc">&nbsp;            hasEqualsRooms = true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        boolean hasEqualsBiggestRoom =</b>
+<b class="fc">&nbsp;                this.getBiggest() != null &amp;&amp;</b>
+<b class="pc">&nbsp;                        that.getBiggest() != null &amp;&amp;</b>
+<b class="fc">&nbsp;                        this.getBiggest().equals(that.getBiggest());</b>
+&nbsp;
+<b class="pc">&nbsp;        hasEqualsBiggestRoom = (this.getBiggest() == null &amp;&amp; that.getBiggest() == null) || hasEqualsBiggestRoom;</b>
+&nbsp;
+<b class="pc">&nbsp;        return squareFeet.equals(that.squareFeet)</b>
+<b class="pc">&nbsp;                &amp;&amp; price.equals(that.price)</b>
+&nbsp;                &amp;&amp; hasEqualsBiggestRoom
+&nbsp;                &amp;&amp; hasEqualsRooms;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Integer getSquareFeet() {
+<b class="fc">&nbsp;        return squareFeet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSquareFeet(Integer squareFeet) {
+<b class="fc">&nbsp;        this.squareFeet = squareFeet;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Integer getPrice() {
+<b class="fc">&nbsp;        return price;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPrice(Integer price) {
+<b class="fc">&nbsp;        this.price = price;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public RoomDTO getBiggest() {
+<b class="fc">&nbsp;        return biggest;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setBiggest(RoomDTO biggest) {
+<b class="fc">&nbsp;        this.biggest = biggest;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-02 10:24</div>
+</div>
+</body>
+</html>

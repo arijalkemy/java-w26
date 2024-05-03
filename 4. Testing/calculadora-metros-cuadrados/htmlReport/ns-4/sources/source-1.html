@@ -1,0 +1,150 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > CalculateService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.mercadolibre.calculadorametroscuadrados.service</a>
+</div>
+
+<h1>Coverage Summary for Class: CalculateService (com.mercadolibre.calculadorametroscuadrados.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CalculateService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.mercadolibre.calculadorametroscuadrados.service;
+&nbsp;
+&nbsp;import com.mercadolibre.calculadorametroscuadrados.dto.HouseDTO;
+&nbsp;import com.mercadolibre.calculadorametroscuadrados.dto.HouseResponseDTO;
+&nbsp;import com.mercadolibre.calculadorametroscuadrados.dto.RoomDTO;
+&nbsp;
+<b class="fc">&nbsp;public class CalculateService {</b>
+&nbsp;  public HouseResponseDTO calculate(HouseDTO house) {
+<b class="fc">&nbsp;    HouseResponseDTO response = new HouseResponseDTO(house);</b>
+<b class="fc">&nbsp;    calculateRoomSquareFeet(house, response);</b>
+<b class="fc">&nbsp;    response.setPrice(calculatePrice(response.getSquareFeet()));</b>
+<b class="fc">&nbsp;    return response;</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private void calculateRoomSquareFeet(HouseDTO house, HouseResponseDTO response) {
+<b class="fc">&nbsp;    Integer totalSquareFeet = 0;</b>
+<b class="fc">&nbsp;    RoomDTO biggest = null;</b>
+<b class="fc">&nbsp;    Integer maxRoom = 0;</b>
+<b class="fc">&nbsp;    for (RoomDTO room : house.getRooms()) {</b>
+<b class="fc">&nbsp;      Integer squareFeet = room.getSquareFeet();</b>
+<b class="fc">&nbsp;      totalSquareFeet += squareFeet;</b>
+<b class="pc">&nbsp;      if (biggest == null || squareFeet &gt; maxRoom){</b>
+<b class="fc">&nbsp;        biggest = room;</b>
+<b class="fc">&nbsp;        maxRoom = squareFeet;</b>
+&nbsp;      }
+&nbsp;    }
+<b class="fc">&nbsp;    response.setSquareFeet(totalSquareFeet);</b>
+<b class="fc">&nbsp;    response.setBiggest(biggest);</b>
+&nbsp;  }
+&nbsp;
+&nbsp;  private int calculatePrice(Integer result) {
+<b class="fc">&nbsp;    return result * 800;</b>
+&nbsp;  }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-02 10:24</div>
+</div>
+</body>
+</html>
