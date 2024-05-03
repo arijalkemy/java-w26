@@ -1,4 +1,4 @@
-package com.viajescuidados.services;
+package com.viajescuidados.viajescuidados.services;
 
 import com.viajescuidados.dtos.UbicacionDTO;
 import com.viajescuidados.dtos.ViajeDTO;
@@ -8,6 +8,7 @@ import com.viajescuidados.entities.ubicaciones.Ubicacion;
 import com.viajescuidados.entities.viajes.Viaje;
 import com.viajescuidados.mappers.ViajeMapper;
 import com.viajescuidados.repositories.IViajesRepository;
+import com.viajescuidados.services.ViajesService;
 import com.viajescuidados.services.interfaces.IPersonaServiceInternal;
 import com.viajescuidados.services.utils.ubicaciones.ICalculadoraDemora;
 import org.junit.jupiter.api.Assertions;
