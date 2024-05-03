@@ -47,5 +47,28 @@ public class CalculadoraMetrosCuadradosTest {
     assertEquals(expectedResponse, response);
   }
 
+  @Test
+  @DisplayName("Calculate the square feet and price of a house with no rooms")
+  void calculateHouseWithNoRooms() {
+    // Arrange
+    HouseDTO house = new HouseDTO();
+    house.setName("Casa");
+    house.setAddress("Monroe 800");
+    house.setRooms(List.of());
+
+    HouseResponseDTO expectedResponse = new HouseResponseDTO();
+    expectedResponse.setBiggest(null);
+    expectedResponse.setSquareFeet(0);
+    expectedResponse.setPrice(0);
+
+    // Act
+    HouseResponseDTO response = calculateService.calculate(house);
+
+    // Assert
+    assertEquals(expectedResponse.getSquareFeet(), response.getSquareFeet());
+    assertEquals(expectedResponse.getBiggest(), response.getBiggest());
+    assertEquals(expectedResponse.getPrice(), response.getPrice());
+  }
+
 
 }
