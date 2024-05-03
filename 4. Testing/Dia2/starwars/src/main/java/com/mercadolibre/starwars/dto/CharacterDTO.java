@@ -1,5 +1,8 @@
 package com.mercadolibre.starwars.dto;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class CharacterDTO {
   private String name;
   private String hair_color;
