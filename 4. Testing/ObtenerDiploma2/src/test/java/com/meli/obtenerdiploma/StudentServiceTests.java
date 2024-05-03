@@ -1,5 +1,7 @@
 package com.meli.obtenerdiploma;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
@@ -13,13 +15,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -33,27 +37,58 @@ public class StudentServiceTests {
     @InjectMocks
     private StudentService studentService;
 
-    private Set<StudentDTO> studentSet;
-    private StudentDTO sample;
+    private Set<StudentDTO> testList;
+    private StudentDTO studentExpected;
 
     @BeforeEach
-    void setUp() {
-        studentSet = new HashSet<>();
-        sample = new StudentDTO();
-        sample.setId(0L);
-        sample.setStudentName("Juan");
-        sample.setSubjects(List.of(new SubjectDTO("Matemática", 10.0)));
-        studentSet.add(sample);
+    public void setup() throws IOException {
+        MockitoAnnotations.openMocks(this);
+
+        testList = new HashSet<>();
+
+        List<SubjectDTO> subjectDTOList = new ArrayList<>();
+        subjectDTOList.add(new SubjectDTO("Ingles", 4.0));
+        subjectDTOList.add(new SubjectDTO("Lengua", 0.0));
+
+        studentExpected = new StudentDTO();
+        studentExpected.setId(0L);
+        studentExpected.setStudentName("Juan");
+        studentExpected.setSubjects(subjectDTOList);
+        testList.add(studentExpected);
+
+        studentDAO.setStudents(testList);
+    }
+
+    @Test
+    @DisplayName("Alumno se guarda con éxito")
+    public void saveStudentTest(){
+        studentService.create(studentExpected);
+
+        verify(studentDAO).save(studentExpected);
+    }
+
+    @Test
+    @DisplayName("Alumno se elimina con éxito")
+    public void deleteStudentTest(){
+        studentService.delete(studentExpected.getId());
+        verify(studentDAO).delete(studentExpected.getId());
+    }
+
+    @Test
+    @DisplayName("Alumno se actualiza con éxito")
+    public void updateStudentTest(){
+        studentService.update(studentExpected);
+        verify(studentDAO).save(studentExpected);
     }
 
     @Test
     @DisplayName("Alumno se lee con éxito")
     public void readStudentTest() {
         //Arrange
-        StudentDTO expected = sample;
+        StudentDTO expected = studentExpected;
 
         //Act
-        when(studentDAO.findById(0L)).thenReturn(sample);
+        when(studentDAO.findById(0L)).thenReturn(studentExpected);
         StudentDTO obtained = studentService.read(0L);
 
         //Assert
@@ -64,10 +99,10 @@ public class StudentServiceTests {
     @DisplayName("Find all trae todo")
     public void readAllStudentTest() {
         //Arrange
-        Set<StudentDTO> expected = studentSet;
+        Set<StudentDTO> expected = testList;
 
         //Act
-        when(studentRepository.findAll()).thenReturn(studentSet);
+        when(studentRepository.findAll()).thenReturn(testList);
         Set<StudentDTO> obtained = studentService.getAll();
 
         //Assert

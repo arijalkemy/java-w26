@@ -1,5 +1,7 @@
 package com.meli.obtenerdiploma;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
@@ -8,12 +10,17 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.mockito.Mockito.*;
 
@@ -51,9 +58,10 @@ public class ObtenerDiplomaServiceTests {
         studentDTOmenos.setSubjects(subjectDTOListMenos);
     }
 
+
     @Test
     @DisplayName("Promedio para alumno se calcula correctamente")
-    public void calcularPromedioCorrectamente(){
+    public void calcularPromedioCorrectamente() {
         when(studentDAO.findById(id)).thenReturn(studentDTO9);
 
         double expectedValue = 9.5;
@@ -65,7 +73,7 @@ public class ObtenerDiplomaServiceTests {
     }
 
     @Test
-    public void mensajeDeAlumnoMayorOIgualA9FelicitacionesMenorBu(){
+    public void mensajeDeAlumnoMayorOIgualA9FelicitacionesMenorBu() {
         when(studentDAO.findById(id)).thenReturn(studentDTO9);
         when(studentDAO.findById(id2)).thenReturn(studentDTOmenos);
 

@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 
@@ -78,6 +79,11 @@ public class StudentDAO implements IStudentDAO {
         return students.stream()
                 .filter(stu -> stu.getId().equals(id))
                 .findFirst().orElseThrow(() -> new StudentNotFoundException(id));
+    }
+
+    @Override
+    public void setStudents(Set<StudentDTO> testList) {
+        this.students = testList;
     }
 
     private void loadData() {
