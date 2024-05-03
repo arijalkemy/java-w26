@@ -3,7 +3,6 @@ package com.viajescuidados.services;
 import com.viajescuidados.dtos.ViajeDTO;
 import com.viajescuidados.dtos.responses.ViajeResponseDTO;
 import com.viajescuidados.entities.Persona;
-import com.viajescuidados.repositories.IPersonasRepository;
 import com.viajescuidados.services.interfaces.IPersonaServiceInternal;
 import com.viajescuidados.services.utils.ubicaciones.ICalculadoraDemora;
 import com.viajescuidados.entities.viajes.EstadoViaje;

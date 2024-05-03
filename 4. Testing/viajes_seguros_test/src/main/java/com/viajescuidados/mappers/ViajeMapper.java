@@ -26,7 +26,7 @@ public class ViajeMapper {
     public static Viaje crearViaje(ViajeDTO viajeDTO) {
         return Viaje.builder()
                 .origen(UbicacionMapper.crearUbicacion(viajeDTO.getOrigen()))
-                .destino(UbicacionMapper.crearUbicacion(viajeDTO.getOrigen()))
+                .destino(UbicacionMapper.crearUbicacion(viajeDTO.getDestino()))
                 .estado(EstadoViaje.NO_INICIADO)
                 .cuidadores(new ArrayList<>())
                 .build();
