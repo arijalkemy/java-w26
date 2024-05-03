@@ -8,7 +8,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.List;
+
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
 
 class StudentDAOTest {
 
@@ -97,7 +102,7 @@ class StudentDAOTest {
     @DisplayName("Find student by id successful")
     void findByIdSuccessful(){
         // arrange
-        studentDTO.setId(studentDAO.ultimateIdStudent() - 1);
+        studentDTO.setId(studentDAO.ultimateIdStudent());
 
         // act
         StudentDTO studentDTOExpect = studentDAO.findById(studentDTO.getId());
@@ -114,9 +119,10 @@ class StudentDAOTest {
         studentDTO.setId(9999L);
 
         // act y assert
+        Long studentId = studentDTO.getId();
         Assertions.assertThrows(StudentNotFoundException.class,
-                () -> studentDAO.findById(studentDTO.getId()));
+                () -> studentDAO.findById(studentId));
+        verify(studentDAO, atLeastOnce()).findById(studentId);
     }
-
 
 }

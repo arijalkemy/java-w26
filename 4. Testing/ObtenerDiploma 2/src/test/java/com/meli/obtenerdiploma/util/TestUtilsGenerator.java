@@ -56,7 +56,7 @@ public class TestUtilsGenerator {
         subjects.add(subject3);
 
         StudentDTO stu = new StudentDTO();
-        stu.setId(9999L);
+        stu.setId(1L);
         stu.setStudentName(name);
         stu.setSubjects(subjects);
 
@@ -74,7 +74,7 @@ public class TestUtilsGenerator {
         subjects.add(subject3);
 
         StudentDTO stu = new StudentDTO();
-        stu.setId(9999L);
+        stu.setId(1L);
         stu.setStudentName(name);
         stu.setSubjects(subjects);
 
