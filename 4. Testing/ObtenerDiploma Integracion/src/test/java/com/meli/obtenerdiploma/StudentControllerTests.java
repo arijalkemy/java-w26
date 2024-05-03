@@ -69,6 +69,12 @@ public class StudentControllerTests {
                         .value("El alumno con Id 100 no se encuetra registrado."));
     }
 
+    @Test
+    public void testRemoveStudentOk() throws Exception {
+        mockMvc.perform(get("/student/removeStudent/{id}", 1))
+                .andExpect(status().isOk());
+    }
+
     //Convertir a byte studentDto
     private byte[] toJson(StudentDTO studentDTO) throws Exception {
         ObjectMapper map = new ObjectMapper();
