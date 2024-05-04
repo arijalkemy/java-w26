@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "cd1c5334-597f-44eb-aa2d-29425d400034",
+		"name": "ObtenerDiploma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Creación camino feliz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Juan\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemáticas\",\n            \"score\": null\n        },\n        {\n            \"name\": \"Física\",\n            \"score\": 11\n        },\n        {\n            \"name\": \"Química\",\n            \"score\": -1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{$server}}/analyzeScores",
+					"host": [
+						"{{$server}}"
+					],
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error student name empty",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Juan\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemáticas\",\n            \"score\": null\n        },\n        {\n            \"name\": \"Física\",\n            \"score\": 11\n        },\n        {\n            \"name\": \"Química\",\n            \"score\": -1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{$server}}/analyzeScores",
+					"host": [
+						"{{$server}}"
+					],
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error student name large",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Juan\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemáticas\",\n            \"score\": null\n        },\n        {\n            \"name\": \"Física\",\n            \"score\": 11\n        },\n        {\n            \"name\": \"Química\",\n            \"score\": -1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{$server}}/analyzeScores",
+					"host": [
+						"{{$server}}"
+					],
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Errores score",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Juan\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemáticas\",\n            \"score\": null\n        },\n        {\n            \"name\": \"Física\",\n            \"score\": 11\n        },\n        {\n            \"name\": \"Química\",\n            \"score\": -1\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{$server}}/analyzeScores",
+					"host": [
+						"{{$server}}"
+					],
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Errores name subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Juan\",\n    \"subjects\": [\n        {\n            \"name\": \"Matemática nombre bastante largo para mostar el error\",\n            \"score\": 10\n        },\n        {\n            \"name\": \"\",\n            \"score\": 7\n        },\n        {\n            \"name\": \"química\",\n            \"score\": 6\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{$server}}/analyzeScores",
+					"host": [
+						"{{$server}}"
+					],
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Errores list subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"studentName\": \"Juan\",\n    \"subjects\": [\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{$server}}/analyzeScores",
+					"host": [
+						"{{$server}}"
+					],
+					"path": [
+						"analyzeScores"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "$server",
+			"value": "http://localhost:8080"
+		}
+	]
+}
