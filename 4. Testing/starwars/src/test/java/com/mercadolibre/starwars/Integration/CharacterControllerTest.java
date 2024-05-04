@@ -82,6 +82,7 @@ public class CharacterControllerTest {
         characterDTOSResult.add(character2);
 
 
+
         ResultActions result =
                 mockMvc.perform(
                         MockMvcRequestBuilders.get("/{query}","darth")
