@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "brand": "Chevrolet",
+    "model": "Corsa",
+    "manufacturingDate": "2000-11-20",
+    "numberOfKilometers": 115000,
+    "doors": 5,
+    "price": 90000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2003-05-20",
+        "kilometers": 60000,
+        "descriptions": "Change air filters"
+      }
+    ],
+    "countOfOwners": 2
+  },
+  {
+    "id": 2,
+    "brand": "Ford",
+    "model": "Fiesta",
+    "manufacturingDate": "2005-03-15",
+    "numberOfKilometers": 150000,
+    "doors": 4,
+    "price": 85000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2010-07-30",
+        "kilometers": 90000,
+        "descriptions": "General maintenance"
+      }
+    ],
+    "countOfOwners": 3
+  },
+  {
+    "id": 3,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "manufacturingDate": "2010-06-10",
+    "numberOfKilometers": 80000,
+    "doors": 4,
+    "price": 120000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2015-05-20",
+        "kilometers": 50000,
+        "descriptions": "Oil change"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 4,
+    "brand": "Volkswagen",
+    "model": "Golf",
+    "manufacturingDate": "2008-08-20",
+    "numberOfKilometers": 110000,
+    "doors": 4,
+    "price": 95000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2012-09-15",
+        "kilometers": 70000,
+        "descriptions": "Brake pad replacement"
+      }
+    ],
+    "countOfOwners": 2
+  },
+  {
+    "id": 5,
+    "brand": "Peugeot",
+    "model": "206",
+    "manufacturingDate": "2001-04-25",
+    "numberOfKilometers": 180000,
+    "doors": 3,
+    "price": 70000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2006-11-10",
+        "kilometers": 120000,
+        "descriptions": "Timing belt change"
+      }
+    ],
+    "countOfOwners": 4
+  },
+  {
+    "id": 6,
+    "brand": "Renault",
+    "model": "Clio",
+    "manufacturingDate": "2003-01-05",
+    "numberOfKilometers": 140000,
+    "doors": 4,
+    "price": 80000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2008-12-12",
+        "kilometers": 100000,
+        "descriptions": "Battery replacement"
+      }
+    ],
+    "countOfOwners": 2
+  },
+  {
+    "id": 7,
+    "brand": "Nissan",
+    "model": "Sentra",
+    "manufacturingDate": "2012-05-18",
+    "numberOfKilometers": 90000,
+    "doors": 4,
+    "price": 130000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2017-03-20",
+        "kilometers": 50000,
+        "descriptions": "Suspension check"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 8,
+    "brand": "Mazda",
+    "model": "3",
+    "manufacturingDate": "2009-07-07",
+    "numberOfKilometers": 50000,
+    "doors": 4,
+    "price": 100000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2014-10-25",
+        "kilometers": 30000,
+        "descriptions": "Tire replacement"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 9,
+    "brand": "BMW",
+    "model": "320i",
+    "manufacturingDate": "2015-09-09",
+    "numberOfKilometers": 40000,
+    "doors": 4,
+    "price": 250000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2018-06-10",
+        "kilometers": 20000,
+        "descriptions": "Air conditioning service"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 10,
+    "brand": "Mercedes-Benz",
+    "model": "C-Class",
+    "manufacturingDate": "2013-02-14",
+    "numberOfKilometers": 70000,
+    "doors": 4,
+    "price": 270000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2016-08-15",
+        "kilometers": 40000,
+        "descriptions": "Wheel alignment"
+      }
+    ],
+    "countOfOwners": 2
+  },
+  {
+    "id": 11,
+    "brand": "Audi",
+    "model": "A4",
+    "manufacturingDate": "2014-11-25",
+    "numberOfKilometers": 65000,
+    "doors": 4,
+    "price": 220000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2019-01-20",
+        "kilometers": 30000,
+        "descriptions": "Engine diagnostic"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 12,
+    "brand": "Honda",
+    "model": "Civic",
+    "manufacturingDate": "2007-05-19",
+    "numberOfKilometers": 150000,
+    "doors": 4,
+    "price": 90000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2011-04-20",
+        "kilometers": 90000,
+        "descriptions": "Transmission check"
+      }
+    ],
+    "countOfOwners": 3
+  },
+  {
+    "id": 13,
+    "brand": "Hyundai",
+    "model": "Elantra",
+    "manufacturingDate": "2011-03-08",
+    "numberOfKilometers": 85000,
+    "doors": 4,
+    "price": 110000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2015-07-15",
+        "kilometers": 50000,
+        "descriptions": "Brake system overhaul"
+      }
+    ],
+    "countOfOwners": 2
+  },
+  {
+    "id": 14,
+    "brand": "Kia",
+    "model": "Soul",
+    "manufacturingDate": "2016-12-12",
+    "numberOfKilometers": 30000,
+    "doors": 5,
+    "price": 140000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2019-11-20",
+        "kilometers": 15000,
+        "descriptions": "Electrical system inspection"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 15,
+    "brand": "Fiat",
+    "model": "Punto",
+    "manufacturingDate": "2002-08-30",
+    "numberOfKilometers": 170000,
+    "doors": 4,
+    "price": 65000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2007-09-25",
+        "kilometers": 100000,
+        "descriptions": "Exhaust system repair"
+      }
+    ],
+    "countOfOwners": 3
+  },
+  {
+    "id": 16,
+    "brand": "Alfa Romeo",
+    "model": "Giulietta",
+    "manufacturingDate": "2017-04-14",
+    "numberOfKilometers": 25000,
+    "doors": 5,
+    "price": 180000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2020-03-20",
+        "kilometers": 10000,
+        "descriptions": "Full vehicle inspection"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 17,
+    "brand": "Opel",
+    "model": "Astra",
+    "manufacturingDate": "2004-10-10",
+    "numberOfKilometers": 200000,
+    "doors": 4,
+    "price": 75000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2009-12-10",
+        "kilometers": 150000,
+        "descriptions": "Clutch replacement"
+      }
+    ],
+    "countOfOwners": 4
+  },
+  {
+    "id": 18,
+    "brand": "Suzuki",
+    "model": "Swift",
+    "manufacturingDate": "2018-01-01",
+    "numberOfKilometers": 20000,
+    "doors": 4,
+    "price": 150000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2021-02-20",
+        "kilometers": 10000,
+        "descriptions": "Spark plug replacement"
+      }
+    ],
+    "countOfOwners": 1
+  },
+  {
+    "id": 19,
+    "brand": "Mitsubishi",
+    "model": "Lancer",
+    "manufacturingDate": "2006-07-22",
+    "numberOfKilometers": 220000,
+    "doors": 4,
+    "price": 80000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2011-08-30",
+        "kilometers": 180000,
+        "descriptions": "Radiator service"
+      }
+    ],
+    "countOfOwners": 3
+  },
+  {
+    "id": 20,
+    "brand": "Subaru",
+    "model": "Impreza",
+    "manufacturingDate": "2019-11-11",
+    "numberOfKilometers": 10000,
+    "doors": 4,
+    "price": 230000,
+    "currency": "AR",
+    "services": [
+      {
+        "date": "2022-05-25",
+        "kilometers": 5000,
+        "descriptions": "Checkup routine"
+      }
+    ],
+    "countOfOwners": 1
+  }
+]

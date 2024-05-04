@@ -1,0 +1,46 @@
+[{
+  "id" : 9999,
+  "studentName" : "Marco",
+  "message" : "El alumno Marco ha obtenido un promedio de 6.00. Puedes mejorar.",
+  "averageScore" : 6.0,
+  "subjects" : [ {
+    "name" : "Matematica",
+    "score" : 8.0
+  }, {
+    "name" : "Lengua",
+    "score" : 6.0
+  }, {
+    "name" : "Fisica",
+    "score" : 4.0
+  } ]
+}, {
+  "id" : 9999,
+  "studentName" : "Marco",
+  "message" : "El alumno Marco ha obtenido un promedio de 6.00. Puedes mejorar.",
+  "averageScore" : 6.0,
+  "subjects" : [ {
+    "name" : "Matematica",
+    "score" : 8.0
+  }, {
+    "name" : "Lengua",
+    "score" : 6.0
+  }, {
+    "name" : "Fisica",
+    "score" : 4.0
+  } ]
+}, {
+  "id" : 9999,
+  "studentName" : "Marco",
+  "message" : "El alumno Marco ha obtenido un promedio de 6.00. Puedes mejorar.",
+  "averageScore" : 6.0,
+  "subjects" : [ {
+    "name" : "Matematica",
+    "score" : 8.0
+  }, {
+    "name" : "Lengua",
+    "score" : 6.0
+  }, {
+    "name" : "Fisica",
+    "score" : 4.0
+  } ]
+}]
