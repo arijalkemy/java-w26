@@ -1,0 +1,46 @@
+[
+  {
+    "id": 3,
+    "studentName": "Luis",
+    "message": null,
+    "averageScore": null,
+    "subjects": [
+      {
+        "name": "Espaniol",
+        "score": 9.5
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "studentName": "Luis",
+    "message": null,
+    "averageScore": null,
+    "subjects": [
+      {
+        "name": "Mates",
+        "score": 10.0
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "studentName": "Pedro",
+    "message": null,
+    "averageScore": null,
+    "subjects": [
+      {
+        "name": "Matemática",
+        "score": 10.0
+      },
+      {
+        "name": "Física",
+        "score": 8.0
+      },
+      {
+        "name": "Química",
+        "score": 4.0
+      }
+    ]
+  }
+]
