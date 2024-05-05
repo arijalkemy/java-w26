@@ -20,7 +20,7 @@ public class StudentRepository implements IStudentRepository {
     private String SCOPE;
 
     public StudentRepository() {
-        Properties properties =  new Properties();
+        Properties properties = new Properties();
 
         try {
             properties.load(new ClassPathResource("application.properties").getInputStream());
@@ -37,8 +37,9 @@ public class StudentRepository implements IStudentRepository {
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            File file = ResourceUtils.getFile("./srce/" + SCOPE + "/resources/users.json");
-            loadedData = objectMapper.readValue(file, new TypeReference<Set<StudentDTO>>(){});
+            File file = ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json");
+            loadedData = objectMapper.readValue(file, new TypeReference<Set<StudentDTO>>() {
+            });
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("Failed while initializing DB, check your resources files");

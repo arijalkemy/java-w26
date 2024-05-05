@@ -12,12 +12,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.convert.DataSizeUnit;
 
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,13 +31,13 @@ class StudentServiceTest {
     private StudentDTO studentDTO;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         studentDTO = TestUtilsGenerator.getStudentWithId(1L);
     }
 
     @Test
     @DisplayName("Create or Update student successfully")
-    void createOrUpdateStudentTest(){
+    void createOrUpdateStudentTest() {
         // act
         studentService.create(studentDTO);
 
@@ -51,7 +47,7 @@ class StudentServiceTest {
 
     @Test
     @DisplayName("Read student by ID")
-    void readStudentByIDTest(){
+    void readStudentByIDTest() {
         // arrange
         when(studentDAO.findById(studentDTO.getId())).thenReturn(studentDTO);
 
@@ -68,7 +64,7 @@ class StudentServiceTest {
 
     @Test
     @DisplayName("Read student with student not found exception")
-    void readStudentTest_StudentNotFoundException(){
+    void readStudentTest_StudentNotFoundException() {
         // arrange
         when(studentDAO.findById(studentDTO.getId())).thenThrow(StudentNotFoundException.class);
 
@@ -81,7 +77,7 @@ class StudentServiceTest {
 
     @Test
     @DisplayName("Delete student by id")
-    void deleteStudentTest(){
+    void deleteStudentTest() {
         // act
         studentService.delete(studentDTO.getId());
 
@@ -91,7 +87,7 @@ class StudentServiceTest {
 
     @Test
     @DisplayName("Get all students")
-    void getAllStudentsTest(){
+    void getAllStudentsTest() {
         // arrange
         Set<StudentDTO> studentDTOs = TestUtilsGenerator.getStudentSet();
         when(studentRepository.findAll()).thenReturn(studentDTOs);
@@ -106,7 +102,7 @@ class StudentServiceTest {
 
     @Test
     @DisplayName("Get empty student list")
-    void getEmptyStudentListTest(){
+    void getEmptyStudentListTest() {
         // arrange
         when(studentRepository.findAll()).thenReturn(new HashSet<>());
 

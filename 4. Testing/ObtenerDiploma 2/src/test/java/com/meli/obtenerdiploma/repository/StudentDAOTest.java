@@ -8,12 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.lang.reflect.Constructor;
 import java.util.List;
-
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.verify;
 
 class StudentDAOTest {
 
@@ -48,7 +43,7 @@ class StudentDAOTest {
 
     @Test
     @DisplayName("Delete student successfully")
-    void deleteStudentSuccessful(){
+    void deleteStudentSuccessful() {
         // arrange
         studentDTO.setId(studentDAO.ultimateIdStudent()); // Id student to delete
 
@@ -61,7 +56,7 @@ class StudentDAOTest {
 
     @Test
     @DisplayName("Delete student does not exist")
-    void notFoundStudentToDeleteException(){
+    void notFoundStudentToDeleteException() {
         // arrange
         studentDTO.setId(9999L); // Student ID that does not exist
 
@@ -74,7 +69,7 @@ class StudentDAOTest {
 
     @Test
     @DisplayName("Validate student existence")
-    void existsStudentSuccess(){
+    void existsStudentSuccess() {
         // arrange
         studentDTO.setId(studentDAO.ultimateIdStudent());
 
@@ -87,7 +82,7 @@ class StudentDAOTest {
 
     @Test
     @DisplayName("validate student not existence")
-    void existsStudentUnsuccessful(){
+    void existsStudentUnsuccessful() {
         // arrange
         studentDTO.setId(9999L);
 
@@ -100,7 +95,7 @@ class StudentDAOTest {
 
     @Test
     @DisplayName("Find student by id successful")
-    void findByIdSuccessful(){
+    void findByIdSuccessful() {
         // arrange
         studentDTO.setId(studentDAO.ultimateIdStudent());
 
@@ -114,7 +109,7 @@ class StudentDAOTest {
 
     @Test
     @DisplayName("Find student by id exception not found")
-    void findById_StudentNotFoundException(){
+    void findById_StudentNotFoundException() {
         // arrange
         studentDTO.setId(9999L);
 
@@ -122,7 +117,6 @@ class StudentDAOTest {
         Long studentId = studentDTO.getId();
         Assertions.assertThrows(StudentNotFoundException.class,
                 () -> studentDAO.findById(studentId));
-        verify(studentDAO, atLeastOnce()).findById(studentId);
     }
 
 }

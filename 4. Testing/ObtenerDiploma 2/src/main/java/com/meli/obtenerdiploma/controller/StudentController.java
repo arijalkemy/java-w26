@@ -12,7 +12,6 @@ import java.util.Set;
 @RequestMapping("/student")
 public class StudentController {
 
-    final
     IStudentService studentService;
 
     public StudentController(IStudentService studentService) {

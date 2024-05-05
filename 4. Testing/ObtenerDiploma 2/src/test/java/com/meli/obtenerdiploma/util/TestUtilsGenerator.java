@@ -56,7 +56,6 @@ public class TestUtilsGenerator {
         subjects.add(subject3);
 
         StudentDTO stu = new StudentDTO();
-        stu.setId(1L);
         stu.setStudentName(name);
         stu.setSubjects(subjects);
 
@@ -95,6 +94,7 @@ public class TestUtilsGenerator {
         stu.setId(id);
         stu.setStudentName("student1");
         stu.setSubjects(subjects);
+        stu.setAverageScore(6.0D);
 
         return stu;
     }
@@ -105,7 +105,12 @@ public class TestUtilsGenerator {
         StudentDTO stu3 = getStudentWith3Subjects("Julio");
         StudentDTO stu4 = getStudentWith3Subjects("Julio Cesar");
 
-        return new HashSet<StudentDTO>(){{add(stu1); add(stu2); add(stu3); add(stu4);}};
+        return new HashSet<StudentDTO>() {{
+            add(stu1);
+            add(stu2);
+            add(stu3);
+            add(stu4);
+        }};
     }
 
     public static void appendNewStudent(StudentDTO stu) {
@@ -121,15 +126,14 @@ public class TestUtilsGenerator {
 
             try {
                 String studentAsString = mapper.writeValueAsString(stu);
-                writer.print(content.substring(0, content.length()-1));
-                if (content.length()>2) writer.print(", ");
+                writer.print(content.substring(0, content.length() - 1));
+                if (content.length() > 2) writer.print(", ");
                 writer.print(studentAsString);
                 writer.print("]");
             } catch (JsonProcessingException jsonProcessingException) {
                 jsonProcessingException.printStackTrace();
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
