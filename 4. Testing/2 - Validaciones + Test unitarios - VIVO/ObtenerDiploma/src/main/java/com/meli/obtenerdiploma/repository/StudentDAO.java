@@ -102,7 +102,7 @@ public class StudentDAO implements IStudentDAO {
     private void saveData() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            File file = ResourceUtils.getFile("./src/" + SCOPE + "/resources/users.json");
+            File file = ResourceUtils.getFile("classpath:users.json");
             objectMapper.writeValue(file, this.students);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
