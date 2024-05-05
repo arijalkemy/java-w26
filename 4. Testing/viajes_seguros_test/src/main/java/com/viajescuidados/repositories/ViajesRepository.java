@@ -1,6 +1,7 @@
 package com.viajescuidados.repositories;
 
 import com.viajescuidados.entities.viajes.Viaje;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Profile(value = "prod")
 public class ViajesRepository implements IViajesRepository {
     private List<Viaje> viajes = new ArrayList<>();
 
