@@ -14,14 +14,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -118,6 +114,102 @@ public class OptenerDiplomaServiceHappyPathTest {
     @Test
     @DisplayName("it should return a correct AnalyzeScore of the user with Id 1")
     public void analyzeScoreTest(){
+        // arrange
+        StudentDTO studentInput = new StudentDTO(
+                1L,
+                "Jose",
+                "",
+                0.0,
+                new ArrayList<SubjectDTO>(Arrays.asList(
+                        new SubjectDTO(
+                                "Fisica",
+                                10.0
+                        ),
+                        new SubjectDTO(
+                                "Graficacion",
+                                9.0
+                        ),
+                        new SubjectDTO(
+                                "Circuitos",
+                                6.0
+                        )
+                )) {}
+        );
 
+        // act
+        when(studentDAO.findById(1L)).thenReturn(studentInput);
+        StudentDTO studentOutput  = obtenerDiplomaService.analyzeScores(studentInput.getId());
+        double averageScore = studentInput.getSubjects().stream().mapToDouble(x -> x.getScore()).average().orElse(0.0);
+
+        // assert
+        assertEquals(studentInput.getAverageScore(), averageScore);
+    }
+
+    @Test
+    @DisplayName("it should return message equals to 'El alumno {{studentName}} ha obtenido un promedio de {{averageScore}}. Puedes mejorar.'")
+    public void messageTest(){
+        // arrange
+        String message = "El alumno Jose ha obtenido un promedio de 8.33. Puedes mejorar.";
+        StudentDTO studentInput = new StudentDTO(
+                1L,
+                "Jose",
+                "",
+                0.0,
+                new ArrayList<SubjectDTO>(Arrays.asList(
+                        new SubjectDTO(
+                                "Fisica",
+                                10.0
+                        ),
+                        new SubjectDTO(
+                                "Graficacion",
+                                9.0
+                        ),
+                        new SubjectDTO(
+                                "Circuitos",
+                                6.0
+                        )
+                )) {}
+        );
+
+        // act
+        when(studentDAO.findById(studentInput.getId())).thenReturn(studentInput);
+        StudentDTO studentOutput = obtenerDiplomaService.analyzeScores(studentInput.getId());
+
+        // assert
+        assertEquals(studentOutput.getMessage(), message);
+    }
+
+    @Test
+    @DisplayName("it should return message equals to 'El alumno {{studentName}} ha obtenido un promedio de {{averageScore}}. Felicitaciones'")
+    public void messageWithHonorsTest(){
+        // arrange
+        String message = "El alumno Jose ha obtenido un promedio de 8.33. Puedes mejorar.";
+        StudentDTO studentInput = new StudentDTO(
+                1L,
+                "Jose",
+                "",
+                0.0,
+                new ArrayList<SubjectDTO>(Arrays.asList(
+                        new SubjectDTO(
+                                "Fisica",
+                                10.0
+                        ),
+                        new SubjectDTO(
+                                "Graficacion",
+                                10.0
+                        ),
+                        new SubjectDTO(
+                                "Circuitos",
+                                10.0
+                        )
+                )) {}
+        );
+
+        // act
+        when(studentDAO.findById(studentInput.getId())).thenReturn(studentInput);
+        StudentDTO studentOutput = obtenerDiplomaService.analyzeScores(studentInput.getId());
+
+        // arrange
+        System.out.println(studentOutput.getMessage());
     }
 }
