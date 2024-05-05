@@ -21,9 +21,6 @@ public class StudentRepository implements IStudentRepository {
     @Value("${api.scope}")
     private String SCOPE;
 
-    @Autowired
-    ResourceLoader resourceLoader;
-
     @Override
     public Set<StudentDTO> findAll() {
         Set<StudentDTO> loadedData = new HashSet<>();
