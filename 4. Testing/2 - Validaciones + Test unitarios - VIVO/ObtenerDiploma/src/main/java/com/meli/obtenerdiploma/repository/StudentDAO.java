@@ -99,7 +99,7 @@ public class StudentDAO implements IStudentDAO {
         this.students = loadedData;
     }
 
-    private void saveData() {
+    public void saveData() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             File file = ResourceUtils.getFile("classpath:users.json");
@@ -112,4 +112,6 @@ public class StudentDAO implements IStudentDAO {
             System.out.println("Failed while writing to DB, check your JSON formatting.");
         }
     }
+
+    /* getters and setters */
 }
