@@ -2,8 +2,10 @@ package com.meli.obtenerdiploma.repository;
 
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,8 +16,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class StudentDAOHappyPathTest {
 
-    @Autowired
+    @Mock
     IStudentDAO studentDAO;
+
+    @BeforeEach
+    public void setup(){
+        this.studentDAO = new StudentDAO();
+    }
 
     @Test
     @DisplayName("it should add StudentDTO to the repository")
@@ -51,15 +58,10 @@ public class StudentDAOHappyPathTest {
 
         // act
         StudentDTO studentDtoResult = studentDAO.findById(studentDTO.getId());
-        assertNotNull(studentDtoResult);
+        System.out.println(studentDtoResult.getStudentName());
 
         // assert
+        assertNotNull(studentDtoResult);
         assertEquals(studentDtoResult.getId(), studentDTO.getId());
-    }
-
-    @Test
-    @DisplayName("it should modify the data from a Student in the repository")
-    public void saveModifyTest(){
-
     }
 }
