@@ -4,12 +4,12 @@ import com.mercadolibre.starwars.dto.CharacterDTO;
 import com.mercadolibre.starwars.repositories.CharacterRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.matchers.Null;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CharacterRepositoryTest {
     private CharacterRepositoryImpl characterRepository;
@@ -55,5 +55,13 @@ public class CharacterRepositoryTest {
 
         // Assert
         assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void findAllByNameContainsNullQuery() {
+        // Assert & Assert
+        assertThrows(NullPointerException.class, () -> {
+            characterRepository.findAllByNameContains(null);
+        });
     }
 }
