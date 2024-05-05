@@ -1,14 +1,12 @@
 package com.meli.obtenerdiploma.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
+import java.util.Objects;
 
 @Getter @Setter
 @AllArgsConstructor
@@ -27,4 +25,17 @@ public class StudentDTO {
 
     @NotEmpty(message = "La lista de materias no puede estar vacía.")
     List<@Valid SubjectDTO> subjects;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StudentDTO that = (StudentDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(studentName, that.studentName) && Objects.equals(message, that.message) && Objects.equals(averageScore, that.averageScore) && Objects.equals(subjects, that.subjects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, studentName, message, averageScore, subjects);
+    }
 }
