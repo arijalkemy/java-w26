@@ -2,7 +2,6 @@ package com.mercadolibre.starwars.service;
 
 import com.mercadolibre.starwars.dto.CharacterDTO;
 import com.mercadolibre.starwars.repositories.CharacterRepository;
-import com.mercadolibre.starwars.repositories.CharacterRepositoryImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
