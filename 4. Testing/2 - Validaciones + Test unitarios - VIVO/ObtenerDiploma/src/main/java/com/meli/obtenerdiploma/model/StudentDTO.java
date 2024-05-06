@@ -2,6 +2,7 @@ package com.meli.obtenerdiploma.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.springframework.boot.autoconfigure.batch.BatchDataSource;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
