@@ -1,23 +1,28 @@
 package spring.obtenerdiploma.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spring.obtenerdiploma.model.StudentDTO;
 import spring.obtenerdiploma.model.SubjectDTO;
+import spring.obtenerdiploma.repository.IStudentDAO;
 
 import java.text.DecimalFormat;
 import java.util.List;
 
 @Service
 public class ObtenerDiplomaService implements IObtenerDiplomaService {
+    @Autowired
+    IStudentDAO studentDAO;
 
     @Override
-    public StudentDTO analyzeScores(StudentDTO rq) {
-        rq.setAverageScore(calculateAverage(rq.getSubjects()));
-        rq.setMessage(getGreetingMessage(rq.getStudentName(), rq.getAverageScore()));
+    public StudentDTO analyzeScores(Long studentId) {
+        StudentDTO stu = studentDAO.findById(studentId);
 
-        return rq;
+        stu.setAverageScore(calculateAverage(stu.getSubjects()));
+        stu.setMessage(getGreetingMessage(stu.getStudentName(), stu.getAverageScore()));
+
+        return stu;
     }
-
     private String getGreetingMessage(String studentName, Double average) {
         return "El alumno " + studentName + " ha obtenido un promedio de " + new DecimalFormat("#.##").format(average)
                 + ((average > 9) ? ". Felicitaciones!" : ". Puedes mejorar.");
