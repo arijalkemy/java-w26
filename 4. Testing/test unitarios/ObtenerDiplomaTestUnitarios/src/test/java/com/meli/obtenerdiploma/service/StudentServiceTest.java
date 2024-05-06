@@ -75,7 +75,7 @@ public class StudentServiceTest {
         );
         when(studentRepository.findAll()).thenReturn(studentsExpected);
 
-        Set<StudentDTO> result = studentRepository.findAll();
+        Set<StudentDTO> result = studentService.getAll();
 
         Assertions.assertEquals(studentsExpected, result);
     }

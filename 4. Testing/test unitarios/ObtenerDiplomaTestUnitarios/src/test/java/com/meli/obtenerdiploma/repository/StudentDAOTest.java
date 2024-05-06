@@ -6,6 +6,7 @@ import com.meli.obtenerdiploma.model.StudentDTO;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
 
 @SpringBootTest
 public class StudentDAOTest {
@@ -55,7 +56,7 @@ public class StudentDAOTest {
 
     @Test
     @DisplayName("save not existing user")
-    public void saveNotExisitingUser(){
+    public void saveNotExisitingUser() {
         studentDAO.save(notExistingStudent);
         StudentDTO insertedStudent = studentDAO.findById(notExistingStudent.getId());
         Assertions.assertEquals(insertedStudent, notExistingStudent);
@@ -76,16 +77,21 @@ public class StudentDAOTest {
 
     @Test
     @DisplayName("check if an exisiting user is founded by stuentDAO by id")
-    public void studentFoundedByIdTest(){
+    public void studentFoundedByIdTest() {
         StudentDTO studentFounded = studentDAO.findById(existingStudent.getId());
         Assertions.assertEquals(existingStudent, studentFounded);
     }
 
     @Test
     @DisplayName("check if an unexisiting user serached by stuentDAO by id throws an exception")
-    public void studentNotFoundedByIdTest(){
-        Assertions.assertThrows(
+    public void studentNotFoundedByIdTest() {
+        long id = notExistingStudent.getId();
+        StudentNotFoundException exception = Assertions.assertThrows(
                 StudentNotFoundException.class,
-                () -> studentDAO.findById(notExistingStudent.getId()));
+                () -> studentDAO.findById(id));
+        String expectedMessage = "El alumno con Id " + id + " no se encuetra registrado.";
+        String actualMessage = exception.getError().getDescription();
+        Assertions.assertEquals(expectedMessage, actualMessage);
+        Assertions.assertEquals(exception.getStatus(), HttpStatus.NOT_FOUND);
     }
 }
