@@ -1,4 +1,4 @@
-package com.meli.obtenerdiploma.integration.controller;
+package com.meli.obtenerdiploma.integrations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -8,6 +8,7 @@ import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
 import com.meli.obtenerdiploma.service.IObtenerDiplomaService;
+import com.meli.obtenerdiploma.util.TestUtilsGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,6 +42,7 @@ public class ObtenerDiplomaControllerTest {
 
     @BeforeAll
     public static void setup() {
+        TestUtilsGenerator.emptyUsersFile();
         objectMapper = new ObjectMapper();
         writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
@@ -49,25 +51,32 @@ public class ObtenerDiplomaControllerTest {
 
     @Test
     public void analyzeScores() throws Exception {
+        //Arrange
+        StudentDTO studentDTO = TestUtilsGenerator.getStudentWith3Subjects("Juan");
+        studentDTO.setId(1L);
+        TestUtilsGenerator.appendNewStudent(studentDTO);
+
         long id = 1;
         StudentDTO student = new StudentDTO(
                 1L,
                 "Juan",
-                "El alumno Juan ha obtenido un promedio de 7.33. Puedes mejorar.",
-                7.333333333333333,
+                "El alumno Juan ha obtenido un promedio de 6.00. Puedes mejorar.",
+                6.0,
                 Arrays.asList(
-                        new SubjectDTO("Matemática", 9.0),
-                        new SubjectDTO("Física", 7.0),
-                        new SubjectDTO("Química", 6.0)
+                        new SubjectDTO("Matemática", 8.0),
+                        new SubjectDTO("Lengua", 6.0),
+                        new SubjectDTO("Física", 4.0)
                 )
         );
+
+        // Act
         MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get("/analyzeScores/{studentId}", id))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message" )
-                        .value("El alumno Juan ha obtenido un promedio de 7.33. Puedes mejorar."))
+                        .value("El alumno Juan ha obtenido un promedio de 6.00. Puedes mejorar."))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.averageScore" )
-                        .value(7.333333333333333))
+                        .value(6.0))
                 .andReturn();
 
         String response = mvcResult.getResponse().getContentAsString(StandardCharsets.UTF_8);

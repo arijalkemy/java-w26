@@ -1,8 +1,12 @@
 package com.meli.obtenerdiploma.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.service.IObtenerDiplomaService;
 import com.meli.obtenerdiploma.util.TestUtilsGenerator;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,16 +24,26 @@ public class ObtenerDiplomaControllerTests {
     @InjectMocks
     ObtenerDiplomaController controller;
 
+    @BeforeAll
+    public static void setup() {
+        TestUtilsGenerator.emptyUsersFile();
+    }
+
     @Test
     public void obtenerDiploma() {
         // arrange
         StudentDTO stu = TestUtilsGenerator.getStudentWith3Subjects("Marco");
+        stu.setId(1L);
+        TestUtilsGenerator.appendNewStudent(stu);
+
+        when(service.analyzeScores(1L)).thenReturn(stu);
 
         // act
-        controller.analyzeScores(stu.getId());
+        StudentDTO studentFromController = controller.analyzeScores(1L);
 
         // assert
         verify(service, atLeastOnce()).analyzeScores(stu.getId());
+        Assertions.assertEquals(stu, studentFromController);
     }
 
 }
