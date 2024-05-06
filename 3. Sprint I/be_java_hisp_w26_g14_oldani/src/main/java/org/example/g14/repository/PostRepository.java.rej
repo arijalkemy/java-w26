@@ -1,0 +1,9 @@
+@@ -29,7 +29,7 @@
+         });
+ 
+         listOfPosts = posts;
+-        postId = posts.size();
++        postId = posts.size() + 1;
+     }
+ 
+     @Override

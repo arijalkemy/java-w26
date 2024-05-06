@@ -1,0 +1,112 @@
+@@ -36,38 +36,34 @@
+         return new UserWithFollowersCountDto(
+                 user.getId(),
+                 user.getName(),
+-                (int) user.getIdFollowers().stream().count());
++                user.getIdFollowers().size());
+     }
+ 
+     @Override
+-    public UserFollowDto follow(int userId, int userIdToFollow) {
++    public UserFollowedDto follow(int userId, int userIdToFollow) {
++
+         if(userId == userIdToFollow){
+             throw new BadRequestException("No te podes seguir a vos mismo maquina");
+         }
+ 
+-        Optional<User> userOptional = userRepository.getById(userId);
+-        Optional<User> userToFollowOptional = userRepository.getById(userIdToFollow);
+-
+-        if (userOptional.isEmpty() || userToFollowOptional.isEmpty()) {
+-            throw new NotFoundException("No se encontró uno o ambos usuarios");
+-        }
++        User user = getUserById(userId);
++        User userToFollow = getUserById(userIdToFollow);
+ 
+         if(postRepository.findAllByUser(userIdToFollow).isEmpty()){
+             throw new BadRequestException("El usuario con el ID: " + userIdToFollow + " no es un vendedor");
+         }
+ 
+-        User user = userOptional.get();
+-        User userToFollow = userToFollowOptional.get();
+-
+         if(user.getIdFollows().contains(userIdToFollow)){
+             throw new ConflictException("El usuario con id " + userId + " ya sigue al usuario con id " + userIdToFollow);
+         }
+ 
+-
+         user.getIdFollows().add(userToFollow.getId());
++        userToFollow.getIdFollowers().add(user.getId());
+ 
+         userRepository.save(user);
+-        return new UserFollowDto(user.getName(),user.getIdFollows(),userToFollow.getIdFollowers());
++        userRepository.save(userToFollow);
++
++        return transferToUserFollowedDto(user);
+     }
+ 
+     private enum NameOrder{
+@@ -129,7 +125,7 @@
+ 
+         User user = getUserById(id);
+ 
+-        if(user.getIdFollowers().size() == 0)
++        if (postRepository.findAllByUser(id).isEmpty())
+             throw new BadRequestException("No es un vendedor");
+ 
+         UserFollowersDto userFollowersDto = new UserFollowersDto(user.getId(),
+@@ -153,16 +149,17 @@
+     }
+ 
+     @Override
+-    public UserFollowDto unfollowSeller(int followerUserId, int sellerUserId) {
++    public UserFollowedDto unfollowSeller(int followerUserId, int sellerUserId) {
+ 
+         User followerUser = getUserById(followerUserId);
+ 
+         // Check if Seller User exists
+-        getUserById(sellerUserId);
++        User sellerUser = getUserById(sellerUserId);
+ 
+         // 'Integer.valueof' is needed because List.remove has an overload por a plain int parameter
+         // that treats that parameter as an index in the List, not as the Object we are trying to remove.
+         boolean wasFollowing = followerUser.getIdFollows().remove(Integer.valueOf(sellerUserId));
++        sellerUser.getIdFollowers().remove(Integer.valueOf(followerUserId));
+ 
+         if (!wasFollowing)
+             throw new ConflictException(
+@@ -170,18 +167,29 @@
+             );
+ 
+         userRepository.save(followerUser);
++        userRepository.save(sellerUser);
+ 
+-        return new UserFollowDto(
+-            followerUser.getName(),
+-            followerUser.getIdFollowers(),
+-            followerUser.getIdFollows()
+-        );
++        return transferToUserFollowedDto(followerUser);
+     }
+ 
+     private UserDto transferToUserDto(User user){
+         return new UserDto(user.getId(), user.getName());
+     }
+ 
++    private UserFollowedDto transferToUserFollowedDto(User user) {
++
++        List<UserDto> followedUsers = user.getIdFollows().stream()
++            .map(this::getUserById)
++            .map(this::transferToUserDto)
++            .toList();
++
++        return new UserFollowedDto(
++            user.getId(),
++            user.getName(),
++            followedUsers
++        );
++    }
++
+     private User getUserById(int id){
+         Optional<User> user = userRepository.getById(id);
+         if(user.isEmpty())
