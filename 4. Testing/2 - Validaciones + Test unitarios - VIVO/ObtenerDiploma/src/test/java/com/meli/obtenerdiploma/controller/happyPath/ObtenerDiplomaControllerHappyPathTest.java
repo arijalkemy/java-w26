@@ -42,9 +42,6 @@ public class ObtenerDiplomaControllerHappyPathTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Autowired
-    ObjectMapper objectMapper;
-
     @Test
     @DisplayName("it should return a correct score analysis")
     public void analyzeScoreTest() throws Exception {
