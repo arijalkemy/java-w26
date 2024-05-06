@@ -55,7 +55,7 @@ public class StudentControllerTests {
 
     @Test
     public void testGetStudentOk() throws Exception {
-        mockMvc.perform(get("/student/getStudent/{id}", 1))
+        mockMvc.perform(get("/student/getStudent/{id}", 3))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.studentName")
                         .value("Juan"));

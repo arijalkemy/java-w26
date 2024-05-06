@@ -20,13 +20,13 @@ public class ObtenerDiplomaControllerTests {
 
     @Test
     public void testAnalyzeScoresOk() throws Exception {
-        mockMvc.perform(get("/analyzeScores/{studentId}", 1))
+        mockMvc.perform(get("/analyzeScores/{studentId}", 3))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.message")
-                        .value("El alumno Juan ha obtenido un promedio de 7.33. Puedes mejorar."))
+                        .value("El alumno Juan ha obtenido un promedio de 7. Puedes mejorar."))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.averageScore")
-                        .value(7.333333333333333));
+                        .value(7.0));
     }
 
     @Test
