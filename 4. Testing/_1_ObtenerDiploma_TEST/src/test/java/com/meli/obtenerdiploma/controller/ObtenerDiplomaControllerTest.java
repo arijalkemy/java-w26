@@ -12,6 +12,7 @@ import static org.mockito.Mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,13 +35,21 @@ public class ObtenerDiplomaControllerTest {
 
         StudentDTO studentExptected = StudentDTO.builder()
                 .id(1L)
+                .studentName("Pedro")
                 .averageScore(2.0)
+                .message("El alumno Pedro ha obtenido un promedio de "
+                        + new DecimalFormat("#.##").format(2.0)
+                        + ". Puedes mejorar.")
                 .subjects(subjectDTOList)
                 .build();
+
+
         when(service.analyzeScores(studentId)).thenReturn(studentExptected);
         StudentDTO studentObtained = controller.analyzeScores(studentId);
 
         Assertions.assertEquals(studentExptected, studentObtained);
     }
+
+
 
 }

@@ -35,14 +35,12 @@ public class StudentDAOTest {
 
     @BeforeEach
     public void setup() throws IOException {
-        MockitoAnnotations.openMocks(this);
 
+        testList = new HashSet<>();
         // Configurar el mock de ObjectMapper para devolver datos predefinidos al leer desde un archivo
         Set<StudentDTO> testData = new HashSet<>();
         // Agregar datos de prueba según sea necesario
         when(mapper.readValue(any(File.class), any(TypeReference.class))).thenReturn(testData);
-
-        testList = new HashSet<>();
 
         List<SubjectDTO> subjectDTOList = new ArrayList<>();
         subjectDTOList.add(new SubjectDTO("Ingles",4.0));
@@ -63,11 +61,11 @@ public class StudentDAOTest {
     @DisplayName("Guardar un nuevo estudiante ok")
     public void saveOk(){
         List<SubjectDTO> subjectDTOList = new ArrayList<>();
-        subjectDTOList.add(new SubjectDTO("Ingles",4.0));
-        subjectDTOList.add(new SubjectDTO("Lengua",0.0));
+        subjectDTOList.add(new SubjectDTO("Ingles",7.0));
+        subjectDTOList.add(new SubjectDTO("Lengua",2.0));
 
         StudentDTO studentExptected = StudentDTO.builder()
-                .averageScore(2.0)
+                .studentName("Roberto")
                 .subjects(subjectDTOList)
                 .build();
 
