@@ -69,7 +69,7 @@ public class ObtenerDiplomaControllerTests {
 
     @Test
     @DisplayName("/analyzeScores/{id} not founded student ")
-    public void obtenerDiplomaTestBadPath() throws Exception {
+    public void obtenerDiplomaTestNotFounded() throws Exception {
         // arrange
         Long notExistingId = 999L;
         // act
@@ -90,4 +90,13 @@ public class ObtenerDiplomaControllerTests {
         verify(service, atLeastOnce()).analyzeScores(notExistingId);
     }
 
+    @Test
+    @DisplayName("/analyzeScores/{id} not founded student ")
+    public void obtenerDiplomaTestBadRequest() throws Exception {
+        MvcResult result = this.mockMvc
+                .perform(MockMvcRequestBuilders.get("/analyzeScores/{id}", "A"))
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andReturn();
+    }
 }
