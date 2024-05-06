@@ -1,7 +1,7 @@
-package com.mercadolibre.starwars.controller;
+package com.mercadolibre.starwars.service;
 
 import com.mercadolibre.starwars.dto.CharacterDTO;
-import com.mercadolibre.starwars.service.FindService;
+import com.mercadolibre.starwars.repositories.CharacterRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,23 +10,25 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+
 @ExtendWith(MockitoExtension.class)
-public class FindControllerTest {
+public class FindServiceTest {
     @Mock
-    FindService findService;
+    private CharacterRepository characterRepository;
 
     @InjectMocks
-    FindController findController;
+    private FindService findService;
 
     List<CharacterDTO> charactersExpected;
 
+
     @BeforeEach()
-    public void setUp(){
+    public void setup(){
         CharacterDTO lukeSkywalker= new CharacterDTO();
         lukeSkywalker.setSpecies("Human");
         lukeSkywalker.setHair_color("blond");
@@ -41,14 +43,21 @@ public class FindControllerTest {
         charactersExpected = List.of(
                 lukeSkywalker
         );
-        when(findService.find("Luke")).thenReturn(charactersExpected);
+        when(characterRepository.findAllByNameContains("Luke")).thenReturn(charactersExpected);
     }
 
+
     @Test
-    @DisplayName("find by name test with luke as query")
-    public void findByNameControllerTest(){
-        String query = "Luke";
-        List<CharacterDTO> result= findController.find(query);
-        assertEquals(charactersExpected,result);
+    @DisplayName("Find character with query test")
+    public void findTest(){
+
+        List<CharacterDTO> result;
+
+        result=findService.find("Luke");
+
+        assertEquals(result,charactersExpected);
+
     }
+
+
 }
