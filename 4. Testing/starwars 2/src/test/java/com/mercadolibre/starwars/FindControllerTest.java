@@ -25,19 +25,19 @@ public class FindControllerTest {
     private FindController findController;
 
     @Test
-    public void testGetCharacterById(){
+    public void testGetCharacterByValidName(){
         CharacterDTO characterDTO = new CharacterDTO();
         characterDTO.setName("Luke");
 
-        List<CharacterDTO> characterDTOList = List.of(new CharacterDTO());
+        List<CharacterDTO> characterDTOListExpected = List.of(new CharacterDTO());
 
         //Arrange
-        when(findController.find("Luke")).thenReturn(characterDTOList);
+        when(findService.find("Luke")).thenReturn(characterDTOListExpected);
 
         //Act
-        List<CharacterDTO> characterDTOFind = findController.find("Luke");
+        List<CharacterDTO> obtained = findController.find("Luke");
 
         //Assert
-        Assertions.assertEquals(characterDTOFind, characterDTOList);
+        Assertions.assertEquals(obtained, characterDTOListExpected);
     }
 }
