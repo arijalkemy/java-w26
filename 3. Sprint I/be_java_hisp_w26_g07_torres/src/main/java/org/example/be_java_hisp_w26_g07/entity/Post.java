@@ -16,7 +16,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
-
     @JsonProperty("user_id")
     private Integer userId;
     @JsonProperty("post_id")

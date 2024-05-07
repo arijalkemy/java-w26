@@ -102,12 +102,12 @@ public class DataConfiguration {
         LocalDate date2 = LocalDate.of(2023, 11, 16);
         LocalDate date3 = LocalDate.of(2023, 12, 17);
         LocalDate date4 = LocalDate.of(2023, 11, 18);
-        LocalDate date5 = LocalDate.of(2024, 03, 03);
-        LocalDate date6 = LocalDate.of(2024, 04, 04);
-        LocalDate date7 = LocalDate.of(2024, 04, 21);
-        LocalDate date8 = LocalDate.of(2024, 04, 22);
+        LocalDate date5 = LocalDate.of(2024, 3, 3);
+        LocalDate date6 = LocalDate.of(2024, 4, 4);
+        LocalDate date7 = LocalDate.of(2024, 4, 21);
+        LocalDate date8 = LocalDate.of(2024, 4, 22);
         LocalDate date9 = LocalDate.of(2023, 11, 23);
-        LocalDate date10 = LocalDate.of(2024, 04, 24);
+        LocalDate date10 = LocalDate.of(2024, 4, 24);
 
         List<Post> postList = List.of(
                 new Post(1, 1, date1, 1, 1, 99.99, false, 0.0),

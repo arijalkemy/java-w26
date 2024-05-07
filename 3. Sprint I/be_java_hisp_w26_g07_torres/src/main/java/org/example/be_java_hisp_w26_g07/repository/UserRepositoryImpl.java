@@ -37,9 +37,6 @@ public class UserRepositoryImpl implements IUserRepository {
 
     @Override
     public User findById(Integer id) {
-        if (!userMap.containsKey(id)) {
-            return null;
-        }
         return userMap.get(id);
     }
 

@@ -34,6 +34,7 @@ public class ProductImpl implements IProductService {
     @Override
     public List<PostDto> findProductByFollow(Integer userID, String order) {
         ObjectMapper mapper = new ObjectMapper();
+
         User foundUser = iUserRepository.findById(userID);
         if (foundUser == null) {
             throw new BadRequestException("El usuario con id "+userID+" no existe");
@@ -42,6 +43,7 @@ public class ProductImpl implements IProductService {
         if (postsList.isEmpty()) {
             throw new NotFoundException("No se encontraron publicaciones para las ultimas dos semanas.");
         }
+
         getPostOrderByDate(postsList, order);
         return postsList.stream()
                 .map(post -> {
@@ -74,20 +76,24 @@ public class ProductImpl implements IProductService {
         if (myUser == null) {
             throw new BadRequestException("El usuario no existe");
         }
+
         ObjectMapper mapper = new ObjectMapper();
         SimplePostDto simplePostDto = mapper.convertValue(postRequestDto, SimplePostDto.class);
         Post post = mapper.convertValue(simplePostDto, Post.class);
         post.setId(PostUtil.increaseCounter());
+
         Product product = mapper.convertValue(postRequestDto.getProduct(), Product.class);
         Product foundProduct = iUserRepository.findProductById(product.getId());
         if (foundProduct != null) {
             throw new BadRequestException("Un producto con ese id ya existe, por favor actualice el id");
         }
+
         iUserRepository.createProduct(product);
         post.setProductId(product.getId());
 
         iUserRepository.addPost(post);
         if (!myUser.getIsSeller()) myUser.setIsSeller(true);
+
         PostDto createdPost = mapper.convertValue(post, PostDto.class);
         ProductDto createdProduct = mapper.convertValue(product, ProductDto.class);
         createdPost.setProduct(createdProduct);

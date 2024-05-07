@@ -53,6 +53,7 @@ public class UserImpl implements IUserService {
     @Override
     public FollowedResponseDto findFollowedUsers(Integer id, String order) {
         User user = iUserRepository.findById(id);
+        if (user == null) throw new NotFoundException("Vendedor no encontrado");
         List<Integer> followedIdList = iUserRepository.followedIdByUserId(id);
 
         Stream<UserInfoFollowsDto> userInfoFollowsDtos = followedIdList.stream()
@@ -95,9 +96,6 @@ public class UserImpl implements IUserService {
 
     @Override
     public CountFollowersResponseDto getNumberOfSellersFollowed(String userId) {
-        if (!userId.matches("\\d+")) {
-            throw new BadRequestException("El valor ingresado no es numérico");
-        }
         User user = iUserRepository.findById(Integer.parseInt(userId));
         if (user == null) {
             throw new NotFoundException("Usuario no encontrado");
@@ -105,6 +103,7 @@ public class UserImpl implements IUserService {
         if (!user.getIsSeller()) {
             throw new NotAcceptable("Existe el usuario pero no es vendedor");
         }
+
         List<Integer> followerIdList = iUserRepository.followerIdBySellerId(Integer.parseInt(userId));
         int followerCount = followerIdList == null ? 0 : followerIdList.size();
         return new CountFollowersResponseDto(user.getId(), user.getName(), followerCount);
