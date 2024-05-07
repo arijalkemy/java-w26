@@ -19,4 +19,6 @@ public interface IVehicleService {
     ResponseEntity<?> deleteVehicle(Long id);
 
     ResponseEntity<?> getByBrand(String brand);
+
+    ResponseEntity<?> getVehicleByColorAndYear(String color, Integer year);
 }

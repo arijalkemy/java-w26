@@ -71,35 +71,19 @@ public class VehicleServiceImpl implements IVehicleService{
 
     @Override
     public ResponseEntity<?> getByBrand(String brand) {
-        // Traigo la lista de vehiculos que me provee el repositorio y filtro por lista
-        List<Vehicle> vehicleList = vehicleRepository.findAll();
-        vehicleList = vehicleList.stream()
-                .filter(vehicle -> vehicle.getBrand().equals(brand))
-                .collect(Collectors.toList());
-        // Valido que hayan objetos de tipo vehiculo para esta lista
-        if (vehicleList.isEmpty()) {
-            return new ResponseEntity<>("No vehicles found for the brand: " + brand, HttpStatus.NOT_FOUND);
-        }
-
-        // Calculo el promedio y parseo el getMax_speed que en la entidd es de tipo String
-        double averageMaxSpeed = vehicleList.stream()
-                .mapToDouble(vehicle -> Double.parseDouble(vehicle.getMax_speed()))
-                .average()
-                .orElse(0.0);
-
-        // mapeo la lista del repositorio a una de tipo Dto
-        ObjectMapper mapper = new ObjectMapper();
-        List<VehicleDto> vehicleDtoList = vehicleList.stream()
-                .map(vehicle -> mapper.convertValue(vehicle, VehicleDto.class))
-                .collect(Collectors.toList());
-        // Creo un mapa para mostrar el promedio de velocidad calculado y los vehiculos filtrados por marca
-        Map<String, Object> response = new HashMap<>();
-        response.put("averageMaxSpeed", averageMaxSpeed);
-        response.put("vehicles", vehicleDtoList);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return null;
     }
 
+    @Override
+    public ResponseEntity<?> getVehicleByColorAndYear(String color, Integer year) {
+        List <Vehicle> vehicles = vehicleRepository.findAll();
+        List<Vehicle> vehicleFiltred = vehicles.stream().filter(vehicle -> vehicle.getColor().equals(color) && vehicle.getYear() == year).collect(Collectors.toList());
+        if (vehicleFiltred.isEmpty()){
+            throw new NotFoundException("No se han encontrado autos de ese color y año");
+        }
+        return new ResponseEntity<>(vehicleFiltred, HttpStatus.OK);
 
+    }
 
     private Vehicle mapToEntity(VehicleRequestDto vehicleDto){
         ObjectMapper objectMapper = new ObjectMapper();

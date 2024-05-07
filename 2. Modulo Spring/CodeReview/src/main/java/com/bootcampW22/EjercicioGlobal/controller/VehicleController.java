@@ -6,6 +6,7 @@ import com.bootcampW22.EjercicioGlobal.service.IVehicleService;
 import com.bootcampW22.EjercicioGlobal.service.VehicleServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -36,16 +37,16 @@ public class VehicleController {
         return new ResponseEntity<>(vehicleResponseDto, HttpStatus.OK);
     }
 
-    @GetMapping("/vehicles/average_speed/brand/{brand}")
-    public ResponseEntity<?> getByBrand(@PathVariable String brand){
-        return new ResponseEntity<>(vehicleService.getByBrand(brand), HttpStatus.OK);
-    }
-
 
     @DeleteMapping("deleteVehicle/")
     public ResponseEntity<?> deleteVehicle(@RequestParam Long id){
         vehicleService.deleteVehicle(id);
        return  new ResponseEntity<>(HttpStatus.OK);
 
+    }
+
+    @GetMapping("/vehicles/color/{color}/year/{year}")
+    public ResponseEntity<?> getVehiclesByColorAndYear(@PathVariable String color,@PathVariable Integer year){
+        return vehicleService.getVehicleByColorAndYear(color,year);
     }
 }
