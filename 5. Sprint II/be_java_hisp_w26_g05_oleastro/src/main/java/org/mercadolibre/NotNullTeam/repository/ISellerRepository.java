@@ -2,10 +2,12 @@ package org.mercadolibre.NotNullTeam.repository;
 
 import org.mercadolibre.NotNullTeam.model.Seller;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ISellerRepository {
     Optional<Seller> findById(Long id);
     void save(Seller seller);
     void update(Seller seller);
+    void setSellers(List<Seller> sellers);
 }

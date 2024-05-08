@@ -30,4 +30,9 @@ public class SellerRepositoryImpl implements ISellerRepository {
     public void update(Seller seller) {
         //No se implementa porque no hay base de datos y los objetos estan en memoria.
     }
+
+    @Override
+    public void setSellers(List<Seller> sellers) {
+        this.sellers = sellers;
+    }
 }
