@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "name": "Comprador",
+      "follows": [
+        {
+          "id": 1,
+          "name": "Un Vendedor",
+          "followers": null
+        },
+        {
+          "id": 2,
+          "name": "Vendedor 2",
+          "followers": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Comprador 2",
+      "follows": []
+    }
+  ]
+  

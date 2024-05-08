@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "name": "Termo",
+      "type": "Tipo 1",
+      "brand": "Stanley",
+      "color": "Verde",
+      "notes": "Muy caro para lo que es"
+    },
+    {
+      "id": 2,
+      "name": "Termo2",
+      "type": "Tipo 2",
+      "brand": "Lumilagro",
+      "color": "gris",
+      "notes": "Bueno, bonito y barato"
+    }
+  ]
+  

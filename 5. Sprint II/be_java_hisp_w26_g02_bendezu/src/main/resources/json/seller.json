@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "name": "Un Vendedor",
+      "followers": [
+        {
+          "id": 1,
+          "name": "Seguidor 1",
+          "follows": null
+        },
+        {
+          "id": 1,
+          "name": "Seguidor 2",
+          "follows": null
+        },
+        {
+          "id": 1,
+          "name": "Seguidor 3",
+          "follows": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Un Vendedor 2",
+      "followers": []
+    }
+  ]
+  

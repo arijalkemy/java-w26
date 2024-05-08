@@ -1,0 +1,54 @@
+[
+    {
+      "id": 1,
+      "sellerId": 1,
+      "date": "2024-05-08",
+      "category": 1,
+      "price": 100.0,
+      "product": {
+        "id": 1,
+        "name": "Termo",
+        "type": "Tipo 1",
+        "brand": "Stanley",
+        "color": "Verde",
+        "notes": "Muy caro para lo que es"
+      },
+      "discount": 0.0,
+      "hasPromo": false
+    },
+    {
+      "id": 2,
+      "sellerId": 1,
+      "date": "2024-04-30",
+      "category": 1,
+      "price": 2000.0,
+      "product": {
+        "id": 2,
+        "name": "Termo2",
+        "type": "Tipo 2",
+        "brand": "Lumilagro",
+        "color": "gris",
+        "notes": "Bueno, bonito y barato"
+      },
+      "discount": 2.0,
+      "hasPromo": false
+    },
+    {
+      "id": 3,
+      "sellerId": 2,
+      "date": "2024-04-22",
+      "category": 1,
+      "price": 2000.0,
+      "product": {
+        "id": 1,
+        "name": "Termo",
+        "type": "Tipo 1",
+        "brand": "Stanley",
+        "color": "Verde",
+        "notes": "Muy caro para lo que es"
+      },
+      "discount": 4.0,
+      "hasPromo": false
+    }
+  ]
+  
