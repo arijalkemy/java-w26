@@ -1,39 +1,40 @@
 package com.meli.obtenerdiploma.repository;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.obtenerdiploma.exception.StudentAllreadyExistException;
 import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
+import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.ResourceUtils;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
 
 @Repository
+@RequiredArgsConstructor
 public class StudentDAO implements IStudentDAO, IStudentUtilDAO {
 
-    @Value("${uri}")
-    private String URI;
+    private final IStudentRepository studentRepository;
+
+//    @Value("${uri}")
+//    private String URI;
     private Set<StudentDTO> students = new HashSet<>();
 
-    public StudentDAO() {
-        Properties properties = new Properties();
-        try {
-            properties.load(new ClassPathResource("application-test.properties").getInputStream());
-            this.URI = properties.getProperty("uri");
-            this.loadData();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    public StudentDAO() {
+//        Properties properties = new Properties();
+//        studentRepository = new StudentRepository();
+//        try {
+//            properties.load(new ClassPathResource("application-dev.properties").getInputStream());
+//            this.URI = properties.getProperty("uri");
+//            this.loadData();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public Long save(StudentDTO stu) {
@@ -55,15 +56,8 @@ public class StudentDAO implements IStudentDAO, IStudentUtilDAO {
 
     @Override
     public boolean deleteAll() {
-        ObjectMapper objectMapper = new ObjectMapper();
         students.clear();
-        try {
-            File file = ResourceUtils.getFile(URI);
-            objectMapper.writeValue(file, this.students);
-            return true;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return studentRepository.deleteAll(students);
     }
 
     @Override
@@ -80,37 +74,27 @@ public class StudentDAO implements IStudentDAO, IStudentUtilDAO {
                 .orElseThrow(() -> new StudentNotFoundException(id));
     }
 
+    @PostConstruct
     private void loadData() {
-        Set<StudentDTO> loadedData = new HashSet<>();
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        File file;
-        try {
-            file = ResourceUtils.getFile(URI);
-            loadedData = objectMapper.readValue(file, new TypeReference<>() {});
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("Failed while initializing DB, check your resources files");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Failed while initializing DB, check your JSON formatting.");
-        }
-
-        this.students = loadedData;
+        //        Set<StudentDTO> loadedData = new HashSet<>();
+        //
+        //        ObjectMapper objectMapper = new ObjectMapper();
+        //        File file;
+        //        try {
+        //            file = ResourceUtils.getFile(URI);
+        //            loadedData = objectMapper.readValue(file, new TypeReference<>() {});
+        //        } catch (FileNotFoundException e) {
+        //            e.printStackTrace();
+        //            System.out.println("Failed while initializing DB, check your resources files");
+        //        } catch (IOException e) {
+        //            e.printStackTrace();
+        //            System.out.println("Failed while initializing DB, check your JSON formatting.");
+        //        }
+        this.students = studentRepository.findAll();
     }
 
     private void saveData() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            File file = ResourceUtils.getFile(URI);
-            objectMapper.writeValue(file, this.students);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("Failed while writing to DB, check your resources files");
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Failed while writing to DB, check your JSON formatting.");
-        }
+        studentRepository.saveData(students);
     }
 
 

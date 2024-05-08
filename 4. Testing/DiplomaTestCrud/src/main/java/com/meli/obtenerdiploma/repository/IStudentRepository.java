@@ -7,5 +7,6 @@ import java.util.Set;
 public interface IStudentRepository {
 
     Set<StudentDTO> findAll();
-
+    boolean saveData(Set<StudentDTO> students);
+    boolean deleteAll(Set<StudentDTO> students);
 }

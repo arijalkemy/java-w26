@@ -5,7 +5,9 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.model.SubjectDTO;
+import com.meli.obtenerdiploma.repository.IStudentRepository;
 import com.meli.obtenerdiploma.repository.StudentDAO;
+import com.meli.obtenerdiploma.repository.StudentRepository;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -34,7 +36,8 @@ class StudentControllerTest {
 
     @BeforeEach
     void setUp() {
-        studentDAO = new StudentDAO();
+        IStudentRepository studentRepository = new StudentRepository();
+        studentDAO = new StudentDAO(studentRepository);
         subjectDTO = new SubjectDTO("Matematica", 10.0);
         studentDTO = new StudentDTO(99L,
                 "Juan",

@@ -20,7 +20,8 @@ class StudentDAOUnitTest {
 
     @BeforeAll
     static void setUp() {
-        studentDAO = new StudentDAO();
+        IStudentRepository studentRepository = new StudentRepository();
+        studentDAO = new StudentDAO(studentRepository);
         subjectDTO = new SubjectDTO("Matematica", 10.0);
         studentDTO = new StudentDTO(1L, "Juan", "Perez", 6.0,
                 new ArrayList<>(List.of(subjectDTO)));
