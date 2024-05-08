@@ -19,30 +19,30 @@ public class StudentController {
 
     @PostMapping("/registerStudent")
     public ResponseEntity<?> registerStudent(@RequestBody @Valid StudentDTO stu) {
-        this.studentService.create(stu);
+        studentService.create(stu);
         return ResponseEntity.ok(null);
     }
 
     @GetMapping("/getStudent/{id}")
     public StudentDTO getStudent(@PathVariable Long id) {
-        return this.studentService.read(id);
+        return studentService.read(id);
     }
 
     @PostMapping("/modifyStudent")
     public ResponseEntity<?> modifyStudent(@RequestBody @Valid StudentDTO stu) {
-        this.studentService.update(stu);
+        studentService.update(stu);
         return ResponseEntity.ok(null);
     }
 
     @GetMapping("/removeStudent/{id}")
     public ResponseEntity<?> removeStudent(@PathVariable Long id) {
-        this.studentService.delete(id);
+        studentService.delete(id);
         return ResponseEntity.ok(null);
     }
 
     @GetMapping("/listStudents")
     public Set<StudentDTO> listStudents() {
-        return this.studentService.getAll();
+        return studentService.getAll();
     }
 
 }
