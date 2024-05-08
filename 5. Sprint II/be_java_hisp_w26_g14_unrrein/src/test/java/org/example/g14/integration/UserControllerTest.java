@@ -27,16 +27,15 @@ public class UserControllerTest {
         int userId = 1;
         int userIdToFollow = 15;
 
-        mockMvc.perform(post("/users/{userId}/follow/{userIdToFollow}", userId, userIdToFollow))
+        mockMvc
+            .perform(post("/users/{userId}/follow/{userIdToFollow}", userId, userIdToFollow))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(
-                jsonPath("$.user_id")
-                    .value(userId)
+                jsonPath("$.user_id").value(userId)
             )
             .andExpect(
-                jsonPath("$.followed.*.user_id")
-                    .value(hasItem(userIdToFollow))
+                jsonPath("$.followed.*.user_id").value(hasItem(userIdToFollow))
             );
     }
 }
