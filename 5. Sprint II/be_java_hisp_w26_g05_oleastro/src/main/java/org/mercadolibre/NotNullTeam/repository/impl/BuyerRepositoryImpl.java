@@ -38,6 +38,11 @@ public class BuyerRepositoryImpl implements IBuyerRepository {
     }
 
     @Override
+    public void setBuyers(List<Buyer> buyers) {
+        this.buyers = buyers;
+    }
+
+    @Override
     public void save(Buyer buyer) {
         buyers.add(buyer);
     }

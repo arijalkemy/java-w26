@@ -11,4 +11,5 @@ public interface IBuyerRepository {
     List<Buyer> findAll();
     boolean existsById(Long id);
     void update(Buyer buyer);
+    void setBuyers(List<Buyer> buyers);
 }

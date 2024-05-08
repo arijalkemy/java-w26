@@ -20,7 +20,7 @@ public class SellerControllerIntegrationTest {
     MockMvc mockMvc;
 
     @Test
-    @DisplayName("Se quiere listar los seguidores del usuario con ID = 9999 " +
+    @DisplayName("Se quiere listar los seguidores del usuario vendedor con ID = 9999 " +
             "y lanza una excepcion porque no existe ningun usuario con dicho ID.")
     public void getListFollowersThrowsNotFoundExeption() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", 9999))
