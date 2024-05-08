@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "idFollowers": [2, 3, 4],
+    "idFollows": [5, 6, 7]
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "idFollowers": [1, 3],
+    "idFollows": [4, 5]
+  },
+  {
+    "id": 3,
+    "name": "Michael Johnson",
+    "idFollowers": [1, 4, 5],
+    "idFollows": [2, 6]
+  },
+  {
+    "id": 4,
+    "name": "Emily Brown",
+    "idFollowers": [1, 2],
+    "idFollows": [3, 7]
+  },
+  {
+    "id": 5,
+    "name": "William Taylor",
+    "idFollowers": [2, 3],
+    "idFollows": [1, 4]
+  },
+  {
+    "id": 6,
+    "name": "Olivia Martinez",
+    "idFollowers": [1, 2, 5],
+    "idFollows": [3, 7]
+  },
+  {
+    "id": 7,
+    "name": "James Anderson",
+    "idFollowers": [3, 4],
+    "idFollows": [1, 6]
+  },
+  {
+    "id": 8,
+    "name": "Sophia Wilson",
+    "idFollowers": [9, 10],
+    "idFollows": [11, 12]
+  },
+  {
+    "id": 9,
+    "name": "Daniel Moore",
+    "idFollowers": [8, 10],
+    "idFollows": [11, 12]
+  },
+  {
+    "id": 10,
+    "name": "Isabella Taylor",
+    "idFollowers": [8, 9],
+    "idFollows": [11, 12]
+  },
+  {
+    "id": 11,
+    "name": "Benjamin Brown",
+    "idFollowers": [8, 9, 10],
+    "idFollows": []
+  },
+  {
+    "id": 12,
+    "name": "Mia Jones",
+    "idFollowers": [8, 9, 10],
+    "idFollows": []
+  },
+  {
+    "id": 13,
+    "name": "Alexander Garcia",
+    "idFollowers": [14, 15],
+    "idFollows": [16, 17]
+  },
+  {
+    "id": 14,
+    "name": "Charlotte Rodriguez",
+    "idFollowers": [13, 15],
+    "idFollows": [16, 17]
+  },
+  {
+    "id": 15,
+    "name": "Ethan Wilson",
+    "idFollowers": [13, 14],
+    "idFollows": [16, 17]
+  },
+  {
+    "id": 16,
+    "name": "Amelia Lopez",
+    "idFollowers": [13, 14, 15],
+    "idFollows": []
+  },
+  {
+    "id": 17,
+    "name": "Aiden Martinez",
+    "idFollowers": [13, 14, 15],
+    "idFollows": []
+  },
+  {
+    "id": 18,
+    "name": "Harper Gonzalez",
+    "idFollowers": [19, 20],
+    "idFollows": [21, 22]
+  },
+  {
+    "id": 19,
+    "name": "Sebastian Perez",
+    "idFollowers": [18, 20],
+    "idFollows": [21, 22]
+  },
+  {
+    "id": 20,
+    "name": "Aria Sanchez",
+    "idFollowers": [18, 19],
+    "idFollows": [21, 22]
+  },
+  {
+    "id": 21,
+    "name": "Evelyn Ramirez",
+    "idFollowers": [18, 19, 20],
+    "idFollows": []
+  },
+  {
+    "id": 22,
+    "name": "Mateo Flores",
+    "idFollowers": [18, 19, 20],
+    "idFollows": []
+  },
+  {
+    "id": 23,
+    "name": "Liam Adams",
+    "idFollowers": [24, 25],
+    "idFollows": [26, 27]
+  },
+  {
+    "id": 24,
+    "name": "Zoey Torres",
+    "idFollowers": [23, 25],
+    "idFollows": [26, 27]
+  },
+  {
+    "id": 25,
+    "name": "Mila Russell",
+    "idFollowers": [23, 24],
+    "idFollows": [26, 27]
+  },
+  {
+    "id": 26,
+    "name": "Lucas Hernandez",
+    "idFollowers": [23, 24, 25],
+    "idFollows": []
+  },
+  {
+    "id": 27,
+    "name": "Luna King",
+    "idFollowers": [23, 24, 25],
+    "idFollows": []
+  },
+  {
+    "id": 28,
+    "name": "Noah Nelson",
+    "idFollowers": [],
+    "idFollows": [24, 20]
+  },
+  {
+    "id": 29,
+    "name": "Ella Scott",
+    "idFollowers": [],
+    "idFollows": [22]
+  },
+  {
+    "id": 30,
+    "name": "Lily Stewart",
+    "idFollowers": [],
+    "idFollows": [1, 5, 8]
+  },
+  {
+    "id": 31,
+    "name": "Ethan Carter",
+    "idFollowers": [],
+    "idFollows": []
+  },
+  {
+    "id": 32,
+    "name": "Madison Murphy",
+    "idFollowers": [],
+    "idFollows": [7, 15, 2]
+  },
+  {
+    "id": 33,
+    "name": "Jameson Price",
+    "idFollowers": [],
+    "idFollows": [6, 8, 15]
+  },
+  {
+    "id": 34,
+    "name": "Avery Powell",
+    "idFollowers": [],
+    "idFollows": [4, 5, 6]
+  },
+  {
+    "id": 35,
+    "name": "Riley Gonzalez",
+    "idFollowers": [],
+    "idFollows": [22]
+  }
+]
