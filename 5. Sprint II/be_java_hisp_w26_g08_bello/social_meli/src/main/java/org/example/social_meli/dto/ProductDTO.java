@@ -1,43 +1,37 @@
 package org.example.social_meli.dto;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class ProductDTO {
-    @Positive(message = "El id debe ser mayor a 0")
-    @NotNull(message = "El id no puede ser vacío")
+    @NotNull(message="El  id no puede estar vacío")
+    @Min(value=0, message="El id debe ser mayor a cero")
     private Integer product_id;
-
-    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales.")
-    @Size(max = 40, message = "La longitud no puede superar los 40 carácteres")
+    @NotNull(message="El campo no puede estar vacío")
+    @Max(value=40, message="La longitud no puede superar 40 caracteres")
+    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales")
     private String  product_name;
-
-    @NotBlank(message = "El tipo del producto no puede estar vacío")
-    @NotNull(message = "El campo no puede ser nulo")
-    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales.")
-    @Size(max = 15, message = "La longitud no puede superar los 15 carácteres")
+    @NotNull(message="El campo no puede estar vacío")
+    @Max(value=15, message="La longitud no puede superar los 15 caracteres")
+    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales")
     private String type;
-
-    @NotBlank(message = "La marca del producto no puede estar vacío")
-    @NotNull(message = "El campo no puede ser nulo")
-    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales.")
-    @Size(max = 25, message = "La longitud no puede superar los 25 carácteres")
+    @NotNull(message="El campo no puede estar vacío")
+    @Max(value=25, message="La longitud no puede superar los 25 caracteres")
+    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales")
     private String brand;
-
-    @NotBlank(message = "El color del producto no puede estar vacío")
-    @NotNull(message = "El campo no puede ser nulo")
-    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales.")
-    @Size(max = 15, message = "La longitud no puede superar los 15 carácteres")
+    @NotNull(message="El campo no puede estar vacío")
+    @Max(value=15, message="La longitud no puede superar los 15 caracteres")
+    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales")
     private String color;
-
-    @Size(max = 80, message = "La longitud no puede superar los 80 carácteres")
-    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales.")
+    @Max(value=80, message="La longitud no puede superar los 80 caracteres")
+    @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales")
     private String notes;
 }

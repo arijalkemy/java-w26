@@ -2,15 +2,16 @@ package org.example.social_meli.services.impl;
 
 import org.example.social_meli.dto.FollowListDTO;
 import org.example.social_meli.dto.PostDTO;
+import org.example.social_meli.dto.UserDTO;
 import org.example.social_meli.dto.UserResponseDTO;
 import org.example.social_meli.exceptions.BadRequestException;
 import org.example.social_meli.exceptions.ConflictException;
 import org.example.social_meli.exceptions.NotFoundException;
+import org.example.social_meli.model.FollowerList;
 import org.example.social_meli.model.Post;
 import org.example.social_meli.repository.IProductRepository;
 import org.example.social_meli.repository.IUserRepository;
 import org.example.social_meli.services.IProductService;
-import org.example.social_meli.services.IUserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,19 +26,12 @@ import java.util.stream.Collectors;
 public class ProductServiceImpl implements IProductService {
 
     @Autowired
-    IProductRepository productRepository;
+    private IProductRepository productRepository;
 
     @Autowired
-    IUserRepository userRepository;
-
+    private IUserRepository userRepository;
     @Autowired
-    IUserService userServiceImpl;
-
-    @Override
-    public List<PostDTO> getAllPosts() {
-        ModelMapper mapper = new ModelMapper();
-        return productRepository.getAllPosts().stream().map(post -> mapper.map(post, PostDTO.class)).toList();
-    }
+    private UserServiceImpl userServiceImpl;
 
     @Override
     public PostDTO savePost(PostDTO postDTO) {
@@ -53,30 +47,34 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
+    public List<PostDTO> getAllPosts() {
+        ModelMapper mapper = new ModelMapper();
+        return productRepository.getAllPosts().stream().map(post -> mapper.map(post, PostDTO.class)).toList();
+    }
+
+    @Override
     public FollowListDTO getSellersPostsFollowedByUser(Integer id) {
         UserResponseDTO followerList = userServiceImpl.getFollowedById(id);
+        List<PostDTO> postDTOList = getAllPosts();
         FollowListDTO followListDTO = new FollowListDTO();
-        followListDTO.setUser_id(id);
+        if(!followerList.getFollower().isEmpty()){
+            postDTOList = followerList.getFollower().stream()
+                    .flatMap(follower -> getAllPosts().stream()
+                            .filter(post -> post.getUser_id().equals(follower.getUser_id())))
+                    .toList();
 
-        if(followerList.getFollower().isEmpty()){
-            followListDTO.setPost(List.of());
-            return followListDTO;
         }
 
         LocalDate twoWeeksAgo = LocalDate.now().minusWeeks(2);
-        List<PostDTO> postDTOList = getAllPosts().stream()
-                .filter(post -> isPostFromFollowedUserAndWithinTwoWeeks(post, followerList, twoWeeksAgo))
-                .collect(Collectors.toList());
+        twoWeeksAgo.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
+        postDTOList = postDTOList.stream()
+                .filter(post -> post.getDate().isAfter(twoWeeksAgo)).toList();
+
+        followListDTO.setUser_id(id);
         followListDTO.setPost(postDTOList);
 
         return followListDTO;
-    }
-
-    private boolean isPostFromFollowedUserAndWithinTwoWeeks(PostDTO post, UserResponseDTO followerList, LocalDate twoWeeksAgo) {
-        return followerList.getFollower().stream()
-                .anyMatch(follower -> post.getUser_id().equals(follower.getUser_id()))
-                && post.getDate().isAfter(twoWeeksAgo);
     }
 
     @Override

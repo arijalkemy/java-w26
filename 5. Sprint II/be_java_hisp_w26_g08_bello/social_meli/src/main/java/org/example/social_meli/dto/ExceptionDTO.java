@@ -1,14 +1,15 @@
 package org.example.social_meli.dto;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
 
 @NoArgsConstructor
-@Builder
 public class ExceptionDTO {
     private String message;
+    //private String error_code;
+    //private String details;
     public ExceptionDTO(String message) {
         this.message = message;
     }

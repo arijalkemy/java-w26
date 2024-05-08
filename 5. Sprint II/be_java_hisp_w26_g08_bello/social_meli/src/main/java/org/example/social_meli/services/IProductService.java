@@ -6,8 +6,8 @@ import org.example.social_meli.dto.PostDTO;
 import java.util.List;
 
 public interface IProductService {
-    List<PostDTO> getAllPosts();
     PostDTO savePost(PostDTO post);
+    List<PostDTO> getAllPosts();
     FollowListDTO getSellersPostsFollowedByUser(Integer id);
     FollowListDTO getOrderedSellersPostsFollowedByUser(Integer id, String orderBy);
 }

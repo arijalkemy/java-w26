@@ -5,7 +5,7 @@ import org.example.social_meli.model.Post;
 import java.util.List;
 
 public interface IProductRepository {
-    void savePost(Post post);
+    Post savePost(Post post);
     Boolean existsPost(Integer postId);
     List<Post> getAllPosts();
 }

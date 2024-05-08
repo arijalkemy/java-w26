@@ -16,8 +16,6 @@ import java.util.List;
 @Repository
 public class UserRepository implements IUserRepository {
 
-    ObjectMapper objectMapper = new ObjectMapper();
-
     private List<User> userList;
     private List<FollowerList> sellerList;
     private List<FollowerList> clientList;
@@ -25,88 +23,22 @@ public class UserRepository implements IUserRepository {
     public UserRepository() throws IOException {
         loadDataBase();
     }
-
-    @Override
-    public Integer getClientIndex(FollowerList client) {
-        return this.clientList.indexOf(client);
-    }
-
-    @Override
-    public Integer getSellerIndex(FollowerList seller) {
-        return this.sellerList.indexOf(seller);
-    }
-
     @Override
     public User findById(Integer user_id){
-        return userList
-                .stream()
-                .filter(v->
-                        v.getUser_id()
-                                .equals(user_id))
-                .findFirst()
-                .orElse(null);
+        return userList.stream().filter(v->v.getUser_id().equals(user_id)).findFirst().orElse(null);
     }
-
     @Override
     public FollowerList findSellerByUser(User user){
-        return sellerList
-                .stream()
-                .filter(v ->
-                        v.getUser()
-                                .getUser_id()
-                                .equals(user.getUser_id()))
-                .findFirst()
-                .orElse(null);
+        return sellerList.stream().filter(v -> v.getUser().getUser_id().equals(user.getUser_id())).findFirst().orElse(null);
     }
-
-    @Override
-    public FollowerList findClientByUser(User user) {
-        return clientList
-                .stream()
-                .filter(v ->
-                        v.getUser()
-                                .getUser_id()
-                                .equals(user.getUser_id()))
-                .findFirst()
-                .orElse(null);
-    }
-
-    @Override
-    public FollowerList findSellerById(Integer id) {
-        return sellerList
-                .stream()
-                .filter(seller->
-                        seller.getUser()
-                                .getUser_id()
-                                .equals(id))
-                .findFirst()
-                .orElse(null);
-    }
-
-    @Override
-    public FollowerList findClientById(Integer id) {
-        return clientList
-                .stream()
-                .filter(client->
-                        client.getUser()
-                                .getUser_id()
-                                .equals(id))
-                .findFirst()
-                .orElse(null);
-    }
-
     @Override
     public Boolean existsById(Integer user_Id) {
-        return userList
-                .stream()
-                .anyMatch(user -> user.getUser_id().equals(user_Id));
+        return userList.stream().anyMatch(user -> user.getUser_id().equals(user_Id));
     }
 
     @Override
     public Boolean existsClientById(Integer clientId) {
-        return clientList
-                .stream()
-                .anyMatch(client -> client.getUser().getUser_id().equals(clientId));
+        return clientList.stream().anyMatch(client -> client.getUser().getUser_id().equals(clientId));
     }
 
     @Override
@@ -114,8 +46,35 @@ public class UserRepository implements IUserRepository {
         return sellerList.stream().anyMatch(client -> client.getUser().getUser_id().equals(sellerId));
     }
 
+    @Override
+    public FollowerList findClientByUser(User user) {
+        return clientList.stream().filter(v -> v.getUser().getUser_id().equals(user.getUser_id())).findFirst().orElse(null);
+    }
+
+    @Override
+    public void saveSeller(FollowerList seller) {
+        Integer index = -1;
+        if (existsSellerById(seller.getUser().getUser_id())) {
+            index = sellerList.indexOf(findSellerByUser(seller.getUser()));
+            this.sellerList.set(index, seller);
+            this.sellerList.add(seller);
+        }
+    }
+
+    @Override
+    public void saveClient(FollowerList client) {
+        Integer index = -1;
+        if (existsClientById(client.getUser().getUser_id())){
+            index=clientList.indexOf(findClientByUser(client.getUser()));
+            this.clientList.set(index,client);
+        }else {
+            this.clientList.add(client);
+        }
+    }
+
     private void loadDataBase() throws IOException {
         File file;
+        ObjectMapper objectMapper = new ObjectMapper();
         List<User> users ;
         List<FollowerList> sellers;
         List<FollowerList> clients;
@@ -131,24 +90,47 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public void saveSeller(FollowerList seller) {
-        int index = -1;
-        if (existsSellerById(seller.getUser().getUser_id())) {
-            index = sellerList.indexOf(findSellerByUser(seller.getUser()));
-            this.sellerList.set(index, seller);
-            this.sellerList.add(seller);
+    public int countFollowers(Integer userId) {
+        int counter = 0;
+        for (FollowerList fl: sellerList){
+            if (fl.getUser().getUser_id().equals(userId)){
+                counter = fl.getFollower().size();
+            }
         }
+        return counter;
     }
 
     @Override
-    public void saveClient(FollowerList client) {
-        int index = -1;
-        if (existsClientById(client.getUser().getUser_id())){
-            index=clientList.indexOf(findClientByUser(client.getUser()));
-            this.clientList.set(index,client);
-        }else {
-            this.clientList.add(client);
-        }
+    public List<FollowerList> getAllSellers() {
+        return sellerList;
+    }
+
+    public FollowerList getFollowerByUserId(Integer userId) {
+        return sellerList.stream().filter(follower -> follower.getUser().getUser_id().equals(userId)).findFirst().orElseThrow();
+    }
+
+    @Override
+    public FollowerList findSellerById(Integer id) {
+        return this.sellerList.stream().filter(seller-> seller.getUser().getUser_id().equals(id)).findFirst().orElse(null);
+    }
+
+    @Override
+    public FollowerList findClientById(Integer id) {
+        return this.clientList.stream().filter(client-> client.getUser().getUser_id().equals(id)).findFirst().orElse(null);
+    }
+
+    @Override
+    public Integer getClientIndex(FollowerList client) {
+        return this.clientList.indexOf(client);
+    }
+
+    @Override
+    public String getUsernameById(Integer userId) {
+        return userList.stream().filter(user -> user.getUser_id().equals(userId)).findFirst().orElseThrow().getUser_name();
+    }
+    @Override
+    public Integer getSellerIndex(FollowerList seller) {
+        return this.sellerList.indexOf(seller);
     }
 
     @Override
