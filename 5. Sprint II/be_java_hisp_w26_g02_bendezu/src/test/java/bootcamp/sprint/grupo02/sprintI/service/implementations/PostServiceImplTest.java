@@ -1,6 +1,8 @@
 package bootcamp.sprint.grupo02.sprintI.service.implementations;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
@@ -17,6 +19,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import bootcamp.sprint.grupo02.sprintI.dto.request.PostDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.request.ProductDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.MessageResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.PostListByBuyerResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.enums.DateOrder;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
@@ -105,4 +110,18 @@ public class PostServiceImplTest {
         this.testFindPostByBuyer_OrderAscOrDesc("date_desc");
     }
 
+
+    @Test
+    void shouldCreatePost(){
+        MessageResponseDTO expected = new MessageResponseDTO("Ok");
+        PostDTO input = TestGeneratorUtil.createPostDtoWithId(1);
+
+        when(repository.findAll()).thenReturn(List.of());
+        MessageResponseDTO actual = underTest.createPost(input);
+        
+        verify(repository, times(1)).findAll();
+        verify(productService, times(1)).addProduct(input.getProduct());
+
+        assertEquals(expected.getMessage(), actual.getMessage());
+    }
 }

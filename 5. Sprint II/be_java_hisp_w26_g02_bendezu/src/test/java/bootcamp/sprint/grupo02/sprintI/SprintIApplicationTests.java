@@ -10,4 +10,9 @@ class SprintIApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void appContextLoadTest(){
+		SprintIApplication.main(new String[]{});
+	}
+
 }

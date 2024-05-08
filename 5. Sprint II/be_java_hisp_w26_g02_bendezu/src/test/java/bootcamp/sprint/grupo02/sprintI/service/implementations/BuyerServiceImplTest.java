@@ -4,11 +4,14 @@ import bootcamp.sprint.grupo02.sprintI.dto.response.FollowedListResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.exception.BadRequestException;
 import bootcamp.sprint.grupo02.sprintI.exception.NotFoundException;
+import bootcamp.sprint.grupo02.sprintI.exception.UnfollowNotAllowedException;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
 import bootcamp.sprint.grupo02.sprintI.repository.BuyerRepository;
 import bootcamp.sprint.grupo02.sprintI.repository.SellerRepository;
 import bootcamp.sprint.grupo02.sprintI.util.TestGeneratorUtil;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -58,8 +61,19 @@ public class BuyerServiceImplTest {
     public void searchBuyerFollowsNonExistentOrderTest() {
         // Act & Assert
         assertThrows(BadRequestException.class, () -> {
-           buyerService.searchBuyerFollows(1, "asdasdasd");
+            buyerService.searchBuyerFollows(1, "asdasdasd");
         });
+    }
+
+    @Test
+    void givenBuyerNotExists_whenSearchBuyerFollows_thenThrow() {
+        String expectedMessage = "No buyer founded with ID [-1]";
+
+        when(buyerRepository.findById(-1)).thenReturn(Optional.empty());
+
+        NotFoundException ex = assertThrows(NotFoundException.class, () -> buyerService.searchBuyerFollows(-1));
+
+        assertEquals(expectedMessage, ex.getMessage());
     }
 
     @Test
@@ -104,7 +118,6 @@ public class BuyerServiceImplTest {
         });
     }
 
-
     @Test
     @DisplayName("El usuario a dejar de seguir existe.")
     public void testUnfollowUser_UserExist() {
@@ -116,11 +129,12 @@ public class BuyerServiceImplTest {
         when(sellerRepository.findById(anyInt())).thenReturn(Optional.ofNullable(seller));
 
         buyerService.followUser(1, 1);
-        buyerService.UnfollowUser(1,1);
+        buyerService.UnfollowUser(1, 1);
 
         // Assert
         assertFalse(buyer.getFollows().contains(seller));
     }
+
     @Test
     @DisplayName("El usuario a dejar de seguir no existe.")
     public void testUnfollowUser_UserDoesNotExist() {
@@ -132,6 +146,30 @@ public class BuyerServiceImplTest {
 
         // Act & Assert
         assertThrows(NotFoundException.class, () -> buyerService.UnfollowUser(1, 1));
+    }
+
+    @Test
+    void givenBuyerNotExists_whenUnFollowUser_thenThrow() {
+        int notExistId = -1;
+        String expectedMessage = "Buyer not found: -1";
+
+        when(buyerRepository.findById(notExistId)).thenReturn(Optional.empty());
+
+        NotFoundException ex = assertThrows(NotFoundException.class, () -> buyerService.UnfollowUser(notExistId, 1));
+
+        assertEquals(expectedMessage, ex.getMessage());
+    }
+
+    @Test
+    void givenBuyerNotExists_whenFollowUser_thenThrow() {
+        int notExistId = -1;
+        String expectedMessage = "User not found: -1";
+
+        when(buyerRepository.findById(notExistId)).thenReturn(Optional.empty());
+
+        NotFoundException ex = assertThrows(NotFoundException.class, () -> buyerService.followUser(notExistId, 1));
+
+        assertEquals(expectedMessage, ex.getMessage());
     }
 
     @Test
@@ -162,6 +200,49 @@ public class BuyerServiceImplTest {
 
         // Act & Assert
         assertThrows(NotFoundException.class, () -> buyerService.followUser(1, 1));
+    }
+
+    @Test
+    void givenAlreadyFollow_whenFollowUser_thenThrow() {
+        Buyer follower = TestGeneratorUtil.createBuyerWithFollowed(1);
+        Seller followed = TestGeneratorUtil.createSellerWithId(1);
+        String expected = "Cannot follow seller because is already followed. ";
+        when(buyerRepository.findById(follower.getId())).thenReturn(Optional.of(follower));
+        when(sellerRepository.findById(followed.getId())).thenReturn(Optional.of(followed));
+        BadRequestException ex = assertThrows(BadRequestException.class, () -> buyerService.followUser(1, 1));
+        assertEquals(expected, ex.getMessage());
+    }
+
+    @Test
+    void givenNotFollow_whenUnfollowFollowUser_thenThrow() {
+        Buyer follower = TestGeneratorUtil.createBuyerWithId(1);
+        Seller followed = TestGeneratorUtil.createSellerWithId(1);
+        String expected = "Cannot unfollow seller because not followed previously";
+        when(buyerRepository.findById(follower.getId())).thenReturn(Optional.of(follower));
+        when(sellerRepository.findById(followed.getId())).thenReturn(Optional.of(followed));
+        UnfollowNotAllowedException ex = assertThrows(UnfollowNotAllowedException.class,
+                () -> buyerService.UnfollowUser(1, 1));
+        assertEquals(expected, ex.getMessage());
+    }
+
+    @Test
+    void givenFollows_whenGetSellers_thenReturnList() {
+        Buyer input = TestGeneratorUtil.createBuyerWithFollowed(1);
+
+        List<Seller> expected = input.getFollows();
+        when(buyerRepository.findById(1)).thenReturn(Optional.of(input));
+        List<Seller> actual = buyerService.getAllSellers(1);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void givenBuyerNotExists_whenGetSellers_thenThrow() {
+        String expectedMessage = "Buyer not found";
+        when(buyerRepository.findById(1)).thenReturn(Optional.empty());
+        NotFoundException ex = assertThrows(NotFoundException.class, () -> buyerService.getAllSellers(1));
+
+        assertEquals(expectedMessage, ex.getMessage());
     }
 
 }

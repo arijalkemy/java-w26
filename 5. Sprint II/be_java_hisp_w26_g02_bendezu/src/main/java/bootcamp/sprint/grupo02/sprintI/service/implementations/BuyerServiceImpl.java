@@ -6,14 +6,12 @@ import bootcamp.sprint.grupo02.sprintI.exception.UnfollowNotAllowedException;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
 import bootcamp.sprint.grupo02.sprintI.repository.SellerRepository;
-import bootcamp.sprint.grupo02.sprintI.service.SellerService;
 import org.springframework.stereotype.Service;
 
 
 import bootcamp.sprint.grupo02.sprintI.dto.response.FollowedListResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.enums.AlfabeticOrder;
-import bootcamp.sprint.grupo02.sprintI.enums.DateOrder;
 import bootcamp.sprint.grupo02.sprintI.repository.BuyerRepository;
 import bootcamp.sprint.grupo02.sprintI.service.BuyerService;
 import lombok.RequiredArgsConstructor;

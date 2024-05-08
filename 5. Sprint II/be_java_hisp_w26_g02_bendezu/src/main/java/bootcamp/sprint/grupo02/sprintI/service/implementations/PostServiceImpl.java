@@ -89,7 +89,6 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public MessageResponseDTO createPost(PostDTO dto) {
-
             Post post = parsePostDtoToModelWithOutDiscount(dto);
             repository.add(post);
             productService.addProduct(dto.getProduct());

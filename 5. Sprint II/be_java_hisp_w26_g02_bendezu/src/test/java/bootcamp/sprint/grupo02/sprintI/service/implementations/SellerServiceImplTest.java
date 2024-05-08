@@ -4,6 +4,7 @@ import bootcamp.sprint.grupo02.sprintI.dto.response.FollowersListResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.SellerFollowersResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.exception.BadRequestException;
+import bootcamp.sprint.grupo02.sprintI.exception.NotFoundException;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
 import bootcamp.sprint.grupo02.sprintI.repository.SellerRepository;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
@@ -33,11 +35,7 @@ public class SellerServiceImplTest {
     @InjectMocks
     private SellerServiceImpl sellerService;
 
-    @BeforeEach
-    public void setup() {
-        when(sellerRepository.findById(1))
-                .thenReturn(Optional.of(TestGeneratorUtil.createSellerWithIdAndFollowers(1)));
-    }
+
 
     @Test
     @DisplayName("Tipo de ordenamiento ascendente existente.")
@@ -54,6 +52,7 @@ public class SellerServiceImplTest {
     @Test
     @DisplayName("Tipo de ordenamiento inexistente.")
     public void searchSellerFollowsNonExistentOrderTest() {
+        when(sellerRepository.findById(1)).thenReturn(Optional.of(TestGeneratorUtil.createSellerWithIdAndFollowers(1)));
         // Act & Assert
         assertThrows(BadRequestException.class, () -> {
             sellerService.getFollowersList(1, "asdasdasd");
@@ -97,6 +96,7 @@ public class SellerServiceImplTest {
     }
 
     private void executeOrderTest(String order) {
+        when(sellerRepository.findById(1)).thenReturn(Optional.of(TestGeneratorUtil.createSellerWithIdAndFollowers(1)));
         // Act & Assert
         assertDoesNotThrow(() -> {
             sellerService.getFollowersList(1, order);
@@ -104,7 +104,7 @@ public class SellerServiceImplTest {
     }
 
     @Test
-    public void calculateFollowersCountTest() {
+    void calculateFollowersCountTest() {
         Seller seller = TestGeneratorUtil.createSellerWithId(1);
         seller.setFollowers(List.of(TestGeneratorUtil.createBuyerWithId(1),
                 TestGeneratorUtil.createBuyerWithId(2)));
@@ -113,5 +113,29 @@ public class SellerServiceImplTest {
         SellerFollowersResponseDTO sellerFollowersResponseDTO = this.sellerService.calculateFollowersCount(seller.getId());
 
         Assertions.assertEquals(2, sellerFollowersResponseDTO.getFollowersCount());
+    }
+
+
+    @Test
+    void whenSellerNotExists_whenCountFollowers_thenThrow() {
+        int idNotExists = -1;
+        String expectedMessage = "No seller was found for ID: -1";
+        when(sellerRepository.findById(idNotExists)).thenReturn(Optional.empty());
+
+        NotFoundException ex = assertThrows(NotFoundException.class, () -> sellerService.calculateFollowersCount(idNotExists));
+
+        assertEquals(expectedMessage, ex.getMessage());
+    }
+
+
+    @Test
+    void whenSellerNotExists_whenGetFollowers_thenThrow(){
+        int idNotExists = -1;
+        String expectedMessage = "No se encontró un vendedor con Id: -1";
+        when(sellerRepository.findById(idNotExists)).thenReturn(Optional.empty());
+
+        NotFoundException ex = assertThrows(NotFoundException.class, () -> sellerService.getFollowersList(idNotExists));
+
+        assertEquals(expectedMessage, ex.getMessage());
     }
 }

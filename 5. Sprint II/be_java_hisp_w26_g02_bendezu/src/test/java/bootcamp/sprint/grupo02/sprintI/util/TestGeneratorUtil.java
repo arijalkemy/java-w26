@@ -3,16 +3,16 @@ package bootcamp.sprint.grupo02.sprintI.util;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
-import bootcamp.sprint.grupo02.sprintI.dto.response.FollowedListResponseDTO;
-import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.request.PostDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.request.ProductDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.ProductResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Post;
+import bootcamp.sprint.grupo02.sprintI.model.Product;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class TestGeneratorUtil {
 
@@ -64,23 +64,22 @@ public class TestGeneratorUtil {
         return List.of(1, 2);
     }
 
-    public static List<Post> createPostsBySellerId(int sellerId){
+    public static List<Post> createPostsBySellerId(int sellerId) {
         LocalDate today = LocalDate.now();
         LocalDate lastWeek = today.minusWeeks(1);
         LocalDate twoWeeksAgo = today.minusWeeks(2);
         LocalDate threeWeeksAgo = today.minusWeeks(3);
         LocalDate nextWeek = today.plusWeeks(1);
-        LocalDate[] dates = {today, lastWeek, twoWeeksAgo, threeWeeksAgo, nextWeek};
-    
+        LocalDate[] dates = { today, lastWeek, twoWeeksAgo, threeWeeksAgo, nextWeek };
+
         return Arrays.asList(dates)
-        .stream()
-        .map(date -> Post.builder()
-            .sellerId(sellerId)
-            .date(date)
-            .build()
-        )
-        .toList();
-        
+                .stream()
+                .map(date -> Post.builder()
+                        .sellerId(sellerId)
+                        .date(date)
+                        .build())
+                .toList();
+
     }
 
     public static List<Buyer> get4FollowersAsc() {
@@ -88,32 +87,31 @@ public class TestGeneratorUtil {
                 createBuyerWithId(1),
                 createBuyerWithId(2),
                 createBuyerWithId(3),
-                createBuyerWithId(4)
-        );
+                createBuyerWithId(4));
     }
+
     public static List<Buyer> get4FollowersDesc() {
         return List.of(
                 createBuyerWithId(4),
                 createBuyerWithId(3),
                 createBuyerWithId(2),
-                createBuyerWithId(1)
-        );
+                createBuyerWithId(1));
     }
+
     public static List<Seller> get4FollowedAsc() {
         return List.of(
                 createSellerWithId(1),
                 createSellerWithId(2),
                 createSellerWithId(3),
-                createSellerWithId(4)
-        );
+                createSellerWithId(4));
     }
+
     public static List<Seller> get4FollowedDesc() {
         return List.of(
                 createSellerWithId(4),
                 createSellerWithId(3),
                 createSellerWithId(2),
-                createSellerWithId(1)
-        );
+                createSellerWithId(1));
     }
 
     public static Seller createSellerWithFollowers(int id) {
@@ -131,4 +129,49 @@ public class TestGeneratorUtil {
                 .follows(get4FollowedAsc())
                 .build();
     }
+
+    public static ProductDTO createProductDTOWithId(int id) {
+        return ProductDTO.builder()
+                .productId(id)
+                .productName(String.format("Product %s", id))
+                .brand(String.format("Brand %s", id))
+                .type(String.format("Type %s", id))
+                .color(String.format("Colors %s", id))
+                .notes(String.format("Notes %s", id))
+                .build();
+    }
+
+    public static Product createProductithId(int id) {
+        return Product.builder()
+                .id(id)
+                .name(String.format("Product %s", id))
+                .brand(String.format("Brand %s", id))
+                .type(String.format("Type %s", id))
+                .color(String.format("Colors %s", id))
+                .notes(String.format("Notes %s", id))
+                .build();
+    }
+
+    public static ProductResponseDTO creaProductResponseDTOWithId(int id) {
+        return ProductResponseDTO.builder()
+                .id(id)
+                .name(String.format("Product %s", id))
+                .brand(String.format("Brand %s", id))
+                .type(String.format("Type %s", id))
+                .color(String.format("Colors %s", id))
+                .notes(String.format("Notes %s", id))
+                .build();
+    }
+
+    public static PostDTO createPostDtoWithId(int id) {
+
+        return PostDTO.builder()
+                .userId(1)
+                .price(1.0)
+                .category(1)
+                .date("19-10-2024")
+                .product(createProductDTOWithId(1))
+                .build();
+    }
+
 }

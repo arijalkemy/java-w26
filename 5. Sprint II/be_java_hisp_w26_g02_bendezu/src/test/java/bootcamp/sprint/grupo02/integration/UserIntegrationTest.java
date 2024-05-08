@@ -1,5 +1,7 @@
 package bootcamp.sprint.grupo02.integration;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,13 +32,6 @@ public class UserIntegrationTest {
     }
 
 
-
-
-    @Test
-    @DisplayName("When User exists And User to follow exist when follow then Status should be OK")
-    void test(){
-        
-    }
 
 
 
