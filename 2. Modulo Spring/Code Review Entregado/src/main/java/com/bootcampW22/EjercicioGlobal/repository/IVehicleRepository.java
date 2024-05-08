@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IVehicleRepository {
     List<Vehicle> findAll();
+
+    void addVehicle(Vehicle vehicle);
 }

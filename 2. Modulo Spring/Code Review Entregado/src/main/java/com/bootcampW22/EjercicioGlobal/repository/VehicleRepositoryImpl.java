@@ -11,25 +11,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class VehicleRepositoryImpl implements IVehicleRepository{
+public class VehicleRepositoryImpl implements IVehicleRepository {
 
     private List<Vehicle> listOfVehicles = new ArrayList<>();
 
     public VehicleRepositoryImpl() throws IOException {
         loadDataBase();
     }
+
     @Override
     public List<Vehicle> findAll() {
         return listOfVehicles;
     }
 
+    @Override
+    public void addVehicle(Vehicle vehicle) {
+        listOfVehicles.add(vehicle);
+    }
+
     private void loadDataBase() throws IOException {
         File file;
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Vehicle> vehicles ;
+        List<Vehicle> vehicles;
 
-        file= ResourceUtils.getFile("classpath:vehicles_100.json");
-        vehicles= objectMapper.readValue(file,new TypeReference<List<Vehicle>>(){});
+        file = ResourceUtils.getFile("classpath:vehicles_100.json");
+        vehicles = objectMapper.readValue(file, new TypeReference<List<Vehicle>>() {
+        });
 
         listOfVehicles = vehicles;
     }

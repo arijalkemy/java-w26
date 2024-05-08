@@ -8,7 +8,28 @@ import java.util.List;
 
 public interface IVehicleService {
     List<VehicleDto> searchAllVehicles();
+    void createVehicle(VehicleDto vehicleDto);
 
-    ResponseEntity<?> getVehicleByBrand(String brand);
+    ResponseEntity<?> deleteVehicle(Long id);
 
+    ResponseEntity<?> getVehicleByColorAndAge(String color, int year);
+
+    ResponseEntity<?> getVehicleByBrandAndAgeRange(String brand, int sinceYear, int toYear);
+
+    ResponseEntity<?> getVehicleAverageByBrand(String brand);
+
+    ResponseEntity<?> createVehicles(List<VehicleDto> vehicles);
+
+    ResponseEntity<?> updateSpeedById(Long id);
+    ResponseEntity<?> getVehiclesByFuelType(String fuelType);
+
+    ResponseEntity<?> getVehiclesByTransmission(String transmission);
+
+    ResponseEntity<?> updateByTrasmission(Long id);
+
+    ResponseEntity<?> getVehicleById(Long id);
+
+    ResponseEntity<?> getAverageOfBrandCapacity(String brand);
+
+    ResponseEntity<?> getVehicleByWeight(Double weight_min,Double weight_max);
 }
