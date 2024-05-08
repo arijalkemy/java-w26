@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import org.apache.tomcat.util.http.parser.MediaType;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -36,10 +37,10 @@ class ProductControllerIntegrationTest {
                 .registerModule(new JavaTimeModule())
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer();
-
     }
 
     @Test
+    @DisplayName("| Integration test | METHOD: POST | URL: /products/post |")
     void whenTryToPostPublicationProduct() throws JsonProcessingException, Exception{
         PostDto postDto = new PostDto(
             1,
