@@ -11,8 +11,8 @@ public class BuyerMapper {
 
     public static BuyerResponseDTO toBuyerResponseDTO(Buyer buyer, List<SellerResponseWithNotBuyerListDTO> sellers) {
         return BuyerResponseDTO.builder()
-                .user_id(buyer.getUser().getId())
-                .user_name(buyer.getUsername())
+                .userId(buyer.getUser().getId())
+                .userName(buyer.getUsername())
                 .sellers(sellers)
                 .build();
     }

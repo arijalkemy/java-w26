@@ -115,7 +115,7 @@ class PostServiceImplTest {
         when(postRepository.getPostsByWeeksAgo(2, 1L)).thenReturn(new ArrayList<>());
 
         PostsByFollowedDTO expected = PostsByFollowedDTO.builder()
-                .user_id(1L)
+                .userId(1L)
                 .posts(new ArrayList<>())
                 .build();
 
@@ -131,7 +131,7 @@ class PostServiceImplTest {
         when(postRepository.getPostsByWeeksAgo(2, 1L)).thenReturn(new ArrayList<>());
 
         PostsByFollowedDTO expected = PostsByFollowedDTO.builder()
-                .user_id(1L)
+                .userId(1L)
                 .posts(new ArrayList<>())
                 .build();
 

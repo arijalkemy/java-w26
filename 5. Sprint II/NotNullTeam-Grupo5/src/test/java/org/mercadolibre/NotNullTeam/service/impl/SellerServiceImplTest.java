@@ -96,9 +96,9 @@ class SellerServiceImplTest {
     @DisplayName("Obtener la cantidad de seguidores de un seller x, y da 0")
     public void getFollowersCountWithoutFollowers() {
         SellerFollowersCountDto expectedResult = SellerFollowersCountDto.builder()
-                .user_id(sellerWithoutFollowers.getUser().getId())
-                .user_name(sellerWithoutFollowers.getUsername())
-                .followers_count(0)
+                .userId(sellerWithoutFollowers.getUser().getId())
+                .userName(sellerWithoutFollowers.getUsername())
+                .followersCount(0)
                 .build();
 
         when(sellerRepository.findById(sellerWithoutFollowers.getUser().getId())).thenReturn(
@@ -113,9 +113,9 @@ class SellerServiceImplTest {
     @DisplayName("Obtener la cantidad de seguidores de un seller x, y da 2")
     public void getFollowersCountWithFollowers() {
         SellerFollowersCountDto expectedResult = SellerFollowersCountDto.builder()
-                .user_id(sellerWithFollowers.getUser().getId())
-                .user_name(sellerWithFollowers.getUsername())
-                .followers_count(2)
+                .userId(sellerWithFollowers.getUser().getId())
+                .userName(sellerWithFollowers.getUsername())
+                .followersCount(2)
                 .build();
 
         when(sellerRepository.findById(sellerWithFollowers

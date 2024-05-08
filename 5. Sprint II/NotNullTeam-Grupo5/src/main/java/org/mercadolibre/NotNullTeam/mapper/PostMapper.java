@@ -19,7 +19,7 @@ public class PostMapper {
                 .map(PostMapper::postToPostResponseDto)
                 .toList();
         return PostsByFollowedDTO.builder()
-                .user_id(id)
+                .userId(id)
                 .posts(postsList)
                 .build();
     }
@@ -28,8 +28,8 @@ public class PostMapper {
         String formattedDate = post.getDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         ProductDTO productDTO = productToProductDto(post.getProduct());
         return PostResponseDTO.builder()
-                .user_id(post.getSeller().getUser().getId())
-                .post_id(post.getId())
+                .userId(post.getSeller().getUser().getId())
+                .postId(post.getId())
                 .date(formattedDate)
                 .product(productDTO)
                 .category(post.getCategory())

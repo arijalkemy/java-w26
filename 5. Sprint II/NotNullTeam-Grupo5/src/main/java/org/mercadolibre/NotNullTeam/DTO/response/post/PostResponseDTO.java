@@ -1,5 +1,6 @@
 package org.mercadolibre.NotNullTeam.DTO.response.post;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,8 +12,12 @@ import org.mercadolibre.NotNullTeam.DTO.request.product.ProductDTO;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostResponseDTO {
-    private Long user_id;
-    private Long post_id;
+    @JsonProperty("user_id")
+    private Long userId;
+
+    @JsonProperty("post_id")
+    private Long postId;
+
     private String date;
     ProductDTO product;
     private int category;

@@ -1,5 +1,6 @@
 package org.mercadolibre.NotNullTeam.DTO.response.post;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostsByFollowedDTO {
-    private Long user_id;
+    @JsonProperty("user_id")
+    private Long userId;
     private List<PostResponseDTO> posts;
 }

@@ -1,5 +1,6 @@
 package org.mercadolibre.NotNullTeam.DTO.response.seller;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SellerResponseWithNotBuyerListDTO {
-    private Long user_id;
-    private String user_name;
+    @JsonProperty("user_id")
+    private Long userId;
+
+    @JsonProperty("user_name")
+    private String userName;
 }

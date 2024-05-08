@@ -1,5 +1,6 @@
 package org.mercadolibre.NotNullTeam.DTO.response.seller;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,8 +9,13 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class SellerFollowersCountDto {
-        private Long user_id;
-        private String user_name;
-        private int followers_count;
+        @JsonProperty("user_id")
+        private Long userId;
+
+        @JsonProperty("user_name")
+        private String userName;
+
+        @JsonProperty("followers_count")
+        private int followersCount;
 
 }
