@@ -124,7 +124,10 @@ public class StudentDAOTests {
 
         // assert
         Assertions.assertFalse(studentDAO.exists(stu));
-        Assertions.assertThrows(StudentNotFoundException.class,() -> studentDAO.findById(stu.getId()));
+        Assertions.assertThrows(
+            StudentNotFoundException.class,
+            () -> studentDAO.findById(stu.getId())
+        );
     }
 
     @Test

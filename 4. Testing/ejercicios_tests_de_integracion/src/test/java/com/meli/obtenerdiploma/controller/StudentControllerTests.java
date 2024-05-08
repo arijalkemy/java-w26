@@ -41,13 +41,15 @@ public class StudentControllerTests {
     public void getStudent() {
         // arrange
         StudentDTO stu = TestUtilsGenerator.getStudentWith3Subjects("Marco");
-        when(service.read(stu.getId())).thenReturn(stu);
+        when(service.read(stu.getId()))
+            .thenReturn(stu);
 
         // act
         StudentDTO readStu = controller.getStudent(stu.getId());
 
         // assert
-        verify(service, atLeastOnce()).read(stu.getId());
+        verify(service, atLeastOnce())
+            .read(stu.getId());
         assertEquals(stu, readStu);
     }
 
