@@ -1,5 +1,8 @@
 package org.example.be_java_hisp_w26_g07.utils;
 
+import org.example.be_java_hisp_w26_g07.dto.products.PostDto;
+import org.example.be_java_hisp_w26_g07.dto.products.PostRequestDto;
+import org.example.be_java_hisp_w26_g07.dto.products.ProductDto;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -90,5 +93,39 @@ public class GeneratorDataTest {
 
     public static User getUserCustomId(Integer customId, Boolean isSeller) {
         return new User(customId, "Martin", new ArrayList<>(), List.of(1, 2, 3), new ArrayList<>(), isSeller);
+    }
+
+    public static PostRequestDto getPostRequestDto(Integer userId) {
+        PostRequestDto customRequest = new PostRequestDto();
+        LocalDate customDate = LocalDate.of(2024, 5, 1);
+        ProductDto customProduct = new ProductDto();
+
+        customProduct.setId(777);
+        customProduct.setName("Test product");
+        customProduct.setBrand("Test brand");
+        customProduct.setType("Test type");
+        customProduct.setNotes("Test notes");
+        customProduct.setColor("Test color");
+
+        customRequest.setUserId(userId);
+        customRequest.setPrice(34000.0);
+        customRequest.setCategory(2);
+        customRequest.setDate(customDate);
+        customRequest.setProduct(customProduct);
+
+        return customRequest;
+    }
+
+    public static PostDto getPostDto(PostRequestDto postRequestDto, Integer customId) {
+        PostDto customPostDto = new PostDto();
+
+        customPostDto.setId(customId);
+        customPostDto.setUserId(postRequestDto.getUserId());
+        customPostDto.setPrice(postRequestDto.getPrice());
+        customPostDto.setCategory(postRequestDto.getCategory());
+        customPostDto.setDate(postRequestDto.getDate());
+        customPostDto.setProduct(postRequestDto.getProduct());
+
+        return customPostDto;
     }
 }

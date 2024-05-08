@@ -49,6 +49,4 @@ public class ProductController {
     ) {
         return new ResponseEntity<>(productService.findProductByFollow(userId, order), HttpStatus.OK);
     }
-
-
 }
