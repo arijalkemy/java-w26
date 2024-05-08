@@ -43,15 +43,15 @@ public class UserRepositoryImpl implements IUserRepository {
 
         aliceMorrison.setFollowed(new ArrayList<>(List.of(minimalBobSmith)));
         aliceMorrison.setFollowers(new ArrayList<>( List.of(minimalOscarLee, minimalBobSmith)));
-        aliceMorrison.setPosts(new ArrayList<>(List.of(1)));
-        bobSmith.setFollowed(new ArrayList<>(List.of(minimalCharlyGarcia, minimalAliceMorrison)));
+        aliceMorrison.setPosts(new ArrayList<>(List.of(2001, 2002)));
+        bobSmith.setFollowed(new ArrayList<>(List.of( minimalAliceMorrison)));
         bobSmith.setFollowers(new ArrayList<>( List.of(minimalOscarLee, minimalAliceMorrison)));
         bobSmith.setPosts(new ArrayList<>(List.of(2)));
         oscarLee.setFollowed(new ArrayList<>(List.of(minimalBobSmith, minimalAliceMorrison)));
         oscarLee.setFollowers(new ArrayList<> (List.of(minimalCharlyGarcia)));
         oscarLee.setPosts(new ArrayList<>(List.of(3)));
         charlyGarcia.setFollowed(new ArrayList<> (List.of(minimalOscarLee)));
-        charlyGarcia.setFollowers(new ArrayList<>( List.of(minimalAliceMorrison, minimalBobSmith)));
+        charlyGarcia.setFollowers(new ArrayList<>( List.of(minimalAliceMorrison)));
         charlyGarcia.setPosts(new ArrayList<>(List.of(4)));
 
         listUser.add(aliceMorrison);

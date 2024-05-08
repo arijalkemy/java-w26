@@ -1,4 +1,4 @@
-package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.integration;
+package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.controller;
 
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IPostRepository;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.service.IUserService;

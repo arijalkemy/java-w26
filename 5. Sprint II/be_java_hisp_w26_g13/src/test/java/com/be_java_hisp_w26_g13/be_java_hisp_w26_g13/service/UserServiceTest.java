@@ -231,5 +231,66 @@ public class UserServiceTest {
         assertThrows(NotFoundException.class, () -> userService.unfollow(userOne.getUserId(),userTwoToUnfollow.getUserId()));
     }
 
+    @Test
+    @DisplayName(value = "User follower count is correct")
+    public void userFollowersCountIsCorrectTest() {
+        User vendorWithFollowers = CustomUtils.newMockedVendor();
+
+        when(userRepository.findById(vendorWithFollowers.getUserId())).thenReturn(vendorWithFollowers);
+
+        Assertions.assertEquals(2, userService.getFollowersCount(vendorWithFollowers.getUserId()).getFollowersCount());
+    }
+
+
+    @Test
+    @DisplayName(value = "User follower count decreased")
+    public void userFollowersCountDecreased() {
+        User userOne = CustomUtils.newMockedUser();
+        User vendorWithFollowers = CustomUtils.newMockedVendor();
+
+        when(userRepository.findById(userOne.getUserId())).thenReturn(userOne);
+        when(userRepository.findById(vendorWithFollowers.getUserId())).thenReturn(vendorWithFollowers);
+
+        int previousCount = userService.getFollowersCount(vendorWithFollowers.getUserId()).getFollowersCount();
+
+        UserMinimalData userMinimal = userOne.getFollowed().get(0);
+        UserMinimalData vendorMinimal = vendorWithFollowers.getFollowers().get(0);
+
+        when(userRepository.findFollowedById(userOne, vendorWithFollowers.getUserId())).thenReturn(
+                userMinimal);
+        when(userRepository.findFollowerById(vendorWithFollowers, userOne.getUserId())).thenReturn(
+                vendorMinimal);
+
+        userService.unfollow(userOne.getUserId(), vendorWithFollowers.getUserId());
+
+        Assertions.assertEquals( previousCount - 1, userService.getFollowersCount(vendorWithFollowers.getUserId()).getFollowersCount());
+    }
+
+    @Test
+    @DisplayName(value = "User follower count increased")
+    public void userFollowersCountIncreased() {
+        User userOne = CustomUtils.newMockedUser();
+        User vendorWithFollowers = CustomUtils.newMockedVendor();
+
+        when(userRepository.findById(userOne.getUserId())).thenReturn(userOne);
+        when(userRepository.findById(vendorWithFollowers.getUserId())).thenReturn(vendorWithFollowers);
+        
+        UserMinimalData userMinimal = userOne.getFollowed().get(0);
+        UserMinimalData vendorMinimal = vendorWithFollowers.getFollowers().get(0);
+
+        when(userRepository.findFollowedById(userOne, vendorWithFollowers.getUserId())).thenReturn(
+                userMinimal);
+        when(userRepository.findFollowerById(vendorWithFollowers, userOne.getUserId())).thenReturn(
+                vendorMinimal);
+
+        userService.unfollow(userOne.getUserId(), vendorWithFollowers.getUserId());
+
+        int previousCount = userService.getFollowersCount(vendorWithFollowers.getUserId()).getFollowersCount();
+
+        userService.followUser(userOne.getUserId(), vendorWithFollowers.getUserId());
+
+        Assertions.assertEquals( previousCount + 1, userService.getFollowersCount(vendorWithFollowers.getUserId()).getFollowersCount());
+    }
+
 
 }

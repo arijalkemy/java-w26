@@ -65,11 +65,11 @@ public class UserControllerTests {
 
     @Test
     public void unfollowUserTest() throws Exception {
-        int unfollowerId = 2;
-        int userToUnfollowId = 1;
+        int unfollowerId = 3;
+        int userToUnfollowId = 15;
         ResponseFollowDTO expectedResponse = new ResponseFollowDTO(
-                1,
-                "You have unfollowed user Alice Morrison"
+                15,
+                "You have unfollowed user Oscar Lee"
         );
 
         var result = this.mockMvc.perform(

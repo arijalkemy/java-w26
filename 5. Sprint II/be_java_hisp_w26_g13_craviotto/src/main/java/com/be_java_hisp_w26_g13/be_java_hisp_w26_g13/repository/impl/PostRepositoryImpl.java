@@ -40,7 +40,7 @@ public class PostRepositoryImpl implements IPostRepository {
         LocalDate startDate = LocalDate.of(2024, 3, 20);
 
         for (int i = 0; i < 55; i++) {
-            int userId = random.nextInt(4) + 1;
+            int userId = random.nextInt(4) + 2;
             LocalDate date = startDate.plusDays(random.nextInt(65));
             Product product = products.get(i % products.size());
             int category = random.nextInt(5) + 1;
@@ -57,6 +57,16 @@ public class PostRepositoryImpl implements IPostRepository {
             //agrego el post a la lista de post general
             listPost.add(post);
         }
+        Product product = new Product(1000,
+                "HyperX Cloud II",
+                "Headset",
+                "HyperX",
+                "Red",
+                "Excellent noise canceling");
+        Post post = new Post(2001, 1, LocalDate.now(), product, 1,2000.0);
+        Post post2 = new Post(2002, 1, LocalDate.now(), product, 1,2000.0);
+        listPost.add(post);
+        listPost.add(post2);
     }
     @Override
     public List<Post> getAll() {
