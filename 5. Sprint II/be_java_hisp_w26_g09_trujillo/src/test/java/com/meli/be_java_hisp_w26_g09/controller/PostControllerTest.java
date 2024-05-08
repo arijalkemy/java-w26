@@ -52,120 +52,9 @@ class PostControllerTest {
         writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer();
-
         objectMapper = new ObjectMapper();
-
-
     }
 
-
-    @Test
-    @DisplayName("Test for requirement US-0001")
-    public void postFollow() throws Exception {
-
-        Integer userFollow = 1;
-        Integer userFollowed = 9;
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.post("/users/{userId}/follow/{userIdToFollow}",userFollow,userFollowed)
-                                .contentType("application/json")
-                );
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        ResponseDTO response = objectMapper.readValue(responseBody, ResponseDTO.class);
-        assertEquals("The user with id " + userFollow + " is follow to " + userFollowed , response.getMessage());
-    }
-
-    @Test
-    @DisplayName("Test for requirement US-0002")
-    public void getFollowersCount() throws Exception {
-
-        Integer userFollowers = 2;
-        Integer followersCount = 3;
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.get("/users/{userId}/followers/count",userFollowers)
-                                .contentType("application/json")
-                );
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        UserDTO response = objectMapper.readValue(responseBody, UserDTO.class);
-        assertEquals(followersCount,response.getFollowersCount());
-    }
-
-    @Test
-    @DisplayName("Test for requirement US-0003")
-    public void getFollowersList() throws Exception {
-
-        List<User> users = JsonUtil.readJsonFromFileToList("core/entity/usersAll.json", User.class);
-        Integer userId = 2;
-        Optional<User> userOpt = users.stream()
-                .filter(user -> user.getUserId().equals(userId))
-                .findFirst();
-
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.get("/users/{userId}/followers/list",userId)
-                                .contentType("application/json")
-                );
-
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        UserDTO responseUser = objectMapper.readValue(responseBody, UserDTO.class);
-
-        assertEquals(userOpt.get().getUserId(), responseUser.getUserId());
-        assertEquals(3, responseUser.getFollowers().size());
-    }
-
-    @Test
-    @DisplayName("Test for requirement US-0004")
-    public void getFollowedList() throws Exception {
-
-        List<User> users = JsonUtil.readJsonFromFileToList("core/entity/usersAll.json", User.class);
-        Integer userId = 1;
-        Optional<User> userOpt = users.stream()
-                .filter(user -> user.getUserId().equals(userId))
-                .findFirst();
-
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.get("/users/{userId}/followed/list",userId)
-                                .contentType("application/json")
-                );
-
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        UserDTO responseUser = objectMapper.readValue(responseBody, UserDTO.class);
-
-        assertEquals(userOpt.get().getUserId(), responseUser.getUserId());
-        assertEquals(2, responseUser.getFollowed().size());
-    }
 
     @Test
     @DisplayName("Test for requirement US-0005")
@@ -249,9 +138,6 @@ class PostControllerTest {
         result.andDo(print())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(status().isBadRequest());
-
-
-
     }
 
     @Test
@@ -347,10 +233,7 @@ class PostControllerTest {
         posts.add(post4);
 
         post.setPosts(posts);
-
-
-
-
+        
         String order = "date_asc";
         Integer userId = 1;
 
@@ -374,124 +257,5 @@ class PostControllerTest {
     }
 
 
-
-    @Test
-    @DisplayName("Test for requirement US-0007")
-    public void unfollowUser() throws Exception {
-
-        Integer userFollowed = 4;
-        Integer userId = 6;
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.post("/users/{userId}/unfollow/{userFollowed}",userId,userFollowed)
-                                .contentType("application/json")
-                );
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        ResponseDTO response = objectMapper.readValue(responseBody, ResponseDTO.class);
-        assertEquals("Unfollow successfull", response.getMessage());
-    }
-
-
-    @Test
-    @DisplayName("Test for requirement US-0008")
-    public void getFollowersListAsc() throws Exception {
-
-
-        UserDTO userDTO = new UserDTO();
-        userDTO.setUserId(2);
-        userDTO.setUserName("AliceSmith");
-
-        List<UserDTO> followers = new ArrayList<>();
-
-        UserDTO follower1 = new UserDTO();
-        follower1.setUserId(6);
-        follower1.setUserName("JessicaWilson");
-        followers.add(follower1);
-
-        UserDTO follower2 = new UserDTO();
-        follower2.setUserId(1);
-        follower2.setUserName("JohnDoe");
-        followers.add(follower2);
-
-        UserDTO follower3 = new UserDTO();
-        follower3.setUserId(20);
-        follower3.setUserName("OliviaKing");
-        followers.add(follower3);
-
-        userDTO.setFollowers(followers);
-
-        String order = "name_asc";
-        Integer userId = 2;
-
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.get("/users/{userId}/followers/list",userId)
-                                .param("order",order)
-                                .contentType("application/json")
-                );
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        UserDTO response = objectMapper.readValue(responseBody, UserDTO.class);
-        assertEquals(userDTO, response);
-    }
-
-    @Test
-    @DisplayName("Test for requirement US-0008")
-    public void getFollowedAsc() throws Exception {
-
-
-        UserDTO userDTO = new UserDTO();
-        userDTO.setUserId(1);
-        userDTO.setUserName("JohnDoe");
-
-        List<UserDTO> followers = new ArrayList<>();
-
-        UserDTO follower1 = new UserDTO();
-        follower1.setUserId(2);
-        follower1.setUserName("AliceSmith");
-        followers.add(follower1);
-
-        UserDTO follower2 = new UserDTO();
-        follower2.setUserId(4);
-        follower2.setUserName("EmilyBrown");
-        followers.add(follower2);
-        userDTO.setFollowed(followers);
-
-        String order = "name_asc";
-        Integer userId = 1;
-
-
-        ResultActions result =
-                mockMvc.perform(
-                        MockMvcRequestBuilders.get("/users/{userId}/followed/list",userId)
-                                .param("order",order)
-                                .contentType("application/json")
-                );
-
-        result.andDo(print())
-                .andExpect(content().contentType("application/json"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-
-        String responseBody = result.andReturn().getResponse().getContentAsString();
-        UserDTO response = objectMapper.readValue(responseBody, UserDTO.class);
-        assertEquals(userDTO, response);
-    }
 
 }
