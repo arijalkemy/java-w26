@@ -44,14 +44,6 @@ public class SellerServiceImpl implements ISellerService, ISellerServiceInternal
     }
 
     @Override
-    public SellerResponseDTO getListFollowers(Long userId) {
-        Seller seller = findSellerById(userId, "Seller");
-
-        return SellerMapper.toSellerResponseDTO(seller,
-                BuyerMapper.toListBuyerResponseWithNotSellerListDTO(seller.getFollowersList()));
-    }
-
-    @Override
     public SellerResponseDTO getListFollowersOrdered(Long userId, String order) {
         Seller seller = findSellerById(userId, "No se encontro el vendedor con ID = " + userId);
 
