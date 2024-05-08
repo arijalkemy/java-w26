@@ -41,43 +41,43 @@ public class FollowTest {
      *  - Follow de nuevo entre ya seguidos (debe arrojar conflicto)
      *  - Unfollow entre customerId2 y sellerId1
      *  - Follow nuevamente entre customerId2 y sellerId1 (ahora si debe funcionar por el unfollow realizado)
-     *  - Obtener cantidad de seguidores de sellerId 1
+     *  - Obtener cantidad de seguidores de sellerId 1 en cada caso
      * @throws Exception
      */
     @Test
     public void testFollow() throws Exception {
 
-        // El customerId 2 quiere seguir nuevamente al sellerId 100
+        // El customerId 2 quiere seguir al sellerId 100
         // Debe lanzar not found
         ResultActions result = this.mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/2/follow/100"));
         result.andExpect(status().isNotFound());
+        checkFollowerCount(0);
 
-        // El customerId 200 quiere seguir nuevamente al sellerId 1
+        // El customerId 200 quiere seguir al sellerId 1
         // Debe lanzar not found
         result = this.mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/200/follow/1"));
         result.andExpect(status().isNotFound());
-
+        checkFollowerCount(0);
+        
         //El customerId 2 sigue al sellerId 1
         simpleFollowTest();
+        checkFollowerCount(1);
 
         // El customerId 2 quiere seguir nuevamente al sellerId 1
         // Debe lanzar conflicto
         result = this.mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/2/follow/1"));
         result.andExpect(status().isConflict());
+        checkFollowerCount(1);
 
         //El customerId 2 deja de seguir al sellerId 1
         simpleUnfollowTest();
-
-        //sellerId 1 no tiene seguidores
         checkFollowerCount(0);
 
         //El customerId 2 sigue al sellerId 1
         simpleFollowTest();
-
-        //sellerId 1 tiene 1 seguidor
         checkFollowerCount(1);
     }
 
