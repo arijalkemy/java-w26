@@ -1,0 +1,26 @@
+{
+  "user_id": 1,
+  "user_name": "JohnDoe",
+  "role": {
+    "id_role": 1,
+    "name_role": "Customer"
+  },
+  "followed": [
+    {
+      "user_id": 2,
+      "user_name": "AliceSmith",
+      "role": {
+        "id_role": 2,
+        "name_role": "Seller"
+      }
+    },
+    {
+      "user_id": 4,
+      "user_name": "EmilyBrown",
+      "role": {
+        "id_role": 2,
+        "name_role": "Seller"
+      }
+    }
+  ]
+}
