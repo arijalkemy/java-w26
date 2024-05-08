@@ -34,7 +34,7 @@ public class SellerController {
 
     @GetMapping("/followed/{userId}/list")
     public ResponseEntity<ResponsePostDTO> getPostsFromFollowingWithTwoWeeksOld(
-            @Min(1) @PathVariable int userId,
+            @Min(value = 1, message = "El id debe ser mayor a cero") @PathVariable int userId,
             @RequestParam(required = false) String order
     ) {
         return new ResponseEntity<>(postService.getPostsFromFollowingWithTwoWeeksOld(userId, order), HttpStatus.OK);
