@@ -33,12 +33,6 @@ public class SellerServiceImplTest {
     @InjectMocks
     private SellerServiceImpl sellerService;
 
-    @BeforeEach
-    public void setup() {
-        when(sellerRepository.findById(1))
-                .thenReturn(Optional.of(TestGeneratorUtil.createSellerWithIdAndFollowers(1)));
-    }
-
     @Test
     @DisplayName("Tipo de ordenamiento ascendente existente.")
     public void searchSellerFollowsAscendingOrderTest() {
@@ -54,6 +48,8 @@ public class SellerServiceImplTest {
     @Test
     @DisplayName("Tipo de ordenamiento inexistente.")
     public void searchSellerFollowsNonExistentOrderTest() {
+        when(sellerRepository.findById(1))
+                .thenReturn(Optional.of(TestGeneratorUtil.createSellerWithIdAndFollowers(1)));
         // Act & Assert
         assertThrows(BadRequestException.class, () -> {
             sellerService.getFollowersList(1, "asdasdasd");
@@ -97,6 +93,8 @@ public class SellerServiceImplTest {
     }
 
     private void executeOrderTest(String order) {
+        when(sellerRepository.findById(1))
+                .thenReturn(Optional.of(TestGeneratorUtil.createSellerWithIdAndFollowers(1)));
         // Act & Assert
         assertDoesNotThrow(() -> {
             sellerService.getFollowersList(1, order);

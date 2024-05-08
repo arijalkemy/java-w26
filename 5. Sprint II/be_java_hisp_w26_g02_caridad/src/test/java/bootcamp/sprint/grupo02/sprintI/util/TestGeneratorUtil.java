@@ -5,10 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import bootcamp.sprint.grupo02.sprintI.dto.request.ProductDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.FollowedListResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Post;
+import bootcamp.sprint.grupo02.sprintI.model.Product;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
 
 import java.util.ArrayList;
@@ -100,12 +102,12 @@ public class TestGeneratorUtil {
         );
     }
     public static List<Seller> get4FollowedAsc() {
-        return List.of(
+        return new ArrayList<>(List.of(
                 createSellerWithId(1),
                 createSellerWithId(2),
                 createSellerWithId(3),
                 createSellerWithId(4)
-        );
+        ));
     }
     public static List<Seller> get4FollowedDesc() {
         return List.of(
@@ -129,6 +131,17 @@ public class TestGeneratorUtil {
                 .id(id)
                 .name(String.format("Buyer %d", id))
                 .follows(get4FollowedAsc())
+                .build();
+    }
+
+    public static ProductDTO createProductDTO() {
+        return ProductDTO.builder()
+                .productId(1)
+                .productName("Product")
+                .type("Type")
+                .brand("Brand")
+                .color("Color")
+                .notes("Notes")
                 .build();
     }
 }

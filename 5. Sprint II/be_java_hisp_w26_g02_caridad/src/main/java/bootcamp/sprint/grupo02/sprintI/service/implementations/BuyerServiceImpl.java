@@ -61,7 +61,7 @@ public class BuyerServiceImpl implements BuyerService {
                 .orElseThrow(() -> new NotFoundException("Buyer not found: " + userId));
         Seller seller = sellerRepository.findById(userIdToFollow)
                 .orElseThrow(()-> new NotFoundException("Seller not found: " + userIdToFollow));
-        if (!buyer.getFollows().contains(seller)) {
+        if (!buyer.getFollows().stream().anyMatch(s -> s.getId() == seller.getId())) {
             throw new UnfollowNotAllowedException("Cannot unfollow seller because not followed previously");
         }
 
@@ -75,7 +75,7 @@ public class BuyerServiceImpl implements BuyerService {
                 .orElseThrow(() -> new NotFoundException("User not found: " + userId));
         Seller seller = sellerRepository.findById(userIdToFollow)
                 .orElseThrow(() -> new NotFoundException("Seller not found: " + userIdToFollow));
-        if (buyer.getFollows().contains(seller)) {
+        if (buyer.getFollows().stream().anyMatch(s -> s.getId() == userIdToFollow)) {
             throw new BadRequestException("Cannot follow seller because is already followed. ");
         }
         buyer.getFollows().add(seller);

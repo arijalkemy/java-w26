@@ -4,19 +4,23 @@ import bootcamp.sprint.grupo02.sprintI.dto.response.FollowedListResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.exception.BadRequestException;
 import bootcamp.sprint.grupo02.sprintI.exception.NotFoundException;
+import bootcamp.sprint.grupo02.sprintI.exception.UnfollowNotAllowedException;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Seller;
 import bootcamp.sprint.grupo02.sprintI.repository.BuyerRepository;
 import bootcamp.sprint.grupo02.sprintI.repository.SellerRepository;
 import bootcamp.sprint.grupo02.sprintI.util.TestGeneratorUtil;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,11 +39,11 @@ public class BuyerServiceImplTest {
     @InjectMocks
     private BuyerServiceImpl buyerService;
 
-    @BeforeEach
+    /*@BeforeEach
     public void setup() {
         lenient().when(buyerRepository.findById(1))
                 .thenReturn(Optional.of(TestGeneratorUtil.createBuyerWithIdAndFollows(1)));
-    }
+    }*/
 
     @Test
     @DisplayName("Tipo de ordenamiento ascendente existente.")
@@ -56,6 +60,8 @@ public class BuyerServiceImplTest {
     @Test
     @DisplayName("Tipo de ordenamiento inexistente.")
     public void searchBuyerFollowsNonExistentOrderTest() {
+        when(buyerRepository.findById(1))
+                .thenReturn(Optional.of(TestGeneratorUtil.createBuyerWithIdAndFollows(1)));
         // Act & Assert
         assertThrows(BadRequestException.class, () -> {
            buyerService.searchBuyerFollows(1, "asdasdasd");
@@ -98,6 +104,8 @@ public class BuyerServiceImplTest {
     }
 
     private void executeOrderTest(String order) {
+        when(buyerRepository.findById(1))
+                .thenReturn(Optional.of(TestGeneratorUtil.createBuyerWithIdAndFollows(1)));
         // Act & Assert
         assertDoesNotThrow(() -> {
             buyerService.searchBuyerFollows(1, order);
@@ -162,6 +170,33 @@ public class BuyerServiceImplTest {
 
         // Act & Assert
         assertThrows(NotFoundException.class, () -> buyerService.followUser(1, 1));
+    }
+
+    @Test
+    void getAllSellersBuyer1ReturnsOk() {
+        int userId = 1;
+        List<Seller> sellers = TestGeneratorUtil.get4FollowedAsc();
+
+        when(buyerRepository.findById(userId))
+                .thenReturn(Optional.of((TestGeneratorUtil.createBuyerWithFollowed(1))));
+
+        List<Seller> sellersFromService = buyerService.getAllSellers(userId);
+
+        Assertions.assertEquals(sellers, sellersFromService);
+    }
+
+    @Test
+    void UnfollowSeller10ReturnsException_test() {
+        int userId = 1;
+        int userIdToFollow = 10;
+
+        when(buyerRepository.findById(userId))
+                .thenReturn(Optional.of((TestGeneratorUtil.createBuyerWithId(1))));
+
+        when(sellerRepository.findById(userIdToFollow))
+                .thenReturn(Optional.of((TestGeneratorUtil.createSellerWithId(userIdToFollow))));
+
+        assertThrows(UnfollowNotAllowedException.class, () -> buyerService.UnfollowUser(userId, userIdToFollow));
     }
 
 }
