@@ -123,4 +123,10 @@ public class PostControllerIntegrationTests {
                 .andExpect(jsonPath("$.posts[0].post_id").value(0))
                 .andExpect(jsonPath("$.posts[1].post_id").value(2));
     }
+
+    @Test
+    public void testPostWithInvalidOrderTypeFails() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/products/followed/" + 101 + "/list?order=bla"))
+                .andDo(print()).andExpect(status().isBadRequest());
+    }
 }

@@ -37,20 +37,6 @@ public class UserMapper {
         );
     }
 
-    public static UserResponseDTO mapSellerToUserResponseDto(Seller seller){
-        return new UserResponseDTO(
-                seller.getUser().getUserId(),
-                seller.getUser().getUserName()
-        );
-    }
-
-    public static UserResponseDTO mapCustomerToUserResponseDto(Customer customer){
-        return new UserResponseDTO(
-                customer.getUser().getUserId(),
-                customer.getUser().getUserName()
-        );
-    }
-
     public static UserResponseDTO mapUserToUserResponseDto(IUser user){
         return new UserResponseDTO(
                 user.getUser().getUserId(),
