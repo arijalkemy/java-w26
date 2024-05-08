@@ -33,18 +33,28 @@ public class ProductController {
     @Test
     @DisplayName("Post se debe subir correctamente")
     void happyPath() throws Exception {
-        productToPost = new ProductDto(1,"nombre","silla",
-                "tesla", "rojo", "es muy lindo");
+        productToPost = new ProductDto(1,"nombre bien puesto ","silla ",
+                "tesla", "rojo ", "es muy lindo");
         newPost= new PostDto(1, LocalDate.now(),productToPost,12,120.5);
-        this.performTestOk(newPost);
+        this.performTest(newPost).andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("Post debe tener validaciones de caracteres especiales")
+    void sadPath() throws Exception {
+        productToPost = new ProductDto(1,"nombre!)() ","silla()(()",
+                "tesla", "rojo ", "es muy lindo");
+        newPost= new PostDto(1, LocalDate.now(),productToPost,12,120.5);
+        this.performTest(newPost).andExpect(status().is4xxClientError());
     }
 
 
-    private void performTestOk(PostDto newPost) throws Exception {
+    private ResultActions performTest(PostDto newPost) throws Exception {
         String requestBody = objectMapper.writeValueAsString(newPost);
-        ResultActions result = mockMvc.perform(post("/products/post")
+         ResultActions result = mockMvc.perform(post("/products/post")
                         .content(requestBody)
-                        .contentType(MediaType.APPLICATION_JSON))
-                        .andExpect(status().isOk());
+                        .contentType(MediaType.APPLICATION_JSON));
+         return result;
+
     }
 }
