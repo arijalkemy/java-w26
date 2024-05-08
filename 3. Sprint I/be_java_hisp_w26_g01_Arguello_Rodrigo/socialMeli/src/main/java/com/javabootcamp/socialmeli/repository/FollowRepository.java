@@ -1,6 +1,7 @@
 package com.javabootcamp.socialmeli.repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.javabootcamp.socialmeli.model.Follow;
@@ -18,4 +19,5 @@ public interface FollowRepository {
     Optional<Follow> findByFollowerIdAndFollowedId(Integer followerId, Integer followedId);
     List<User> searchFollowersByUserAndOrderAsc(Integer id);
     List<User> searchFollowersByUserAndOrderDesc(Integer id);
+    Map<User,Long> searchFollowedsWithCountFollowers();
 }

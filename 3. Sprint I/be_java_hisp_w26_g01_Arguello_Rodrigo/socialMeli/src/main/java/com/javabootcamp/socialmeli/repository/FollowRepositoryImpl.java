@@ -1,10 +1,9 @@
 package com.javabootcamp.socialmeli.repository;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
+import com.javabootcamp.socialmeli.dto.UserDto;
 import com.javabootcamp.socialmeli.enums.OrderType;
 import com.javabootcamp.socialmeli.model.Follow;
 import com.javabootcamp.socialmeli.model.User;
@@ -93,4 +92,17 @@ public class FollowRepositoryImpl implements FollowRepository {
             .sorted(Comparator.comparing(User::getUsername).reversed())
             .toList();
     }
+
+    public Map<User,Long> searchFollowedsWithCountFollowers(){
+
+        List<User> listFolloweds = followsList.stream().map(f -> f.getFollowed()).toList();
+
+        Map<User, Long> conteoSeguidos = listFolloweds.stream()
+                .collect(Collectors.groupingBy(seguido -> seguido, Collectors.counting()));
+
+
+        return conteoSeguidos;
+    }
+
+
 }

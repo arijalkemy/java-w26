@@ -22,4 +22,6 @@ public interface UserService {
     ResponseDto deleteFollower(Integer followerId, Integer followedId);
     List<Integer> getListSellerId(Integer userId);
     User searchUserById(Integer id);
+
+    List<FollowersCountDto> getTopFiveSellers();
 }

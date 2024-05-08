@@ -2,11 +2,14 @@ package com.javabootcamp.socialmeli.controller;
 
 
 import com.javabootcamp.socialmeli.dto.FollowedSellersDto;
+import com.javabootcamp.socialmeli.dto.FollowersCountDto;
 import com.javabootcamp.socialmeli.dto.SellerWithFollowersDTO;
 import com.javabootcamp.socialmeli.enums.OrderType;
 import com.javabootcamp.socialmeli.dto.ResponseDto;
+import com.javabootcamp.socialmeli.service.FollowService;
 import com.javabootcamp.socialmeli.service.UserService;
 
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.http.HttpStatus;
@@ -27,6 +30,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
   private final UserService userService;
+  private final FollowService followService;
 
     @GetMapping("/")
     public ResponseEntity<?> getAllUsers(){
@@ -73,6 +77,13 @@ public class UserController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
+
+    }
+
+    @GetMapping("/sellers/most-followed")
+    public ResponseEntity<List<FollowersCountDto>> getMostFollowedSellers(){
+
+        return ResponseEntity.status(HttpStatus.OK).body(followService.searchTopFiveFollowedWithCountFollowers());
 
     }
 }

@@ -155,6 +155,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<FollowersCountDto> getTopFiveSellers() {
+        return null;
+    }
+
+    @Override
     public List<Integer> getListSellerId(Integer userId) {
         // valido que exista usuario
         User user = searchUserById(userId);

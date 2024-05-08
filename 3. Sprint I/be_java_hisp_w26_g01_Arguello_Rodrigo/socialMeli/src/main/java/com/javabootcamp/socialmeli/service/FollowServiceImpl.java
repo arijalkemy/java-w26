@@ -1,5 +1,6 @@
 package com.javabootcamp.socialmeli.service;
 
+import com.javabootcamp.socialmeli.dto.FollowersCountDto;
 import com.javabootcamp.socialmeli.dto.ResponseDto;
 import com.javabootcamp.socialmeli.dto.UserDto;
 import com.javabootcamp.socialmeli.enums.OrderType;
@@ -11,7 +12,9 @@ import com.javabootcamp.socialmeli.repository.FollowRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -100,5 +103,22 @@ public class FollowServiceImpl implements FollowService {
             .toList();
     }
 
+    @Override
+    public List<FollowersCountDto> searchTopFiveFollowedWithCountFollowers() {
 
+        Map<User,Long> followedWithCountFollowers = followRepository.searchFollowedsWithCountFollowers();
+
+        List<FollowersCountDto> listFollowedCountDto =  followedWithCountFollowers.entrySet().stream().map(m ->{
+
+            FollowersCountDto followersCountDto = new FollowersCountDto();
+            followersCountDto.setUserId(m.getKey().getId());
+            followersCountDto.setUserName(m.getKey().getUsername());
+            followersCountDto.setFollowersCount(m.getValue().intValue());
+
+            return followersCountDto;
+
+        }).toList();
+
+        return listFollowedCountDto.stream().sorted(Comparator.comparing(FollowersCountDto::getFollowersCount).reversed()).limit(5).toList();
+    }
 }
