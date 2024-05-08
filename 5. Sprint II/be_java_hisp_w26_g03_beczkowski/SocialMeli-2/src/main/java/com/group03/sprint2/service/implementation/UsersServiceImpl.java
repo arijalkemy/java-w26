@@ -12,6 +12,7 @@ import com.group03.sprint2.entity.Buyer;
 import com.group03.sprint2.exception.entity.BadRequestException;
 import com.group03.sprint2.entity.UserData;
 import com.group03.sprint2.dto.response.BuyerResponseDTO;
+import com.group03.sprint2.exception.entity.NotFoundException;
 import com.group03.sprint2.repository.IUsersRepository;
 import com.group03.sprint2.repository.implementation.UsersRepositoryImpl;
 import com.group03.sprint2.service.IUsersService;
@@ -39,6 +40,10 @@ public class UsersServiceImpl implements IUsersService {
     public SellerNumberOfFollowersDTO getNumberOfFollowers(Integer userId) {
         // 1- Recorrer la lista con todos los sellers y filtrarlos por id
         Seller seller = usersRepository.findSellerById(userId);
+
+        if (Utils.isNull(seller)) {
+            throw new BadRequestException("There is not seller with ID: " + userId);
+        }
 
         // 2- Veo el size de la lista BuyersFollowers para calcular la cantidad de seguidores del seller
         Integer numberOffollowers = seller.getFollowers().size();

@@ -41,6 +41,10 @@
       {
         "user_id": 67890,
         "user_name": "nombre_de_usuario_2"
+      },
+      {
+        "user_id": 24680,
+        "user_name": "nombre_de_usuario_3"
       }
     ],
     "posts": [
@@ -60,5 +64,79 @@
         "price": 1500.50
       }
     ]
+  },
+  {
+    "user_id": 3,
+    "user_name": "nombre_de_vendedor_3",
+    "followers": [
+      {
+        "user_id": 67890,
+        "user_name": "nombre_de_usuario_2"
+      },
+      {
+        "user_id": 12345,
+        "user_name": "nombre_de_usuario_1"
+      }
+    ],
+    "posts": [
+      {
+        "user_id": 3,
+        "date": "2024-05-07",
+        "post_id": 1002,
+        "product": {
+          "product_id": 2,
+          "product_name": "Wireless Mouse",
+          "type": "Peripheral",
+          "brand": "Logitech",
+          "color": "Gray",
+          "notes": "Ergonomic design"
+        },
+        "category": 101,
+        "price": 49.99
+      }
+    ]
+  },
+  {
+    "user_id": 4,
+    "user_name": "nombre_de_vendedor_4",
+    "followers": [
+      {
+        "user_id": 67890,
+        "user_name": "nombre_de_usuario_2"
+      }
+    ],
+    "posts": [
+      {
+        "user_id": 4,
+        "date": "2024-05-07",
+        "post_id": 1003,
+        "product": {
+          "product_id": 3,
+          "product_name": "Smartwatch",
+          "type": "Wearable",
+          "brand": "Apple",
+          "color": "Silver",
+          "notes": "Water-resistant"
+        },
+        "category": 102,
+        "price": 299.99
+      },
+      {
+        "user_id": 4,
+        "date": "2024-05-07",
+        "post_id": 1004,
+        "product": {
+          "product_id": 4,
+          "product_name": "Bluetooth Speaker",
+          "type": "Audio",
+          "brand": "JBL",
+          "color": "Blue",
+          "notes": "360-degree sound"
+        },
+        "category": 103,
+        "price": 79.99
+      }
+    ]
   }
+
 ]

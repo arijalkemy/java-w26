@@ -1,15 +1,10 @@
-# Grupo 03 - Sprint 1 - SocialMeli
+# Grupo 03 - Parte Individual - Sprint 2 - SocialMeli2
 
-En este proyecto desarrollaremos una API para la nueva herramienta de Mercado Libre, __SocialMeli__.
+En este proyecto desarrollaremos los test y agregaremos validaciones a la API realizada en el Sprint I de Mercado Libre, __SocialMeli__.
 
 ## Integrantes
 
-- Blas Bulacio
 - Camila Beczkowski
-- Andrés García
-- Andrés Kubler
-- Bruno Donato
-- Leonel Abatte
 
 ## Tabla de contenidos
 

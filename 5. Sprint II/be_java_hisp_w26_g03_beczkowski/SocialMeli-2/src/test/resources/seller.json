@@ -70,12 +70,12 @@
     "user_name": "nombre_de_vendedor_3",
     "followers": [
       {
-        "user_id": 98765,
-        "user_name": "follower_1"
+        "user_id": 67890,
+        "user_name": "nombre_de_usuario_2"
       },
       {
-        "user_id": 54321,
-        "user_name": "follower_2"
+        "user_id": 12345,
+        "user_name": "nombre_de_usuario_1"
       }
     ],
     "posts": [
@@ -101,12 +101,8 @@
     "user_name": "nombre_de_vendedor_4",
     "followers": [
       {
-        "user_id": 13579,
-        "user_name": "follower_3"
-      },
-      {
-        "user_id": 24680,
-        "user_name": "follower_4"
+        "user_id": 67890,
+        "user_name": "nombre_de_usuario_2"
       }
     ],
     "posts": [
