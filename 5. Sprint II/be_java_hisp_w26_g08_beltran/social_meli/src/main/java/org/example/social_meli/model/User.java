@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class User {
-    private Integer user_id;
-    private String user_name;
+    private Integer userId;
+    private String userName;
     private Boolean isSeller;
 }

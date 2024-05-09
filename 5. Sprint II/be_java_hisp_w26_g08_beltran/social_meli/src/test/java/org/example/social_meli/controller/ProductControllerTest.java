@@ -33,12 +33,12 @@ class ProductControllerTest {
     @DisplayName("Deberia crear un post de un producto correctamente")
     void postProductPost() throws Exception {
         PostDTO postDTO = PostDTO.builder()
-                .post_id(new Random().nextInt(150, 4000))
-                .user_id(2)
+                .postId(new Random().nextInt(150, 4000))
+                .userId(2)
                 .date(LocalDate.now())
                 .product(ProductDTO.builder()
-                        .product_id(1)
-                        .product_name("Producto 1")
+                        .productId(1)
+                        .productName("Producto 1")
                         .type("Tipo 1")
                         .brand("Marca 1")
                         .color("Color 1")
@@ -54,6 +54,6 @@ class ProductControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(postDTO)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(2));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(2));
     }
 }

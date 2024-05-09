@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 public class ProductDTO {
     @Positive(message = "El id debe ser mayor a 0")
     @NotNull(message = "El id no puede ser vacío")
-    private Integer product_id;
+    private Integer productId;
 
     @Pattern(regexp = "[\\p{L}0-9 ]+", message = "El campo no puede poseer caracteres especiales.")
     @Size(max = 40, message = "La longitud no puede superar los 40 carácteres")
-    private String  product_name;
+    private String  productName;
 
     @NotBlank(message = "El tipo del producto no puede estar vacío")
     @NotNull(message = "El campo no puede ser nulo")

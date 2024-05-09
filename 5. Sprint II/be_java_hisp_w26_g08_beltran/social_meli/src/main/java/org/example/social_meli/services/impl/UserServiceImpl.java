@@ -31,14 +31,14 @@ public class UserServiceImpl implements IUserService {
     ObjectMapper objectMapper;
 
     @Override
-    public void followUser(Integer user_id, Integer user_id_to_follow) {
+    public void followUser(Integer userId, Integer user_id_to_follow) {
 
-        if (!userRepository.existsById(user_id) || !userRepository.existsById(user_id_to_follow)) {
+        if (!userRepository.existsById(userId) || !userRepository.existsById(user_id_to_follow)) {
             throw new BadRequestException("Uno o ambos usuarios no existen");
         }
-        User user = userRepository.findById(user_id);
+        User user = userRepository.findById(userId);
         User userToFollow = userRepository.findById(user_id_to_follow);
-        if (user_id.equals(user_id_to_follow)) {
+        if (userId.equals(user_id_to_follow)) {
             throw new BadRequestException("No puedes seguirte a ti mismo");
         }
         if (!userToFollow.getIsSeller()) {
@@ -67,8 +67,8 @@ public class UserServiceImpl implements IUserService {
     public UserCountResponseDTO countFollowers(Integer id) {
         FollowerList seller = userRepository.findSellerById(id);
         return new UserCountResponseDTO(
-                seller.getUser().getUser_id(),
-                seller.getUser().getUser_name(),
+                seller.getUser().getUserId(),
+                seller.getUser().getUserName(),
                 seller.getFollower().size()
         );
     }
@@ -114,10 +114,10 @@ public class UserServiceImpl implements IUserService {
         List<User> followers = seller.getFollower();
         List<User> followed = client.getFollower();
 
-        followers.removeIf(follower -> follower.getUser_id().equals(userId));
+        followers.removeIf(follower -> follower.getUserId().equals(userId));
         seller.setFollower(followers);
 
-        followed.removeIf(f -> f.getUser_id().equals(userIdToUnfollow));
+        followed.removeIf(f -> f.getUserId().equals(userIdToUnfollow));
         client.setFollower(followed);
 
         userRepository.updateClients(indexClient,client);
@@ -149,20 +149,20 @@ public class UserServiceImpl implements IUserService {
     private UserResponseDTO orderFollowersAsc(UserResponseDTO user){
         user.setFollower(user.getFollower()
                 .stream()
-                .sorted(Comparator.comparing(UserDTO::getUser_name))
+                .sorted(Comparator.comparing(UserDTO::getUserName))
                 .toList());
         return user;
     }
 
     private UserResponseDTO orderFollowersDesc(UserResponseDTO user){
-        user.setFollower(user.getFollower().stream().sorted(Comparator.comparing(UserDTO::getUser_name).reversed()).toList());
+        user.setFollower(user.getFollower().stream().sorted(Comparator.comparing(UserDTO::getUserName).reversed()).toList());
         return user;
     }
 
     private UserResponseDTO getUserResponseDTO(FollowerList followerList) {
         UserResponseDTO responseDTO = new UserResponseDTO();
-        responseDTO.setUser_id(followerList.getUser().getUser_id());
-        responseDTO.setUser_name(followerList.getUser().getUser_name());
+        responseDTO.setUserId(followerList.getUser().getUserId());
+        responseDTO.setUserName(followerList.getUser().getUserName());
         responseDTO.setFollower(followerList.getFollower()
                 .stream().map(follower ->
                         objectMapper.convertValue(follower, UserDTO.class))

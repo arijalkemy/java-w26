@@ -9,8 +9,8 @@ import lombok.*;
 @Builder
 public class UserCountResponseDTO {
 
-    private Integer user_id;
-    private String user_name;
-    private Integer followers_count;
+    private Integer userId;
+    private String userName;
+    private Integer followersCount;
 
 }

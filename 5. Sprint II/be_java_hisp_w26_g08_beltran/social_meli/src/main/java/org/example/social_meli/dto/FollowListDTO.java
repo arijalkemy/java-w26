@@ -14,6 +14,6 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public class FollowListDTO {
-    private Integer user_id;
+    private Integer userId;
     private List<PostDTO> post;
 }

@@ -37,12 +37,12 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public User findById(Integer user_id){
+    public User findById(Integer userId){
         return userList
                 .stream()
                 .filter(v->
-                        v.getUser_id()
-                                .equals(user_id))
+                        v.getUserId()
+                                .equals(userId))
                 .findFirst()
                 .orElse(null);
     }
@@ -53,8 +53,8 @@ public class UserRepository implements IUserRepository {
                 .stream()
                 .filter(v ->
                         v.getUser()
-                                .getUser_id()
-                                .equals(user.getUser_id()))
+                                .getUserId()
+                                .equals(user.getUserId()))
                 .findFirst()
                 .orElse(null);
     }
@@ -65,8 +65,8 @@ public class UserRepository implements IUserRepository {
                 .stream()
                 .filter(v ->
                         v.getUser()
-                                .getUser_id()
-                                .equals(user.getUser_id()))
+                                .getUserId()
+                                .equals(user.getUserId()))
                 .findFirst()
                 .orElse(null);
     }
@@ -77,7 +77,7 @@ public class UserRepository implements IUserRepository {
                 .stream()
                 .filter(seller->
                         seller.getUser()
-                                .getUser_id()
+                                .getUserId()
                                 .equals(id))
                 .findFirst()
                 .orElse(null);
@@ -89,7 +89,7 @@ public class UserRepository implements IUserRepository {
                 .stream()
                 .filter(client->
                         client.getUser()
-                                .getUser_id()
+                                .getUserId()
                                 .equals(id))
                 .findFirst()
                 .orElse(null);
@@ -99,19 +99,19 @@ public class UserRepository implements IUserRepository {
     public Boolean existsById(Integer user_Id) {
         return userList
                 .stream()
-                .anyMatch(user -> user.getUser_id().equals(user_Id));
+                .anyMatch(user -> user.getUserId().equals(user_Id));
     }
 
     @Override
     public Boolean existsClientById(Integer clientId) {
         return clientList
                 .stream()
-                .anyMatch(client -> client.getUser().getUser_id().equals(clientId));
+                .anyMatch(client -> client.getUser().getUserId().equals(clientId));
     }
 
     @Override
     public Boolean existsSellerById(Integer sellerId) {
-        return sellerList.stream().anyMatch(client -> client.getUser().getUser_id().equals(sellerId));
+        return sellerList.stream().anyMatch(client -> client.getUser().getUserId().equals(sellerId));
     }
 
     private void loadDataBase() throws IOException {
@@ -133,7 +133,7 @@ public class UserRepository implements IUserRepository {
     @Override
     public void saveSeller(FollowerList seller) {
         int index = -1;
-        if (existsSellerById(seller.getUser().getUser_id())) {
+        if (existsSellerById(seller.getUser().getUserId())) {
             index = sellerList.indexOf(findSellerByUser(seller.getUser()));
             this.sellerList.set(index, seller);
             this.sellerList.add(seller);
@@ -143,7 +143,7 @@ public class UserRepository implements IUserRepository {
     @Override
     public void saveClient(FollowerList client) {
         int index = -1;
-        if (existsClientById(client.getUser().getUser_id())){
+        if (existsClientById(client.getUser().getUserId())){
             index=clientList.indexOf(findClientByUser(client.getUser()));
             this.clientList.set(index,client);
         }else {

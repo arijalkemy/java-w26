@@ -1,19 +1,19 @@
 [
   {
     "user": {
-      "user_id": 3,
-      "user_name": "ceverett2",
+      "userId": 3,
+      "userName": "ceverett2",
       "isSeller": false
     },
     "follower": [
       {
-        "user_id": 2,
-        "user_name": "dclail1",
+        "userId": 2,
+        "userName": "dclail1",
         "isSeller": true
       },
       {
-        "user_id": 5,
-        "user_name": "msynnott4",
+        "userId": 5,
+        "userName": "msynnott4",
         "isSeller": true
       }
 
@@ -21,14 +21,14 @@
   },
   {
     "user": {
-      "user_id": 1,
-      "user_name": "wcalderwood0",
+      "userId": 1,
+      "userName": "wcalderwood0",
       "isSeller": false
     },
     "follower": [
       {
-        "user_id": 2,
-        "user_name": "dclail1",
+        "userId": 2,
+        "userName": "dclail1",
         "isSeller": true
       }
     ]

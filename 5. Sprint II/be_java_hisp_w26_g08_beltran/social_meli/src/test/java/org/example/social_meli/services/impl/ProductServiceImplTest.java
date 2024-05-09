@@ -136,7 +136,7 @@ public class ProductServiceImplTest {
 
     @DisplayName("Prueba orden ascendente de posts")
     @Test
-    public void getSellersPostsFollowedByUserDescTest() {
+    public void getSellersPostsFollowedByUserAscTest() {
         //Arrange
         Integer id = 1;
         String orderBy = "date_asc";
@@ -152,13 +152,13 @@ public class ProductServiceImplTest {
 
         // ASSERTIONS
         assertEquals(2, result.getPost().size());
-        assertEquals(1, result.getPost().get(0).getPost_id()); // post1 deberia ser el primero
-        assertEquals(2, result.getPost().get(1).getPost_id()); // post2 deberia ser el segundo
+        assertEquals(1, result.getPost().get(0).getPostId()); // post1 deberia ser el primero
+        assertEquals(2, result.getPost().get(1).getPostId()); // post2 deberia ser el segundo
     }
 
     @DisplayName("Prueba orden descendente de posts")
     @Test
-    public void getSellersPostsFollowedByUserAscTest() {
+    public void getSellersPostsFollowedByUserDescTest() {
         //Arrange
         Integer id = 1;
         String orderBy = "date_desc";
@@ -173,8 +173,8 @@ public class ProductServiceImplTest {
 
         // ASSERTIONS
         assertEquals(2, result.getPost().size());
-        assertEquals(2, result.getPost().get(0).getPost_id()); // post2 deberia ser el primero
-        assertEquals(1, result.getPost().get(1).getPost_id()); // post1 deberia ser el segundo
+        assertEquals(2, result.getPost().get(0).getPostId()); // post2 deberia ser el primero
+        assertEquals(1, result.getPost().get(1).getPostId()); // post1 deberia ser el segundo
     }
 
     @DisplayName("Prueba que no traiga posts de mas de dos semanas")
@@ -200,8 +200,8 @@ public class ProductServiceImplTest {
 
         // ASSERTIONS
         assertEquals(2, result.getPost().size()); //se verifica que solo existan dos posts
-        assertNotEquals(3, result.getPost().get(0).getPost_id());// se verifica que ninguno tenga el id 3
-        assertNotEquals(3, result.getPost().get(1).getPost_id());
+        assertNotEquals(3, result.getPost().get(0).getPostId());// se verifica que ninguno tenga el id 3
+        assertNotEquals(3, result.getPost().get(1).getPostId());
     }
 
     @DisplayName("verifica el caso de un usuario sin seguidos")
