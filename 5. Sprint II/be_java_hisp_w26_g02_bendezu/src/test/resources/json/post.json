@@ -1,0 +1,32 @@
+[
+  {
+    "date": "30-04-2024",
+    "product": {
+      "type": "Tipo 2",
+      "brand": "Lumilagro",
+      "color": "gris",
+      "notes": "Bueno, bonito y barato",
+      "id": 2,
+      "name": "Termo2"
+    },
+    "category": 1,
+    "price": 2000.0,
+    "sellerId": 1,
+    "id": 2
+  },
+  {
+    "date": "08-05-2024",
+    "product": {
+      "type": "Tipo 1",
+      "brand": "Stanley",
+      "color": "Verde",
+      "notes": "Muy caro para lo que es",
+      "id": 1,
+      "name": "Termo"
+    },
+    "category": 1,
+    "price": 100.0,
+    "sellerId": 1,
+    "id": 1
+  }
+]

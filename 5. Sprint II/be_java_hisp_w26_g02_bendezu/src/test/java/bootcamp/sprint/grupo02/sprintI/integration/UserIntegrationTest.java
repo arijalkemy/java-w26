@@ -1,4 +1,4 @@
-package bootcamp.sprint.grupo02.integration;
+package bootcamp.sprint.grupo02.sprintI.integration;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

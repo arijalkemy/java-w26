@@ -18,7 +18,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     public ProductRepositoryImpl(FileDataBaseUtil<Product> productFileManager) {
         this.productManager = productFileManager;
-        this.products = this.productManager.readFromJsonFile("product.json");
+        this.products = this.productManager.readFromJsonFile("product.json", Product.class);
     }
 
     @Override

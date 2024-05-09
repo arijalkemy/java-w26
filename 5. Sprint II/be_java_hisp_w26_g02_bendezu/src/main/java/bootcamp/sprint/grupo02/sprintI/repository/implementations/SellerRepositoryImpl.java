@@ -19,7 +19,7 @@ public class SellerRepositoryImpl implements SellerRepository {
 
     public SellerRepositoryImpl(FileDataBaseUtil<Seller> sellerManager) {
         this.sellerManager = sellerManager;
-        this.sellers = this.sellerManager.readFromJsonFile("seller.json");
+        this.sellers = this.sellerManager.readFromJsonFile("seller.json", Seller.class);
     }
 
     @Override

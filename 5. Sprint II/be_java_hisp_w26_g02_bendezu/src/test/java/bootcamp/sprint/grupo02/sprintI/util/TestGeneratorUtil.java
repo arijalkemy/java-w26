@@ -1,11 +1,14 @@
 package bootcamp.sprint.grupo02.sprintI.util;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 
 import bootcamp.sprint.grupo02.sprintI.dto.request.PostDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.request.ProductDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.PostListByBuyerResponseDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.PostResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.ProductResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Post;
@@ -166,11 +169,65 @@ public class TestGeneratorUtil {
     public static PostDTO createPostDtoWithId(int id) {
 
         return PostDTO.builder()
-                .userId(1)
+                .userId(id)
                 .price(1.0)
                 .category(1)
                 .date("19-10-2024")
                 .product(createProductDTOWithId(1))
+                .build();
+    }
+
+    public static PostListByBuyerResponseDTO createPostListByBuyerResponseDTO() {
+        List<PostResponseDTO> postResponseDTOList = new ArrayList<PostResponseDTO>();
+
+        ProductResponseDTO productResponseDTO = ProductResponseDTO
+                .builder()
+                .id(2)
+                .name("Termo2")
+                .type("Tipo 2")
+                .brand("Lumilagro")
+                .color("gris")
+                .notes("Bueno, bonito y barato")
+                .build();
+
+        ProductResponseDTO productResponseDTO1 = ProductResponseDTO
+                .builder()
+                .id(1)
+                .name("Termo")
+                .type("Tipo 1")
+                .brand("Stanley")
+                .color("Verde")
+                .notes("Muy caro para lo que es")
+                .build();
+
+        postResponseDTOList.add(
+                PostResponseDTO
+                        .builder()
+                        .userId(1)
+                        .postId(2)
+                        .category(1)
+                        .date(LocalDate.of(2024, Month.APRIL, 30))
+                        .price(2000)
+                        .product(productResponseDTO)
+                        .build()
+        );
+
+        postResponseDTOList.add(
+                PostResponseDTO
+                        .builder()
+                        .userId(1)
+                        .postId(1)
+                        .category(1)
+                        .date(LocalDate.of(2024, Month.MAY, 8))
+                        .price(100)
+                        .product(productResponseDTO1)
+                        .build()
+        );
+
+        return PostListByBuyerResponseDTO
+                .builder()
+                .userId(1)
+                .posts(postResponseDTOList)
                 .build();
     }
 

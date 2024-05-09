@@ -2,7 +2,7 @@
     {
       "id": 1,
       "sellerId": 1,
-      "date": "2024-05-08",
+      "date": "05-08-2024",
       "category": 1,
       "price": 100.0,
       "product": {
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "sellerId": 1,
-      "date": "2024-04-30",
+      "date": "30-08-2024",
       "category": 1,
       "price": 2000.0,
       "product": {
@@ -36,7 +36,7 @@
     {
       "id": 3,
       "sellerId": 2,
-      "date": "2024-04-22",
+      "date": "25-08-2024",
       "category": 1,
       "price": 2000.0,
       "product": {

@@ -12,6 +12,7 @@ import org.springframework.web.method.annotation.HandlerMethodValidationExceptio
 
 import bootcamp.sprint.grupo02.sprintI.dto.response.MessageResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.ValidationResponseDTO;
+import jakarta.validation.ConstraintViolationException;
 
 @RestControllerAdvice(annotations = RestController.class)
 public class ExceptionController {
@@ -53,6 +54,17 @@ public class ExceptionController {
         List<MessageResponseDTO> errors = ex.getAllErrors()
                 .stream()
                 .map(x -> new MessageResponseDTO(x.getDefaultMessage()))
+                .toList();
+
+        return ResponseEntity.badRequest().body(errors);
+
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<List<MessageResponseDTO>> noValidationException(ConstraintViolationException ex) {
+        List<MessageResponseDTO> errors = ex.getConstraintViolations()
+                .stream()
+                .map(x -> new MessageResponseDTO(x.getMessage()))
                 .toList();
 
         return ResponseEntity.badRequest().body(errors);

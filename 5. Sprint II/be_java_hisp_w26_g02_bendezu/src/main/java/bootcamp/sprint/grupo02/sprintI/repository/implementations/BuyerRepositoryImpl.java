@@ -18,7 +18,7 @@ public class BuyerRepositoryImpl implements BuyerRepository {
 
     public BuyerRepositoryImpl(FileDataBaseUtil<Buyer> fileDataBaseUtil) {
         this.fileDataBaseBuyer = fileDataBaseUtil;
-        this.buyers = fileDataBaseUtil.readFromJsonFile("buyer.json");
+        this.buyers = fileDataBaseBuyer.readFromJsonFile("buyer.json", Buyer.class);
     }
 
     @Override

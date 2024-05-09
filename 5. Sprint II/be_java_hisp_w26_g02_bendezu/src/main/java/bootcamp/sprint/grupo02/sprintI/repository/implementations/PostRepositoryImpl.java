@@ -7,8 +7,6 @@ import bootcamp.sprint.grupo02.sprintI.util.FileDataBaseUtil;
 
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +19,7 @@ public class PostRepositoryImpl implements PostRepository {
 
     public PostRepositoryImpl(FileDataBaseUtil<Post> fileDataBaseUtil) {
         this.postManager = fileDataBaseUtil;
-        this.posts = fileDataBaseUtil.readFromJsonFile("post.json");
-        
+        this.posts = fileDataBaseUtil.readFromJsonFile("post.json", Post.class);
     }
 
     @Override
@@ -64,6 +61,6 @@ public class PostRepositoryImpl implements PostRepository {
 
     @Override
     public List<Post> findBySellerId(int sellerId) {
-        return posts.stream().filter(p -> p.getSellerId() == sellerId).toList();
+        return this.posts.stream().filter(p -> p.getSellerId() == sellerId).toList();
     }
 }
