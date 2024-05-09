@@ -107,7 +107,7 @@ class BuyerServiceImplTest {
     @DisplayName("obtener lista de seguidos de un buyer x ordenada por nombre de forma descendente")
     void getFollowedListOrderedNameDescSuccessfully() {
         when(buyerRepository.findById(1L)).thenReturn(Optional.of(buyer));
-        assertNotNull(buyerService.getFollowedListOrdered(1L, TypeOrder.NAME_ASC));
+        assertNotNull(buyerService.getFollowedListOrdered(1L, TypeOrder.NAME_DESC));
     }
 
 
