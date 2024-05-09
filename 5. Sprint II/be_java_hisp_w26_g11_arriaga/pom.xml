@@ -11,8 +11,8 @@
     <groupId>org.example</groupId>
     <artifactId>SocialMeli2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>SocialMeli2</name>
-    <description>SocialMeli2</description>
+    <name>Sprint1</name>
+    <description>Sprint1</description>
     <properties>
         <java.version>17</java.version>
     </properties>

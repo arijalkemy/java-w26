@@ -11,4 +11,3 @@ class SocialMeli2ApplicationTests {
     }
 
 }
-

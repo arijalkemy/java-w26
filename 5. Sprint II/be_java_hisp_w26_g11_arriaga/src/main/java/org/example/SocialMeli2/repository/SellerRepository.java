@@ -12,18 +12,29 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Implementación del repositorio de vendedores.
+ */
 @Data
 @Repository
 public class SellerRepository implements ISellerRepository {
     private List<Seller> sellersList = new ArrayList<>();
 
+    /**
+     * Constructor que carga los vendedores desde un archivo JSON.
+     *
+     * @throws IOException si hay un error al leer el archivo.
+     */
     public SellerRepository() throws IOException {
         loadSellers();
     }
 
+    /**
+     * Carga los vendedores desde un archivo JSON.
+     *
+     * @throws IOException si hay un error al leer el archivo.
+     */
     private void loadSellers() throws IOException {
         File file = ResourceUtils.getFile("classpath:sellers.json");
         ObjectMapper objectMapper = new ObjectMapper();
@@ -32,32 +43,60 @@ public class SellerRepository implements ISellerRepository {
         }));
     }
 
+    /**
+     * Obtiene una lista de todos los vendedores.
+     *
+     * @return Una lista de vendedores.
+     */
     @Override
     public List<Seller> getSellersList() {
         return sellersList;
     }
 
+    /**
+     * Verifica si existe un producto con el ID proporcionado.
+     *
+     * @param id El ID del producto.
+     * @return Verdadero si el producto existe, falso en caso contrario.
+     */
     @Override
     public boolean productIdExists(int id) {
         return sellersList.stream()
                 .anyMatch(seller -> seller.productIdExists(id));
     }
 
-
+    /**
+     * Obtiene un vendedor por su ID.
+     *
+     * @param id El ID del vendedor.
+     * @return El vendedor si se encuentra, o null si no se encuentra.
+     */
     @Override
     public Seller getSellerById(int id) {
         return sellersList.stream().filter(v -> v.getSellerId() == id ).findFirst().orElse(null);
     }
 
+    /**
+     * Verifica si existe un post con el ID proporcionado.
+     *
+     * @param id El ID del post.
+     * @return Verdadero si el post existe, falso en caso contrario.
+     */
     @Override
     public boolean postIdExist(int id) {
         return sellersList.stream().anyMatch(seller -> seller.getPosts()
                 .stream().anyMatch(post -> post.getPostId() == id));
     }
 
+    /**
+     * Permite a un usuario seguir a un vendedor.
+     *
+     * @param userId El ID del usuario que quiere seguir al vendedor.
+     * @param userIdToFollow El ID del vendedor a seguir.
+     * @return Verdadero si el usuario pudo seguir al vendedor, falso en caso contrario.
+     */
     @Override
     public boolean userIdToFollowSeller(int userId, int userIdToFollow) {
-
         //se busca el id
         Seller seller = sellersList.stream().filter(value -> value.getSellerId() == userIdToFollow)
                 .findFirst().orElse(null);
@@ -69,9 +108,14 @@ public class SellerRepository implements ISellerRepository {
         seller.addFollowers(userId);
 
         return false;
-
     }
 
+    /**
+     * Encuentra los posts de los vendedores seguidos.
+     *
+     * @param sellers La lista de IDs de los vendedores.
+     * @return Un mapa con los IDs de los vendedores y sus posts.
+     */
     @Override
     public Map<Integer, List<Post>> findPostsByFollowing(List<Integer> sellers) {
         List<Seller> sellersMatch = new ArrayList<>();
@@ -90,12 +134,15 @@ public class SellerRepository implements ISellerRepository {
             );
         }
 
-        // Ordenar la lista de posts por fecha de manera descendente
-//        postsMatch.sort(Comparator.comparing(Post::getDate).reversed());
-
         return postsMatch;
     }
 
+    /**
+     * Filtra los posts que tienen menos de dos semanas de antigüedad.
+     *
+     * @param posts La lista de posts a filtrar.
+     * @return Una lista de posts que tienen menos de dos semanas de antigüedad.
+     */
     private List<Post> findPostsWithTwoWeeksOld(List<Post> posts) {
         // Obtener la fecha de hace dos semanas y la actual
         LocalDate twoWeeksBefore = LocalDate.now().minusWeeks(2);
@@ -113,6 +160,12 @@ public class SellerRepository implements ISellerRepository {
                 .toList();
     }
 
+    /**
+     * Obtiene una lista de vendedores que son seguidos por un usuario específico.
+     *
+     * @param id El ID del usuario.
+     * @return Una lista de vendedores que son seguidos por el usuario.
+     */
     @Override
     public List<Seller> getCustomersThatFollowsSellersById(int id) {
         return  sellersList.stream()

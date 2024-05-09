@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * Implementación del servicio de vendedor.
+ */
 @Service
 public class SellerServiceImplementation implements ISellerService {
     @Autowired
@@ -33,6 +36,14 @@ public class SellerServiceImplementation implements ISellerService {
         mapper.registerModule(new JavaTimeModule());
     }
 
+    /**
+     * Agrega un nuevo post.
+     *
+     * @param postDTO El DTO del post a agregar.
+     * @return El post agregado.
+     * @throws NotFoundException si no existe un vendedor con el ID proporcionado.
+     * @throws BadRequestException si el ID del producto ya existe o si el ID de la publicación ya existe.
+     */
     @Override
     public Post addPost(RequestPostDTO postDTO) {
 
@@ -63,10 +74,24 @@ public class SellerServiceImplementation implements ISellerService {
         return post;
     }
 
+    /**
+     * Obtiene una lista de todos los vendedores.
+     *
+     * @return Una lista de vendedores.
+     */
     public List<Seller> getSellers(){
         return sellerRepository.getSellersList();
     }
 
+    /**
+     * Obtiene los posts de los vendedores seguidos que tienen menos de dos semanas de antigüedad.
+     *
+     * @param userId El ID del usuario.
+     * @param order El orden en el que se desea obtener los posts.
+     * @return Un DTO con la respuesta de los posts.
+     * @throws NotFoundException si no existe un cliente con el ID proporcionado.
+     * @throws BadRequestException si el orden proporcionado no es válido.
+     */
     @Override
     public ResponsePostDTO getPostsFromFollowingWithTwoWeeksOld(int userId, String order) {
         // Obtiene customer con userId
@@ -85,7 +110,12 @@ public class SellerServiceImplementation implements ISellerService {
         return new ResponsePostDTO(userId, listOrderedPostDto);
     }
 
-
+    /**
+     * Convierte un Map de Posts en una lista de PostDTO.
+     *
+     * @param posts El Map de Posts a convertir.
+     * @return Una lista de PostDTO.
+     */
     private List<PostDTO> mappingPostToPostDto(Map<Integer, List<Post>> posts) {
         List<PostDTO> listPostDto = new ArrayList<>();
 
@@ -105,6 +135,14 @@ public class SellerServiceImplementation implements ISellerService {
         return listPostDto;
     }
 
+    /**
+     * Ordena una lista de PostDTO de acuerdo al orden especificado.
+     *
+     * @param order El orden en el que se desea ordenar los posts.
+     * @param posts La lista de PostDTO a ordenar.
+     * @return Una lista de PostDTO ordenada.
+     * @throws BadRequestException si el orden proporcionado no es válido.
+     */
     private List<PostDTO> orderBy(String order, List<PostDTO> posts) {
         if(order == null)
             return posts;
