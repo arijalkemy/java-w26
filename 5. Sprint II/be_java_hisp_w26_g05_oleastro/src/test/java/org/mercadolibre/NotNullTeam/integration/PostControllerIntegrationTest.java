@@ -6,7 +6,10 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mercadolibre.NotNullTeam.DTO.request.post.PostDTO;
+import org.mercadolibre.NotNullTeam.DTO.request.product.ProductDTO;
 import org.mercadolibre.NotNullTeam.model.Buyer;
+import org.mercadolibre.NotNullTeam.model.Product;
 import org.mercadolibre.NotNullTeam.model.Seller;
 import org.mercadolibre.NotNullTeam.model.User;
 import org.mercadolibre.NotNullTeam.repository.IBuyerRepository;
@@ -36,13 +39,16 @@ public class PostControllerIntegrationTest {
     @Autowired
     ISellerRepository sellerRepository;
     ObjectMapper objectMapper = new ObjectMapper();
+    ObjectWriter objectWriter;
     List<Buyer> initialBuyers;
     List<Seller> initialSellers;
+    PostDTO correctArgumentsPostDTO;
+    PostDTO incorrectArgumentsPostDTO;
 
     @BeforeEach
     public void setup() {
         objectMapper.findAndRegisterModules();
-        ObjectWriter objectWriter = new ObjectMapper().
+        objectWriter = new ObjectMapper().
                 configure(SerializationFeature.WRAP_ROOT_VALUE, false).
                 writer();
 
@@ -64,6 +70,38 @@ public class PostControllerIntegrationTest {
         Seller sellerTwo = Seller.builder()
                 .user(User.builder().id(102L).name("Seller Two").build())
                 .followersList(new ArrayList<>())
+                .build();
+
+        correctArgumentsPostDTO = PostDTO.builder()
+                .userId(101L)
+                .date("08-05-2024")
+                .product(
+                        ProductDTO.builder()
+                                .productId(1L)
+                                .productName("Silla Gamer")
+                                .type("Gamer")
+                                .brand("Racer")
+                                .color("Red and Black")
+                                .notes("Special Edition")
+                                .build())
+                .category(100)
+                .price(1500.50)
+                .build();
+
+        incorrectArgumentsPostDTO = PostDTO.builder()
+                .userId(101L)
+                .date("08-05-2024")
+                .product(
+                        ProductDTO.builder()
+                                .productId(1L)
+                                .productName("Silla Gamer")
+                                .type("Gamer")
+                                .brand("Racer")
+                                .color("Red & Black")
+                                .notes("Special Edition")
+                                .build())
+                .category(100)
+                .price(1500.50)
                 .build();
 
         buyerOne.addNewFollowed(sellerOne);
@@ -88,20 +126,7 @@ public class PostControllerIntegrationTest {
             "correctamente y recibe un mensaje de confirmacion.")
     public void createPostSuccessfully() throws Exception {
 
-        String payloadJson = "{\n" +
-                "    \"user_id\": 101,\n" +
-                "    \"date\": \"08-05-2024\",\n" +
-                "    \"product\": {\n" +
-                "        \"product_id\": 1,\n" +
-                "        \"product_name\": \"Silla Gamer\",\n" +
-                "        \"type\": \"Gamer\",\n" +
-                "        \"brand\": \"Racer\",\n" +
-                "        \"color\": \"Red and Black\",\n" +
-                "        \"notes\": \"Special Edition\"\n" +
-                "    },\n" +
-                "    \"category\": 100,\n" +
-                "    \"price\": 1500.50\n" +
-                "}";
+        String payloadJson = objectWriter.writeValueAsString(correctArgumentsPostDTO);
 
         String localDateNowAsString = LocalDate.now().toString();
 
@@ -123,20 +148,7 @@ public class PostControllerIntegrationTest {
             "y recibe un mensaje describiendo ese error.")
     public void createPostThrowsMethodArgumentNotValid() throws Exception {
 
-        String payloadJson = "{\n" +
-                "    \"user_id\": 101,\n" +
-                "    \"date\": \"08-05-2024\",\n" +
-                "    \"product\": {\n" +
-                "        \"product_id\": 1,\n" +
-                "        \"product_name\": \"Silla Gamer\",\n" +
-                "        \"type\": \"Gamer\",\n" +
-                "        \"brand\": \"Racer\",\n" +
-                "        \"color\": \"Red & Black\",\n" +
-                "        \"notes\": \"Special Edition\"\n" +
-                "    },\n" +
-                "    \"category\": 100,\n" +
-                "    \"price\": 1500.50\n" +
-                "}";
+        String payloadJson = objectWriter.writeValueAsString(incorrectArgumentsPostDTO);
 
         mockMvc.perform(MockMvcRequestBuilders
                         .post("/products/post")

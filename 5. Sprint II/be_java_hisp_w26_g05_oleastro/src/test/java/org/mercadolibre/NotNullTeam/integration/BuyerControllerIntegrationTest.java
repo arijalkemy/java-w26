@@ -182,4 +182,10 @@ public class BuyerControllerIntegrationTest {
 
         assertEquals(expectedBuyerResponseDTO, actualBuyerResponseDTO);
     }
+
+    @Test
+    @DisplayName("Buyer Two sigue a Seller Two correctamente")
+    public void followSellerSuccessfully() throws Exception {
+
+    }
 }
