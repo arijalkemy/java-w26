@@ -27,7 +27,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Optional<Product> findById(int id) {
-        return Optional.empty();
+        return products.stream().filter(product -> product.getId() == id).findFirst();
     }
 
     @Override
@@ -37,6 +37,6 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public void remove(Product entity) {
-
+        products.remove(entity);
     }
 }

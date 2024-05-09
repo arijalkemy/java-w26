@@ -1,13 +1,16 @@
 package bootcamp.sprint.grupo02.sprintI.service.implementations;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 
+import bootcamp.sprint.grupo02.sprintI.dto.request.PostDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.MessageResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.exception.BadRequestException;
 import bootcamp.sprint.grupo02.sprintI.dto.response.PostResponseDTO;
 import org.junit.jupiter.api.Assertions;
@@ -71,7 +74,7 @@ public class PostServiceImplTest {
 
     public static boolean isWithinLastTwoWeeks(LocalDate localDate) {
         LocalDate currentDate = LocalDate.now();
-        LocalDate twoWeeksAgo = currentDate.minus(14, ChronoUnit.DAYS);
+        LocalDate twoWeeksAgo = currentDate.minusDays(14);
         return !localDate.isBefore(twoWeeksAgo) && !localDate.isAfter(currentDate);
     }
 
@@ -103,6 +106,20 @@ public class PostServiceImplTest {
     @Test
     public void testFindPostByBuyer_OrderDesc() {
         this.testFindPostByBuyer_OrderAscOrDesc("date_desc");
+    }
+
+    @Test
+    void createPostOk() {
+        PostDTO postDTO = new PostDTO(1, "01-01-2022", TestGeneratorUtil.createProductDTO(), 1, 100.0);
+
+        MessageResponseDTO  messageExpected = new MessageResponseDTO("Ok");
+
+        MessageResponseDTO messageObteined = underTest.createPost(postDTO);
+
+        verify(repository).add(any());
+        verify(productService).addProduct(any());
+
+        Assertions.assertEquals(messageExpected, messageObteined);
     }
 
 }
