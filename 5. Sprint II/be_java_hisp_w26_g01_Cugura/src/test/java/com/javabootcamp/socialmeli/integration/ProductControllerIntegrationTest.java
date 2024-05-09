@@ -1,6 +1,7 @@
 package com.javabootcamp.socialmeli.integration;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.apache.tomcat.util.http.parser.MediaType;
 import org.junit.jupiter.api.BeforeAll;
@@ -40,7 +41,7 @@ class ProductControllerIntegrationTest {
     }
 
     @Test
-    @DisplayName("| Integration test | METHOD: POST | URL: /products/post |")
+    @DisplayName("| Integration test | METHOD: POST | URL: /products/post | Result: SUCCESFUL")
     void whenTryToPostPublicationProduct() throws JsonProcessingException, Exception{
         PostDto postDto = new PostDto(
             1,
@@ -66,5 +67,38 @@ class ProductControllerIntegrationTest {
             .andDo(MockMvcResultHandlers.print())
             .andExpect(MockMvcResultMatchers.status().isOk());
 
+    }
+    @Test
+    @DisplayName("| Integration Test | METHOD: POST | URL: /products/post | Result: FAIL |")
+    void whenTryToPostPublicationProductWithInvalidProduct() throws JsonProcessingException, Exception{
+        PostDto postDto = new PostDto(
+            1,
+            LocalDate.of(2024,5,8),
+            new ProductDto(
+                1,
+                "camiseta",
+                "comida",
+                "/·!%!",
+                "ñpñ",
+                "fea"
+            ),
+            1,
+            10.0
+        );
+
+        String[] errors = new String[] {
+            "product.brand: El campo no puede poseer caracteres especiales.",
+            "product.color: El campo no puede poseer caracteres especiales."
+        };
+
+        this.mockMvc
+            .perform(
+                MockMvcRequestBuilders.post("/products/post")
+                .content(WRITER.writeValueAsString(postDto))
+                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+            )
+            .andDo(MockMvcResultHandlers.print())
+            .andExpect(MockMvcResultMatchers.status().isBadRequest());
+            //.andExpect(MockMvcResultMatchers.jsonPath("$.errors").value(errors));
     }
 }
