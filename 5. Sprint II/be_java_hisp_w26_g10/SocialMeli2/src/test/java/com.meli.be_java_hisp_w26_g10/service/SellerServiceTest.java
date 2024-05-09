@@ -45,7 +45,7 @@ public class SellerServiceTest {
     SellerServiceImpl sellerService;
 
     @Test
-    @DisplayName("Testeando un correcto escenario para contar seguidores")
+    @DisplayName("T0007 - Testeando un correcto escenario para contar seguidores")
     public void followerCounterOk(){
 
         List<Buyer> buyers = TestGeneratorUtil.createBuyerEnvironment();
@@ -59,7 +59,7 @@ public class SellerServiceTest {
         Assertions.assertEquals(2,result.getFollowers_count());
     }
     @Test
-    @DisplayName("Testeando el conteo de seguidores sobre un Seller sin seguidores")
+    @DisplayName("T0007 - Testeando el conteo de seguidores sobre un Seller sin seguidores")
     public void followerCounterNotFound(){
 
         List<Seller> sellers = new ArrayList<>();
@@ -69,7 +69,7 @@ public class SellerServiceTest {
     }
 
     @Test
-    @DisplayName("Deberia de retornar la lista de seguidores ordenado de manera ascendente por nombre")
+    @DisplayName("T0003 - Deberia de retornar la lista de seguidores ordenado de manera ascendente por nombre")
     public void correctAlphabeticOrderOfFollowwerASC(){
 
         // arrange
@@ -103,7 +103,7 @@ public class SellerServiceTest {
     }
 
     @Test
-    @DisplayName("Deberia de retornar la lista de seguidores ordenado de manera descendente por nombre")
+    @DisplayName("T0003 - Deberia de retornar la lista de seguidores ordenado de manera descendente por nombre")
     public void correctAlphabeticOrderOfFollowwerDESC(){
         // arrange
         String order = "name_desc";
@@ -136,7 +136,7 @@ public class SellerServiceTest {
     }
 
     @Test
-    @DisplayName("Deberia de retornar una excepcion con mensaje ordenamiento no existente")
+    @DisplayName("T0003 - Deberia de retornar una excepcion con mensaje ordenamiento no existente")
     public void incorrectAlphabeticOrderFollower(){
         // arrange
         String order = "name_desc";

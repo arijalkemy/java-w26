@@ -13,7 +13,7 @@ public class SellerRepositoryTest {
 
     SellerRepositoryImpl sellerRepository = new SellerRepositoryImpl();
     @Test
-    @DisplayName("Obtener un usuario que existe ")
+    @DisplayName("T000G - Obtener un usuario que existe ")
     public void getAnExistingUser(){
         //Act && Arrange
         Seller sellerObtained = sellerRepository.getById(1);
@@ -22,7 +22,7 @@ public class SellerRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener un usuario que no existe ")
+    @DisplayName("T0001 - Obtener un usuario que no existe ")
     public void getAnNonExistingUser(){
         //Act && Arrange
         Seller sellerObtained = sellerRepository.getById(1);
@@ -31,7 +31,7 @@ public class SellerRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener todos los usuarios")
+    @DisplayName("T000G - Obtener todos los usuarios")
     public void getAllSellers(){
         //Act && Arrange
         List<Seller> sellers = sellerRepository.getAll();

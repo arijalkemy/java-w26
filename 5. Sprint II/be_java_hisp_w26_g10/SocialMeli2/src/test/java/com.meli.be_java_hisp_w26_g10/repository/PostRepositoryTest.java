@@ -18,7 +18,7 @@ public class PostRepositoryTest {
     PostRepositoryImpl postRepository = new PostRepositoryImpl();
 
     @Test
-    @DisplayName("Obtener un post que existe ")
+    @DisplayName("T000G - Obtener un post que existe ")
     public void getAnExistingPostTest(){
         //Act && Arrange
         Post postObtained = postRepository.getById(1);
@@ -27,7 +27,7 @@ public class PostRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener un post que no existe ")
+    @DisplayName("T000G - Obtener un post que no existe ")
     public void getANonExistingPostTest(){
         //Act && Arrange
         Post postObtained = postRepository.getById(100);
@@ -36,7 +36,7 @@ public class PostRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener todos los post")
+    @DisplayName("T000G - Obtener todos los post")
     public void getAllPostsTest(){
         //Act && Arrange
         List<Post> posts = postRepository.getAll();
@@ -45,7 +45,7 @@ public class PostRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener Id para generar Id consecutivo")
+    @DisplayName("T000G - Obtener Id para generar Id consecutivo")
     public void searchIdPostTest(){
         //Act && Arrange
         int id = postRepository.searchPostId();
@@ -54,7 +54,7 @@ public class PostRepositoryTest {
     }
 
     @Test
-    @DisplayName("Guardar un Post")
+    @DisplayName("T000G - Guardar un Post")
     public void savePostTest(){
         //Act && Arrange
         Product product = new Product(20, "Tenis", "Nike", "Runner", "Gris", "");

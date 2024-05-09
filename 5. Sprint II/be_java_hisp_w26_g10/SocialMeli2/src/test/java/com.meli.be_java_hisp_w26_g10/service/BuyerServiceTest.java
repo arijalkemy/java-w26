@@ -37,7 +37,7 @@ public class BuyerServiceTest {
     BuyerServiceImpl buyerService;
 
     @Test
-    @DisplayName("Seguir a un usuario exitosamente")
+    @DisplayName("T0001 - Seguir a un usuario exitosamente")
     public void followSuccessfullyAnUser(){
         //Act && Arrange
         Buyer buyer = new Buyer(15, "Nicolas", new ArrayList<>());
@@ -52,7 +52,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Seguir a un usuario el cual ya se seguia previamente")
+    @DisplayName("T0001 - Seguir a un usuario el cual ya se seguia previamente")
     public void followUserTwice(){
         //Act && Arrange
         Seller seller = new Seller(15, "Nike");
@@ -65,7 +65,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Realizar la accion de dejar de seguir a un vendedor de forma exitosa")
+    @DisplayName("T0002 - Realizar la accion de dejar de seguir a un vendedor de forma exitosa")
     public void unfollowUserGoodWay() {
 
         Integer followerId = 1;
@@ -81,7 +81,7 @@ public class BuyerServiceTest {
 
     }
     @Test
-    @DisplayName("Dejar de seguir a un vendedor mandando la excepcion NotFoundException")
+    @DisplayName("T0002 - Dejar de seguir a un vendedor mandando la excepcion NotFoundException")
     public void unfollowUserFirstSadPath() {
         Integer followerId = 1;
         Integer unfollowId = 2;
@@ -94,7 +94,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Dejar de seguir a un vendedor mandando la excepcion NotFoundException con el mensaje : 'No sigues al vendedor'")
+    @DisplayName("T0002 - Dejar de seguir a un vendedor mandando la excepcion NotFoundException con el mensaje : 'No sigues al vendedor'")
     public void unfollowUserSecondSadPath() {
         Integer followerId = 1;
         Integer unfollowId = 2;
@@ -108,7 +108,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Obtener la lista de seguidos por usuario sin un ordenamiento definido de manera exitosa")
+    @DisplayName("T0004 - Obtener la lista de seguidos por usuario sin un ordenamiento definido de manera exitosa")
     public void GetFollowedListByUserSuccessful(){
         //Arrange
         ObjectMapper mapper = new ObjectMapper();
@@ -122,7 +122,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Obtener la lista de seguidos de un usuario que no existe")
+    @DisplayName("T0004 - Obtener la lista de seguidos de un usuario que no existe")
     public void GetFollowedListByUserNotFound(){
         //Arrange
         when(buyerRepository.getById(anyInt())).thenReturn(null);
@@ -133,7 +133,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Obtener la lista de seguidos de un usuario ordenada ascendentemente")
+    @DisplayName("T0004 - Obtener la lista de seguidos de un usuario ordenada ascendentemente")
     public void GetFollowedListByUserOrderUpwardSuccessful(){
         //Arrange
         ObjectMapper mapper = new ObjectMapper();
@@ -148,7 +148,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Obtener la lista de seguidos de un usuario ordenada descendentemente")
+    @DisplayName("T0004 - Obtener la lista de seguidos de un usuario ordenada descendentemente")
     public void GetFollowedListByUserOrderDownwardSuccessful(){
         //Arrange
         ObjectMapper mapper = new ObjectMapper();
@@ -163,7 +163,7 @@ public class BuyerServiceTest {
     }
 
     @Test
-    @DisplayName("Obtener la lista de seguidos de un usuario con parametros de ordenamiento invalidos")
+    @DisplayName("T0004 - Obtener la lista de seguidos de un usuario con parametros de ordenamiento invalidos")
     public void GetFollowedListByUserOrderFailedParamsInvalid(){
         //Arrange
         Buyer buyer = TestGeneratorUtil.getBuyerById(10);

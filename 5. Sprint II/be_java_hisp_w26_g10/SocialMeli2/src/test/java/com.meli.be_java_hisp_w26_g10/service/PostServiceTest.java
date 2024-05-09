@@ -49,7 +49,7 @@ public class PostServiceTest {
 
 
     @Test
-    @DisplayName("Se ordenan las publicaciones de los vendedores que sigue por fecha descendente")
+    @DisplayName("T0006 - Se ordenan las publicaciones de los vendedores que sigue por fecha descendente")
     public void postByFollowedOrderDescTest() {
         //Arrange
         List<PostDto> postsDtoResponse;
@@ -72,7 +72,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Se ordenan las publicaciones de los vendedores que sigue por fecha ascendente")
+    @DisplayName("T0006 - Se ordenan las publicaciones de los vendedores que sigue por fecha ascendente")
     public void postByFollowedOrderAscTest() {
         //Arrange
         List<PostDto> postsDtoResponse;
@@ -95,7 +95,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Testeo de ejecucion de ordenamiendo por fecha descendente")
+    @DisplayName("T0005 - Testeo de ejecucion de ordenamiendo por fecha descendente")
     public void testOrderDescPosts() {
         Buyer buyer = TestGeneratorUtil.buyersPostListOrderTest();
 
@@ -111,7 +111,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Publicaciones cuando el comprador no sigue a ningun vendedor")
+    @DisplayName("T0006 - Publicaciones cuando el comprador no sigue a ningun vendedor")
     public void buyerWithoutSellers() {
         //Arrange
         List<PostDto> postsDtoResponse;
@@ -130,7 +130,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Publicaciones cuando los vendedores que sigue el comprador no tiene publicaciones")
+    @DisplayName("T0006 - Publicaciones cuando los vendedores que sigue el comprador no tiene publicaciones")
     public void postByFollowedWithoutPost() {
         //Arrange
         List<PostDto> postsDtoResponse;
@@ -153,7 +153,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Testeo de ejecucion de ordenamiendo por fecha ascendente")
+    @DisplayName("T0005 - Testeo de ejecucion de ordenamiendo por fecha ascendente")
     public void testOrderAscPost() {
         Buyer buyer = TestGeneratorUtil.buyersPostListOrderTest();
 
@@ -169,7 +169,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Testeo de ejecucion de ordenamiento por fecha con variable null")
+    @DisplayName("T0005 - Testeo de ejecucion de ordenamiento por fecha con variable null")
     public void testOrderPostWithNull() {
         Buyer buyer = TestGeneratorUtil.buyersPostListOrderTest();
 
@@ -185,7 +185,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Testeo de ejecucion de ordenamiento por fecha sin palabra clave")
+    @DisplayName("T0005 - Testeo de ejecucion de ordenamiento por fecha sin palabra clave")
     public void testOrderPostWithoutKey() {
         Buyer buyer = TestGeneratorUtil.buyersPostListOrderTest();
 
@@ -198,7 +198,7 @@ public class PostServiceTest {
     }
 
     @Test
-    @DisplayName("Publicaciones de los vendedores en los ultimos 15 dias")
+    @DisplayName("T0008 - Publicaciones de los vendedores en los ultimos 15 dias")
     public void postByFollowedLastDaysTest() {
         //Arrange
         List<PostDto> postsDtoResponse;

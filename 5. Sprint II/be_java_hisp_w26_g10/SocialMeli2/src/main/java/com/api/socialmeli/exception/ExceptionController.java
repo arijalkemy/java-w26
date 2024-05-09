@@ -1,6 +1,7 @@
 package com.api.socialmeli.exception;
 
 import com.api.socialmeli.dto.ExceptionDto;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -10,10 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @ControllerAdvice (annotations = RestController.class)
@@ -32,15 +30,12 @@ public class ExceptionController{
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<List<String>> notFound(MethodArgumentNotValidException e){
-
-        List<FieldError> fieldErrors = e.getFieldErrors();
-
-        // Crear una lista de mensajes de error
-        List<String> errors = new ArrayList<>();
-        for (FieldError error : fieldErrors) {
-            errors.add(error.getField() + ": " + error.getDefaultMessage());
-        }
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<?> NotValid(MethodArgumentNotValidException e) {
+        ExceptionDto exceptionDTO = new ExceptionDto(e.getBindingResult().getFieldErrors().stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .filter(Objects::nonNull)
+                .findFirst()
+                .orElse("Validation fail"));
+        return new ResponseEntity<>(exceptionDTO, HttpStatus.BAD_REQUEST);
     }
 }

@@ -16,7 +16,7 @@ public class BuyerRepositoryTest {
     BuyerRepositoryImpl buyerRepository = new BuyerRepositoryImpl();
 
     @Test
-    @DisplayName("Obtener un usuario que existe ")
+    @DisplayName("T0001 - Obtener un usuario que existe ")
     public void getAnExistingUser(){
         //Act && Arrange
         Buyer buyerObtained = buyerRepository.getById(1);
@@ -25,7 +25,7 @@ public class BuyerRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener un usuario que no existe ")
+    @DisplayName("T0001 - Obtener un usuario que no existe ")
     public void getANonExistingUser(){
         //Act && Arrange
         Buyer buyerObtained = buyerRepository.getById(100);
@@ -34,7 +34,7 @@ public class BuyerRepositoryTest {
     }
 
     @Test
-    @DisplayName("Obtener todos los usuarios")
+    @DisplayName("T000G - Obtener todos los usuarios")
     public void getAllBuyers(){
         //Act && Arrange
         List<Buyer> buyers = buyerRepository.getAll();
@@ -43,7 +43,7 @@ public class BuyerRepositoryTest {
     }
 
     @Test
-    @DisplayName("Seguir a un usuario")
+    @DisplayName("T0001 - Seguir a un usuario")
     public void followUserTest(){
         //Act && Arrange
         Buyer buyer = TestGeneratorUtil.getSingleBuyer();
