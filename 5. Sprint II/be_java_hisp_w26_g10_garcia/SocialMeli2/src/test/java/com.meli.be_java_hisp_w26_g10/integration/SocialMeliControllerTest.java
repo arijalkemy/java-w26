@@ -48,5 +48,23 @@ public class SocialMeliControllerTest {
 
     }
 
+    @Test
+    @DisplayName("Se pide el número de segidores de un vendedor que no existe")
+    public void getFollowersCountNotFoundUserTest() throws Exception {
+        //Arrange
+        Long userId = 100L;
+
+        //Act
+        //Assert
+        this.mockMvc.perform(
+                        MockMvcRequestBuilders.get("/users/{userId}/followers/count",userId)
+                                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print()).andExpect(status().isNotFound());
+
+    }
+
+
+
+
 
 }
