@@ -29,8 +29,7 @@ class UserControllerTest {
     void follow() throws Exception {
         mockMvc.perform(post("/users/{userId}/follow/{userIdToFollow}", 789, 123))
                 .andExpect(status().isOk())
-                .andExpect(content().string(Matchers.blankOrNullString()))
-                .andReturn();
+                .andExpect(content().string(Matchers.blankOrNullString()));
     }
 
     @Test
@@ -47,8 +46,7 @@ class UserControllerTest {
         mockMvc.perform(get("/users/{userId}/followers/count", 123))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{'user_id': 123, 'followers_count' : 1}"))
-                .andReturn();
+                .andExpect(content().json("{'user_id': 123, 'followers_count' : 1}"));
 
     }
 
@@ -68,8 +66,7 @@ class UserControllerTest {
                         .queryParam("order", "name_desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("{'followed':[{'user_id':123,'user_name':'JohnDoe'},{'user_id':234,'user_name':'JaneSmith'}]}"))
-                .andReturn();
+                .andExpect(content().json("{'followed':[{'user_id':123,'user_name':'JohnDoe'},{'user_id':234,'user_name':'JaneSmith'}]}"));
     }
 
     @Test
@@ -78,8 +75,7 @@ class UserControllerTest {
         mockMvc.perform(get("/users/{userId}/followers/list", 123))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andReturn();
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 
     @Test
@@ -87,8 +83,7 @@ class UserControllerTest {
     void unfollow() throws Exception {
         mockMvc.perform(post("/users/{userId}/unfollow/{userIdToUnfollow}", 789, 123))
                 .andExpect(status().isOk())
-                .andExpect(content().string(Matchers.blankOrNullString()))
-                .andReturn();
+                .andExpect(content().string(Matchers.blankOrNullString()));
     }
 
 }

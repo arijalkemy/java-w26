@@ -45,8 +45,7 @@ class ProductControllerTest {
                             "price": 1500.50
                         }"""))
                 .andExpect(status().isOk())
-                .andExpect(content().string(Matchers.blankOrNullString()))
-                .andReturn();
+                .andExpect(content().string(Matchers.blankOrNullString()));
     }
 
     @Test
@@ -79,8 +78,7 @@ class ProductControllerTest {
         mockMvc.perform(get("/products/followed/{userId}/list", 456))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(content().json("[{'post_id': 5}, {'post_id': 2}]"))
-                .andReturn();
+                .andExpect(content().json("[{'post_id': 5}, {'post_id': 2}]"));
     }
 
     @Test
