@@ -38,12 +38,6 @@ public class UsersControllerTestIntegration {
         buyerIdFail = 999999;
     }
 
-    // followUser - POST
-    // unfollowUser - POST
-    // getFollowersCount
-    // getFollowedList
-    // getFollowersList
-
     @Test
     @DisplayName("Should show exit message when you follow valid seller and buyer")
     public void followUserOKTest() throws Exception {

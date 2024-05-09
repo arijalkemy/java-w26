@@ -46,9 +46,6 @@ public class PublicationsControllerTestIntegration {
                 10, 898989.0);
     }
 
-    //createPublication - POST
-    //getFollowedLastTwoWeeksPublications
-
     @Test
     @DisplayName("Should show exit message when you create a post")
     public void createPublicationOKTest() throws Exception {
