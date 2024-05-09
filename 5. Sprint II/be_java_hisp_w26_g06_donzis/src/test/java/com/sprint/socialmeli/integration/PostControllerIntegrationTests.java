@@ -10,10 +10,7 @@ import com.sprint.socialmeli.entity.Customer;
 import com.sprint.socialmeli.entity.Product;
 import com.sprint.socialmeli.entity.Seller;
 import com.sprint.socialmeli.entity.User;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@TestMethodOrder(MethodOrderer.MethodName.class)
 public class PostControllerIntegrationTests {
     @Autowired
     private MockMvc mockMvc;
@@ -122,6 +120,18 @@ public class PostControllerIntegrationTests {
                 .andExpect(jsonPath("$.posts.size()").value(2))
                 .andExpect(jsonPath("$.posts[0].post_id").value(0))
                 .andExpect(jsonPath("$.posts[1].post_id").value(2));
+    }
+
+    @Test
+    public void testPostFromLastTwoWeeksCorrectlyOrderDesc() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/products/followed/" +
+                        101 + "/list?order=date_desc"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.posts.size()").value(2))
+                .andExpect(jsonPath("$.posts[0].post_id").value(2))
+                .andExpect(jsonPath("$.posts[1].post_id").value(0));
     }
 
     @Test
