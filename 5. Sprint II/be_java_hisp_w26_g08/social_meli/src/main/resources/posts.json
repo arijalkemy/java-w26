@@ -1,0 +1,332 @@
+[
+    {
+        "userId": 2,
+        "postId": 16,
+        "date": "05-04-2024",
+        "product": {
+            "productId": 62,
+            "productName": "Headset RGB Inalámbrico",
+            "type": "Gamer",
+            "brand": "Razer",
+            "color": "Green with RGB",
+            "notes": "Sin Batería"
+        },
+        "category": 120,
+        "price": 2800.69
+    },
+    {
+        "userId": 2,
+        "postId": 30,
+        "date": "20-04-2024",
+        "product": {
+            "productId": 62,
+            "productName": "Headset RGB Inalámbrico",
+            "type": "Gamer",
+            "brand": "Razer",
+            "color": "Green with RGB",
+            "notes": "Sin Batería"
+        },
+        "category": 120,
+        "price": 2800.69
+    },
+    {
+        "userId": 2,
+        "postId": 1,
+        "date": "24-04-2024",
+        "product": {
+            "productId": 62,
+            "productName": "Headset RGB Inalámbrico",
+            "type": "Gamer",
+            "brand": "Razer",
+            "color": "Green with RGB",
+            "notes": "Sin Batería"
+        },
+        "category": 120,
+        "price": 2800.69
+    },
+    {
+        "userId": 78,
+        "postId": 2,
+        "date": "02-05-2021",
+        "product": {
+            "productId": 63,
+            "productName": "Teclado Mecánico",
+            "type": "Gamer",
+            "brand": "Corsair",
+            "color": "Black",
+            "notes": "Con Retroiluminación"
+        },
+        "category": 121,
+        "price": 150.99
+    },
+    {
+        "userId": 12,
+        "postId": 3,
+        "date": "03-05-2021",
+        "product": {
+            "productId": 64,
+            "productName": "Mouse Gaming",
+            "type": "Gamer",
+            "brand": "Logitech",
+            "color": "Black",
+            "notes": "Con Cable"
+        },
+        "category": 122,
+        "price": 79.99
+    },
+    {
+        "userId": 89,
+        "postId": 4,
+        "date": "04-05-2021",
+        "product": {
+            "productId": 65,
+            "productName": "Monitor Curvo",
+            "type": "Gamer",
+            "brand": "Samsung",
+            "color": "Black",
+            "notes": "32 Pulgadas"
+        },
+        "category": 123,
+        "price": 699.99
+    },
+    {
+        "userId": 33,
+        "postId": 5,
+        "date": "05-05-2021",
+        "product": {
+            "productId": 66,
+            "productName": "Silla Gaming",
+            "type": "Gamer",
+            "brand": "DXRacer",
+            "color": "Black and Red",
+            "notes": "Ergonómica"
+        },
+        "category": 124,
+        "price": 299.99
+    },
+    {
+        "userId": 55,
+        "postId": 6,
+        "date": "06-05-2021",
+        "product": {
+            "productId": 67,
+            "productName": "PC Gamer",
+            "type": "Gamer",
+            "brand": "Alienware",
+            "color": "Black",
+            "notes": "16GB RAM, 1TB SSD"
+        },
+        "category": 125,
+        "price": 1999.99
+    },
+    {
+        "userId": 72,
+        "postId": 7,
+        "date": "07-05-2021",
+        "product": {
+            "productId": 68,
+            "productName": "Tarjeta Gráfica",
+            "type": "Gamer",
+            "brand": "NVIDIA",
+            "color": "Black",
+            "notes": "RTX 3080"
+        },
+        "category": 126,
+        "price": 899.99
+    },
+    {
+        "userId": 20,
+        "postId": 8,
+        "date": "08-05-2021",
+        "product": {
+            "productId": 69,
+            "productName": "Volante para Simulación",
+            "type": "Gamer",
+            "brand": "Logitech",
+            "color": "Black",
+            "notes": "Con Pedales"
+        },
+        "category": 127,
+        "price": 249.99
+    },
+    {
+        "userId": 91,
+        "postId": 9,
+        "date": "09-05-2021",
+        "product": {
+            "productId": 70,
+            "productName": "Memoria RAM",
+            "type": "Gamer",
+            "brand": "Corsair",
+            "color": "Black",
+            "notes": "16GB DDR4"
+        },
+        "category": 128,
+        "price": 129.99
+    },
+    {
+        "userId": 67,
+        "postId": 10,
+        "date": "10-05-2021",
+        "product": {
+            "productId": 71,
+            "productName": "SSD",
+            "type": "Gamer",
+            "brand": "Samsung",
+            "color": "Black",
+            "notes": "1TB NVMe"
+        },
+        "category": 129,
+        "price": 159.99
+    },
+    {
+        "userId": 14,
+        "postId": 11,
+        "date": "11-05-2021",
+        "product": {
+            "productId": 72,
+            "productName": "Fuente de Poder",
+            "type": "Gamer",
+            "brand": "EVGA",
+            "color": "Black",
+            "notes": "850W 80+ Gold"
+        },
+        "category": 130,
+        "price": 149.99
+    },
+    {
+        "userId": 80,
+        "postId": 12,
+        "date": "12-05-2021",
+        "product": {
+            "productId": 73,
+            "productName": "Caja para PC",
+            "type": "Gamer",
+            "brand": "NZXT",
+            "color": "Black",
+            "notes": "ATX Mid Tower"
+        },
+        "category": 131,
+        "price": 99.99
+    },
+    {
+        "userId": 25,
+        "postId": 13,
+        "date": "13-05-2021",
+        "product": {
+            "productId": 74,
+            "productName": "Auriculares Inalámbricos",
+            "type": "Gamer",
+            "brand": "SteelSeries",
+            "color": "Black",
+            "notes": "Con Micrófono Retráctil"
+        },
+        "category": 132,
+        "price": 199.99
+    },
+    {
+        "userId": 99,
+        "postId": 14,
+        "date": "14-05-2021",
+        "product": {
+            "productId": 75,
+            "productName": "Alfombrilla para Ratón",
+            "type": "Gamer",
+            "brand": "HyperX",
+            "color": "Black",
+            "notes": "XL"
+        },
+        "category": 133,
+        "price": 29.99
+    },
+    {
+        "userId": 60,
+        "postId": 15,
+        "date": "15-05-2021",
+        "product": {
+            "productId": 76,
+            "productName": "Webcam",
+            "type": "Gamer",
+            "brand": "Logitech",
+            "color": "Black",
+            "notes": "1080p"
+        },
+        "category": 134,
+        "price": 79.99
+    },
+    {
+        "userId": 30,
+        "postId": 16,
+        "date": "16-05-2021",
+        "product": {
+            "productId": 77,
+            "productName": "Micrófono",
+            "type": "Gamer",
+            "brand": "Blue",
+            "color": "Black",
+            "notes": "USB"
+        },
+        "category": 135,
+        "price": 129.99
+    },
+    {
+        "userId": 88,
+        "postId": 17,
+        "date": "17-05-2021",
+        "product": {
+            "productId": 78,
+            "productName": "Sistema de Sonido",
+            "type": "Gamer",
+            "brand": "Bose",
+            "color": "Black",
+            "notes": "2.1"
+        },
+        "category": 136,
+        "price": 299.99
+    },
+    {
+        "userId": 15,
+        "postId": 18,
+        "date": "18-05-2021",
+        "product": {
+            "productId": 79,
+            "productName": "Gafas de Realidad Virtual",
+            "type": "Gamer",
+            "brand": "Oculus",
+            "color": "Black",
+            "notes": "Quest 2"
+        },
+        "category": 137,
+        "price": 299.99
+    },
+    {
+        "userId": 72,
+        "postId": 19,
+        "date": "19-05-2021",
+        "product": {
+            "productId": 80,
+            "productName": "Gamepad",
+            "type": "Gamer",
+            "brand": "Microsoft",
+            "color": "Black",
+            "notes": "Xbox Series X"
+        },
+        "category": 138,
+        "price": 59.99
+    },
+    {
+        "userId": 40,
+        "postId": 20,
+        "date": "20-05-2021",
+        "product": {
+            "productId": 81,
+            "productName": "Consola Portátil",
+            "type": "Gamer",
+            "brand": "Nintendo",
+            "color": "Red",
+            "notes": "Switch OLED"
+        },
+        "category": 139,
+        "price": 349.99
+    }
+]

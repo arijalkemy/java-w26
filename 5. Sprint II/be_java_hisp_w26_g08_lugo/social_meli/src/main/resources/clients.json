@@ -1,0 +1,41 @@
+[
+  {
+    "user": {
+      "userId": 3,
+      "userName": "ceverett2",
+      "isSeller": false
+    },
+    "follower": [
+      {
+        "userId": 2,
+        "userName": "dclail1",
+        "isSeller": true
+      },
+      {
+        "userId": 5,
+        "userName": "msynnott4",
+        "isSeller": true
+      }
+
+    ]
+  },
+  {
+    "user": {
+      "userId": 1,
+      "userName": "wcalderwood0",
+      "isSeller": false
+    },
+    "follower": [
+      {
+        "userId": 2,
+        "userName": "dclail1",
+        "isSeller": true
+      },
+      {
+        "userId": 5,
+        "userName": "msynnott4",
+        "isSeller": true
+      }
+    ]
+  }
+]
