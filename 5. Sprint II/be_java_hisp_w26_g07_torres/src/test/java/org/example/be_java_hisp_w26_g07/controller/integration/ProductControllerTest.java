@@ -1,6 +1,5 @@
 package org.example.be_java_hisp_w26_g07.controller.integration;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -31,14 +30,12 @@ public class ProductControllerTest {
     @Autowired
     WebApplicationContext context;
     private static ObjectWriter writer;
-    private static ObjectMapper mapper;
 
     @BeforeAll
     public static void setup() {
         writer = new ObjectMapper()
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer();
-        mapper = new ObjectMapper();
     }
 
     @BeforeEach
@@ -50,8 +47,25 @@ public class ProductControllerTest {
     }
 
     /**
+     * Test for non-existent route
+     * throws NotFoundException
+     */
+    @Test
+    @DisplayName("Get NotFound exception with invalid endpoint")
+    void invalidEndpointTest() throws Exception {
+        // Given - Arrange
+        // When - Act
+        ResultActions response = this.mockMvc.perform(
+                MockMvcRequestBuilders.get("/non/existent/route")
+        );
+
+        // Then - Assert
+        response.andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    /**
      * Test for the /products/post
-     * throws ResponseEntity of ValidErrorDto and BAD_REQUEST
+     * ValidErrorDto
      */
     @Test
     @DisplayName("Add post with invalid body throws an error")
@@ -77,7 +91,6 @@ public class ProductControllerTest {
     /**
      * Test for the /products/post
      * throws BadRequestException
-     * with message: UserMessageError.USER_NOT_FOUND.getMessage({userId})
      */
     @Test
     @DisplayName("Add post with un-existent user")
@@ -103,7 +116,30 @@ public class ProductControllerTest {
 
     /**
      * Test for the /products/post
-     * returns ResponseEntity of PostDto and status 200-OK
+     * returns PostDto
+     */
+    @Test
+    @DisplayName("Error with MessageNotReadableException")
+    void addPostTestMessageNotReadable() throws Exception {
+        // Given - Arrange
+        // When - Act
+        ResultActions response = this.mockMvc.perform(
+                MockMvcRequestBuilders.post("/products/post")
+                        .content("Invalid body format")
+                        .contentType(MediaType.APPLICATION_JSON)
+        );
+
+        // Then - Assert
+        response.andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(
+                        MockMvcResultMatchers.jsonPath("$.message")
+                                .value("Formato no valido")
+                );
+    }
+
+    /**
+     * Test for the /products/post
+     * returns PostDto
      */
     @Test
     @DisplayName("Add post successfully")
@@ -124,5 +160,86 @@ public class ProductControllerTest {
         MvcResult result = response.andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
         String resultStr = result.getResponse().getContentAsString();
         Assertions.assertEquals(expectedPostStr, resultStr);
+    }
+
+    /**
+     * Test for the /products/followed/{userId}/list
+     * throws ConstraintValidationException
+     */
+    @Test
+    @DisplayName("Error with the posts list due to null user id")
+    void postsListInvalidUser() throws Exception {
+        // Given - Arrange
+        // When - Act
+        ResultActions response = this.mockMvc.perform(
+                MockMvcRequestBuilders.get("/products/followed/{userId}/list", -29)
+        );
+
+        // Then - Assert
+        response.andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(
+                MockMvcResultMatchers.jsonPath("$.message")
+                        .value("Por favor corregir los siguientes datos: ")
+        );
+    }
+
+    /**
+     * Test for the /products/followed/{userId}/list
+     * throws ConstraintValidationException
+     */
+    @Test
+    @DisplayName("Error with the posts list due to non-numeric user id")
+    void postsListNotANumber() throws Exception {
+        // Given - Arrange
+        // When - Act
+        ResultActions response = this.mockMvc.perform(
+                MockMvcRequestBuilders.get("/products/followed/{userId}/list", "something")
+        );
+
+        // Then - Assert
+        response.andExpect(MockMvcResultMatchers.status().isBadRequest())
+                .andExpect(
+                        MockMvcResultMatchers.jsonPath("$.message")
+                                .value("El valor ingresado en la ruta debe ser numérico")
+                );
+    }
+
+    /**
+     * Test for the /products/followed/{userId}/list
+     * throws ConstraintValidationException
+     */
+    @Test
+    @DisplayName("Error with the posts list with message not readable")
+    void postsListMessageNotReadable() throws Exception {
+        // Given - Arrange
+        // When - Act
+        ResultActions response = this.mockMvc.perform(
+                MockMvcRequestBuilders.get("/products/followed/{userId}/list", 1)
+                        .accept(MediaType.APPLICATION_FORM_URLENCODED)
+        );
+
+        // Then - Assert
+        response.andExpect(MockMvcResultMatchers.status().isNotAcceptable());
+    }
+
+    /**
+     * Test for the /products/followed/{userId}/list
+     * throws NotFoundException
+     */
+    @Test
+    @DisplayName("Error with the posts list user does not exist")
+    void postsListUserNotFound() throws Exception {
+        // Given - Arrange
+        // When - Act
+        ResultActions response = this.mockMvc.perform(
+                MockMvcRequestBuilders.get("/products/followed/{userId}/list", 999)
+        );
+
+        // Then - Assert
+        response.andExpect(MockMvcResultMatchers.status().isNotFound())
+                .andExpect(
+                        MockMvcResultMatchers.jsonPath("$.message")
+                                .value(UserMessageError.USER_NOT_FOUND.getMessage(999))
+                );
     }
 }
