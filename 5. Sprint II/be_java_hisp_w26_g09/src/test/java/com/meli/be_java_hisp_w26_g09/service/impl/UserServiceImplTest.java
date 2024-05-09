@@ -18,11 +18,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.io.IOException;
+
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
@@ -69,7 +71,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to follow an user with valid IDs and Roles")
-    void testFollowUser_ValidUserIdsAndRoles_Success() {
+    void testFollowUserValidUserIdsAndRolesSuccess() {
         Integer userId = 1;
         Integer userIdToFollow = 2;
 
@@ -89,7 +91,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to follow an user with non existent user to follow")
-    void testFollowUser_NonexistentUserToFollow_ExceptionThrown() {
+    void testFollowUserNonexistentUserToFollowExceptionThrown() {
         Integer userId = 1;
         Integer userIdToFollow = 2;
 
@@ -102,7 +104,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to follow an user with the same roles")
-    void testFollowUser_SameRoleUsers_ExceptionThrown() {
+    void testFollowUserSameRoleUsersExceptionThrown() {
         Integer userId = 1;
         Integer userIdToFollow = 2;
 
@@ -117,7 +119,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to follow an user who is already in followed list")
-    void testFollowUser_AlreadyInFollowedList_ExceptionThrown() {
+    void testFollowUserAlreadyInFollowedListExceptionThrown() {
         Integer userId = 1;
         Integer userIdToFollow = 2;
 
@@ -132,7 +134,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to follow a customer by a seller")
-    void testFollowUser_SellerFollowCustomer_ExceptionThrown(){
+    void testFollowUserSellerFollowCustomerExceptionThrown() {
         Integer userId = 1;
         Integer userIdToFollow = 2;
 
@@ -147,7 +149,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to unfollow a user with valid IDs and roles")
-    void testUnfollowUser_ValidUserIdsAndRoles_Success(){
+    void testUnfollowUserValidUserIdsAndRolesSuccess() {
         Integer userId = 1;
         Integer userIdToUnfollow = 2;
 
@@ -166,7 +168,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to unfollow an user who is not on the followed list")
-    void testUnfollowUser_NonexistentInFollowedList_ExceptionThrown() {
+    void testUnfollowUserNonexistentInFollowedListExceptionThrown() {
         Integer userId = 1;
         Integer userIdToUnfollow = 2;
 
@@ -178,7 +180,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to unfollow an user who wants to unfollow themselves")
-    void testUnfollowUser_UnfollowThemselves_ExceptionThrown() {
+    void testUnfollowUserUnfollowThemselvesExceptionThrown() {
         Integer userId = 1;
 
         User customer = new User(userId, "JohnDoe", new Role(Role.ID_CUSTOMER, "Customer"), new ArrayList<>());
@@ -189,7 +191,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Test to unfollow an user with invalid roles")
-    void testUnfollowUser_UnfollowUserWithInvalidRole_ExceptionThrown() {
+    void testUnfollowUserUnfollowUserWithInvalidRoleExceptionThrown() {
         Integer userId = 1;
         Integer userIdToUnfollow = 2;
 
@@ -239,7 +241,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get Followed by id, when user by id not found")
-    void testGetFollowedsById_UserNotFoundException() {
+    void testGetFollowedsByIdUserNotFoundException() {
         // arrange
         String order = "name_asc";
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.empty());
@@ -253,7 +255,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get Followed by id, when user not is customer")
-    void testGetFollowedById_NotContentFollowedException() {
+    void testGetFollowedByIdNotContentFollowedException() {
         // arrange
         String order = "name_asc";
         Role role = user.getRole();
@@ -270,7 +272,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get followeds by id, when is bad request")
-    void testGetFollowedById_BadRequestException() {
+    void testGetFollowedByIdBadRequestException() {
         // arrange
         String order = "name_ascending";
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.of(user));
@@ -336,7 +338,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get Followers by id, when user by id not found")
-    void testGetFollowersById_UserNotFoundException() {
+    void testGetFollowersByIdUserNotFoundException() {
         // arrange
         String order = "name_asc";
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.empty());
@@ -350,7 +352,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get Followers by id, when user not is seller")
-    void testGetFollowersById_NotContentFollowedException() {
+    void testGetFollowersByIdNotContentFollowedException() {
         // arrange
         String order = "name_asc";
         when(userRepository.findById(user.getUserId())).thenReturn(Optional.of(user));
@@ -364,7 +366,7 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get followers by id, when is bad request")
-    void testGetFollowersById_BadRequestException() {
+    void testGetFollowersByIdWithBadRequestException() {
         // arrange
         String order = "name_ascending";
         user.getRole().setIdRole(Role.ID_SELLER);
@@ -381,8 +383,8 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get the number of followers of a seller")
-    public void getFollowersCountTest(){
-        RoleDTO roleDTO = new RoleDTO(1,"Seller");
+    public void getFollowersCountTest() {
+        RoleDTO roleDTO = new RoleDTO(1, "Seller");
 
         List<UserDTO> followers = Arrays.asList(
                 new UserDTO(2, "follower1", null, new ArrayList<>(), new ArrayList<>(), 0),
@@ -391,7 +393,7 @@ class UserServiceImplTest {
                 new UserDTO(3, "follower4", null, new ArrayList<>(), new ArrayList<>(), 0),
                 new UserDTO(3, "follower5", null, new ArrayList<>(), new ArrayList<>(), 0));
 
-        UserDTO userDTOTest = new UserDTO(1,"Pedro Perez",roleDTO,new ArrayList<>(),followers,null);
+        UserDTO userDTOTest = new UserDTO(1, "Pedro Perez", roleDTO, new ArrayList<>(), followers, null);
         Integer idTest = 1;
 
         when(userServiceMock.getFollowersCount(idTest)).thenCallRealMethod();
@@ -402,12 +404,12 @@ class UserServiceImplTest {
 
     @Test
     @DisplayName("Get the number of followers of a seller without followers")
-    public void getFollowersCountNullTest(){
-        RoleDTO roleDTO = new RoleDTO(1,"Seller");
+    public void getFollowersCountNullTest() {
+        RoleDTO roleDTO = new RoleDTO(1, "Seller");
 
         List<UserDTO> followers = new ArrayList<>();
 
-        UserDTO userDTOTest = new UserDTO(1,"Pedro Perez",roleDTO,new ArrayList<>(),followers,null);
+        UserDTO userDTOTest = new UserDTO(1, "Pedro Perez", roleDTO, new ArrayList<>(), followers, null);
         Integer idTest = 1;
 
         when(userServiceMock.getFollowersCount(idTest)).thenCallRealMethod();

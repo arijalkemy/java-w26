@@ -96,7 +96,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user_id\": 17,\n    \"date\": \"2024-04-04\",\n    \"product\": {\n      \"product_id\": 40,\n      \"product_name\": \"HyperX Cloud II Gaming Headset\",\n      \"type\": \"Headset\",\n      \"brand\": \"HyperX\",\n      \"color\": \"Red\",\n      \"notes\": \"7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable noise-canceling microphone\"\n    },\n    \"category\": 2,\n    \"price\": 99.99\n  }",
+					"raw": "{\n    \"user_id\": 17,\n    \"date\": \"04-04-2024\",\n    \"product\": {\n      \"product_id\": 40,\n      \"product_name\": \"HyperX Cloud II Gaming Headset\",\n      \"type\": \"Headset\",\n      \"brand\": \"HyperX\",\n      \"color\": \"Red\",\n      \"notes\": \"Detachable noise-canceling microphone\"\n    },\n    \"category\": 2,\n    \"price\": 99.99\n  }",
 					"options": {
 						"raw": {
 							"language": "json"

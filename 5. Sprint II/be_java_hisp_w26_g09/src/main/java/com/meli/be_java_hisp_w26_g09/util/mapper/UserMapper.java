@@ -1,7 +1,6 @@
 package com.meli.be_java_hisp_w26_g09.util.mapper;
 
 import com.meli.be_java_hisp_w26_g09.dto.UserDTO;
-import com.meli.be_java_hisp_w26_g09.entity.Role;
 import com.meli.be_java_hisp_w26_g09.entity.User;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +26,6 @@ public class UserMapper {
     }
 
 
-
     public User userDTOToUser(UserDTO userDTO) {
 
         if (userDTO == null || userDTO.getUserId() == null)
@@ -38,7 +36,7 @@ public class UserMapper {
         user.setUserName(userDTO.getUserName());
         user.setFollowed(user.getFollowed() != null
                 && (userDTO.getFollowed().isEmpty()) ? null :
-                        userDTOListToUserList(userDTO.getFollowed()));
+                userDTOListToUserList(userDTO.getFollowed()));
 
         return user;
     }
@@ -83,10 +81,10 @@ public class UserMapper {
         return userDTO;
     }
 
-    public List<UserDTO> listUserToListUserDTOwithoutFolloweds(List<User> users){
+    public List<UserDTO> listUserToListUserDTOwithoutFolloweds(List<User> users) {
         RoleMapper roleMapper = new RoleMapper();
         List<UserDTO> result = new ArrayList<>();
-        for (User u: users){
+        for (User u : users) {
             result.add(new UserDTO(u.getUserId(),
                     u.getUserName(),
                     roleMapper.roleToRoleDTO(u.getRole()),
@@ -96,7 +94,6 @@ public class UserMapper {
         }
         return result;
     }
-
 
 
 }
