@@ -21,7 +21,7 @@ public class UserControllerTest {
 
 
     @Test
-    @DisplayName("Integracion: camino feliz de endpoint /{userId}/follow/{userIdToFollow}")
+    @DisplayName("Integracion: camino feliz de endpoint /users/{userId}/follow/{userIdToFollow}")
     public void followTestOk() throws Exception {
 
         int userId = 1;
