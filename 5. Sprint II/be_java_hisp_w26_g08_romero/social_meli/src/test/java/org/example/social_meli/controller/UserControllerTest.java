@@ -35,9 +35,9 @@ class UserControllerTest {
         String url = String.format("/users/%d/unfollow/%d", userId, userIdToUnfollow);
 
         mockMvc.perform(MockMvcRequestBuilders.post(url)
-                .contentType("application/json"))
+                        .contentType("application/json"))
                 .andDo(print())
-                .andExpect(content().string("{\"user_id\":1,\"user_name\":\"wcalderwood0\",\"follower\":[]}"))
+                .andExpect(content().string("{\"userId\":1,\"userName\":\"wcalderwood0\",\"follower\":[]}"))
                 .andExpect(status().isOk());
     }
 
@@ -52,7 +52,7 @@ class UserControllerTest {
                         .contentType("application/json"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().json("{\"user_id\": 2, \"user_name\": \"dclail1\", \"followers_count\": 2}"));
+                .andExpect(content().json("{\"userId\": 2, \"userName\": \"dclail1\", \"followersCount\": 2}"));
     }
 
     @Test

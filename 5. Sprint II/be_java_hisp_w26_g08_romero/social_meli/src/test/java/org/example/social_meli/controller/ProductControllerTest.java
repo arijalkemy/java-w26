@@ -27,12 +27,12 @@ public class ProductControllerTest {
 
     private PostDTO createPostDTO() {
         return PostDTO.builder()
-                .post_id(new Random().nextInt(150, 2000))
-                .user_id(2)
+                .postId(new Random().nextInt(150, 2000))
+                .userId(2)
                 .date(LocalDate.now())
                 .product(ProductDTO.builder()
-                        .product_id(1)
-                        .product_name("Producto 1")
+                        .productId(1)
+                        .productName("Producto 1")
                         .type("Tipo 1")
                         .brand("Marca 1")
                         .color("Color 1")
@@ -53,7 +53,7 @@ public class ProductControllerTest {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(postDTO)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(2));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(2));
     }
 
     @Test
@@ -64,10 +64,11 @@ public class ProductControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get(url))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(1))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_name").value("wcalderwood0"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(1))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userName").value("wcalderwood0"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.follower").isEmpty());
 
     }
 
 }
+

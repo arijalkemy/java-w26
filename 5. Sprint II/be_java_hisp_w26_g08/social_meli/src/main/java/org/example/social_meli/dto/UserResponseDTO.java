@@ -11,7 +11,7 @@ import java.util.*;
 @AllArgsConstructor
 @Builder
 public class UserResponseDTO {
-    private Integer user_id;
-    private String user_name;
+    private Integer userId;
+    private String userName;
     private List<UserDTO> follower;
 }

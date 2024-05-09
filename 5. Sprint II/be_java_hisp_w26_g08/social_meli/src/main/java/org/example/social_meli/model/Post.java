@@ -15,8 +15,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class Post {
-    private Integer post_id;
-    private Integer user_id;
+    private Integer postId;
+    private Integer userId;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)

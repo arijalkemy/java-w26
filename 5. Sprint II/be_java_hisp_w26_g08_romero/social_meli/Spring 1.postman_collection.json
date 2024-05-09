@@ -109,7 +109,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user_id\": 2,\n    \"post_id\": 106,\n    \"date\": \"01-05-2021\",\n    \"product\": {\n        \"product_id\": 62,\n        \"product_name\": \"Headset RGB Inalámbrico\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Razer\",\n        \"color\": \"Green with RGB\",\n        \"notes\": \"Sin Batería\"\n    },\n    \"category\": 120,\n    \"price\": 2800.69\n}",
+					"raw": "{\n    \"userId\": 2,\n    \"postId\": 106,\n    \"date\": \"01-05-2021\",\n    \"product\": {\n        \"productId\": 62,\n        \"productName\": \"Headset RGB Inalámbrico\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Razer\",\n        \"color\": \"Green with RGB\",\n        \"notes\": \"Sin Batería\"\n    },\n    \"category\": 120,\n    \"price\": 2800.69\n}",
 					"options": {
 						"raw": {
 							"language": "json"

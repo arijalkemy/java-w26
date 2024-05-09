@@ -58,13 +58,13 @@ class UserServiceImplTest {
 
     Integer id;
     String orderBy;
-    String user_name;
+    String userName;
 
     @BeforeEach()
     void setUp(){
 
-        user.setUser_id(1);
-        user.setUser_name("Test User");
+        user.setUserId(1);
+        user.setUserName("Test User");
         followerList.getFollower().add(new User());
         followerList.getFollower().add(new User());
 
@@ -202,8 +202,8 @@ class UserServiceImplTest {
     void countFollowersTest() {
         //Arrange
         User user = new User();
-        user.setUser_id(1);
-        user.setUser_name("Test User");
+        user.setUserId(1);
+        user.setUserName("Test User");
 
         FollowerList followerList = new FollowerList(user);
         followerList.getFollower().add(new User());
@@ -213,9 +213,9 @@ class UserServiceImplTest {
         //Act
         UserCountResponseDTO result = userService.countFollowers(1);
         //Assertions
-        assertEquals(1, result.getUser_id());
-        assertEquals("Test User", result.getUser_name());
-        assertEquals(2, result.getFollowers_count());
+        assertEquals(1, result.getUserId());
+        assertEquals("Test User", result.getUserName());
+        assertEquals(2, result.getFollowersCount());
     }
 
     @DisplayName("Test Empty Followers List")
@@ -223,8 +223,8 @@ class UserServiceImplTest {
     void emptyFollowersListTest() {
         //Arrange
         User user = new User();
-        user.setUser_id(1);
-        user.setUser_name("Test User");
+        user.setUserId(1);
+        user.setUserName("Test User");
 
         FollowerList followerList = new FollowerList(user);
 
@@ -232,9 +232,9 @@ class UserServiceImplTest {
         //Act
         UserCountResponseDTO result = userService.countFollowers(1);
         //Assertions
-        assertEquals(1, result.getUser_id());
-        assertEquals("Test User", result.getUser_name());
-        assertTrue(result.getFollowers_count() == 0);
+        assertEquals(1, result.getUserId());
+        assertEquals("Test User", result.getUserName());
+        assertTrue(result.getFollowersCount() == 0);
     }
 
     @Test
@@ -243,9 +243,9 @@ class UserServiceImplTest {
         //Arrange
         id=2;
         orderBy="name_asc";
-        user_name="user2";
-        userResponseDTO.setUser_id(id);
-        userResponseDTO.setUser_name(user_name);
+        userName="user2";
+        userResponseDTO.setUserId(id);
+        userResponseDTO.setUserName(userName);
         userResponseDTO.setFollower(List.of());
         FollowerList followerList = new FollowerList(new User(2, "user2", true),List.of());
 
@@ -264,9 +264,9 @@ class UserServiceImplTest {
         //Arrange
         id=2;
         orderBy="name_desc";
-        user_name="user2";
-        userResponseDTO.setUser_id(id);
-        userResponseDTO.setUser_name(user_name);
+        userName="user2";
+        userResponseDTO.setUserId(id);
+        userResponseDTO.setUserName(userName);
         userResponseDTO.setFollower(List.of());
         FollowerList followerList = new FollowerList(new User(2, "user2", true), List.of());
 
@@ -285,9 +285,9 @@ class UserServiceImplTest {
         //Arrange
         id=1;
         orderBy="name_asc";
-        user_name="user1";
-        userResponseDTO.setUser_id(id);
-        userResponseDTO.setUser_name(user_name);
+        userName="user1";
+        userResponseDTO.setUserId(id);
+        userResponseDTO.setUserName(userName);
         userResponseDTO.setFollower(List.of());
         FollowerList followerList = new FollowerList(new User(1, "user1", false),List.of());
 
@@ -306,9 +306,9 @@ class UserServiceImplTest {
         //Arrange
         id=1;
         orderBy="name_desc";
-        user_name="user1";
-        userResponseDTO.setUser_id(id);
-        userResponseDTO.setUser_name(user_name);
+        userName="user1";
+        userResponseDTO.setUserId(id);
+        userResponseDTO.setUserName(userName);
         userResponseDTO.setFollower(List.of());
         FollowerList followerList = new FollowerList(new User(1, "user1", false),List.of());
 
@@ -327,7 +327,7 @@ class UserServiceImplTest {
         //Arrange
         id=1;
         orderBy="qwerty";
-        user_name="user1";
+        userName="user1";
         FollowerList followerList = new FollowerList(new User(1, "user1", false),List.of());
 
         when(userRepository.findSellerById(anyInt())).thenReturn(followerList);
@@ -342,7 +342,7 @@ class UserServiceImplTest {
         //Arrange
         id=1;
         orderBy="qwerty";
-        user_name="user1";
+        userName="user1";
         FollowerList followerList = new FollowerList(new User(1, "user1", false),List.of());
 
         when(userRepository.findClientById(anyInt())).thenReturn(followerList);
@@ -356,8 +356,8 @@ class UserServiceImplTest {
         //Arrange
         String order = "name_asc";
         UserResponseDTO expectedResult = UserResponseDTO.builder()
-                .user_id(1)
-                .user_name("username1")
+                .userId(1)
+                .userName("username1")
                 .follower(List.of(
                         new UserDTO(3,"Aseller"),
                         new UserDTO(12,"Darth Mouth"),
@@ -376,8 +376,8 @@ class UserServiceImplTest {
     void getOrderedFollowedListDescTest(){
         //Arrange
         UserResponseDTO expectedResult = UserResponseDTO.builder()
-                .user_id(1)
-                .user_name("username1")
+                .userId(1)
+                .userName("username1")
                 .follower(List.of(
                         new UserDTO(4,"zorth"),
                         new UserDTO(2,"darth"),
@@ -397,8 +397,8 @@ class UserServiceImplTest {
         //Arrange
         String order = "name_asc";
         UserResponseDTO expectedResult = UserResponseDTO.builder()
-                .user_id(12)
-                .user_name("Darth Mouth")
+                .userId(12)
+                .userName("Darth Mouth")
                 .follower(List.of(
                         new UserDTO(5,"Lisa"),
                         new UserDTO(3,"Mister X" ),
@@ -416,8 +416,8 @@ class UserServiceImplTest {
         //Arrange
         String order = "name_desc";
         UserResponseDTO expectedResult = UserResponseDTO.builder()
-                .user_id(12)
-                .user_name("Darth Mouth")
+                .userId(12)
+                .userName("Darth Mouth")
                 .follower(List.of(
                         new UserDTO(1,"username1"),
                         new UserDTO(3,"Mister X" ),

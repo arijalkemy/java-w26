@@ -12,6 +12,5 @@ class SocialMeliApplicationTests {
 
     @Test
     void main() {
-
     }
 }
