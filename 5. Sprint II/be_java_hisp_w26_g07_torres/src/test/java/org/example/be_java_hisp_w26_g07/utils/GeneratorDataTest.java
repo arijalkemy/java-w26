@@ -3,6 +3,9 @@ package org.example.be_java_hisp_w26_g07.utils;
 import org.example.be_java_hisp_w26_g07.dto.products.PostDto;
 import org.example.be_java_hisp_w26_g07.dto.products.PostRequestDto;
 import org.example.be_java_hisp_w26_g07.dto.products.ProductDto;
+import org.example.be_java_hisp_w26_g07.dto.users.FollowedResponseDto;
+import org.example.be_java_hisp_w26_g07.dto.users.FollowersResponseDto;
+import org.example.be_java_hisp_w26_g07.dto.users.UserInfoFollowsDto;
 import org.example.be_java_hisp_w26_g07.entity.Post;
 import org.example.be_java_hisp_w26_g07.entity.Product;
 import org.example.be_java_hisp_w26_g07.entity.User;
@@ -127,5 +130,17 @@ public class GeneratorDataTest {
         customPostDto.setProduct(postRequestDto.getProduct());
 
         return customPostDto;
+    }
+
+    public static FollowersResponseDto getFollowerResponseDto() {
+        return new FollowersResponseDto(
+                1,
+                "Monica",
+                List.of(
+                        new UserInfoFollowsDto(2, "Santiago"),
+                        new UserInfoFollowsDto(3, "Cristian"),
+                        new UserInfoFollowsDto(4, "Edwin")
+                )
+        );
     }
 }

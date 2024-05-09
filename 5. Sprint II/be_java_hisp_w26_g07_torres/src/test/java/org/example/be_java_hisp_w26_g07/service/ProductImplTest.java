@@ -25,6 +25,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.atLeast;
@@ -142,7 +143,7 @@ class ProductImplTest {
         // When - Act
         List<PostDto> response = productImpl.findProductByFollow(1, "date_asc");
         // Then - Assert
-        org.assertj.core.api.Assertions.assertThat(response)
+        assertThat(response)
                 .usingRecursiveFieldByFieldElementComparator()
                 .containsExactlyElementsOf(orderedMockPostDtos);
     }
@@ -164,7 +165,7 @@ class ProductImplTest {
         // When - Act
         List<PostDto> response = productImpl.findProductByFollow(1, "date_desc");
         // Then - Assert
-        org.assertj.core.api.Assertions.assertThat(response)
+        assertThat(response)
                 .usingRecursiveFieldByFieldElementComparator()
                 .containsExactlyElementsOf(orderedMockPostDtos);
     }
