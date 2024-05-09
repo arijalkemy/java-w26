@@ -1,0 +1,322 @@
+[
+  {
+    "user_id": 1,
+    "user_name": "JohnDoe",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [{
+      "user_id": 2,
+      "user_name": "AliceSmith",
+      "role": {
+        "id_role" : 2,
+        "name_role" : "Seller"
+      }},
+      {
+        "user_id": 4,
+        "user_name": "EmilyBrown",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": 2,
+    "user_name": "AliceSmith",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 3,
+    "user_name": "BobJohnson",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [
+      {
+        "user_id": 4,
+        "user_name": "EmilyBrown",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": 4,
+    "user_name": "EmilyBrown",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 5,
+    "user_name": "MichaelDavis",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 6,
+    "user_name": "JessicaWilson",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [{
+      "user_id": 2,
+      "user_name": "AliceSmith",
+      "role": {
+        "id_role" : 2,
+        "name_role" : "Seller"
+      }},
+      {
+        "user_id": 4,
+        "user_name": "EmilyBrown",
+        "role": {
+          "id_role": 2,
+          "name_role": "Seller"
+        }
+      },
+      {
+        "user_id": 5,
+        "user_name": "MichaelDavis",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": 7,
+    "user_name": "DavidMartinez",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 8,
+    "user_name": "SarahAnderson",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 9,
+    "user_name": "ChristopherTaylor",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 10,
+    "user_name": "AmandaThomas",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [
+      {
+        "user_id": 9,
+        "user_name": "ChristopherTaylor",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      },
+      {
+        "user_id": 8,
+        "user_name": "SarahAnderson",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+
+    ]
+  },
+  {
+    "user_id": 11,
+    "user_name": "JamesLee",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 12,
+    "user_name": "JenniferGarcia",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [
+      {
+        "user_id": 11,
+        "user_name": "JamesLee",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      },
+      {
+        "user_id": 13,
+        "user_name": "MatthewRodriguez",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": 13,
+    "user_name": "MatthewRodriguez",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 14,
+    "user_name": "MeganLopez",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [
+      {"user_id": 15,
+        "user_name": "DanielPerez",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      },
+      {
+        "user_id": 17,
+        "user_name": "RyanGonzalez",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": 15,
+    "user_name": "DanielPerez",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 16,
+    "user_name": "LaurenHernandez",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [{
+      "user_id": 17,
+      "user_name": "RyanGonzalez",
+      "role": {
+        "id_role" : 2,
+        "name_role" : "Seller"
+      }
+    },
+      {
+        "user_id": 19,
+        "user_name": "BrandonMoore",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }
+    ]
+  },
+  {
+    "user_id": 17,
+    "user_name": "RyanGonzalez",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 18,
+    "user_name": "AshleyYoung",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [{
+      "user_id": 19,
+      "user_name": "BrandonMoore",
+      "role": {
+        "id_role" : 2,
+        "name_role" : "Seller"
+      }
+    },
+      {
+        "user_id": 17,
+        "user_name": "RyanGonzalez",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }]
+  },
+  {
+    "user_id": 19,
+    "user_name": "BrandonMoore",
+    "role": {
+      "id_role" : 2,
+      "name_role" : "Seller"
+    }
+  },
+  {
+    "user_id": 20,
+    "user_name": "OliviaKing",
+    "role": {
+      "id_role" : 1,
+      "name_role" : "Customer"
+    },
+    "followed" : [{
+      "user_id": 17,
+      "user_name": "RyanGonzalez",
+      "role": {
+        "id_role" : 2,
+        "name_role" : "Seller"
+      }
+    },
+      {
+        "user_id": 2,
+        "user_name": "AliceSmith",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }},
+      {
+        "user_id": 4,
+        "user_name": "EmilyBrown",
+        "role": {
+          "id_role" : 2,
+          "name_role" : "Seller"
+        }
+      }]
+  }
+]
