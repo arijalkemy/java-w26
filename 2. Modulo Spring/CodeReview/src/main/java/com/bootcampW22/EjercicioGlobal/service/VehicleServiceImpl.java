@@ -80,6 +80,7 @@ public class VehicleServiceImpl implements IVehicleService{
         List<Vehicle> vehicleFiltred = vehicles.stream().filter(vehicle -> vehicle.getColor().equals(color) && vehicle.getYear() == year).collect(Collectors.toList());
         if (vehicleFiltred.isEmpty()){
             throw new NotFoundException("No se han encontrado autos de ese color y año");
+
         }
         return new ResponseEntity<>(vehicleFiltred, HttpStatus.OK);
 
