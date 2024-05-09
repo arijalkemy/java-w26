@@ -86,7 +86,7 @@ public class GeneratorTest {
 
     public static PostsByFollowedDTO createPostsByFollowedDTO(PostDTO post) {
         Post postModel = PostMapper.postDtoToPost(post, seller);
-        postModel.setId(1L);
+        postModel.setId(2L);
 
         return PostMapper.postToPostByFollowed(3L, List.of(postModel));
     }

@@ -8,14 +8,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mercadolibre.NotNullTeam.DTO.request.post.PostDTO;
-import org.mercadolibre.NotNullTeam.DTO.request.product.ProductDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.post.PostsByFollowedDTO;
-import org.mercadolibre.NotNullTeam.mapper.PostMapper;
-import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.model.Seller;
-import org.mercadolibre.NotNullTeam.model.User;
-import org.mercadolibre.NotNullTeam.repository.IBuyerRepository;
-import org.mercadolibre.NotNullTeam.repository.ISellerRepository;
 import org.mercadolibre.NotNullTeam.service.IPostService;
 import org.mercadolibre.NotNullTeam.utils.GeneratorTest;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -27,10 +21,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -41,19 +31,13 @@ public class PostIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    IPostService postService;
+
     private ObjectWriter writer;
 
     private Seller seller;
     private PostDTO post;
-
-    @Autowired
-    IBuyerRepository buyerRepository;
-
-    @Autowired
-    ISellerRepository sellerRepository;
-
-    @Autowired
-    IPostService postService;
 
     @BeforeEach
     void setUp() {
@@ -67,10 +51,6 @@ public class PostIntegrationTest {
     @Test
     @DisplayName("Se crea un nuevo post asociado a Seller con Id 2L")
     void testCreatePost() throws Exception {
-        createPostSuccessfully(post);
-    }
-
-    private void createPostSuccessfully(PostDTO post) throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.post("/products/post")
                         .contentType("application/json")
                         .content(writer.writeValueAsString(post)))
