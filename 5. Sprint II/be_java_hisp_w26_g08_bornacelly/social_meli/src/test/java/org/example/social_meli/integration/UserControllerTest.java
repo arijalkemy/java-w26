@@ -29,7 +29,7 @@ class UserControllerTest {
 
     @Test
     @DisplayName("Deberia dejar de seguir a un usuario")
-    void postUnfollowUser() throws Exception {
+    void postUnfollowUserTest() throws Exception {
         //Arrange
         Integer userId = 1;
         Integer userIdToUnfollow = 2;
