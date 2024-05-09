@@ -2,44 +2,30 @@ package com.meli.be_java_hisp_w26_g10.controller;
 
 import com.api.socialmeli.dto.FollowedBySellerDto;
 import com.api.socialmeli.dto.UserDto;
-import com.api.socialmeli.entity.Buyer;
-import com.api.socialmeli.entity.Seller;
-import com.api.socialmeli.mapper.ListUserMapper;
-import com.api.socialmeli.repository.IBuyerRepository;
-import com.api.socialmeli.repository.impl.BuyerRepositoryImpl;
-import com.api.socialmeli.repository.impl.SellerRepositoryImpl;
+import com.api.socialmeli.exception.NotFoundException;
 import com.api.socialmeli.service.impl.BuyerServiceImpl;
 import com.api.socialmeli.service.impl.SellerServiceImpl;
-import com.api.socialmeli.utils.FollowersOfSellerValidation;
-import com.api.socialmeli.utils.UserDtoShort;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.meli.be_java_hisp_w26_g10.util.TestGeneratorUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.MockedStatic;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-import javax.print.attribute.standard.Media;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -53,6 +39,9 @@ public class SocialMeliControllerTest {
 
     @MockBean
     private SellerServiceImpl sellerService;
+
+    @MockBean
+    private BuyerServiceImpl buyerService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -136,7 +125,6 @@ public class SocialMeliControllerTest {
         // act
         ResultActions result = mockMvc.perform(
                 get(BASE_PATH + "/{userId}/followers/list", 1)
-//                        .param("order", "")
                         .contentType(MediaType.APPLICATION_JSON)
         );
 
@@ -147,5 +135,49 @@ public class SocialMeliControllerTest {
                 .andExpect(jsonPath("$.followers", hasSize(followersExpected.size())))
                 .andExpect(jsonPath("$.followers[*].user_name", contains("Ana", "Esteban", "Zapata", "Carlos", "Juan")))
                 .andExpect(jsonPath("$.followers[*].user_id", contains(4,5,3,1,2)));
+    }
+
+    @Test
+    @DisplayName("it should return an exception calling the endpoint getFollowersOfSeller when Seller is not found")
+    public void getFollowersOfSellerSellerNotFound() throws Exception{
+        // arrange
+        when(sellerService.getFollowersOfSeller(anyInt(), anyString())).thenThrow(
+                new NotFoundException("No se encontro al vendedor con el id: -999")
+        );
+
+        // act
+        ResultActions result = mockMvc.perform(
+                get(BASE_PATH + "/{userId}/followers/list", -999)
+                        .param("order", "name_desc")
+                        .contentType(MediaType.APPLICATION_JSON)
+        );
+
+        // assert
+        result.andDo(print())
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    @DisplayName("Follow Integration test")
+    public void followSellerIntegrationOk() throws Exception {
+        Integer userId = 1;
+        Integer userToFollow = 4;
+
+        mockMvc.perform(post("/users/{userId}/follow/{userIdToFollow}",userId,userToFollow))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("Unfollow Integration test")
+    public void unFollowSellerIntegrationOk() throws Exception {
+        Integer userId = 1;
+        Integer userToUnFollow = 2;
+
+        buyerService.unfollowUser(userId, userToUnFollow);
+
+        mockMvc.perform(post("/users/{userId}/unfollow/{userIdToUnFollow}",userId,userToUnFollow))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }
