@@ -7,9 +7,12 @@ import java.util.List;
 
 import bootcamp.sprint.grupo02.sprintI.dto.request.PostDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.request.ProductDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.FollowedListResponseDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.FollowersListResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.PostListByBuyerResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.PostResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.ProductResponseDTO;
+import bootcamp.sprint.grupo02.sprintI.dto.response.UserResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import bootcamp.sprint.grupo02.sprintI.model.Post;
 import bootcamp.sprint.grupo02.sprintI.model.Product;
@@ -231,4 +234,19 @@ public class TestGeneratorUtil {
                 .build();
     }
 
+
+    public static FollowersListResponseDTO createFollowersListResponseDTO() {
+        UserResponseDTO owner = new UserResponseDTO(1, "Un Vendedor");
+        List<UserResponseDTO> followers = new ArrayList<>(List.of(new UserResponseDTO(1, "Seguidor 1"), 
+        new UserResponseDTO(2, "Seguidor 2"),
+        new UserResponseDTO(3, "Seguidor 3")));
+        return new FollowersListResponseDTO(owner, followers);
+    }   
+
+    public static FollowedListResponseDTO createFollowedListResponseDTO() {
+        UserResponseDTO owner = new UserResponseDTO(1, "Comprador");
+        List<UserResponseDTO> followers = new ArrayList<>(List.of(new UserResponseDTO(1, "Un Vendedor"), 
+        new UserResponseDTO(2, "Un Vendedor 2")));
+        return new FollowedListResponseDTO(owner, followers);
+    }   
 }

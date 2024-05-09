@@ -2,12 +2,9 @@ package bootcamp.sprint.grupo02.sprintI.controller;
 
 import bootcamp.sprint.grupo02.sprintI.dto.response.FollowersListResponseDTO;
 
-import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import bootcamp.sprint.grupo02.sprintI.dto.response.SellerFollowersResponseDTO;
-import bootcamp.sprint.grupo02.sprintI.model.Buyer;
-import bootcamp.sprint.grupo02.sprintI.repository.BuyerRepository;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +27,6 @@ public class UserController {
     
     private final BuyerService buyerService;
     private final SellerService sellerService;
-    private final BuyerRepository repo;
 
     @PostMapping("/{userId}/follow/{userIdToFollow}")
     public ResponseEntity<Void> postFollowUser(@Positive(message = "El Id debe ser mayor a cero") @PathVariable int userId, 
@@ -74,12 +70,6 @@ public class UserController {
     @GetMapping(value = "/{userId}/followed/list", params = "order")
     public ResponseEntity<FollowedListResponseDTO> getSellersFollowed(@Positive(message = "El Id debe ser mayor a cero") @PathVariable int userId, @RequestParam String order) {
         return ResponseEntity.ok(buyerService.searchBuyerFollows(userId, order));
-    }
-
-
-    @GetMapping
-    public ResponseEntity<List<Buyer>> methodEntity() {
-        return ResponseEntity.ok(repo.findAll());
     }
     
 }

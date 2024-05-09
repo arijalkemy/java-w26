@@ -2,11 +2,9 @@ package bootcamp.sprint.grupo02.sprintI.dto.response;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@Data
-@NoArgsConstructor
+@Getter
 @AllArgsConstructor
 /**
 * Use for errors, exceptions and success messages

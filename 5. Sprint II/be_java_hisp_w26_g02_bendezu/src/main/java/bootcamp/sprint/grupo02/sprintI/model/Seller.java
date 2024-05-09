@@ -1,14 +1,18 @@
 package bootcamp.sprint.grupo02.sprintI.model;
 
-import java.util.ArrayList;
 import java.util.List;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -16,11 +20,8 @@ public class Seller {
 
     private int id;
     private String name;
+
+    @EqualsAndHashCode.Exclude
     private List<Buyer> followers;
 
-    public Seller(int id, String name) {
-        this.id = id;
-        this.name = name;
-        this.followers = new ArrayList<Buyer>();
-    }
 }

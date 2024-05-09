@@ -3,13 +3,11 @@ package bootcamp.sprint.grupo02.sprintI.dto.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
 import java.util.List;
-@Data
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class PostListByBuyerResponseDTO {
     @JsonProperty("user_id")

@@ -1,6 +1,5 @@
 package bootcamp.sprint.grupo02.sprintI.dto.response;
 
-import bootcamp.sprint.grupo02.sprintI.model.Buyer;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.AllArgsConstructor;
 import lombok.Data;

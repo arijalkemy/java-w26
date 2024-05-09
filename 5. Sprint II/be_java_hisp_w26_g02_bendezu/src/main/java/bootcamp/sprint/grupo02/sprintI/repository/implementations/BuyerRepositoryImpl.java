@@ -1,6 +1,5 @@
 package bootcamp.sprint.grupo02.sprintI.repository.implementations;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,13 +34,11 @@ public class BuyerRepositoryImpl implements BuyerRepository {
 
     @Override
     public void add(Buyer entity) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 
     @Override
     public boolean remove(Buyer entity) {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
     

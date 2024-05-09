@@ -5,10 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.*;
 
-@Builder
-@NoArgsConstructor
+
 @AllArgsConstructor
-@Data
+@Getter
 @EqualsAndHashCode
 @JsonIgnoreProperties(ignoreUnknown = true )
 public class UserResponseDTO {

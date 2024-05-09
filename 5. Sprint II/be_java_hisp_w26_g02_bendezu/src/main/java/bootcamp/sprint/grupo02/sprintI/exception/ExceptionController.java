@@ -12,7 +12,6 @@ import org.springframework.web.method.annotation.HandlerMethodValidationExceptio
 
 import bootcamp.sprint.grupo02.sprintI.dto.response.MessageResponseDTO;
 import bootcamp.sprint.grupo02.sprintI.dto.response.ValidationResponseDTO;
-import jakarta.validation.ConstraintViolationException;
 
 @RestControllerAdvice(annotations = RestController.class)
 public class ExceptionController {
@@ -30,8 +29,8 @@ public class ExceptionController {
     }
 
     @ExceptionHandler(UnfollowNotAllowedException.class)
-    public ResponseEntity<String> badRequest(UnfollowNotAllowedException ex) {
-        return ResponseEntity.badRequest().body(ex.getMessage());
+    public ResponseEntity<MessageResponseDTO> badRequest(UnfollowNotAllowedException ex) {
+        return ResponseEntity.badRequest().body(new MessageResponseDTO(ex.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -60,14 +59,4 @@ public class ExceptionController {
 
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<List<MessageResponseDTO>> noValidationException(ConstraintViolationException ex) {
-        List<MessageResponseDTO> errors = ex.getConstraintViolations()
-                .stream()
-                .map(x -> new MessageResponseDTO(x.getMessage()))
-                .toList();
-
-        return ResponseEntity.badRequest().body(errors);
-
-    }
 }

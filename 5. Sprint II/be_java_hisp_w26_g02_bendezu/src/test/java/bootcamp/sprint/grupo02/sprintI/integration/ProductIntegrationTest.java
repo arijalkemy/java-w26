@@ -85,8 +85,7 @@ public class ProductIntegrationTest {
                 .andDo(print())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message").value("Ok"))
-                .andReturn();
+                .andExpect(jsonPath("$.message").value("Ok"));
     }
 
     @Test

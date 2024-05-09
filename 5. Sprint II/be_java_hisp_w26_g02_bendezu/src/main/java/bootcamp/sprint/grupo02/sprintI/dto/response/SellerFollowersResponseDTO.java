@@ -4,11 +4,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
 public class SellerFollowersResponseDTO {
     @JsonUnwrapped
     private UserResponseDTO user;
