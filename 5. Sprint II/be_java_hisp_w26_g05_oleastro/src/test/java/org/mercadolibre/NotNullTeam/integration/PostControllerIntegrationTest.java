@@ -116,4 +116,39 @@ public class PostControllerIntegrationTest {
                 .andExpect(jsonPath("$.message").value("Post created successfully"))
                 .andExpect(jsonPath("$.date").value(localDateNowAsString));
     }
+
+    @Test
+    @DisplayName("El usuario Seller One (ID = 101) quiere crear una publicacion de una silla gamer " +
+            "que contiene caracteres especiales en las notas del producto " +
+            "y recibe un mensaje describiendo ese error.")
+    public void createPostThrowsMethodArgumentNotValid() throws Exception {
+
+        String payloadJson = "{\n" +
+                "    \"user_id\": 101,\n" +
+                "    \"date\": \"08-05-2024\",\n" +
+                "    \"product\": {\n" +
+                "        \"product_id\": 1,\n" +
+                "        \"product_name\": \"Silla Gamer\",\n" +
+                "        \"type\": \"Gamer\",\n" +
+                "        \"brand\": \"Racer\",\n" +
+                "        \"color\": \"Red & Black\",\n" +
+                "        \"notes\": \"Special Edition\"\n" +
+                "    },\n" +
+                "    \"category\": 100,\n" +
+                "    \"price\": 1500.50\n" +
+                "}";
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .post("/products/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payloadJson)
+                )
+                .andDo(print())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(status().isBadRequest())
+                .andExpect(
+                        jsonPath("$['product.color']")
+                                .value("El campo no puede poseer caracteres especiales.")
+                );
+    }
 }
