@@ -136,7 +136,7 @@ public class ProductServiceImplTest {
 
     @DisplayName("Prueba orden ascendente de posts")
     @Test
-    public void getSellersPostsFollowedByUserDescTest() {
+    public void getSellersPostsFollowedByUserAscTest() {
         //Arrange
         Integer id = 1;
         String orderBy = "date_asc";
@@ -158,7 +158,7 @@ public class ProductServiceImplTest {
 
     @DisplayName("Prueba orden descendente de posts")
     @Test
-    public void getSellersPostsFollowedByUserAscTest() {
+    public void getSellersPostsFollowedByUserDescTest() {
         //Arrange
         Integer id = 1;
         String orderBy = "date_desc";
