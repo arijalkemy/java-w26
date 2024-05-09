@@ -91,7 +91,7 @@ public class SocialMediaExceptionHandler {
             HttpMessageNotReadableException ex, WebRequest webRequest
     ) {
         ExceptionDto exDto = new ExceptionDto(
-                "Formano no valido",
+                "Formato no valido",
                 webRequest.getDescription(false)
         );
         return new ResponseEntity<>(exDto, HttpStatus.BAD_REQUEST);
