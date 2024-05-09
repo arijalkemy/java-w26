@@ -1,6 +1,5 @@
-package controller;
+package com.mercadolibre.starwars.controller;
 
-import com.mercadolibre.starwars.controller.FindController;
 import com.mercadolibre.starwars.dto.CharacterDTO;
 import com.mercadolibre.starwars.service.FindService;
 import org.junit.jupiter.api.Test;

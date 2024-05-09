@@ -1,10 +1,12 @@
-package repository;
+package com.mercadolibre.starwars.controller.repository;
 
 
 import com.mercadolibre.starwars.dto.CharacterDTO;
 import com.mercadolibre.starwars.repositories.CharacterRepositoryImpl;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CharacterRepositoryTests {
