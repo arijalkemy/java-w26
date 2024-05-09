@@ -28,7 +28,6 @@ public class UsersRepositoryTestImpl implements IUsersRepository{
         this.customerList.add( new Customer(new User( 2,"Jose" ) ) );
     }
 
-
     /**
      *
      * @param predicate filter expression to apply

@@ -4,9 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.sprint.socialmeli.dto.user.FollowerCountResponseDTO;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class FollowTest {
+public class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -32,54 +30,82 @@ public class FollowTest {
                 .configure(SerializationFeature.WRAP_ROOT_VALUE, false)
                 .writer();
     }
+    
+    @AfterEach
+    public void rollBack() throws Exception {
+        this.mockMvc.perform(
+                MockMvcRequestBuilders.post("/users/2/unfollow/1"));
+    }
 
-    /**
-     * Se testea integralmente la funcionalidad de follow, casos:
-     *  - Follow con sellerId inválido (debe arrojar not found)
-     *  - Follow con customerId inválido (debe arrojar not found)
-     *  - Follow entre customerId2 y sellerId1
-     *  - Follow de nuevo entre ya seguidos (debe arrojar conflicto)
-     *  - Unfollow entre customerId2 y sellerId1
-     *  - Follow nuevamente entre customerId2 y sellerId1 (ahora si debe funcionar por el unfollow realizado)
-     *  - Obtener cantidad de seguidores de sellerId 1 en cada caso
-     * @throws Exception
-     */
+    @DisplayName("Invalid seller id wants to be followed")
     @Test
-    public void testFollow() throws Exception {
-
+    public void testInvalidSellerFollow() throws Exception {
         // El customerId 2 quiere seguir al sellerId 100
         // Debe lanzar not found
         ResultActions result = this.mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/2/follow/100"));
         result.andExpect(status().isNotFound());
+        // No debe haber seguidores
         checkFollowerCount(0);
+    }
 
+    @DisplayName("Invalid customer id wants to follow")
+    @Test
+    public void testInvalidCustomerFollow() throws Exception {
         // El customerId 200 quiere seguir al sellerId 1
         // Debe lanzar not found
-        result = this.mockMvc.perform(
+        ResultActions result = this.mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/200/follow/1"));
         result.andExpect(status().isNotFound());
+        // No debe haber seguidores
         checkFollowerCount(0);
-        
+    }
+
+    @DisplayName("Customer follow seller")
+    @Test
+    public void testFollow() throws Exception {
         //El customerId 2 sigue al sellerId 1
         simpleFollowTest();
+        //Debe haber 1 seguidor
         checkFollowerCount(1);
+    }
 
+    @DisplayName("Customer follow again seller")
+    @Test
+    public void testFollowAgain() throws Exception {
+        //El customerId 2 sigue al sellerId 1
+        simpleFollowTest();
+        //Debe haber 1 seguidor
+        checkFollowerCount(1);
         // El customerId 2 quiere seguir nuevamente al sellerId 1
         // Debe lanzar conflicto
-        result = this.mockMvc.perform(
+        ResultActions result = this.mockMvc.perform(
                 MockMvcRequestBuilders.post("/users/2/follow/1"));
         result.andExpect(status().isConflict());
         checkFollowerCount(1);
+    }
 
+    @DisplayName("Customer unfollow seller")
+    @Test
+    public void testUnfollow() throws Exception {
+        simpleFollowTest();
         //El customerId 2 deja de seguir al sellerId 1
         simpleUnfollowTest();
         checkFollowerCount(0);
+    }
 
-        //El customerId 2 sigue al sellerId 1
+    @DisplayName("Customer unfollow and follow seller")
+    @Test
+    public void testUnfollowFollow() throws Exception {
+        simpleFollowTest();
+        //El customerId 2 deja de seguir al sellerId 1
+        simpleUnfollowTest();
+        checkFollowerCount(0);
+        //ElcustomerId2 sigue al sellerId 1
         simpleFollowTest();
         checkFollowerCount(1);
     }
+
 
     private void simpleFollowTest() throws Exception {
         ResultActions result = this.mockMvc.perform(
