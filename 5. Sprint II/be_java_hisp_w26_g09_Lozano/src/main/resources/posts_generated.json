@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "user_id": 2,
+    "date": "23-02-2024",
+    "product": {
+      "product_id": 2,
+      "product_name": "iPhone 13 Pro",
+      "type": "Smartphone",
+      "brand": "Apple",
+      "color": "Graphite",
+      "notes": "6.1-inch Super Retina XDR display, A15 Bionic chip, 5G capable, Triple-camera system"
+    },
+    "category": 1,
+    "price": 999.99,
+    "has_promo": true,
+    "discount": 0.1
+  },
+  {
+    "id": 2,
+    "user_id": 4,
+    "date": "29-04-2024",
+    "product": {
+      "product_id": 7,
+      "product_name": "Canon EOS R5 Mirrorless Camera",
+      "type": "Camera",
+      "brand": "Canon",
+      "color": "Black",
+      "notes": "45MP full-frame CMOS sensor, 8K video recording, Dual Pixel CMOS AF II"
+    },
+    "category": 2,
+    "price": 3499.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 3,
+    "user_id": 4,
+    "date": "30-04-2024",
+    "product": {
+      "product_id": 15,
+      "product_name": "Anker PowerCore Essential 20000 PD Portable Charger",
+      "type": "Portable Charger",
+      "brand": "Anker",
+      "color": "Black",
+      "notes": "20,000mAh capacity, 18W Power Delivery, Dual USB ports"
+    },
+    "category": 3,
+    "price": 49.99,
+    "has_promo": true,
+    "discount": 0.2
+  },
+  {
+    "id": 4,
+    "user_id": 5,
+    "date": "30-04-2024",
+    "product": {
+      "product_id": 21,
+      "product_name": "Samsung Galaxy Tab S7+",
+      "type": "Tablet",
+      "brand": "Samsung",
+      "color": "Mystic Black",
+      "notes": "12.4-inch Super AMOLED display, Snapdragon 865+, S Pen included"
+    },
+    "category": 1,
+    "price": 799.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 5,
+    "user_id": 4,
+    "date": "29-04-2024",
+    "product": {
+      "product_id": 29,
+      "product_name": "Sony WF-1000XM4 True Wireless Earbuds",
+      "type": "Earbuds",
+      "brand": "Sony",
+      "color": "Black",
+      "notes": "Industry-leading noise cancellation, V1 chip, IPX4 water resistance"
+    },
+    "category": 2,
+    "price": 249.99,
+    "has_promo": true,
+    "discount": 0.15
+  },
+  {
+    "id": 6,
+    "user_id": 5,
+    "date": "28-04-2024",
+    "product": {
+      "product_id": 34,
+      "product_name": "DJI OM 5 Smartphone Gimbal",
+      "type": "Gimbal",
+      "brand": "DJI",
+      "color": "Gray",
+      "notes": "Foldable design, ActiveTrack 4.0, Gesture Control"
+    },
+    "category": 3,
+    "price": 159.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 7,
+    "user_id": 5,
+    "date": "27-04-2024",
+    "product": {
+      "product_id": 40,
+      "product_name": "HyperX Cloud II Gaming Headset",
+      "type": "Headset",
+      "brand": "HyperX",
+      "color": "Red",
+      "notes": "7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable noise-canceling microphone"
+    },
+    "category": 1,
+    "price": 99.99,
+    "has_promo": true,
+    "discount": 0.25
+  },
+  {
+    "id": 8,
+    "user_id": 7,
+    "date": "26-04-2024",
+    "product": {
+      "product_id": 5,
+      "product_name": "Nintendo Switch OLED Model",
+      "type": "Gaming Console",
+      "brand": "Nintendo",
+      "color": "White",
+      "notes": "7-inch OLED screen, Enhanced audio, 64GB internal storage"
+    },
+    "category": 2,
+    "price": 349.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 9,
+    "user_id": 11,
+    "date": "25-04-2024",
+    "product": {
+      "product_id": 12,
+      "product_name": "LG UltraGear 27GN950-B 27-inch Gaming Monitor",
+      "type": "Monitor",
+      "brand": "LG",
+      "color": "Black",
+      "notes": "4K UHD Nano IPS display, NVIDIA G-SYNC Compatible, HDR600"
+    },
+    "category": 3,
+    "price": 699.99,
+    "has_promo": true,
+    "discount": 0.3
+  },
+  {
+    "id": 10,
+    "user_id": 9,
+    "date": "24-04-2024",
+    "product": {
+      "product_id": 18,
+      "product_name": "ASUS ROG Strix G15 Gaming Laptop",
+      "type": "Laptop",
+      "brand": "ASUS",
+      "color": "Electro Punk",
+      "notes": "15.6-inch FHD 240Hz display, AMD Ryzen 9 5900HX, NVIDIA GeForce RTX 3080"
+    },
+    "category": 1,
+    "price": 1999.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 11,
+    "user_id": 15,
+    "date": "23-04-2024",
+    "product": {
+      "product_id": 23,
+      "product_name": "LG C1 55-inch OLED TV",
+      "type": "TV",
+      "brand": "LG",
+      "color": "Black",
+      "notes": "4K UHD OLED display, α9 Gen 4 AI Processor 4K, Dolby Vision"
+    },
+    "category": 2,
+    "price": 1499.99,
+    "has_promo": true,
+    "discount": 0.2
+  },
+  {
+    "id": 12,
+    "user_id": 15,
+    "date": "22-04-2024",
+    "product": {
+      "product_id": 30,
+      "product_name": "Dell UltraSharp U2720Q 27-inch Monitor",
+      "type": "Monitor",
+      "brand": "Dell",
+      "color": "Black",
+      "notes": "4K UHD resolution, IPS display, USB-C connectivity"
+    },
+    "category": 3,
+    "price": 399.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 13,
+    "user_id": 17,
+    "date": "21-04-2024",
+    "product": {
+      "product_id": 36,
+      "product_name": "SteelSeries Apex Pro TKL Mechanical Gaming Keyboard",
+      "type": "Keyboard",
+      "brand": "SteelSeries",
+      "color": "Black",
+      "notes": "Adjustable mechanical switches, OLED Smart Display, Aircraft-grade aluminum alloy frame"
+    },
+    "category": 1,
+    "price": 149.99,
+    "has_promo": true,
+    "discount": 0.15
+  },
+  {
+    "id": 14,
+    "user_id": 15,
+    "date": "30-04-2024",
+    "product": {
+      "product_id": 2,
+      "product_name": "iPhone 13 Pro",
+      "type": "Smartphone",
+      "brand": "Apple",
+      "color": "Graphite",
+      "notes": "6.1-inch Super Retina XDR display, A15 Bionic chip, 5G capable, Triple-camera system"
+    },
+    "category": 2,
+    "price": 999.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 15,
+    "user_id": 15,
+    "date": "29-04-2024",
+    "product": {
+      "product_id": 7,
+      "product_name": "Canon EOS R5 Mirrorless Camera",
+      "type": "Camera",
+      "brand": "Canon",
+      "color": "Black",
+      "notes": "45MP full-frame CMOS sensor, 8K video recording, Dual Pixel CMOS AF II"
+    },
+    "category": 3,
+    "price": 3499.99,
+    "has_promo": true,
+    "discount": 0.1
+  },
+  {
+    "id": 16,
+    "user_id": 17,
+    "date": "28-04-2024",
+    "product": {
+      "product_id": 15,
+      "product_name": "Anker PowerCore Essential 20000 PD Portable Charger",
+      "type": "Portable Charger",
+      "brand": "Anker",
+      "color": "Black",
+      "notes": "20,000mAh capacity, 18W Power Delivery, Dual USB ports"
+    },
+    "category": 1,
+    "price": 49.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 17,
+    "user_id": 17,
+    "date": "27-04-2024",
+    "product": {
+      "product_id": 21,
+      "product_name": "Samsung Galaxy Tab S7+",
+      "type": "Tablet",
+      "brand": "Samsung",
+      "color": "Mystic Black",
+      "notes": "12.4-inch Super AMOLED display, Snapdragon 865+, S Pen included"
+    },
+    "category": 2,
+    "price": 799.99,
+    "has_promo": true,
+    "discount": 0.2
+  },
+  {
+    "id": 18,
+    "user_id": 17,
+    "date": "26-04-2024",
+    "product": {
+      "product_id": 29,
+      "product_name": "Sony WF-1000XM4 True Wireless Earbuds",
+      "type": "Earbuds",
+      "brand": "Sony",
+      "color": "Black",
+      "notes": "Industry-leading noise cancellation, V1 chip, IPX4 water resistance"
+    },
+    "category": 3,
+    "price": 249.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 19,
+    "user_id": 17,
+    "date": "25-04-2024",
+    "product": {
+      "product_id": 34,
+      "product_name": "DJI OM 5 Smartphone Gimbal",
+      "type": "Gimbal",
+      "brand": "DJI",
+      "color": "Gray",
+      "notes": "Foldable design, ActiveTrack 4.0, Gesture Control"
+    },
+    "category": 1,
+    "price": 159.99,
+    "has_promo": true,
+    "discount": 0.3
+  },
+  {
+    "id": 20,
+    "user_id": 17,
+    "date": "04-05-2024",
+    "product": {
+      "product_id": 40,
+      "product_name": "HyperX Cloud II Gaming Headset",
+      "type": "Headset",
+      "brand": "HyperX",
+      "color": "Red",
+      "notes": "7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable noise-canceling microphone"
+    },
+    "category": 2,
+    "price": 99.99,
+    "has_promo": false,
+    "discount": 0
+  },
+  {
+    "id": 21,
+    "user_id": 2,
+    "date": "31-04-2024",
+    "product": {
+      "product_id": 40,
+      "product_name": "HyperX Cloud II Gaming Headset",
+      "type": "Headset",
+      "brand": "HyperX",
+      "color": "Red",
+      "notes": "7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable noise-canceling microphone"
+    },
+    "category": 2,
+    "price": 99.99,
+    "has_promo": false,
+    "discount": 0
+  }
+]
