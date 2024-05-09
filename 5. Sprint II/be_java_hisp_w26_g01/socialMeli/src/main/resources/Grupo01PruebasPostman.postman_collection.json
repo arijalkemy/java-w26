@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "87f86014-87b7-41f1-903a-76afad9fc247",
+		"name": "Grupo 01 prueba de api Sprint 1",
+		"description": "# 🚀 Get started here\n\nThis collection guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this collection**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT and PATCH requests.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34403745"
+	},
+	"item": [
+		{
+			"name": "Social Meli",
+			"item": [
+				{
+					"name": "US_0001",
+					"item": [
+						{
+							"name": "follow",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/3/follow/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"3",
+										"follow",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "follow validation 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/3/follow/0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"3",
+										"follow",
+										"0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "follow validation 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/-3/follow/0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"-3",
+										"follow",
+										"0"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US_0002",
+					"item": [
+						{
+							"name": "followers count",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/2/followers/count",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"2",
+										"followers",
+										"count"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followers count validation 1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/-2/followers/count",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"-2",
+										"followers",
+										"count"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US_0003",
+					"item": [
+						{
+							"name": "followers list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/2/followers/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"2",
+										"followers",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followers list validation 1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/0/followers/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"0",
+										"followers",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0004",
+					"item": [
+						{
+							"name": "followed list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/5/followed/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"5",
+										"followed",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followed list validation",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/0/followed/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"0",
+										"followed",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0005",
+					"item": [
+						{
+							"name": "add post userId 2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 2,\n    \"date\": \"20-04-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"mesa\",\n        \"type\": \"super\",\n        \"brand\": \"mabel\",\n        \"color\": \"madera\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 5,\n    \"price\": 100.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add post userId 1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add post userId 1 prod2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add post validation",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 2,\n    \"date\": \"20-04-2024\",\n    \"product\": {\n        \"product_id\": 0,\n        \"product_name\": \"mesa!\",\n        \"type\": \"\",\n        \"brand\": \"mabel\",\n        \"color\": \"BlancoNegroCombinado\",\n        \"notes\": \"Special Edition!!!\"\n    },\n    \"category\": 5,\n    \"price\": 10000000.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0006",
+					"item": [
+						{
+							"name": "posts list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/followed/5/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"5",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "posts list validation",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/followed/-2/list",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"-2",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0007",
+					"item": [
+						{
+							"name": "unfollow",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/1/unfollow/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"1",
+										"unfollow",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "unfollow validation",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/0/unfollow/-2",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"0",
+										"unfollow",
+										"-2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0008",
+					"item": [
+						{
+							"name": "followers list (name desc)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/2/followers/list?order=name_desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"2",
+										"followers",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "name_desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followers list (name asc)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/2/followers/list?order=name_asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"2",
+										"followers",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "name_asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followed list (name desc)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/5/followed/list?order=name_desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"5",
+										"followed",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "name_desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followed list (name asc)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/5/followed/list?order=name_asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"5",
+										"followed",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "name_asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "followed list validation",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/-5/followed/list?order=name_asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"-5",
+										"followed",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "name_asc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0009",
+					"item": [
+						{
+							"name": "post (date asc)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/followed/5/list?order=date_asc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"5",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "date_asc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post (date desc)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/followed/5/list?order=date_desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"5",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "date_desc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "post (date desc) validation",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/followed/0/list?order=date_desc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"followed",
+										"0",
+										"list"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "date_desc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0010",
+					"item": [
+						{
+							"name": "add promo post",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"25-04-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/promo-post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"promo-post"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US-0011",
+					"item": [
+						{
+							"name": "count promo post by seller",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/promo-post/count?user_id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"promo-post",
+										"count"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "count promo post by seller Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/promo-post/count?user_id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"promo-post",
+										"count"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US_0012",
+					"item": [
+						{
+							"name": "add post list",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "modify discount in all products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bonus Cugura",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/promo-post/list?user_id=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"promo-post",
+										"list"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "US_0013 (aditional Coro)",
+					"item": [
+						{
+							"name": "modify discount in all products",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": 1,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/post",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"post"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "En esta llamada se filtrara todos los posteos por el numero de categoria pero solamete de las ultimas dos semanas d elos vendedores que sigo"
+				},
+				{
+					"name": "US_0013 (aditional Arguello)",
+					"item": [
+						{
+							"name": "Top-Five-Sellers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/sellers/most-followed",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"sellers",
+										"most-followed"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "localhost:8080"
+		}
+	]
+}
