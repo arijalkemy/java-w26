@@ -1,4 +1,4 @@
-package utils;
+package org.example.g14.utils;
 
 import org.example.g14.model.User;
 

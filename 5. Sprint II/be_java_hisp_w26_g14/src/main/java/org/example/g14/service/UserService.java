@@ -1,6 +1,5 @@
 package org.example.g14.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.g14.dto.response.UserFollowedResponseDto;
 import org.example.g14.dto.response.UserFollowersCountResponseDto;
 import org.example.g14.dto.response.UserFollowersResponseDto;
@@ -10,6 +9,7 @@ import org.example.g14.model.User;
 import org.example.g14.repository.IPostRepository;
 import org.example.g14.repository.IUserRepository;
 import org.example.g14.utils.NameOrder;
+import org.example.g14.utils.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,8 +26,6 @@ public class UserService implements IUserService, IUserServiceInternal {
 
     @Autowired
     IPostRepository postRepository;
-
-    ObjectMapper mapper = new ObjectMapper();
 
     @Override
     public UserFollowersCountResponseDto countFollowersBySeller(int id) {
@@ -86,7 +84,7 @@ public class UserService implements IUserService, IUserServiceInternal {
         User user = searchUserIfExists(userId);
         Stream<UserResponseDto> userResponseDtoStream = user.getIdFollows().stream()
                 .map(this::searchUserIfExists)
-                .map(this::transferToUserDto);
+                .map(UserMapper::transferToUserDto);
 
         if(orderEnum == NameOrder.NAME_ASC)
             userResponseDtoStream = userResponseDtoStream.sorted(Comparator.comparing(UserResponseDto::getUser_name));
@@ -118,7 +116,7 @@ public class UserService implements IUserService, IUserServiceInternal {
 
         Stream<UserResponseDto> userResponseDtoStream = user.getIdFollowers().stream()
             .map(this::searchUserIfExists)
-            .map(this::transferToUserDto);
+            .map(UserMapper::transferToUserDto);
 
         if(orderEnum == NameOrder.NAME_ASC)
             userResponseDtoStream = userResponseDtoStream.sorted(Comparator.comparing(UserResponseDto::getUser_name));
@@ -154,15 +152,11 @@ public class UserService implements IUserService, IUserServiceInternal {
         return transferToUserFollowedDto(followerUser);
     }
 
-    private UserResponseDto transferToUserDto(User user){
-        return new UserResponseDto(user.getId(), user.getName());
-    }
-
     private UserFollowedResponseDto transferToUserFollowedDto(User user) {
 
         List<UserResponseDto> followedUsers = user.getIdFollows().stream()
             .map(this::searchUserIfExists)
-            .map(this::transferToUserDto)
+            .map(UserMapper::transferToUserDto)
             .toList();
 
         return new UserFollowedResponseDto(

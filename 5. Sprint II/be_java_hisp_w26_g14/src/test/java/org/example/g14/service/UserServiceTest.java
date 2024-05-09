@@ -22,7 +22,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import utils.UsersList;
+import org.example.g14.utils.UsersList;
 
 import java.time.LocalDate;
 import java.util.*;
