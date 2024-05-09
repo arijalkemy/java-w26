@@ -23,11 +23,11 @@ public class PostDTO {
     public static final int MAX_PRICE_VALUE = 10000000;
     @Positive (message = "El id debe ser mayor a 0")
     @NotNull (message = "El id no puede ser vacío")
-    private Integer post_id;
+    private Integer postId;
 
     @Positive (message = "El id debe ser mayor a 0")
     @NotNull(message = "El id no puede ser vacío")
-    private Integer user_id;
+    private Integer userId;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)

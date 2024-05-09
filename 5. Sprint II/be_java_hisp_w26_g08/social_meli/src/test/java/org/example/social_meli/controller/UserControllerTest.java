@@ -37,7 +37,7 @@ class UserControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post(url)
                 .contentType("application/json"))
                 .andDo(print())
-                .andExpect(content().string("{\"user_id\":1,\"user_name\":\"wcalderwood0\",\"follower\":[]}"))
+                .andExpect(content().string("{\"userId\":1,\"userName\":\"wcalderwood0\",\"follower\":[]}"))
                 .andExpect(status().isOk());
     }
 }

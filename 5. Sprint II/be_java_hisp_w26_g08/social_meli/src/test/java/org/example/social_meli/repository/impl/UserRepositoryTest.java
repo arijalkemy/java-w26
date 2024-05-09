@@ -39,7 +39,7 @@ public class UserRepositoryTest {
         //Act
         User found = userRepository.findById(userId);
         //Assert
-        assertEquals(userId, found.getUser_id(), "El ID del usuario encontrado debe coincidir con el buscado.");
+        assertEquals(userId, found.getUserId(), "El ID del usuario encontrado debe coincidir con el buscado.");
         assertNotNull(found, "El usuario encontrado no debe ser nulo.");
     }
     @Test
@@ -101,7 +101,7 @@ public class UserRepositoryTest {
         //Act
         FollowerList returnedFollowerList = userRepository.findSellerById(2);
         //Assert
-        assertTrue(returnedFollowerList.getUser().getUser_id().equals(2));
+        assertTrue(returnedFollowerList.getUser().getUserId().equals(2));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class UserRepositoryTest {
         //Act
         FollowerList returnedFollowerList = userRepository.findClientById(1);
         //Assert
-        assertTrue(returnedFollowerList.getUser().getUser_id().equals(1));
+        assertTrue(returnedFollowerList.getUser().getUserId().equals(1));
     }
 
     @Test
@@ -134,7 +134,7 @@ public class UserRepositoryTest {
     }
     @Test
     @DisplayName("Trae el vendedor con el id 2")
-    void findClientByIdTest(){
+    void  findSellerByIdTest(){
         //Arrange
         FollowerList expectedResult = FollowerList.builder()
                 .user(new User(2,"dclail1",true))
@@ -150,7 +150,7 @@ public class UserRepositoryTest {
     }
     @Test
     @DisplayName("Traer el cliente con el id 3")
-    void  findSellerByIdTest(){
+    void  findClientByIdTest(){
         //Arrange
         FollowerList expectedResult = FollowerList.builder()
                 .user(new User(3,"ceverett2",false))

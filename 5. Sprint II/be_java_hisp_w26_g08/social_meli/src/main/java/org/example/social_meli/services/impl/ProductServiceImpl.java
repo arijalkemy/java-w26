@@ -42,11 +42,11 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public PostDTO savePost(PostDTO postDTO) {
         ModelMapper mapper = new ModelMapper();
-        if (productRepository.existsPost(postDTO.getPost_id())) {
-            throw new ConflictException("Ya existe un post con el id " + postDTO.getPost_id());
+        if (productRepository.existsPost(postDTO.getPostId())) {
+            throw new ConflictException("Ya existe un post con el id " + postDTO.getPostId());
         }
-        if (!userRepository.existsSellerById(postDTO.getUser_id())) {
-            throw new NotFoundException("No existe un usuario con el id " + postDTO.getUser_id());
+        if (!userRepository.existsSellerById(postDTO.getUserId())) {
+            throw new NotFoundException("No existe un usuario con el id " + postDTO.getUserId());
         }
         productRepository.savePost(mapper.map(postDTO, Post.class));
         return postDTO;
@@ -56,7 +56,7 @@ public class ProductServiceImpl implements IProductService {
     public FollowListDTO getSellersPostsFollowedByUser(Integer id) {
         UserResponseDTO followerList = userServiceImpl.getFollowedById(id);
         FollowListDTO followListDTO = new FollowListDTO();
-        followListDTO.setUser_id(id);
+        followListDTO.setUserId(id);
 
         if(followerList.getFollower().isEmpty()){
             followListDTO.setPost(List.of());
@@ -75,7 +75,7 @@ public class ProductServiceImpl implements IProductService {
 
     private boolean isPostFromFollowedUserAndWithinTwoWeeks(PostDTO post, UserResponseDTO followerList, LocalDate twoWeeksAgo) {
         return followerList.getFollower().stream()
-                .anyMatch(follower -> post.getUser_id().equals(follower.getUser_id()))
+                .anyMatch(follower -> post.getUserId().equals(follower.getUserId()))
                 && post.getDate().isAfter(twoWeeksAgo);
     }
 
