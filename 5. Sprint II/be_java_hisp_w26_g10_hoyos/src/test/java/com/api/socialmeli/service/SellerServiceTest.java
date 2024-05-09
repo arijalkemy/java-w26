@@ -143,4 +143,21 @@ public class SellerServiceTest {
                 () -> sellerService.getFollowersOfSeller(seller.getUser_id(), "any order")
         );
     }
+    @Test
+    @DisplayName("Deberia de retornar un BadRequestException al tener un parametro de vendedor incorrecto")
+    public void getFollowersOfSellerFollowerSellerIdIncorrect(){
+        assertThrows(
+                BadRequestException.class,
+                () ->  sellerService.getFollowersOfSeller(-99, "name_asc")
+        );
+    }
+
+    @Test
+    @DisplayName("Deberia de retornar un NotFoundException al tener un parametro de vendedor incorrecto")
+    public void getFollowersOfSellerFollowerNotFound(){
+        assertThrows(
+                NotFoundException.class,
+                () ->  sellerService.getFollowersOfSeller(99, "name_asc")
+        );
+    }
 }
