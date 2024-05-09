@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import static com.group03.sprint2.utils.Constants.*;
 
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class PublicationsController {
      * @return Devuelve una lista de publicaciones de las ultimas dos semanas.
      */
     @GetMapping("/followed/{userId}/list")
-    public ResponseEntity<ResponseIdPublicationsDTO> getFollowedLastTwoWeeksPublications(@PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userId,
+    public ResponseEntity<ResponseIdPublicationsDTO> getFollowedLastTwoWeeksPublications(@PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userId,
                                                                                          @RequestParam(required = false) String order) {
 
         ResponseIdPublicationsDTO responseTwoWeeksPublicationsDTO = new ResponseIdPublicationsDTO();

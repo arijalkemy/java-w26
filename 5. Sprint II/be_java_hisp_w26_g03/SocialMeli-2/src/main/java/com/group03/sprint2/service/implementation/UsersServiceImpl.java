@@ -40,6 +40,10 @@ public class UsersServiceImpl implements IUsersService {
         // 1- Recorrer la lista con todos los sellers y filtrarlos por id
         Seller seller = usersRepository.findSellerById(userId);
 
+        if (Utils.isNull(seller)) {
+            throw new BadRequestException("There is not seller with ID: " + userId);
+        }
+
         // 2- Veo el size de la lista BuyersFollowers para calcular la cantidad de seguidores del seller
         Integer numberOffollowers = seller.getFollowers().size();
 

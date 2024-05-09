@@ -3,6 +3,7 @@ package com.group03.sprint2.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import static com.group03.sprint2.utils.Constants.*;
 
 import java.io.Serializable;
 
@@ -10,28 +11,28 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO implements Serializable {
-    @NotNull(message = "El  id no puede estar vacío.")
-    @Positive(message = "El id debe ser mayor a cero.")
+    @NotNull(message = MSG_VALIDATION_ID_EMPTY)
+    @Positive(message = MSG_VALIDATION_ID_POSITIVE)
     @JsonProperty("product_id")
     private Integer productId;
-    @NotNull(message = "El campo no puede estar vacío.")
-    @Size(max = 40, message = "La longitud no puede superar los 40 caracteres.")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "El campo no puede poseer caracteres especiales.")
+    @NotNull(message = MSG_VALIDATION_FIELD_EMPTY)
+    @Size(max = 40, message = MSG_VALIDATION_MAX_CHARACTERS_PRODUCT_NAME)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = MSG_VALIDATION_SPECIAL_CHARACTERS)
     @JsonProperty("product_name")
     private String productName;
-    @NotNull(message = "El campo no puede estar vacío.")
-    @Size(max = 15, message = "La longitud no puede superar los 15 caracteres.")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "El campo no puede poseer caracteres especiales.")
+    @NotNull(message = MSG_VALIDATION_FIELD_EMPTY)
+    @Size(max = 15, message = MSG_VALIDATION_MAX_CHARACTERS_TYPE)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = MSG_VALIDATION_SPECIAL_CHARACTERS)
     private String type;
-    @NotNull(message = "El campo no puede estar vacío.")
-    @Size(max = 25, message = "La longitud no puede superar los 25 caracteres.")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "El campo no puede poseer caracteres especiales.")
+    @NotNull(message = MSG_VALIDATION_FIELD_EMPTY)
+    @Size(max = 25, message = MSG_VALIDATION_MAX_CHARACTERS_BRAND)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = MSG_VALIDATION_SPECIAL_CHARACTERS)
     private String brand;
-    @NotNull(message = "El campo no puede estar vacío.")
-    @Size(max = 15, message = "La longitud no puede superar los 15 caracteres.")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "El campo no puede poseer caracteres especiales.")
+    @NotNull(message = MSG_VALIDATION_FIELD_EMPTY)
+    @Size(max = 15, message = MSG_VALIDATION_MAX_CHARACTERS_COLOR)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = MSG_VALIDATION_SPECIAL_CHARACTERS)
     private String color;
-    @Size(max = 80, message = "La longitud no puede superar los 80 caracteres.")
-    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = "El campo no puede poseer caracteres especiales.")
+    @Size(max = 80, message = MSG_VALIDATION_MAX_CHARACTERS_NOTES)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$", message = MSG_VALIDATION_SPECIAL_CHARACTERS)
     private String notes;
 }
