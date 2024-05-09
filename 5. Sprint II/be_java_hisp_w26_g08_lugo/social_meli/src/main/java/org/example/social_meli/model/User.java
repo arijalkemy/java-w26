@@ -2,7 +2,6 @@ package org.example.social_meli.model;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
