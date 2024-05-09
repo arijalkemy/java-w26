@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.meli.be_java_hisp_w26_g10.util.TestGeneratorUtil;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -63,5 +64,30 @@ public class ProductControllerTest {
 
     }
 
+    @Test
+    @DisplayName("Se crea un Post que contiene el id del usuario nulo")
+    public void CreatePostWithNullIdTest() throws Exception {
+        //Arrange
+        PostDto postDto = mapper.convertValue(TestGeneratorUtil.postList().get(0), PostDto.class);
+        postDto.getProduct().setProduct_name("Smartphone");
+        postDto.setUser_id(null);
+
+        ObjectWriter writer = mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false)
+                .writer().withDefaultPrettyPrinter();
+
+        String payloadJson = writer.writeValueAsString(postDto);
+
+        //Act
+        //Assert
+        this.mockMvc.perform(
+                        MockMvcRequestBuilders.post("/products/post")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(payloadJson))
+                .andDo(print()).andExpect(status().isBadRequest())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message")
+                        .value("El id no puede estar vacío"));
+
+    }
 
 }
