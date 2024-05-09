@@ -66,8 +66,8 @@ public class UserController {
         return new ResponseEntity<>(iUserService.getFollowersCount(userId), HttpStatus.OK);
     }
 
-    @GetMapping("/testproducts")
-    public ResponseEntity<?> getAllPost() {
-        return ResponseEntity.status(HttpStatus.OK).body(postRepository.getAll());
-    }
+//    @GetMapping("/testproducts")
+//    public ResponseEntity<?> getAllPost() {
+//        return ResponseEntity.status(HttpStatus.OK).body(postRepository.getAll());
+//    }
 }

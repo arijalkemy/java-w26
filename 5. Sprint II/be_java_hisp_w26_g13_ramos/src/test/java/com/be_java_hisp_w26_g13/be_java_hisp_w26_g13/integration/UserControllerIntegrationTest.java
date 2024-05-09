@@ -1,4 +1,5 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.integration;
+
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseUserFollowersDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,7 +45,7 @@ public class UserControllerIntegrationTest {
 
 
         this.mockMvc.perform(
-                MockMvcRequestBuilders.get("/users/{userId}/followers/list", 1))
+                        MockMvcRequestBuilders.get("/users/{userId}/followers/list", 1))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andDo(result -> {
@@ -72,4 +73,36 @@ public class UserControllerIntegrationTest {
                 .andReturn();
 
     }
+
+    @Test
+    @DisplayName("Perform test unfollowing a user")
+    public void unfollowTest() throws Exception {
+        String expectedMessage = "You have unfollowed user Bob Smith";
+        int userId = 1;
+        int userIdToUnfollow = 2;
+
+        this.mockMvc.perform(
+                        MockMvcRequestBuilders.post("/users/{userId}/unfollow/{userIdToUnfollow}", userId, userIdToUnfollow))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.user_id").value(userIdToUnfollow))
+                .andExpect(jsonPath("$.message").value(expectedMessage))
+                .andReturn();
+    }
+
+    @Test
+    @DisplayName("Perform test unfollowing a user that not exist")
+    public void unfollowUserThatDoesNotExistTest() throws Exception {
+        String expectedMessage = "User to unfollow with id 300 does not exist.";
+        int userId = 1;
+        int userIdToUnfollow = 300;
+
+        this.mockMvc.perform(
+                        MockMvcRequestBuilders.post("/users/{userId}/unfollow/{userIdToUnfollow}", userId, userIdToUnfollow))
+                .andDo(print())
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.message").value(expectedMessage))
+                .andReturn();
+    }
+
 }

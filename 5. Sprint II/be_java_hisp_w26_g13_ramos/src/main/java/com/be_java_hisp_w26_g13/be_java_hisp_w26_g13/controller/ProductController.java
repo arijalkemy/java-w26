@@ -37,8 +37,4 @@ public class ProductController {
         return new ResponseEntity<>(productService.getPostByFollowedUsers(userId, order), HttpStatus.OK);
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<?> test() {
-        return new ResponseEntity<>(userRepository.getAll(), HttpStatus.OK);
-    }
 }
