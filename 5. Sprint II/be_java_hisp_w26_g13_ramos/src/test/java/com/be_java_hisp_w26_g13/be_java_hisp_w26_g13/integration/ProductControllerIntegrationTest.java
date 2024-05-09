@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -37,6 +38,7 @@ public class ProductControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Perform test to verify the creation of a post")
     public void createPostTest() throws Exception {
 
         PostDTO postDTO = PostDTO.builder()
@@ -62,12 +64,14 @@ public class ProductControllerIntegrationTest {
 
         resultActions.andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.message").value("The post has been successfully created"));
+                .andExpect(jsonPath("$.message")
+                        .value("The post has been successfully created"));
 
     }
 
 
     @Test
+    @DisplayName("Perform test to verify the creation of a post with a user that does not exist")
     public void createPostUserNotFoundTest() throws Exception {
 
         PostDTO postDTO = PostDTO.builder()

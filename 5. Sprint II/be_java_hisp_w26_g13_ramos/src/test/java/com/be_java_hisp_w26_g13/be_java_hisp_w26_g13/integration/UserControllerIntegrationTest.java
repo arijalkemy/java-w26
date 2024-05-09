@@ -2,6 +2,7 @@ package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.integration;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.ResponseUserFollowersDTO;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,6 +24,7 @@ public class UserControllerIntegrationTest {
     MockMvc mockMvc;
 
     @Test
+    @DisplayName("Perform test obtaining the list of followers of a user")
     public void getFollowersListTest() throws Exception {
 
         ResponseUserFollowersDTO expectedResponse = ResponseUserFollowersDTO.builder()
@@ -56,6 +58,7 @@ public class UserControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Perform test obtaining the list of followers of a user that does not exist")
     public void getFollowersListUserNotFoundTest() throws Exception {
 
         String expectedResponse = "User with id 200 does not exist";
