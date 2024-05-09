@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
@@ -132,9 +133,8 @@ public class PostServiceTest {
         // check that the actual list has the same size as the expected list
         Assertions.assertEquals(expectedPosts.size(), actualPosts.size());
         // check that the dates are in ascending order
-        for (int i = 0; i < expectedPostsForListDto.size(); i++) {
-            Assertions.assertEquals(expectedPostsForListDto.get(i).getDate(), actualPosts.get(i).getDate());
-        }
+        IntStream.range(0, expectedPostsForListDto.size()).forEach(i ->
+        Assertions.assertEquals(expectedPostsForListDto.get(i).getDate(), actualPosts.get(i).getDate()));
     }
     /**
      * T-0006
@@ -170,9 +170,8 @@ public class PostServiceTest {
         // check that the actual list has the same size as the expected list
         Assertions.assertEquals(expectedPosts.size(), actualPosts.size());
         // check that the dates are in descending order
-        for (int i = 0; i < expectedPostsForListDto.size(); i++) {
-            Assertions.assertEquals(expectedPostsForListDto.get(i).getDate(), actualPosts.get(i).getDate());
-        }
+        IntStream.range(0, expectedPostsForListDto.size()).forEach(i ->
+        Assertions.assertEquals(expectedPostsForListDto.get(i).getDate(), actualPosts.get(i).getDate()));
     }
 
     /**
@@ -215,11 +214,10 @@ public class PostServiceTest {
         Assertions.assertEquals(postsListDto.size(), result.size());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-        for (int i = 0; i < postsListDto.size(); i++) {
+        IntStream.range(0, postsListDto.size()).forEach(i -> {
             LocalDate dateToValidate = LocalDate.parse(result.get(i).getDate(), formatter);
             assertThat(dateToValidate).isAfterOrEqualTo(twoWeeksAgo).isBeforeOrEqualTo(today);
-
-        }
+        });
 
     }
 

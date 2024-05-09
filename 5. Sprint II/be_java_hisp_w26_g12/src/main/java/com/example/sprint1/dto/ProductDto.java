@@ -1,11 +1,8 @@
 package com.example.sprint1.dto;
 
 import com.example.sprint1.model.Product;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Data
 @AllArgsConstructor

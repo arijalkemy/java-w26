@@ -3,13 +3,14 @@ package com.example.sprint1.controller;
 import com.example.sprint1.dto.PostDto;
 import com.example.sprint1.service.IPostService;
 import com.example.sprint1.service.IProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-
+@Validated
 @RestController
 @RequestMapping("/products")
 public class PostController {
@@ -25,7 +26,7 @@ public class PostController {
      *                         * it returns an error message with an HTTP 400 Bad Request status.
      */
     @PostMapping("/post")
-    public ResponseEntity<?> addPost(@RequestBody @Valid PostDto postDto) {
+    public ResponseEntity<?> addPost(@RequestBody  @Valid PostDto postDto) {
         PostDto response = postService.addPost(postDto);
         return ResponseEntity.ok(response);
     }
