@@ -10,4 +10,8 @@ class SocialMeliApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void main() {
+
+    }
 }
