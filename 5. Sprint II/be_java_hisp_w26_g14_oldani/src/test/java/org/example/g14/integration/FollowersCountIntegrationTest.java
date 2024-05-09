@@ -45,13 +45,10 @@ public class FollowersCountIntegrationTest {
 
         MvcResult result = results.andReturn();
 
-        // Obtener el contenido JSON de la respuesta
         String jsonResponse = result.getResponse().getContentAsString();
 
-        // Parsear el JSON a un objeto UserFollowersCountResponseDto
         UserFollowersCountResponseDto actualResponseDto = objectMapper.readValue(jsonResponse, UserFollowersCountResponseDto.class);
-
-        // Comparar el objeto obtenido con el esperado
+        
         Assertions.assertEquals(countResponseDto, actualResponseDto);
     }
 }
