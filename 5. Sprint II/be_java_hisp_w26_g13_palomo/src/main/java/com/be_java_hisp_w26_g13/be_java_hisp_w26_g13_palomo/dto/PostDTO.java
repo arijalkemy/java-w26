@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
+@Builder
 public class PostDTO implements Serializable {
     @JsonProperty("post_id")
     private int postId;

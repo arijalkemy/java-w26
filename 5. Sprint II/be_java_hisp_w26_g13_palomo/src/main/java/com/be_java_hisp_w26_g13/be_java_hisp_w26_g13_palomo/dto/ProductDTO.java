@@ -3,16 +3,14 @@ package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13_palomo.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Valid
+@Builder
 public class ProductDTO {
     @NotNull(message = "La id no puede estar vacia")
     @Positive(message = "el id debe ser mayor a cero")
