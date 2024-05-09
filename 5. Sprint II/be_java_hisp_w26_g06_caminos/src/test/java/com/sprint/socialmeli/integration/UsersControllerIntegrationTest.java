@@ -2,6 +2,7 @@ package com.sprint.socialmeli.integration;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,13 +22,29 @@ public class UsersControllerIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @AfterEach
+    private Integer customerId;
+    private Integer sellerId;
+    private Integer nonexistentId;
+    private Integer invalidId;
+    private String invalidTypeId;
+
+
+    @BeforeEach
     public void setup() throws Exception {
+        this.customerId = 101;
+        this.sellerId = 1;
+        this.nonexistentId = 1000;
+        this.invalidId = -1;
+        this.invalidTypeId = "asd";
+    }
+
+    @AfterEach
+    public void reset() throws Exception {
         this.unfollow();
     }
 
     private void unfollow() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + 101 + "/unfollow/" + 1)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/unfollow/" + sellerId)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andReturn();
     }
@@ -35,10 +52,7 @@ public class UsersControllerIntegrationTest {
     // ----- Follow ----- START
     @Test
     public void correctFollowEndpoint() throws Exception {
-        int userId = 101;
-        int userIdToFollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("OK"));
@@ -48,84 +62,63 @@ public class UsersControllerIntegrationTest {
     public void alreadyFollowEndpoint() throws Exception {
         this.correctFollowEndpoint();
 
-        int userId = 101;
-        int userIdToFollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isConflict());
     }
 
     @Test
     public void followEndpointWithInvalidUserId() throws Exception {
-        int invalidUserId = -1;
-        int userIdToFollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidUserId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void followEndpointWithInvalidUserIdToFollow() throws Exception {
-        int userId = 101;
-        int invalidUserIdToFollow = -1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/follow/" + invalidUserIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + invalidId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void followEndpointWithNonexistentUserId() throws Exception {
-        int invalidUserId = 1000;
-        int userIdToFollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidUserId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + nonexistentId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void followEndpointWithNonexistentUserIdToFollow() throws Exception {
-        int invalidUserId = 101;
-        int userIdToFollow = 1000;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidUserId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + nonexistentId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void followEndpointWithInvalidTypeUserId() throws Exception {
-        String invalidUserId = "asd";
-        int userIdToFollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidUserId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidTypeId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void followEndpointWithInvalidTypeIdToFollow() throws Exception {
-        int invalidUserId = 101;
-        String userIdToFollow = "asd";
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidUserId + "/follow/" + userIdToFollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + invalidTypeId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void followEndpointWithoutParameterUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//follow/1")))
+        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//follow/" + sellerId)))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void followEndpointWithoutParameterUserIdToFollow() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users/101/follow/")))
+        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users/" + customerId + "/follow/")))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
@@ -136,31 +129,33 @@ public class UsersControllerIntegrationTest {
     @Test
     public void correctCountFollowersEndpoint() throws Exception {
         this.correctFollowEndpoint();
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", 1))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", sellerId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(1))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(sellerId))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.user_name").value("John Doe"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.follower_count").value(1));
     }
 
     @Test
     public void countFollowersEndpointWithInvalidUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", -1))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", invalidId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void countFollowersEndpointWithNonexistentUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", 100))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/users/{userId}/followers/count", nonexistentId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void countFollowersEndpointWithInvalidTypeUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", "asd"))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/users/{userId}/followers/count", invalidTypeId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
@@ -179,34 +174,36 @@ public class UsersControllerIntegrationTest {
     @Test
     public void correctListFollowersEndpoint() throws Exception {
         this.correctFollowEndpoint();
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", 1))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", sellerId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(1))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(sellerId))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.user_name").value("John Doe"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.followers", Matchers.hasSize(1)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.followers.[0].user_id").value(101))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.followers.[0].user_id").value(customerId))
                 .andExpect(MockMvcResultMatchers.jsonPath(
                         "$.followers.[0].user_name").value("Alice Johnson"));
     }
 
     @Test
     public void listFollowersEndpointWithInvalidUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", -1))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", invalidId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void listFollowersEndpointWithNonexistentUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", 1000))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/users/{userId}/followers/list", nonexistentId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void listFollowersEndpointWithInvalidType() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", "asd"))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/users/{userId}/followers/list", invalidTypeId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
@@ -224,34 +221,36 @@ public class UsersControllerIntegrationTest {
     @Test
     public void correctListFollowedUsersEndpoint() throws Exception {
         this.correctFollowEndpoint();
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", 101))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", customerId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(101))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.user_id").value(customerId))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.user_name").value("Alice Johnson"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.followed", Matchers.hasSize(1)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.followed.[0].user_id").value(1))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.followed.[0].user_id").value(sellerId))
                 .andExpect(MockMvcResultMatchers.jsonPath(
                         "$.followed.[0].user_name").value("John Doe"));
     }
 
     @Test
     public void listFollowedUsersEndpointWithInvalidUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", -101))
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", invalidId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
 
     @Test
     public void listFollowedUsersEndpointWithNonexistentUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", 1001))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/users/{userId}/followed/list", nonexistentId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void listFollowedUsersEndpointWithInvalidType() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", "asd"))
+        mockMvc.perform(MockMvcRequestBuilders.get(
+                "/users/{userId}/followed/list", invalidTypeId))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
     }
@@ -269,11 +268,7 @@ public class UsersControllerIntegrationTest {
     @Test
     public void correctUnfollowEndpoint() throws Exception {
         this.correctFollowEndpoint();
-
-        int userId = 101;
-        int userIdToUnfollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/unfollow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("OK"));
@@ -283,10 +278,7 @@ public class UsersControllerIntegrationTest {
     public void unfollowEndpointWithInvalidUserId() throws Exception {
         this.correctFollowEndpoint();
 
-        int userId = -101;
-        int userIdToUnfollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidId + "/unfollow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
@@ -296,10 +288,7 @@ public class UsersControllerIntegrationTest {
     public void unfollowEndpointWithInvalidUserIdToUnfollow() throws Exception {
         this.correctFollowEndpoint();
 
-        int userId = 101;
-        int userIdToUnfollow = -1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/unfollow/" + invalidId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
@@ -308,11 +297,7 @@ public class UsersControllerIntegrationTest {
     @Test
     public void unfollowEndpointWithNonexistentUserId() throws Exception {
         this.correctFollowEndpoint();
-
-        int userId = 1001;
-        int userIdToUnfollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + nonexistentId + "/unfollow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
@@ -322,10 +307,7 @@ public class UsersControllerIntegrationTest {
     public void unfollowEndpointWithNonexistentUserIdToUnfollow() throws Exception {
         this.correctFollowEndpoint();
 
-        int userId = 101;
-        int userIdToUnfollow = 1001;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/unfollow/" + nonexistentId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
@@ -335,10 +317,7 @@ public class UsersControllerIntegrationTest {
     public void unfollowEndpointInvalidTypeUserId() throws Exception {
         this.correctFollowEndpoint();
 
-        String userId = "asd";
-        int userIdToUnfollow = 1;
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidTypeId + "/unfollow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
@@ -348,10 +327,7 @@ public class UsersControllerIntegrationTest {
     public void unfollowEndpointWithInvalidTypeUserIdToUnfollow() throws Exception {
         this.correctFollowEndpoint();
 
-        int userId = 101;
-        String userIdToUnfollow = "asd";
-
-        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + userId + "/unfollow/" + userIdToUnfollow)
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/unfollow/" + invalidTypeId)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isBadRequest());
@@ -359,14 +335,14 @@ public class UsersControllerIntegrationTest {
 
     @Test
     public void unfollowEndpointWithoutParameterUserId() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//unfollow/1")))
+        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//unfollow/" + sellerId)))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 
     @Test
     public void unfollowEndpointWithoutParameterUserIdToUnfollow() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users/101/unfollow/")))
+        mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users/" + customerId + "/unfollow/")))
                 .andDo(print())
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
