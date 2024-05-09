@@ -25,15 +25,4 @@ public class Post {
         return currentId;
     }
 
-    public Post(Seller seller, LocalDate date, Product product, int category, Double price) {
-        this.id = currentId;
-        this.seller = seller;
-        this.date = date;
-        this.product = product;
-        this.category = category;
-        this.price = price;
-        this.hasPromo = false;
-        this.discount = 0.0;
-        currentId++;
-    }
 }
