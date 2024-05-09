@@ -17,7 +17,9 @@ import java.util.Comparator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
+/**
+ * Implementación de la interfaz IFollowService.
+ */
 @Service
 public class FollowService implements IFollowService {
 
@@ -26,7 +28,13 @@ public class FollowService implements IFollowService {
     @Autowired
     ISellerRepository sellerRepository;
 
-
+    /**
+     * Permite a un usuario seguir a otro usuario.
+     *
+     * @param userId El ID del usuario que desea seguir a otro usuario.
+     * @param userIdToFollow El ID del usuario que será seguido.
+     * @throws BadRequestException si el vendedor o el comprador no se encuentran.
+     */
     @Override
     public void userIdToFollow(int userId, int userIdToFollow) {
         // se optiene el resultado si existen id
@@ -42,7 +50,13 @@ public class FollowService implements IFollowService {
         }
     }
 
-
+    /**
+     * Cuenta el número de seguidores de un vendedor.
+     *
+     * @param sellerId El ID del vendedor.
+     * @return Un objeto CountFollowersDTO que contiene el ID del vendedor, el nombre del vendedor y el número de seguidores.
+     * @throws NotFoundException si el vendedor no se encuentra.
+     */
     @Override
     public CountFollowersDTO countFollowers(Integer sellerId) {
         Seller seller = sellerRepository.getSellerById(sellerId);
@@ -54,7 +68,13 @@ public class FollowService implements IFollowService {
         );
     }
 
-
+    /**
+     * Permite a un usuario dejar de seguir a un vendedor.
+     *
+     * @param userId El ID del usuario que desea dejar de seguir a un vendedor.
+     * @param userIdToFollow El ID del vendedor que será dejado de seguir.
+     * @throws NotFoundException si el vendedor o el cliente no se encuentran.
+     */
     @Override
     public void unfollowSeller(Integer userId, Integer userIdToFollow) {
         Seller seller = sellerRepository.getSellerById(userIdToFollow);
@@ -83,6 +103,15 @@ public class FollowService implements IFollowService {
         seller.getFollowers().removeIf(followerId -> followerId == userId);
     }
 
+    /**
+     * Método genérico para ordenar una lista de objetos basado en un atributo de tipo String.
+     *
+     * @param list La lista de objetos a ordenar.
+     * @param order El orden en el que se desea ordenar la lista. Puede ser "name_asc" para orden ascendente o "name_desc" para orden descendente.
+     * @param getName Una función que toma un objeto de la lista y devuelve el atributo de tipo String por el cual se ordenará la lista.
+     * @return La lista ordenada.
+     * @throws BadRequestException si el parámetro de orden no es "name_asc" ni "name_desc".
+     */
     private <T> List<T> sortList(List<T> list, String order, Function<T, String> getName) {
         if (order == null) {
             return list;
@@ -96,6 +125,14 @@ public class FollowService implements IFollowService {
         }
     }
 
+    /**
+     * Obtiene los seguidores de un vendedor.
+     *
+     * @param userId El ID del vendedor.
+     * @param order El orden en el que se desea ordenar la lista de seguidores. Puede ser "name_asc" para orden ascendente o "name_desc" para orden descendente.
+     * @return Un objeto SellerFollowerDto que contiene el ID del vendedor, el nombre del vendedor y una lista de seguidores.
+     * @throws NotFoundException si el vendedor no se encuentra.
+     */
     @Override
     public SellerFollowerDto getSellerFollowers(int userId, String order) {
         ObjectMapper mapper = new ObjectMapper();
@@ -110,6 +147,14 @@ public class FollowService implements IFollowService {
         return new SellerFollowerDto(userId, seller.getSellerName(), customers);
     }
 
+    /**
+     * Obtiene los vendedores seguidos por un usuario.
+     *
+     * @param userId El ID del usuario.
+     * @param order El orden en el que se desea ordenar la lista de vendedores seguidos. Puede ser "name_asc" para orden ascendente o "name_desc" para orden descendente.
+     * @return Un objeto FollowedSellersDTO que contiene el ID del usuario, el nombre del usuario y una lista de vendedores seguidos.
+     * @throws NotFoundException si el usuario no se encuentra.
+     */
     @Override
     public FollowedSellersDTO getFollowedSellers(int userId, String order) {
         ObjectMapper mapper = new ObjectMapper();

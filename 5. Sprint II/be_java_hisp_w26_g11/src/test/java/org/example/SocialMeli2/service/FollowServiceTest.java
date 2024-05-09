@@ -30,6 +30,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
+/**
+ * Clase de prueba para el servicio de seguimiento.
+ * Esta clase contiene varios casos de prueba para validar la funcionalidad del servicio de seguimiento.
+ */
 @ExtendWith(MockitoExtension.class)
 public class FollowServiceTest {
     @Mock
@@ -41,6 +45,15 @@ public class FollowServiceTest {
     @InjectMocks
     FollowService followService;
 
+
+    /**
+     * Prueba para validar correctamente el seguimiento.
+     * <p>
+     * Este método de prueba verifica que el usuario y el vendedor que se intenta seguir no existan en la base de datos.
+     * Se configura el comportamiento esperado de los mocks para que retornen false, indicando que el usuario y el vendedor no están siguiéndose.
+     * Luego, se ejecuta el método userIdToFollow del servicio FollowService.
+     * Finalmente, se verifican las interacciones con los métodos userIdToFollowCustomer y userIdToFollowSeller de los repositorios correspondientes.
+     */
     @Test
     @DisplayName("T-0001 validar correctamente follow")
     public void validateSuccessfullyFollow() {
@@ -53,6 +66,13 @@ public class FollowServiceTest {
         verify(sellerRepository, times(1)).userIdToFollowSeller(235, 101);
     }
 
+    /**
+     * Prueba para validar de forma incorrecta el vendedor de seguimiento.
+     * <p>
+     * Este método de prueba verifica que el usuario no esté siguiendo al vendedor que se intenta seguir.
+     * Se configura el comportamiento esperado de los mocks para que retornen true para el vendedor, indicando que el usuario ya está siguiendo al vendedor.
+     * Luego, se ejecuta el método userIdToFollow del servicio FollowService y se espera que se lance una excepción BadRequestException.
+     */
     @Test
     @DisplayName("T-0001 validar de forma incorrecta vendedor de follow")
     public void validateIncorrectlySellerFollow() throws BadRequestException {
@@ -62,6 +82,13 @@ public class FollowServiceTest {
         Assertions.assertThrows(BadRequestException.class, () -> followService.userIdToFollow(235, 90));
     }
 
+    /**
+     * Prueba para validar de forma incorrecta el comprador de seguimiento.
+     * <p>
+     * Este método de prueba verifica que el vendedor no esté siguiendo al usuario que se intenta seguir.
+     * Se configura el comportamiento esperado de los mocks para que retornen true para el usuario, indicando que el vendedor ya está siguiendo al usuario.
+     * Luego, se ejecuta el método userIdToFollow del servicio FollowService y se espera que se lance una excepción BadRequestException.
+     */
     @Test
     @DisplayName("T-0001 validar de forma incorrecta comprador de follow")
     public void validateIncorrectlyBuyerFollow() throws BadRequestException {
@@ -71,7 +98,14 @@ public class FollowServiceTest {
         Assertions.assertThrows(BadRequestException.class, () -> followService.userIdToFollow(200, 101));
     }
 
-
+    /**
+     * Prueba para validar que el usuario a dejar de seguir exista.
+     * <p>
+     * Este método de prueba verifica que el usuario y el vendedor que se intenta dejar de seguir existan en la base de datos.
+     * Se configura el comportamiento esperado de los mocks para que retornen un vendedor y un cliente existentes.
+     * Luego, se ejecuta el método unfollowSeller del servicio FollowService.
+     * Finalmente, se verifican las interacciones con los métodos getSellerById y findCustomerById de los repositorios correspondientes.
+     */
     @Test
     @DisplayName("T-0002 Validación correcta de que el usuario a dejar de seguir exista")
     public void testValidUserIdToUnfollow() {
@@ -88,6 +122,14 @@ public class FollowServiceTest {
         verify(customerRepository, times(1)).findCustomerById(235);
     }
 
+    /**
+     * Prueba para validar que el usuario a dejar de seguir no exista.
+     * <p>
+     * Este método de prueba verifica que el vendedor no exista y que el cliente sí exista en la base de datos.
+     * Se configura el comportamiento esperado de los mocks para que retornen null para el vendedor y un cliente existente.
+     * Luego, se ejecuta el método unfollowSeller del servicio FollowService y se espera que se lance una excepción NotFoundException.
+     * Finalmente, se verifican las interacciones con los métodos getSellerById y findCustomerById de los repositorios correspondientes.
+     */
     @Test
     @DisplayName("T-0002 Validación incorrecta de que el usuario a dejar de seguir exista")
     public void testUnvalidUserToUnfollow() {
@@ -103,8 +145,11 @@ public class FollowServiceTest {
         verify(customerRepository, times(1)).findCustomerById(235);
     }
 
-
-
+    /**
+     * Prueba para verificar que la cantidad de seguidores de un usuario sea correcta.
+     * <p>
+     * Este método de prueba configura un vendedor con una lista de seguidores y luego verifica que el método countFollowers del servicio FollowService retorne la cantidad correcta de seguidores.
+     */
     @Test
     @DisplayName("T-0007 Verificar que la cantidad de seguidores de un usuario sea correcta")
     public void testCountFollowersToUser() {
@@ -118,6 +163,13 @@ public class FollowServiceTest {
         //Act and Assert
         assertEquals(3, result.getFollowersCount());
     }
+
+    /**
+     * Prueba para verificar cuando no se encuentra el vendedor.
+     * <p>
+     * Este método de prueba configura el comportamiento esperado del mock para que retorne null cuando se busque un vendedor por su ID.
+     * Luego, se ejecuta el método countFollowers del servicio FollowService y se espera que se lance una excepción NotFoundException.
+     */
     @Test
     @DisplayName("T-0007 Verificar cuando no se encuentra el vendedor")
     public void testCountFollowersToUserWithNotFound() throws NotFoundException {
@@ -126,6 +178,15 @@ public class FollowServiceTest {
         //Act and Assert
         Assertions.assertThrows(NotFoundException.class, () -> followService.countFollowers(anyInt()));
     }
+
+    /**
+     * Prueba para validar que el ordenamiento exista.
+     * <p>
+     * Este método de prueba verifica que el ordenamiento por nombre ascendente y descendente exista.
+     * Se configura el comportamiento esperado de los mocks para que retornen un vendedor y dos clientes.
+     * Luego, se ejecuta el método getSellerFollowers del servicio FollowService.
+     * Finalmente, se verifica que no se lance ninguna excepción.
+     */
     @Test
     @DisplayName("T-0003 Validar el ordenamiento exista")
     public void testGetSellerFollowersWithValidOrder() {
@@ -151,6 +212,14 @@ public class FollowServiceTest {
         assertDoesNotThrow(() -> followService.getSellerFollowers(1, "name_desc"));
     }
 
+    /**
+     * Prueba para validar que el ordenamiento no exista.
+     * <p>
+     * Este método de prueba verifica que el ordenamiento no exista.
+     * Se configura el comportamiento esperado de los mocks para que retornen un vendedor y dos clientes.
+     * Luego, se ejecuta el método getSellerFollowers del servicio FollowService.
+     * Finalmente, se verifica que se lance una excepción BadRequestException.
+     */
     @Test
     @DisplayName("T-0003 Validar la excepcion de un prdenamiento innexistente")
     public void testGetSellerFollowersWithInvalidOrder() {
@@ -164,6 +233,14 @@ public class FollowServiceTest {
         assertThrows(BadRequestException.class, () -> followService.getSellerFollowers(1, "invalid_order"));
     }
 
+    /**
+     * Prueba para validar el ordenamiento ascendente.
+     * <p>
+     * Este método de prueba verifica que el ordenamiento por nombre sea ascendente.
+     * Se configura el comportamiento esperado de los mocks para que retornen un vendedor y dos clientes.
+     * Luego, se ejecuta el método getSellerFollowers del servicio FollowService.
+     * Finalmente, se verifica que los nombres de los clientes estén en orden ascendente.
+     */
     @Test
     @DisplayName("T-0004 Validar el ordenamiento ascendente")
     public void testGetSellerFollowersWithAscendingOrder() {
@@ -192,6 +269,14 @@ public class FollowServiceTest {
         assertEquals("customerB", result.getFollowers().get(1).getUserName());
     }
 
+    /**
+     * Prueba para validar el ordenamiento descendente.
+     * <p>
+     * Este método de prueba verifica que el ordenamiento por nombre sea descendente.
+     * Se configura el comportamiento esperado de los mocks para que retornen un vendedor y dos clientes.
+     * Luego, se ejecuta el método getSellerFollowers del servicio FollowService.
+     * Finalmente, se verifica que los nombres de los clientes estén en orden descendente.
+     */
     @Test
     @DisplayName("T-0004 Validar el ordenamiento descendente")
     public void testGetSellerFollowersWithDescendingOrder() {
@@ -220,6 +305,14 @@ public class FollowServiceTest {
         assertEquals("customerA", result.getFollowers().get(1).getUserName());
     }
 
+    /**
+     * Prueba para validar que el orden de la lista de los vendedores que un usuario sigue este ASC.
+     * <p>
+     * Este método de prueba verifica que el orden de la lista de los vendedores que un usuario sigue sea ascendente.
+     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
+     * Luego, se ejecuta el método getFollowedSellers del servicio FollowService.
+     * Finalmente, se verifica que los nombres de los vendedores estén en orden ascendente.
+     */
     @Test
     @DisplayName("T-0004 Validar que el orden de la lista de los vendedores que un usuario sigue este ASC")
     public void getFollowedSellersTestAsc() {
@@ -262,6 +355,14 @@ public class FollowServiceTest {
         Assertions.assertEquals(expectedResponse, response);
     }
 
+    /**
+     * Prueba para validar que el orden de la lista de los vendedores que un usuario sigue este DESC.
+     * <p>
+     * Este método de prueba verifica que el orden de la lista de los vendedores que un usuario sigue sea descendente.
+     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
+     * Luego, se ejecuta el método getFollowedSellers del servicio FollowService.
+     * Finalmente, se verifica que los nombres de los vendedores estén en orden descendente.
+     */
     @Test
     @DisplayName("T-0004 Validar que el orden de la lista de los vendedores que un usuario sigue este DESC")
     public void getFollowedSellersTestDesc() {
@@ -304,6 +405,14 @@ public class FollowServiceTest {
         Assertions.assertEquals(expectedResponse, response);
     }
 
+    /**
+     * Prueba para validar getSellerFollowed con orden valido.
+     * <p>
+     * Este método de prueba verifica que el ordenamiento por nombre ascendente y descendente exista.
+     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
+     * Luego, se ejecuta el método getFollowedSellers del servicio FollowService.
+     * Finalmente, se verifica que no se lance ninguna excepción.
+     */
     @Test
     @DisplayName("T-0003 Validar getSellerFollowed con orden valido")
     public void getSellerFollowedWithValidOrderTest() {
@@ -343,6 +452,14 @@ public class FollowServiceTest {
         assertDoesNotThrow(() -> followService.getFollowedSellers(1, "name_desc"));
     }
 
+    /**
+     * Prueba para validar getSellerFollowed con orden invalido.
+     * <p>
+     * Este método de prueba verifica que el ordenamiento no exista.
+     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
+     * Luego, se ejecuta el método getFollowedSellers del servicio FollowService.
+     * Finalmente, se verifica que se lance una excepción BadRequestException.
+     */
     @Test
     @DisplayName("T-0003 Validar getSellerFollowed con orden invalido")
     public void testGetFollowedSellersWithInvalidOrder() {
