@@ -1,0 +1,14 @@
+[{
+  "id": 4,
+  "user_name": "user4",
+  "followers": [3],
+  "followed": [3],
+  "posts": [4]
+},
+{
+"id": 5,
+"user_name": "user5",
+"followers": [3],
+"followed": [3],
+"posts": [5]
+}]
