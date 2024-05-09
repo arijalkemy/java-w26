@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.Random;
 
 @Repository
-@Profile("prod")
-public class PostRepositoryImpl implements IPostRepository {
+@Profile("test")
+public class TestPostRepositoryImpl implements IPostRepository {
 
     private List<Post> listPost;
 
@@ -28,11 +28,10 @@ public class PostRepositoryImpl implements IPostRepository {
     @Autowired
     IUserRepository userRepository;
 
-    public PostRepositoryImpl() {
+    public TestPostRepositoryImpl() {
         this.listPost = new ArrayList<>();
     }
 
-    // Agregado para respetar el orden temporal de la carga de datos dummy de los Productos que popularan los Posts
     @PostConstruct
     public void init() {
         initializePosts();

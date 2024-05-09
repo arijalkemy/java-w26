@@ -10,14 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Profile("prod")
-public class UserRepositoryImpl implements IUserRepository {
-    private List<User> listUser;
+@Profile("test")
+public class TestUserRepositoryImpl implements IUserRepository {
 
-    public UserRepositoryImpl() {
-        this.listUser = new ArrayList<>();
-        initializeUsers();
-    }
+    private List<User> listUser;
 
     private void initializeUsers() {
         User aliceMorrison = new User(1, "Alice Morrison");
@@ -25,12 +21,6 @@ public class UserRepositoryImpl implements IUserRepository {
         User charlyGarcia = new User(3, "Charlie Garcia");
         User daisyJohnson = new User(4, "Daisy Johnson");
         User edwardWilson = new User(5, "Edward Wilson");
-        User fionaCampbell = new User(6, "Fiona Campbell");
-        User goergeMiller = new User(7, "George Miller");
-        User hannahScott = new User(8, "Hannah Scott");
-        User ianPeterson = new User(9, "Ian Peterson");
-        User juliaEvans = new User(10, "Julia Evans");
-        User kevinBrown = new User(11, "Kevin Brown");
         User lauraWhite = new User(12, "Laura White");
         User mikeDavis = new User(13, "Mike Davis");
         User noraBaker = new User(14, "Nora Baker");
@@ -61,16 +51,15 @@ public class UserRepositoryImpl implements IUserRepository {
         listUser.add(charlyGarcia);
         listUser.add(daisyJohnson);
         listUser.add(edwardWilson);
-        listUser.add(fionaCampbell);
-        listUser.add(goergeMiller);
-        listUser.add(hannahScott);
-        listUser.add(ianPeterson);
-        listUser.add(juliaEvans);
-        listUser.add(kevinBrown);
         listUser.add(lauraWhite);
         listUser.add(mikeDavis);
         listUser.add(noraBaker);
         listUser.add(oscarLee);
+    }
+
+    public TestUserRepositoryImpl() {
+        this.listUser = new ArrayList<>();
+        initializeUsers();
     }
 
     @Override

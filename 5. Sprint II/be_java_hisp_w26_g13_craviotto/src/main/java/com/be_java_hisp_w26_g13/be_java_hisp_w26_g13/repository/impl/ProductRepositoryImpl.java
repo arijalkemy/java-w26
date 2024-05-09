@@ -1,12 +1,14 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.impl;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.Product;
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.repository.IProductRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Profile("prod")
 public class ProductRepositoryImpl implements IProductRepository {
 
     private List<Product> listProduct;
@@ -30,6 +32,7 @@ public class ProductRepositoryImpl implements IProductRepository {
         listProduct.add(new Product(15, "OnePlus 9", "Smartphone", "OnePlus", "Winter Mist", "120 Hz Fluid Display"));
     }
 
+    @Override
     public List<Product> getAllProducts() {
         return new ArrayList<>(listProduct);
     }

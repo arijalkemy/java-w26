@@ -48,8 +48,8 @@ public class ProductControllerTests {
 
     @Test
     public void createPostTest() throws Exception {
-        ProductDTO existingProduct = new ProductDTO(12, "PlayStation 5",
-                "Console", "Sony", "White", "Supports ray tracing");
+        ProductDTO existingProduct = new ProductDTO(4, "Apple MacBook Pro",
+                "Laptop", "Apple", "Grey", "M1 chip 2020 model");
         PostDTO postDTO = new PostDTO(1000, 1, LocalDate.now(), existingProduct, 1, 400.0);
         String payloadJSON = writer.writeValueAsString(postDTO);
         this.mockMvc.perform(MockMvcRequestBuilders.post("/products/post")
@@ -61,6 +61,39 @@ public class ProductControllerTests {
                 .andExpect(MockMvcResultMatchers
                         .jsonPath("$.message")
                         .value("The post has been successfully created"));
+    }
+
+    @Test
+    public void createPostWithoutProductTest() throws Exception {
+        PostDTO postDTO = new PostDTO(1000, 1, LocalDate.now(), null, 1, 400.0);
+        String payloadJSON = writer.writeValueAsString(postDTO);
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/products/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payloadJSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith("application/json"))
+                .andExpect(MockMvcResultMatchers
+                        .jsonPath("$.product")
+                        .value("El campo no puede estar vacio"));
+    }
+
+    @Test
+    public void createPostWithInvalidDateTest() throws Exception {
+        ProductDTO existingProduct = new ProductDTO(4, "Apple MacBook Pro",
+                "Laptop", "Apple", "Grey", "M1 chip 2020 model");
+        LocalDate invalidDate = LocalDate.of(1950, 1, 1);
+        PostDTO postDTO = new PostDTO(1000, 1, invalidDate, existingProduct, 1, 400.0);
+        String payloadJSON = writer.writeValueAsString(postDTO);
+        this.mockMvc.perform(MockMvcRequestBuilders.post("/products/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(payloadJSON))
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith("application/json"))
+                .andExpect(MockMvcResultMatchers
+                        .jsonPath("$.message")
+                        .value("The provided date in the post is before the current date."));
     }
 
     @Test

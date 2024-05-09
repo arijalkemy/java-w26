@@ -1,7 +1,6 @@
 package com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.integration;
 
 import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.dto.*;
-import com.be_java_hisp_w26_g13.be_java_hisp_w26_g13.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -17,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -151,6 +149,26 @@ public class UserControllerTests {
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith("application/json"))
                 .andExpect(MockMvcResultMatchers.content().json(writer.writeValueAsString(expectedResponse)));
+
+    }
+
+    @Test
+    public void getNonVendorFollowersCountTest() throws Exception {
+        int nonVendorUserId = 13;
+
+        var result = this.mockMvc.perform(
+                MockMvcRequestBuilders.get(
+                        "/users/{userId}/followers/count",
+                        nonVendorUserId)
+        );
+
+        result.andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentTypeCompatibleWith("application/json"))
+                .andExpect(MockMvcResultMatchers
+                        .jsonPath("$.message")
+                        .value("User with id " + nonVendorUserId +
+                                " is not a vendor user, non-vendor users cannot have followers"));
 
     }
 }
