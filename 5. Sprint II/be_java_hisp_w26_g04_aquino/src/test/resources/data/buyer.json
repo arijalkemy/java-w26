@@ -1,0 +1,17 @@
+[
+  {
+    "userId": 456,
+    "userName": "JaneDoe",
+    "sellersFollowing": [123, 234]
+  },
+  {
+    "userId": 789,
+    "userName": "AliceSmith",
+    "sellersFollowing": [234]
+  },
+  {
+    "userId": 999,
+    "userName": "AliceDoe",
+    "sellersFollowing": [998]
+  }
+]

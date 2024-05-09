@@ -1,0 +1,47 @@
+package org.example.be_java_hisp_w26_g04.exceptions;
+
+import jakarta.validation.ConstraintViolationException;
+import java.util.HashMap;
+import java.util.Map;
+import org.example.be_java_hisp_w26_g04.dto.ValidationErrorsResponseDTO;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestController;
+
+@Validated
+@ControllerAdvice(annotations = RestController.class)
+public class GlobalExceptionHandler {
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<?> badRequest() {
+        return ResponseEntity.badRequest().build();
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ValidationErrorsResponseDTO> handleValidationExceptions(MethodArgumentNotValidException ex) {
+        Map<String, String> errorMap = new HashMap<>();
+        ex.getBindingResult()
+            .getFieldErrors()
+            .forEach(error -> errorMap.put(error.getField(), error.getDefaultMessage()));
+
+        ValidationErrorsResponseDTO errorsResponseDTO =
+            new ValidationErrorsResponseDTO("Hay errores de validación", errorMap);
+
+        return ResponseEntity.badRequest().body(errorsResponseDTO);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ValidationErrorsResponseDTO> handleValidationConstraintExceptions(ConstraintViolationException ex) {
+        Map<String, String> errorMap = new HashMap<>();
+        ex.getConstraintViolations().forEach(error -> {
+            errorMap.put(error.getPropertyPath().toString(), error.getMessage());
+        });
+
+        ValidationErrorsResponseDTO errorsResponseDTO =
+            new ValidationErrorsResponseDTO("Hay errores de validacion", errorMap);
+
+        return ResponseEntity.badRequest().body(errorsResponseDTO);
+    }
+}

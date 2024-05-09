@@ -1,0 +1,567 @@
+{
+	"info": {
+		"_postman_id": "88efadb2-3e2b-4441-8566-f5931a5a01b7",
+		"name": "Sprint I",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34294818"
+	},
+	"item": [
+		{
+			"name": "1",
+			"item": [
+				{
+					"name": "Follow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/users/456/follow/234"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2",
+			"item": [
+				{
+					"name": "cantidad de seguidores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/users/123/followers/count"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3",
+			"item": [
+				{
+					"name": "seguidores de un vendedor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/users/234/followers/list"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4",
+			"item": [
+				{
+					"name": "vendedores que sigue un usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/users/456/followed/list"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5",
+			"item": [
+				{
+					"name": "publicacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 123,\n    \"date\": \"25-04-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"producto sin oferta\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": \"true\",\n    \"discount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:8080/products/post/promo-post"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6",
+			"item": [
+				{
+					"name": "Publicaciones de las ultimas dos semanas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/followed/456/list?order=name_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"followed",
+								"456",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "7",
+			"item": [
+				{
+					"name": "Unfollow",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{localhost}}:{{port}}/users/456/unfollow/123"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "8",
+			"item": [
+				{
+					"name": "lista followers asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/123/followers/list?order=name_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"123",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followers des",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/123/followers/list?order=name_desc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"123",
+								"followers",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followed asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/followed/list?order=name_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list followed desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/users/456/followed/list?order=name_desc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"users",
+								"456",
+								"followed",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "name_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "9",
+			"item": [
+				{
+					"name": "publicaciones de sellers que un usuario sigue asc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/followed/456/list?order=date_asc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"followed",
+								"456",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_asc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publicaciones de sellers que un usuario sigue desc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/followed/456/list?order=date_desc",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"followed",
+								"456",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10",
+			"item": [
+				{
+					"name": "product promo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 234,\n    \"date\": \"29-04-2021\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"Silla Gamer\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 1500.50,\n    \"has_promo\": true,\n    \"discount\": 0.25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/products/promo-post"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "11",
+			"item": [
+				{
+					"name": "count promos of seller",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/promo-post/count?user_id=234",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"promo-post",
+								"count"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "234"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "12",
+			"item": [
+				{
+					"name": "promos of seller",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products/promo-post/list?user_id=234",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products",
+								"promo-post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "234"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bonus",
+			"item": [
+				{
+					"name": "Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}:{{port}}/products?price_order=desc&type=hogar",
+							"host": [
+								"{{localhost}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "price_order",
+									"value": "desc"
+								},
+								{
+									"key": "product_name",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "hogar"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Testing",
+			"item": [
+				{
+					"name": "new post vacio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"\",\n    \"date\": \"\",\n    \"product\": {\n        \"product_id\": \"\",\n        \"product_name\": \"\",\n        \"type\": \"\",\n        \"brand\": \"\",\n        \"color\": \"\",\n        \"notes\": \"\"\n    },\n    \"category\": \"\",\n    \"price\": \"\",\n    \"has_promo\": \"\",\n    \"discount\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/products/post"
+					},
+					"response": []
+				},
+				{
+					"name": "new post null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": null,\n    \"date\": null,\n    \"product\": {\n        \"product_id\": null,\n        \"product_name\": null,\n        \"type\": null,\n        \"brand\": null,\n        \"color\": null,\n        \"notes\": null\n    },\n    \"category\": null,\n    \"price\": null,\n    \"has_promo\": null,\n    \"discount\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/products/post"
+					},
+					"response": []
+				},
+				{
+					"name": "post precio minimo y caracteres especiales no permitidos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 123,\n    \"date\": \"25-04-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"producto sin oferta &\",\n        \"type\": \"Gamer &\",\n        \"brand\": \"Racer &\",\n        \"color\": \"Red & Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 0,\n    \"has_promo\": \"true\",\n    \"discount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/products/post"
+					},
+					"response": []
+				},
+				{
+					"name": "post size maximos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 123,\n    \"date\": \"25-04-2024\",\n    \"product\": {\n        \"product_id\": 0,\n        \"product_name\": \"Este es un nombre de producto que supera los 40 caracteres y no cumple con la validación\",\n        \"type\": \"EsteTipoDeProductoEsMuyLargoYNoCumpleConLasReglas\",\n        \"brand\": \"Esta marca excede los 25 caracteres permitidos\",\n        \"color\": \"Este color supera los 15 caracteres\",\n        \"notes\": \"Esta es una cadena con más de 80 caracteres, que es el límite máximo especificado.\"\n    },\n    \"category\": 100,\n    \"price\": 100,\n    \"has_promo\": \"true\",\n    \"discount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/products/post"
+					},
+					"response": []
+				},
+				{
+					"name": "post precio maximo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 123,\n    \"date\": \"25-04-2024\",\n    \"product\": {\n        \"product_id\": 1,\n        \"product_name\": \"producto sin oferta\",\n        \"type\": \"Gamer\",\n        \"brand\": \"Racer\",\n        \"color\": \"Red Black\",\n        \"notes\": \"Special Edition\"\n    },\n    \"category\": 100,\n    \"price\": 10000001,\n    \"has_promo\": \"true\",\n    \"discount\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{localhost}}:{{port}}/products/post"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}
