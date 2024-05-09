@@ -43,9 +43,10 @@ class ProductControllerTest {
         objectMapper = new ObjectMapper();
     }
 
-    @DisplayName("Se verifica la integración del sistema en la creacion de un post")
     @Test
+    @DisplayName("Se verifica la integración del sistema en la creacion de un post")
     void postProductPostTest() throws Exception {
+        //Arrange
         Random rand = new Random();
 
         int min = 200;
@@ -56,6 +57,7 @@ class ProductControllerTest {
         LocalDate postLocalDate = LocalDate.of(2024, 5, 6);
         PostDTO postDto = new PostDTO(postId, 2, postLocalDate, product, 1, 12000.0);
 
+        //Act
         ResultActions results = mockMvc.perform(
                 MockMvcRequestBuilders.post("/products/post")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -63,22 +65,24 @@ class ProductControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk()
         );
 
+        //Asserts
         String resultString = results.andReturn().getResponse().getContentAsString();
         String expectedString = objectMapper.writeValueAsString(postDto);
 
         Assertions.assertEquals(expectedString, resultString);
     }
 
-    @DisplayName("Se debería obtener un mensaje indicando que ya existe un post con id 1")
     @Test
+    @DisplayName("Se debería obtener un mensaje indicando que ya existe un post con id 1")
     void postProductPostWithExistPostIdTest() throws Exception {
-
+        //Arrange
         ProductDTO product = new ProductDTO(1, "product A", "Type A", "Brand A", "Blue", "note");
         LocalDate postLocalDate = LocalDate.of(2024, 5, 6);
         PostDTO postDto = new PostDTO(1, 2, postLocalDate, product, 1, 12000.0);
 
         ExceptionDTO message = new ExceptionDTO("Ya existe un post con el id 1");
 
+        //Act
         ResultActions results = mockMvc.perform(
                         MockMvcRequestBuilders.post("/products/post")
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -86,23 +90,44 @@ class ProductControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isConflict()
                 );
 
+        //Asserts
         String resultString = results.andReturn().getResponse().getContentAsString();
         String expectedString = objectMapper.writeValueAsString(message);
         Assertions.assertEquals(expectedString, resultString);
     }
 
-    @DisplayName("Se debería obtener la lista de seguidos del usuario con id 1")
     @Test
-    void getSellersPostsFollowedByUser() throws Exception {
+    @DisplayName("Se debería obtener la lista de seguidos del usuario con id 1")
+    void getSellersPostsFollowedByUserTest() throws Exception {
+        //Arrange
         Integer userId = 1;
         String url = String.format("/products/followed/%d/list", userId);
 
-        ResultActions results = mockMvc.perform(
+        //Act
+        mockMvc.perform(
                 MockMvcRequestBuilders.get(url))
+                //Asserts
                     .andExpect(MockMvcResultMatchers.status().isOk())
                     .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(1)
 
         );
+    }
+
+    @Test
+    @DisplayName("Se debería obtener la lista de seguidos del usuario con id 1")
+    void getSellersPostsFollowedByUserWithParamTest() throws Exception {
+        //Arrange
+        Integer userId = 1;
+        String url = String.format("/products/followed/%d/list", userId);
+
+        //Act
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get(url)
+                                .param("order", "date_asc"))
+                                //Asserts
+                                .andExpect(MockMvcResultMatchers.status().isOk())
+                                .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(1)
+                );
     }
 
 }
