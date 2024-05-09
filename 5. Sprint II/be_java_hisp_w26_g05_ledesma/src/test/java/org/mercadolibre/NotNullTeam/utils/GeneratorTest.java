@@ -2,10 +2,14 @@ package org.mercadolibre.NotNullTeam.utils;
 
 import org.mercadolibre.NotNullTeam.DTO.request.post.PostDTO;
 import org.mercadolibre.NotNullTeam.DTO.request.product.ProductDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseWithNotSellerListDTO;
 import org.mercadolibre.NotNullTeam.DTO.response.post.PostsByFollowedDTO;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerFollowersCountDto;
+import org.mercadolibre.NotNullTeam.DTO.response.seller.SellerResponseDTO;
 import org.mercadolibre.NotNullTeam.mapper.BuyerMapper;
 import org.mercadolibre.NotNullTeam.mapper.PostMapper;
+import org.mercadolibre.NotNullTeam.mapper.SellerMapper;
 import org.mercadolibre.NotNullTeam.model.Buyer;
 import org.mercadolibre.NotNullTeam.model.Post;
 import org.mercadolibre.NotNullTeam.model.Seller;
@@ -19,6 +23,7 @@ import java.util.List;
 public class GeneratorTest {
     private static Buyer buyer;
     private static Seller seller;
+    private static Seller seller2;
 
     static {
         buyer = Buyer.builder()
@@ -39,8 +44,18 @@ public class GeneratorTest {
                 .followersList(new ArrayList<>())
                 .build();
 
+        seller2 = Seller.builder()
+                .user(User.builder()
+                        .id(3L)
+                        .name("Seller2")
+                        .build()
+                )
+                .followersList(new ArrayList<>())
+                .build();
+
         seller.setFollowersList(List.of(buyer));
         buyer.setFollowedList(List.of(seller));
+        buyer.setFollowedList(List.of(seller2));
     }
 
     public static Buyer getBuyer(){
@@ -70,16 +85,8 @@ public class GeneratorTest {
     }
 
     public static PostsByFollowedDTO createPostsByFollowedDTO(PostDTO post) {
-        User user = new User();
-        user.setId(2L);
-
-        seller = Seller.builder()
-                .user(user
-                )
-                .build();
-
         Post postModel = PostMapper.postDtoToPost(post, seller);
-        postModel.setId(postModel.getId() - 1);
+        postModel.setId(1L);
 
         return PostMapper.postToPostByFollowed(3L, List.of(postModel));
     }
@@ -88,4 +95,24 @@ public class GeneratorTest {
         return BuyerMapper.toListBuyerResponseWithNotSellerListDTO(List.of(buyer));
     }
 
+    public static BuyerResponseDTO BuyerResponseDTO() {
+        return BuyerMapper.toBuyerResponseDTO(buyer,
+                SellerMapper.toListSellerResponseWithNotBuyerListDTO(buyer.getFollowedList()));
+    }
+
+    public static SellerFollowersCountDto sellerFollowersCountDto() {
+        return SellerFollowersCountDto.builder()
+                .userId(2L)
+                .userName("Seller1")
+                .followersCount(100)
+                .build();
+    }
+
+    public static SellerResponseDTO sellerResponseDTO() {
+        return SellerResponseDTO.builder()
+                .id(2L)
+                .name("Seller1")
+                .followers(List.of(BuyerMapper.toBuyerResponseWithNotSellerListDTO(buyer)))
+                .build();
+    }
 }

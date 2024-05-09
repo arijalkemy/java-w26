@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mercadolibre.NotNullTeam.DTO.response.buyer.BuyerResponseWithNotSellerListDTO;
@@ -41,6 +42,7 @@ public class BuyerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Obtengo la lista de todos los Buyers existentes")
     public void testGetAll() throws Exception{
         List<BuyerResponseWithNotSellerListDTO> expected = GeneratorTest.getBuyerResponseWithNotSellerListDTO();
 
