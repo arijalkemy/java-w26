@@ -1,0 +1,7 @@
+Modulo de sprint II - Testing
+
+Proyecto global con validaciones y test unitarios en equipo
+	be_java_hisp_w26_g09
+
+Proyecto individual con test de integración y cobertura superior al 75%
+	be_java_hisp_w26_g09_sanchez_jhonatan

@@ -1,0 +1,34 @@
+[
+  {
+    "field": "product.type",
+    "message": "Type is required, can't be null"
+  },
+  {
+    "field": "category",
+    "message": "Category is required, can't be null"
+  },
+  {
+    "field": "date",
+    "message": "Date is required, can't be null"
+  },
+  {
+    "field": "price",
+    "message": "Price is required, can't be null"
+  },
+  {
+    "field": "product.color",
+    "message": "Color is required, can't be null"
+  },
+  {
+    "field": "product.productId",
+    "message": "Product ID is required, can't be null"
+  },
+  {
+    "field": "product.brand",
+    "message": "Brand is required, can't be null"
+  },
+  {
+    "field": "product.productName",
+    "message": "Product name is required, can't be null"
+  }
+]

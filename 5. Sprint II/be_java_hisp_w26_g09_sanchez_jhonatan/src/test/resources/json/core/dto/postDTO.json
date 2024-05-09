@@ -1,0 +1,14 @@
+{
+  "user_id": 2,
+  "date": "08-04-2024",
+  "product": {
+    "product_id": 40,
+    "product_name": "HyperX Cloud II Gaming Headset",
+    "type": "Headset",
+    "brand": "HyperX",
+    "color": "Red",
+    "notes": "7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable microphone"
+  },
+  "category": 2,
+  "price": 99.99
+}

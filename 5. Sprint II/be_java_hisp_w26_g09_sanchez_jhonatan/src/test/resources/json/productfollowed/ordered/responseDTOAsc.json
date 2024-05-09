@@ -1,0 +1,65 @@
+{
+  "user_id": 1,
+  "posts": [
+    {
+      "date": "29-04-2024",
+      "product": {
+        "type": "Camera",
+        "brand": "Canon",
+        "color": "Black",
+        "notes": "45MP full-frame CMOS sensor, 8K video recording, Dual Pixel CMOS AF II",
+        "product_id": 7,
+        "product_name": "Canon EOS R5 Mirrorless Camera"
+      },
+      "category": 2,
+      "price": 3499.99,
+      "user_id": 4,
+      "post_id": 2
+    },
+    {
+      "date": "29-04-2024",
+      "product": {
+        "type": "Earbuds",
+        "brand": "Sony",
+        "color": "Black",
+        "notes": "Industry-leading noise cancellation, V1 chip, IPX4 water resistance",
+        "product_id": 29,
+        "product_name": "Sony WF-1000XM4 True Wireless Earbuds"
+      },
+      "category": 2,
+      "price": 249.99,
+      "user_id": 4,
+      "post_id": 5
+    },
+    {
+      "date": "30-04-2024",
+      "product": {
+        "type": "Headset",
+        "brand": "HyperX",
+        "color": "Red",
+        "notes": "7.1 Virtual Surround Sound, Memory foam ear cushions, Detachable noise-canceling microphone",
+        "product_id": 40,
+        "product_name": "HyperX Cloud II Gaming Headset"
+      },
+      "category": 2,
+      "price": 99.99,
+      "user_id": 2,
+      "post_id": 21
+    },
+    {
+      "date": "30-04-2024",
+      "product": {
+        "type": "Portable Charger",
+        "brand": "Anker",
+        "color": "Black",
+        "notes": "20,000mAh capacity, 18W Power Delivery, Dual USB ports",
+        "product_id": 15,
+        "product_name": "Anker PowerCore Essential 20000 PD Portable Charger"
+      },
+      "category": 3,
+      "price": 49.99,
+      "user_id": 4,
+      "post_id": 3
+    }
+  ]
+}

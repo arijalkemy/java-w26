@@ -1,0 +1,8 @@
+{
+  "user_id": 2,
+  "user_name": "AliceSmith",
+  "role": {
+    "id_role" : 2,
+    "name_role" : "Seller"
+  }
+}

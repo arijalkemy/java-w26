@@ -46,9 +46,9 @@ public class TestUtilsGenerator {
     }
 
     public static StudentDTO getStudentWith3Subjects(String name) {
-        SubjectDTO subject1 = new SubjectDTO("Matemática", 8.0);
+        SubjectDTO subject1 = new SubjectDTO("Matematica", 8.0);
         SubjectDTO subject2 = new SubjectDTO("Lengua", 6.0);
-        SubjectDTO subject3 = new SubjectDTO("Física", 4.0);
+        SubjectDTO subject3 = new SubjectDTO("Fisica", 4.0);
 
         List<SubjectDTO> subjects = new ArrayList<>();
         subjects.add(subject1);
@@ -63,9 +63,9 @@ public class TestUtilsGenerator {
     }
 
     public static StudentDTO getStudentWith3SubjectsAverageOver9(String name) {
-        SubjectDTO subject1 = new SubjectDTO("Matemática", 8.0);
+        SubjectDTO subject1 = new SubjectDTO("Matematica", 8.0);
         SubjectDTO subject2 = new SubjectDTO("Lengua", 9.0);
-        SubjectDTO subject3 = new SubjectDTO("Física", 10.0);
+        SubjectDTO subject3 = new SubjectDTO("Fisica", 10.0);
 
         List<SubjectDTO> subjects = new ArrayList<>();
         subjects.add(subject1);
@@ -81,9 +81,9 @@ public class TestUtilsGenerator {
     }
 
     public static StudentDTO getStudentWithId(Long id) {
-        SubjectDTO subject1 = new SubjectDTO("Matemática", 8.0);
+        SubjectDTO subject1 = new SubjectDTO("Matematica", 8.0);
         SubjectDTO subject2 = new SubjectDTO("Lengua", 6.0);
-        SubjectDTO subject3 = new SubjectDTO("Física", 4.0);
+        SubjectDTO subject3 = new SubjectDTO("Fisica", 4.0);
 
         List<SubjectDTO> subjects = new ArrayList<>();
         subjects.add(subject1);

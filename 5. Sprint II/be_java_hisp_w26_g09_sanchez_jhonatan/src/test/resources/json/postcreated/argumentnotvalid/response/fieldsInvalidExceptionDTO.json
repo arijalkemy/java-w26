@@ -1,0 +1,26 @@
+[
+  {
+    "field": "product.productName",
+    "message": "Product name max length must be 40 characters"
+  },
+  {
+    "field": "product.color",
+    "message": "Color max length must be 15 characters"
+  },
+  {
+    "field": "product.brand",
+    "message": "Brand max length must be 25"
+  },
+  {
+    "field": "price",
+    "message": "Max price is $10.000.000"
+  },
+  {
+    "field": "product.type",
+    "message": "Type max length must be 15 characters"
+  },
+  {
+    "field": "product.notes",
+    "message": "Notes max length must be 80 characters"
+  }
+]

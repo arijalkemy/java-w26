@@ -5,6 +5,8 @@ Se realiza el cargue de archivos con las siguientes actividades
 -Actividad de validaciones
 	ObtenerDiploma
 
--Actividad de testing
+-Actividad de testing unitario (con y sin mockito)
 	ObtenerDiploma 2
 
+-Actividad de testing de integración
+	ObtenerDiploma 2

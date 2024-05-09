@@ -1,0 +1,22 @@
+{
+  "user_id": 2,
+  "user_name": "AliceSmith",
+  "role": {
+    "id_role": 2,
+    "name_role": "Seller"
+  },
+  "followers": [
+    {
+      "user_id": 1,
+      "user_name": "JohnDoe"
+    },
+    {
+      "user_id": 6,
+      "user_name": "JessicaWilson"
+    },
+    {
+      "user_id": 20,
+      "user_name": "OliviaKing"
+    }
+  ]
+}
