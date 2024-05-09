@@ -6,7 +6,6 @@ import lombok.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class UserCountResponseDTO {
 
     private Integer user_id;

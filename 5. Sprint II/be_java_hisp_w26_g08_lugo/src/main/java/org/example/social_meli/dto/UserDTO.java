@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Builder
 public class UserDTO {
     @NotNull(message = "El campo no puede ser vacío")
     @Positive(message = "El id debe ser mayor a cero")
