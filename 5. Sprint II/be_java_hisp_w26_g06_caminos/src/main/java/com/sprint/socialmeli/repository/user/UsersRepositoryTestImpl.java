@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-@Profile(value = "prod")
+@Profile(value = "test")
 @Repository
-public class UsersRepositoryImpl implements IUsersRepository{
+public class UsersRepositoryTestImpl implements IUsersRepository{
     private List<Customer> customerList = new ArrayList<>();
     private List<Seller> sellerList = new ArrayList<>();
 
-    public UsersRepositoryImpl() {
+    public UsersRepositoryTestImpl() {
         loadDatabase("Customer");
         loadDatabase("Seller");
     }

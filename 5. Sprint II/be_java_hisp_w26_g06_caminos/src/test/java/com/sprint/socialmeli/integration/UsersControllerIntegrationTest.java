@@ -3,6 +3,7 @@ package com.sprint.socialmeli.integration;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -51,6 +52,7 @@ public class UsersControllerIntegrationTest {
 
     // ----- Follow ----- START
     @Test
+    @DisplayName("Customer follow Seller")
     public void correctFollowEndpoint() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -59,6 +61,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Customer already follows Seller")
     public void alreadyFollowEndpoint() throws Exception {
         this.correctFollowEndpoint();
 
@@ -68,6 +71,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid Customer ID '-1'")
     public void followEndpointWithInvalidUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -75,6 +79,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid Seller ID '-1'")
     public void followEndpointWithInvalidUserIdToFollow() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + invalidId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -82,6 +87,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a nonexistent Customer ID '1000'")
     public void followEndpointWithNonexistentUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + nonexistentId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -89,6 +95,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a nonexistent Seller ID  '1000'")
     public void followEndpointWithNonexistentUserIdToFollow() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + nonexistentId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -96,6 +103,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a string 'asd' as Customer ID")
     public void followEndpointWithInvalidTypeUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + invalidTypeId + "/follow/" + sellerId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -103,6 +111,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a string 'asd' as Seller ID")
     public void followEndpointWithInvalidTypeIdToFollow() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/follow/" + invalidTypeId)
                         .contentType(MediaType.APPLICATION_JSON))
@@ -110,6 +119,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Customer ID parameter to be entered blank")
     public void followEndpointWithoutParameterUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//follow/" + sellerId)))
                 .andDo(print())
@@ -117,6 +127,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Seller ID parameter to be entered blank")
     public void followEndpointWithoutParameterUserIdToFollow() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users/" + customerId + "/follow/")))
                 .andDo(print())
@@ -127,6 +138,7 @@ public class UsersControllerIntegrationTest {
 
     // ----- Count Followers ----- START
     @Test
+    @DisplayName("Get Seller's follower account")
     public void correctCountFollowersEndpoint() throws Exception {
         this.correctFollowEndpoint();
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", sellerId))
@@ -138,6 +150,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid Seller ID '-1'")
     public void countFollowersEndpointWithInvalidUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/count", invalidId))
                 .andDo(print())
@@ -145,6 +158,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an nonexistent Seller ID '1000'")
     public void countFollowersEndpointWithNonexistentUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(
                 "/users/{userId}/followers/count", nonexistentId))
@@ -153,6 +167,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a string 'asd' as Seller ID")
     public void countFollowersEndpointWithInvalidTypeUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(
                 "/users/{userId}/followers/count", invalidTypeId))
@@ -161,6 +176,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Seller ID parameter to be entered blank")
     public void countFollowersEndpointWithoutParameterUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//followers/count")))
                 .andDo(print())
@@ -172,6 +188,7 @@ public class UsersControllerIntegrationTest {
 
     // ----- list Followers ----- START
     @Test
+    @DisplayName("Get Seller's follower list")
     public void correctListFollowersEndpoint() throws Exception {
         this.correctFollowEndpoint();
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", sellerId))
@@ -186,6 +203,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid '-1' as Seller ID")
     public void listFollowersEndpointWithInvalidUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followers/list", invalidId))
                 .andDo(print())
@@ -193,6 +211,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an nonexistent '1000' as Seller ID")
     public void listFollowersEndpointWithNonexistentUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(
                 "/users/{userId}/followers/list", nonexistentId))
@@ -201,6 +220,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a string 'asd' as Seller ID")
     public void listFollowersEndpointWithInvalidType() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(
                 "/users/{userId}/followers/list", invalidTypeId))
@@ -209,6 +229,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Seller ID parameter to be entered blank")
     public void listFollowersEndpointWithoutParameterUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//followers/list")))
                 .andDo(print())
@@ -219,6 +240,7 @@ public class UsersControllerIntegrationTest {
 
     // ----- list Followed Users ----- START
     @Test
+    @DisplayName("Get Customer's followed list")
     public void correctListFollowedUsersEndpoint() throws Exception {
         this.correctFollowEndpoint();
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", customerId))
@@ -233,6 +255,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid '-1' as Customer ID")
     public void listFollowedUsersEndpointWithInvalidUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/users/{userId}/followed/list", invalidId))
                 .andDo(print())
@@ -240,6 +263,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a nonexistent '1000' as Customer ID")
     public void listFollowedUsersEndpointWithNonexistentUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(
                 "/users/{userId}/followed/list", nonexistentId))
@@ -248,6 +272,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a String 'asd' as Customer ID")
     public void listFollowedUsersEndpointWithInvalidType() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(
                 "/users/{userId}/followed/list", invalidTypeId))
@@ -256,6 +281,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Seller ID parameter to be entered blank")
     public void listFollowedUsersEndpointWithoutParameterUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//followed/list")))
                 .andDo(print())
@@ -266,6 +292,7 @@ public class UsersControllerIntegrationTest {
 
     // ----- unfollow ----- END
     @Test
+    @DisplayName("Customer unfollow a Seller")
     public void correctUnfollowEndpoint() throws Exception {
         this.correctFollowEndpoint();
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + customerId + "/unfollow/" + sellerId)
@@ -275,6 +302,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid '-1' as Customer ID")
     public void unfollowEndpointWithInvalidUserId() throws Exception {
         this.correctFollowEndpoint();
 
@@ -285,6 +313,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered an invalid '-1' as Seller ID")
     public void unfollowEndpointWithInvalidUserIdToUnfollow() throws Exception {
         this.correctFollowEndpoint();
 
@@ -295,6 +324,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a nonexisten '1000' as Customer ID")
     public void unfollowEndpointWithNonexistentUserId() throws Exception {
         this.correctFollowEndpoint();
         mockMvc.perform(MockMvcRequestBuilders.post("/users/" + nonexistentId + "/unfollow/" + sellerId)
@@ -304,6 +334,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a nonexisten '1000' as Seller ID")
     public void unfollowEndpointWithNonexistentUserIdToUnfollow() throws Exception {
         this.correctFollowEndpoint();
 
@@ -314,6 +345,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a String 'asd' as Customer ID")
     public void unfollowEndpointInvalidTypeUserId() throws Exception {
         this.correctFollowEndpoint();
 
@@ -324,6 +356,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Can't entered a String 'asd' as Seller ID")
     public void unfollowEndpointWithInvalidTypeUserIdToUnfollow() throws Exception {
         this.correctFollowEndpoint();
 
@@ -334,6 +367,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Customer ID parameter to be entered blank")
     public void unfollowEndpointWithoutParameterUserId() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users//unfollow/" + sellerId)))
                 .andDo(print())
@@ -341,6 +375,7 @@ public class UsersControllerIntegrationTest {
     }
 
     @Test
+    @DisplayName("Do not allow the Seller ID parameter to be entered blank")
     public void unfollowEndpointWithoutParameterUserIdToUnfollow() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(URI.create("/users/" + customerId + "/unfollow/")))
                 .andDo(print())
