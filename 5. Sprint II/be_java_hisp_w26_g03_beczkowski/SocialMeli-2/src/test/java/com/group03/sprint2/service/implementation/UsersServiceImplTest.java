@@ -142,7 +142,6 @@ class UsersServiceImplTest {
         }
 
         seller.setFollowers(sellerFollowers);
-
         when(usersRepository.findSellerById(sellerId)).thenReturn(seller);
 
         // Act
@@ -150,6 +149,19 @@ class UsersServiceImplTest {
 
         //Assert
         assertEquals(4, numberOfFollowersDTO.getFollowers());
+    }
+
+    @Test
+    @DisplayName("Should return a bad request when id seller doesnt exist")
+    void getFollowersCountBadRequestTest() {
+        Integer id = 99999;
+        //Arrange
+        when(usersRepository.findSellerById(id)).thenReturn(null);
+
+        //Act and Assert
+        BadRequestException badRequestException = assertThrows(BadRequestException.class,
+                ()  -> usersService.getNumberOfFollowers(id));
+        assertEquals("There is not seller with ID: " + id, badRequestException.getMessage());
 
     }
 
