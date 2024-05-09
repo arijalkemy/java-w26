@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "user_id": 3,
+    "date": "23-04-2023",
+    "category": 1,
+    "price": 10.99,
+    "product": {
+      "id": 1,
+      "product_name": "Product A",
+      "type": "Type X",
+      "brand": "Brand Alpha",
+      "color": "Red",
+      "notes": "This is product A."
+    },
+    "has_promo": true,
+    "discount": 0.1
+  },
+  {
+    "id": 2,
+    "user_id": 3,
+    "date": "23-04-2024",
+    "category": 2,
+    "price": 20.99,
+    "product": {
+      "id": 2,
+      "product_name": "Product B",
+      "type": "Type Y",
+      "brand": "Brand Beta",
+      "color": "Blue",
+      "notes": "This is product B."
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "id": 3,
+    "user_id": 3,
+    "date": "21-04-2024",
+    "category": 1,
+    "price": 15.49,
+    "product": {
+      "id": 3,
+      "product_name": "Product C",
+      "type": "Type Z",
+      "brand": "Brand Gamma",
+      "color": "Green",
+      "notes": "This is product C."
+    },
+    "has_promo": true,
+    "discount": 0.2
+  },
+  {
+    "id": 4,
+    "user_id": 4,
+    "date": "20-04-2024",
+    "category": 3,
+    "price": 5.99,
+    "product": {
+      "id": 4,
+      "product_name": "Product D",
+      "type": "Type X",
+      "brand": "Brand Delta",
+      "color": "Yellow",
+      "notes": "This is product D."
+    },
+    "has_promo": false,
+    "discount": 0.0
+  },
+  {
+    "id": 5,
+    "user_id": 5,
+    "date": "19-04-2024",
+    "category": 2,
+    "price": 12.79,
+    "product": {
+      "id": 5,
+      "product_name": "Product E",
+      "type": "Type Y",
+      "brand": "Brand Epsilon",
+      "color": "Orange",
+      "notes": "This is product E."
+    },
+    "has_promo": true,
+    "discount": 0.3
+  }
+]
