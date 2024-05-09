@@ -1,7 +1,6 @@
-package com.group03.sprint2.controller.unit;
+package com.group03.sprint2.controller;
 
 import com.group03.sprint2.TestUtils;
-import com.group03.sprint2.controller.PublicationsController;
 import com.group03.sprint2.dto.PublicationDTO;
 import com.group03.sprint2.dto.response.ResponseIdPublicationsDTO;
 import com.group03.sprint2.service.implementation.PublicationsServiceImpl;

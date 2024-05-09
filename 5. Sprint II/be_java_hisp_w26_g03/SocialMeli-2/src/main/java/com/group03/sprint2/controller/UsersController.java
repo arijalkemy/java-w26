@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.group03.sprint2.utils.Constants.MSG_VALIDATION_ID_POSITIVE;
+
 @Validated
 @RestController
 @RequestMapping("/users")
@@ -33,8 +35,8 @@ public class UsersController {
      * @return Devuelve un status code 200.
      */
     @PostMapping("/{userId}/follow/{userIdToFollow}")
-    public ResponseEntity<MessageResponseDTO> followUser(@PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userId,
-                                                         @PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userIdToFollow) {
+    public ResponseEntity<MessageResponseDTO> followUser(@PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userId,
+                                                         @PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userIdToFollow) {
         return ResponseEntity.ok().body(usersService.followUser(userId, userIdToFollow));
     }
 
@@ -44,7 +46,7 @@ public class UsersController {
      * @return Devuelve un objeto con la cantidad de de usuarios que sigue el vendedor.
      */
     @GetMapping("/{userId}/followers/count")
-    public ResponseEntity<SellerNumberOfFollowersDTO> getFollowersCount(@PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userId) {
+    public ResponseEntity<SellerNumberOfFollowersDTO> getFollowersCount(@PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userId) {
         SellerNumberOfFollowersDTO sellerNumberOfFollowersDTO = usersService.getNumberOfFollowers(userId);
         return new ResponseEntity<SellerNumberOfFollowersDTO>(sellerNumberOfFollowersDTO, HttpStatus.OK);
     }
@@ -58,7 +60,7 @@ public class UsersController {
      * @return Devuelve una lista de usuarios que sigue a un vendedor.
      */
     @GetMapping("/{userId}/followers/list")
-    public ResponseEntity<SellerResponseDTO> getFollowersList(@PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userId,
+    public ResponseEntity<SellerResponseDTO> getFollowersList(@PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userId,
                                                               @RequestParam(required = false) String order) {
         SellerResponseDTO sellerResponseDTO = usersService.showSellerFollowers(userId, order);
         return ResponseEntity.ok().body(sellerResponseDTO);
@@ -73,7 +75,7 @@ public class UsersController {
      * @return Devuelve una lista de usuarios a los cuales sigue un usuario.
      */
     @GetMapping("/{userId}/followed/list")
-    public ResponseEntity<BuyerResponseDTO> getFollowedList(@PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userId,
+    public ResponseEntity<BuyerResponseDTO> getFollowedList(@PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userId,
                                                             @RequestParam(required = false) String order) {
         return ResponseEntity.ok().body(usersService.showBuyerFollowed(userId, order));
     }
@@ -85,8 +87,8 @@ public class UsersController {
      * @return Devuelve un status code 200.
      */
     @PostMapping("/{userId}/unfollow/{userIdToUnfollow}")
-    public ResponseEntity<MessageResponseDTO> unfollowUser(@PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userId,
-                                          @PathVariable @Positive(message = "El id debe ser mayor a cero.") Integer userIdToUnfollow) {
+    public ResponseEntity<MessageResponseDTO> unfollowUser(@PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userId,
+                                          @PathVariable @Positive(message = MSG_VALIDATION_ID_POSITIVE) Integer userIdToUnfollow) {
         return ResponseEntity.ok().body(usersService.unfollowUser(userId, userIdToUnfollow));
     }
 }
