@@ -1,6 +1,6 @@
 ### Historia de Usuario
 
-**US 0011:** Obtener publicaciones con filtrado opcional por orden de precio, nombre de producto y
+**US 0013:** Obtener publicaciones con filtrado opcional por orden de precio, nombre de producto y
 tipo.
 
 **Signo:**
