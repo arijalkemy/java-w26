@@ -1,6 +1,5 @@
 package com.meli.be_java_hisp_w26_g10.util;
 
-import com.api.socialmeli.dto.FollowedBySellerDto;
 import com.api.socialmeli.entity.Buyer;
 import com.api.socialmeli.entity.Seller;
 import com.api.socialmeli.exception.BadRequestException;
@@ -196,25 +195,6 @@ public class TestGeneratorUtil {
                         )
                 )
         );
-    }
-
-    public static FollowedBySellerDto generateFollowedBySellerDto(){
-        FollowedBySellerDto followedBySellerDto = new FollowedBySellerDto();
-        followedBySellerDto.setUser_id(1); // Asigna un ID de usuario arbitrario
-        followedBySellerDto.setUser_name("usuario1"); // Asigna un nombre de usuario arbitrario
-
-        // Crea una lista de seguidores arbitraria
-        List<UserDto> followers = new ArrayList<>();
-        followers.add(new UserDto(2, "seguidor1"));
-        followers.add(new UserDto(3, "seguidor2"));
-        // Añade la lista de seguidores al DTO
-        followedBySellerDto.setFollowers(followers);
-
-        return followedBySellerDto;
-    }
-
-    public static Seller generateSeller(){
-        return new Seller(1, "Meli");
     }
 }
 

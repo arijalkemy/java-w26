@@ -140,5 +140,4 @@ public class SellerServiceImpl implements ISellerService {
                 sortedList
         );
     }
-
 }
