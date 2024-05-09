@@ -26,8 +26,6 @@ public class UserMapper {
         return userDTO;
     }
 
-
-
     public User userDTOToUser(UserDTO userDTO) {
 
         if (userDTO == null || userDTO.getUserId() == null)
@@ -96,7 +94,4 @@ public class UserMapper {
         }
         return result;
     }
-
-
-
 }

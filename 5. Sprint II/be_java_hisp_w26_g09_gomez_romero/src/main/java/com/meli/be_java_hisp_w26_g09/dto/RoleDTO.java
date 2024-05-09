@@ -13,6 +13,6 @@ public class RoleDTO {
 
     @JsonProperty("id_role")
     private Integer idRole;
-    @JsonProperty("nameRole")
+    @JsonProperty("name_role")
     private String nameRole;
 }

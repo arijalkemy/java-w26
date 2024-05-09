@@ -16,6 +16,7 @@ import com.meli.be_java_hisp_w26_g09.exception.NotFoundException;
 import com.meli.be_java_hisp_w26_g09.repository.IPostRepository;
 import com.meli.be_java_hisp_w26_g09.repository.IProductRepository;
 import com.meli.be_java_hisp_w26_g09.repository.IUserRepository;
+import com.meli.be_java_hisp_w26_g09.repository.impl.ProductRepositoryImpl;
 import com.meli.be_java_hisp_w26_g09.util.mapper.PostMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -42,6 +43,9 @@ class PostServiceImplTest {
 
     @Spy
     private PostServiceImpl postService;
+
+    @Spy
+    ProductRepositoryImpl productRepositoryImpl;
 
     @Mock
     IUserRepository userRepository;
