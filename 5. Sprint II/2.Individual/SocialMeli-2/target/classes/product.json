@@ -1,0 +1,34 @@
+[
+  {
+    "product_id": 1,
+    "product_name": "Silla Gamer",
+    "type": "Gamer",
+    "brand": "Racer",
+    "color": "Red & Black",
+    "notes": "Special Edition"
+  },
+  {
+    "product_id": 2,
+    "product_name": "Teclado Mecánico",
+    "type": "Teclado",
+    "brand": "Corsair",
+    "color": "Black",
+    "notes": "RGB"
+  },
+  {
+    "product_id": 3,
+    "product_name": "Monitor Curvo",
+    "type": "Monitor",
+    "brand": "Samsung",
+    "color": "Black",
+    "notes": "27 pulgadas"
+  },
+  {
+    "product_id": 4,
+    "product_name": "Mouse Inalámbrico",
+    "type": "Mouse",
+    "brand": "Logitech",
+    "color": "Gray",
+    "notes": "Con batería recargable"
+  }
+]
