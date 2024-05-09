@@ -119,6 +119,13 @@ Santiago Buitrago
 </tbody>
 </table>
 
+## Test de integración y tests unitarios
+
+<img width="1475" alt="image" src="https://github.com/arijalkemy/java-w26/assets/164801871/ad183cda-a2df-4e75-95be-3f3312d07385">
+
+
+### US 0001
+
 ## Endpoints
 ### US 0001
 Poder realizar la acción de “Follow” (seguir) a un determinado vendedor
