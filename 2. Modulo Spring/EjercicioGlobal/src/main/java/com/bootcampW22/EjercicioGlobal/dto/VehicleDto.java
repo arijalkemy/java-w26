@@ -23,6 +23,4 @@ public class VehicleDto {
     private double height;
     private double width;
     private double weight;
-
 }
-

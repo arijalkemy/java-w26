@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@Validated
 @RestController
 public class ObtenerDiplomaController {
 
     @Autowired
     IObtenerDiplomaService service;
 
-    @GetMapping("/analyzeScores/{studentId}")
-    public StudentDTO analyzeScores(@PathVariable Long studentId) {
-        return service.analyzeScores(studentId);
+    @PostMapping("/analyzeScores")
+    public StudentDTO analyzeScores(@Valid @RequestBody StudentDTO rq) {
+        return service.analyzeScores(rq);
     }
 }

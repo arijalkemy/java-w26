@@ -24,4 +24,3 @@ public class Vehicle {
     private double width;
     private double weight;
 }
-
