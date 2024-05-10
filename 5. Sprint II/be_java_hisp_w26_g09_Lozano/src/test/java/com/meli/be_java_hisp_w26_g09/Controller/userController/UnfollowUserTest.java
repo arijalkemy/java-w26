@@ -1,4 +1,4 @@
-package com.meli.be_java_hisp_w26_g09.userController;
+package com.meli.be_java_hisp_w26_g09.Controller.userController;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class unfollowUserTest {
+public class UnfollowUserTest {
 
     @Autowired
     MockMvc mockMvc;

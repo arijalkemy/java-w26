@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.meli.be_java_hisp_w26_g09.entity.User;
 import com.meli.be_java_hisp_w26_g09.repository.IUserRepository;
 //import com.meli.be_java_hisp_w26_g09.util.JsonUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ResourceUtils;
@@ -23,7 +24,7 @@ public class TestUserRepository implements IUserRepository {
 
     public TestUserRepository() throws IOException {
         loadDataBase();
-        System.out.println("TestUserRepository");
+
     }
 
     private void loadDataBase() throws IOException {

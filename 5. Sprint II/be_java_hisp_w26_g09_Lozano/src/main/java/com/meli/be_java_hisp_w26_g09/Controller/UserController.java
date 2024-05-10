@@ -1,4 +1,4 @@
-package com.meli.be_java_hisp_w26_g09.userController;
+package com.meli.be_java_hisp_w26_g09.Controller;
 
 import com.meli.be_java_hisp_w26_g09.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
