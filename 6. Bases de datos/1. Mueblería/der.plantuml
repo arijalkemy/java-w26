@@ -1,0 +1,40 @@
+@startuml
+
+entity Productos_por_Venta {
+    **id_producto (PK) (FK)**
+    **id_venta (PK) (FK)**
+    --
+    cantidad
+}
+
+entity Productos {
+    **id (PK)**
+    --
+    nombre
+    precio
+    stock
+}
+
+entity Ventas {
+    **id (PK)**
+    --
+    id_cliente (FK)
+    fecha
+    total
+}
+
+entity Cliente {
+    ** id (PK) **
+    --
+    nombre
+    apellido
+    dni
+    direccion
+    telefono
+}
+
+Productos_por_Venta }-- Ventas
+Productos_por_Venta }-- Productos
+
+Cliente --{ Ventas
+@enduml
