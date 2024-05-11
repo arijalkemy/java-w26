@@ -28,6 +28,8 @@ bin/
 
 .pre-commit-config.yaml
 
+**.DS_Store
+
 ### Projects
 1. Modulo Java/16_vuelos_aeropuertos
 2. Modulo Spring/11_codereview
