@@ -15,7 +15,7 @@ public class ObtenerDiplomaExceptionController {
 
     @ExceptionHandler(ObtenerDiplomaException.class)
     ResponseEntity<ErrorDTO> handleGlobalExceptions(ObtenerDiplomaException e) {
-        return new ResponseEntity<>(e.getError(), e.getStatus());
+        return new ResponseEntity<>(e.getError(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -30,11 +30,13 @@ public class ObtenerDiplomaExceptionController {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
-    // Manejo de la excepción StudentNotFoundException
     @ExceptionHandler(StudentNotFoundException.class)
-    ResponseEntity<ErrorDTO> handleStudentNotFoundException(StudentNotFoundException e) {
-        ErrorDTO error = new ErrorDTO("StudentNotFoundException", e.getMessage());
+    protected ResponseEntity<ErrorDTO> handleStudentNotFoundException(StudentNotFoundException ex){
+        ErrorDTO error = new ErrorDTO();
+        error.setDescription(ex.getMessage());
+        error.setName(HttpStatus.NOT_FOUND.toString());
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+
     }
 
 }

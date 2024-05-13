@@ -1,5 +1,6 @@
 package com.meli.obtenerdiploma.service;
 
+import com.meli.obtenerdiploma.exception.StudentNotFoundException;
 import com.meli.obtenerdiploma.model.StudentDTO;
 import com.meli.obtenerdiploma.repository.IStudentDAO;
 import com.meli.obtenerdiploma.repository.IStudentRepository;
@@ -13,8 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -90,5 +90,15 @@ public class StudentServiceTests {
         // assert
         verify(studentRepo, atLeastOnce()).findAll();
         assertTrue(CollectionUtils.isEqualCollection(students, readStudents));
+    }
+
+    /* sad path */
+    @Test
+    public void getStudentNotFound(){
+        when(studentDAO.findById(anyLong())).thenThrow(new StudentNotFoundException(-99L));
+        assertThrows(StudentNotFoundException.class, () -> {
+           service.read(anyLong());
+        });
+        verify(studentDAO, atLeastOnce()).findById(anyLong());
     }
 }

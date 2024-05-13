@@ -15,5 +15,4 @@ public class ObtenerDiplomaException extends RuntimeException {
         this.error = new ErrorDTO(this.getClass().getSimpleName(), message);
         this.status = status;
     }
-
 }
