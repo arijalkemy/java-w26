@@ -1,0 +1,10 @@
+
+a. ¿Cuál es la primary key para la tabla de clientes? Justificar respuesta
+La PK de clientes es id_cliente debido a que no puede ser el dni por temas de privacidad y tambien porque los dni pueden repetirse
+
+
+b. ¿Cuál es la primary key para la tabla de planes de internet? Justificar respuesta.
+La PK de planes es id_plan
+
+c. ¿Cómo serían las relaciones entre tablas? ¿En qué tabla debería haber foreign key? ¿A qué campo de qué tabla hace referencia dicha foreign key? Justificar respuesta.
+Existe una relacion 1 a muchos porque un cliente tiene un plan y un plan puede tener varios clientes, por lo tanto la FK está en la tabla de clientes como id_plan
