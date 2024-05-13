@@ -27,7 +27,7 @@ public class StudentRepositoryTest {
         // Arrange
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new ClassPathResource("users.json").getFile();
-        Set<StudentDTO> expectedStudents = objectMapper.readValue(file, new TypeReference<Set<StudentDTO>>(){});
+
 
         // Act
         Set<StudentDTO> actualStudents = studentRepository.findAll();

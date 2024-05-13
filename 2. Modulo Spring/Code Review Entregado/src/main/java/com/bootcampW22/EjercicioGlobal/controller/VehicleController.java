@@ -104,6 +104,4 @@ public class VehicleController {
     public ResponseEntity<?> getVehicleByWeight(@RequestParam Double weight_min, @RequestParam Double weight_max ){
         return vehicleService.getVehicleByWeight(weight_min, weight_max);
     }
-
-
 }
