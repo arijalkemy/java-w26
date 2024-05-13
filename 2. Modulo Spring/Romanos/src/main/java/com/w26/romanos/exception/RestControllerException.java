@@ -1,10 +1,8 @@
-package com.w26.romanos.controller;
+package com.w26.romanos.exception;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import com.w26.romanos.exception.ConversionException;
 
 @RestControllerAdvice
 public class RestControllerException {

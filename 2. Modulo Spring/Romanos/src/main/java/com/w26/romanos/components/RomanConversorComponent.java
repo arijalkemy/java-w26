@@ -104,4 +104,93 @@ public class RomanConversorComponent {
 
         return toRoman; 
     }
+
+    public int romanToInteger(String roman) {
+
+        char symbolRepeat = Character.MIN_VALUE;
+        int  numberRepetitions = 0;
+        Integer valueInteger = Integer.valueOf(0);
+
+        for (int i = 0; i < roman.length(); i++)
+        {
+            char characterI = roman.charAt(i);
+            Integer valueRepresentation = getRepresentation(characterI);
+
+            if (characterI == symbolRepeat) {
+                numberRepetitions++;
+
+                if (numberRepetitions > 3) {
+                    throw new ConversionException("Max number (3 times) of repetitions was overcome. Symbol: " + symbolRepeat);
+                }
+                
+            } else {
+                symbolRepeat = characterI;
+                numberRepetitions = 0;
+                numberRepetitions++;
+            }
+ 
+            
+            char characterII = Character.MAX_VALUE;
+
+            try {
+                characterII = roman.charAt(i + 1);
+            } catch (Exception e) {
+                characterII = roman.charAt(i);
+            }
+
+            Integer nextValueRepresentation = getRepresentation(characterII);
+
+            if (valueRepresentation < nextValueRepresentation) {
+                valueInteger += getMinuend(valueRepresentation, nextValueRepresentation);
+                continue;
+            }
+
+            valueInteger += valueRepresentation;
+        }
+
+        return valueInteger;
+    }
+
+    private Integer getMinuend(int minuend, int subtrahend) {
+
+        if (!possibleSubtraction(minuend, subtrahend)) {
+            throw new ConversionException("The rest operation of is not posible.");
+        }
+
+        return minuend * -1;
+    }
+
+
+    private boolean possibleSubtraction(int minuend, int subtrahend) {
+
+        if (minuend == 5 || minuend == 50 || minuend == 500) {
+            return false;
+        }
+
+        if (minuend == 1 && (subtrahend == 5 || subtrahend == 10)) {
+            return true; 
+        }
+
+        if (minuend == 10 && (subtrahend == 50 || subtrahend == 100)) {
+            return true; 
+        }
+
+        if (minuend == 100 && (subtrahend == 500 || subtrahend == 1000)) {
+            return true; 
+        }
+
+        return false;
+    }
+
+
+    public Integer getRepresentation(char symbol) {
+
+        Integer valueRepresentation = romanMapRepository.getInteger(symbol);
+
+        if (valueRepresentation == null) {
+            throw new ConversionException("There is not a representation for the symbol: " + symbol);
+        }
+
+        return valueRepresentation;
+    }
 }

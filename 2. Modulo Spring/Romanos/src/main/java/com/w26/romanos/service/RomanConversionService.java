@@ -19,6 +19,6 @@ public class RomanConversionService implements IRomanConversionService {
 
     @Override
     public Integer romanToDecimal(String roman) {
-        throw new UnsupportedOperationException("Unimplemented method 'decimalToRoman'");
+        return romanConversorComponent.romanToInteger(roman);
     }
 }

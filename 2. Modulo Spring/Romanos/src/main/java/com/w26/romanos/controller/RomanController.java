@@ -22,4 +22,9 @@ public class RomanController {
     public ResponseEntity<?> getDecimalToRoman(@PathVariable("decimal_number") Integer decimalNumber) {
         return ResponseEntity.ok().body(romanConversionService.decimalToRoman(decimalNumber));
     }
+
+    @GetMapping("/roman_to_decimal/{roman_number}")
+    public ResponseEntity<?> getRomanToDecimal(@PathVariable("roman_number") String romanNumber) {
+        return ResponseEntity.ok().body(romanConversionService.romanToDecimal(romanNumber));
+    }
 }
