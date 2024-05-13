@@ -1,0 +1,10 @@
+SELECT DISTINCT provincia from Clientes;
+SELECT nombre from Clientes WHERE nombre LIKE 'P%';
+SELECT nombre , apellido , fecha_nacimiento from Clientes WHERE fecha_nacimiento > '2000-01-01';
+SELECT id_plan , velocidad_ofrecida from Planes WHERE precio < 15000;
+SELECT nombre, apellido, fecha_nacimiento from Clientes ORDER BY fecha_nacimiento DESC LIMIT 1;
+SELECT SUM(precio) as precio_total FROM Planes;
+SELECT nombre, apellido, Planes.descuento FROM Clientes INNER JOIN Planes on Clientes.id_cliente = Planes.id_cliente WHERE Planes.descuento > 10;
+SELECT AVG(DATEDIFF(now(),fecha_nacimiento) / 365) AS promedio_edad FROM Clientes;
+SELECT precio, velocidad_ofrecida  FROM Planes WHERE precio > 12000;
+SELECT nombre, apellido, ciudad FROM Clientes WHERE ciudad LIKE 'GBA%';
