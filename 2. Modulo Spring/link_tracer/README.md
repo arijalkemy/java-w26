@@ -15,102 +15,132 @@ Nota: Repositorio a utilizar para guardar información, puede ser un HashMap<Int
 
 ### Crear un nuevo link
 
-    Ruta: http:localhost:8080/blog - POST
+    Ruta: http:localhost:8080/new - POST
     Body: 
         {
-            "id": Integer,
-            "title": String,
-            "authorName": String,
-            "postDate": "yyyy-MM-dd"
+            "link": "https://github.com"
         }
-    Codigos de respuesta: 200, 409
+    Codigos de respuesta: 200
     Escenario de respuesta: 
     200 -> Responde que fue creado el recurso
-    409 -> Responde cuando se intenta crear un blog con un id ya existente
 
 #### Posibles peticiones
-    Petición: http:localhost:8080/blog 
+    Petición: http:localhost:8080/new 
     RequestBody: 
     {
-        "id": 1,
-        "title": "Prueba de titulo",
-        "authorName": "Daniel",
-        "postDate": "2024-04-18"
+        "link": "https://github.com",
+        "password": "abc123"
     }
     ResponseCode: 200 
     ResponseBody: 
-    1
+    {
+        "id": 1,
+        "link": "https://github.com"
+    }
+    
     --- Repitiendo la petición
-    Petición: http:localhost:8080/blog 
+    Petición: http:localhost:8080/new 
     RequestBody: 
     {
-        "id": 1,
-        "title": "Prueba de titulo",
-        "authorName": "Daniel",
-        "postDate": "2024-04-18"
+        "link": "https://github.com",
     }
-    ResponseCode: 409 
-    ResponseBody: 
-    {
-        "message": "El blog con id:1 ya existe"
-    }
-
-
-### Obtener todas las entradas del blog
-
-    Ruta: http:localhost:8080/blogs
-    Codigos de respuesta: 200, 204 
-    Escenario de respuesta: 
-    200 -> Responde la lista de todas las entradas de blog
-    204 -> Responde cuando no hay ningúna entrada de blog registrad
-
-#### Posibles peticiones
-    Petición: http:localhost:8080/blogs
     ResponseCode: 200 
     ResponseBody: 
-    [
-        {
-            "id": 1,
-            "title": "Prueba de titulo",
-            "authorName": "Daniel",
-            "postDate": "2024-04-18"
-        },
-        {
-            "id": 2,
-            "title": "Prueba",
-            "authorName": "Daniel",
-            "postDate": "2024-04-18"
-        }
-    ]
+    {
+        "id": 1,
+        "link": "https://github.com"
+    }
 
 
-    Petición: http:localhost:8080/blogs
-    ResponseCode: 204 
+### Redirigir al link
+
+    Ruta: http:localhost:8080/redirect/{id}
+    Codigos de respuesta: 404, 301-200
+    Escenario de respuesta: 
+    301 - 200 -> Responde con la página correspondiente al link proporcionado
+    404 -> Responde cuando el enlace no es válido
+
+#### Posibles peticiones
+    Petición: http:localhost:8080/redirect/1
+    ResponseCode: 301 - 200
+    ResponseBody: 
+    
+    Html correspondiente a la página
 
 
-### Obtener un blog por id
+    Petición: http:localhost:8080/redirect/2
+    ResponseCode: 404 
+    ResponseBody:
+    {
+        "message":"La url no es válida"
+    }
 
-    Ruta: http:localhost:8080/blog/{id}
-    PathParams: id: id del blog a buscar    Codigos de respuesta: 200
+    Petición: http:localhost:8080/redirect/2?password='wrong pass'
+    ResponseCode: 404 
+    ResponseBody:
+    {
+        "message":"La clave no es correcta"
+    }
+
+    Petición: http:localhost:8080/redirect/2?password='wrong pass'
+    ResponseCode: 404 
+    ResponseBody:
+    {
+        "message":"El link está deshabilitado"
+    }
+
+    Petición: http:localhost:8080/redirect/99999
+    ResponseCode: 404 
+    ResponseBody:
+    {
+        "message":"El link con id: 99999 no existe"
+    }
+
+
+### Deshabilitar el link
+
+    Ruta: http:localhost:8080/invalidate/{id}
+    PathParams: id: id del blog a buscar    
     Codigos de respuesta: 200, 404
     Escenario de respuesta: 
-    200 -> Responde entrada del blog
-    404 -> Responde cuando se busca un blog inexistente
+    200 -> Responde cuando se invalida un enlace
+    404 -> Responde cuando se trata de invalidar un link inexistente
 
 #### Posibles peticiones
-    Petición: http:localhost:8080/blog/1
+    Petición: http:localhost:8080/invalidate/1
     ResponseCode: 200 
     ResponseBody: 
     {
-        "id": 1,
-        "title": "Prueba de titulo",
-        "authorName": "Daniel",
-        "postDate": "2024-04-18"
     }
 
-    Petición: http:localhost:8080/blog/12
+    Petición: http:localhost:8080/invalidate/99999
     ResponseCode: 404 
     ResponseBody: 
     {
-        "message": "El blog con el id: 12 no existe"
+        "message":"El link con id: 99999 no existe"
+    }
+
+### Metricas de un link
+
+    Ruta: http:localhost:8080/metrics/{id}
+    PathParams: id: id del blog a buscar    
+    Codigos de respuesta: 200, 404
+    Escenario de respuesta: 
+    200 -> Responde con las metricas de un enlace
+    404 -> Responde cuando se trata de invalidar un link inexistente
+
+#### Posibles peticiones
+    Petición: http:localhost:8080/metrics/1
+    ResponseCode: 200 
+    ResponseBody: 
+    {
+        "link": "https://github.com/",
+        "metrics": 2
+    }
+
+    Petición: http:localhost:8080/metrics/99999
+    ResponseCode: 404 
+    ResponseBody: 
+    {
+        "message":"El link con id: 99999 no existe"
     }
