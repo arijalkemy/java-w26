@@ -31,7 +31,6 @@ public class StudentDaoRepositoryTest {
                 .build();
     }
 
-
     @Test
     @DisplayName("Should save student and find by id to validate is saved correctly")
     public void saveStudentThenAndFindById(){
