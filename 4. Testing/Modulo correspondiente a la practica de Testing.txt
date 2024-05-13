@@ -10,3 +10,6 @@ Se realiza el cargue de archivos con las siguientes actividades
 
 -Actividad de testing de integración
 	ObtenerDiploma 2
+
+-Actividad de testing de integración asincrónico 
+	starwars
