@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d75b3f77-2b5a-4820-8c7f-fa11d911ca9a" name="Default Changelist" comment="Testing_1 - ObtenerDiploma + CRUD Alumnos">
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/ObtenerDiploma.postman_collection.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/ObtenerDiplomaApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/controller/ObtenerDiplomaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/controller/ObtenerDiplomaExceptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/exception/ObtenerDiplomaException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/exception/StudentNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/model/ErrorDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/model/StudentDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/model/SubjectDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/repository/IStudentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/repository/IStudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/repository/StudentDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/repository/StudentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/service/IObtenerDiplomaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/service/IStudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/service/ObtenerDiplomaService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/java/com/meli/obtenerdiploma/service/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/main/resources/users.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/ObtenerDiplomaApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/controller/ObtenerDiplomaControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/controller/StudentControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/repository/StudentDAOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/repository/StudentRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/service/ObtenerDiplomaServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/java/com/meli/obtenerdiploma/service/StudentServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Validaciones + Test Unitarios - Ejercicios Practicos/src/test/resources/users.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../2. Modulo Spring/Ejercicios Integradores - P1  - Series Numericas/src/main/java/org/example/SerieDos.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../2. Modulo Spring/Ejercicios Integradores - P1  - Series Numericas/src/main/java/org/example/SerieDos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/meli/obtenerdiploma/ObtenerDiplomaApplicationTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="risso_patron_matias" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RESET_MODE" value="KEEP" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="martinez_yepez_jorge" />
+                    <option name="lastUsedInstant" value="1620932410" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="risso_patron_matias" />
+                    <option name="lastUsedInstant" value="1620932409" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="1rr4iiqbWc4IwRLyT4RkGVb5rhC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.ObtenerDiplomaApplicationTest.contextLoads.executor": "Run",
+    "JUnit.ObtenerDiplomaControllerTest.analyzeScoresTest.executor": "Run",
+    "JUnit.ObtenerDiplomaControllerTest.analyzeScoresTestNull.executor": "Run",
+    "JUnit.ObtenerDiplomaServiceTest.analyzeScoresNotStudentFoundTest.executor": "Run",
+    "JUnit.ObtenerDiplomaServiceTest.analyzeScoresTest.executor": "Run",
+    "JUnit.ObtenerDiplomaServiceTest.analyzeScoresTest2.executor": "Run",
+    "JUnit.StudentControllerTest.executor": "Run",
+    "JUnit.StudentControllerTest.getStudentByIdTest.executor": "Run",
+    "JUnit.StudentControllerTest.getStudentNotFountTest.executor": "Run",
+    "JUnit.StudentControllerTest.listStudentsTest.executor": "Run",
+    "JUnit.StudentControllerTest.registerStudentTest.executor": "Run",
+    "JUnit.StudentControllerTest.removeStudentTest.executor": "Run",
+    "JUnit.StudentDAOTest.deleteTest.executor": "Run",
+    "JUnit.StudentDAOTest.executor": "Run",
+    "JUnit.StudentDAOTest.existTest.executor": "Run",
+    "JUnit.StudentDAOTest.findByIdTest.executor": "Run",
+    "JUnit.StudentDAOTest.saveTest.executor": "Run",
+    "JUnit.StudentDAOTest.userNotFoundTest.executor": "Run",
+    "JUnit.StudentRepositoryTest.findAllTest.executor": "Run",
+    "JUnit.StudentServiceTest.createTest.executor": "Run",
+    "JUnit.StudentServiceTest.deleteTest.executor": "Run",
+    "JUnit.StudentServiceTest.getAllTest.executor": "Run",
+    "JUnit.StudentServiceTest.readTest.executor": "Run",
+    "JUnit.StudentServiceTest.updateTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.ObtenerDiplomaApplication.executor": "Run",
+    "git-widget-placeholder": "perez__jonathan",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/joperezherna/Bootcamp/java-w26/4. Testing/ObtenerDiploma/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15332031",
+    "project.structure.side.proportion": "0.34252873",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.meli.obtenerdiploma.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java/com/meli/obtenerdiploma" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/meli/obtenerdiploma" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/meli/obtenerDiploma" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.meli.obtenerdiploma.controller" />
+      <recent name="com.meli.obtenerdiploma" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.StudentControllerTest.getStudentNotFountTest">
+    <configuration name="StudentControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meli.obtenerdiploma.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meli.obtenerdiploma.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meli.obtenerdiploma.controller.StudentControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentControllerTest.getStudentByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meli.obtenerdiploma.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meli.obtenerdiploma.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meli.obtenerdiploma.controller.StudentControllerTest" />
+      <option name="METHOD_NAME" value="getStudentByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentControllerTest.getStudentNotFountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meli.obtenerdiploma.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meli.obtenerdiploma.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meli.obtenerdiploma.controller.StudentControllerTest" />
+      <option name="METHOD_NAME" value="getStudentNotFountTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentControllerTest.listStudentsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meli.obtenerdiploma.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meli.obtenerdiploma.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meli.obtenerdiploma.controller.StudentControllerTest" />
+      <option name="METHOD_NAME" value="listStudentsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentControllerTest.removeStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.meli.obtenerdiploma.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.meli.obtenerdiploma.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.meli.obtenerdiploma.controller.StudentControllerTest" />
+      <option name="METHOD_NAME" value="removeStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Validaciones + Test Unitarios - Ejercicios Practicos" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StudentControllerTest.getStudentNotFountTest" />
+        <item itemvalue="JUnit.StudentControllerTest.listStudentsTest" />
+        <item itemvalue="JUnit.StudentControllerTest.removeStudentTest" />
+        <item itemvalue="JUnit.StudentControllerTest" />
+        <item itemvalue="JUnit.StudentControllerTest.getStudentByIdTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d75b3f77-2b5a-4820-8c7f-fa11d911ca9a" name="Default Changelist" comment="" />
+      <created>1619721005383</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619721005383</updated>
+      <workItem from="1714483988979" duration="2178000" />
+      <workItem from="1714503500470" duration="35000" />
+      <workItem from="1714503553947" duration="2250000" />
+      <workItem from="1714666755947" duration="7000" />
+      <workItem from="1714678415322" duration="9000" />
+      <workItem from="1715364453146" duration="46000" />
+      <workItem from="1715364522384" duration="16234000" />
+    </task>
+    <task id="LOCAL-00001" summary="Spring 2 - Practica TT - Obetener Diploma">
+      <created>1619721212242</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619721212242</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Spring 2 - Practica TT - Obetener Diploma (again)">
+      <created>1619721595337</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619721595337</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Spring 2 - Practica TT - Obetener Diploma">
+      <created>1619721957097</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619721957097</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Spring 2 - Practica TT - Obetener Diploma">
+      <created>1620680696910</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1620680696910</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Spring 2 - Practica TT - Obetener Diploma">
+      <created>1620755686285</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1620755686285</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Spring 2 - Practica TT - Obetener Diploma">
+      <created>1620849861386</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1620849861386</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Testing_1 - ObtenerDiploma Original">
+      <created>1622409496169</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622409496169</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Testing_1 - ObtenerDiploma Original">
+      <created>1622409552550</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622409552550</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Testing_1 - ObtenerDiploma + Validaciones">
+      <created>1622412976375</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1622412976375</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Testing_1 - ObtenerDiploma + CRUD Alumnos">
+      <created>1622485979984</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1622485979984</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Spring 2 - Practica TT - Obetener Diploma (again)" />
+    <MESSAGE value="Spring 2 - Practica TT - Obetener Diploma" />
+    <MESSAGE value="Testing_1 - ObtenerDiploma Original" />
+    <MESSAGE value="Testing_1 - ObtenerDiploma + Validaciones" />
+    <MESSAGE value="Testing_1 - ObtenerDiploma + CRUD Alumnos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing_1 - ObtenerDiploma + CRUD Alumnos" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/PracticaTT$ObtenerDiplomaServiceTest_testAverageWithEmptySubjectList.ic" NAME="ObtenerDiplomaServiceTest.testAverageWithEmptySubjectList Coverage Results" MODIFIED="1620739844261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.meli.obtenerdiploma.service.*</FILTER>
+    </SUITE>
+  </component>
+</project>
