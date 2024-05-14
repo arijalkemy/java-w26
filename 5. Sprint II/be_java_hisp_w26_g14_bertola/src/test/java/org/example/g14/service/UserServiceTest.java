@@ -22,7 +22,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import utils.UsersList;
+import org.example.g14.utils.UsersList;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -248,13 +248,15 @@ public class UserServiceTest {
     public void getAllFolowersDescTest() {
 
         // arrange
-        User foundUser = new User(1, "Juan", List.of(2, 3, 4), new ArrayList<>());
-        Post post = new Post(LocalDate.now(), 2.0, 3, new Product(), 2);
+        User foundUser = User.builder()
+                .id(1)
+                .idFollowers(List.of(2, 3, 4))
+                .build();
 
         List<User> followers = UsersList.getMockedUsers();
         List<Post> sellerPosts = new ArrayList<>();
-        sellerPosts.add(post);
-        List<User> sortedFollowers = followers.stream().sorted(Comparator.comparing(User::getName).reversed()).toList();
+        sellerPosts.add(new Post());
+        List<User> sortedFollowers = UsersList.getMockedUsersOrderedDesc();
 
         stablishMocks(foundUser, followers);
 
@@ -272,13 +274,15 @@ public class UserServiceTest {
     public void getAllFolowersAscTest() {
 
         // arrange
-        User foundUser = new User(1, "Juan", List.of(2, 3, 4), new ArrayList<>());
-        Post post = new Post(LocalDate.now(), 2.0, 3, new Product(), 2);
+        User foundUser = User.builder()
+                .id(1)
+                .idFollowers(List.of(2, 3, 4))
+                .build();
 
         List<User> followers = UsersList.getMockedUsers();
         List<Post> sellerPosts = new ArrayList<>();
-        sellerPosts.add(post);
-        List<User> sortedFollowers = followers.stream().sorted(Comparator.comparing(User::getName)).toList();
+        sellerPosts.add(new Post());
+        List<User> sortedFollowers = UsersList.getMockedUsersOrderedAsc();
 
         stablishMocks(foundUser, followers);
 
@@ -296,7 +300,10 @@ public class UserServiceTest {
     public void getListOfFollowedSellersDescTest() {
 
         // arrange
-        User foundUser = new User(1, "Juan", new ArrayList<>(), List.of(2, 3, 4));
+        User foundUser = User.builder()
+                .id(1)
+                .idFollowers(List.of(2, 3, 4))
+                .build();
 
         List<User> followeds = UsersList.getMockedUsers();
         List<User> sortedFolloweds = followeds.stream().sorted(Comparator.comparing(User::getName).reversed()).toList();
@@ -316,10 +323,13 @@ public class UserServiceTest {
     public void getListOfFollowedSellersAscTest() {
 
         // arrange
-        User foundUser = new User(1, "Juan", new ArrayList<>(), List.of(2, 3, 4));
+        User foundUser = User.builder()
+                .id(1)
+                .idFollowers(List.of(2, 3, 4))
+                .build();
 
         List<User> followeds = UsersList.getMockedUsers();
-        List<User> sortedFolloweds = followeds.stream().sorted(Comparator.comparing(User::getName)).toList();
+        List<User> sortedFolloweds = UsersList.getMockedUsersOrderedAsc();
 
         stablishMocks(foundUser, followeds);
 
@@ -332,7 +342,7 @@ public class UserServiceTest {
     }
 
     private void stablishMocks(User foundUser, List<User> relatedUsers){
-        Mockito.when(userRepository.getById(1)).thenReturn(Optional.of(foundUser));
+        Mockito.when(userRepository.getById(foundUser.getId())).thenReturn(Optional.of(foundUser));
         for (User user : relatedUsers) {
             Mockito.when(userRepository.getById(user.getId())).thenReturn(Optional.of(user));
         }
