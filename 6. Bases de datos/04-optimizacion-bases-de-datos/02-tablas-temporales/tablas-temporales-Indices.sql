@@ -7,6 +7,13 @@ WHERE sr.title = 'The Walking dead';
 
 SELECT * FROM TWD;
 
+SELECT * FROM TWD 
+WHERE rating > 7.0 AND release_date 
+BETWEEN '2010-01-01' AND '2013-12-12';
+
+SELECT * FROM TWD 
+WHERE LENGTH(title) > 14;
+
 -- CREACIÓN DE INDICES --
 
 -- Mejora del rendimiento de consultas
