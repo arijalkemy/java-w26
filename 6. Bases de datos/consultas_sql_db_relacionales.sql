@@ -70,3 +70,25 @@ WHERE rating > 3 AND
 awards > 1 AND
 YEAR(release_date) BETWEEN '1988' AND '2009'
 ORDER BY rating;
+
+SELECT mo.*, ac.first_name, ac.last_name
+FROM movies mo INNER JOIN actors ac
+ON mo.id = ac.favorite_movie_id;
+
+SELECT mo.*
+FROM movies mo LEFT JOIN actors ac
+ON mo.id = ac.favorite_movie_id;
+
+SELECT COUNT(*), mo.title, mo.rating, mo.awards
+FROM movies mo INNER JOIN actors ac
+ON mo.id = ac.favorite_movie_id
+GROUP BY mo.id;
+
+SELECT COUNT(*) AS tot_act, mo.title, mo.rating, mo.awards
+FROM movies mo INNER JOIN actors ac
+ON mo.id = ac.favorite_movie_id
+GROUP BY mo.id HAVING tot_act > 2;
+
+SELECT *
+FROM actor_movie
+WHERE movie_id IN (SELECT id FROM movies WHERE rating = 9.0);
