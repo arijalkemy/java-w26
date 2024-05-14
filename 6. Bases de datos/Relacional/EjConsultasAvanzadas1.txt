@@ -1,0 +1,13 @@
+1. Un join es una unión entre 2 o más tablas a partir de los valores de los registros.
+Se utiliza para conseguir más información (o información más completa) sobre entidades relacionadas a partir de una sola consulta.
+
+2. Inner Join sería la intersección entre las dos tablas según los campos.
+Left/Right Join solamente trae registros de alguna de las tablas.
+
+3. Group By se usa para agrupar resultados según valores de una columna y calcular valores a partir de este agrupamiento.
+Puede venir acompañado de una cláusula HAVING, que es como un WHERE para estos casos.
+
+4. Having es como el Where para los Group By, son condiciones sobre los registros agrupados.
+
+5. SELECT * FROM _ INNER JOIN ~ ON _.x = ~.y;
+SELECT * FROM _ LEFT JOIN ~ ON _.x = ~.y;

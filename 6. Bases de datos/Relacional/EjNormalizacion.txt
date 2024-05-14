@@ -1,0 +1,31 @@
+Debería quedar
+CLIENTE
+- id_cliente int not null
+- nombre_cliente varchar(40)
+- apellido_cliente varchar(40)
+- direccion_cliente varchar(40)
+
+ARTICULO
+- id_articulo int not null
+- descripcion_articulo varchar(255) not null
+- importe decimal(10, 0)
+- IVA ? no sé de qué es atributo
+
+FACTURA
+- id_factura int(11) not null
+- fecha_factura date
+- forma_pago decimal(10, 0) (quizás también se puede tabular el valor)
+- IVA ?
+
+Además para los JOINS se debería agregar
+ITEM_FACTURA
+- id_factura int(11) not null
+- id_articulo int(11) not null
+- cantidad int(11) default(0)
+
+CLIENTE_FACTURA
+- id_cliente int(11) not null
+- id_factura int(11) not null
+
+La cosa sería dejar cada cosa atómicamente para su propio dominio, los datos del cliente para el cliente,
+los datos del artículo para el artículo y para cuestiones de factura, algunos de los campos propuestos pueden ser calculados a partir de otros.
