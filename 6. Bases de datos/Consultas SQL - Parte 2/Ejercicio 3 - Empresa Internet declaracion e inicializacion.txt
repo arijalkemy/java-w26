@@ -1,0 +1,30 @@
+Se solicita crear una nueva base de datos llamada “empresa_internet”.
+Incorporar 10 registros en la tabla de clientes y 5 en la tabla de planes de internet.
+Realizar las asociaciones/relaciones correspondientes entre estos registros.
+
+CREATE DATABASE `plan_internet_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE TABLE `Cliente` (
+  `id_cliente` int NOT NULL AUTO_INCREMENT,
+  `dni` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `provincia` varchar(100) NOT NULL,
+  `ciudad` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `Plan` (
+  `id_plan` int NOT NULL AUTO_INCREMENT,
+  `velocidad` int NOT NULL,
+  `precio` float NOT NULL,
+  `descuento` float DEFAULT NULL,
+  PRIMARY KEY (`id_plan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `ClientePlan` (
+  `id_cliente` int NOT NULL,
+  `id_plan` int NOT NULL,
+  KEY `ClientePlan_Cliente_FK` (`id_cliente`),
+  KEY `ClientePlan_Plan_FK` (`id_plan`),
+  CONSTRAINT `ClientePlan_Cliente_FK` FOREIGN KEY (`id_cliente`) REFERENCES `Cliente` (`id_cliente`),
+  CONSTRAINT `ClientePlan_Plan_FK` FOREIGN KEY (`id_plan`) REFERENCES `Plan` (`id_plan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

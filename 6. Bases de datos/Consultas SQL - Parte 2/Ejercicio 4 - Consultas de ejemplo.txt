@@ -1,0 +1,1 @@
+Plantear 10 consultas SQL que se podrían realizar a la base de datos. Expresar las sentencias.
