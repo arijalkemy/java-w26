@@ -1,0 +1,17 @@
+/*Ejercicio 2*/
+/*
+Una vez modelada y planteada la base de datos, responder a las siguientes preguntas:
+a. ¿Cuál es la primary key para la tabla de clientes? Justificar respuesta
+
+R/ Id_Cliente, ya que no se debe usar el dni como clave primaria, esto para evitar fuga de datos o mal manejo de datos sensibles
+y evitar problemas en casos de duplicado.
+
+b. ¿Cuál es la primary key para la tabla de planes de internet? Justificar respuesta.
+R/Id_Plan, ya que necesita una clave primaria, entonces se establecio un autoincremental porque nunca se especifico si esos codigos
+estaban creados o no.
+
+c. ¿Cómo serían las relaciones entre tablas? ¿En qué tabla debería haber foreign key? ¿A qué campo de qué tabla hace referencia dicha foreign key? Justificar respuesta.
+Seria una relacion M-N entre la tabla Cliente y plan, que a su vez le da paso a una entidad debil CLIENTEPLAN que tiene como objetivo
+relacionar la tabla cliente y la tabla plan. Por debido proceso se deberia romper la relacion m-n y pues es la razon por la cual paso
+Esta tabla tiene dos FK, la de cliente y plan.
+*/
