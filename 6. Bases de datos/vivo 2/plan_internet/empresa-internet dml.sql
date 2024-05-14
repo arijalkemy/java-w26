@@ -2,10 +2,11 @@ SELECT * FROM cliente;
 SELECT * FROM plan;
 SELECT * FROM plan_cliente;
 
-SELECT c.idCliente, c.nombre, c.apellido, p.idplan, p.velocidad, p.precio, p.descuento
+SELECT c.idCliente, c.apellido, c.nombre, p.idplan, p.velocidad, p.precio, p.descuento
 FROM cliente c
          INNER JOIN plan_cliente pc ON c.idCliente = pc.idCliente
-         INNER JOIN plan p ON pc.idPlan = p.idplan;
+         INNER JOIN plan p ON pc.idPlan = p.idplan
+         ORDER BY c.apellido, c.nombre ;
 
 SELECT c.idCliente, c.nombre, c.apellido, p.idplan, p.velocidad, p.precio, p.descuento
 FROM cliente c
