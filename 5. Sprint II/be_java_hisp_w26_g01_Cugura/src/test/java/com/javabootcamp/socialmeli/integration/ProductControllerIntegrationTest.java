@@ -86,10 +86,10 @@ class ProductControllerIntegrationTest {
             10.0
         );
 
-        String[] errors = new String[] {
+        /*List<String> errors = List.of(
             "product.brand: El campo no puede poseer caracteres especiales.",
             "product.color: El campo no puede poseer caracteres especiales."
-        };
+        );*/
 
         this.mockMvc
             .perform(
@@ -99,6 +99,6 @@ class ProductControllerIntegrationTest {
             )
             .andDo(MockMvcResultHandlers.print())
             .andExpect(MockMvcResultMatchers.status().isBadRequest());
-            //.andExpect(MockMvcResultMatchers.jsonPath("$.errors").value(errors));
+            //.andExpect(MockMvcResultMatchers.jsonPath("$.errors").value(WRITER.writeValueAsString(errors)));
     }
 }
