@@ -1,18 +1,18 @@
 INSERT INTO Libro (idLibro, Titulo, Editorial, Area)
 VALUES
   (1, 'El Universo: Guía de viaje', 'Salamandra', 'Ciencia Ficción'),
-  (2, 'Fundamentos de Base de Datos', 'McGraw-Hill', 'Informática'),
-  (3, 'El Señor de los Anillos', 'HarperCollins', 'Fantasía'),
-  (4, 'Cien años de soledad', 'Alfaguara', 'Realismo Mágico'),
-  (5, 'El Principito', 'Gallimard', 'Literatura Infantil');
+  (2, 'Fundamentos de Base de Datos', 'McGraw-Hill', 'Base de Datos'),
+  (3, 'Internet no es lo que pensamos', 'Tezontle', 'Internet'),
+  (4, 'Harry Potter y la piedra filosofal', 'Salamandra', 'Realismo Mágico'),
+  (5, 'Infierno', 'Alianza', 'Poema Épico');
  
 INSERT INTO Autor (idAutor, Nombre, Apellido, Nacionalidad)
 VALUES
-  (1, 'Douglas Adams', 'Adams', 'Inglés'),
-  (2, 'Marcia Bates', 'Bates', 'Estadounidense'),
-  (3, 'J.R.R. Tolkien', 'Tolkien', 'Inglés'),
-  (4, 'Gabriel García Márquez', 'García Márquez', 'Colombiano'),
-  (5, 'Antoine de Saint-Exupéry', 'Saint-Exupéry', 'Francés');
+  (1, 'Douglas Adams', 'Inglés'),
+  (2, 'Marcia Bates', 'Estadounidense'),
+  (3, 'Justin Smith', 'Canadiense'),
+  (4, 'J.K. Rowling', 'Británico'),
+  (5, 'Dante Alighieri', 'Italiano');
 INSERT INTO Estudiante (idLector, Nombre, Apellido, Carrera, Edad)
 VALUES
   (1, 'Juan', 'Pérez', 'Informática', 22),
@@ -22,11 +22,11 @@ VALUES
   (5, 'Carlos', 'Rodríguez', 'Medicina', 24);
 INSERT INTO Prestamo (idPrestamo, idLector, idLibro, FechaPrestamo, FechaDevolucion, Devuelto)
 VALUES
-  (1, 1, 1, '2024-04-01', '2024-04-30', TRUE),
-  (2, 2, 2, '2024-03-15', '2024-04-10', TRUE),
-  (3, 3, 3, '2024-02-01', '2024-02-29', TRUE),
-  (4, 4, 4, '2024-01-10', '2024-01-20', FALSE),
-  (5, 5, 5, '2023-12-24', '2024-01-05', TRUE);
+  (1, 1, 1, '2021-04-01', '2021-09-30', TRUE),
+  (2, 2, 2, '2021-03-15', '2021-04-10', TRUE),
+  (3, 3, 3, '2021-02-01', '2021-11-29', TRUE),
+  (4, 4, 4, '2021-01-10', '2021-01-20', FALSE),
+  (5, 5, 5, '2020-12-24', '2021-01-05', TRUE);
 INSERT INTO AutorLibro (idAutor, idLibro)
 VALUES
   (1, 1),
