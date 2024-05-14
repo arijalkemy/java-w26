@@ -13,6 +13,7 @@ ARTICULO
 
 FACTURA
 - id_factura int(11) not null
+- id_cliente int(11) not null
 - fecha_factura date
 - forma_pago decimal(10, 0) (quizás también se puede tabular el valor)
 - IVA ?
@@ -22,10 +23,6 @@ ITEM_FACTURA
 - id_factura int(11) not null
 - id_articulo int(11) not null
 - cantidad int(11) default(0)
-
-CLIENTE_FACTURA
-- id_cliente int(11) not null
-- id_factura int(11) not null
 
 La cosa sería dejar cada cosa atómicamente para su propio dominio, los datos del cliente para el cliente,
 los datos del artículo para el artículo y para cuestiones de factura, algunos de los campos propuestos pueden ser calculados a partir de otros.
