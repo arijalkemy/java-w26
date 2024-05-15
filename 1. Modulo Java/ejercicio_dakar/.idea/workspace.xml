@@ -5,48 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a1ca53-784d-4c08-88b0-b1e0abe94f66" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_saveTheRopa/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_superMercadoElEconomico/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ejercicio_tiposDeDocumentos/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/ejercicio_distribuidoraDeProductos.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Distribuidora.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/NoPerecedero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Perecedero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/out/production/ejercicio_distribuidoraDeProductos/com/company/Producto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Distribuidora.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/NoPerecedero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Perecedero.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_distribuidoraDeProductos/src/com/company/Producto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/ejercicio_practicaExcepciones.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/out/production/ejercicio_practicaExcepciones/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/out/production/ejercicio_practicaExcepciones/com/company/PracticaExcepciones.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_practicaExcepciones/src/com/company/PracticaExcepciones.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Basic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Cobrador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/classes/Ejecutivo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IConsultaSaldo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IDeposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IPagoDeServicios.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/IRetiroDeEfectivo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/ITransaccion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ejercicio_transaccionesBancarias/src/com/company/interfaces/ITransferencia.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +57,7 @@
       <workItem from="1713186358391" duration="678000" />
       <workItem from="1713187361022" duration="5155000" />
       <workItem from="1713197566646" duration="2594000" />
+      <workItem from="1713296674063" duration="25000" />
     </task>
     <servers />
   </component>
