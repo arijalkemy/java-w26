@@ -11,5 +11,8 @@ Se realiza el cargue de archivos con las siguientes actividades
 -Actividad de testing de integración
 	ObtenerDiploma 2
 
--Actividad de testing de integración asincrónico 
+-Actividad de testing de integración y unitarios
 	starwars
+
+-Actividad de testing | ejercitando unit test e integración tests
+	calculadora-metros-cuadrados

@@ -1,0 +1,8 @@
+Folder con los ejercicios del módulo de base de datos
+
+Ejercicio DER - BD Relacionales parte 1
+	ejercicio1_DER_muebleria.png
+	ejercicio1_DR_muebleria.png
+
+
+
