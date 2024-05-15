@@ -53,4 +53,14 @@ public class TestUtils {
 
         return roomDTOList;
     }
+
+    public static int calculateHomeSquareFeet(List<RoomDTO> roomDTOList) {
+        int totalSquareFeet = 0;
+
+        for(RoomDTO room : roomDTOList) {
+            totalSquareFeet += room.getSquareFeet();
+        }
+
+        return totalSquareFeet;
+    }
 }
