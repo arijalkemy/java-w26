@@ -23,3 +23,9 @@ Ejercicio proveedora internet - Consultas SQL parte 2 Vivo
 Ejercicio SQL Avanzada - Consulta SQL Avanzadas parte 1
 	ejercicio5_SQL_avanzada_movies.sql
 
+Ejercicio empresa y biblioteca - Consultas SQL Avanzadas parte 1 Vivo
+	ejercicio6_DDL_empresa_db.sql
+	ejercicio6_DML_empresa.sql
+	ejercicio7_DDL_biblioteca_bd.sql
+	ejercicio7_DML_biblioteca.sql
+
