@@ -1,0 +1,12 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx0\tx0\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1) La PK para la tabla de clientes va a ser un ID generado por nosotros,  ya que si usamos algo como por ejemplo el DNI nos podemos arriesgar a filtrar datos o tener datos repetidos. Por eso es buena practica utilizar o INT o UUID creador por la propia base de datos.\
+\
+2)La PK para planes de internet seria tambi\'e9n un identificador generado por la propia base de datos, por las razones explicadas en el punto anterior.\
+\
+3)Un cliente puede tener muchos planes y un plan puede tener muchos clientes, se relacionan mediante una tabla intermedia donde se encuentran las FK de la tabla Cliente y de la Tabla Plan.}
