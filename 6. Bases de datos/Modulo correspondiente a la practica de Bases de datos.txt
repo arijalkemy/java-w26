@@ -5,4 +5,7 @@ Ejercicio DER - BD Relacionales parte 1
 	ejercicio1_DR_muebleria.png
 
 
+Ejercicio DER - BD Relacionales parte 1 - Vivo
+	ejercicio2_DER_concesionaria.png
+	ejercicio2_DR_concesionaria.png
 
