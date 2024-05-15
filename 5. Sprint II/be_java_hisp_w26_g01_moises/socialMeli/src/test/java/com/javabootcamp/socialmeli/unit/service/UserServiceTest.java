@@ -1,6 +1,7 @@
 package com.javabootcamp.socialmeli.unit.service;
 
 import com.javabootcamp.socialmeli.dto.response.ResponseDto;
+import com.javabootcamp.socialmeli.dto.response.UserDto;
 import com.javabootcamp.socialmeli.enums.OrderType;
 import com.javabootcamp.socialmeli.exception.EntityNotFoundException;
 import com.javabootcamp.socialmeli.exception.IllegalActionException;
@@ -40,6 +41,21 @@ public class UserServiceTest {
     static void init() {
         CLIENT = UserBuilder.userClient(1);
         SELLER = UserBuilder.userSeller(2);
+    }
+
+    @Test
+    @DisplayName("T-0021 -> Get all mapea correctamente a DTO")
+    void whenGetAllMapToDto() {
+        //arrange
+        List<User> mockUsers = UserBuilder.userClientList();
+        List<UserDto> expected = UserBuilder.userClientDtoList();
+        Mockito.when(userRepository.getAllUsers()).thenReturn(mockUsers);
+
+        //act
+        List<UserDto> actual = userService.getAllUsers();
+
+        //assert
+        Assertions.assertIterableEquals(expected, actual);
     }
 
     // T-0001 -> Se cumple

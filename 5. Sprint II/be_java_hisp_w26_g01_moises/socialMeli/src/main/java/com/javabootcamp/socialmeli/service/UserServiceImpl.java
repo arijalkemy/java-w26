@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
+import com.javabootcamp.socialmeli.utils.DtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
         return userRepository
                 .getAllUsers()
                 .stream()
-                .map(u -> mapper.convertValue(u, UserDto.class))
+                .map(DtoMapper::userToDto)
                 .toList();
 
     }
@@ -86,10 +87,7 @@ public class UserServiceImpl implements UserService {
         }
 
         List<UserDto> userDtos = userList.stream()
-                .map(u -> new UserDto(
-                        u.getId(),
-                        u.getUsername()
-                ))
+                .map(DtoMapper::userToDto)
                 .toList();
 
         return new FollowedSellersDto(userId,
