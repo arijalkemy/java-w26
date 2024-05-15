@@ -9,3 +9,13 @@ Ejercicio DER - BD Relacionales parte 1 - Vivo
 	ejercicio2_DER_concesionaria.png
 	ejercicio2_DR_concesionaria.png
 
+Ejercicio Consultas - Consultas SQL parte 2 Vivo
+	ejercicio3_DML_query.sql	
+	Nota: para ejecutar el query correctamente se debe cargar la BD de movies.
+
+Ejercicio proveedora internet - Consultas SQL parte 2 Vivo
+	ejercicio4_DER_proveedora_internet.png
+	ejercicio4_DR_proveedora_internet.png
+	ejercicio4_DDL.sql
+	ejercicio4_DML_query.sql
+	ejercicio4_documento.pdf
