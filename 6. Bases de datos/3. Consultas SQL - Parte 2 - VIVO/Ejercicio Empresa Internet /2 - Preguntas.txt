@@ -1,0 +1,12 @@
+Una vez modelada y planteada la base de datos, responder a las siguientes preguntas:
+
+
+a. ¿Cuál es la primary key para la tabla de clientes? Justificar respuesta
+La primary key para clientes es id. Ya que existen DNIs duplicados, por lo que no se garantizaría que sea un identificador único.
+
+
+b. ¿Cuál es la primary key para la tabla de planes de internet? Justificar respuesta.
+La primary key para planes de internet seria 'identificador'. Ya que asumimos que el campo refiere a un numero único de identificación.
+
+c. ¿Cómo serían las relaciones entre tablas? ¿En qué tabla debería haber foreign key? ¿A qué campo de qué tabla hace referencia dicha foreign key? Justificar respuesta.
+Habría una relación de uno a varios desde PlanInternet hacia Cliente. En Cliente hay FK haciendo referencia al identificador de PlanInternet. Esto asumiendo que cada cliente puede disponer de un solo plan.
