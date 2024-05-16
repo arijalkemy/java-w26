@@ -1,0 +1,74 @@
+PUT /zapatillas_deportivas
+{
+  "mappings": {
+    "properties": {
+      "marca": {"type": "keyword"},
+      "modelo": {"type": "text"},
+      "color": {"type": "keyword"},
+      "talla": {"type": "keyword"},
+      "precio": {"type": "float"}
+    }
+  }
+}
+
+POST /zapatillas_deportivas/_doc/1
+{
+  "marca": "Nike",
+  "modelo": "Air Max 270",
+  "color": "Negro",
+  "talla": "42",
+  "precio": 150.00
+}
+
+POST /zapatillas_deportivas/_doc/2
+{
+  "marca": "Adidas",
+  "modelo": "Ultraboost 21",
+  "color": "Blanco",
+  "talla": "40",
+  "precio": 180.00
+}
+
+POST /zapatillas_deportivas/_bulk
+{"index":{"_id":4}}
+{ "marca": "New Balance", "modelo": "Fresh Foam 1080v12", "color": "Gris", "talla": "41", "precio": 160.00 }
+{"index":{"_id":5}}
+{ "marca": "Nike", "modelo": "Air Zoom Structure 24", "color": "Azul", "talla": "42", "precio": 130.00 }
+{"index":{"_id":6}}
+{ "marca": "Adidas", "modelo": "Ultraboost 22", "color": "Negro", "talla": "40", "precio": 190.00 }
+{"index":{"_id":7}}
+{ "marca": "Under Armour", "modelo": "HOVR Sonic 4", "color": "Gris", "talla": "42.5", "precio": 140.00 }
+{"index":{"_id":8}}
+{ "marca": "Puma", "modelo": "Speed 500 2", "color": "Blanco/Rojo", "talla": "43", "precio": 120.00 }
+{"index":{"_id":9}}
+{ "marca": "Brooks", "modelo": "Ghost 15", "color": "Negro/Azul", "talla": "42", "precio": 180.00 }
+{"index":{"_id":10}}
+{ "marca": "Asics", "modelo": "GEL-Kayano 29", "color": "Azul/Blanco", "talla": "41", "precio": 200.00 }
+{"index":{"_id":11}}
+{ "marca": "Saucony", "modelo": "Endorphin Speed", "color": "Amarillo", "talla": "41.5", "precio": 170.00 }
+{"index":{"_id":12}}
+{ "marca": "Salomon", "modelo": "Sense Ride 4", "color": "Negro/Azul", "talla": "42.5", "precio": 150.00 }
+{"index":{"_id":13}}
+{ "marca": "Hoka One One", "modelo": "Bondi 7", "color": "Gris", "talla": "41", "precio": 190.00 }
+{"index":{"_id":14}}
+{ "marca": "Under Armour", "modelo": "Charged Bandit 7", "color": "Negro", "talla": "43", "precio": 130.00 }
+{"index":{"_id":15}}
+{ "marca": "Nike", "modelo": "Joyride Run Flyknit", "color": "Blanco", "talla": "40.5", "precio": 170.00 }
+{"index":{"_id":16}}
+{ "marca": "Adidas", "modelo": "Adizero Boston 10", "color": "Negro/Rojo", "talla": "42", "precio": 160.00 }
+{"index":{"_id":17}}
+{ "marca": "Mizuno", "modelo": "Wave Inspire 17", "color": "Azul", "talla": "41", "precio": 140.00 }
+{"index":{"_id":18}}
+{ "marca": "Puma", "modelo": "Speedcat", "color": "Blanco/Negro", "talla": "42.5", "precio": 110.00 }
+{"index":{"_id":19}}
+{ "marca": "Under Armour", "modelo": "Hovr Infinite 3", "color": "Azul/Negro", "talla": "42.5", "precio": 160.00 }
+{"index":{"_id":20}}
+{ "marca": "New Balance", "modelo": "FuelCell Prism v2", "color": "Gris/Azul", "talla": "41.5", "precio": 140.00 }
+
+GET /zapatillas_deportivas/_search
+{
+  "size": 100,
+  "query": {
+    "match_all": {}
+  }
+}
