@@ -1,0 +1,80 @@
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+      "marca": {
+        "type": "text"
+      },
+      "modelo": {
+        "type": "text"
+      },
+      "precio": {
+        "type": "double"
+      }
+    }
+  }
+}
+
+
+POST /zapatillas/_bulk
+{ "index" : {} }
+{ "marca" : "Nike", "modelo": "Air Force", "precio": 110000 }
+{ "index" : {} }
+{ "marca" : "Nike", "modelo": "Running F1", "precio": 120000 }
+{ "index" : {} }
+{ "marca" : "Nike", "modelo": "Street Style", "precio": 100000 }
+{ "index" : {} }
+{ "marca" : "Nike", "modelo": "Forever Young", "precio": 90000 }
+{ "index" : {} }
+{ "marca" : "Nike", "modelo": "Jordan Boost", "precio": 250000 }
+{ "index" : {} }
+{ "marca" : "Nike", "modelo": "Jump Force", "precio": 110000 }
+{ "index" : {} }
+{ "marca" : "Adidas", "modelo": "All Stars", "precio": 110000 }
+{ "index" : {} }
+{ "marca" : "Adidas", "modelo": "Fire Floor", "precio": 115000 }
+{ "index" : {} }
+{ "marca" : "Adidas", "modelo": "Running X1", "precio": 224000 }
+{ "index" : {} }
+{ "marca" : "Adidas", "modelo": "Powered F24", "precio": 143000 }
+{ "index" : {} }
+{ "marca" : "Reebok", "modelo": "Crossfit RE", "precio": 241000.35 }
+{ "index" : {} }
+{ "marca" : "Reebok", "modelo": "WOD Crossfit", "precio": 156020 }
+{ "index" : {} }
+{ "marca" : "Puma", "modelo": "Roma", "precio": 99000 }
+{ "index" : {} }
+{ "marca" : "Puma", "modelo": "Suede Classic", "precio": 80000 }
+{ "index" : {} }
+{ "marca" : "New Balance", "modelo": "574", "precio": 130000 }
+{ "index" : {} }
+{ "marca" : "New Balance", "modelo": "990v5", "precio": 190000 }
+{ "index" : {} }
+{ "marca" : "Vans", "modelo": "Old Skool", "precio": 75000 }
+{ "index" : {} }
+{ "marca" : "Converse", "modelo": "Chuck Taylor All Star", "precio": 70000 }
+{ "index" : {} }
+{ "marca" : "Under Armour", "modelo": "UA HOVR Phantom", "precio": 180000 }
+
+
+GET /zapatillas/_search
+{
+  "query": {
+    "match": {
+      "marca": "Nike"
+    }
+  } 
+}
+
+POST /zapatillas/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "marca": "Nike" }},
+        { "range": { "precio": { "gt": 100000 }}}
+      ]
+    }
+  }
+}
+
