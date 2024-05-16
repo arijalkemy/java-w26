@@ -1,0 +1,45 @@
+use movies_db;
+
+#Primera parte 
+SELECT movies.*, actors.first_name, actors.last_name
+FROM movies INNER JOIN actors
+ON movies.id = actors.favorite_movie_id;
+SELECT * FROM movies mo LEFT JOIN actors ac ON mo.id = ac.favorite_movie_id;
+
+#Segunda parte
+#Ejercicio 1
+select s.title, g.name 
+from series s 
+join genres g 
+ON s.genre_id =  g.id 
+
+#Ejercicio 2
+SELECT e.title, a.first_name, a.last_name 
+FROM episodes e 
+JOIN actor_episode ae ON e.id = ae.episode_id 
+JOIN actors a ON a.id = ae.actor_id
+
+#Ejercicio 3
+SELECT sr.title, COUNT(*) as 'cantidad de episodios'
+FROM series sr 
+JOIN seasons se ON sr.id = se.serie_id 
+GROUP BY se.serie_id;
+
+#Ejercicio 4
+SELECT gr.name, COUNT(*) as 'Cantidad de peliculas' 
+FROM genres gr 
+JOIN movies ON movies.genre_id = gr.id 
+WHERE gr.id > 3
+GROUP BY gr.name
+
+#Ejercicio 5
+EXPLAIN SELECT a.first_name, a.last_name 
+FROM movies m 
+JOIN actor_movie am ON  m.id = am.movie_id
+JOIN actors a ON am.actor_id = a.id 
+WHERE m.title LIKE 'La Guerra de las galaxias%';
+
+SELECT COUNT(*) as 'cantidad de episodios' FROM episodes e JOIN seasons s ON e.season_id = s.id JOIN series se ON s.serie_id = se.id WHERE se.title = 'The Walking Dead';
+
+
+

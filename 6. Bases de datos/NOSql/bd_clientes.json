@@ -1,0 +1,34 @@
+GET /clientes/_search // _search
+{
+  "query": {
+    "match": {
+      "Pais": "Afganistan"
+    }
+  }
+}
+
+GET /clientes/_search
+{
+  "query": {
+    "match": {
+      "_id": "S1b7gY8Bv8IaarPemPHD"
+    }
+  }
+}
+
+
+POST /clientes/_doc
+{
+  "Nombre": "Julian",
+  "Apellido": "perez",
+  "Pais": "Afganistan",
+  "Localidad": "test"
+}
+
+POST /clientes/_update/S1b7gY8Bv8IaarPemPHD
+{
+  "doc":
+  {
+      "Nombre": "Richard"
+  }
+}
