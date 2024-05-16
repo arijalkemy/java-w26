@@ -1,0 +1,110 @@
+# Ejercicio 2
+
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+        "marca": {
+            "type": "text"
+        },
+        "modelo": {
+            "type": "text"
+        },
+        "color": {
+            "type": "text"
+        },
+        "talle": {
+            "type": "short"
+        }
+    }
+  }
+}
+
+GET /zapatillas/_search
+{ 
+  "query": {
+        "match_all": {}
+    }
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Adidas",
+  "modelo": "Gazelle",
+  "color": "Negro",
+  "talle": 39
+}
+
+POST /zapatillas/_bulk
+{"index":{}}
+{"marca": "Adidas", "modelo": "Gazelle", "color": "Negro", "talle": 39}
+{"index":{}}
+{"marca": "Nike", "modelo": "Air Force 1", "color": "Blanco", "talle": 40}
+{"index":{}}
+{"marca": "Reebok", "modelo": "Classic Leather", "color": "Blanco", "talle": 38}
+{"index":{}}
+{"marca": "Puma", "modelo": "Suede", "color": "Azul", "talle": 37}
+{"index":{}}
+{"marca": "New Balance", "modelo": "574", "color": "Gris", "talle": 41}
+{"index":{}}
+{"marca": "Converse", "modelo": "Chuck Taylor All Star", "color": "Negro", "talle": 39}
+{"index":{}}
+{"marca": "Vans", "modelo": "Old Skool", "color": "Negro", "talle": 40}
+{"index":{}}
+{"marca": "Adidas", "modelo": "Superstar", "color": "Blanco", "talle": 38}
+{"index":{}}
+{"marca": "Nike", "modelo": "Air Max 90", "color": "Gris", "talle": 39}
+{"index":{}}
+{"marca": "Reebok", "modelo": "Club C", "color": "Blanco", "talle": 37}
+{"index":{}}
+{"marca": "Puma", "modelo": "Cali", "color": "Blanco", "talle": 40}
+{"index":{}}
+{"marca": "New Balance", "modelo": "990", "color": "Negro", "talle": 41}
+{"index":{}}
+{"marca": "Converse", "modelo": "One Star", "color": "Blanco", "talle": 38}
+{"index":{}}
+{"marca": "Vans", "modelo": "Authentic", "color": "Azul", "talle": 37}
+{"index":{}}
+{"marca": "Adidas", "modelo": "Stan Smith", "color": "Blanco", "talle": 40}
+{"index":{}}
+{"marca": "Nike", "modelo": "React Element 55", "color": "Negro", "talle": 39}
+{"index":{}}
+{"marca": "Reebok", "modelo": "Aztrek", "color": "Blanco", "talle": 38}
+{"index":{}}
+{"marca": "Puma", "modelo": "RS-X", "color": "Blanco", "talle": 41}
+
+
+GET /zapatillas/_search
+{
+  "size": 20, 
+  "query": {
+        "match_all": {}
+    }
+}
+
+GET /zapatillas/_search
+{
+  "query": {
+    "match": {
+      "marca": "Adidas"
+    }
+  }
+}
+
+POST /zapatillas/_update/2d4lg48BjixoBHRx0Rg9
+{
+  "doc": {
+    "color": "Blanco"
+  }
+}
+
+GET /zapatillas/_search
+{
+  "query": {
+    "range": {
+      "talle": {
+        "gte": 39
+      }
+    }
+  }
+}
