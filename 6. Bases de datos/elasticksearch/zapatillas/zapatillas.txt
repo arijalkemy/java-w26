@@ -1,0 +1,61 @@
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+      "nombre": { "type": "text" },
+      "marca": { "type": "keyword" },
+      "precio": { "type": "float" },
+      "talla": { "type": "keyword" },
+      "color": { "type": "keyword" },
+      "tipo_deporte": { "type": "keyword" },
+      "material": { "type": "keyword" },
+      "descripcion": { "type": "text" },
+      "disponibilidad": { "type": "keyword" },
+      "valoracion": { "type": "float" }
+    }
+  }
+}
+
+POST /zapatillas/_bulk
+{"index":{}}
+{"nombre":"Nike Air Max 270","marca":"Nike","precio":149.99,"talla":"US 10","color":"Negro/Blanco","tipo_deporte":"Running","material":"Malla transpirable","descripcion":"Las zapatillas Nike Air Max 270 ofrecen comodidad y estilo durante todo el día. Con una unidad Air Max grande y visible en el talón, te brindan una amortiguación suave y reactiva con cada paso. La parte superior de malla transpirable mantiene tus pies frescos, mientras que el diseño moderno agrega un toque de estilo a tu look deportivo.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Adidas Ultraboost 21","marca":"Adidas","precio":179.99,"talla":"US 9.5","color":"Gris/Negro","tipo_deporte":"Running","material":"Primeknit","descripcion":"Las zapatillas Adidas Ultraboost 21 ofrecen una combinación perfecta de amortiguación y retorno de energía para que cada paso sea más cómodo. Su parte superior de Primeknit se adapta al pie como un calcetín, mientras que la tecnología Boost en la entresuela proporciona un impulso de energía en cada zancada.","disponibilidad":"En stock","valoracion":4.8}
+{"index":{}}
+{"nombre":"New Balance Fresh Foam 1080v11","marca":"New Balance","precio":149.95,"talla":"US 10.5","color":"Azul/Blanco","tipo_deporte":"Running","material":"Malla","descripcion":"Las zapatillas New Balance Fresh Foam 1080v11 ofrecen una experiencia de carrera suave y cómoda gracias a su entresuela Fresh Foam. Su parte superior de malla proporciona transpirabilidad y soporte, mientras que la suela exterior de goma ofrece tracción en diversas superficies.","disponibilidad":"En stock","valoracion":4.6}
+{"index":{}}
+{"nombre":"Puma Speed 500 Ignite 2","marca":"Puma","precio":129.99,"talla":"US 9","color":"Rojo/Negro","tipo_deporte":"Running","material":"Malla ligera","descripcion":"Las zapatillas Puma Speed 500 Ignite 2 ofrecen velocidad y comodidad en un diseño ligero. Con su parte superior de malla ligera y la entresuela Ignite Foam, proporcionan una sensación de respuesta y retorno de energía en cada zancada. Ideales para corredores que buscan mejorar su velocidad y rendimiento.","disponibilidad":"En stock","valoracion":4.5}
+{"index":{}}
+{"nombre":"Under Armour HOVR Phantom 2","marca":"Under Armour","precio":159.99,"talla":"US 10","color":"Negro/Plateado","tipo_deporte":"Running","material":"Tejido de compresión","descripcion":"Las zapatillas Under Armour HOVR Phantom 2 ofrecen una combinación de comodidad y rendimiento. Su parte superior de tejido de compresión proporciona un ajuste ceñido y de apoyo, mientras que la tecnología HOVR en la entresuela ofrece una amortiguación suave y reactiva. Ideales para corredores que buscan velocidad y comodidad.","disponibilidad":"En stock","valoracion":4.6}
+{"index":{}}
+{"nombre":"Asics Gel-Nimbus 24","marca":"Asics","precio":159.99,"talla":"US 10","color":"Negro/Gris","tipo_deporte":"Running","material":"Malla transpirable","descripcion":"Las zapatillas Asics Gel-Nimbus 24 son conocidas por su excelente amortiguación y comodidad. Con su parte superior de malla transpirable y la tecnología Gel en el talón y el antepié, ofrecen una sensación de suavidad y absorción de impactos durante toda la carrera. Ideales para corredores neutros que buscan una zapatilla de alto rendimiento.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Reebok Nano X","marca":"Reebok","precio":129.99,"talla":"US 10","color":"Blanco/Negro","tipo_deporte":"Entrenamiento cruzado","material":"Flexweave","descripcion":"Las zapatillas Reebok Nano X están diseñadas para el entrenamiento cruzado y ofrecen durabilidad y versatilidad. Con su parte superior de Flexweave, proporcionan un ajuste flexible y transpirable. La entresuela de espuma ofrece amortiguación y estabilidad durante los entrenamientos intensos.","disponibilidad":"En stock","valoracion":4.6}
+{"index":{}}
+{"nombre":"Brooks Ghost 14","marca":"Brooks","precio":129.99,"talla":"US 10.5","color":"Negro/Azul","tipo_deporte":"Running","material":"Malla transpirable","descripcion":"Las zapatillas Brooks Ghost 14 son conocidas por su equilibrio entre amortiguación y respuesta. Con una parte superior de malla transpirable y la entresuela DNA Loft, ofrecen una sensación de suavidad y apoyo en cada paso. Ideales para corredores neutros que buscan comodidad y rendimiento.","disponibilidad":"En stock","valoracion":4.8}
+{"index":{}}
+{"nombre":"Saucony Ride 14","marca":"Saucony","precio":129.99,"talla":"US 9.5","color":"Gris/Rojo","tipo_deporte":"Running","material":"Malla transpirable","descripcion":"Las zapatillas Saucony Ride 14 ofrecen una combinación de amortiguación y velocidad para corredores de todos los niveles. Con su parte superior de malla transpirable y la entresuela PWRRUN, proporcionan una sensación de suavidad y respuesta en cada zancada. Ideales para entrenamientos diarios y carreras de larga distancia.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Mizuno Wave Rider 25","marca":"Mizuno","precio":139.99,"talla":"US 9.5","color":"Azul/Blanco","tipo_deporte":"Running","material":"Malla AirMesh","descripcion":"Las zapatillas Mizuno Wave Rider 25 son conocidas por su sensación de suavidad y respuesta. Con su parte superior de malla AirMesh y la tecnología Wave en la entresuela, ofrecen una combinación de amortiguación y estabilidad. Ideales para corredores que buscan un equilibrio entre comodidad y rendimiento.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Hoka One One Clifton 8","marca":"Hoka One One","precio":149.99,"talla":"US 9","color":"Azul/Blanco","tipo_deporte":"Running","material":"Malla técnica","descripcion":"Las zapatillas Hoka One One Clifton 8 son conocidas por su excelente amortiguación y ligereza. Con su parte superior de malla técnica y la entresuela de EVA, ofrecen una sensación de suavidad y respuesta en cada paso. Ideales para corredores que buscan comodidad y protección en carreras de larga distancia.","disponibilidad":"En stock","valoracion":4.8}
+{"index":{}}
+{"nombre":"Nike ZoomX Vaporfly NEXT%","marca":"Nike","precio":249.99,"talla":"US 10","color":"Verde/Rosa","tipo_deporte":"Running","material":"Flyknit","descripcion":"Las zapatillas Nike ZoomX Vaporfly NEXT% son reconocidas por su innovadora tecnología y su capacidad para mejorar el rendimiento. Con su parte superior de Flyknit y la entresuela de ZoomX, proporcionan una combinación de ligereza y retorno de energía. Ideales para corredores que buscan mejorar sus tiempos en carreras de larga distancia.","disponibilidad":"En stock","valoracion":4.9}
+{"index":{}}
+{"nombre":"Adidas Stan Smith","marca":"Adidas","precio":89.99,"talla":"US 10","color":"Blanco/Verde","tipo_deporte":"Moda urbana","material":"Cuero","descripcion":"Las zapatillas Adidas Stan Smith son un clásico del estilo urbano. Con su diseño de cuero y las icónicas 3 bandas perforadas, ofrecen un look versátil y atemporal. Ideales para aquellos que buscan un calzado cómodo y elegante para el día a día.","disponibilidad":"En stock","valoracion":4.8}
+{"index":{}}
+{"nombre":"Converse Chuck Taylor All Star","marca":"Converse","precio":59.99,"talla":"US 9.5","color":"Negro","tipo_deporte":"Moda urbana","material":"Lona","descripcion":"Las zapatillas Converse Chuck Taylor All Star son un símbolo de estilo casual y versátil. Con su diseño clásico de lona y suela de goma, ofrecen comodidad y estilo atemporal. Ideales para aquellos que buscan un calzado informal para cualquier ocasión.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Vans Old Skool","marca":"Vans","precio":64.99,"talla":"US 9","color":"Azul marino/Blanco","tipo_deporte":"Moda urbana","material":"Lona y cuero","descripcion":"Las zapatillas Vans Old Skool son un icono del estilo skate y urbano. Con su diseño de lona y cuero, y la clásica suela waffle de goma, ofrecen durabilidad y estilo sin esfuerzo. Ideales para aquellos que buscan un calzado con un toque retro y desenfadado.","disponibilidad":"En stock","valoracion":4.8}
+{"index":{}}
+{"nombre":"New Balance 574","marca":"New Balance","precio":79.99,"talla":"US 9.5","color":"Gris/Blanco","tipo_deporte":"Moda urbana","material":"Cuero y malla","descripcion":"Las zapatillas New Balance 574 son una opción clásica para el estilo urbano. Con su diseño de cuero y malla y la icónica N de New Balance en el lateral, ofrecen comodidad y versatilidad. Ideales para quienes buscan un calzado casual con un toque deportivo.","disponibilidad":"En stock","valoracion":4.6}
+{"index":{}}
+{"nombre":"Reebok Classic Leather","marca":"Reebok","precio":74.99,"talla":"US 10","color":"Blanco","tipo_deporte":"Moda urbana","material":"Cuero","descripcion":"Las zapatillas Reebok Classic Leather son un icono del estilo retro y deportivo. Con su diseño de cuero y la suela de goma duradera, ofrecen comodidad y estilo clásico. Ideales para aquellos que buscan un calzado versátil para cualquier ocasión.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Puma Suede Classic","marca":"Puma","precio":69.99,"talla":"US 9.5","color":"Negro","tipo_deporte":"Moda urbana","material":"Gamusa","descripcion":"Las zapatillas Puma Suede Classic son un símbolo del estilo urbano y casual. Con su diseño de gamusa y la clásica forma de Puma, ofrecen comodidad y estilo atemporal. Ideales para quienes buscan un calzado con un toque retro y distintivo.","disponibilidad":"En stock","valoracion":4.8}
+{"index":{}}
+{"nombre":"Adidas Superstar","marca":"Adidas","precio":89.99,"talla":"US 10","color":"Blanco/Negro","tipo_deporte":"Moda urbana","material":"Cuero","descripcion":"Las zapatillas Adidas Superstar son un ícono del estilo urbano y del hip-hop. Con su diseño clásico de cuero y la puntera de goma, ofrecen comodidad y estilo audaz. Ideales para aquellos que buscan un calzado con un toque retro y urbano.","disponibilidad":"En stock","valoracion":4.7}
+{"index":{}}
+{"nombre":"Jordan 1 Retro High","marca":"Jordan","precio":169.99,"talla":"US 10","color":"Negro/Rojo","tipo_deporte":"Baloncesto","material":"Cuero","descripcion":"Las zapatillas Jordan 1 Retro High son un clásico del baloncesto y del estilo urbano. Con su diseño icónico de cuero y el logo de las alas de Jordan en el lateral, ofrecen comodidad y estilo audaz en la cancha y en la calle. Ideales para aquellos que buscan un calzado con historia y prestigio.","disponibilidad":"En stock","valoracion":4.9}
+
+GET zapatillas/_search
