@@ -172,3 +172,23 @@ GET /zapatillas_deportivas/_search
     "match_all": {}
   }
 }
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "simple_query_string": {
+      "query": "adidas",
+      "fields": ["marca", "modelo"]
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "simple_query_string": {
+      "query": 9,
+      "fields": ["talle"]
+    }
+  }
+}
