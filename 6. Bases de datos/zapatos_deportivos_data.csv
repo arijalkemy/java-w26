@@ -1,0 +1,21 @@
+id,talla,color,genero,precio,marca,modelo
+1,42,Negro,Hombre,79.99,Nike,Air Max
+2,38,Blanco,Mujer,89.99,Adidas,Ultraboost
+3,40,Rojo,Unisex,69.99,Puma,Suede Classic
+4,44,Azul,Hombre,99.99,Reebok,Classic
+5,36,Verde,Mujer,59.99,Converse,Chuck Taylor
+6,41,Gris,Unisex,74.99,Vans,Old Skool
+7,43,Amarillo,Hombre,84.99,New Balance,574
+8,37,Rosa,Mujer,64.99,Fila,Disruptor
+9,39,Morado,Unisex,89.99,Asics,Gel-Lyte
+10,45,Negro,Hombre,79.99,Under Armour,Curry
+11,38,Blanco,Mujer,69.99,Skechers,Go Walk
+12,40,Rojo,Unisex,99.99,Jordan,Air Jordan 1
+13,44,Azul,Hombre,89.99,Timberland,Euro Sprint
+14,36,Verde,Mujer,79.99,Mizuno,Wave Rider
+15,41,Gris,Unisex,84.99,Saucony,Jazz Original
+16,43,Amarillo,Hombre,74.99,Brooks,Ghost
+17,37,Rosa,Mujer,64.99,Hoka One One,Clifton
+18,39,Morado,Unisex,89.99,Salomon,Speedcross
+19,45,Negro,Hombre,79.99,Merrell,Moab
+20,38,Blanco,Mujer,69.99,La Sportiva,Bushido
