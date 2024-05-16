@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "033f2866-f66e-4acd-8294-88ac8f0550cc",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34482321"
+	},
+	"item": [
+		{
+			"name": "Search by Brand",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"match\": {\n        \"marca\": \"Adidas\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": { \"_id\": \"1\" } }\n{ \"nombre\": \"Air Max 90\", \"marca\": \"Nike\", \"modelo\": \"2023 Edition\", \"talla\": 42, \"precio\": 129.99, \"color\": \"Blanco\", \"fecha_lanzamiento\": \"2023-01-01\" }\n{ \"index\": { \"_id\": \"2\" } }\n{ \"nombre\": \"Ultraboost 21\", \"marca\": \"Adidas\", \"modelo\": \"Core Black\", \"talla\": 44, \"precio\": 180.00, \"color\": \"Negro\", \"fecha_lanzamiento\": \"2023-02-15\" }\n{ \"index\": { \"_id\": \"3\" } }\n{ \"nombre\": \"Classic Leather\", \"marca\": \"Reebok\", \"modelo\": \"Vintage\", \"talla\": 40, \"precio\": 75.00, \"color\": \"Blanco\", \"fecha_lanzamiento\": \"2023-03-20\" }\n{ \"index\": { \"_id\": \"4\" } }\n{ \"nombre\": \"Gel-Kayano 28\", \"marca\": \"ASICS\", \"modelo\": \"Stability\", \"talla\": 41, \"precio\": 160.00, \"color\": \"Azul\", \"fecha_lanzamiento\": \"2023-04-05\" }\n{ \"index\": { \"_id\": \"5\" } }\n{ \"nombre\": \"ZoomX Vaporfly Next%\", \"marca\": \"Nike\", \"modelo\": \"Racing\", \"talla\": 42, \"precio\": 250.00, \"color\": \"Verde\", \"fecha_lanzamiento\": \"2023-05-10\" }\n{ \"index\": { \"_id\": \"6\" } }\n{ \"nombre\": \"Fresh Foam 1080v11\", \"marca\": \"New Balance\", \"modelo\": \"Comfort\", \"talla\": 43, \"precio\": 150.00, \"color\": \"Negro\", \"fecha_lanzamiento\": \"2023-06-15\" }\n{ \"index\": { \"_id\": \"7\" } }\n{ \"nombre\": \"Metcon 6\", \"marca\": \"Nike\", \"modelo\": \"Training\", \"talla\": 42, \"precio\": 130.00, \"color\": \"Rojo\", \"fecha_lanzamiento\": \"2023-07-01\" }\n{ \"index\": { \"_id\": \"8\" } }\n{ \"nombre\": \"Speedcross 5\", \"marca\": \"Salomon\", \"modelo\": \"Trail\", \"talla\": 41, \"precio\": 125.00, \"color\": \"Verde\", \"fecha_lanzamiento\": \"2023-08-10\" }\n{ \"index\": { \"_id\": \"9\" } }\n{ \"nombre\": \"Pegasus 38\", \"marca\": \"Nike\", \"modelo\": \"Running\", \"talla\": 44, \"precio\": 120.00, \"color\": \"Azul\", \"fecha_lanzamiento\": \"2023-09-05\" }\n{ \"index\": { \"_id\": \"10\" } }\n{ \"nombre\": \"Gel-Nimbus 23\", \"marca\": \"ASICS\", \"modelo\": \"Cushioning\", \"talla\": 40, \"precio\": 150.00, \"color\": \"Negro\", \"fecha_lanzamiento\": \"2023-10-20\" }\n{ \"index\": { \"_id\": \"11\" } }\n{ \"nombre\": \"Adizero Adios Pro\", \"marca\": \"Adidas\", \"modelo\": \"Marathon\", \"talla\": 42, \"precio\": 200.00, \"color\": \"Blanco\", \"fecha_lanzamiento\": \"2023-11-15\" }\n{ \"index\": { \"_id\": \"12\" } }\n{ \"nombre\": \"FuelCell Rebel v2\", \"marca\": \"New Balance\", \"modelo\": \"Speed\", \"talla\": 43, \"precio\": 130.00, \"color\": \"Rojo\", \"fecha_lanzamiento\": \"2023-12-01\" }\n{ \"index\": { \"_id\": \"13\" } }\n{ \"nombre\": \"Wave Rider 25\", \"marca\": \"Mizuno\", \"modelo\": \"Versatility\", \"talla\": 42, \"precio\": 140.00, \"color\": \"Blanco\", \"fecha_lanzamiento\": \"2023-01-25\" }\n{ \"index\": { \"_id\": \"14\" } }\n{ \"nombre\": \"GT-2000 9\", \"marca\": \"ASICS\", \"modelo\": \"Stability\", \"talla\": 41, \"precio\": 120.00, \"color\": \"Azul\", \"fecha_lanzamiento\": \"2023-02-10\" }\n{ \"index\": { \"_id\": \"15\" } }\n{ \"nombre\": \"Nano X1\", \"marca\": \"Reebok\", \"modelo\": \"Training\", \"talla\": 44, \"precio\": 130.00, \"color\": \"Negro\", \"fecha_lanzamiento\": \"2023-03-01\" }\n{ \"index\": { \"_id\": \"16\" } }\n{ \"nombre\": \"Kyrie 7\", \"marca\": \"Nike\", \"modelo\": \"Basketball\", \"talla\": 42, \"precio\": 140.00, \"color\": \"Rojo\", \"fecha_lanzamiento\": \"2023-04-15\" }\n{ \"index\": { \"_id\": \"17\" } }\n{ \"nombre\": \"NMD_R1\", \"marca\": \"Adidas\", \"modelo\": \"Lifestyle\", \"talla\": 43, \"precio\": 140.00, \"color\": \"Negro\", \"fecha_lanzamiento\": \"2023-05-20\" }\n{ \"index\": { \"_id\": \"18\" } }\n{ \"nombre\": \"Joyride Run Flyknit\", \"marca\": \"Nike\", \"modelo\": \"Comfort\", \"talla\": 40, \"precio\": 180.00, \"color\": \"Azul\", \"fecha_lanzamiento\": \"2023-06-05\" }\n{ \"index\": { \"_id\": \"19\" } }\n{ \"nombre\": \"Supernova\", \"marca\": \"Adidas\", \"modelo\": \"Running\", \"talla\": 42, \"precio\": 110.00, \"color\": \"Verde\", \"fecha_lanzamiento\": \"2023-07-10\" }\n{ \"index\": { \"_id\": \"20\" } }\n{ \"nombre\": \"LeBron 18\", \"marca\": \"Nike\", \"modelo\": \"Basketball\", \"talla\": 44, \"precio\": 200.00, \"color\": \"Blanco\", \"fecha_lanzamiento\": \"2023-08-20\" }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create one pair of shoes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Air Max 90\",\n  \"marca\": \"Nike\",\n  \"modelo\": \"2023 Edition\",\n  \"talla\": 42,\n  \"precio\": 129.99,\n  \"color\": \"Blanco\",\n  \"fecha_lanzamiento\": \"2023-01-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_doc/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_doc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create index",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"nombre\": {\n        \"type\": \"text\"\n      },\n      \"marca\": {\n        \"type\": \"text\"\n      },\n      \"modelo\": {\n        \"type\": \"text\"\n      },\n      \"talla\": {\n        \"type\": \"integer\"\n      },\n      \"precio\": {\n        \"type\": \"float\"\n      },\n      \"color\": {\n        \"type\": \"text\"\n      },\n      \"fecha_lanzamiento\": {\n        \"type\": \"date\"\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Find all shoes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match_all\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
