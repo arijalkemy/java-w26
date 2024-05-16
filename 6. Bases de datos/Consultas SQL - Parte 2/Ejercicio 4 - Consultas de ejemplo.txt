@@ -1,2 +1,63 @@
 Plantear 10 consultas SQL que se podrían realizar a la base de datos. Expresar las sentencias.
 
+
+Obtener todos los clientes:
+
+	SELECT * FROM Cliente;
+
+Obtener todos los planes de internet:
+	
+	SELECT * FROM Plan;
+
+Obtener la cantidad de clientes por provincia:
+
+	SELECT provincia, COUNT(*) AS cantidad_clientes 
+	FROM Cliente 
+	GROUP BY provincia;
+
+Obtener el plan contratado por un cliente Juan González:
+
+	SELECT Cliente.nombre, Plan.velocidad, Plan.precio 
+	FROM Cliente 
+	INNER JOIN ClientePlan ON Cliente.id_cliente = ClientePlan.id_cliente 
+	INNER JOIN Plan ON ClientePlan.id_plan = Plan.id_plan 
+	WHERE Cliente.nombre = 'Juan' AND Cliente.apellido = 'González';
+
+Obtener todos los clientes que han contratado un plan de 100 Mbps:
+
+	SELECT Cliente.* 
+	FROM Cliente 
+	INNER JOIN ClientePlan ON Cliente.id_cliente = ClientePlan.id_cliente 
+	INNER JOIN Plan ON ClientePlan.id_plan = Plan.id_plan 
+	WHERE Plan.velocidad = 100;
+
+Obtener el precio promedio de los planes de internet:
+
+	SELECT AVG(precio) AS precio_promedio FROM Plan;
+
+Obtener el cliente más joven:
+
+	SELECT * FROM Cliente 
+	ORDER BY fecha_nacimiento ASC 
+	LIMIT 1;
+
+Obtener el plan más caro:
+
+	SELECT * FROM Plan 
+	ORDER BY precio DESC 
+	LIMIT 1;
+
+Obtener los clientes que tienen descuento en sus planes:
+
+	SELECT Cliente.* 
+	FROM Cliente 
+	INNER JOIN ClientePlan ON Cliente.id_cliente = ClientePlan.id_cliente 
+	INNER JOIN Plan ON ClientePlan.id_plan = Plan.id_plan 
+	WHERE Plan.descuento IS NOT NULL;
+
+Obtener el número de clientes que han contratado cada velocidad de plan:
+
+	SELECT Plan.velocidad, COUNT(*) AS cantidad_clientes 
+	FROM ClientePlan 
+	INNER JOIN Plan ON ClientePlan.id_plan = Plan.id_plan 
+	GROUP BY Plan.velocidad;
