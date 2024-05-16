@@ -1,0 +1,67 @@
+GET /_cat/indices
+
+PUT /zapatillas
+
+# find all
+GET /zapatillas/_search
+{
+  "size": 30,
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST /zapatillas/_doc
+{"marca":"nike", "modelo": "af1"}
+
+POST /zapatillas/_bulk
+{ "index": {} }
+{"marca":"nike", "modelo": "jordan"}
+{ "index": {} }
+{"marca":"nike", "modelo": "af1 black"}
+{ "index": {} }
+{"marca":"adidas", "modelo": "boost"}
+{ "index": {} }
+{"marca":"puma", "modelo": "ignite"}
+{ "index": {} }
+{"marca":"reebok", "modelo": "nano"}
+{ "index": {} }
+{"marca":"asics", "modelo": "gel-kayano"}
+{ "index": {} }
+{"marca":"new balance", "modelo": "fresh foam"}
+{ "index": {} }
+{"marca":"under armour", "modelo": "hovr"}
+{ "index": {} }
+{"marca":"fila", "modelo": "disruptor"}
+{ "index": {} }
+{"marca":"converse", "modelo": "chuck taylor"}
+
+POST /zapatillas/_doc
+{"marca":"nike", "modelo": "puma"}
+
+
+GET /zapatillas/_search
+{
+  "query": {
+    "simple_query_string": {
+      "query": "chuck taylor"
+    }
+  }
+}
+
+GET /zapatillas/_search
+{
+  "query": {
+    "match": {
+      "marca": "puma"
+    }
+  }
+}
+
+POST /zapatillas/_update/4wkXg48BCKJ2JqMJ9GfX
+{
+  "doc": {
+    "marca": "Converse",
+    "precio": 15
+  }
+}
