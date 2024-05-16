@@ -30,10 +30,6 @@ import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.when;
 
-/**
- * Clase de prueba para el servicio de vendedor.
- * Esta clase contiene varios casos de prueba para validar la funcionalidad del servicio de vendedor.
- */
 @ExtendWith(MockitoExtension.class)
 public class SellerServiceTest {
     @Mock
@@ -106,14 +102,6 @@ public class SellerServiceTest {
         );
     }
 
-    /**
-     * Prueba para verificar que el tipo de ordenamiento por fecha exista.
-     * <p>
-     * Este método de prueba verifica que el ordenamiento por fecha ascendente y descendente exista.
-     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
-     * Luego, se ejecuta el método getPostsFromFollowingWithTwoWeeksOld del servicio SellerServiceImplementation.
-     * Finalmente, se verifica que no se lance ninguna excepción.
-     */
     @Test
     @DisplayName("T-0005 Verificar que el tipo de ordenamiento por fecha exista")
     public void checkDateOrderExistsTest() {
@@ -129,14 +117,6 @@ public class SellerServiceTest {
         Assertions.assertDoesNotThrow(() -> responseDateDesc);
     }
 
-    /**
-     * Prueba para verificar que el ordenamiento por fecha no exista.
-     * <p>
-     * Este método de prueba verifica que el ordenamiento no exista.
-     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
-     * Luego, se ejecuta el método getPostsFromFollowingWithTwoWeeksOld del servicio SellerServiceImplementation.
-     * Finalmente, se verifica que se lance una excepción BadRequestException.
-     */
     @Test
     @DisplayName("T-0005 Verificar que el ordenamiento por fecha no existe")
     public void checkOrderExistsTest() {
@@ -148,14 +128,6 @@ public class SellerServiceTest {
         Assertions.assertThrows(BadRequestException.class, () -> sellerServiceImplementation.getPostsFromFollowingWithTwoWeeksOld(1, "asdf"));
     }
 
-    /**
-     * Prueba para verificar el correcto ordenamiento ascendente y descendente por fecha.
-     * <p>
-     * Este método de prueba verifica que el ordenamiento por fecha sea correcto en orden ascendente y descendente.
-     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
-     * Luego, se ejecuta el método getPostsFromFollowingWithTwoWeeksOld del servicio SellerServiceImplementation.
-     * Finalmente, se verifica que los posts estén ordenados correctamente.
-     */
     @Test
     @DisplayName("T-0006 Verificar el correcto ordenamiento ascendente y descendente por fecha")
     public void dateOrderingCorrectTest() {
@@ -171,14 +143,7 @@ public class SellerServiceTest {
         assertEquals(responsePostDTODesc, responseDateDesc);
     }
 
-    /**
-     * Prueba para verificar que el id de usuario exista.
-     * <p>
-     * Este método de prueba verifica que el id de usuario exista.
-     * Se configura el comportamiento esperado de los mocks para que retornen null cuando se busque un cliente por su ID.
-     * Luego, se ejecuta el método getPostsFromFollowingWithTwoWeeksOld del servicio SellerServiceImplementation.
-     * Finalmente, se verifica que se lance una excepción NotFoundException.
-     */
+
     @Test
     @DisplayName("T-0006 Verificar id de usuario no existe")
     public void checkUserIdExistsTest() {
@@ -189,14 +154,6 @@ public class SellerServiceTest {
         Assertions.assertThrows(NotFoundException.class, () -> sellerServiceImplementation.getPostsFromFollowingWithTwoWeeksOld(1, "date_asc"));
     }
 
-    /**
-     * Prueba para verificar que los posts regresados sean de las últimas dos semanas.
-     * <p>
-     * Este método de prueba verifica que los posts regresados sean de las últimas dos semanas.
-     * Se configura el comportamiento esperado de los mocks para que retornen un cliente y tres vendedores.
-     * Luego, se ejecuta el método getPostsFromFollowingWithTwoWeeksOld del servicio SellerServiceImplementation.
-     * Finalmente, se verifica que los posts sean de las últimas dos semanas.
-     */
     @Test
     @DisplayName("T-0008 Verificar que los post regresados sean efectivamente de las ultimas dos semanas")
     public void getPostsFromFollowingWithTwoWeeksOldTest()
