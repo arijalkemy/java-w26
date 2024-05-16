@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "e7575a7d-ff61-48bd-8661-a4299422b65b",
+		"name": "Elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34293503"
+	},
+	"item": [
+		{
+			"name": "Creacion de Index",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"brand\": {\n        \"type\": \"keyword\"\n      },\n      \"model\": {\n        \"type\": \"text\"\n      },\n      \"color\": {\n        \"type\": \"keyword\"\n      },\n      \"size\": {\n        \"type\": \"float\"\n      },\n      \"price\": {\n        \"type\": \"float\"\n      },\n      \"material\": {\n        \"type\": \"text\"\n      },\n      \"gender\": {\n        \"type\": \"keyword\"\n      },\n      \"season\": {\n        \"type\": \"keyword\"\n      }\n    }\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/shoesstore",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"shoesstore"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creacion de registros en el index",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"brand\": \"Keen\",\n  \"model\": \"Targhee III\",\n  \"color\": \"Olive\",\n  \"size\": 9.5,\n  \"price\": 130.00,\n  \"material\": \"Leather\",\n  \"gender\": \"Male\",\n  \"season\": \"Fall/Winter\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/shoesstore/_doc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"shoesstore",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/shoesstore/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"shoesstore",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
