@@ -1,0 +1,22 @@
+//Search all
+GET /clientes/_search
+
+//Search by filter
+GET /clientes/_search
+{
+  "query": {
+    "match": {
+      "pais": "Mordor"
+    }
+  }
+}
+
+//Create new client
+POST /clientes/_doc
+{
+  "nombre":"pepito" ,
+  "apellido":"Papa" ,
+  "pais": "Mordor" ,
+  "localidad": "capital",
+  "numero":"5125"
+}
