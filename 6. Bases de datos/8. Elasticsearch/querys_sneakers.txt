@@ -1,0 +1,80 @@
+PUT /sneakers
+{
+  "mappings": {
+    "properties": {
+      "brand": {
+        "type": "text"
+      },
+      "model": {
+        "type": "text"
+      },
+      "size": {
+        "type": "float"
+      },
+      "color": {
+        "type": "text"
+      },
+      "price": {
+        "type": "float"
+      },
+      "release_date": {
+        "type": "date"
+      }
+    }
+  }
+}
+
+
+POST /sneakers/_bulk
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Nike", "model": "Air Max 90", "size": 10, "color": "White", "price": 120.0, "release_date": "2023-01-15" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Nike", "model": "Air Force 1", "size": 10, "color": "Black", "price": 100.0, "release_date": "2023-02-20" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Adidas", "model": "Superstar", "size": 9, "color": "White/Black", "price": 80.0, "release_date": "2023-03-10" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Jordan", "model": "Jordan 1", "size": 10, "color": "Red/Black", "price": 150.0, "release_date": "2023-04-05" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Reebok", "model": "Classic Leather", "size": 10, "color": "White/Gum", "price": 90.0, "release_date": "2023-05-12" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Puma", "model": "Suede", "size": 9, "color": "Blue", "price": 70.0, "release_date": "2023-06-18" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Vans", "model": "Old Skool", "size": 10, "color": "Black/White", "price": 65.0, "release_date": "2023-07-22" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Converse", "model": "Chuck Taylor All Star", "size": 9, "color": "Red", "price": 55.0, "release_date": "2023-08-30" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "New Balance", "model": "574", "size": 10, "color": "Grey", "price": 80.0, "release_date": "2023-09-10" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "ASICS", "model": "GEL-Kayano 27", "size": 10, "color": "Black/Silver", "price": 160.0, "release_date": "2023-10-05" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Under Armour", "model": "HOVR Phantom 2", "size": 10, "color": "White/Red", "price": 140.0, "release_date": "2023-11-12" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Salomon", "model": "Speedcross 5", "size": 9, "color": "Green/Black", "price": 130.0, "release_date": "2023-12-02" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Fila", "model": "Disruptor II", "size": 9, "color": "Pink", "price": 75.0, "release_date": "2024-01-18" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Mizuno", "model": "Wave Rider 24", "size": 10, "color": "Blue/White", "price": 140.0, "release_date": "2024-02-25" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Etnies", "model": "Marana", "size": 10, "color": "Black/Red", "price": 75.0, "release_date": "2024-03-14" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "DC Shoes", "model": "Pure High-Top", "size": 10, "color": "White/Blue", "price": 90.0, "release_date": "2024-04-09" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Lacoste", "model": "Lerond", "size": 9, "color": "White/Green", "price": 100.0, "release_date": "2024-05-05" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Skechers", "model": "D'Lites", "size": 9, "color": "Black/Pink", "price": 70.0, "release_date": "2024-06-21" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Timberland", "model": "Icon 6-Inch Premium Boot", "size": 10, "color": "Brown", "price": 180.0, "release_date": "2024-07-17" }
+{ "index" : { "_index" : "sneakers"} }
+{ "brand": "Dr. Martens", "model": "1460", "size": 10, "color": "Black", "price": 150.0, "release_date": "2024-08-30" }
+
+
+DELETE /sneakers/_doc/{_id}
+
+GET /sneakers/_search
+{
+  "size": 20, 
+  "query": {
+    "match_all": {}
+  }
+}
+
