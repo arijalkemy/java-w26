@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "2a70a0ac-7181-430d-9451-d5149534552f",
+		"name": "ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34317590"
+	},
+	"item": [
+		{
+			"name": "crearIndice",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"marca\": { \"type\": \"keyword\" },\n      \"modelo\": { \"type\": \"text\" },\n      \"precio\": { \"type\": \"float\" },\n      \"color\": { \"type\": \"keyword\" },\n      \"talla\": { \"type\": \"keyword\" }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas_deportivas"
+			},
+			"response": []
+		},
+		{
+			"name": "agregarDocumentos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Nike\",\"modelo\": \"Air Zoom Pegasus 38\",\"precio\": 129.99,\"color\": \"Negro/Blanco\",\"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Adidas\",\"modelo\": \"Ultraboost 21\",\"precio\": 180.00,\"color\": \"Azul\",\"talla\": \"41\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Topper\", \"modelo\": \"Topper Model X\", \"precio\": 99.99, \"color\": \"Blanco/Rojo\", \"talla\": \"43\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Puma\", \"modelo\": \"Puma Speed 500\", \"precio\": 119.99, \"color\": \"Negro/Amarillo\", \"talla\": \"40\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Under Armour\", \"modelo\": \"UA HOVR Sonic 4\", \"precio\": 110.00, \"color\": \"Gris\", \"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Nike\", \"modelo\": \"Nike Revolution 5\", \"precio\": 65.00, \"color\": \"Negro\", \"talla\": \"41\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Adidas\", \"modelo\": \"Adidas Solar Boost 3\", \"precio\": 160.00, \"color\": \"Blanco/Negro\", \"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Topper\", \"modelo\": \"Topper Kicker\", \"precio\": 79.99, \"color\": \"Azul/Blanco\", \"talla\": \"40\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Puma\", \"modelo\": \"Puma Axelion\", \"precio\": 89.99, \"color\": \"Rojo\", \"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Under Armour\", \"modelo\": \"UA Charged Bandit 6\", \"precio\": 100.00, \"color\": \"Negro/Rojo\", \"talla\": \"41\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Nike\", \"modelo\": \"Nike Air Zoom Winflo 7\", \"precio\": 90.00, \"color\": \"Gris/Azul\", \"talla\": \"43\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Adidas\", \"modelo\": \"Adidas Questar Flow\", \"precio\": 80.00, \"color\": \"Negro\", \"talla\": \"40\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Topper\", \"modelo\": \"Topper Running Pro\", \"precio\": 69.99, \"color\": \"Gris/Amarillo\", \"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Puma\", \"modelo\": \"Puma Axelion Breathe\", \"precio\": 99.99, \"color\": \"Blanco\", \"talla\": \"41\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Under Armour\", \"modelo\": \"UA Charged Assert 9\", \"precio\": 80.00, \"color\": \"Negro\", \"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Nike\", \"modelo\": \"Nike Quest 3\", \"precio\": 75.00, \"color\": \"Azul\", \"talla\": \"43\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Adidas\", \"modelo\": \"Adidas Runfalcon\", \"precio\": 60.00, \"color\": \"Blanco\", \"talla\": \"40\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Topper\", \"modelo\": \"Topper Runner\", \"precio\": 59.99, \"color\": \"Negro\", \"talla\": \"42\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Puma\", \"modelo\": \"Puma Nrgy Star\", \"precio\": 85.00, \"color\": \"Azul\", \"talla\": \"41\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"marca\": \"Under Armour\", \"modelo\": \"UA Charged Pursuit 2\", \"precio\": 70.00, \"color\": \"Blanco/Negro\", \"talla\": \"40\"}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas_deportivas/_bulk"
+			},
+			"response": []
+		},
+		{
+			"name": "traerTodos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:9200/zapatillas_deportivas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "traerMarcaNike",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match\": {\n            \"marca\": \"Nike\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas_deportivas/_search"
+			},
+			"response": []
+		}
+	]
+}
