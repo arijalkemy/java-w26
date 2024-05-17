@@ -1,2 +1,18 @@
-package org.example.orm_jpa_implementation.entity;public class Student {
+package org.example.orm_jpa_implementation.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Data
+@Entity
+public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    private String name;
+    private String dni;
+    private String lastname;
 }
