@@ -68,3 +68,36 @@ INSERT INTO clientexplan (id_cliente, id_plan) VALUES
 (9,5),
 (10,5);
 
+
+-- Ejercicio 4
+
+-- Buscar el nombre y apellido de todas las personas que hayan nacido de 1980 al 2000
+select nombre,apellido from cliente where fecha_nacimiento between "1980-01-01" and "2000-12-31";
+
+-- Buscar el nombre,apellido y ciudad de las personas cuya ciudad sea Springfield o Paris
+select nombre,apellido,ciudad from cliente where ciudad in ('Springfield','Paris');
+
+-- Buscar el nombre,apellido y direccion de las personas que no viven en la ciudad Springfield
+select nombre,apellido,direccion from cliente where ciudad not like "Springfield";
+
+-- Buscar el nombre,apellido y direccion de las personas que contenga la letra M en el apellido
+select nombre,apellido,direccion from cliente where apellido like "%m%";
+
+-- Buscar el nombre,apellido y direccion de las personas que contenga la letra a en el nombre
+-- y la fecha de nacimiento sea de 1990 al 2005
+select nombre,apellido,direccion from cliente where nombre like "%a%" and fecha_nacimiento between "1990-01-01" and "2005-12-31";
+
+-- Mostar los planes que tengas mas de 300 Megas
+select velocidad,precio,descuento from plan where velocidad > 300;
+
+-- Mostar los planes que tengan menos de 500 Megas y un descuento mayor al 10%
+select velocidad,precio,descuento from plan where velocidad < 500 and descuento > 0.1;
+
+-- Mostar el promedio del costo de los planes
+select round(avg(precio),2) as promedio from plan;
+
+-- Mostar la cantidad de planes
+select count(*) as cantidad_planes from plan;
+
+-- Mostar la suma del valor de todos los planes
+select round(sum(precio),2) as cantidad_planes from plan;
