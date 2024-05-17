@@ -1,0 +1,48 @@
+PUT /zapatillas_prueba
+{
+}
+POST /zapatillas_prueba/_doc
+{
+  "Marca":"Adidas",
+  "Referencia":"F50",
+  "Color":"Naranja"
+}
+GET /zapatillas_prueba/_search
+{
+  "query": {
+    "match":{
+      "Marca":"Adidas"
+    }
+  }
+}
+POST /zapatillas_prueba/_bulk
+{ "index":{} }
+{ "Marca":"Nike","Referencia":"Air Jordan","Color":"Rojo" }
+{ "index":{} }
+{ "Marca":"Puma","Referencia":"Suede","Color":"Negro" }
+{ "index":{} }
+{ "Marca":"Adidas","Referencia":"Running","Color":"Blanco" }
+{ "index":{} }
+{ "Marca":"Puma","Referencia":"R22","Color":"Negro" }
+{ "index":{} }
+{ "Marca":"Nike","Referencia":"React Miler","Color":"Blanco" }
+{ "index":{} }
+{ "Marca":"Nike","Referencia":"Air Zoom","Color":"Gris" }
+{ "index":{} }
+{ "Marca":"Adidas","Referencia":"Nizza","Color":"Verde" }
+{ "index":{} }
+{ "Marca":"Adidas","Referencia":"X-PLR","Color":"Amarillo" }
+{ "index":{} }
+{ "Marca":"Adidas","Referencia":"Superstar","Color":"Blanco" }
+{ "index":{} }
+{ "Marca":"Vans","Referencia":"SK-80","Color":"Negro" }
+{ "index":{} }
+{ "Marca":"Reebok","Referencia":"Club C","Color":"Blanco" }
+{ "index":{} }
+{ "Marca":"Adidas","Referencia":"X-PLR","Color":"Amarillo" }
+{ "index":{} }
+{ "Marca":"Nike","Referencia":"Mercurial","Color":"Naranja" }
+{ "index":{} }
+{ "Marca":"Nike","Referencia":"Phantom Venom","Color":"Blanco" }
+{ "index":{} }
+{ "Marca":"Nike","Referencia":"Air Force","Color":"Blanco" }
