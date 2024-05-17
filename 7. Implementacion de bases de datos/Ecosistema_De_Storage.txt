@@ -1,0 +1,42 @@
+Ejericios 1.txt
+
+"Si tengo que almacenar archivos binarios (recibos) para mi sistema de procesamiento de billing"
+¿Qué tipo de base de datos debo utilizar? ¿Por qué?
+R/ BD Object y eso 
+"Si tengo que guardar todos los datos de los usuarios de meli ¿Qué tipo de database debo utilizar? ¿Por qué?"
+KVS Y DS
+
+
+Ejercicios grupales:
+Ejercicio 1: 
+1. Tengo que crear una aplicación que se encarga de manejar la gestión de dinero en cuenta de los usuarios de Mercado Pago.
+-Cuando un usario paga, luego de validar que tiene saldo, tengo que regisrar el pago y decementar su salgo.
+-Cuando un usario deposita dinero, tengo que incrementar su saldo.
+-Asimismo, con cada pago aprobado, y usando los valores del pago y el usuario varias aplicaciones de fraude calculan modelos de riesgo de los usuarios.
+DESDE UNA PERSPECTIVA DE BD ¿QUÉ UTILIZARÍAS? ¿POR QUÉ? ¿SE TE OCURRE MÁS DE UNA FORMA DE HACERLO?
+
+Ejercicio 2:
+1. Tengo que crear una aplicaciones que guarda datos de envíos.
+-Para cada envío tengo que guardar algunos datos clave como shippingld, comprador, vendedor, producto, costo total, transportista y ruta.
+-Asimismo, asociado con eso, se debe guardar una foto de la orden de envío. Usualmente el equipo accede a esta data por el shippingId.
+-Además de esto, necesitan obetener en ocasiones, informaciones sobre los envíos para un comprador o vendedor en particular y agrupar por ellos el costo total generado.
+-Finalmente, por cuestiones regulatorias, deben saber hasta por 10 años por cuál ruta se envió un producto.
+DESDE UNA PERSPECTIVA DE BD ¿QUÉ UTILIZARÍAS? ¿POR QUÉ? ¿SE TE OCURRE MÁS DE UNA FORMA DE HACERLO?
+-----------------------------------------------------------------------------------------------
+PARTE 2 
+Ejercicio 1 - En sus apps
+
+Asumiendo que tienen un KVS cuya variable de ambiente es: "KEY_VALUE_STORE_MY_CONTAINER_CONTAINER_NAME"
+
+Implementar en Java una clase “User” que tenga varios campos como id, nombre, apellido, género, fecha de nacimiento
+Implementar una clase que permita hacer el CRUD de ese user en KVS
+Asegurarse que el KVS tenga 2 reintentos
+Asegurarse que si se pasa del rate limit, se loguee la información correspondiente
+
+Ejercicio 2 - En sus apps
+
+Asumiendo que tienen aquel KVS tiene un DS asociado cuyo nombre es my-container-ds
+
+Implementar una clase que permita hacer consultas contra ese DS para los users
+Hacer un método que devuelva los usuarios de un país
+-------------------------------------------------------------------------------------------------
