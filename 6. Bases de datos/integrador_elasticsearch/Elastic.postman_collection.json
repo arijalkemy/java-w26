@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "a0dffc15-78ee-4710-824e-f08a53813741",
+		"name": "Elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34289762"
+	},
+	"item": [
+		{
+			"name": "Zapatillas",
+			"item": [
+				{
+					"name": "Index creation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"settings\": {\n        \"number_of_shards\": 1\n    },\n    \"mappings\":{\n        \"properties\":{\n            \"marca\":{\n                \"type\":\"text\"\n            },\n            \"modelo\":{\n                \"type\":\"text\"\n            },\n            \"talla\":{\n                \"type\":\"text\"\n            },\n            \"precio\":{\n                \"type\":\"float\"\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9200/zapatillas"
+					},
+					"response": []
+				},
+				{
+					"name": "Post element",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Naiko\",\n  \"modelo\": \"Air Max 90\",\n  \"talla\": \"42\",\n  \"precio\": 120.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9200/zapatillas/_doc"
+					},
+					"response": []
+				},
+				{
+					"name": "Get element",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"match\": {\n      \"marca\": \"Nike\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9200/zapatillas/_search"
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk insertion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Nike\", \"modelo\": \"Air Max 90\", \"talla\": \"42\", \"precio\": 120.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Adidas\", \"modelo\": \"Ultraboost\", \"talla\": \"44\", \"precio\": 180.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Puma\", \"modelo\": \"Suede Classic\", \"talla\": \"41\", \"precio\": 65.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Reebok\", \"modelo\": \"Classic Leather\", \"talla\": \"43\", \"precio\": 75.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"New Balance\", \"modelo\": \"574\", \"talla\": \"42\", \"precio\": 80.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Asics\", \"modelo\": \"Gel-Kayano 26\", \"talla\": \"45\", \"precio\": 160.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Saucony\", \"modelo\": \"Jazz Original\", \"talla\": \"40\", \"precio\": 70.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Converse\", \"modelo\": \"Chuck Taylor All Star\", \"talla\": \"44\", \"precio\": 55.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Vans\", \"modelo\": \"Old Skool\", \"talla\": \"41\", \"precio\": 60.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Under Armour\", \"modelo\": \"Hovr Phantom\", \"talla\": \"43\", \"precio\": 140.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Mizuno\", \"modelo\": \"Wave Rider 23\", \"talla\": \"42\", \"precio\": 130.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Brooks\", \"modelo\": \"Ghost 12\", \"talla\": \"45\", \"precio\": 130.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Fila\", \"modelo\": \"Disruptor II\", \"talla\": \"40\", \"precio\": 75.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Skechers\", \"modelo\": \"D'Lites\", \"talla\": \"41\", \"precio\": 65.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Hoka One One\", \"modelo\": \"Clifton 6\", \"talla\": \"43\", \"precio\": 150.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Salomon\", \"modelo\": \"Speedcross 4\", \"talla\": \"42\", \"precio\": 130.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Merrell\", \"modelo\": \"Moab 2\", \"talla\": \"44\", \"precio\": 100.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Columbia\", \"modelo\": \"Montrail Caldorado III\", \"talla\": \"45\", \"precio\": 110.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"La Sportiva\", \"modelo\": \"Bushido II\", \"talla\": \"42\", \"precio\": 130.0 }\n{ \"index\": { \"_index\": \"zapatillas\" } }\n{ \"marca\": \"Scarpa\", \"modelo\": \"Spin Ultra\", \"talla\": \"43\", \"precio\": 140.0 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9200/zapatillas/_bulk"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all elements",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"size\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9200/zapatillas/_search"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": {}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {
+			"password": "{{elastic_pass}}",
+			"username": "elastic"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "elastic_pass",
+			"value": "dz=2EoDub=7ynPdxIUdo",
+			"type": "string"
+		}
+	]
+}
