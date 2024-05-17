@@ -1,0 +1,244 @@
+PUT /zapatillas_deportivas
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "properties": {
+      "marca": { "type": "text" },
+      "modelo": { "type": "text" },
+      "talla": { "type": "integer" },
+      "precio": { "type": "float" },
+      "color": { "type": "text" },
+      "disponibilidad": { "type": "boolean" }
+    }
+  }
+}
+POST /zapatillas_deportivas/_doc/1
+{
+  "marca": "Nike",
+  "modelo": "Air Max 90",
+  "talla": 42,
+  "precio": 150.00,
+  "color": "Blanco",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/2
+{
+  "marca": "Adidas",
+  "modelo": "Ultraboost",
+  "talla": 44,
+  "precio": 180.00,
+  "color": "Negro",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/3
+{
+  "marca": "Puma",
+  "modelo": "RS-X3",
+  "talla": 43,
+  "precio": 120.00,
+  "color": "Rojo",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/4
+{
+  "marca": "Reebok",
+  "modelo": "Classic",
+  "talla": 41,
+  "precio": 100.00,
+  "color": "Blanco",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/5
+{
+  "marca": "Asics",
+  "modelo": "Gel-Lyte III",
+  "talla": 45,
+  "precio": 110.00,
+  "color": "Azul",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/6
+{
+  "marca": "New Balance",
+  "modelo": "574",
+  "talla": 42,
+  "precio": 130.00,
+  "color": "Gris",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/7
+{
+  "marca": "Nike",
+  "modelo": "Air Force 1",
+  "talla": 43,
+  "precio": 140.00,
+  "color": "Negro",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/8
+{
+  "marca": "Adidas",
+  "modelo": "Superstar",
+  "talla": 44,
+  "precio": 110.00,
+  "color": "Blanco",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/9
+{
+  "marca": "Puma",
+  "modelo": "Suede Classic",
+  "talla": 42,
+  "precio": 100.00,
+  "color": "Verde",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/10
+{
+  "marca": "Reebok",
+  "modelo": "Zig Kinetica",
+  "talla": 41,
+  "precio": 160.00,
+  "color": "Naranja",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/11
+{
+  "marca": "Asics",
+  "modelo": "GT-2000 9",
+  "talla": 45,
+  "precio": 140.00,
+  "color": "Negro",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/12
+{
+  "marca": "New Balance",
+  "modelo": "990v5",
+  "talla": 42,
+  "precio": 175.00,
+  "color": "Gris",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/13
+{
+  "marca": "Nike",
+  "modelo": "React Element 55",
+  "talla": 43,
+  "precio": 130.00,
+  "color": "Azul",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/14
+{
+  "marca": "Adidas",
+  "modelo": "NMD R1",
+  "talla": 44,
+  "precio": 150.00,
+  "color": "Blanco",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/15
+{
+  "marca": "Puma",
+  "modelo": "Cali",
+  "talla": 42,
+  "precio": 120.00,
+  "color": "Negro",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/16
+{
+  "marca": "Reebok",
+  "modelo": "Nano X1",
+  "talla": 41,
+  "precio": 130.00,
+  "color": "Blanco",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/17
+{
+  "marca": "Asics",
+  "modelo": "Kayano 27",
+  "talla": 45,
+  "precio": 160.00,
+  "color": "Rojo",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/18
+{
+  "marca": "New Balance",
+  "modelo": "Fresh Foam 1080v11",
+  "talla": 42,
+  "precio": 150.00,
+  "color": "Negro",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/19
+{
+  "marca": "Nike",
+  "modelo": "Zoom Pegasus 37",
+  "talla": 43,
+  "precio": 120.00,
+  "color": "Gris",
+  "disponibilidad": true
+}
+
+POST /zapatillas_deportivas/_doc/20
+{
+  "marca": "Adidas",
+  "modelo": "Terrex Swift R2",
+  "talla": 44,
+  "precio": 130.00,
+  "color": "Azul",
+  "disponibilidad": true
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "size": 20,
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "term": {
+      "disponibilidad": true
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "term": {
+      "talla": 42
+    }
+  }
+}
+GET /zapatillas_deportivas/_mapping
+

@@ -1,0 +1,16 @@
+POST /clientes/_doc
+{
+  "nombre": "Agustin",
+  "apellido": "Maldini",
+  "pais": "Argentina",
+  "localidad":"CABA"
+}
+
+GET /clientes/_search
+{
+  "query": {
+    "match_phrase": {
+      "localidad": "CABA"
+    }
+  }
+}
