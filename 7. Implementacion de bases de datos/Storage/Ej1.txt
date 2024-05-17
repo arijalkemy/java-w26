@@ -1,0 +1,9 @@
+1) Convendría un Object Storage o un Audit porque los archivos de recibos pueden ser muy grandes
+para cualquier tipo de base de datos. Por lo que conviene tener una base que no
+se vaya a quejar por el tamaño de los files. Si no va a haber muchas queries por
+los recibos, quizás conviene Audit.
+
+2) Depende, estos datos no suelen cambiar usualmente y si siempre se mantienen
+los mismos campos, se puede usar una RDBMS. Si los campos empiezan a cambiar
+se puede usar un QKVS con Key ID y value JSON, para el caso en que se quiera
+filtrar a los usuarios por cierta característica.
