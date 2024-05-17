@@ -22,9 +22,7 @@ public class SupermercadoApplication {
         clientes.add(cliente1);
         clientes.add(cliente2);
         clientes.add(cliente3);
-        Scanner scanner = new Scanner(System.in);
 
-        /*
         clientes.forEach(System.out::println);
 
         clientes.remove(cliente1);
@@ -45,21 +43,8 @@ public class SupermercadoApplication {
             System.out.println("no existe el cliente con el DNI " + dni);
         }
 
-         */
-        boolean salir= false;
-        while (!salir) {
-            // Mostrar menú
-            System.out.println("Operaciones disponibles:");
-            System.out.println("1. Cargar una factura");
-            System.out.println("2. Salir");
-            System.out.println("Seleccione una opción:");
 
-            int opccion = scanner.nextInt();
-            switch (opccion) {
-                case 1:
-            }
 
-        }
 
 
     }
