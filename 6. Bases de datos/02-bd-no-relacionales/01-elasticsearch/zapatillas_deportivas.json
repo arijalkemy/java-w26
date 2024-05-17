@@ -1,0 +1,109 @@
+POST /zapatillas_deportivas/_bulk 
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Nike", "modelo": "Air Max 270", "color": "Negro/Blanco", "talla": "42", "precio": 129.99, "material": "Malla transpirable", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running", "Entrenamiento"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Adidas", "modelo": "Ultra Boost", "color": "Gris", "talla": "40", "precio": 149.99, "material": "Primeknit", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running", "Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Puma", "modelo": "RS-X", "color": "Blanco/Rojo", "talla": "41", "precio": 109.99, "material": "Cuero sintético", "tipo_cierre": "Velcro", "nivel_amortiguación": "Medio", "uso_recomendado": ["Running", "Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "New Balance", "modelo": "Fresh Foam 1080v11", "color": "Azul", "talla": "43", "precio": 159.99, "material": "Malla", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Asics", "modelo": "Gel-Nimbus 23", "color": "Negro/Verde", "talla": "44", "precio": 169.99, "material": "Malla transpirable", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Under Armour", "modelo": "Hovr Phantom 2", "color": "Blanco/Gris", "talla": "42.5", "precio": 139.99, "material": "Malla ligera", "tipo_cierre": "Cordones", "nivel_amortiguación": "Medio", "uso_recomendado": ["Running", "Entrenamiento"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Reebok", "modelo": "Nano X1", "color": "Negro/Amarillo", "talla": "41.5", "precio": 119.99, "material": "Malla flexible", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Entrenamiento", "CrossFit"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Brooks", "modelo": "Ghost 14", "color": "Azul/Amarillo", "talla": "42.5", "precio": 149.99, "material": "Malla suave", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Salomon", "modelo": "Speedcross 5", "color": "Negro", "talla": "43", "precio": 129.99, "material": "Malla anti-escombros", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Trail Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Mizuno", "modelo": "Wave Rider 24", "color": "Azul/Blanco", "talla": "44", "precio": 139.99, "material": "Malla de aire", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Nike", "modelo": "React Infinity Run Flyknit", "color": "Gris/Naranja", "talla": "41.5", "precio": 159.99, "material": "Tejido Flyknit", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Adidas", "modelo": "Stan Smith", "color": "Blanco/Verde", "talla": "42", "precio": 89.99, "material": "Cuero", "tipo_cierre": "Cordones", "nivel_amortiguación": "Bajo", "uso_recomendado": ["Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Puma", "modelo": "Future Rider Twofold", "color": "Azul/Amarillo", "talla": "43", "precio": 99.99, "material": "Malla transpirable", "tipo_cierre": "Cordones", "nivel_amortiguación": "Medio", "uso_recomendado": ["Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "New Balance", "modelo": "997H", "color": "Blanco/Rosa", "talla": "40.5", "precio": 109.99, "material": "Cuero sintético", "tipo_cierre": "Cordones", "nivel_amortiguación": "Medio", "uso_recomendado": ["Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Asics", "modelo": "Gel-Kayano 28", "color": "Negro/Plateado", "talla": "42", "precio": 169.99, "material": "Malla jacquard", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Under Armour", "modelo": "Charged Rogue 2.5", "color": "Negro/Gris", "talla": "41.5", "precio": 79.99, "material": "Malla ligera", "tipo_cierre": "Cordones", "nivel_amortiguación": "Bajo", "uso_recomendado": ["Running", "Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Reebok", "modelo": "Classic Leather", "color": "Blanco", "talla": "43", "precio": 79.99, "material": "Cuero", "tipo_cierre": "Cordones", "nivel_amortiguación": "Bajo", "uso_recomendado": ["Casual"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Brooks", "modelo": "Levitate 4", "color": "Negro/Azul", "talla": "42", "precio": 159.99, "material": "Malla flexible", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Salomon", "modelo": "Sense Ride 4", "color": "Rojo", "talla": "44", "precio": 139.99, "material": "Malla transpirable", "tipo_cierre": "Cordones", "nivel_amortiguación": "Alto", "uso_recomendado": ["Trail Running"], "disponibilidad": true}
+{"index":{"_index":"zapatillas_deportivas"}}
+{"marca": "Mizuno", "modelo": "Wave Skyrise 2", "color": "Azul/Blanco", "talla": "41.5", "precio": 129.99, "material": "Malla AirMesh", "tipo_cierre": "Cordones", "nivel_amortiguación": "Medio", "uso_recomendado": ["Running"], "disponibilidad": true}
+
+
+GET /zapatillas_deportivas/_search
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match": {
+      "marca": "puma"
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match": {
+      "tipo_cierre": "velcro"
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match": {
+      "material": "cuero"
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match": {
+      "talla": "44"
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "range": {
+      "precio": {
+        "gte": 140.00,
+        "lte": 160.00
+      }
+    }
+  }
+}
+
+GET /zapatillas_deportivas/_search
+{
+ "query": {
+   "bool": {
+     "must": [
+       {"match": {"marca": "nike"}},
+       {"range": {"precio": {"lt": 180 }}}
+     ]
+   }
+ } 
+}
+
+GET /zapatillas_deportivas/_doc/KC4ug48Bz6Z92FSgAx5t
+
+DELETE /zapatillas_deportivas/_doc/LS4ug48Bz6Z92FSgAx5t
+
