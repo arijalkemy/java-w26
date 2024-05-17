@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "253647f8-51e0-4461-ac64-753277c42469",
+		"name": "Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31251344"
+	},
+	"item": [
+		{
+			"name": "Creación de Indice",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\": {\n        \"properties\": {\n            \"marca\": {\n                \"type\": \"text\"\n            },\n            \"modelo\": {\n                \"type\": \"text\"\n            },\n            \"talle\": {\n                \"type\": \"integer\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas"
+			},
+			"response": []
+		},
+		{
+			"name": "Inserción Unitaria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Vans\", \n    \"modelo\": \"Slip-On\", \n    \"talle\": 43\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_doc"
+			},
+			"response": []
+		},
+		{
+			"name": "Inserción Múltiple",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"index\": {}}\n{\"marca\": \"ASICS\", \"modelo\": \"GEL-Kayano 27\", \"talle\": 43}\n{\"index\": {}}\n{\"marca\": \"New Balance\", \"modelo\": \"574\", \"talle\": 43}\n{\"index\": {}}\n{\"marca\": \"ASICS\", \"modelo\": \"GEL-Nimbus 23\", \"talle\": 42}\n{\"index\": {}}\n{\"marca\": \"New Balance\", \"modelo\": \"990v5\", \"talle\": 41}\n{\"index\": {}}\n{\"marca\": \"ASICS\", \"modelo\": \"GT-2000 9\", \"talle\": 40}\n{\"index\": {}}\n{\"marca\": \"New Balance\", \"modelo\": \"Fresh Foam 1080v11\", \"talle\": 42}\n{\"index\": {}}\n{\"marca\": \"ASICS\", \"modelo\": \"GEL-Cumulus 23\", \"talle\": 41}\n{\"index\": {}}\n{\"marca\": \"New Balance\", \"modelo\": \"FuelCell Rebel\", \"talle\": 40}\n{\"index\": {}}\n{\"marca\": \"ASICS\", \"modelo\": \"Dynablast\", \"talle\": 39}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_bulk"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Todos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"from\": 0,\n    \"size\": 100,\n    \"query\": {\n        \"match_all\": {}\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por Match",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match\": {\n            \"modelo\": \"Air Force 1\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por Match Phrase",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match_phrase\": {\n            \"modelo\": \"Air Force 1\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Por Rango y Ordenado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"range\": {\n            \"talle\": {\n                \"gte\": 40,\n                \"lte\": 42\n            }\n        }\n    },\n    \"sort\": [\n        {\n            \"talle\": \"asc\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Por Varios Parámetros",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"bool\": {\n            \"must\": [\n                { \"match_phrase\": { \"marca\": \"Adidas\" } },\n                { \"match\": { \"talle\": 41 } }\n            ]\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/zapatillas/_search"
+			},
+			"response": []
+		}
+	]
+}
