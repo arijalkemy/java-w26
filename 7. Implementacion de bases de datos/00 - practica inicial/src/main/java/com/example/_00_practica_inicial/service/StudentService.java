@@ -16,9 +16,10 @@ public class StudentService implements IStudentService{
     ObjectMapper mapper = new ObjectMapper();
 
     public StudentResponseDTO add(StudentRequestDTO studentRequest){
+
         Student student = mapper.convertValue(studentRequest, Student.class);
-        student = iStudentRepository.save(student);
-        return mapper.convertValue(student, StudentResponseDTO.class);
+
+        return mapper.convertValue(iStudentRepository.save(student), StudentResponseDTO.class);
     }
 
 }

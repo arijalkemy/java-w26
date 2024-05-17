@@ -1,6 +1,7 @@
 package com.example._00_practica_inicial.controller;
 
 import com.example._00_practica_inicial.dto.StudentRequestDTO;
+import com.example._00_practica_inicial.dto.StudentResponseDTO;
 import com.example._00_practica_inicial.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,8 @@ public class StudentController {
 
     @PostMapping
     ResponseEntity<?> addStudent(@RequestBody StudentRequestDTO studentRequest){
-        return new ResponseEntity<>(iStudentService.add(studentRequest), HttpStatus.CREATED);
+        StudentResponseDTO studentAdded = iStudentService.add(studentRequest);
+
+        return new ResponseEntity<>(studentAdded, HttpStatus.CREATED);
     }
 }
