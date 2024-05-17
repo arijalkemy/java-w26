@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "a56b3129-1402-43cd-ada5-525ed5c366a2",
+		"name": "elasticsearch-zapatillas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34505199"
+	},
+	"item": [
+		{
+			"name": "CREACION DE INDEX",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\" : {\n        \"properties\" : {\n            \"marca\" : {\n                \"type\" :\"text\"\n            },\n            \"precio\" : {\n                \"type\" :\"text\"\n            },\n            \"color\" : {\n                \"type\" :\"text\"\n            },\n            \"talla\" : {\n                \"type\" :\"integer\"\n            },\n            \"stock\" : {\n                \"type\" :\"integer\"\n            },\n            \"material\" : {\n                \"type\" :\"text\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\" : \"Adidas\",\n    \"precio\" : 300000.0,\n    \"color\" : \"Amarillo\",\n    \"talla\" : 38,\n    \"stock\" : 10,\n    \"material\" : \"Cuero\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\" : \"Nike\",\n    \"precio\" : 400000.500,\n    \"color\" : \"Rojo\",\n    \"talla\" : 36,\n    \"stock\" : 9,\n    \"material\" : \"Tela\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION 3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\" : \"Under Armour\",\n    \"precio\" : 700000.0,\n    \"color\" : \"Verde\",\n    \"talla\" : 40,\n    \"material\" : \"Cuero sintetico\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION 4",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\" : \"Gucci\",\n    \"precio\" : 3000000.0,\n    \"color\" : \"Crema\",\n    \"talla\" : 36,\n    \"stock\" : 5,\n    \"material\" : \"Cuero\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION 5",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\" : \"Adidas\",\n    \"precio\" : 100000.0,\n    \"color\" : \"Amarillo\",\n    \"talla\" : [\n        36,38,39,40\n    ],\n    \"stock\" : 10,\n    \"material\" : \"Tela\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION 6",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\" : \"Puma\",\n    \"precio\" : 350000.0,\n    \"color\" : \"Pastel\",\n    \"talla\" : 38,\n    \"stock\" : 10,\n    \"material\" : \"Cuero sintetico\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_doc",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREACION BULK",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Puma\",\"precio\" : 370000.0,\"color\" : \"Rosa\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Adidas\",\"precio\" : 360000.0,\"color\" : \"Azul\",\"talla\" : 37,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Nike\",\"precio\" : 320000.0,\"color\" : \"Celeste\",\"talla\" : 36,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Sketchers\",\"precio\" : 310000.0,\"color\" : \"Negro\",\"talla\" : 35,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Gucci\",\"precio\" : 330000.0,\"color\" : \"Gris\",\"talla\" : 34,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Pollito\",\"precio\" : 390000.0,\"color\" : \"Blanco\",\"talla\" : 32,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"OW\",\"precio\" : 210000.0,\"color\" : \"Espacial\",\"talla\" : 31,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Shark\",\"precio\" : 210000.0,\"color\" : \"Naranja\",\"talla\" : 30,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Cow\",\"precio\" : 540000.0,\"color\" : \"Verde\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Velez\",\"precio\" : 540000.0,\"color\" : \"Jean\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Totto\",\"precio\" : 430000.0,\"color\" : \"Añejo\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Genoris\",\"precio\" : 900000.0,\"color\" : \"Verde oscuro\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Rolex tenis\",\"precio\" : 160000.0,\"color\" : \"Transparente\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n{\"create\" : { \"_index\" : \"zapatillas_deportivas\"}}\n{\"marca\" : \"Basics\",\"precio\" : 870000.0,\"color\" : \"Pastel\",\"talla\" : 38,\"stock\" : 10,\"material\" : \"Cuero sintetico\"}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_bulk",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CONSULTAR UN DATO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\" :250,\n  \"query\":{\n    \"match\": {\n        \"marca\" : \"Shark\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CONSULTAR TODOS LOS DATOS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\" :20,\n  \"query\":{\n    \"match_all\": {}\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
