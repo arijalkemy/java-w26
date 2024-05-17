@@ -32,3 +32,14 @@ SELECT episodeId,
     seasonTitle
 FROM TWD
 WHERE episodieRating>5;
+
+-- Ejercicio 2
+-- 2.1 En la base de datos “movies”, seleccionar una tabla donde crear un índice y luego chequear la creación del mismo.
+CREATE INDEX titleIdx ON movies(title);
+CREATE INDEX titleIdx ON series(title);
+SHOW INDEX FROM movies;
+SHOW INDEX FROM series;
+
+-- 2.2 Analizar por qué crearía un índice en la tabla indicada y con qué criterio se elige/n el/los campos.
+-- Normalmente las busquedas en contenido multimedia y solbretodo en series y peliculas se realiza por su nombre 
+-- ya que el usuario desconoce el id, entonces por esto se usaron los indices en los titulos de las peliculas y series
