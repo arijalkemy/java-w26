@@ -51,3 +51,20 @@ INSERT INTO plan (id_plan, velocidad, precio, descuento) VALUES
 (3,500, 49.99, 0.2),
 (4,1000, 59.99, 0.25),
 (5,2000, 69.99, 0.3);
+
+
+
+-- Ejercicio 3.c
+-- Asociaciones entre los registros de planes y clientes
+INSERT INTO clientexplan (id_cliente, id_plan) VALUES
+(1,1),
+(2,1),
+(3,2),
+(4,2),
+(5,3),
+(6,3),
+(7,4),
+(8,4),
+(9,5),
+(10,5);
+
