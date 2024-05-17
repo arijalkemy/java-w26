@@ -1,0 +1,191 @@
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+      "marca": { "type": "keyword" },
+      "modelo": { "type": "text" },
+      "talla": { "type": "keyword" },
+      "color": { "type": "keyword" },
+      "precio": { "type": "float" }
+    }
+  }
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Nike",
+  "modelo": "Air Max 90",
+  "talla": "42",
+  "color": "Blanco",
+  "precio": 120.50
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Adidas",
+  "modelo": "Superstar",
+  "talla": "39",
+  "color": "Negro",
+  "precio": 100.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Nike",
+  "modelo": "Air Force 1",
+  "talla": "41",
+  "color": "Blanco",
+  "precio": 110.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Puma",
+  "modelo": "Suede Classic",
+  "talla": "38",
+  "color": "Azul",
+  "precio": 90.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Reebok",
+  "modelo": "Classic Leather",
+  "talla": "40",
+  "color": "Gris",
+  "precio": 95.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Vans",
+  "modelo": "Old Skool",
+  "talla": "37",
+  "color": "Negro",
+  "precio": 80.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "New Balance",
+  "modelo": "574",
+  "talla": "40",
+  "color": "Gris",
+  "precio": 85.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Converse",
+  "modelo": "Chuck Taylor All Star",
+  "talla": "38",
+  "color": "Blanco",
+  "precio": 70.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Under Armour",
+  "modelo": "HOVR Sonic",
+  "talla": "41",
+  "color": "Azul",
+  "precio": 120.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Asics",
+  "modelo": "Gel-Kayano 27",
+  "talla": "39",
+  "color": "Negro",
+  "precio": 150.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Saucony",
+  "modelo": "Jazz Original",
+  "talla": "40",
+  "color": "Azul",
+  "precio": 80.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Brooks",
+  "modelo": "Ghost 13",
+  "talla": "42",
+  "color": "Negro",
+  "precio": 140.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Mizuno",
+  "modelo": "Wave Rider 24",
+  "talla": "41",
+  "color": "Gris",
+  "precio": 130.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Fila",
+  "modelo": "Disruptor II",
+  "talla": "38",
+  "color": "Blanco",
+  "precio": 90.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "DC Shoes",
+  "modelo": "Pure",
+  "talla": "39",
+  "color": "Negro",
+  "precio": 75.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Etnies",
+  "modelo": "Marana",
+  "talla": "40",
+  "color": "Negro",
+  "precio": 85.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Lacoste",
+  "modelo": "Graduate",
+  "talla": "41",
+  "color": "Blanco",
+  "precio": 100.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Timberland",
+  "modelo": "Brooklyn",
+  "talla": "42",
+  "color": "Gris",
+  "precio": 120.00
+}
+
+POST /zapatillas/_doc
+{
+  "marca": "Tommy Hilfiger",
+  "modelo": "Essential",
+  "talla": "38",
+  "color": "Azul",
+  "precio": 110.00
+}
+
+GET /zapatillas/_search
+{
+  "size": 20,
+  "query": {
+    "match_all": {}
+  }
+}
