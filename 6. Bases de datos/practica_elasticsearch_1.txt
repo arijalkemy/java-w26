@@ -1,0 +1,26 @@
+# Click the Variables button, above, to create your own variables.
+/*
+GET ${exampleVariable1} // _search
+{
+  "query": {
+    "${exampleVariable2}": {} // match_all
+  }
+}
+*/
+
+POST /clientes/_doc
+{
+  "nombre":"Paolo",
+  "apellido": "Maldini",
+  "pais":"IT",
+  "localidad":"posadas"
+}
+
+GET /clientes/_search
+{
+  "query":{
+    "match": {
+      "pais": "IT"
+    }
+  }
+}
