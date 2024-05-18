@@ -1,4 +1,4 @@
-package org.ggomezr.miniseries.model;
+package org.ggomezr.miniseries.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

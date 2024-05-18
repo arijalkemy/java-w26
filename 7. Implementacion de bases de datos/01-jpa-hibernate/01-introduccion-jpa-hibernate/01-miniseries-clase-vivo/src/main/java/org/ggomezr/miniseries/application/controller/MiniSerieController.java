@@ -1,15 +1,13 @@
-package org.ggomezr.miniseries.controller;
+package org.ggomezr.miniseries.application.controller;
 
-import org.ggomezr.miniseries.dto.MiniSerieDTO;
-import org.ggomezr.miniseries.exception.MiniSerieNotFoundException;
-import org.ggomezr.miniseries.model.MiniSerie;
-import org.ggomezr.miniseries.service.MiniSerieService;
+import org.ggomezr.miniseries.domain.dto.MiniSerieDTO;
+import org.ggomezr.miniseries.domain.exception.NotFoundException;
+import org.ggomezr.miniseries.application.service.impl.MiniSerieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("miniseries")
 public class MiniSerieController {
 
@@ -25,17 +23,17 @@ public class MiniSerieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getMiniSerieById(@PathVariable Long id) throws MiniSerieNotFoundException {
+    public ResponseEntity<?> getMiniSerieById(@PathVariable Long id) throws NotFoundException {
         return new ResponseEntity<>(miniSerieService.getMiniSerieById(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateMiniSerie(@RequestBody MiniSerieDTO miniSerieDTO, @PathVariable Long id) throws MiniSerieNotFoundException {
+    public ResponseEntity<?> updateMiniSerie(@RequestBody MiniSerieDTO miniSerieDTO, @PathVariable Long id) throws NotFoundException {
         return new ResponseEntity<>(miniSerieService.updateMiniSerie(miniSerieDTO, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteMiniSerie(@PathVariable Long id) throws MiniSerieNotFoundException {
+    public ResponseEntity<?> deleteMiniSerie(@PathVariable Long id) throws NotFoundException {
         return new ResponseEntity<>(miniSerieService.deleteMiniSerie(id), HttpStatus.OK);
     }
 
