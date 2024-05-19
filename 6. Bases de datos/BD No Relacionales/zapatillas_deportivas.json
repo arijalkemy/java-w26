@@ -1,0 +1,94 @@
+#creacion del indice
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+      "marca": { "type": "text" },
+      "modelo": { "type": "text" },
+      "color": { "type": "text" },
+      "precio": { "type": "float" },
+      "talla": { "type": "integer" }
+    }
+  }
+}
+
+#busqueda de todos los registros del indice creado
+GET /zapatillas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+
+
+# borrado por id de un registro /index/_doc/_id
+DELETE /zapatillas/_doc/8PIbg48BwEqU4tjPVtQr
+
+
+#creacion de un solo registro
+POST /zapatillas/_doc
+{
+  "marca": "Nike",
+  "modelo": "Air Max 270",
+  "color": "Negro",
+  "precio": 150.00,
+  "talla": 42
+}
+
+#update de un campo '/index/_update/_id'
+POST /zapatillas/_update/Syswg48BTa_Z582_PcgG
+{
+  "doc": {
+  "precio": 15000.00
+  }
+}
+
+#delete all
+POST /zapatillas/_delete_by_query
+{
+  "query":{
+    "match_all": {}
+  }
+}
+
+#carga maxiva
+POST /_bulk
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Adidas", "modelo": "Ultraboost", "color": "Blanco", "precio": 160.00, "talla": 41}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Reebok", "modelo": "Classic Leather", "color": "Blanco", "precio": 80.00, "talla": 39}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Puma", "modelo": "RS-X", "color": "Azul", "precio": 120.00, "talla": 44}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "New Balance", "modelo": "574", "color": "Gris", "precio": 100.00, "talla": 40}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Under Armour", "modelo": "HOVR Phantom", "color": "Negro/Rojo", "precio": 140.00, "talla": 43}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Asics", "modelo": "Gel-Kayano 27", "color": "Verde", "precio": 170.00, "talla": 42}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Brooks", "modelo": "Ghost 13", "color": "Gris", "precio": 150.00, "talla": 41}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Salomon", "modelo": "Speedcross 5", "color": "Negro/Amarillo", "precio": 140.00, "talla": 45}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Mizuno", "modelo": "Wave Rider 24", "color": "Azul", "precio": 160.00, "talla": 40}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Saucony", "modelo": "Kinvara 12", "color": "Rojo", "precio": 130.00, "talla": 42}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Hoka One One", "modelo": "Clifton 7", "color": "Negro", "precio": 150.00, "talla": 44}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "On Running", "modelo": "Cloudflow", "color": "Blanco", "precio": 170.00, "talla": 41}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Vibram", "modelo": "FiveFingers V-Trail 2.0", "color": "Negro", "precio": 120.00, "talla": 43}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Merrell", "modelo": "Moab 2", "color": "Gris", "precio": 110.00, "talla": 39}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Keen", "modelo": "Targhee III", "color": "Marrón", "precio": 130.00, "talla": 45}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Columbia", "modelo": "Redmond V2", "color": "Gris", "precio": 100.00, "talla": 40}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "La Sportiva", "modelo": "Bushido II", "color": "Azul", "precio": 160.00, "talla": 41}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Arc'teryx", "modelo": "Norvan SL", "color": "Negro", "precio": 180.00, "talla": 44}
+{ "index" : { "_index" : "zapatillas" } }
+{"marca": "Altra", "modelo": "Lone Peak 5", "color": "Negro/Azul", "precio": 150.00, "talla": 42}
