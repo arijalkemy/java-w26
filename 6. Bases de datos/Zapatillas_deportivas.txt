@@ -1,0 +1,165 @@
+/*/**
+ * Titulo: Practica grupal. Productos: Zapatillas deportivas
+*/
+
+DELETE /zapatillas_deportivas
+
+#Creación de indice Zapatillas deportivas
+PUT /zapatillas_deportivas
+
+#Estableciendo mapping 
+PUT /zapatillas_deportivas/_mapping
+{
+  "properties": {
+    "marca": {"type": "text"},
+    "color": {"type": "keyword"},
+    "talla": {"type": "integer"}
+  }
+}
+
+#Ver mapping
+GET /zapatillas_deportivas/_mapping
+
+#Agregando 20 zapatillas deportivas usando _bulk
+#POST /zapatillas_deportivas/_doc
+
+
+POST /zapatillas_deportivas/_bulk
+{ "index": {} }
+{ "marca": "Nike", "color": "rojo", "talla": 42 }
+{ "index": {} }
+{ "marca": "Adidas", "color": "azul", "talla": 43 }
+{ "index": {} }
+{ "marca": "Puma", "color": "negro", "talla": 41 }
+{ "index": {} }
+{ "marca": "Reebok", "color": "blanco", "talla": 44 }
+{ "index": {} }
+{ "marca": "Asics", "color": "verde", "talla": 40 }
+{ "index": {} }
+{ "marca": "New Balance", "color": "gris", "talla": 45 }
+{ "index": {} }
+{ "marca": "Under Armour", "color": "amarillo", "talla": 42 }
+{ "index": {} }
+{ "marca": "Converse", "color": "naranja", "talla": 43 }
+{ "index": {} }
+{ "marca": "Vans", "color": "morado", "talla": 41 }
+{ "index": {} }
+{ "marca": "Mizuno", "color": "rosa", "talla": 44 }
+{ "index": {} }
+{ "marca": "Saucony", "color": "rojo", "talla": 42 }
+{ "index": {} }
+{ "marca": "Brooks", "color": "azul", "talla": 43 }
+{ "index": {} }
+{ "marca": "Hoka One One", "color": "negro", "talla": 41 }
+{ "index": {} }
+{ "marca": "Merrell", "color": "blanco", "talla": 44 }
+{ "index": {} }
+{ "marca": "Salomon", "color": "verde", "talla": 40 }
+{ "index": {} }
+{ "marca": "Fila", "color": "gris", "talla": 45 }
+{ "index": {} }
+{ "marca": "Skechers", "color": "amarillo", "talla": 42 }
+{ "index": {} }
+{ "marca": "K-Swiss", "color": "naranja", "talla": 43 }
+{ "index": {} }
+{ "marca": "La Sportiva", "color": "morado", "talla": 41 }
+{ "index": {} }
+{ "marca": "Inov-8", "color": "rosa", "talla": 44 }
+
+#Ver todos las zapatillas
+
+GET /zapatillas_deportivas/_search
+
+#Ver todas las zapatillas de un color
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match_phrase_prefix": {
+      "marca": "M"
+    }
+  }
+}
+
+GET /_cat/indices*
+ * Titulo: Practica grupal. Productos: Zapatillas deportivas
+*/
+
+DELETE /zapatillas_deportivas
+
+#Creación de indice Zapatillas deportivas
+PUT /zapatillas_deportivas
+
+#Estableciendo mapping 
+PUT /zapatillas_deportivas/_mapping
+{
+  "properties": {
+    "marca": {"type": "text"},
+    "color": {"type": "keyword"},
+    "talla": {"type": "integer"}
+  }
+}
+
+#Ver mapping
+GET /zapatillas_deportivas/_mapping
+
+#Agregando 20 zapatillas deportivas usando _bulk
+#POST /zapatillas_deportivas/_doc
+
+
+POST /zapatillas_deportivas/_bulk
+{ "index": {} }
+{ "marca": "Nike", "color": "rojo", "talla": 42 }
+{ "index": {} }
+{ "marca": "Adidas", "color": "azul", "talla": 43 }
+{ "index": {} }
+{ "marca": "Puma", "color": "negro", "talla": 41 }
+{ "index": {} }
+{ "marca": "Reebok", "color": "blanco", "talla": 44 }
+{ "index": {} }
+{ "marca": "Asics", "color": "verde", "talla": 40 }
+{ "index": {} }
+{ "marca": "New Balance", "color": "gris", "talla": 45 }
+{ "index": {} }
+{ "marca": "Under Armour", "color": "amarillo", "talla": 42 }
+{ "index": {} }
+{ "marca": "Converse", "color": "naranja", "talla": 43 }
+{ "index": {} }
+{ "marca": "Vans", "color": "morado", "talla": 41 }
+{ "index": {} }
+{ "marca": "Mizuno", "color": "rosa", "talla": 44 }
+{ "index": {} }
+{ "marca": "Saucony", "color": "rojo", "talla": 42 }
+{ "index": {} }
+{ "marca": "Brooks", "color": "azul", "talla": 43 }
+{ "index": {} }
+{ "marca": "Hoka One One", "color": "negro", "talla": 41 }
+{ "index": {} }
+{ "marca": "Merrell", "color": "blanco", "talla": 44 }
+{ "index": {} }
+{ "marca": "Salomon", "color": "verde", "talla": 40 }
+{ "index": {} }
+{ "marca": "Fila", "color": "gris", "talla": 45 }
+{ "index": {} }
+{ "marca": "Skechers", "color": "amarillo", "talla": 42 }
+{ "index": {} }
+{ "marca": "K-Swiss", "color": "naranja", "talla": 43 }
+{ "index": {} }
+{ "marca": "La Sportiva", "color": "morado", "talla": 41 }
+{ "index": {} }
+{ "marca": "Inov-8", "color": "rosa", "talla": 44 }
+
+#Ver todos las zapatillas
+
+GET /zapatillas_deportivas/_search
+
+#Ver todas las zapatillas de un color
+GET /zapatillas_deportivas/_search
+{
+  "query": {
+    "match_phrase_prefix": {
+      "marca": "M"
+    }
+  }
+}
+
+GET /_cat/indices
