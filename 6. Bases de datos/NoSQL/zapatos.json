@@ -1,0 +1,87 @@
+PUT /zapatos
+
+{
+  "mappings": {
+    "properties":{
+      "marca":{
+        "type": "text"
+      },
+      "color":{
+        "type": "text"
+      },
+      "nombre":{
+        "type": "text"
+      }
+    }
+  }
+}
+
+
+POST /zapatos/_doc
+{"marca": "Nike", "color": "Negro", "nombre": "Air Max 90"}
+POST /zapatos/_doc
+{"marca": "Adidas", "color": "Blanco", "nombre": "Superstar"}
+POST /zapatos/_doc
+{"marca": "Puma", "color": "Azul", "nombre": "RS-X"}
+POST /zapatos/_doc
+{"marca": "Reebok", "color": "Gris", "nombre": "Classic Leather"}
+POST /zapatos/_doc
+{"marca": "Vans", "color": "Rojo", "nombre": "Authentic"}
+POST /zapatos/_doc
+{"marca": "Converse", "color": "Verde", "nombre": "Chuck Taylor All Star"}
+POST /zapatos/_doc
+{"marca": "New Balance", "color": "Azul Marino", "nombre": "574"}
+POST /zapatos/_doc
+{"marca": "Under Armour", "color": "Blanco", "nombre": "UA Charged Bandit 6"}
+POST /zapatos/_doc
+{"marca": "Skechers", "color": "Negro", "nombre": "D'Lites"}
+POST /zapatos/_doc
+{"marca": "Asics", "color": "Gris", "nombre": "Gel-Kayano 27"}
+POST /zapatos/_doc
+{"marca": "Brooks", "color": "Rosa", "nombre": "Ghost 13"}
+POST /zapatos/_doc
+{"marca": "Salomon", "color": "Amarillo", "nombre": "Speedcross 5"}
+POST /zapatos/_doc
+{"marca": "Mizuno", "color": "Azul", "nombre": "Wave Rider 24"}
+POST /zapatos/_doc
+{"marca": "Merrell", "color": "Verde", "nombre": "Moab 2"}
+POST /zapatos/_doc
+{"marca": "Hoka One One", "color": "Negro", "nombre": "Bondi 7"}
+POST /zapatos/_doc
+{"marca": "Timberland", "color": "Marrón", "nombre": "6-Inch Premium Waterproof"}
+POST /zapatos/_doc
+{"marca": "Fila", "color": "Blanco", "nombre": "Disruptor II"}
+POST /zapatos/_doc
+{"marca": "DC Shoes", "color": "Negro", "nombre": "Pure"}
+POST /zapatos/_doc
+{"marca": "Ecco", "color": "Marrón", "nombre": "Soft 7"}
+POST /zapatos/_doc
+{"marca": "Clarks", "color": "Azul Marino", "nombre": "Desert Boot"}
+POST /zapatos/_doc
+{"marca": "Birkenstock", "color": "Blanco", "nombre": "Arizona"}
+POST /zapatos/_doc
+{"marca": "Dr. Martens", "color": "Negro", "nombre": "1460"}
+POST /zapatos/_doc
+{"marca": "Under Armour", "color": "Negro", "nombre": "UA HOVR Infinite"}
+POST /zapatos/_doc
+{"marca": "Saucony", "color": "Azul", "nombre": "Ride 13"}
+POST /zapatos/_doc
+{"marca": "On", "color": "Blanco", "nombre": "Cloudswift"}
+POST /zapatos/_doc
+{"marca": "Keen", "color": "Marrón", "nombre": "Targhee III Mid"}
+POST /zapatos/_doc
+{"marca": "La Sportiva", "color": "Amarillo", "nombre": "Bushido II"}
+POST /zapatos/_doc
+{"marca": "Altra", "color": "Negro", "nombre": "Lone Peak 5"}
+POST /zapatos/_doc
+{"marca": "Arc'teryx", "color": "Verde", "nombre": "Norvan LD"}
+
+
+GET /zapatos/_search
+{
+  "query":{
+    "match": {
+      "color": "Negro"
+    }
+  }
+}
