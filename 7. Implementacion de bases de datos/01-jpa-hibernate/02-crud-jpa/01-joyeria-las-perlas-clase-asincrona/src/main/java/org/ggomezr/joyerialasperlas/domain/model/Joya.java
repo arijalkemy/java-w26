@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Joya {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long nro_identificatorio;
     private String nombre;
     private String material;
