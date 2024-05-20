@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "5d964609-2c1d-44bd-9437-90a8e8b669c9",
+		"name": "Claves compuestas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Crear compra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"numCompra\": 1,\n    \"fecha\": \"2024-05-20\",\n    \"total\": 135.6,\n    \"descripcion\": \"Compra productos de cocina\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/compras/nuevo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compras",
+						"nuevo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las compras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/compras",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compras"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
