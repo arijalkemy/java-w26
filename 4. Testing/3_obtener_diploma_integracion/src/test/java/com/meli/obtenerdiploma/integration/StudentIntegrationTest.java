@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -61,6 +62,11 @@ public class StudentIntegrationTest {
                 .andDo(print())
                 .andExpect(status().isOk());
 
+    }
+
+    @AfterAll
+    static void finish(){
+        TestUtilsGenerator.emptyUsersFile();
     }
 
     @Test

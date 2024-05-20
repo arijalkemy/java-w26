@@ -4,6 +4,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.Optional;
+
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,6 +50,11 @@ public class ObtenerDiplomaIntegrationTest {
         TestUtilsGenerator.appendNewStudent(TestUtilsGenerator.getStudentWithId(2L));
         TestUtilsGenerator.appendNewStudent(TestUtilsGenerator.getStudentWith3SubjectsAverageOver9("Over 9"));
 
+    }
+
+    @AfterAll
+    public static void close(){
+        TestUtilsGenerator.emptyUsersFile();
     }
 
     @Test
