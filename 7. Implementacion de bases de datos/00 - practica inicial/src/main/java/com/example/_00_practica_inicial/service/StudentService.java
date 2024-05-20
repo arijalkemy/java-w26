@@ -5,7 +5,6 @@ import com.example._00_practica_inicial.dto.response.StudentResponseDTO;
 import com.example._00_practica_inicial.model.Student;
 import com.example._00_practica_inicial.repository.IStudentRepository;
 import com.example._00_practica_inicial.utils.StudentMapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,25 +16,19 @@ public class StudentService implements IStudentService{
     @Autowired
     IStudentRepository iStudentRepository;
 
-    private ObjectMapper mapper = new ObjectMapper();
-
     public StudentResponseDTO add(StudentRequestDTO studentRequest){
+        Student student = StudentMapper.mapToEntityFromRequest(studentRequest);
 
-        Student student = mapper.convertValue(studentRequest, Student.class);
-
-        return mapper.convertValue(iStudentRepository.save(student), StudentResponseDTO.class);
+        return StudentMapper.transferToResponseDto(iStudentRepository.save(student));
     }
 
     @Override
     public StudentResponseDTO edit(int id, String name) throws Exception {
-        Student student = iStudentRepository.findById(id)
-                .orElse(null);
-        if(student == null)
-            throw new Exception("No existe el estudiante");
+        Student student = StudentMapper.mapToEntityFromResponse(getStudent(id));
 
         student.setName(name);
 
-        return mapper.convertValue(iStudentRepository.save(student), StudentResponseDTO.class);
+        return StudentMapper.transferToResponseDto(iStudentRepository.save(student));
     }
 
     @Override
@@ -51,12 +44,10 @@ public class StudentService implements IStudentService{
 
     @Override
     public StudentResponseDTO getStudent(int id) throws Exception {
-        StudentResponseDTO studentResponse = StudentMapper.transferToResponseDto(iStudentRepository.findById(id)
-                                                                                    .orElse(null));
-        if(studentResponse == null)
-            throw new Exception("Error");
+        Student student = iStudentRepository.findById(id)
+                .orElseThrow(Exception::new);
 
-        return studentResponse;
+        return StudentMapper.transferToResponseDto(student);
     }
 
     @Override
@@ -65,5 +56,4 @@ public class StudentService implements IStudentService{
 
         iStudentRepository.deleteById(id);
     }
-
 }

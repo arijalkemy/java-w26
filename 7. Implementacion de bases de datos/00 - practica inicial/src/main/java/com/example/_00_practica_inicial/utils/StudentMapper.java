@@ -12,8 +12,11 @@ public class StudentMapper {
         return mapper.map(student, StudentResponseDTO.class);
     }
 
-    public static Student transferToEntity(StudentRequestDTO studentRequestDTO){
+    public static Student mapToEntityFromRequest(StudentRequestDTO studentRequestDTO){
         return mapper.map(studentRequestDTO, Student.class);
     }
 
+    public static Student mapToEntityFromResponse(StudentResponseDTO studentResponseDTO){
+        return mapper.map(studentResponseDTO, Student.class);
+    }
 }

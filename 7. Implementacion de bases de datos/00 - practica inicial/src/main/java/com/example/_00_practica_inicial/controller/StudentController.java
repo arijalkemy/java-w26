@@ -29,13 +29,13 @@ public class StudentController {
         return new ResponseEntity<>(iStudentService.getStudent(id), HttpStatus.OK);
     }
 
-    @PostMapping("/edit/{id}")
+    @PutMapping("/edit/{id}")
     ResponseEntity<?> editStudent(@PathVariable int id,
                                   @RequestParam String name) throws Exception {
         return new ResponseEntity<>(iStudentService.edit(id, name), HttpStatus.OK);
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     ResponseEntity<?> deleteStudent(@PathVariable int id) throws Exception {
         iStudentService.deleteStudent(id);
 
