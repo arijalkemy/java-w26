@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "958d0d31-ca2b-4b0c-85a3-7107ccad8b73",
+		"name": "Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33995249"
+	},
+	"item": [
+		{
+			"name": "Crear indice",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mappings\": {\n        \"properties\": {\n            \"marca\": {\n                \"type\": \"keyword\"\n            },\n            \"modelo\": {\n                \"type\": \"keyword\"\n            },\n            \"precio\": {\n                \"type\": \"float\"\n            }\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Guarda registro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Nike\",\n    \"modelo\": \"Air Max\",\n    \"precio\": 120.50\n} /*\n    {\n    \"marca\": \"Adidas\",\n    \"modelo\": \"UltraBoost\",\n    \"precio\": 135.75\n}\n    {\n    \"marca\": \"Puma\",\n    \"modelo\": \"Suede Classic\",\n    \"precio\": 89.99\n}\n    {\n    \"marca\": \"Reebok\",\n    \"modelo\": \"Nano\",\n    \"precio\": 95.25\n}\n    {\n    \"marca\": \"New Balance\",\n    \"modelo\": \"574\",\n    \"precio\": 110.00\n}\n    {\n    \"marca\": \"Nike\",\n    \"modelo\": \"Air Max\",\n    \"precio\": 105.80\n}\n    {\n    \"marca\": \"Adidas\",\n    \"modelo\": \"UltraBoost\",\n    \"precio\": 130.20\n}\n    {\n    \"marca\": \"Puma\",\n    \"modelo\": \"Suede Classic\",\n    \"precio\": 75.00\n}\n    {\n    \"marca\": \"Reebok\",\n    \"modelo\": \"Nano\",\n    \"precio\": 85.50\n}\n    {\n    \"marca\": \"New Balance\",\n    \"modelo\": \"574\",\n    \"precio\": 125.00\n}\n    {\n    \"marca\": \"Nike\",\n    \"modelo\": \"Air Max\",\n    \"precio\": 115.40\n}\n    {\n    \"marca\": \"Adidas\",\n    \"modelo\": \"UltraBoost\",\n    \"precio\": 140.80\n}\n    {\n    \"marca\": \"Puma\",\n    \"modelo\": \"Suede Classic\",\n    \"precio\": 80.25\n}\n    {\n    \"marca\": \"Reebok\",\n    \"modelo\": \"Nano\",\n    \"precio\": 90.99\n}\n    {\n    \"marca\": \"New Balance\",\n    \"modelo\": \"574\",\n    \"precio\": 130.00\n}\n    {\n    \"marca\": \"Nike\",\n    \"modelo\": \"Air Max\",\n    \"precio\": 110.60\n}\n    {\n    \"marca\": \"Adidas\",\n    \"modelo\": \"UltraBoost\",\n    \"precio\": 135.00\n}\n    {\n    \"marca\": \"Puma\",\n    \"modelo\": \"Suede Classic\",\n    \"precio\": 70.80\n}\n    {\n    \"marca\": \"Reebok\",\n    \"modelo\": \"Nano\",\n    \"precio\": 80.75\n}\n{\n    \"marca\": \"New Balance\",\n    \"modelo\": \"574\",\n    \"precio\": 120.00\n}*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_doc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modifica registro",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marca\": \"Nike\",\n    \"modelo\": \"Air Max Pro\",\n    \"precio\": 125.50\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_doc/BdkGGo4BZVXaG-Bi86GM",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_doc",
+						"BdkGGo4BZVXaG-Bi86GM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Muestra todos registros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filtra registros",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match\": {\n            \"marca\": \"Puma\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

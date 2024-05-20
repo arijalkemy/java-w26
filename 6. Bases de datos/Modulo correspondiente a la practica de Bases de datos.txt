@@ -34,5 +34,7 @@ Ejercicio DR - Optimización de BD parte 2
 
 Ejercicio - Optimización de BD parte 2 Vivo
 	ejercicio9_DML_movies_termporaly.sql
+	ejercicio10_DML_movies_querys.sql
 
-
+Ejercicio Elastisearch - Modulo BD No relacional Vivo
+	ejercicio11_elasticsearch.postman_collection.json
