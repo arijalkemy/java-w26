@@ -3,6 +3,8 @@ package co.com.mercadolibre.qatesters.controller;
 import co.com.mercadolibre.qatesters.dto.TestCaseDTO;
 import co.com.mercadolibre.qatesters.service.ITestCaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,11 @@ public class TestCaseController {
     @GetMapping()
     public ResponseEntity<?> findAll() {
         return ResponseEntity.ok(testCaseService.findAll());
+    }
+
+    @GetMapping("/findAll")
+    public ResponseEntity<?> findAllPageable(Pageable page) {
+        return ResponseEntity.ok(testCaseService.findAll(page));
     }
 
     @GetMapping("/{id}")

@@ -9,6 +9,8 @@ import co.com.mercadolibre.qatesters.repository.ITestCaseRepository;
 import co.com.mercadolibre.qatesters.service.ITestCaseService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -35,6 +37,12 @@ public class TestCaseService implements ITestCaseService {
         return testCaseRepository.findAll().stream()
                 .map(testCase -> modelMapper.map(testCase, TestCaseDTO.class))
                 .toList();
+    }
+
+    @Override
+    public Page<TestCaseDTO> findAll(Pageable page) {
+        return testCaseRepository.findAll(page)
+                .map(testCase -> modelMapper.map(testCase, TestCaseDTO.class));
     }
 
     @Override
