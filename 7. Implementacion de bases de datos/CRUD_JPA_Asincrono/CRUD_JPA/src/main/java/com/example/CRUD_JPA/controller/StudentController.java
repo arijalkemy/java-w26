@@ -34,7 +34,7 @@ public class StudentController {
         studentService.saveStudent(stu);
         return stu;
     }
-    @PostMapping("delete/{id}")
+    @DeleteMapping("delete/{id}")
     public String deleteStudent(@PathVariable long id){
         studentService.deleteStudent(id);
         return "El estudiante fue borrado correctamente";
