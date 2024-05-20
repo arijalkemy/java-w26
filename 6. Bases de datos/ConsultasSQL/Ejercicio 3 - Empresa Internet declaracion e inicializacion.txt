@@ -1,0 +1,48 @@
+Se solicita crear una nueva base de datos llamada “empresa_internet”.
+Incorporar 10 registros en la tabla de clientes y 5 en la tabla de planes de internet.
+Realizar las asociaciones/relaciones correspondientes entre estos registros.
+
+-- Insertar registros en la tabla Cliente
+INSERT INTO Cliente (dni, nombre, apellido, fecha_nacimiento, provincia, ciudad) 
+VALUES 
+('12345678A', 'Juan', 'González', '1990-05-20', 'Madrid', 'Madrid'),
+('87654321B', 'María', 'López', '1985-08-15', 'Barcelona', 'Barcelona'),
+('56789012C', 'Pedro', 'Martínez', '1982-03-10', 'Valencia', 'Valencia'),
+('34567890D', 'Ana', 'Fernández', '1995-11-25', 'Sevilla', 'Sevilla'),
+('23456789E', 'Carlos', 'Rodríguez', '1988-09-30', 'Málaga', 'Málaga'),
+('78901234F', 'Laura', 'Sánchez', '1980-07-05', 'Alicante', 'Alicante'),
+('45678901G', 'Sara', 'Pérez', '1992-01-15', 'Murcia', 'Murcia'),
+('89012345H', 'Daniel', 'Gómez', '1978-06-12', 'Granada', 'Granada'),
+('67890123I', 'Elena', 'Díaz', '1987-04-03', 'Bilbao', 'Vizcaya'),
+('90123456J', 'Pablo', 'Hernández', '1983-12-08', 'Zaragoza', 'Zaragoza');
+
+-- Insertar registros en la tabla Plan
+INSERT INTO Plan (velocidad, precio, descuento) 
+VALUES 
+(50, 29.99, NULL),
+(100, 39.99, NULL),
+(200, 49.99, 10),
+(500, 59.99, NULL),
+(1000, 79.99, 20);
+
+-- Asociaciones entre clientes y planes
+-- Juan contrata el plan de 100 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (1, 2);
+-- María contrata el plan de 200 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (2, 3);
+-- Pedro contrata el plan de 500 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (3, 4);
+-- Ana contrata el plan de 1000 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (4, 5);
+-- Carlos contrata el plan de 1000 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (5, 5);
+-- Laura contrata el plan de 50 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (6, 1);
+-- Sara contrata el plan de 100 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (7, 2);
+-- Daniel contrata el plan de 500 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (8, 4);
+-- Elena contrata el plan de 200 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (9, 3);
+-- Pablo contrata el plan de 50 Mbps
+INSERT INTO ClientePlan (id_cliente, id_plan) VALUES (10, 1);

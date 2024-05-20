@@ -1,0 +1,15 @@
+
+a. ¿Cuál es la primary key para la tabla de clientes? Justificar respuesta
+
+	Creamos un nuevo campo id_cliente (entero autoincremental no nulo). De esta forma evitamos utilizar el DNI como clave primaria (que en ciertos países puede traer problemas de repetición)
+
+b. ¿Cuál es la primary key para la tabla de planes de internet? Justificar respuesta.
+
+	Creamos un nuevo campo id_plan (entero autoincremental no nulo). Hicimos esto porque no existe ninguna clave en la entidad Plan que sea única para cada registro.
+
+c. ¿Cómo serían las relaciones entre tablas? ¿En qué tabla debería haber foreign key? ¿A qué campo de qué tabla hace referencia dicha foreign key? Justificar respuesta.
+
+	Debido a que tenemos una relación "muchos a muchos", la relación que los une se va a transformar mas adelante a una nueva tabla pivote que relacione las entidades Cliente y Plan en ambos sentidos. 
+	Las foreign keys van a estar en la tabla pivote (cliente_plan). Vamos a tener dos foreign keys dentro de la tabla cliente_plan:
+	- id_plan que referencia a la clave primaria id_plan de Plan
+	- id_cliente que referencia a la clave primaria id_cliente de Cliente

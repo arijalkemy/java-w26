@@ -1,0 +1,52 @@
+Ejercitando con Elasticsearch
+
+- Se solicita crear un índice (BBDD) en Elasticsearch, de zapatillas deportivas, donde se guardará información relacionada a estos productos.
+
+PUT localhost:9200/zapatillas-deportivas
+
+- Guardar 20 registros en la base de datos creada, considerando los campos que crea necesarios.
+
+POST localhost:9200/zapatillas-deportivas/_bulk
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Adidas", "modelo": "Ultraboost 20", "color": "Blanco/Negro", "tipo": "Running", "SKU": 789012}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Under Armour", "modelo": "HOVR Sonic 3", "color": "Azul/Negro", "tipo": "Running", "SKU": 345678}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Reebok", "modelo": "Nano X", "color": "Negro/Rojo", "tipo": "Crossfit", "SKU": 901234}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Puma", "modelo": "Ignite NXT", "color": "Gris/Amarillo", "tipo": "Golf", "SKU": 567890}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Asics", "modelo": "Gel-Nimbus 23", "color": "Azul/Blanco", "tipo": "Running", "SKU": 123123}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "New Balance", "modelo": "Fresh Foam 1080v11", "color": "Negro/Verde", "tipo": "Running", "SKU": 456456}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Saucony", "modelo": "Ride 14", "color": "Blanco/Negro", "tipo": "Running", "SKU": 789789}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Brooks", "modelo": "Ghost 13", "color": "Azul/Amarillo", "tipo": "Running", "SKU": 101010}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Mizuno", "modelo": "Wave Rider 24", "color": "Negro/Azul", "tipo": "Running", "SKU": 111111}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Salomon", "modelo": "Speedcross 5", "color": "Negro/Rojo", "tipo": "Trail Running", "SKU": 121212}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Hoka One One", "modelo": "Clifton 8", "color": "Gris/Azul", "tipo": "Running", "SKU": 131313}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Merrell", "modelo": "Moab 2", "color": "Marrón", "tipo": "Senderismo", "SKU": 141414}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Vibram", "modelo": "FiveFingers V-Train 2.0", "color": "Negro/Amarillo", "tipo": "Entrenamiento", "SKU": 151515}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Inov-8", "modelo": "F-Lite 235 V3", "color": "Negro/Azul", "tipo": "Crossfit", "SKU": 161616}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "La Sportiva", "modelo": "Bushido II", "color": "Azul/Rojo", "tipo": "Trail Running", "SKU": 171717}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Altra", "modelo": "Lone Peak 5", "color": "Negro/Rojo", "tipo": "Trail Running", "SKU": 181818}
+{"index":{"_index":"zapatillas-deportivas"}}
+{"marca": "Topo Athletic", "modelo": "Terraventure 2", "color": "Gris/Azul", "tipo": "Trail Running", "SKU": 191919}
+
+- Comprobar con consultas los registros insertados en la nueva base de datos.
+
+GET localhost:9200/zapatillas-deportivas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
