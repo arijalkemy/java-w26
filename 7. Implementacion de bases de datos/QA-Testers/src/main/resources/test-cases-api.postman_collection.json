@@ -87,12 +87,12 @@
 			"response": []
 		},
 		{
-			"name": "delete",
+			"name": "get pageable",
 			"request": {
-				"method": "DELETE",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/testcases/1",
+					"raw": "http://localhost:8080/api/testcases/findAll?page=1&size=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -101,7 +101,38 @@
 					"path": [
 						"api",
 						"testcases",
-						"1"
+						"findAll"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"52"
 					]
 				}
 			},
@@ -129,12 +160,12 @@
 			"response": []
 		},
 		{
-			"name": "get by id Copy",
+			"name": "get by last_update",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/testcases/last_update?last_update=2024-05-05",
+					"raw": "http://localhost:8080/api/testcases/last_update?last_update=2024-02-23",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -148,10 +179,11 @@
 					"query": [
 						{
 							"key": "last_update",
-							"value": "2024-05-05"
+							"value": "2024-02-23"
 						}
 					]
-				}
+				},
+				"description": "\nThe API endpoint `GET /api/testcases/last_update` is used to retrieve test cases that were last updated on a specific date.\n\n### Response\nThe response is a JSON array containing objects with the following properties:\n- `idCase` (number): The ID of the test case.\n- `description` (string): The description of the test case.\n- `tested` (boolean): Indicates if the test case has been executed.\n- `passed` (string): Indicates if the test case passed.\n- `numberOfTries` (number): The number of attempts made for the test case.\n- `lastUpdate` (string): The date when the test case was last updated.\n\nExample:\n```json\n[\n    {\n        \"idCase\": 0,\n        \"description\": \"\",\n        \"tested\": true,\n        \"passed\": \"\",\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"\"\n    }\n]\n```\n"
 			},
 			"response": []
 		}
