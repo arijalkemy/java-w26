@@ -1,4 +1,4 @@
-package com.example._00_practica_inicial.dto;
+package com.example._00_practica_inicial.dto.request;
 
 import lombok.*;
 
