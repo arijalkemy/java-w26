@@ -69,12 +69,9 @@ public class TestCaseServiceImpl implements ITestCaseService {
     }
 
     private void updateTestCaseByDTOInfo(TestCase testCaseToUpdate, TestCaseDTO testCaseDTO) {
-        testCaseToUpdate.setDescription(testCaseDTO.getDescription());
-        testCaseToUpdate.setTested(testCaseDTO.getTested());
-        testCaseToUpdate.setPassed(testCaseDTO.getPassed());
-        testCaseToUpdate.setNumberOfTries(testCaseDTO.getNumberOfTries());
-        testCaseToUpdate.setLastUpdate(LocalDate.now());
-        testCasesRepository.save(testCaseToUpdate);
+        TestCase updatedTestCase = defineTestCase(testCaseDTO);
+        updatedTestCase.setId(testCaseToUpdate.getId());
+        testCasesRepository.save(updatedTestCase);
     }
 
     private TestCase findAndCheckTestCaseById(Long id) {
