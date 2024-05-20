@@ -5,6 +5,7 @@ import com.bootcamp.joyeria.dtos.JewelResponseDTO;
 import com.bootcamp.joyeria.dtos.JewelUpdateDTO;
 import com.bootcamp.joyeria.dtos.MessageResponseDTO;
 import com.bootcamp.joyeria.services.IJewelService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,12 +20,12 @@ public class JewelController {
     }
 
     @PostMapping("/new")
-    public MessageResponseDTO postJewel(@RequestBody JewelRequestDTO jewelRequestDTO) {
-        return jewelService.createJewel(jewelRequestDTO);
+    public ResponseEntity<MessageResponseDTO> postJewel(@RequestBody JewelRequestDTO jewelRequestDTO) {
+        return ResponseEntity.ok(jewelService.createJewel(jewelRequestDTO));
     }
     @GetMapping
-    public List<JewelResponseDTO> getAllJewel(){
-        return jewelService.getAllJewels();
+    public ResponseEntity<List<JewelResponseDTO>> getAllJewel(){
+        return ResponseEntity.ok(jewelService.getAllJewels());
     }
 
     @DeleteMapping("delete/{id}")
@@ -32,8 +33,8 @@ public class JewelController {
         jewelService.deleteJewel(id);
     }
     @PutMapping("update/{id_modificar}")
-    public MessageResponseDTO updateJewel(@PathVariable Long id_modificar,
+    public ResponseEntity<MessageResponseDTO> updateJewel(@PathVariable Long id_modificar,
                                           @RequestBody JewelUpdateDTO jewelUpdateDTO){
-        return jewelService.updateJewel(id_modificar, jewelUpdateDTO);
+        return ResponseEntity.ok(jewelService.updateJewel(id_modificar, jewelUpdateDTO));
     }
 }
