@@ -29,3 +29,10 @@ Ejercicio empresa y biblioteca - Consultas SQL Avanzadas parte 1 Vivo
 	ejercicio7_DDL_biblioteca_bd.sql
 	ejercicio7_DML_biblioteca.sql
 
+Ejercicio DR - Optimización de BD parte 2
+	ejercicio8_DR_factura.png
+
+Ejercicio - Optimización de BD parte 2 Vivo
+	ejercicio9_DML_movies_termporaly.sql
+
+
