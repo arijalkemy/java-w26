@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "09d6cb86-3b70-4b2f-aa96-ef05b5aca978",
+		"name": "JPA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34099581"
+	},
+	"item": [
+		{
+			"name": "Jewelry",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Ruby Earrings\",\n  \"material\": \"White gold\",\n  \"peso\": 12.7,\n  \"particularidad\": \"Hoop style with intricate filigree\",\n  \"posee_piedra\": true,\n  \"venta_o_no\": false\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{LOCALHOST}}:8080/jewelry/new",
+							"host": [
+								"{{LOCALHOST}}"
+							],
+							"port": "8080",
+							"path": [
+								"jewelry",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jewelry",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jewelry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Prueba actualizar\",\n  \"material\": \"Oro\",\n  \"peso\": 1.23,\n  \"particularidad\": \"Particularidad\",\n  \"posee_piedra\": false\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/jewelry/update/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jewelry",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/jewelry/delete/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jewelry",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
