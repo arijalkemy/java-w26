@@ -1,0 +1,134 @@
+PUT /sneakers
+
+{
+  "mappings": {
+    "properties": {
+      "name": { "type": "text" },
+      "brand": { "type": "text" },
+      "model": { "type": "text" },
+      "size": { "type": "text" },
+      "color": { "type": "text" },
+      "price": { "type": "float" }
+    }
+  }
+}
+
+POST /sneakers/_bulk
+  { "index": { "_id": "1" }}
+{ "name": "Air Max 95", "brand": "Nike", "model": "Air Max", "size": "8,9,10", "color": "Black", "price": 160.00 }
+{ "index": { "_id": "2" }}
+{ "name": "Ultraboost 21", "brand": "Adidas", "model": "Ultraboost", "size": "7,8,9,10,11", "color": "White", "price": 180.00 }
+{ "index": { "_id": "3" }}
+{ "name": "Gel Quantum 360", "brand": "Asics", "model": "Gel Quantum", "size": "6,7,8,9", "color": "Red", "price": 120.00 }
+{ "index": { "_id": "4" }}
+{ "name": "Wave Rider 24", "brand": "Mizuno", "model": "Wave Rider", "size": "9,10,11", "color": "Blue", "price": 130.00 }
+{ "index": { "_id": "5" }}
+{ "name": "Nano X1", "brand": "Reebok", "model": "Nano", "size": "8,9,10,11", "color": "Green", "price": 130.00 }
+{ "index": { "_id": "6" }}
+{ "name": "Fresh Foam 1080", "brand": "New Balance", "model": "Fresh Foam", "size": "7,8,9,10,11", "color": "Black", "price": 150.00 }
+{ "index": { "_id": "7" }}
+{ "name": "ZoomX Vaporfly", "brand": "Nike", "model": "ZoomX", "size": "6,7,8,9", "color": "Pink", "price": 250.00 }
+{ "index": { "_id": "8" }}
+{ "name": "Alphabounce", "brand": "Adidas", "model": "Alphabounce", "size": "8,9,10,11", "color": "Gray", "price": 100.00 }
+{ "index": { "_id": "9" }}
+{ "name": "GT-2000 8", "brand": "Asics", "model": "GT-2000", "size": "6,7,8,9,10", "color": "Yellow", "price": 120.00 }
+{ "index": { "_id": "10" }}
+{ "name": "Clifton 7", "brand": "Hoka One One", "model": "Clifton", "size": "7,8,9,10", "color": "Orange", "price": 140.00 }
+{ "index": { "_id": "11" }}
+{ "name": "Air Zoom Pegasus", "brand": "Nike", "model": "Air Zoom", "size": "6,7,8,9,10", "color": "Blue", "price": 120.00 }
+{ "index": { "_id": "12" }}
+{ "name": "Defyance 11", "brand": "Brooks", "model": "Defyance", "size": "8,9,10", "color": "Purple", "price": 110.00 }
+{ "index": { "_id": "13" }}
+{ "name": "Escalante 2.5", "brand": "Altra", "model": "Escalante", "size": "7,8,9,10", "color": "Black", "price": 130.00 }
+{ "index": { "_id": "14" }}
+{ "name": "Ghost 13", "brand": "Brooks", "model": "Ghost", "size": "6,7,8,9,10", "color": "White", "price": 110.00 }
+{ "index": { "_id": "15" }}
+{ "name": "Wave Inspire 16", "brand": "Mizuno", "model": "Wave Inspire", "size": "8,9,10,11", "color": "Green", "price": 135.00 }
+{ "index": { "_id": "16" }}
+{ "name": "Adrenaline GTS 21", "brand": "Brooks", "model": "Adrenaline GTS", "size": "6,7,8,9", "color": "Black", "price": 130.00 }
+{ "index": { "_id": "17" }}
+{ "name": "Levitate 4", "brand": "Brooks", "model": "Levitate", "size": "7,8,9,10,11", "color": "Silver", "price": 150.00 }
+{ "index": { "_id": "18" }}
+{ "name": "Solarboost 3", "brand": "Adidas", "model": "Solarboost", "size": "6,7,8,9,10", "color": "Black", "price": 160.00 }
+{ "index": { "_id": "19" }}
+{ "name": "Bondi 7", "brand": "Hoka One One", "model": "Bondi", "size": "7,8,9,10,11", "color": "Blue", "price": 150.00 }
+{ "index": { "_id": "20" }}
+{ "name": "Glycerin 19", "brand": "Brooks", "model": "Glycerin", "size": "8,9,10", "color": "Blue", "price": 125.00 }
+
+GET /sneakers/_search?size=20
+
+GET /sneakers/_search
+{
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "query_string": {
+              "default_field": "brand",
+              "query": "*Adi*"
+            }
+          }, 
+          {
+            "range": {
+              "price": {
+                "gte": 100,
+                "lte": 200
+              }
+            }
+          }
+          ]
+      }
+    }
+}
+
+GET /sneakers/_search
+{
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "query_string": {
+              "default_field": "brand",
+              "query": "*Adi*"
+            }
+          }, 
+          {
+            "range": {
+              "price": {
+                "gte": 100,
+                "lte": 200
+              }
+            }
+          }
+          ],
+          "must_not": [
+            {
+              "match": {
+                "model": "Solarboost"
+              }
+            }
+          ]
+      }
+    }
+}
+
+GET /sneakers/_search
+{
+    "query": {
+      "match": {
+        "model": "Ultraboost"
+      }
+    }
+}
+
+GET /sneakers/_search
+{
+  "query": {
+    "exists": {
+      "field": "category"
+    }
+  }
+}
+
+POST /sneakers/_doc
+{ "name": "Air Max 100", "brand": "New Balance", "model": "NB500", "size": "8,9,10,11,12", "color": "Black", "price": 160.00, "category": "Running" }
