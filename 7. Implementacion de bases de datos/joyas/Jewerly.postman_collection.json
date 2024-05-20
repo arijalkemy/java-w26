@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "892c095e-9a50-4ff0-b4d7-9cf4d3278d76",
+		"name": "Jewerly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294002"
+	},
+	"item": [
+		{
+			"name": "New Jewel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Nombre de la joya\",\n    \"material\":\"Oro\",\n    \"peso\":17.2,\n    \"particularidad\":\"Ninguna\",\n    \"posee_piedra\":false,\n    \"ventaONo\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/new",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all jewels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}",
+					"host": [
+						"{{server}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete logical",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/delete/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Jewel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Nombre de la joya\",\n    \"material\":\"Oro\",\n    \"peso\":17.2,\n    \"particularidad\":\"Una particularidad\",\n    \"posee_piedra\":false,\n    \"ventaONo\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/update/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:8080/jewerly",
+			"type": "string"
+		}
+	]
+}

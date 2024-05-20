@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "eea4a2ce-cc3d-46ba-ab8b-7b44b024e39f",
+		"name": "Testers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294002"
+	},
+	"item": [
+		{
+			"name": "Post New Test Case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Test de el post de la aplicación, que cree con la fecha correspondiente\",\n    \"tested\": true,\n    \"passed\": false,\n    \"numberOfTries\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/new",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All TestCases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}",
+					"host": [
+						"{{server}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get TestCases By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update TestCase",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Test de el post de la aplicación, que cree con la fecha correspondiente\",\n    \"tested\": true,\n    \"passed\": true,\n    \"numberOfTries\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update TestCase Failed",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Test de el post de la aplicación, que cree con la fecha correspondiente\",\n    \"tested\": true,\n    \"passed\": true,\n    \"numberOfTries\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/3",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete TestCase",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/2",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get TestCase for LastUpdate filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}?last_update=19/05/2024",
+					"host": [
+						"{{server}}"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "19/05/2024"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:8080/api/testcases",
+			"type": "string"
+		}
+	]
+}
