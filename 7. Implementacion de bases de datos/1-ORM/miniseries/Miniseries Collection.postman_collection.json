@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "c66cf418-83de-40bb-8724-e82440d38d17",
+		"name": "Miniseries Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34319307"
+	},
+	"item": [
+		{
+			"name": "agregar miniserie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":1,\n    \"name\":\"pepe\",\n    \"rating\":9.88,\n    \"amount_of_awards\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/miniserie/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"miniserie",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getall",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/miniserie/getall",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"miniserie",
+						"getall"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
