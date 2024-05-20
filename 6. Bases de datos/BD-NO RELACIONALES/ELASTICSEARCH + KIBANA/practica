@@ -1,0 +1,100 @@
+
+GET /clientes/_search
+{
+  "query": {
+    "match": {
+      "localidad": "Posadas"
+    }  // match_all
+  }
+}
+
+POST /clientes/_doc
+{
+  "nombre": "prueba",
+  "apellido": "prueba",
+  "pais": "prueba",
+  "localidad": "Posadas"
+}
+
+GET /clientes/_search
+{
+  "query": {
+    "match": {
+      "nombre": "prueba"
+    }  // match_all
+  }
+}
+
+
+//Traer los registros
+
+GET /clientes/_search
+{
+  "query": {
+    "match": {
+      "nombre": "prueba"
+    }  // match_all
+  }
+}
+
+
+
+// 1. Crear un nuevo índice
+PUT /zapatillas_deportivas
+{
+  "mappings": {
+    "properties": {
+      "marca": {"type": "keyword"},
+      "modelo": {"type": "text"},
+      "talla": {"type": "keyword"},
+      "precio": {"type": "float"},
+      "color": {"type": "keyword"}
+      // Otros campos según sea necesario
+    }
+  }
+}
+
+// 2. Insertar 20 registros en el nuevo índice
+POST /zapatillas_deportivas/_bulk
+{"index":{}}
+{"marca":"Nike", "modelo":"Air Max 270", "talla":"US 10", "precio":150.00, "color":"Negro"}
+{"index":{}}
+{"marca":"Adidas", "modelo":"Ultraboost 21", "talla":"US 9", "precio":180.00, "color":"Blanco"}
+{"index":{}}
+{"marca":"Puma", "modelo":"RS-X3", "talla":"US 8", "precio":120.00, "color":"Gris"}
+{"index":{}}
+{"marca":"New Balance", "modelo":"Fresh Foam 1080v11", "talla":"US 9.5", "precio":170.00, "color":"Azul"}
+{"index":{}}
+{"marca":"Reebok", "modelo":"Nano X", "talla":"US 11", "precio":130.00, "color":"Verde"}
+{"index":{}}
+{"marca":"Under Armour", "modelo":"HOVR Machina", "talla":"US 9", "precio":160.00, "color":"Rojo"}
+{"index":{}}
+{"marca":"Saucony", "modelo":"Ride 14", "talla":"US 10.5", "precio":140.00, "color":"Naranja"}
+{"index":{}}
+{"marca":"Asics", "modelo":"Gel-Kayano 28", "talla":"US 10", "precio":180.00, "color":"Negro"}
+{"index":{}}
+{"marca":"Brooks", "modelo":"Ghost 14", "talla":"US 8.5", "precio":150.00, "color":"Blanco"}
+{"index":{}}
+{"marca":"Mizuno", "modelo":"Wave Rider 24", "talla":"US 11", "precio":160.00, "color":"Azul"}
+{"index":{}}
+{"marca":"Salomon", "modelo":"Speedcross 5", "talla":"US 9.5", "precio":140.00, "color":"Verde"}
+{"index":{}}
+{"marca":"Hoka One One", "modelo":"Clifton 8", "talla":"US 10", "precio":160.00, "color":"Rojo"}
+{"index":{}}
+{"marca":"Merrell", "modelo":"Moab 2", "talla":"US 9", "precio":120.00, "color":"Gris"}
+{"index":{}}
+{"marca":"Columbia", "modelo":"Peakfreak X2", "talla":"US 10.5", "precio":130.00, "color":"Naranja"}
+{"index":{}}
+{"marca":"Keen", "modelo":"Targhee III", "talla":"US 11", "precio":140.00, "color":"Negro"}
+{"index":{}}
+{"marca":"Vibram", "modelo":"FiveFingers V-Trail 2.0", "talla":"US 8.5", "precio":100.00, "color":"Blanco"}
+{"index":{}}
+{"marca":"La Sportiva", "modelo":"Ultra Raptor", "talla":"US 9.5", "precio":160.00, "color":"Azul"}
+{"index":{}}
+{"marca":"Altra", "modelo":"Lone Peak 5", "talla":"US 10", "precio":150.00, "color":"Negro"}
+{"index":{}}
+{"marca":"Inov-8", "modelo":"Roclite G 275", "talla":"US 11", "precio":140.00, "color":"Verde"}
+
+//3. Comprobar con consultas los registros insertados en la nueva base de datos.
+GET /zapatillas_deportivas/_search
+
