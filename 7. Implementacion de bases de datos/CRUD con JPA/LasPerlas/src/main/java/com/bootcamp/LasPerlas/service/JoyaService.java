@@ -3,9 +3,12 @@ package com.bootcamp.LasPerlas.service;
 import com.bootcamp.LasPerlas.model.Joya;
 import com.bootcamp.LasPerlas.repository.IJoyaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class JoyaService implements IJoyaService{
@@ -16,15 +19,13 @@ public class JoyaService implements IJoyaService{
     @Override
     public String saveJoya(Joya joya) {
        joyaRepo.save(joya);
-
-       return "Joya guardada correctamente";
+       return joya.getNro_id().toString();
     }
 
     @Override
     public List<Joya> getJoyas() {
-
-        return joyaRepo.findAll();
-
+        List<Joya> joyas = joyaRepo.findAll();
+        return joyas.stream().filter(Joya::isVentaONo).toList();
     }
 
     @Override

@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "7696c3e6-f632-4f35-8fb5-1aa394196d71",
+		"name": "API Joyeria \"Las Perlas\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34092107"
+	},
+	"item": [
+		{
+			"name": "list all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/jewerly"
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{          \n    \"nombre\" : \"Anillo\",\n    \"material\": \"oro\",\n    \"peso\": 300,\n    \"particularidad\" : \"Forma circular con triángulos\",\n    \"posee_piedra\" : false,\n    \"ventaONo\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/jewerly/new"
+			},
+			"response": []
+		},
+		{
+			"name": "delete (logic)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "localhost:8080/jewerly/delete/1"
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\" : \"Anillo\",\n    \"material\": \"oro\",\n    \"peso\": 300,\n    \"particularidad\" : \"Otra particularidad\",\n    \"posee_piedra\" : false,\n    \"ventaONo\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/jewerly/update/2"
+			},
+			"response": []
+		}
+	]
+}
