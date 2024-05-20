@@ -1,14 +1,11 @@
 package co.com.mercadolibre.qatesters.service.impl;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
 import co.com.mercadolibre.qatesters.dto.TestCaseDTO;
 import co.com.mercadolibre.qatesters.entity.TestCase;
-import co.com.mercadolibre.qatesters.exception.ConflictException;
 import co.com.mercadolibre.qatesters.exception.NotFoundException;
 import co.com.mercadolibre.qatesters.repository.ITestCaseRepository;
 import co.com.mercadolibre.qatesters.service.ITestCaseService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -20,10 +17,14 @@ import java.util.Optional;
 @Service
 public class TestCaseService implements ITestCaseService {
 
-    @Autowired
-    private ITestCaseRepository testCaseRepository;
+    private final ITestCaseRepository testCaseRepository;
 
-    private ModelMapper modelMapper = new ModelMapper();
+    private final ModelMapper modelMapper;
+
+    public TestCaseService(ITestCaseRepository testCaseRepository) {
+        this.testCaseRepository = testCaseRepository;
+        this.modelMapper = new ModelMapper();
+    }
 
     @Override
     public TestCaseDTO create(TestCaseDTO testCaseDTO) {

@@ -2,8 +2,6 @@ package co.com.mercadolibre.qatesters.controller;
 
 import co.com.mercadolibre.qatesters.dto.TestCaseDTO;
 import co.com.mercadolibre.qatesters.service.ITestCaseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +12,11 @@ import java.time.LocalDate;
 @RequestMapping("/api/testcases")
 public class TestCaseController {
 
-    @Autowired
-    private ITestCaseService testCaseService;
+    private final ITestCaseService testCaseService;
+
+    public TestCaseController(ITestCaseService testCaseService) {
+        this.testCaseService = testCaseService;
+    }
 
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody TestCaseDTO testCaseDTO) {
