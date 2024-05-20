@@ -1,0 +1,103 @@
+# Crear indice 
+PUT /zapato_deportivo
+
+{
+  "mappings": {
+    "properties": {
+      "name": {"type": "text"}, 
+      "brand": {"type": "keyword"}, 
+      "price": {"type": "double" }, 
+      "color": {"type": "keyword"}
+    }
+  }
+}
+
+# Insertar registros 
+POST /zapato_deportivo/_bulk
+{"index":{"_id":"1"}}
+{"name":"Nike Air Zoom Pegasus 38","brand":"Nike","price":129.99,"color":"Black"}
+{"index":{"_id":"2"}}
+{"name":"Adidas Ultraboost 21","brand":"Adidas","price":179.99,"color":"White"}
+{"index":{"_id":"3"}}
+{"name":"Under Armour HOVR Sonic 4","brand":"Under Armour","price":109.99,"color":"Blue"}
+{"index":{"_id":"4"}}
+{"name":"New Balance Fresh Foam 1080v11","brand":"New Balance","price":149.99,"color":"Gray"}
+{"index":{"_id":"5"}}
+{"name":"Brooks Ghost 14","brand":"Brooks","price":129.99,"color":"Blue"}
+{"index":{"_id":"6"}}
+{"name":"Asics Gel-Nimbus 23","brand":"Asics","price":159.99,"color":"Black"}
+{"index":{"_id":"7"}}
+{"name":"Hoka One One Bondi 7","brand":"Hoka One One","price":149.99,"color":"Gray"}
+{"index":{"_id":"8"}}
+{"name":"Saucony Ride 14","brand":"Saucony","price":129.99,"color":"Red"}
+{"index":{"_id":"9"}}
+{"name":"Mizuno Wave Rider 24","brand":"Mizuno","price":139.99,"color":"Blue"}
+{"index":{"_id":"10"}}
+{"name":"Salomon Speedcross 5","brand":"Salomon","price":129.99,"color":"Green"}
+{"index":{"_id":"11"}}
+{"name":"Merrell Moab 2 Vent","brand":"Merrell","price":99.99,"color":"Brown"}
+{"index":{"_id":"12"}}
+{"name":"Columbia Redmond V2","brand":"Columbia","price":79.99,"color":"Black"}
+{"index":{"_id":"13"}}
+{"name":"The North Face Ultra 111 WP","brand":"The North Face","price":119.99,"color":"Gray"}
+{"index":{"_id":"14"}}
+{"name":"Keen Targhee III WP","brand":"Keen","price":139.99,"color":"Brown"}
+{"index":{"_id":"15"}}
+{"name":"Vasque Breeze LT Low GTX","brand":"Vasque","price":159.99,"color":"Gray"}
+{"index":{"_id":"16"}}
+{"name":"La Sportiva Wildcat","brand":"La Sportiva","price":139.99,"color":"Yellow"}
+{"index":{"_id":"17"}}
+{"name":"Altra Lone Peak 5","brand":"Altra","price":129.99,"color":"Red"}
+{"index":{"_id":"18"}}
+{"name":"Inov-8 Terraultra G 270","brand":"Inov-8","price":169.99,"color":"Blue"}
+{"index":{"_id":"19"}}
+{"name":"Arc'teryx Norvan SL GTX","brand":"Arc'teryx","price":199.99,"color":"Black"}
+{"index":{"_id":"20"}}
+{"name":"Topo Athletic Ultraventure","brand":"Topo Athletic","price":139.99,"color":"Green"}
+
+# Buscar todos los registros 
+GET /zapato_deportivo/_search?size=20
+
+# Buscar por marca 
+GET /zapato_deportivo/_search
+{
+  "query": {
+    "match": {
+      "brand": "Nike"
+    }
+  }
+}
+
+# Buscar por marca y color 
+GET /zapato_deportivo/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "brand": "Brooks" }},
+        { "range": { "price": { "lt": 150 }}}
+      ]
+    }
+  }
+}
+
+# Buscar por marca, color y evitar precio 
+GET /zapato_deportivo/_search
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "brand": "Adidas" }},
+        { "range": { "price": { "gt": 150 }}}
+      ],
+      "must_not": [
+        { "match": { "color": "Black" }}
+      ]
+    }
+  }
+}
+
+
+
+
+
