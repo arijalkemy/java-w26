@@ -20,7 +20,7 @@ public class TestCase {
     private Long idCase;
     private String description;
     private Boolean tested;
-    private String passed;
+    private Boolean passed;
     @Column(name = "number_of_tries")
     private Integer numberOfTries;
     @Column(name = "last_update")
