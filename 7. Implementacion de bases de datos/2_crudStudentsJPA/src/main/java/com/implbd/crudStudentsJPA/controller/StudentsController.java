@@ -69,7 +69,7 @@ public class StudentsController {
             @PathVariable Long id
     ) {
         this.studentService.deleteStudent(id);
-        return new ResponseEntity<>("Estudiante borrado correctamente", HttpStatus.OK);
+        return new ResponseEntity<>("Estudiante borrado correctamente", HttpStatus.NO_CONTENT);
     }
 
 }
