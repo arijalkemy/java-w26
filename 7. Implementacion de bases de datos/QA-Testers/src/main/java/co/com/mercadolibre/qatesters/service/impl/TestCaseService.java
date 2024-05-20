@@ -86,11 +86,8 @@ public class TestCaseService implements ITestCaseService {
     @Override
     @Transactional(readOnly = true)
     public List<TestCaseDTO> findByLastUpdate(LocalDate lastUpdate) {
-        Optional<List<TestCase>> testCases = testCaseRepository.findByLastUpdate(lastUpdate);
-        if (testCases.isEmpty()) {
-            throw new NotFoundException("There are no test cases with the specified date");
-        }
-        return testCases.get().stream()
+        List<TestCase> testCases = testCaseRepository.findByLastUpdate(lastUpdate);
+        return testCases.stream()
                 .map(testCase -> modelMapper.map(testCase, TestCaseDTO.class))
                 .toList();
     }

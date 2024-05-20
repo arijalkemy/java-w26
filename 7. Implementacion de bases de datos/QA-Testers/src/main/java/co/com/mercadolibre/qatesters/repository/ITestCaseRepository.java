@@ -13,5 +13,5 @@ import java.util.Optional;
 public interface ITestCaseRepository extends JpaRepository<TestCase, Long> {
 
     @Query(nativeQuery = true, value = "SELECT * FROM test_case WHERE last_update >= ?1")
-    Optional<List<TestCase>> findByLastUpdate(LocalDate lastUpdate);
+    List<TestCase> findByLastUpdate(LocalDate lastUpdate);
 }
