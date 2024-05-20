@@ -1,0 +1,78 @@
+# Clase VIVO
+PUT /zapatillas
+{
+  "mappings": {
+    "properties": {
+      "nombre": { "type": "text" },
+      "marca": { "type": "keyword" },
+      "precio": { "type": "float" },
+      "talla": { "type": "keyword" },
+      "color": { "type": "keyword" },
+      "tipo_deporte": { "type": "keyword" },
+      "material": { "type": "keyword" },
+      "descripcion": { "type": "text" },
+      "disponibilidad": { "type": "keyword" },
+      "valoracion": { "type": "float" }
+    }
+  }
+}
+
+POST /zapatillas/_doc
+{
+  "nombre": "Nike Air Max 270",
+  "marca": "Nike",
+  "precio": 149.99,
+  "talla": "US 10",
+  "color": "Negro/Blanco",
+  "tipo_deporte": "Running",
+  "material": "Malla transpirable",
+  "descripcion": "Las zapatillas Nike Air Max 270 ofrecen comodidad y estilo durante todo el día. Con una unidad Air Max grande y visible en el talón, te brindan una amortiguación suave y reactiva con cada paso. La parte superior de malla transpirable mantiene tus pies frescos, mientras que el diseño moderno agrega un toque de estilo a tu look deportivo.",
+  "disponibilidad": "En stock",
+  "valoracion": 4.7
+}
+
+POST /zapatillas/_bulk
+{"index": {}}
+{"nombre": "Adidas Ultraboost 21", "marca": "Adidas", "precio": 169.99, "talla": "US 9", "color": "Negro/Gris", "tipo_deporte": "Running", "material": "Primeknit", "descripcion": "Las zapatillas Adidas Ultraboost 21 son ideales para corredores exigentes. Con su tecnología Primeknit en la parte superior, ofrecen una combinación perfecta de comodidad y rendimiento. La amortiguación Boost proporciona un retorno de energía sin igual en cada zancada, mientras que el diseño elegante y moderno garantiza un estilo incomparable.", "disponibilidad": "En stock", "valoracion": 4.8}
+{"index": {}}
+{"nombre": "New Balance Fresh Foam 1080v11", "marca": "New Balance", "precio": 149.99, "talla": "US 10.5", "color": "Gris/Verde", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas New Balance Fresh Foam 1080v11 son la elección perfecta para corredores que buscan comodidad y rendimiento. Con su tecnología Fresh Foam en la entresuela, ofrecen una amortiguación suave y receptiva en cada paso. La parte superior de malla transpirable proporciona una excelente ventilación, mientras que el diseño moderno añade un toque de estilo a tu outfit deportivo.", "disponibilidad": "En stock", "valoracion": 4.7}
+{"index": {}}
+{"nombre": "Nike Air Zoom Pegasus 38", "marca": "Nike", "precio": 119.99, "talla": "US 9.5", "color": "Azul/Blanco", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Nike Air Zoom Pegasus 38 son perfectas para corredores de todos los niveles. Con su amortiguación Zoom Air en el talón, ofrecen una sensación de respuesta y velocidad en cada paso. La parte superior de malla transpirable mantiene tus pies frescos y cómodos, mientras que el diseño elegante te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.6}
+{"index": {}}
+{"nombre": "Asics Gel-Nimbus 23", "marca": "Asics", "precio": 159.99, "talla": "US 10", "color": "Negro/Amarillo", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Asics Gel-Nimbus 23 son ideales para corredores que buscan una comodidad excepcional y un rendimiento de primera clase. Con su tecnología Gel en la entresuela, ofrecen una amortiguación suave y un excelente retorno de energía en cada zancada. La parte superior de malla transpirable proporciona una ventilación óptima, mientras que el diseño moderno y elegante te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.9}
+{"index": {}}
+{"nombre": "Brooks Adrenaline GTS 21", "marca": "Brooks", "precio": 129.99, "talla": "US 9", "color": "Negro/Rojo", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Brooks Adrenaline GTS 21 ofrecen un soporte y una amortiguación excepcionales para corredores pronadores. Con su tecnología DNA Loft en la entresuela, proporcionan una sensación de suavidad y estabilidad en cada zancada. La parte superior de malla transpirable mantiene tus pies frescos y cómodos durante todo el recorrido.", "disponibilidad": "En stock", "valoracion": 4.7}
+{"index": {}}
+{"nombre": "Under Armour HOVR Machina 2", "marca": "Under Armour", "precio": 159.99, "talla": "US 10", "color": "Blanco/Negro", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Under Armour HOVR Machina 2 son la combinación perfecta de velocidad y comodidad. Con su tecnología HOVR en la entresuela, ofrecen una sensación de ingravidez y retorno de energía en cada zancada. La parte superior de malla transpirable proporciona una ventilación óptima, mientras que el diseño elegante y moderno te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.8}
+{"index": {}}
+{"nombre": "Saucony Ride 14", "marca": "Saucony", "precio": 139.99, "talla": "US 9.5", "color": "Gris/Azul", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Saucony Ride 14 son ideales para corredores neutros que buscan comodidad y rendimiento. Con su entresuela PWRRUN, ofrecen una amortiguación suave y receptiva en cada paso. La parte superior de malla transpirable proporciona una excelente ventilación, mientras que el diseño moderno te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.6}
+{"index": {}}
+{"nombre": "Mizuno Wave Rider 24", "marca": "Mizuno", "precio": 139.99, "talla": "US 10", "color": "Negro/Azul", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Mizuno Wave Rider 24 son la elección perfecta para corredores que buscan una combinación de comodidad y rendimiento. Con su tecnología Wave en la entresuela, ofrecen una amortiguación suave y una excelente estabilidad en cada zancada. La parte superior de malla transpirable proporciona una ventilación óptima, mientras que el diseño moderno te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.7}
+{"index": {}}
+{"nombre": "Hoka One One Clifton 8", "marca": "Hoka One One", "precio": 139.99, "talla": "US 9.5", "color": "Blanco/Negro", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Hoka One One Clifton 8 son la elección perfecta para corredores que buscan una combinación de comodidad y velocidad. Con su entresuela de espuma EVA, ofrecen una amortiguación suave y una sensación de ligereza en cada zancada. La parte superior de malla transpirable proporciona una excelente ventilación, mientras que el diseño elegante te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.8}
+{"index": {}}
+{"nombre": "Reebok Nano X1", "marca": "Reebok", "precio": 129.99, "talla": "US 10", "color": "Negro/Rojo", "tipo_deporte": "CrossFit", "material": "Malla transpirable", "descripcion": "Las zapatillas Reebok Nano X1 son perfectas para los entrenamientos de CrossFit más exigentes. Con su tecnología Flexweave en la parte superior, ofrecen una combinación perfecta de resistencia y flexibilidad. La entresuela de espuma proporciona una amortiguación cómoda, mientras que el diseño duradero te mantiene firme en cada movimiento.", "disponibilidad": "En stock", "valoracion": 4.7}
+{"index": {}}
+{"nombre": "Nike Metcon 7", "marca": "Nike", "precio": 129.99, "talla": "US 10.5", "color": "Negro/Blanco", "tipo_deporte": "CrossFit", "material": "Malla transpirable", "descripcion": "Las zapatillas Nike Metcon 7 son la elección perfecta para los entrenamientos de CrossFit más intensos. Con su parte superior de malla transpirable y su diseño duradero, ofrecen una combinación perfecta de comodidad y rendimiento. La suela de goma proporciona una tracción excepcional en una variedad de superficies, mientras que la amortiguación reactiva te mantiene cómodo durante todo el entrenamiento.", "disponibilidad": "En stock", "valoracion": 4.8}
+{"index": {}}
+{"nombre": "Under Armour Tribase Reign 3", "marca": "Under Armour", "precio": 119.99, "talla": "US 9", "color": "Gris/Negro", "tipo_deporte": "Entrenamiento", "material": "Malla transpirable", "descripcion": "Las zapatillas Under Armour Tribase Reign 3 son ideales para entrenamientos de alta intensidad. Con su parte superior de malla transpirable y su diseño duradero, ofrecen una combinación perfecta de comodidad y rendimiento. La suela de goma proporciona una tracción excepcional en una variedad de superficies, mientras que la amortiguación reactiva te mantiene cómodo durante todo el entrenamiento.", "disponibilidad": "En stock", "valoracion": 4.7}
+{"index": {}}
+{"nombre": "Puma Tazon 6 FM", "marca": "Puma", "precio": 59.99, "talla": "US 10", "color": "Negro/Plateado", "tipo_deporte": "Running", "material": "Cuero sintético", "descripcion": "Las zapatillas Puma Tazon 6 FM son perfectas para corredores que buscan comodidad y estilo. Con su parte superior de cuero sintético, ofrecen una combinación perfecta de durabilidad y estilo. La entresuela de EVA proporciona una amortiguación cómoda en cada paso, mientras que el diseño elegante te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.5}
+{"index": {}}
+{"nombre": "Asics Gel-Kayano 28", "marca": "Asics", "precio": 159.99, "talla": "US 9.5", "color": "Azul/Negro", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Asics Gel-Kayano 28 son la elección perfecta para corredores que buscan soporte y comodidad. Con su tecnología Gel en la entresuela y su parte superior de malla transpirable, ofrecen una combinación perfecta de amortiguación y ventilación. El diseño elegante te hace destacar en la pista, mientras que la suela de goma proporciona una tracción excepcional en una variedad de superficies.", "disponibilidad": "En stock", "valoracion": 4.9}
+{"index": {}}
+{"nombre": "Skechers GoRun Razor+ Hyper", "marca": "Skechers", "precio": 119.99, "talla": "US 10", "color": "Negro/Amarillo", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Skechers GoRun Razor+ Hyper son perfectas para corredores que buscan velocidad y comodidad. Con su parte superior de malla transpirable y su diseño ligero, ofrecen una sensación de ligereza en cada zancada. La entresuela Hyper Burst proporciona una amortiguación suave y receptiva, mientras que el diseño moderno te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.7}
+{"index": {}}
+{"nombre": "Reebok Floatride Energy 3", "marca": "Reebok", "precio": 119.99, "talla": "US 9.5", "color": "Gris/Negro", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Reebok Floatride Energy 3 son la elección perfecta para corredores que buscan velocidad y comodidad. Con su entresuela Floatride Energy Foam, ofrecen una amortiguación suave y receptiva en cada paso. La parte superior de malla transpirable proporciona una excelente ventilación, mientras que el diseño moderno te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.8}
+{"index": {}}
+{"nombre": "Under Armour Charged Rogue 2.5", "marca": "Under Armour", "precio": 79.99, "talla": "US 10", "color": "Gris/Negro", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Under Armour Charged Rogue 2.5 son ideales para corredores que buscan una combinación de comodidad y rendimiento. Con su parte superior de malla transpirable y su diseño duradero, ofrecen una combinación perfecta de estilo y funcionalidad. La entresuela Charged Cushioning proporciona una amortiguación suave y receptiva en cada paso, mientras que la suela de goma ofrece una tracción excepcional en una variedad de superficies.", "disponibilidad": "En stock", "valoracion": 4.6}
+{"index": {}}
+{"nombre": "Nike Revolution 5", "marca": "Nike", "precio": 64.99, "talla": "US 9.5", "color": "Gris/Negro", "tipo_deporte": "Running", "material": "Malla transpirable", "descripcion": "Las zapatillas Nike Revolution 5 son perfectas para corredores que buscan comodidad y estilo. Con su parte superior de malla transpirable y su diseño ligero, ofrecen una combinación perfecta de comodidad y rendimiento. La entresuela de espuma suave proporciona una amortiguación cómoda en cada paso, mientras que el diseño moderno te hace destacar en la pista.", "disponibilidad": "En stock", "valoracion": 4.5}
+
+
+GET /zapatillas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}

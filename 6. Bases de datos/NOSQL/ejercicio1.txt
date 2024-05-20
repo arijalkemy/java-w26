@@ -1,0 +1,25 @@
+# Click the Variables button, above, to create your own variables.
+GET /clientes_v2/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST /clientes_v2/_doc
+{
+  "numero": "1",
+  "localidad": "San Miguel",
+  "pais": "Argentina",
+  "nombre": "Ramon",
+  "apellido": "Ramoncin"
+}
+
+GET /clientes_v2/_search
+{
+  "query": {
+    "match": {
+      "pais": "Argentina"
+    }
+  }
+}
