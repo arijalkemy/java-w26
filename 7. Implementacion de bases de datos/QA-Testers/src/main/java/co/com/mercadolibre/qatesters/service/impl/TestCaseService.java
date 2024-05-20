@@ -76,11 +76,9 @@ public class TestCaseService implements ITestCaseService {
     @Override
     @Transactional
     public Boolean delete(Long id) {
-        if (testCaseRepository.existsById(id)) {
-            testCaseRepository.deleteById(id);
-            return true;
-        }
-        throw new NotFoundException("The test case does not exist");
+        findById(id);
+        testCaseRepository.deleteById(id);
+        return true;
     }
 
     @Override
