@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "1621248f-9a41-48d8-a23c-295a050de1ee",
+		"name": "Elastic + Kibana",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Obtener todos los clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match_all\": {}\n    },\n    \"size\":25\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/clientes/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"clientes",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener clientes creado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": {\n        \"match\": {\n            \"pais\":\"IT\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/clientes/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"clientes",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"nombre\":\"Paolo\",\n   \"apellido\":\"Maldini\",\n   \"pais\":\"IT\",\n   \"localidad\":\"Posadas\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/clientes/_doc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"clientes",
+						"_doc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
