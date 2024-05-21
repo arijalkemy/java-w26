@@ -1,0 +1,15 @@
+Ejercicio No. 1
+Si tengo que almacenar archivo binarios (recibos) para mi procesamiento de Billing....
+¿Qué tipo de bases de datos debo utilizar?¿Por qué?
+    Si me interesaría saber las relaciones que tiene los recibos con los diferentes procesos de Billing, 
+    lo almacenaría en una tabla relacional en un campo Blob y en base 64 en donde también almacenaría el tipo de extensión
+    de archivo.
+
+    Si no me interesa la relación que tiene el archivo, lo almacenaría en una tabla no relacional para acceder a él mucho más rápido.
+
+Ejercicio No. 2
+Si tengo que guardar todos los datos de los usuarios de Meli
+¿Qué tipo de base de datos debo utilizar?¿Por qué?
+    Lo almacenaría en una base de datos no relacional, ya que, al carecer de esquemas fijos, 
+    estas bases de datos permiten realizar cambios en la estructura de los datos sin requerir modificaciones a gran escala.
+

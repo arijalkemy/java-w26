@@ -38,3 +38,6 @@ Ejercicio - Optimización de BD parte 2 Vivo
 
 Ejercicio Elastisearch - Modulo BD No relacional Vivo
 	ejercicio11_elasticsearch.postman_collection.json
+
+Ejercicio Data Storage | Modulo de Ecosistema de Storage
+	Data Storage / ejercicio_data_storage.txt
