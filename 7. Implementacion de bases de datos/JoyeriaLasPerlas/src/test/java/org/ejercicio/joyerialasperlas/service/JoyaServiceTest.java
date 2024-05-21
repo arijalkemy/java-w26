@@ -4,6 +4,7 @@ import org.ejercicio.joyerialasperlas.dto.JoyaCreateDto;
 import org.ejercicio.joyerialasperlas.dto.JoyaCreatedDto;
 import org.ejercicio.joyerialasperlas.dto.JoyaResponseDto;
 import org.ejercicio.joyerialasperlas.dto.JoyaUpdateDto;
+import org.ejercicio.joyerialasperlas.exception.BadRequestException;
 import org.ejercicio.joyerialasperlas.model.Joya;
 import org.ejercicio.joyerialasperlas.repository.JoyaRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +17,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -104,5 +106,73 @@ public class JoyaServiceTest {
 
         //Assert
         assertEquals(expected, output);
+    }
+
+    @Test
+    @DisplayName("Debería retornar una lista de JoyaResponseDto")
+    public void retornarListaJoyaTest() {
+        //Arrange
+        JoyaResponseDto joyaDto1 = new JoyaResponseDto();
+        joyaDto1.setNombre("Anillo");
+        joyaDto1.setMaterial("Oro");
+        joyaDto1.setPeso(300);
+        joyaDto1.setParticularidad("Ninguna");
+        joyaDto1.setPoseePiedra(Boolean.FALSE);
+        joyaDto1.setVentaONo(Boolean.TRUE);
+
+        JoyaResponseDto joyaDto2 = new JoyaResponseDto();
+        joyaDto2.setNombre("Anillo");
+        joyaDto2.setMaterial("Plata");
+        joyaDto2.setPeso(300);
+        joyaDto2.setParticularidad("Ninguna");
+        joyaDto2.setPoseePiedra(Boolean.FALSE);
+        joyaDto2.setVentaONo(Boolean.TRUE);
+
+        JoyaResponseDto joyaDto3 = new JoyaResponseDto();
+        joyaDto3.setNombre("Anillo");
+        joyaDto3.setMaterial("Acero");
+        joyaDto3.setPeso(300);
+        joyaDto3.setParticularidad("Ninguna");
+        joyaDto3.setPoseePiedra(Boolean.FALSE);
+        joyaDto3.setVentaONo(Boolean.TRUE);
+
+        JoyaResponseDto joyaDto4 = new JoyaResponseDto();
+        joyaDto4.setNombre("Anillo");
+        joyaDto4.setMaterial("Acero");
+        joyaDto4.setPeso(300);
+        joyaDto4.setParticularidad("Ninguna");
+        joyaDto4.setPoseePiedra(Boolean.FALSE);
+        joyaDto4.setVentaONo(Boolean.FALSE);
+
+        List<Joya> mockList = List.of(modelMapper.map(joyaDto1, Joya.class) , modelMapper.map(joyaDto2, Joya.class),
+                modelMapper.map(joyaDto3, Joya.class), modelMapper.map(joyaDto4, Joya.class));
+
+        List<JoyaResponseDto> expected = List.of(joyaDto1, joyaDto2, joyaDto3);
+
+        when(joyaRepository.findAll()).thenReturn(mockList);
+
+        //Act
+        List<JoyaResponseDto> output = joyaService.obtenerJoyas();
+
+        //Assert
+        assertEquals(expected, output);
+    }
+
+    @Test
+    @DisplayName("Debería arrojar una excepción de tipo BadRequestException por intentar eliminar una joya en venta")
+    public void arrojarBadRequestExceptionAlEliminarTest() {
+        //Arrange
+        Joya joya = new Joya();
+        joya.setId(1L);
+        joya.setNombre("Anillo");
+        joya.setMaterial("Acero");
+        joya.setPeso(300);
+        joya.setParticularidad("Ninguna");
+        joya.setPoseePiedra(Boolean.FALSE);
+        joya.setVentaONo(Boolean.TRUE);
+        when(joyaRepository.findById(1L)).thenReturn(Optional.of(joya));
+
+        //Act and Assert
+        assertThrows(BadRequestException.class, () -> joyaService.eliminarJoya(1L));
     }
 }
