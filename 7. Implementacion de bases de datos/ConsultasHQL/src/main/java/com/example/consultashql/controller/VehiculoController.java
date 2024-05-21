@@ -32,7 +32,4 @@ public class VehiculoController {
     public ResponseEntity<?> getPantenteAndMarca(){
         return ResponseEntity.status(HttpStatus.OK).body(vehiculoService.getPatenteAndMarca());
     }
-
-
-
 }
