@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "0fa1ca42-dbd5-4508-a180-2462c700964a",
+		"name": "EmpleadosHib",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34292971"
+	},
+	"item": [
+		{
+			"name": "Empleados",
+			"item": [
+				{
+					"name": "ListEmployee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employee/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEmployee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employee/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "MJstnY8Banq1cDMF8Y_q"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEmployee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Marcos\",\n    \"apellido\": \"Pinto\",\n    \"edad\": 45,\n    \"ciudad\": \"Llevas\",\n    \"estado\": \"SanSen\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employee/new",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditEmployee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Marcos\",\n    \"apellido\": \"Pinto\",\n    \"edad\": 45,\n    \"ciudad\": \"Castan\",\n    \"estado\": \"Llanuras\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/employee/edit/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "MZsznY8Banq1cDMF9Y9c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteEmployee",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/employee/delete/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employee",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "MZsznY8Banq1cDMF9Y9c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
