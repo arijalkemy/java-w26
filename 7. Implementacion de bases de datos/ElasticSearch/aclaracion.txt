@@ -1,0 +1,2 @@
+Acá idealmente habría que hacer todo con DTOs como venimos haciendo
+pero se entiende el concepto de crear una base de documentos.
