@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "63979879-5288-4eaf-8a80-13737b3982d6",
+		"name": "API Miniseries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33995249"
+	},
+	"item": [
+		{
+			"name": "Get alls",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/miniseries/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"miniseries",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save miniserie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\" : \"Juan Camilo\",\n  \"rating\" : 9.8,\n  \"amount_of_awards\" : 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/miniseries/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"miniseries",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update miniserie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\" : \"Juan Camilo\",\n  \"rating\" : 9.8,\n  \"amount_of_awards\" : 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/miniseries/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"miniseries",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete miniserie",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
