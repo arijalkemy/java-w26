@@ -16,12 +16,6 @@ public class StudentDAOTest {
 
     StudentDAO studentDAO = new StudentDAO();
 
-//    @BeforeEach
-//    public void setUp() {
-//        studentDAO = new StudentDAO();
-//    }
-
-
     @Test
     @DisplayName("Debe de matchear con true en el caso de que el usuario se guarde exisamente")
     public void checkSaveUser(){
@@ -36,11 +30,10 @@ public class StudentDAOTest {
                         .setName("English")
                         .setScore(10.0)
                         .build()
-                );
+        );
         StudentDTO studentDTO = new StudentDTO.Builder()
-                .studentName("Alexis")
+                .studentName("Mario")
                 .message("Felicidades has aprobado")
-                .setId(studentDAO.studentsLength + 1L)
                 .subjects(subjects)
                 .build();
 
@@ -63,14 +56,14 @@ public class StudentDAOTest {
     }
 
     @Test
-    @DisplayName("Debe de retornar true en el caso de que el usuario con el id 5 exista")
+    @DisplayName("Debe de retornar true en el caso de que el usuario con el id 1002 exista")
     public void checkDeleteExistentStudent(){
         // Arrange
-            long idToRemove = 5L;
+        long idToRemove = 3L;
         // Act
-            boolean isDeleted = studentDAO.delete(idToRemove);
+        boolean isDeleted = studentDAO.delete(idToRemove);
         // Assert
-            assertTrue(isDeleted);
+        assertTrue(isDeleted);
     }
 
 
