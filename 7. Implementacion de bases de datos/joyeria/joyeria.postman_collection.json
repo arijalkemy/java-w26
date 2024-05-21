@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "f8462816-7dbd-43c1-b355-14c7db0f6645",
+		"name": "joyeria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34268596"
+	},
+	"item": [
+		{
+			"name": "create joya",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Ejemplo de objeto\",\n  \"material\": \"Metal\",\n  \"peso\": 2.5,\n  \"particularidad\": \"Resistente al agua\",\n  \"posee_piedra\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}{{path}}/new",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}{{path}}",
+					"path": [
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "update joya",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Ejemplo de objeto\",\n  \"material\": \"Metal\",\n  \"peso\": 2.5,\n  \"particularidad\": \"No soporta el agua\",\n  \"posee_piedra\": true\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}{{path}}/update/1",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}{{path}}",
+					"path": [
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete joya",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "path",
+			"value": "/jewerly",
+			"type": "string"
+		}
+	]
+}
