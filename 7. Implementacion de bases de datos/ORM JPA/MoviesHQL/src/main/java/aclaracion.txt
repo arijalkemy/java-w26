@@ -1,0 +1,2 @@
+Faltaría la parte del controller y el service (es decir conversión a DTOs), pero eso es similar a lo que ya estabamos
+viendo.
