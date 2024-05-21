@@ -1,0 +1,24 @@
+Ejercicio N. 1
+
+Si tengo que almacenar archivos binarios(recibidos) para mi sistemas de
+procesamiento de Billing..
+
+¿Qué tipo de base de datos debe utilizar? ¿Por qué?
+
+Lo mejor es usar Object Storage porque esta preparada para manejar este tipo de data que pueden 
+tener un gran tamaño y pondria en aprietos a otros tipos de bases de datos como las relacionales 
+que pueden manejar archivos pero con tamaños muy limitados y las consultas se vuelven costosas 
+en performance.
+
+Ejercicio N. 2
+
+Si tengo que guardar todos los datos de los usuarios de MELI
+¿Qué tipo de base de datos debo utilizar? ¿Por qué?
+
+En este caso deberia usar Document Storage, inicialmente teniendo en cuenta la estalabilidad que se 
+necesita para guardar la información de millones de usuarios en diferentes paises, junto con toda 
+la data que generan. Tambien aunque la data necesita tener una clase de estructura no deberia ser 
+tan rigida como en una base de datos relación, ya que las necesidad del negocio pueden generar cambios 
+que se vuelvan muy costosos de llevar a cabo en la bd relación. Esta se beria complementar con una bd
+KVS para disminuir los tiempos de latencia. 
+
