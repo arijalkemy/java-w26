@@ -18,6 +18,8 @@ import java.util.List;
 public class JoyaServiceImpl implements IJoyaService {
 
     IJoyaRepository joyaRepository;
+    ModelMapper modelMapper = new ModelMapper();
+
 
     public JoyaServiceImpl(IJoyaRepository joyaRepository) {
         this.joyaRepository = joyaRepository;
@@ -25,55 +27,45 @@ public class JoyaServiceImpl implements IJoyaService {
 
     @Override
     @Transactional
-    public ResponseEntity<?> create(JoyaDTO joyaDTO) {
-        ModelMapper modelMapper = new ModelMapper();
+    public JoyaResponseDTO create(JoyaDTO joyaDTO) {
         Joya newJoya = modelMapper.map(joyaDTO, Joya.class);
 
         newJoya = joyaRepository.save(newJoya);
 
-        return new ResponseEntity<>(
-                modelMapper.map(newJoya, JoyaResponseDTO.class),
-                HttpStatus.CREATED
-        );
+        return modelMapper.map(newJoya, JoyaResponseDTO.class);
     }
 
     @Override
     @Transactional
-    public ResponseEntity<?> findById(Long id) {
+    public JoyaResponseDTO findById(Long id) {
         Joya joya = this.getJoyaById(id);
 
-        return new ResponseEntity<>(
-                joya,
-                HttpStatus.OK
-        );
+        return modelMapper.map(joya, JoyaResponseDTO.class);
     }
 
     @Override
     @Transactional
-    public ResponseEntity<?> findAll() {
+    public List<JoyaResponseDTO> findAll() {
 
         List<Joya> filteredJoyas = joyaRepository.findAll().stream()
                 .filter(Joya::getVentaONo)
                 .toList();
 
-        return new ResponseEntity<>(
-                filteredJoyas,
-                HttpStatus.OK
-        );
+
+        return filteredJoyas.stream().map(
+                j -> modelMapper.map(j, JoyaResponseDTO.class)
+        ).toList();
     }
 
     @Override
     @Transactional
-    public ResponseEntity<?> update(Long id, JoyaDTO joyaDTO) {
+    public JoyaResponseDTO update(Long id, JoyaDTO joyaDTO) {
         if(joyaRepository.existsById(id)){
             ModelMapper modelMapper = new ModelMapper();
             Joya joyaUpdated = modelMapper.map(joyaDTO, Joya.class);
             joyaUpdated.setId(id);
             joyaRepository.save(joyaUpdated);
-            return new ResponseEntity<>(
-                    joyaUpdated,
-                    HttpStatus.OK
-            );
+            return modelMapper.map(joyaUpdated, JoyaResponseDTO.class);
         } else {
             throw new JoyaNotFound("Joya not found");
         }
@@ -81,13 +73,11 @@ public class JoyaServiceImpl implements IJoyaService {
 
     @Override
     @Transactional
-    public ResponseEntity<?> delete(Long id) {
+    public void delete(Long id) {
 
         Joya joya = getJoyaById(id);
 
         joya.setVentaONo(false);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     private Joya getJoyaById(Long id){

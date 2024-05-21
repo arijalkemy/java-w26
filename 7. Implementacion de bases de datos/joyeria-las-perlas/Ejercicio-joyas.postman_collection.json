@@ -40,14 +40,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/jewerly/2",
+					"raw": "localhost:8080/jewerly/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"jewerly",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -57,7 +57,17 @@
 			"name": "find all",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/jewerly",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewerly"
+					]
+				}
 			},
 			"response": []
 		},
@@ -95,14 +105,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/jewerly/2",
+					"raw": "localhost:8080/jewerly/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"jewerly",
-						"2"
+						"1"
 					]
 				}
 			},

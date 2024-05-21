@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/api/testcases/1",
+					"raw": "localhost:8080/api/testcases/4",
 					"host": [
 						"localhost"
 					],
@@ -68,7 +68,7 @@
 					"path": [
 						"api",
 						"testcases",
-						"1"
+						"4"
 					]
 				}
 			},
@@ -127,7 +127,25 @@
 			"name": "updated after",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/testcases/updated-after?last_update=02/03/2023",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"updated-after"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "02/03/2023"
+						}
+					]
+				}
 			},
 			"response": []
 		}

@@ -2,6 +2,7 @@ package com.joyerialasperlas.controllers;
 
 import com.joyerialasperlas.DTOs.JoyaDTO;
 import com.joyerialasperlas.services.interfaces.IJoyaService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,17 +18,26 @@ public class JoyaController {
 
     @PostMapping("/new")
     public ResponseEntity<?> create(@RequestBody JoyaDTO joyaDTO) {
-        return joyaService.create(joyaDTO);
+        return new ResponseEntity<>(
+                joyaService.create(joyaDTO),
+                HttpStatus.CREATED
+        );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id) {
-        return joyaService.findById(id);
+        return new ResponseEntity<>(
+                joyaService.findById(id),
+                HttpStatus.OK
+        );
     }
 
     @GetMapping
     public ResponseEntity<?> findAll() {
-        return joyaService.findAll();
+        return new ResponseEntity<>(
+                joyaService.findAll(),
+                HttpStatus.OK
+        );
     }
 
     @PutMapping("/{id}")
@@ -36,11 +46,17 @@ public class JoyaController {
             @RequestBody JoyaDTO joyaDTO
     )
     {
-        return joyaService.update(id, joyaDTO);
+        return new ResponseEntity<>(
+                joyaService.update(id, joyaDTO),
+                HttpStatus.OK
+        );
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        return joyaService.delete(id);
+        joyaService.delete(id);
+        return new ResponseEntity<>(
+                HttpStatus.NO_CONTENT
+        );
     }
 }
