@@ -98,13 +98,6 @@ public class StudentService implements IStudentService {
                 .orElse(null);
 
 
-        if (student != null) {
-            System.out.println("student is null");
-            return null;
-        }
-
-        System.out.println(student);
-
         List<StudentCourseCalification> studentCourseCalifications = student.getStudentCourseCalifications();
 
         Double calificationTotal = studentCourseCalifications
@@ -117,7 +110,7 @@ public class StudentService implements IStudentService {
         CalificationsOfStudentDTO response = new CalificationsOfStudentDTO();
 
         response.setAverage(average);
-        response.setCalificationCourseDTOS(studentCourseCalifications
+        response.setCalificationCourses(studentCourseCalifications
                 .stream()
                 .map(c -> new CalificationCourseDTO(
                         c

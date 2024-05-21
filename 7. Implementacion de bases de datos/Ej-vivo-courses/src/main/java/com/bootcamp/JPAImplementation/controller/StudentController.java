@@ -55,7 +55,7 @@ public class StudentController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("getCalifications/{studentId}")
+    @GetMapping("/getCalifications/{studentId}")
     public ResponseEntity<?> getCalifications(@PathVariable Long studentId) {
         return ResponseEntity
                 .status(HttpStatus.OK)

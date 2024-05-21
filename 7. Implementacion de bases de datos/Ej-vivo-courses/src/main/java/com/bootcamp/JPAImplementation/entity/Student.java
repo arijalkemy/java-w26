@@ -19,7 +19,7 @@ public class Student {
     private String identification;
     private String name;
     private String lastName;
-    @OneToMany(mappedBy = "student")
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<StudentCourseCalification> studentCourseCalifications;
 
