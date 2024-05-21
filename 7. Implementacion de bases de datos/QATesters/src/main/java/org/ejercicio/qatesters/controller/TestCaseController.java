@@ -18,8 +18,8 @@ public class TestCaseController {
     private ITestCaseService testCaseService;
 
     @GetMapping()
-    public ResponseEntity<List<TestCaseDto>> getTestCases(@RequestParam(required = false) LocalDate date) {
-        return new ResponseEntity<>(testCaseService.getTestCases(date),HttpStatus.OK);
+    public ResponseEntity<List<TestCaseDto>> getTestCases(@RequestParam(required = false) LocalDate last_update) {
+        return new ResponseEntity<>(testCaseService.getTestCases(last_update),HttpStatus.OK);
     }
 
     @GetMapping("{id}")
