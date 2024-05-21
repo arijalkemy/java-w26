@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "d8ef559e-03e5-4c2b-ae95-0e4e839f9d20",
+		"name": "empleados-elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34474464"
+	},
+	"item": [
+		{
+			"name": "crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Ana\",\n    \"apellido\": \"García\",\n    \"edad\": 32,\n    \"ciudad\": \"Madrid\",\n    \"provincia\": \"Madrid\",\n    \"estado\":\"valencia\",\n    \"departamento\": \"191\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/empleados",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/empleados",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": \"qXnhnI8BqsVuOcR3xz7s\",\n        \"nombre\": \"Anna\",\n        \"apellido\": \"García\",\n        \"edad\": 32,\n        \"ciudad\": \"Madrid\",\n        \"provincia\": \"Madrid\",\n        \"estado\": \"valencia\",\n        \"departamento\": \"191\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/empleados/qXnhnI8BqsVuOcR3xz7s",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleados",
+						"qXnhnI8BqsVuOcR3xz7s"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
