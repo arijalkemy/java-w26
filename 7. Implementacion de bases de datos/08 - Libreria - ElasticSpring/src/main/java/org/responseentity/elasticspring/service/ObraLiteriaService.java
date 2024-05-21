@@ -3,6 +3,7 @@ package org.responseentity.elasticspring.service;
 import org.responseentity.elasticspring.domain.ObraLiteraria;
 import org.responseentity.elasticspring.dto.ObraLiterariaDTO;
 import org.responseentity.elasticspring.repository.ObraLiterariaRepository;
+import org.responseentity.elasticspring.utils.ObraLiterariaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,100 +19,41 @@ public class ObraLiteriaService implements IObraLiterariaService{
 
     @Override
     public List<ObraLiterariaDTO> findAllByAuthor(String autor) {
-        Iterable<ObraLiteraria> obrasLiterarias = obraLiterariaRepository.findAllByAuthor(autor);
+        List<ObraLiteraria> obrasLiterarias =(List<ObraLiteraria>) obraLiterariaRepository
+                                                                        .findAllByAuthor(autor);
 
-        Stream<ObraLiteraria> obraLiterariaStream = StreamSupport.stream(obrasLiterarias.spliterator(), false);
-
-        List<ObraLiterariaDTO> obraLiterariaDTOs = obraLiterariaStream
-                .map(obra -> new ObraLiterariaDTO(
-                        obra.getId(),
-                        obra.getNombre(),
-                        obra.getAutor(),
-                        obra.getCantidadPaginas(),
-                        obra.getEditorial(),
-                        obra.getAnioPrimerPublicacion()
-                ))
-                .collect(Collectors.toList());
-
-        return obraLiterariaDTOs;
+        return ObraLiterariaMapper.mapToObraLiterariaDtoList(obrasLiterarias);
     }
 
     @Override
     public List<ObraLiterariaDTO> findKeywordInTitle(String nombre) {
-        Iterable<ObraLiteraria> obrasLiterarias = obraLiterariaRepository.findObraLiterariaByNombreContains(nombre);
+        List<ObraLiteraria> obrasLiterarias = (List<ObraLiteraria>) obraLiterariaRepository
+                                                                        .findObraLiterariaByNombreContains(nombre);
 
-        Stream<ObraLiteraria> obraLiterariaStream = StreamSupport.stream(obrasLiterarias.spliterator(), false);
-        List<ObraLiterariaDTO> obraLiterariaDTOs = obraLiterariaStream
-                .map(obra -> new ObraLiterariaDTO(
-                        obra.getId(),
-                        obra.getNombre(),
-                        obra.getAutor(),
-                        obra.getCantidadPaginas(),
-                        obra.getEditorial(),
-                        obra.getAnioPrimerPublicacion()
-                ))
-                .collect(Collectors.toList());
-
-        return obraLiterariaDTOs;
+        return ObraLiterariaMapper.mapToObraLiterariaDtoList(obrasLiterarias);
     }
 
     @Override
     public List<ObraLiterariaDTO> findTopFivePages() {
+        List<ObraLiteraria> obrasLiterarias = (List<ObraLiteraria>) obraLiterariaRepository
+                                                                        .findTop5ByOrderByCantidadPaginasDesc();
 
-        Iterable<ObraLiteraria> obrasLiterarias = obraLiterariaRepository.findTop5ByOrderByCantidadPaginasDesc();
-
-        Stream<ObraLiteraria> obraLiterariaStream = StreamSupport.stream(obrasLiterarias.spliterator(), false);
-        List<ObraLiterariaDTO> obraLiterariaDTOs = obraLiterariaStream
-                .map(obra -> new ObraLiterariaDTO(
-                        obra.getId(),
-                        obra.getNombre(),
-                        obra.getAutor(),
-                        obra.getCantidadPaginas(),
-                        obra.getEditorial(),
-                        obra.getAnioPrimerPublicacion()
-                ))
-                .collect(Collectors.toList());
-
-        return obraLiterariaDTOs;
+        return ObraLiterariaMapper.mapToObraLiterariaDtoList(obrasLiterarias);
     }
 
     @Override
     public List<ObraLiterariaDTO> findPreviousYear(Integer year) {
+        List<ObraLiteraria> obrasLiterarias = (List<ObraLiteraria>) obraLiterariaRepository
+                                                            .findObraLiterariaByAnioPrimerPublicacionBefore(year);
 
-        Iterable<ObraLiteraria> obrasLiterarias = obraLiterariaRepository.findObraLiterariaByAnioPrimerPublicacionBefore(year);
-
-        Stream<ObraLiteraria> obraLiterariaStream = StreamSupport.stream(obrasLiterarias.spliterator(), false);
-        List<ObraLiterariaDTO> obraLiterariaDTOs = obraLiterariaStream
-                .map(obra -> new ObraLiterariaDTO(
-                        obra.getId(),
-                        obra.getNombre(),
-                        obra.getAutor(),
-                        obra.getCantidadPaginas(),
-                        obra.getEditorial(),
-                        obra.getAnioPrimerPublicacion()
-                ))
-                .collect(Collectors.toList());
-
-        return obraLiterariaDTOs;
+        return ObraLiterariaMapper.mapToObraLiterariaDtoList(obrasLiterarias);
     }
 
     @Override
     public List<ObraLiterariaDTO> findAllByEditorial(String editorial) {
+        List<ObraLiteraria> obrasLiterarias = (List<ObraLiteraria>) obraLiterariaRepository
+                                                            .findObraLiterariasByEditorial(editorial);
 
-        Iterable<ObraLiteraria> obrasLiterarias = obraLiterariaRepository.findObraLiterariasByEditorial(editorial);
-
-        Stream<ObraLiteraria> obraLiterariaStream = StreamSupport.stream(obrasLiterarias.spliterator(), false);
-        List<ObraLiterariaDTO> obraLiterariaDTOs = obraLiterariaStream
-                .map(obra -> new ObraLiterariaDTO(
-                        obra.getId(),
-                        obra.getNombre(),
-                        obra.getAutor(),
-                        obra.getCantidadPaginas(),
-                        obra.getEditorial(),
-                        obra.getAnioPrimerPublicacion()
-                ))
-                .collect(Collectors.toList());
-
-        return obraLiterariaDTOs;
+        return ObraLiterariaMapper.mapToObraLiterariaDtoList(obrasLiterarias);
     }
 }
