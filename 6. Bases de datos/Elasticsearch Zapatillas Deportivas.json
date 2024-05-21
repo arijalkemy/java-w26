@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "545c55c2-db0e-4ced-bdc1-f9e5381c2f06",
+		"name": "Elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Crear index",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"nombre\": {\n        \"type\": \"text\"\n      },\n      \"marca\": {\n        \"type\": \"text\"\n      },\n      \"precio\": {\n        \"type\": \"integer\"\n      },\n      \"color\": {\n        \"type\": \"text\"\n      }\n    }\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar todas las zapatillas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Superstart\",\"marca\":\"Addidas\",\"precio\":250000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Forum\",\"marca\":\"Addidas\",\"precio\":320000,\"color\":\"azul\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Terrace\",\"marca\":\"Addidas\",\"precio\":220000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Gazelle\",\"marca\":\"Addidas\",\"precio\":650000,\"color\":\"rojo\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Stan Smith\",\"marca\":\"Addidas\",\"precio\":189000,\"color\":\"amarillo\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Invinvible 3\",\"marca\":\"Nike\",\"precio\":950000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"React Miller\",\"marca\":\"Nike\",\"precio\":280000,\"color\":\"azul\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Zoom Fly\",\"marca\":\"Nike\",\"precio\":1200000,\"color\":\"negro\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Zoomx Streakfly\",\"marca\":\"Nike\",\"precio\":340000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Wildhorse\",\"marca\":\"Nike\",\"precio\":8740000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Easy Rider Vintage\",\"marca\":\"Puma\",\"precio\":3600000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Sude Love Marathon\",\"marca\":\"Puma\",\"precio\":1000000,\"color\":\"verde\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Ultra Match\",\"marca\":\"Puma\",\"precio\":5460000,\"color\":\"negro\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Ultimate\",\"marca\":\"Puma\",\"precio\":9030000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Stewie 3\",\"marca\":\"Puma\",\"precio\":1240000,\"color\":\"azul\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Chuck Clasicas\",\"marca\":\"Converse\",\"precio\":2200000,\"color\":\"negro\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Chuck 70\",\"marca\":\"Converse\",\"precio\":1350000,\"color\":\"azul\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Run Star\",\"marca\":\"Converse\",\"precio\":450000,\"color\":\"verde\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"One Star\",\"marca\":\"Converse\",\"precio\":980000,\"color\":\"blanco\"}\n{\"index\":{\"_index\":\"zapatillas_deportivas\"}}\n{\"nombre\":\"Skaterboarding\",\"marca\":\"Converse\",\"precio\":19860000,\"color\":\"azul\"}\n\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_bulk",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las zapatillas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":\n        {\n          \"match_all\":{}\n        },\n        \"size\":20\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por marca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":\n        {\n          \"match\":{\n            \"marca\":\"Addidas\"\n          }\n        },\n        \"size\":20\n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search?",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por rango de precios",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"range\": {\n      \"precio\": {\n        \"gte\": 1000000,\n        \"lte\": 2000000\n      }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search?",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por varias marcas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"should\": [\n        {\n          \"match\": {\n            \"marca\": \"Addidas\"\n          }\n        },\n        {\n          \"match\": {\n            \"marca\": \"Nike\"\n          }\n        }\n      ]\n    }\n  },\n  \"size\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search?",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por todos menos una marca",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"must_not\": [\n        {\n          \"match\": {\n            \"marca\": \"Addidas\"\n          }\n        }\n      ]\n    }\n  },\n  \"size\": 20\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search?",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por marca,rango de precios y color",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"bool\": {\n      \"must\": [\n        {\n          \"match\": {\n            \"marca\": \"Nike\"\n          }\n        },\n        {\n            \"range\":{\n                \"precio\":{\n                    \"gte\":155000,\n                    \"lte\":1250000\n                }\n            }\n        },\n        {\n            \"match\": {\n            \"color\": \"Negro\"\n          }\n        }\n      ]\n    }\n  },\n  \"size\": 20\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9200/zapatillas_deportivas/_search?",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
