@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "e6de07eb-36e9-40dd-9f04-9a55f1d3a363",
+		"name": "products-elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34482140"
+	},
+	"item": [
+		{
+			"name": "create new product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"name\": \"Laptop Gamer\",\n    \"type\": \"Electrónica\",\n    \"pcosto\": 850.50,\n    \"pventa\": 1299.99,\n    \"stock\": 25\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/v1/products"
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"name\": \"Huawei Watch\",\n    \"type\": \"Electrónica\",\n    \"pcosto\": 99999,\n    \"pventa\": 1299.99,\n    \"stock\": 25\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/products?id=aSt9nY8BfzuYu3yBVZ3l",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "aSt9nY8BfzuYu3yBVZ3l"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/v1/products"
+			},
+			"response": []
+		}
+	]
+}
