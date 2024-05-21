@@ -1,7 +1,7 @@
 package org.example.hib_elastic.repository;
 
 import org.example.hib_elastic.domain.Articulo;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-public interface ArticuloRepository extends Repository<Articulo, String> {
+public interface ArticuloRepository extends ElasticsearchRepository<Articulo, String> {
 }
