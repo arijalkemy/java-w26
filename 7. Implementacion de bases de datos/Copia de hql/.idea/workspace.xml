@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bdb869c4-0759-4b94-b8a3-c0db156f2eed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../EjemploManyToMany/src/main/java/com/opcionalClaveCompuesta/opcionalClaveCompuesta/model/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjemploManyToMany/src/main/java/com/opcionalClaveCompuesta/opcionalClaveCompuesta/model/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/controller/TestCaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/exceptions/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/exceptions/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/model/TestCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/repository/ITestCaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/service/ITestCaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QAtesters/src/main/java/com/QAtesters/QAtesters/service/TestCaseServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../opcionalClaveCompuesta/src/main/java/com/opcionalClaveCompuesta/opcionalClaveCompuesta/model/Compra.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../opcionalClaveCompuesta/src/main/java/com/opcionalClaveCompuesta/opcionalClaveCompuesta/model/CompraKey.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2gmF3d9s1ptVfd8Z7jAITQbqwXk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.HqlApplication.executor": "Run",
+    "git-widget-placeholder": "caserio__juancruz",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jcaserio/Desktop/bootcamp/java-w26/7. Implementacion de bases de datos/Copia de hql",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="HqlApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="hql" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hql.hql.HqlApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdb869c4-0759-4b94-b8a3-c0db156f2eed" name="Changes" comment="" />
+      <created>1716294648507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716294648507</updated>
+      <workItem from="1716294649358" duration="4366000" />
+      <workItem from="1716299038064" duration="1118000" />
+      <workItem from="1716304113322" duration="4265000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
