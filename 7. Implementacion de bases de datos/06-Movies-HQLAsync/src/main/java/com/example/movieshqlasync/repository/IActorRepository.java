@@ -13,6 +13,6 @@ public interface IActorRepository extends CrudRepository<Actor, Integer> {
     List<Actor> findAllByFavoriteMovieIsNotNull();
     List<Actor> findAllByRatingGreaterThanEqual(Double rating);
 
-    @Query("SELECT a FROM Actor a JOIN a.actorMovies am WHERE am.movieId = :movieId")
+    @Query("SELECT a FROM Actor a JOIN a.actorMovies am WHERE am.movie.id = :movieId")
     List<Actor> findAllByMovieId(@Param("movieId") Integer movieId);
 }

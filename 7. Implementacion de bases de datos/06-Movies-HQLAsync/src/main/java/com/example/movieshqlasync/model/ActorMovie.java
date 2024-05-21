@@ -13,8 +13,10 @@ public class ActorMovie {
     private LocalDate createdAt;
     @Column(name = "updated_at", nullable = true)
     private LocalDate updatedAt;
-    @Column(name = "movie_id")
-    private int movieId;
+
+    @ManyToOne
+    @JoinColumn(name = "movie_id", nullable = false)
+    private Movie movie;
 
     @ManyToOne
     @JoinColumn(name = "actor_id", nullable = false)
