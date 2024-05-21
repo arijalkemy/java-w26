@@ -1,0 +1,299 @@
+# Click the Variables button, above, to create your own variables.
+GET ${exampleVariable1} // _search
+{
+  "query": {
+    "${exampleVariable2}": {} // match_all
+  }
+}
+POST /clientes/_doc
+{
+  "nombre": "Paolo",
+  "apellido": "Maldini",
+  "pais": "IT",
+  "localidad": "Posadas"
+}
+GET /clientes/_search
+{
+  "query": {
+    "match": {
+      "pais": "IT"
+    }
+  }
+}
+
+PUT /sneakers
+{
+  "settings": {
+    "number_of_replicas": 1,
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "properties": {
+      "name": {"type": "text"},
+      "brand":{"type": "keyword"},
+      "model":{"type": "text"},
+      "size":{"type": "float"}, 
+      "color":{"type": "text"}, 
+      "price":{"type": "float"}
+    }
+  }
+}
+POST /sneakers/_doc/1
+{
+  "name": "Adidas Predator",
+  "brand":"Adidas",
+  "model":"MxnS",
+  "size":37, 
+  "color":"blue",
+  "price": 30000
+}
+POST /sneakers/_doc/2
+{
+  "name": "Nike Air Max",
+  "brand": "Nike",
+  "model": "Air Max 90",
+  "size": 42,
+  "color": "black",
+  "price": 35000
+}
+
+POST /sneakers/_doc/3
+{
+  "name": "Puma Flyer",
+  "brand": "Puma",
+  "model": "Runner",
+  "size": 39,
+  "color": "white",
+  "price": 20000
+}
+
+POST /sneakers/_doc/4
+{
+  "name": "Reebok Classic",
+  "brand": "Reebok",
+  "model": "Heritage",
+  "size": 41,
+  "color": "red",
+  "price": 28000
+}
+
+POST /sneakers/_doc/5
+{
+  "name": "Under Armour HOVR",
+  "brand": "Under Armour",
+  "model": "Phantom 2",
+  "size": 40,
+  "color": "grey",
+  "price": 32000
+}
+
+POST /sneakers/_doc/6
+{
+  "name": "New Balance 990",
+  "brand": "New Balance",
+  "model": "990v5",
+  "size": 43,
+  "color": "green",
+  "price": 34000
+}
+
+POST /sneakers/_doc/7
+{
+  "name": "Asics Gel-Lyte",
+  "brand": "Asics",
+  "model": "III",
+  "size": 38,
+  "color": "pink",
+  "price": 31000
+}
+
+POST /sneakers/_doc/8
+{
+  "name": "Saucony Jazz",
+  "brand": "Saucony",
+  "model": "Original",
+  "size": 44,
+  "color": "purple",
+  "price": 27000
+}
+
+POST /sneakers/_doc/9
+{
+  "name": "Brooks Glycerin",
+  "brand": "Brooks",
+  "model": "19",
+  "size": 39,
+  "color": "blue",
+  "price": 36000
+}
+
+POST /sneakers/_doc/10
+{
+  "name": "Skechers Go Run",
+  "brand": "Skechers",
+  "model": "Ride 8",
+  "size": 38,
+  "color": "orange",
+  "price": 22000
+}
+
+POST /sneakers/_doc/11
+{
+  "name": "Mizuno Wave Rider",
+  "brand": "Mizuno",
+  "model": "24",
+  "size": 42,
+  "color": "yellow",
+  "price": 30000
+}
+
+POST /sneakers/_doc/12
+{
+  "name": "Hoka One One Clifton",
+  "brand": "Hoka One One",
+  "model": "7",
+  "size": 45,
+  "color": "black",
+  "price": 40000
+}
+
+POST /sneakers/_doc/13
+{
+  "name": "Altra Torin",
+  "brand": "Altra",
+  "model": "4.5 Plush",
+  "size": 37,
+  "color": "silver",
+  "price": 33000
+}
+
+POST /sneakers/_doc/14
+{
+  "name": "Salomon Speedcross",
+  "brand": "Salomon",
+  "model": "5",
+  "size": 41,
+  "color": "brown",
+  "price": 29000
+}
+
+POST /sneakers/_doc/15
+{
+  "name": "Merrell Trail Glove",
+  "brand": "Merrell",
+  "model": "5",
+  "size": 40,
+  "color": "navy",
+  "price": 25000
+}
+
+POST /sneakers/_doc/16
+{
+  "name": "La Sportiva Bushido",
+  "brand": "La Sportiva",
+  "model": "II",
+  "size": 43,
+  "color": "teal",
+  "price": 38000
+}
+
+POST /sneakers/_doc/17
+{
+  "name": "Vibram FiveFingers",
+  "brand": "Vibram",
+  "model": "KSO EVO",
+  "size": 39,
+  "color": "mint",
+  "price": 21000
+}
+
+POST /sneakers/_doc/18
+{
+  "name": "On Cloud",
+  "brand": "On",
+  "model": "X",
+  "size": 42,
+  "color": "white",
+  "price": 37000
+}
+
+POST /sneakers/_doc/19
+{
+  "name": "Topo Athletic MT-3",
+  "brand": "Topo Athletic",
+  "model": "MT-3",
+  "size": 38,
+  "color": "black",
+  "price": 28000
+}
+
+POST /sneakers/_doc/20
+{
+  "name": "Jordan 1 Retro High",
+  "brand": "Jordan",
+  "model": "Retro High",
+  "size": 44,
+  "color": "gold",
+  "price": 45000
+}
+POST /sneakers/_doc/21
+{
+  "name": "Adidas 1 Retro High",
+  "brand": "Adidas",
+  "model": "Retro High",
+  "size": 44,
+  "color": "gold",
+  "price": 45000
+}
+GET /sneakers/_doc/1
+
+GET /sneakers/_doc/2
+
+GET /sneakers/_doc/3
+
+GET /sneakers/_doc/4
+
+GET /sneakers/_doc/5
+
+GET /sneakers/_doc/6
+
+GET /sneakers/_doc/7
+
+GET /sneakers/_doc/8
+
+GET /sneakers/_doc/9
+
+GET /sneakers/_doc/10
+
+GET /sneakers/_doc/11
+
+GET /sneakers/_doc/12
+
+GET /sneakers/_doc/13
+
+GET /sneakers/_doc/14
+
+GET /sneakers/_doc/15
+
+GET /sneakers/_doc/16
+
+GET /sneakers/_doc/17
+
+GET /sneakers/_doc/18
+
+GET /sneakers/_doc/19
+
+GET /sneakers/_doc/20
+
+GET /sneakers/_search
+{
+  "query": {
+    "term": {
+      "brand": {
+        "value": "Adidas"
+      }
+    }
+  }
+}
+
+
