@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "91812982-f082-4595-afa7-643f75b76def",
+		"name": "API QA Tester",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34092107"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Esta descripcion\",\n    \"tested\": true,\n    \"passed\": false,\n    \"number_of_tries\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/testcases/new"
+			},
+			"response": []
+		},
+		{
+			"name": "list all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/testcases"
+			},
+			"response": []
+		},
+		{
+			"name": "find by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/testcases/1"
+			},
+			"response": []
+		},
+		{
+			"name": "update by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"Descripcion modificada\",\n    \"tested\": true,\n    \"passed\": true,\n    \"number_of_tries\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/testcases/1"
+			},
+			"response": []
+		},
+		{
+			"name": "find all updated after date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/testcases/updated_after?last_update=2024-05-20",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"updated_after"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "2024-05-20"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
