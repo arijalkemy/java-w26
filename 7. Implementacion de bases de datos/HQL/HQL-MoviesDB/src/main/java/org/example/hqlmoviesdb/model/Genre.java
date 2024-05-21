@@ -3,6 +3,7 @@ package org.example.hqlmoviesdb.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity(name = "genres")
 public class Genre {
@@ -16,4 +17,6 @@ public class Genre {
     String name;
     int ranking;
     boolean active;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "genre")
+    List<Serie> series;
 }

@@ -18,7 +18,7 @@ public class Serie {
     LocalDateTime releaseDate;
     @Column(name = "end_date")
     LocalDateTime endDate;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "genre_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "genre_id", nullable = false)
     Genre genre;
 }
