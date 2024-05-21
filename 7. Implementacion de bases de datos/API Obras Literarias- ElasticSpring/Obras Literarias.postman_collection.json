@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "6f687a17-1052-4a69-ae53-3257525eaaac",
+		"name": "Obras Literarias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34286912"
+	},
+	"item": [
+		{
+			"name": "Listar todas las obras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/obras/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"obras",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1. Obras por autor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras?autor=Gabriel García Márquez",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					],
+					"query": [
+						{
+							"key": "autor",
+							"value": "Gabriel García Márquez"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Obras palabras clave",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "3. Top 5 con mayor cantidad de paginas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "4. Retornar las obras que fueron publicadas antes de un año",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras/years?year=2010",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"years"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2010"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Retornar las obras de una editorial",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

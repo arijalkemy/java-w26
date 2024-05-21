@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "d3f491f2-0286-4a7d-9827-c98e9458c53a",
+		"name": "Joyeria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34286912"
+	},
+	"item": [
+		{
+			"name": "Crear joya",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar joyas a la venta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jewelry",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewelry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar joya logicamente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/jewelry/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewelry",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar joya",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\" : \"Anillo\",\n    \"material\" : \"Oro\",\n    \"peso\" : \"300.00\",\n    \"particularidad\" : \"Otra particularidad\",\n    \"posee_piedra\" : false,\n    \"ventaONo\" : true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/jewelry/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"jewelry",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
