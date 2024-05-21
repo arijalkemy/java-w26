@@ -54,8 +54,13 @@ public class TestCaseController {
         );
     }
 
-    @GetMapping
-    public ResponseEntity<List<TestCaseResponseDTO>> searchUpdatedAfterDate(@RequestParam LocalDate localDateFrom) {
-        return new ResponseEntity<>();
+    @GetMapping("/updated_after")
+    public ResponseEntity<List<TestCaseResponseDTO>> searchUpdatedAfterDate(
+            @RequestParam("last_update") LocalDate localDateFrom
+    ) {
+        return new ResponseEntity<>(
+                testCaseService.getUpdatedAfterDate(localDateFrom),
+                HttpStatus.OK
+        );
     }
 }

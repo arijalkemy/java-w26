@@ -66,7 +66,14 @@ public class TestCaseService implements ITestCaseService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<TestCase> getUpdatedAfterDate(LocalDate localDate) {
-        return null;
+    public List<TestCaseResponseDTO> getUpdatedAfterDate(LocalDate localDateFrom) {
+        List<TestCase> testCasesList = testCaseRepository.findAll()
+                .stream()
+                .filter(testCase -> testCase.getLast_update().isAfter(localDateFrom))
+                .toList();
+        return testCasesList
+                .stream()
+                .map(testCase -> objectMapper.convertValue(testCase, TestCaseResponseDTO.class))
+                .toList();
     }
 }
