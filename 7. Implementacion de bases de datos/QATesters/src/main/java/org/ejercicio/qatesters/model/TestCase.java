@@ -1,11 +1,13 @@
 package org.ejercicio.qatesters.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 
+@Data
+@Entity
+@Table(name = "test_cases")
 public class TestCase {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
