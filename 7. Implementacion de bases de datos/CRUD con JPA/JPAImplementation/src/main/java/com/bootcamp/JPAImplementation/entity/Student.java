@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter @Setter
 @ToString
@@ -19,6 +20,13 @@ public class Student {
     private String name;
     private String lastName;
 
+    @ManyToMany
+    @JoinTable(
+        name = "students_cursos",
+        joinColumns = @JoinColumn(name = "student_id"),
+        inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private List<Curso> cursos;
 
     public Student (String identification, String name, String lastName) {
         this.identification = identification;

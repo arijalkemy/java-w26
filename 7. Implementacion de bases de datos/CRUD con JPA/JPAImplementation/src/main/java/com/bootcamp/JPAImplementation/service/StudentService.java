@@ -24,6 +24,9 @@ public class StudentService implements IStudentService {
     public StudentService(IStudentRepository studentRepository, ObjectMapper objectMapper) {
         this.studentRepository = studentRepository;
         this.objectMapper = objectMapper;
+
+        Student student = new Student("123456789", "Juan", "Perez");
+
     }
 
     private final String NOT_FOUND_MESSAGE = "No se encontró el alumno solicitado";
