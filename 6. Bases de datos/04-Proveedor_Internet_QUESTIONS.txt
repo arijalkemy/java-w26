@@ -1,0 +1,21 @@
+EJERCICIO 2
+Una vez modelada y planteada la base de datos, reponder a las siguientes preguntas:
+
+¿Cuál es la PRIMARY KEY para la tabla CLIENTES?
+
+    ## La primary key designada para la tabla clientes es id_cliente la cual se trata
+    ## de un atributo de tipo entero y unico para cada registro y que no involucra
+    ## informacion sensible del usuario.
+
+¿Cuál es la PRIMARY KEY para la tabla de PLANES de internet?
+
+    ## La primary key designada para la tabla PLANES es id_plan la cual se trata
+    ## de un atributo de tipo entero y unico para cada registro.
+
+¿Cómo serían las realciones entre las dos tablas? ¿En que tabla debería de haber FOREIGN KEY? ¿A qué campo de que tabla hace referencia dicha FOREIGN KEY?
+
+    ## Es importante mencionar que la cardinalidad de la tabla es de uno a muchos.
+    ## Al saber esto podemos designar como entidad debil a la tabla de clientes, ya que
+    ## el mismo plan lo pueden tener muchos clientes de este modo la primary key de la
+    ## entidad fuerte pasa como foreign key de la debil, entonces en la entidad CLIENTES
+    ## se coloca el atributo id_plan que hace referencia al id_plan de la tabla PLANES.
