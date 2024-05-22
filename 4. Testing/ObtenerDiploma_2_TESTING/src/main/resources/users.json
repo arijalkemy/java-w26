@@ -1,1 +1,34 @@
-[{"id":2,"studentName":"Beatrice","message":"Aprobado con esfuerzo","averageScore":8.5,"subjects":[{"name":"Science","score":7.5},{"name":"History","score":9.5}]},{"id":1,"studentName":"Alexis","message":"Aprobado con esfuerzo","averageScore":8.5,"subjects":[{"name":"Science","score":7.5},{"name":"History","score":9.5}]}]
+[
+  {
+    "id":2,
+    "studentName":"Beatrice",
+    "message":"El alumno Alexis ha obtenido un promedio de 8.5. Puedes mejorar.",
+    "averageScore":8.5,
+    "subjects":[
+      {
+        "name":"Science",
+        "score":7.5
+      },
+      {
+        "name":"History",
+        "score":9.5
+      }
+    ]
+  },
+  {
+    "id":1,
+    "studentName":"Alexis",
+    "message":"El alumno Alexis ha obtenido un promedio de 8.5. Puedes mejorar.",
+    "averageScore":8.5,
+    "subjects":[
+      {
+        "name":"Science",
+        "score":7.5
+      },
+      {
+        "name":"History",
+        "score":9.5
+      }
+    ]
+  }
+]

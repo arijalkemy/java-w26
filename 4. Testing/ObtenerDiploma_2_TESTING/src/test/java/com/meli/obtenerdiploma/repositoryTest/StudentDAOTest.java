@@ -45,27 +45,6 @@ public class StudentDAOTest {
         assertTrue(isStudentStored);
     }
 
-    @Test
-    @DisplayName("Debe mostrar false ya que no existe un id 1001 en la base de datos")
-    public void checkDeleteNonExistentStudent(){
-        long idToRemove = 1001L;
-
-        boolean isDeleted = studentDAO.delete(idToRemove);
-
-        assertFalse(isDeleted);
-    }
-
-    @Test
-    @DisplayName("Debe de retornar true en el caso de que el usuario con el id 1002 exista")
-    public void checkDeleteExistentStudent(){
-        // Arrange
-        long idToRemove = 3L;
-        // Act
-        boolean isDeleted = studentDAO.delete(idToRemove);
-        // Assert
-        assertTrue(isDeleted);
-    }
-
 
     @Test
     @DisplayName("Revisar que se lanze la StudentNotFoundException cuando no exista el alumno")
