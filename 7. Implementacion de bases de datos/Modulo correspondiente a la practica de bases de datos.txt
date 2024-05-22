@@ -3,3 +3,5 @@ Modulo con los ejercicios de las implementaciones de BD en Spring Boot
 Ejercicio Miniserie - JPA + Hibernate Vivo
 	ejercicio1_miniserie
 
+Ejercicio Jewerly - CRUD con JPA
+	ejercicio2_jewerly
