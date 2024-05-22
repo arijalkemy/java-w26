@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "0fa1ca42-dbd5-4508-a180-2462c700964a",
+		"name": "ObrasLiterarias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34292971"
+	},
+	"item": [
+		{
+			"name": "Crud",
+			"item": [
+				{
+					"name": "ListLW",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/library/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByAuthor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/library/author?author=Franz",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"author"
+							],
+							"query": [
+								{
+									"key": "author",
+									"value": "Franz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createLW",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Ulises\",\n    \"author\": \"James Joyce\",\n    \"pages_quantity\": 730,\n    \"publisher\": \"Sylvia Beach\",\n    \"year_first_publication\": 1922\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/library/new",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByTitle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/library/title?title=cien",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"title"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "cien"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTop5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/library/top",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"top"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBeforeYear",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/library/before-year?year=1922",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"before-year"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "1922"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByPublisher",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/library/publisher?publisher=russian",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"library",
+								"publisher"
+							],
+							"query": [
+								{
+									"key": "publisher",
+									"value": "russian"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
