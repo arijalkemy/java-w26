@@ -21,9 +21,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
-public class SalesServiceImpl implements ISalesService{
+public class SalesServiceImpl implements ISalesService {
     private final ISalesRepository salesRepository;
     private final IClothesRepository clothesRepository;
+
     public SalesServiceImpl(ISalesRepository salesRepository, IClothesRepository clothesRepository) {
         this.salesRepository = salesRepository;
         this.clothesRepository = clothesRepository;
@@ -36,22 +37,22 @@ public class SalesServiceImpl implements ISalesService{
 
     private Sale mapDTOtoSale(SaleRequestDTO saleRequestDTO) {
         Set<Cloth> clothSet = new HashSet<>();
-        for (Long code : saleRequestDTO.getClothList()){
+        for (Long code : saleRequestDTO.getClothList()) {
             clothSet.add(findAndCheckClothById(code));
         }
 
         LocalDate date = getLocalDate(saleRequestDTO.getDate());
 
-        Sale sale = new ModelMapper().map(saleRequestDTO, Sale.class);
+        Sale sale = getDTOToSaleModelMapper().map(saleRequestDTO, Sale.class);
         sale.setClothList(clothSet);
         sale.setDate(date);
         return sale;
     }
 
     private static LocalDate getLocalDate(String date) {
-        try{
+        try {
             return LocalDate.parse(date, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             throw new DateConversionException("Invalid date input: " + date);
         }
     }
@@ -59,9 +60,9 @@ public class SalesServiceImpl implements ISalesService{
     @Override
     public List<SaleResponseDTO> getAllSales(String date) {
         List<Sale> sales;
-        if(date == null){
+        if (date == null) {
             sales = salesRepository.findAll();
-        } else{
+        } else {
             sales = salesRepository.findSalesByDateEquals(getLocalDate(date));
         }
         return sales
@@ -103,14 +104,31 @@ public class SalesServiceImpl implements ISalesService{
     }
 
     private static SaleResponseDTO mapSaleToResponseDTO(Sale sale) {
-        SaleResponseDTO responseDTO = new ModelMapper().map(sale, SaleResponseDTO.class);
+
+        SaleResponseDTO responseDTO = getSaleToDTOModelMapper().map(sale, SaleResponseDTO.class);
         Set<ClothResponseDTO> clothSet = new HashSet<>();
-        for(Cloth cloth : sale.getClothList()){
+        for (Cloth cloth : sale.getClothList()) {
             clothSet.add(new ModelMapper().map(cloth, ClothResponseDTO.class));
         }
         responseDTO.setDate(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(sale.getDate()));
         responseDTO.setClothList(clothSet);
         return responseDTO;
+    }
+
+    private static ModelMapper getSaleToDTOModelMapper() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getTypeMap(Sale.class, SaleResponseDTO.class)
+                .addMappings(mapper -> mapper.skip(SaleResponseDTO::setDate))
+                .addMappings(mapper -> mapper.skip(SaleResponseDTO::setClothList));
+        return modelMapper;
+    }
+
+    private static ModelMapper getDTOToSaleModelMapper() {
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getTypeMap(SaleRequestDTO.class, Sale.class)
+                .addMappings(mapper -> mapper.skip(Sale::setDate))
+                .addMappings(mapper -> mapper.skip(Sale::setClothList));
+        return modelMapper;
     }
 
     private Cloth findAndCheckClothById(Long code) {
