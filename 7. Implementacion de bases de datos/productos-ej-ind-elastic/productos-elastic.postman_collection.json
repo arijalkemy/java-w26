@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "710c5ed0-9d03-4ab9-88b3-12be1050546e",
+		"name": "productos-elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34474464"
+	},
+	"item": [
+		{
+			"name": "crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Producto Test\",\n    \"tipo\": \"Tipo Test\",\n    \"precioVenta\": 100.0,\n    \"precioCosto\": 50.0,\n    \"cantidadDisponible\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modificar",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Producto Test\",\n    \"tipo\": \"Tipo Test\",\n    \"precioVenta\": 150.0,\n    \"precioCosto\": 50.0,\n    \"cantidadDisponible\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/productos/XAtYoI8BkBzXhNq-58Hs",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"productos",
+						"XAtYoI8BkBzXhNq-58Hs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
