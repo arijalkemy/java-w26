@@ -1,0 +1,23 @@
+-- Insertar más vehículos
+INSERT INTO vehicles (patent, brand, model, manufacture_year, number_of_wheels)
+VALUES ('JKL012', 'Chevrolet', 'Cruze', 2017, 4),
+       ('MNO345', 'Volkswagen', 'Golf', 2016, 4),
+       ('PQR678', 'BMW', '3 Series', 2019, 4),
+       ('STU901', 'Mercedes-Benz', 'C-Class', 2018, 4),
+       ('VWX234', 'Audi', 'A4', 2021, 4),
+       ('YZA567', 'Hyundai', 'Elantra', 2020, 4);
+
+-- Insertar siniestros para algunos vehículos
+INSERT INTO sinisters (sinister_date, economic_loss, vehicle_id)
+VALUES ('2023-03-25', 1200.00, 7),
+       ('2023-04-30', 1800.00, 7),
+       ('2022-10-08', 1400.00, 8),
+       ('2022-09-15', 1600.00, 8),
+       ('2022-08-20', 2000.00, 9),
+       ('2022-07-10', 2500.00, 9),
+       ('2022-06-05', 1700.00, 10),
+       ('2022-05-15', 1900.00, 10),
+       ('2022-04-25', 2100.00, 11),
+       ('2022-03-12', 2300.00, 11),
+       ('2022-02-18', 2200.00, 12),
+       ('2022-01-05', 2400.00, 12);
