@@ -4,6 +4,7 @@ package org.example.vehiculohql.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.example.vehiculohql.controller.VehiculoController;
 
 import java.util.Set;
 
@@ -24,4 +25,9 @@ public class Vehiculo {
 
     @OneToMany(mappedBy = "vehiculoDenunciado")
     Set<Siniestro> siniestros;
+
+    public Vehiculo(String marca, String patente) {
+        this.marca = marca;
+        this.patente = patente;
+    }
 }
