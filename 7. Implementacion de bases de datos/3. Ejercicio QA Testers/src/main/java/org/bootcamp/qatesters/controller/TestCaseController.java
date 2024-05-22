@@ -1,7 +1,5 @@
 package org.bootcamp.qatesters.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bootcamp.qatesters.dto.TestCaseRequestDTO;
 import org.bootcamp.qatesters.dto.TestCaseResponseDTO;
 import org.bootcamp.qatesters.service.ITestCaseService;
