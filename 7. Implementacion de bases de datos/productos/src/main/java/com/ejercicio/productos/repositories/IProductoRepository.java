@@ -8,4 +8,4 @@ import com.ejercicio.productos.models.Producto;
 
 public interface IProductoRepository extends ElasticsearchRepository<Producto,String>{
     List<Producto> findAll();
-} 
+}

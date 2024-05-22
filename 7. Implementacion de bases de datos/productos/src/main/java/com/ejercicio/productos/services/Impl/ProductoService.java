@@ -6,5 +6,5 @@ import com.ejercicio.productos.repositories.IProductoRepository;
 
 @Service
 public class ProductoService implements IProductoRepository{
-    
+
 }

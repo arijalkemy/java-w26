@@ -42,5 +42,5 @@ public class ProductoController {
     public ResponseEntity<?> obtenerEmpleadoPorId(@PathVariable("id") String id) {
         return ResponseEntity.status(201).body(productoService.obtenerProducto(""));
     }
-    
+
 }
