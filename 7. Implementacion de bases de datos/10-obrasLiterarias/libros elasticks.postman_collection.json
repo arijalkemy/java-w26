@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "6e05729e-f68a-4f99-997b-bde7888df25a",
+		"name": "libros elasticks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34268596"
+	},
+	"item": [
+		{
+			"name": "cargar libros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel García Márquez\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"anio_publicacion\": 1967\n  },\n  {\n    \"nombre\": \"1984\",\n    \"autor\": \"George Orwell\",\n    \"cantidad_paginas\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"anio_publicacion\": 1949\n  },\n  {\n    \"nombre\": \"El principito\",\n    \"autor\": \"Antoine de Saint-Exupéry\",\n    \"cantidad_paginas\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"anio_publicacion\": 1943\n  },\n  {\n    \"nombre\": \"Don Quijote de la Mancha\",\n    \"autor\": \"Miguel de Cervantes\",\n    \"cantidad_paginas\": 1072,\n    \"editorial\": \"Juan de la Cuesta\",\n    \"anio_publicacion\": 1605\n  },\n  {\n    \"nombre\": \"Moby-Dick\",\n    \"autor\": \"Herman Melville\",\n    \"cantidad_paginas\": 720,\n    \"editorial\": \"Harper & Brothers\",\n    \"anio_publicacion\": 1851\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"autor\": \"Jane Austen\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"anio_publicacion\": 1813\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"autor\": \"F. Scott Fitzgerald\",\n    \"cantidad_paginas\": 180,\n    \"editorial\": \"Charles Scribner's Sons\",\n    \"anio_publicacion\": 1925\n  },\n  {\n    \"nombre\": \"Harry Potter y la piedra filosofal\",\n    \"autor\": \"J.K. Rowling\",\n    \"cantidad_paginas\": 256,\n    \"editorial\": \"Bloomsbury\",\n    \"anio_publicacion\": 1997\n  },\n  {\n    \"nombre\": \"El Hobbit\",\n    \"autor\": \"J.R.R. Tolkien\",\n    \"cantidad_paginas\": 310,\n    \"editorial\": \"Allen & Unwin\",\n    \"anio_publicacion\": 1937\n  },\n  {\n    \"nombre\": \"Matar un ruiseñor\",\n    \"autor\": \"Harper Lee\",\n    \"cantidad_paginas\": 324,\n    \"editorial\": \"J.B. Lippincott & Co.\",\n    \"anio_publicacion\": 1960\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get obras by autor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel García Márquez\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"anio_publicacion\": 1967\n  },\n  {\n    \"nombre\": \"1984\",\n    \"autor\": \"George Orwell\",\n    \"cantidad_paginas\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"anio_publicacion\": 1949\n  },\n  {\n    \"nombre\": \"El principito\",\n    \"autor\": \"Antoine de Saint-Exupéry\",\n    \"cantidad_paginas\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"anio_publicacion\": 1943\n  },\n  {\n    \"nombre\": \"Don Quijote de la Mancha\",\n    \"autor\": \"Miguel de Cervantes\",\n    \"cantidad_paginas\": 1072,\n    \"editorial\": \"Juan de la Cuesta\",\n    \"anio_publicacion\": 1605\n  },\n  {\n    \"nombre\": \"Moby-Dick\",\n    \"autor\": \"Herman Melville\",\n    \"cantidad_paginas\": 720,\n    \"editorial\": \"Harper & Brothers\",\n    \"anio_publicacion\": 1851\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"autor\": \"Jane Austen\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"anio_publicacion\": 1813\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"autor\": \"F. Scott Fitzgerald\",\n    \"cantidad_paginas\": 180,\n    \"editorial\": \"Charles Scribner's Sons\",\n    \"anio_publicacion\": 1925\n  },\n  {\n    \"nombre\": \"Harry Potter y la piedra filosofal\",\n    \"autor\": \"J.K. Rowling\",\n    \"cantidad_paginas\": 256,\n    \"editorial\": \"Bloomsbury\",\n    \"anio_publicacion\": 1997\n  },\n  {\n    \"nombre\": \"El Hobbit\",\n    \"autor\": \"J.R.R. Tolkien\",\n    \"cantidad_paginas\": 310,\n    \"editorial\": \"Allen & Unwin\",\n    \"anio_publicacion\": 1937\n  },\n  {\n    \"nombre\": \"Matar un ruiseñor\",\n    \"autor\": \"Harper Lee\",\n    \"cantidad_paginas\": 324,\n    \"editorial\": \"J.B. Lippincott & Co.\",\n    \"anio_publicacion\": 1960\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras_literarias/autor/F. Scott Fitzgerald",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras_literarias",
+						"autor",
+						"F. Scott Fitzgerald"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get obras by nombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel García Márquez\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"anio_publicacion\": 1967\n  },\n  {\n    \"nombre\": \"1984\",\n    \"autor\": \"George Orwell\",\n    \"cantidad_paginas\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"anio_publicacion\": 1949\n  },\n  {\n    \"nombre\": \"El principito\",\n    \"autor\": \"Antoine de Saint-Exupéry\",\n    \"cantidad_paginas\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"anio_publicacion\": 1943\n  },\n  {\n    \"nombre\": \"Don Quijote de la Mancha\",\n    \"autor\": \"Miguel de Cervantes\",\n    \"cantidad_paginas\": 1072,\n    \"editorial\": \"Juan de la Cuesta\",\n    \"anio_publicacion\": 1605\n  },\n  {\n    \"nombre\": \"Moby-Dick\",\n    \"autor\": \"Herman Melville\",\n    \"cantidad_paginas\": 720,\n    \"editorial\": \"Harper & Brothers\",\n    \"anio_publicacion\": 1851\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"autor\": \"Jane Austen\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"anio_publicacion\": 1813\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"autor\": \"F. Scott Fitzgerald\",\n    \"cantidad_paginas\": 180,\n    \"editorial\": \"Charles Scribner's Sons\",\n    \"anio_publicacion\": 1925\n  },\n  {\n    \"nombre\": \"Harry Potter y la piedra filosofal\",\n    \"autor\": \"J.K. Rowling\",\n    \"cantidad_paginas\": 256,\n    \"editorial\": \"Bloomsbury\",\n    \"anio_publicacion\": 1997\n  },\n  {\n    \"nombre\": \"El Hobbit\",\n    \"autor\": \"J.R.R. Tolkien\",\n    \"cantidad_paginas\": 310,\n    \"editorial\": \"Allen & Unwin\",\n    \"anio_publicacion\": 1937\n  },\n  {\n    \"nombre\": \"Matar un ruiseñor\",\n    \"autor\": \"Harper Lee\",\n    \"cantidad_paginas\": 324,\n    \"editorial\": \"J.B. Lippincott & Co.\",\n    \"anio_publicacion\": 1960\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras_literarias/titulo/El",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras_literarias",
+						"titulo",
+						"El"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get obras paginas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel García Márquez\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"anio_publicacion\": 1967\n  },\n  {\n    \"nombre\": \"1984\",\n    \"autor\": \"George Orwell\",\n    \"cantidad_paginas\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"anio_publicacion\": 1949\n  },\n  {\n    \"nombre\": \"El principito\",\n    \"autor\": \"Antoine de Saint-Exupéry\",\n    \"cantidad_paginas\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"anio_publicacion\": 1943\n  },\n  {\n    \"nombre\": \"Don Quijote de la Mancha\",\n    \"autor\": \"Miguel de Cervantes\",\n    \"cantidad_paginas\": 1072,\n    \"editorial\": \"Juan de la Cuesta\",\n    \"anio_publicacion\": 1605\n  },\n  {\n    \"nombre\": \"Moby-Dick\",\n    \"autor\": \"Herman Melville\",\n    \"cantidad_paginas\": 720,\n    \"editorial\": \"Harper & Brothers\",\n    \"anio_publicacion\": 1851\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"autor\": \"Jane Austen\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"anio_publicacion\": 1813\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"autor\": \"F. Scott Fitzgerald\",\n    \"cantidad_paginas\": 180,\n    \"editorial\": \"Charles Scribner's Sons\",\n    \"anio_publicacion\": 1925\n  },\n  {\n    \"nombre\": \"Harry Potter y la piedra filosofal\",\n    \"autor\": \"J.K. Rowling\",\n    \"cantidad_paginas\": 256,\n    \"editorial\": \"Bloomsbury\",\n    \"anio_publicacion\": 1997\n  },\n  {\n    \"nombre\": \"El Hobbit\",\n    \"autor\": \"J.R.R. Tolkien\",\n    \"cantidad_paginas\": 310,\n    \"editorial\": \"Allen & Unwin\",\n    \"anio_publicacion\": 1937\n  },\n  {\n    \"nombre\": \"Matar un ruiseñor\",\n    \"autor\": \"Harper Lee\",\n    \"cantidad_paginas\": 324,\n    \"editorial\": \"J.B. Lippincott & Co.\",\n    \"anio_publicacion\": 1960\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras_literarias/paginas/mas/top_cinco",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras_literarias",
+						"paginas",
+						"mas",
+						"top_cinco"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get obras anio publicacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel García Márquez\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"anio_publicacion\": 1967\n  },\n  {\n    \"nombre\": \"1984\",\n    \"autor\": \"George Orwell\",\n    \"cantidad_paginas\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"anio_publicacion\": 1949\n  },\n  {\n    \"nombre\": \"El principito\",\n    \"autor\": \"Antoine de Saint-Exupéry\",\n    \"cantidad_paginas\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"anio_publicacion\": 1943\n  },\n  {\n    \"nombre\": \"Don Quijote de la Mancha\",\n    \"autor\": \"Miguel de Cervantes\",\n    \"cantidad_paginas\": 1072,\n    \"editorial\": \"Juan de la Cuesta\",\n    \"anio_publicacion\": 1605\n  },\n  {\n    \"nombre\": \"Moby-Dick\",\n    \"autor\": \"Herman Melville\",\n    \"cantidad_paginas\": 720,\n    \"editorial\": \"Harper & Brothers\",\n    \"anio_publicacion\": 1851\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"autor\": \"Jane Austen\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"anio_publicacion\": 1813\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"autor\": \"F. Scott Fitzgerald\",\n    \"cantidad_paginas\": 180,\n    \"editorial\": \"Charles Scribner's Sons\",\n    \"anio_publicacion\": 1925\n  },\n  {\n    \"nombre\": \"Harry Potter y la piedra filosofal\",\n    \"autor\": \"J.K. Rowling\",\n    \"cantidad_paginas\": 256,\n    \"editorial\": \"Bloomsbury\",\n    \"anio_publicacion\": 1997\n  },\n  {\n    \"nombre\": \"El Hobbit\",\n    \"autor\": \"J.R.R. Tolkien\",\n    \"cantidad_paginas\": 310,\n    \"editorial\": \"Allen & Unwin\",\n    \"anio_publicacion\": 1937\n  },\n  {\n    \"nombre\": \"Matar un ruiseñor\",\n    \"autor\": \"Harper Lee\",\n    \"cantidad_paginas\": 324,\n    \"editorial\": \"J.B. Lippincott & Co.\",\n    \"anio_publicacion\": 1960\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras_literarias/anio_publicacion/1926",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras_literarias",
+						"anio_publicacion",
+						"1926"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get obras by editorial",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel García Márquez\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"anio_publicacion\": 1967\n  },\n  {\n    \"nombre\": \"1984\",\n    \"autor\": \"George Orwell\",\n    \"cantidad_paginas\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"anio_publicacion\": 1949\n  },\n  {\n    \"nombre\": \"El principito\",\n    \"autor\": \"Antoine de Saint-Exupéry\",\n    \"cantidad_paginas\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"anio_publicacion\": 1943\n  },\n  {\n    \"nombre\": \"Don Quijote de la Mancha\",\n    \"autor\": \"Miguel de Cervantes\",\n    \"cantidad_paginas\": 1072,\n    \"editorial\": \"Juan de la Cuesta\",\n    \"anio_publicacion\": 1605\n  },\n  {\n    \"nombre\": \"Moby-Dick\",\n    \"autor\": \"Herman Melville\",\n    \"cantidad_paginas\": 720,\n    \"editorial\": \"Harper & Brothers\",\n    \"anio_publicacion\": 1851\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"autor\": \"Jane Austen\",\n    \"cantidad_paginas\": 432,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"anio_publicacion\": 1813\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"autor\": \"F. Scott Fitzgerald\",\n    \"cantidad_paginas\": 180,\n    \"editorial\": \"Charles Scribner's Sons\",\n    \"anio_publicacion\": 1925\n  },\n  {\n    \"nombre\": \"Harry Potter y la piedra filosofal\",\n    \"autor\": \"J.K. Rowling\",\n    \"cantidad_paginas\": 256,\n    \"editorial\": \"Bloomsbury\",\n    \"anio_publicacion\": 1997\n  },\n  {\n    \"nombre\": \"El Hobbit\",\n    \"autor\": \"J.R.R. Tolkien\",\n    \"cantidad_paginas\": 310,\n    \"editorial\": \"Allen & Unwin\",\n    \"anio_publicacion\": 1937\n  },\n  {\n    \"nombre\": \"Matar un ruiseñor\",\n    \"autor\": \"Harper Lee\",\n    \"cantidad_paginas\": 324,\n    \"editorial\": \"J.B. Lippincott & Co.\",\n    \"anio_publicacion\": 1960\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras_literarias/editorial/Charles Scribner's Sons",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras_literarias",
+						"editorial",
+						"Charles Scribner's Sons"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
