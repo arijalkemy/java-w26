@@ -1,10 +1,12 @@
 package meli.bootcamp.hql.service.impl;
 
 import java.util.List;
+import meli.bootcamp.hql.dto.PatenteModeloMarcaDto;
 import meli.bootcamp.hql.dto.SiniestroReqDto;
 import meli.bootcamp.hql.dto.SiniestroResDto;
 import meli.bootcamp.hql.mapper.SiniestrosMapper;
 import meli.bootcamp.hql.model.Siniestro;
+import meli.bootcamp.hql.projection.PatenteMarcaModeloView;
 import meli.bootcamp.hql.repository.ISiniestrosRepository;
 import meli.bootcamp.hql.service.ISiniestrosService;
 import org.springframework.stereotype.Service;
@@ -26,5 +28,11 @@ public class SiniestrosServiceImpl implements ISiniestrosService {
         List<Siniestro> siniestros = siniestrosMapper.toEntityList(siniestroReqDtos);
         List<Siniestro> siniestrosGuardados = siniestrosRepository.saveAll(siniestros);
         return siniestrosMapper.toDtoList(siniestrosGuardados);
+    }
+
+    @Override
+    public List<PatenteModeloMarcaDto> getPatenteModeloMarcaPeridasMayorA10000() {
+        List<PatenteMarcaModeloView> views = siniestrosRepository.findAllPerdidasMayoresA10000();
+        return siniestrosMapper.patenteModeloMarcaToDtoList(views);
     }
 }
