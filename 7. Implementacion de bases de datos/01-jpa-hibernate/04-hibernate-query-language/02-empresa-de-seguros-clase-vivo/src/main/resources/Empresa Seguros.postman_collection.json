@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "dff28156-83a1-4a60-a3da-19391816e9f7",
+		"name": "Empresa Seguros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Create sinister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sinisterDate\": \"2024-05-21\",\n    \"economicLoss\": 130.22,\n    \"reportedVehicle\": {\n        \"id\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/sinisters/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sinisters",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create vehicle",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patent\": \"ABC123\",\n    \"brand\": \"Mercedes\",\n    \"model\": \"AMG\",\n    \"fabricationYear\": 2020,\n    \"numberOfWheels\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/vehicles/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all sinisters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sinisters/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sinisters",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get sinister by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sinisters/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sinisters",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get vehicle by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update sinister",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sinisterDate\": \"2024-05-21\",\n    \"economicLoss\": 157.29,\n    \"reportedVehicle\": {\n        \"id\": 1\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/sinisters/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sinisters",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update vehicle",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patent\": \"XYZ123\",\n    \"brand\": \"Mercedes\",\n    \"model\": \"AMG\",\n    \"fabricationYear\": 2022,\n    \"numberOfWheels\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/vehicles/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete vehicle",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete sinister",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sinisters/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sinisters",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create multiple vehicles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"patent\": \"ABC123\",\n        \"brand\": \"Mercedes\",\n        \"model\": \"AMG\",\n        \"fabricationYear\": 2020,\n        \"numberOfWheels\": 4\n    },\n    {\n        \"patent\": \"XYZ789\",\n        \"brand\": \"Toyota\",\n        \"model\": \"Corolla\",\n        \"fabricationYear\": 2018,\n        \"numberOfWheels\": 4\n    },\n    {\n        \"patent\": \"DEF456\",\n        \"brand\": \"Honda\",\n        \"model\": \"Civic\",\n        \"fabricationYear\": 2019,\n        \"numberOfWheels\": 5\n    },\n    {\n        \"patent\": \"GHI789\",\n        \"brand\": \"Mercedes\",\n        \"model\": \"E-Class\",\n        \"fabricationYear\": 2017,\n        \"numberOfWheels\": 4\n    },\n    {\n        \"patent\": \"XYZ345\",\n        \"brand\": \"Chevrolet\",\n        \"model\": \"Suburban\",\n        \"fabricationYear\": 2024,\n        \"numberOfWheels\": 5\n    },\n    {\n        \"patent\": \"LMN678\",\n        \"brand\": \"Ford\",\n        \"model\": \"Expedition\",\n        \"fabricationYear\": 2020,\n        \"numberOfWheels\": 5\n    },\n    {\n        \"patent\": \"LMN678\",\n        \"brand\": \"Ford\",\n        \"model\": \"Expedition\",\n        \"fabricationYear\": 2024,\n        \"numberOfWheels\": 5\n    },\n    {\n        \"patent\": \"OPQ901\",\n        \"brand\": \"Chevrolet\",\n        \"model\": \"Tahoe\",\n        \"fabricationYear\": 2024,\n        \"numberOfWheels\": 5\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/vehicles/new/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"new",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all patents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/distinct-plates",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"distinct-plates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all patents and brands order by fabrication year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/order/fabrication-year",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"order",
+						"fabrication-year"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all patents with more than four wheels and fabricated this year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/order/wheels/fabrication-year",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"order",
+						"wheels",
+						"fabrication-year"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create multiple sinisters",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"sinisterDate\": \"2024-05-22\",\n        \"economicLoss\": 10500.75,\n        \"reportedVehicle\": {\n            \"id\": 3\n        }\n    },\n        {\n        \"sinisterDate\": \"2024-05-24\",\n        \"economicLoss\": 2000.60,\n        \"reportedVehicle\": {\n            \"id\": 4\n        }\n    },\n        {\n        \"sinisterDate\": \"2024-05-26\",\n        \"economicLoss\": 800.95,\n        \"reportedVehicle\": {\n            \"id\": 5\n        }\n    },\n    {\n        \"sinisterDate\": \"2024-05-28\",\n        \"economicLoss\": 12000.40,\n        \"reportedVehicle\": {\n            \"id\": 6\n        }\n    },\n        {\n        \"sinisterDate\": \"2024-05-30\",\n        \"economicLoss\": 200.30,\n        \"reportedVehicle\": {\n            \"id\": 8\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/sinisters/new/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sinisters",
+						"new",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all sinisters with economic loss greater than 10000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/order/sinister/economic-loss",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"order",
+						"sinister",
+						"economic-loss"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all vehicles with major losses in sinisters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/order/sinister/economic-loss/details",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"order",
+						"sinister",
+						"economic-loss",
+						"details"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
