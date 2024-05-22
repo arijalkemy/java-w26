@@ -1,0 +1,206 @@
+{
+	"info": {
+		"_postman_id": "03d7a265-ec3e-4829-966b-f1eeea3a65c2",
+		"name": "obras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34473469"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obras post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Don Quijote\",\n    \"cantidadPaginas\": 10,\n    \"fecha_primer_publicacion\": \"19/10/2000\",\n    \"autor\": {\n        \"nombre\":\"Miguel de Cervantes\"\n    },\n    \"editorial\": {\n        \"nombre\":\"Leo\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obras post batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"nombre\": \"Don Quijote\",\n    \"cantidadPaginas\": 10,\n    \"fecha_primer_publicacion\": \"19/10/2000\",\n    \"autor\": {\n      \"nombre\": \"Miguel de Cervantes\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Leo\"\n    }\n  },\n  {\n    \"nombre\": \"Hamlet\",\n    \"cantidadPaginas\": 15,\n    \"fecha_primer_publicacion\": \"25/04/1603\",\n    \"autor\": {\n      \"nombre\": \"William Shakespeare\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Penguin Books\"\n    }\n  },\n  {\n    \"nombre\": \"Cien años de soledad\",\n    \"cantidadPaginas\": 20,\n    \"fecha_primer_publicacion\": \"30/05/1967\",\n    \"autor\": {\n      \"nombre\": \"Gabriel García Márquez\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Vintage Espanol\"\n    }\n  },\n  {\n    \"nombre\": \"1984\",\n    \"cantidadPaginas\": 25,\n    \"fecha_primer_publicacion\": \"08/06/1949\",\n    \"autor\": {\n      \"nombre\": \"George Orwell\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Signet Classic\"\n    }\n  },\n  {\n    \"nombre\": \"Moby Dick\",\n    \"cantidadPaginas\": 30,\n    \"fecha_primer_publicacion\": \"18/10/1851\",\n    \"autor\": {\n      \"nombre\": \"Herman Melville\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Harper & Brothers\"\n    }\n  },\n  {\n    \"nombre\": \"Orgullo y prejuicio\",\n    \"cantidadPaginas\": 35,\n    \"fecha_primer_publicacion\": \"28/01/1813\",\n    \"autor\": {\n      \"nombre\": \"Jane Austen\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Penguin Classics\"\n    }\n  },\n  {\n    \"nombre\": \"El gran Gatsby\",\n    \"cantidadPaginas\": 40,\n    \"fecha_primer_publicacion\": \"10/04/1925\",\n    \"autor\": {\n      \"nombre\": \"F. Scott Fitzgerald\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Scribner\"\n    }\n  },\n  {\n    \"nombre\": \"La Odisea\",\n    \"cantidadPaginas\": 45,\n    \"fecha_primer_publicacion\": \"08/08/1614\",\n    \"autor\": {\n      \"nombre\": \"Homero\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Createspace Independent Publishing Platform\"\n    }\n  },\n  {\n    \"nombre\": \"El retrato de Dorian Gray\",\n    \"cantidadPaginas\": 50,\n    \"fecha_primer_publicacion\": \"20/06/1890\",\n    \"autor\": {\n      \"nombre\": \"Oscar Wilde\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Dover Publications\"\n    }\n  },\n  {\n    \"nombre\": \"La metamorfosis\",\n    \"cantidadPaginas\": 55,\n    \"fecha_primer_publicacion\": \"01/11/1915\",\n    \"autor\": {\n      \"nombre\": \"Franz Kafka\"\n    },\n    \"editorial\": {\n      \"nombre\": \"Penguin Books\"\n    }\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by autor name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras?autor=Kafka",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					],
+					"query": [
+						{
+							"key": "autor",
+							"value": "Kafka"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras?titulo=Don Quijote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					],
+					"query": [
+						{
+							"key": "titulo",
+							"value": "Don Quijote"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Top 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras/top5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"top5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BY EDITORIAL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras?editorial=Santillana",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					],
+					"query": [
+						{
+							"key": "editorial",
+							"value": "Santillana"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET BEFORE YEAR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/obras?year=2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
