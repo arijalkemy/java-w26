@@ -1,0 +1,38 @@
+Ejercicio N. 1
+
+Tengo que  crear una aplicación que se encarga de manejar la gestión de dinero en cuenta de los usuarios de Mercado Pago. 
+
+
+Cuando un usuario paga, luego de validar que tiene saldo, tengo que registrar el pago y decrementar su saldo.
+Cuando un usuario deposita dinero, tengo que incrementar su saldo. 
+Asimismo, con cada pago aprobado, y usando los valores del pago y el usuario varias aplicaciones de Fraude 
+calculan modelos de riesgo de los usuarios. 
+
+Desde una perspectiva de base de datos 
+¿Qué utilizarías? ¿Por qué? ¿Se te ocurre más de una forma de hacerlo?
+
+En este tipo de casos se necesita una base de datos que ofrezca una fuerte consistencia para evitar duplicidad 
+en las transacciones, ya que esto provocará problemas en el saldo de la cuenta del usuario, entonces se necesita una RDBMS. 
+
+
+
+
+Ejercicio N. 2
+
+Tengo que crear una aplicación que guarda datos de envíos.
+
+
+Para cada envío tengo que guardar algunos datos clave como shippingId, comprador, vendedor, producto, costo total, transportista y ruta. 
+Asimismo, asociado con eso, se debe guardar una foto de la orden de envío. Usualmente el equipo accede a esta data por el shippingId. 
+Además de esto, necesitan obtener en ocasiones, informaciones sobre los envíos para un comprador o vendedor en particular y agrupar 
+por ellos el costo total generado.
+
+Finalmente, por cuestiones regulatorias, deben saber hasta por 10 años por que ruta se envió un producto. 
+Desde una perspectiva de base de datos, 
+¿Qué utilizarías? ¿Por qué? ¿Se te ocurre más de una forma de hacerlo?
+
+
+En este caso utilizaría Inicialmente el Document Storage para almacenar la información del envío, también usaría una KVS para mejorar los
+tiempos de respuesta en el acceso a la información. En la Document Storage almacenaría a ruta de la fotografía de la orden de envío que.
+se debe guardar en una Object storage. La ruta también la almacenaría en una Audits para que la información se guarde por el tiempo 
+solicitado en la legislación.
