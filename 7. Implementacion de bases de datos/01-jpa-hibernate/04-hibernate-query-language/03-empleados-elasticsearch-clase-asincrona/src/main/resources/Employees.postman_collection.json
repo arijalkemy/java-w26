@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "cee98a98-7452-46b9-bd10-7829b9a9ff25",
+		"name": "Employees",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Create employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"María\",\n  \"lastName\": \"García\",\n  \"age\": 25,\n  \"city\": \"Barcelona\",\n  \"province\": \"Barcelona\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create multiple employees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"María\",\n        \"lastName\": \"García\",\n        \"age\": 25,\n        \"city\": \"Barcelona\",\n        \"province\": \"Barcelona\"\n    },\n    {\n        \"name\": \"Ana\",\n        \"lastName\": \"López\",\n        \"age\": 35,\n        \"city\": \"Madrid\",\n        \"province\": \"Madrid\"\n    },\n    {\n        \"name\": \"Carlos\",\n        \"lastName\": \"Martínez\",\n        \"age\": 28,\n        \"city\": \"Buenos Aires\",\n        \"province\": \"Buenos Aires\"\n    },\n    {\n        \"name\": \"Laura\",\n        \"lastName\": \"Fernández\",\n        \"age\": 40,\n        \"city\": \"Santiago\",\n        \"province\": \"Santiago\"\n    },\n    {\n        \"name\": \"Diego\",\n        \"lastName\": \"Ramírez\",\n        \"age\": 32,\n        \"city\": \"Lima\",\n        \"province\": \"Lima\"\n    },\n    {\n        \"name\": \"Sofía\",\n        \"lastName\": \"Díaz\",\n        \"age\": 27,\n        \"city\": \"Montevideo\",\n        \"province\": \"Montevideo\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees/create/bulk",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"create",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get employee by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/Hry-oY8BnZXnb69mpSXl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"Hry-oY8BnZXnb69mpSXl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"María\",\n  \"lastName\": \"García\",\n  \"age\": 27,\n  \"city\": \"Sevilla\",\n  \"province\": \"Sevilla\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/employees/Hry-oY8BnZXnb69mpSXl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"Hry-oY8BnZXnb69mpSXl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/employees/Hry-oY8BnZXnb69mpSXl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employees",
+						"Hry-oY8BnZXnb69mpSXl"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
