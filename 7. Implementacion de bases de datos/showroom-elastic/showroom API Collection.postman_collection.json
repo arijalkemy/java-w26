@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "e821acf1-bd74-4bcc-bdf1-30a8e0e882f2",
+		"name": "showroom API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34482140"
+	},
+	"item": [
+		{
+			"name": "Get All Clothes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clothe By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes/XYr0oI8BX0EXGk7XaZ3Z"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Clothe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codigo\": \"SKU123\",\n    \"nombre\": \"Elegant gims\",\n    \"tipo\": \"Top\",\n    \"marca\": \"Fashionista\",\n    \"color\": \"Red\",\n    \"size\": \"M\",\n    \"cantidad\": 10,\n    \"precioVenta\": 29.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/clothes"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Clothe",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codigo\": \"SKU123\",\n    \"nombre\": \"Updated Blouse Name\",\n    \"tipo\": \"Top\",\n    \"marca\": \"Fashionista\",\n    \"color\": \"Blue\",\n    \"size\": \"XXL\",\n    \"cantidad\": 5,\n    \"precioVenta\": 34.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/clothes/XYr0oI8BX0EXGk7XaZ3Z"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Clothe",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes/XIr0oI8BX0EXGk7XSZ3x"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Clothes By Size",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes/size/M"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Clothes by param_name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/search?name=gim",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "gim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Sale Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": \"SALE20240522\",\n    \"fecha\": \"2024-05-22\",\n    \"total\": 159.98,\n    \"medioDePago\": \"Credit Card\",\n    \"prendas\": [\n        {\n            \"codigo\": \"SKU123\",\n            \"nombre\": \"Elegant Blouse\",\n            \"tipo\": \"Top\",\n            \"marca\": \"Fashionista\",\n            \"color\": \"Red\",\n            \"size\": \"M\",\n            \"cantidad\": 2,\n            \"precioVenta\": 29.99\n        },\n        {\n            \"codigo\": \"SKU456\",\n            \"nombre\": \"Summer Shorts\",\n            \"tipo\": \"Bottom\",\n            \"marca\": \"TrendyWear\",\n            \"color\": \"Blue\",\n            \"size\": \"L\",\n            \"cantidad\": 1,\n            \"precioVenta\": 49.99\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/sale"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Sales Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/sale"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sale By ID Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Sale Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numero\": \"SALE20240522\",\n    \"fecha\": \"2024-05-23\",\n    \"total\": 199.97,\n    \"medioDePago\": \"Debit Card\",\n    \"prendas\": [\n        {\n            \"codigo\": \"SKU123\",\n            \"nombre\": \"Elegant Blouse\",\n            \"tipo\": \"Top\",\n            \"marca\": \"Fashionista\",\n            \"color\": \"Red\",\n            \"size\": \"M\",\n            \"cantidad\": 2,\n            \"precioVenta\": 29.99\n        },\n        {\n            \"codigo\": \"SKU789\",\n            \"nombre\": \"Stylish Jeans\",\n            \"tipo\": \"Bottom\",\n            \"marca\": \"DenimCo\",\n            \"color\": \"Black\",\n            \"size\": \"32\",\n            \"cantidad\": 1,\n            \"precioVenta\": 99.99\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Sale Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Sales By Date Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/searchByDate?date=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"searchByDate"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Sales By Number Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/clothes/:number",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"clothes",
+						":number"
+					],
+					"variable": [
+						{
+							"key": "number"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8080"
+		}
+	]
+}
