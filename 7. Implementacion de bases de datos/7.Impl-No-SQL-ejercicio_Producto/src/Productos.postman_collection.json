@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "1f079c37-804f-42ae-8a69-8940f1b2b647",
+		"name": "Productos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33821589"
+	},
+	"item": [
+		{
+			"name": "crear producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"1\",\n\t\"nombre\":\"empleado1\",\n    \"apellido\": \"apellido1\",\n    \"edad\": 23,\n    \"ciudad\": \"ciudad1\",\n    \"provincia\": \"provincia 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editar producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"1\",\n\t\"nombre\":\"empleado3\",\n    \"apellido\": \"apellido1\",\n    \"edad\": 23,\n    \"ciudad\": \"ciudad1\",\n    \"provincia\": \"provincia 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/empleado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"empleado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener todos los productos",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
