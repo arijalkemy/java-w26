@@ -2,6 +2,7 @@ package meli.bootcamp.hql.mapper;
 
 import java.util.List;
 import meli.bootcamp.hql.dto.PatenteModeloMarcaDto;
+import meli.bootcamp.hql.dto.PatenteModeloMarcaTotalDto;
 import meli.bootcamp.hql.dto.SiniestroReqDto;
 import meli.bootcamp.hql.dto.SiniestroResDto;
 import meli.bootcamp.hql.model.Siniestro;
@@ -39,5 +40,11 @@ public class SiniestrosMapper {
 
     private PatenteModeloMarcaDto patenteModeloMarcaToDto(PatenteMarcaModeloView view) {
         return modelMapper.map(view, PatenteModeloMarcaDto.class);
+    }
+
+    public PatenteModeloMarcaTotalDto patenteModeloMarcaTotalToDtoList(
+        List<PatenteMarcaModeloView> views, Double total
+    ) {
+        return new PatenteModeloMarcaTotalDto(patenteModeloMarcaToDtoList(views), total);
     }
 }
