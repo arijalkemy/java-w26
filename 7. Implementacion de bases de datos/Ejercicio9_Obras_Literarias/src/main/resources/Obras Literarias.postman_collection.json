@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "a12ca40d-2012-40d2-91c6-07f8f6ba3d51",
+		"name": "Obras Literarias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34294755"
+	},
+	"item": [
+		{
+			"name": "Bulk_ObrasLiterarias",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": { \"_id\": \"1\" } }\n{ \"name\": \"Cien Años de Soledad\", \"author\": \"Gabriel Garcia Marquez\", \"number_pages\": 417, \"editorial\": \"Sudamericana\", \"year_publication\": 1967 }\n{ \"index\": { \"_id\": \"2\" } }\n{ \"name\": \"El Amor en los Tiempos del Cólera\", \"author\": \"Gabriel Garcia Marquez\", \"number_pages\": 348, \"editorial\": \"Mondadori\", \"year_publication\": 1985 }\n{ \"index\": { \"_id\": \"3\" } }\n{ \"name\": \"Don Quijote de la Mancha\", \"author\": \"Miguel de Cervantes\", \"number_pages\": 863, \"editorial\": \"Francisco de Robles\", \"year_publication\": 1605 }\n{ \"index\": { \"_id\": \"4\" } }\n{ \"name\": \"La Ciudad y los Perros\", \"author\": \"Mario Vargas Llosa\", \"number_pages\": 432, \"editorial\": \"Seix Barral\", \"year_publication\": 1963 }\n{ \"index\": { \"_id\": \"5\" } }\n{ \"name\": \"Ficciones\", \"author\": \"Jorge Luis Borges\", \"number_pages\": 174, \"editorial\": \"Sur\", \"year_publication\": 1944 }\n{ \"index\": { \"_id\": \"6\" } }\n{ \"name\": \"La Casa de los Espíritus\", \"author\": \"Isabel Allende\", \"number_pages\": 368, \"editorial\": \"Debolsillo\", \"year_publication\": 1982 }\n{ \"index\": { \"_id\": \"7\" } }\n{ \"name\": \"1984\", \"author\": \"George Orwell\", \"number_pages\": 328, \"editorial\": \"Harvill Secker\", \"year_publication\": 1949 }\n{ \"index\": { \"_id\": \"8\" } }\n{ \"name\": \"Matar a un Ruiseñor\", \"author\": \"Harper Lee\", \"number_pages\": 281, \"editorial\": \"J.B. Lippincott & Co.\", \"year_publication\": 1960 }\n{ \"index\": { \"_id\": \"9\" } }\n{ \"name\": \"El Gran Gatsby\", \"author\": \"F. Scott Fitzgerald\", \"number_pages\": 180, \"editorial\": \"Charles Scribner's Sons\", \"year_publication\": 1925 }\n{ \"index\": { \"_id\": \"10\" } }\n{ \"name\": \"Orgullo y Prejuicio\", \"author\": \"Jane Austen\", \"number_pages\": 279, \"editorial\": \"T. Egerton\", \"year_publication\": 1813 }\n{ \"index\": { \"_id\": \"11\" } }\n{ \"name\": \"Crimen y Castigo\", \"author\": \"Fiódor Dostoyevski\", \"number_pages\": 430, \"editorial\": \"The Russian Messenger\", \"year_publication\": 1866 }\n{ \"index\": { \"_id\": \"12\" } }\n{ \"name\": \"En Busca del Tiempo Perdido\", \"author\": \"Marcel Proust\", \"number_pages\": 4215, \"editorial\": \"Grasset\", \"year_publication\": 1913 }\n{ \"index\": { \"_id\": \"13\" } }\n{ \"name\": \"Ulises\", \"author\": \"James Joyce\", \"number_pages\": 730, \"editorial\": \"Sylvia Beach\", \"year_publication\": 1922 }\n{ \"index\": { \"_id\": \"14\" } }\n{ \"name\": \"La Divina Comedia\", \"author\": \"Dante Alighieri\", \"number_pages\": 798, \"editorial\": \"Nicolò di Lorenzo della Magna\", \"year_publication\": 1320 }\n{ \"index\": { \"_id\": \"15\" } }\n{ \"name\": \"El Proceso\", \"author\": \"Franz Kafka\", \"number_pages\": 238, \"editorial\": \"Verlag Die Schmiede\", \"year_publication\": 1925 }\n{ \"index\": { \"_id\": \"16\" } }\n{ \"name\": \"Madame Bovary\", \"author\": \"Gustave Flaubert\", \"number_pages\": 327, \"editorial\": \"Revue de Paris\", \"year_publication\": 1857 }\n{ \"index\": { \"_id\": \"17\" } }\n{ \"name\": \"El Señor de los Anillos\", \"author\": \"J.R.R. Tolkien\", \"number_pages\": 1216, \"editorial\": \"George Allen & Unwin\", \"year_publication\": 1954 }\n{ \"index\": { \"_id\": \"18\" } }\n{ \"name\": \"Alicia en el País de las Maravillas\", \"author\": \"Lewis Carroll\", \"number_pages\": 200, \"editorial\": \"Macmillan\", \"year_publication\": 1865 }\n{ \"index\": { \"_id\": \"19\" } }\n{ \"name\": \"La Metamorfosis\", \"author\": \"Franz Kafka\", \"number_pages\": 201, \"editorial\": \"Kurt Wolff Verlag\", \"year_publication\": 1915 }\n{ \"index\": { \"_id\": \"20\" } }\n{ \"name\": \"Cumbres Borrascosas\", \"author\": \"Emily Brontë\", \"number_pages\": 342, \"editorial\": \"Thomas Cautley Newby\", \"year_publication\": 1847 }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:9200/obras_literarias/_bulk"
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Libro random\",\n    \"author\": \"Algún pibe\",\n    \"number_pages\": 300,\n    \"editorial\": \"666\",\n    \"yearPublication\": 1996\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/obras-literarias"
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Libro random\",\n    \"author\": \"Algún pibe\",\n    \"number_pages\": 300,\n    \"editorial\": \"666\",\n    \"yearPublication\": 1996\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/obras-literarias/1"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/obras-literarias"
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/obras-literarias/author/Gabriel Garcia Marquez"
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/obras-literarias/title/quijote"
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio 3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/obras-literarias/pages"
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio 4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/obras-literarias/year-publication/1990"
+			},
+			"response": []
+		},
+		{
+			"name": "Ejercicio 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/obras-literarias/editorial/mondadori"
+			},
+			"response": []
+		}
+	]
+}
