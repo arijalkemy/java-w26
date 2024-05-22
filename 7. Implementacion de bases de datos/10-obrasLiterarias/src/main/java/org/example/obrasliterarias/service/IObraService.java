@@ -12,4 +12,5 @@ public interface IObraService {
     List<ObraResponseDTO> findObraByPaginas();
     List<ObraResponseDTO> findObraByAnioPublicacion(Integer anio);
     List<ObraResponseDTO> findObraByEditorial(String editorial);
+    List<ObraResponseDTO> bulk(List<ObraRequestDTO> obrasDTO);
 }

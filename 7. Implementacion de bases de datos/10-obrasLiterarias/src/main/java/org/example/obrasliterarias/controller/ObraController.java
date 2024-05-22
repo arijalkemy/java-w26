@@ -21,6 +21,11 @@ public class ObraController {
         return ResponseEntity.ok(service.create(obra));
     }
 
+    @PostMapping("/bulk")
+    public ResponseEntity<List<ObraResponseDTO>> bulk(@RequestBody List<ObraRequestDTO> obrasDTO) {
+        return ResponseEntity.ok(service.bulk(obrasDTO));
+    }
+
     @GetMapping("/autor/{autor}")
     public ResponseEntity<List<ObraResponseDTO>> getObraByAutor(@PathVariable String autor) {
         return ResponseEntity.ok(service.findObraByAutor(autor));

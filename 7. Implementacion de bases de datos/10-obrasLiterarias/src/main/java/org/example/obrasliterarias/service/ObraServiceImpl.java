@@ -54,6 +54,14 @@ public class ObraServiceImpl implements IObraService {
         return listObras.stream().map(this::mapToDTO).toList();
     }
 
+    @Override
+    public List<ObraResponseDTO> bulk(List<ObraRequestDTO> obrasDTO) {
+        List<Obra> obras = obrasDTO.stream().map(
+                o -> repository.save(mapToEntity(o))
+        ).toList();
+        return obras.stream().map(this::mapToDTO).toList();
+    }
+
     private ObraResponseDTO mapToDTO(Obra Obra) {
         return mapper.map(Obra, ObraResponseDTO.class);
     }
