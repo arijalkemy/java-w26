@@ -91,6 +91,42 @@
 				"url": "{{localhost}}:{{port}}/vehiculos/patentes-mas-de-cuatro-ruedas-fabricados-este-anio"
 			},
 			"response": []
+		},
+		{
+			"name": "all siniestros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"fecha\": \"2022-06-15\",\n        \"perdida_economica\": 30000.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 3,\n            \"patente\": \"GHI789\",\n            \"marca\": \"Chevrolet\",\n            \"modelo\": \"Cruze\",\n            \"anio_fabricacion\": 2021,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-07-20\",\n        \"perdida_economica\": 20000.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 6,\n            \"patente\": \"PQR678\",\n            \"marca\": \"Mercedes\",\n            \"modelo\": \"A-Class\",\n            \"anio_fabricacion\": 2020,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-08-10\",\n        \"perdida_economica\": 6000.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 12,\n            \"patente\": \"HIJ456\",\n            \"marca\": \"Kia\",\n            \"modelo\": \"Soul\",\n            \"anio_fabricacion\": 2022,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-09-05\",\n        \"perdida_economica\": 5500.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 13,\n            \"patente\": \"KLM789\",\n            \"marca\": \"Mazda\",\n            \"modelo\": \"3\",\n            \"anio_fabricacion\": 2019,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-10-12\",\n        \"perdida_economica\": 8000.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 15,\n            \"patente\": \"QRS345\",\n            \"marca\": \"Volvo\",\n            \"modelo\": \"S60\",\n            \"anio_fabricacion\": 2017,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-11-25\",\n        \"perdida_economica\": 6500.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 16,\n            \"patente\": \"TUV678\",\n            \"marca\": \"Jeep\",\n            \"modelo\": \"Wrangler\",\n            \"anio_fabricacion\": 2023,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-12-03\",\n        \"perdida_economica\": 7200.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 17,\n            \"patente\": \"WXY901\",\n            \"marca\": \"Land Rover\",\n            \"modelo\": \"Discovery\",\n            \"anio_fabricacion\": 2020,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2022-12-30\",\n        \"perdida_economica\": 6800.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 18,\n            \"patente\": \"ZAB234\",\n            \"marca\": \"Renault\",\n            \"modelo\": \"Clio\",\n            \"anio_fabricacion\": 2019,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2023-01-18\",\n        \"perdida_economica\": 5300.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 19,\n            \"patente\": \"CDE567\",\n            \"marca\": \"Peugeot\",\n            \"modelo\": \"208\",\n            \"anio_fabricacion\": 2021,\n            \"cantidad_ruedas\": 4\n        }\n    },\n    {\n        \"fecha\": \"2023-02-14\",\n        \"perdida_economica\": 7500.0,\n        \"vehiculoDenunciado\": {\n            \"id\": 20,\n            \"patente\": \"FGH890\",\n            \"marca\": \"Fiat\",\n            \"modelo\": \"500\",\n            \"anio_fabricacion\": 2022,\n            \"cantidad_ruedas\": 4\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{localhost}}:{{port}}/siniestros/all"
+			},
+			"response": []
+		},
+		{
+			"name": "perdida mayor a 10000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{localhost}}:{{port}}/siniestros/patente-modelo-marca-perdida-mayor-a-10000"
+			},
+			"response": []
+		},
+		{
+			"name": "total perdida mayor a 10000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{localhost}}:{{port}}/siniestros/patente-modelo-marca-total-perdida-mayor-a-10000"
+			},
+			"response": []
 		}
 	]
 }
