@@ -14,7 +14,9 @@ public class Siniestro {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;
+    @Column(name = "fecha_de_siniestro")
     LocalDate fechaSiniestro;
+    @Column(name = "perdida_economica")
     double perdidaEconomica;
     @ManyToOne
     @JoinColumn(name = "vehiculo_id")

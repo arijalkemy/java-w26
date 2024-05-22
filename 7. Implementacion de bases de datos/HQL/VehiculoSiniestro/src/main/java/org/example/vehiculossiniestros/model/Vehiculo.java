@@ -17,7 +17,9 @@ public class Vehiculo {
     String patente;
     String marca;
     String modelo;
+    @Column(name = "anio_de_fabricacion")
     int anioDeFabricacion;
+    @Column(name = "cantidad_de_ruedas")
     int cantidadDeRuedas;
     @OneToMany(mappedBy = "vehiculo")
     Set<Siniestro> siniestros;
