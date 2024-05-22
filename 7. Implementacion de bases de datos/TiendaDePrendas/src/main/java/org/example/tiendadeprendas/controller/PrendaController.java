@@ -1,0 +1,60 @@
+package org.example.tiendadeprendas.controller;
+
+import org.example.tiendadeprendas.dto.PrendaDto;
+import org.example.tiendadeprendas.service.IPrendaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/clothes")
+public class PrendaController {
+    @Autowired
+    IPrendaService prendaService;
+
+    @PostMapping("")
+    public ResponseEntity<?> postPrenda(@RequestBody PrendaDto prendaDto) {
+        prendaService.createPrenda(prendaDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body("Prenda creada");
+    }
+    @PutMapping("{code}")
+    public ResponseEntity<?> putPrenda(@PathVariable Long code, @RequestBody PrendaDto prendaDto) {
+        prendaService.updatePrenda(code, prendaDto);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<PrendaDto>> getAllPrendas(){
+        List<PrendaDto> prendasDto = prendaService.allPrendas();
+        return new ResponseEntity<>(prendasDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/{code}")
+    public ResponseEntity<PrendaDto> getPrendaByCode(@PathVariable Long code){
+        PrendaDto prendaDto = prendaService.findByCode(code);
+
+        return new ResponseEntity<>(prendaDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/{size}")
+    public ResponseEntity<List<PrendaDto>> getPrendasBySize(@PathVariable String size){
+        List<PrendaDto> prendasDto = prendaService.prendasBySize(size);
+        return new ResponseEntity<>(prendasDto, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{code}")
+    public ResponseEntity<?> deletePrendaByCode(@PathVariable Long code){
+        prendaService.deletePrenda(code);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("")
+    public ResponseEntity<?> getPrendaByName(@RequestParam String name) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(prendaService.findPrendasByName(name));
+    }
+
+}
