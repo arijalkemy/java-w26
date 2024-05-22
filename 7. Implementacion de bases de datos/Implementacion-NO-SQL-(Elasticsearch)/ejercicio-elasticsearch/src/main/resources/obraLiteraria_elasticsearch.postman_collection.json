@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "4896d59a-42ea-4baa-8c63-c4e45a9a0ee9",
+		"name": "obraLiteraria_elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34388462"
+	},
+	"item": [
+		{
+			"name": "0001-createObraliteraria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nombre de la obra\",\n    \"author\": \"Autor de la obra\",\n    \"numberPages\": 200,\n    \"editorial\": \"Editorial de la obra\",\n    \"yearPublication\": 2024\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0001-createObrasliterarias",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"La Odisea\",\n        \"author\": \"Homero\",\n        \"numberPages\": 384,\n        \"editorial\": \"Gredos\",\n        \"yearPublication\": 800\n    },\n    {\n        \"name\": \"1984\",\n        \"author\": \"George Orwell\",\n        \"numberPages\": 328,\n        \"editorial\": \"Secker & Warburg\",\n        \"yearPublication\": 1949\n    },\n    {\n        \"name\": \"Cien años de soledad\",\n        \"author\": \"Gabriel García Márquez\",\n        \"numberPages\": 432,\n        \"editorial\": \"Sudamericana\",\n        \"yearPublication\": 1967\n    },\n    {\n        \"name\": \"Don Quijote de la Mancha\",\n        \"author\": \"Miguel de Cervantes\",\n        \"numberPages\": 1056,\n        \"editorial\": \"Juan de la Cuesta\",\n        \"yearPublication\": 1605\n    },\n    {\n        \"name\": \"Orgullo y prejuicio\",\n        \"author\": \"Jane Austen\",\n        \"numberPages\": 432,\n        \"editorial\": \"T. Egerton\",\n        \"yearPublication\": 1813\n    },\n    {\n        \"name\": \"Moby Dick\",\n        \"author\": \"Herman Melville\",\n        \"numberPages\": 768,\n        \"editorial\": \"Harper & Brothers\",\n        \"yearPublication\": 1851\n    },\n    {\n        \"name\": \"El Señor de los Anillos\",\n        \"author\": \"J.R.R. Tolkien\",\n        \"numberPages\": 1178,\n        \"editorial\": \"George Allen & Unwin\",\n        \"yearPublication\": 1954\n    },\n    {\n        \"name\": \"Harry Potter y la piedra filosofal\",\n        \"author\": \"J.K. Rowling\",\n        \"numberPages\": 256,\n        \"editorial\": \"Bloomsbury\",\n        \"yearPublication\": 1997\n    },\n    {\n        \"name\": \"El principito\",\n        \"author\": \"Antoine de Saint-Exupéry\",\n        \"numberPages\": 96,\n        \"editorial\": \"Reynal & Hitchcock\",\n        \"yearPublication\": 1943\n    },\n    {\n        \"name\": \"Crimen y castigo\",\n        \"author\": \"Fyodor Dostoevsky\",\n        \"numberPages\": 671,\n        \"editorial\": \"The Russian Messenger\",\n        \"yearPublication\": 1866\n    }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0002 - listByAuthor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias/obras-autor/Homero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias",
+						"obras-autor",
+						"Homero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0003 - listByKeyWordTitle",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias/obras-autor/Homero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias",
+						"obras-autor",
+						"Homero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0004 - listTop5ByNumberPages",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias/obras-autor/Homero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias",
+						"obras-autor",
+						"Homero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0005 - listByYearPublicationBefore",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias/obras-autor/Homero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias",
+						"obras-autor",
+						"Homero"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "0006 - listByEditorial",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/obras-literarias/obras-autor/Homero",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras-literarias",
+						"obras-autor",
+						"Homero"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
