@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "047f1844-3206-42d4-8384-7257f56edb84",
+		"name": "hql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34294818"
+	},
+	"item": [
+		{
+			"name": "all vehiculos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"patente\": \"ABC123\",\n        \"marca\": \"Toyota\",\n        \"modelo\": \"Corolla\",\n        \"anio_fabricacion\": 2020,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"DEF456\",\n        \"marca\": \"Ford\",\n        \"modelo\": \"Fiesta\",\n        \"anio_fabricacion\": 2019,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"GHI789\",\n        \"marca\": \"Chevrolet\",\n        \"modelo\": \"Cruze\",\n        \"anio_fabricacion\": 2021,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"JKL012\",\n        \"marca\": \"Honda\",\n        \"modelo\": \"Civic\",\n        \"anio_fabricacion\": 2018,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"MNO345\",\n        \"marca\": \"BMW\",\n        \"modelo\": \"X5\",\n        \"anio_fabricacion\": 2022,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"PQR678\",\n        \"marca\": \"Mercedes\",\n        \"modelo\": \"A-Class\",\n        \"anio_fabricacion\": 2020,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"STU901\",\n        \"marca\": \"Audi\",\n        \"modelo\": \"A4\",\n        \"anio_fabricacion\": 2017,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"VWX234\",\n        \"marca\": \"Tesla\",\n        \"modelo\": \"Model 3\",\n        \"anio_fabricacion\": 2023,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"YZA567\",\n        \"marca\": \"Nissan\",\n        \"modelo\": \"Sentra\",\n        \"anio_fabricacion\": 2016,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"BCD890\",\n        \"marca\": \"Volkswagen\",\n        \"modelo\": \"Golf\",\n        \"anio_fabricacion\": 2021,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"EFG123\",\n        \"marca\": \"Hyundai\",\n        \"modelo\": \"Elantra\",\n        \"anio_fabricacion\": 2020,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"HIJ456\",\n        \"marca\": \"Kia\",\n        \"modelo\": \"Soul\",\n        \"anio_fabricacion\": 2022,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"KLM789\",\n        \"marca\": \"Mazda\",\n        \"modelo\": \"3\",\n        \"anio_fabricacion\": 2019,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"NOP012\",\n        \"marca\": \"Subaru\",\n        \"modelo\": \"Impreza\",\n        \"anio_fabricacion\": 2018,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"QRS345\",\n        \"marca\": \"Volvo\",\n        \"modelo\": \"S60\",\n        \"anio_fabricacion\": 2017,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"TUV678\",\n        \"marca\": \"Jeep\",\n        \"modelo\": \"Wrangler\",\n        \"anio_fabricacion\": 2023,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"WXY901\",\n        \"marca\": \"Land Rover\",\n        \"modelo\": \"Discovery\",\n        \"anio_fabricacion\": 2020,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"ZAB234\",\n        \"marca\": \"Renault\",\n        \"modelo\": \"Clio\",\n        \"anio_fabricacion\": 2019,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"CDE567\",\n        \"marca\": \"Peugeot\",\n        \"modelo\": \"208\",\n        \"anio_fabricacion\": 2021,\n        \"cantidad_ruedas\": 4\n    },\n    {\n        \"patente\": \"FGH890\",\n        \"marca\": \"Fiat\",\n        \"modelo\": \"500\",\n        \"anio_fabricacion\": 2022,\n        \"cantidad_ruedas\": 4\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{localhost}}:{{port}}/vehiculos/all"
+			},
+			"response": []
+		},
+		{
+			"name": "patentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{localhost}}:{{port}}/vehiculos/patentes"
+			},
+			"response": []
+		},
+		{
+			"name": "patente y marca desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/vehiculos/patentes-marcas-ordenadas-por-anio-fabricacion?orden=desc",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehiculos",
+						"patentes-marcas-ordenadas-por-anio-fabricacion"
+					],
+					"query": [
+						{
+							"key": "orden",
+							"value": "desc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patente y marca asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/vehiculos/patentes-marcas-ordenadas-por-anio-fabricacion?orden=asc",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"vehiculos",
+						"patentes-marcas-ordenadas-por-anio-fabricacion"
+					],
+					"query": [
+						{
+							"key": "orden",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patentes mas de 4 ruedas fabricados este anio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{localhost}}:{{port}}/vehiculos/patentes-mas-de-cuatro-ruedas-fabricados-este-anio"
+			},
+			"response": []
+		}
+	]
+}
