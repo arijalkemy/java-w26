@@ -1,4 +1,4 @@
-package meli.bootcamp.hql.service;
+package meli.bootcamp.hql.service.impl;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -9,6 +9,7 @@ import meli.bootcamp.hql.mapper.VehiculosMapper;
 import meli.bootcamp.hql.model.Vehiculo;
 import meli.bootcamp.hql.projection.PatenteYMarcaView;
 import meli.bootcamp.hql.repository.IVehiculosRepository;
+import meli.bootcamp.hql.service.IVehiculosService;
 import org.springframework.stereotype.Service;
 
 @Service
