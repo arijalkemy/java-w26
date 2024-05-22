@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "a3223981-9230-4233-aad1-6f159bc3ca8a",
+		"name": "Movies",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Get actors favorite movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actors/favorite-movie",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actors",
+						"favorite-movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get actors by rating",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actors/rating-greater-than/7.0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actors",
+						"rating-greater-than",
+						"7.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get actors by movie title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actors/work-in-movie/harry",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actors",
+						"work-in-movie",
+						"harry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movies by actors rating",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/movies/actor-rating/8.0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"actor-rating",
+						"8.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get movies by genre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/movies/genre/aventura",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"genre",
+						"aventura"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get series by seasons quantity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/series/seasons/8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"series",
+						"seasons",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get episodes by actor name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/episodes/actor/emilia",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"episodes",
+						"actor",
+						"emilia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get episodes by rating",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/episodes/rating/9.0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"episodes",
+						"rating",
+						"9.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get series by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/series/title/the",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"series",
+						"title",
+						"the"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
