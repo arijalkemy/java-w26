@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "abde73d7-f5cc-433b-a820-6944cb261271",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Camiseta básica\",\n    \"type\": \"Ropa\",\n    \"sellingPrice\": 15.99,\n    \"costPrice\": 8.50,\n    \"stock\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create multiple products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"name\": \"Portátil HP\",\n    \"type\": \"Electrónica\",\n    \"sellingPrice\": 799.99,\n    \"costPrice\": 650.00,\n    \"stock\": 20\n  },\n  {\n    \"name\": \"Zapatillas deportivas\",\n    \"type\": \"Calzado\",\n    \"sellingPrice\": 59.99,\n    \"costPrice\": 35.75,\n    \"stock\": 30\n  },\n  {\n    \"name\": \"Smartphone Samsung Galaxy\",\n    \"type\": \"Electrónica\",\n    \"sellingPrice\": 899.00,\n    \"costPrice\": 750.00,\n    \"stock\": 15\n  },\n  {\n    \"name\": \"Silla de oficina ergonómica\",\n    \"type\": \"Mobiliario\",\n    \"sellingPrice\": 199.99,\n    \"costPrice\": 150.00,\n    \"stock\": 10\n  },\n  {\n    \"name\": \"Libro de ciencia ficción\",\n    \"type\": \"Libros\",\n    \"sellingPrice\": 12.50,\n    \"costPrice\": 6.75,\n    \"stock\": 100\n  },\n  {\n    \"name\": \"Cámara digital Canon EOS\",\n    \"type\": \"Electrónica\",\n    \"sellingPrice\": 649.00,\n    \"costPrice\": 550.00,\n    \"stock\": 8\n  },\n  {\n    \"name\": \"Juego de sartenes antiadherentes\",\n    \"type\": \"Utensilios de cocina\",\n    \"sellingPrice\": 49.99,\n    \"costPrice\": 35.25,\n    \"stock\": 25\n  },\n  {\n    \"name\": \"Lámpara de escritorio LED\",\n    \"type\": \"Iluminación\",\n    \"sellingPrice\": 29.99,\n    \"costPrice\": 20.00,\n    \"stock\": 40\n  },\n  {\n    \"name\": \"Gafas de sol polarizadas\",\n    \"type\": \"Accesorios\",\n    \"sellingPrice\": 39.99,\n    \"costPrice\": 25.50,\n    \"stock\": 60\n  }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/create/bulk",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"create",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/LLz_oY8BnZXnb69mkiXO",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"LLz_oY8BnZXnb69mkiXO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Juego de sartenes antiadherentes\",\n    \"type\": \"Utensilios de cocina\",\n    \"sellingPrice\": 69.99,\n    \"costPrice\": 47.78,\n    \"stock\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/LLz_oY8BnZXnb69mkiXO",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"LLz_oY8BnZXnb69mkiXO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/LLz_oY8BnZXnb69mkiXO",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"LLz_oY8BnZXnb69mkiXO"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
