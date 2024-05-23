@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "0fa1ca42-dbd5-4508-a180-2462c700964a",
+		"name": "QaTester",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34292971"
+	},
+	"item": [
+		{
+			"name": "Crud",
+			"item": [
+				{
+					"name": "createTestCase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Pending test case\",\n    \"tested\": false,\n    \"passed\": false,\n    \"number_of_tries\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/testcases/new",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listTestCases",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/testcases/all",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTestCaseById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/testcases/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTestCase",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Initialized\",\n    \"tested\": true,\n    \"passed\": true,\n    \"number_of_tries\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/testcases/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delTestCaseById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/testcases/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"testcases",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTestCasesByDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/testcases?last_update=04/04/2024",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "last_update",
+									"value": "04/04/2024"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}

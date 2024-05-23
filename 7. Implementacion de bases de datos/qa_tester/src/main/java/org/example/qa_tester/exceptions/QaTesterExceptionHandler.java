@@ -1,19 +1,20 @@
-package org.example.pearl_jewelry.exceptions;
+package org.example.qa_tester.exceptions;
 
-import org.example.pearl_jewelry.dto.errors.ExceptionDto;
-import org.example.pearl_jewelry.dto.errors.ValidationErrorDto;
+import org.example.qa_tester.dtos.exceptions.ExceptionDto;
+import org.example.qa_tester.dtos.exceptions.ValidationErrorDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class PearlJewelryExceptionHandler {
+public class QaTesterExceptionHandler {
     @ExceptionHandler(BadRequestException.class)
     public ResponseEntity<ExceptionDto> badRequest(BadRequestException ex, WebRequest webRequest) {
         ExceptionDto exceptionDto = new ExceptionDto(ex.getMessage(), webRequest.getDescription(false));
@@ -38,6 +39,18 @@ public class PearlJewelryExceptionHandler {
 
         ValidationErrorDto errorDto = new ValidationErrorDto(errorTree, webRequest.getDescription(false));
 
+        return ResponseEntity.badRequest().body(errorDto);
+    }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ValidationErrorDto> methodArgumentTypeMismatch(
+            MethodArgumentNotValidException ex, WebRequest webRequest
+    ) {
+        Map<String, String> errorTree = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(e -> {
+            errorTree.put(e.getField(), e.getDefaultMessage());
+        });
+        ValidationErrorDto errorDto = new ValidationErrorDto(errorTree, webRequest.getDescription(false));
         return ResponseEntity.badRequest().body(errorDto);
     }
 }
