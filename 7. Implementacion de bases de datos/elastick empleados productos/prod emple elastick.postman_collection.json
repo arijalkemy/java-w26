@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "7e45da96-0642-4a70-b935-00391e29822e",
+		"name": "prod emple elastick",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34268596"
+	},
+	"item": [
+		{
+			"name": "crear empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"123456\",\n  \"nombre\": \"Juan\",\n  \"apellido\": \"García\",\n  \"edad\": 35,\n  \"ciudad\": \"Buenos Aires\",\n  \"provincia\": \"Buenos Aires\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/empleados/new",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"empleados",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear producto",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}
