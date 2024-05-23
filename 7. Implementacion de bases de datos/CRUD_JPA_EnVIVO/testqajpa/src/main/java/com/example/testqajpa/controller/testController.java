@@ -15,54 +15,42 @@ import java.util.List;
 public class testController {
 
     @Autowired
-    private ITestQaService testQaService;
+    ITestQaService testQaService;
 
     @PostMapping("/new")
-    public ResponseEntity<String> createTestcase(@RequestBody TestcaseDTO testcase) {
-        String response = testQaService.crearTestQa(testcase);
-        return ResponseEntity.ok(response);
+    public ResponseEntity<?> createTestcase(@RequestBody TestcaseDTO testcaseDTO)
+    {
+        return ResponseEntity.ok().body(testQaService.crearTestQa(testcaseDTO));
     }
 
     @GetMapping
-    public ResponseEntity<List<TestcaseDTO>> getAllTestcases() {
-        List<TestcaseDTO> testcases = testQaService.buscarTodosLosTestQa();
-        return ResponseEntity.ok(testcases);
+    public ResponseEntity<?> getAllTestcases()
+    {
+        return ResponseEntity.ok().body(testQaService.buscarTodosLosTestQa());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TestcaseDTO> getTestcaseById(@PathVariable Long id) {
-        TestcaseDTO testcase = testQaService.buscarTestQaPorId(id);
-        if (testcase == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(testcase);
+    public ResponseEntity<?> getTestcaseById(Long id)
+    {
+        return ResponseEntity.ok().body(testQaService.buscarTestQaPorId(id));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateTestcase(@PathVariable Long id, @RequestBody TestcaseDTO testcase) {
-        try {
-            String response = testQaService.actualizarTestQa(id, testcase);
-            return ResponseEntity.ok(response);
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    @PutMapping("{id}")
+    public ResponseEntity<?> updateTestcase(@PathVariable Long id, @RequestBody TestcaseDTO testcaseDTO)
+    {
+        return ResponseEntity.ok().body(testQaService.actualizarTestQa(id, testcaseDTO));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTestcase(@PathVariable Long id) {
-        try {
-            String response = testQaService.eliminarTestQa(id);
-            return ResponseEntity.ok(response);
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    @DeleteMapping("{id}")
+    public String deleteTestcase(@PathVariable Long id)
+    {
+        return testQaService.eliminarTestQa(id);
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<List<TestcaseDTO>> getTestcasesByLastUpdate(
-            @RequestParam @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate lastUpdate) {
-        List<TestcaseDTO> testcases = testQaService.buscarConFiltro(lastUpdate);
-        return ResponseEntity.ok(testcases);
+    public ResponseEntity<?> getTestcasesByDate(@RequestParam LocalDate lastupdate)
+    {
+        return ResponseEntity.ok().body(testQaService.buscarConFiltro(lastupdate));
     }
 }
 
