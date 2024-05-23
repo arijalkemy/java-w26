@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "a9becc56-977e-462e-a373-4b643a3aa583",
+		"name": "Clothes Relacional",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34092107"
+	},
+	"item": [
+		{
+			"name": "Crear prenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Remera {{$randomAdjective}}\",\n    \"tipo\":\"Remera\",\n    \"marca\":\"Topper\",\n    \"color\":\"{{$randomColor}}\",\n    \"talle\":\"S\",\n    \"cantidad\":\"5\",\n    \"precioVenta\":\"20500\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/clothes"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todas las prendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/clothes"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar prenda por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/clothes/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar prenda por Talle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/clothes/bySize/S"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar prenda por nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/clothes/byName/re"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar prenda por Id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\":\"Remera {{$randomAdjective}}\",\n    \"tipo\":\"Remera\",\n    \"marca\":\"Topper\",\n    \"color\":\"Negro\",\n    \"talle\":\"M\",\n    \"cantidad\":\"5\",\n    \"precioVenta\":\"20500\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/clothes/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar prenda por Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "localhost:8080/clothes/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear venta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\": \"2024-12-01\",\n    \"medio_de_pago\": \"MercadoPago\",\n    \"id_prendas\": [\n        1,2,3\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/sale"
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todas las ventas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar venta por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/sale/2"
+			},
+			"response": []
+		}
+	]
+}
