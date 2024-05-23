@@ -14,3 +14,5 @@ Ejercicio Course - Relaciones JPA
 
 Ejercicio Vehículo - HQL: Hibernate Query Language - VIVO
 	ejercicio5_vehiculo
+
+Ajuste del archivo y prueba con git
