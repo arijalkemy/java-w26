@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "5370e4ee-dc11-4efd-a9e3-daab949b4720",
+		"name": "Literary Work",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294754"
+	},
+	"item": [
+		{
+			"name": "Create literary work",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cien años de soledad\",\n    \"author\": \"Gabriel García Márquez\",\n    \"pages\": 432,\n    \"editorial\": \"Sudamericana\",\n    \"releaseDateYear\": 1967\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/literary-works/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create multiple literary works",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"title\": \"Crónica de una muerte anunciada\",\n    \"author\": \"Gabriel García Márquez\",\n    \"pages\": 128,\n    \"editorial\": \"Santillana\",\n    \"releaseDateYear\": 1981\n  },\n  {\n    \"title\": \"El amor en los tiempos del cólera\",\n    \"author\": \"Gabriel García Márquez\",\n    \"pages\": 368,\n    \"editorial\": \"Oveja Negra\",\n    \"releaseDateYear\": 1985\n  },\n  {\n    \"title\": \"El principito\",\n    \"author\": \"Antoine de Saint-Exupéry\",\n    \"pages\": 96,\n    \"editorial\": \"Reynal & Hitchcock\",\n    \"releaseDateYear\": 1943\n  },\n  {\n    \"title\": \"Harry Potter y la piedra filosofal\",\n    \"author\": \"J.K. Rowling\",\n    \"pages\": 254,\n    \"editorial\": \"Bloomsbury\",\n    \"releaseDateYear\": 1997\n  },\n  {\n    \"title\": \"1984\",\n    \"author\": \"George Orwell\",\n    \"pages\": 328,\n    \"editorial\": \"Secker & Warburg\",\n    \"releaseDateYear\": 1949\n  },\n  {\n    \"title\": \"Don Quijote de la Mancha\",\n    \"author\": \"Miguel de Cervantes\",\n    \"pages\": 863,\n    \"editorial\": \"Francisco de Robles\",\n    \"releaseDateYear\": 1605\n  },\n  {\n    \"title\": \"Orgullo y prejuicio\",\n    \"author\": \"Jane Austen\",\n    \"pages\": 279,\n    \"editorial\": \"T. Egerton, Whitehall\",\n    \"releaseDateYear\": 1813\n  },\n  {\n    \"title\": \"Crimen y castigo\",\n    \"author\": \"Fyodor Dostoevsky\",\n    \"pages\": 671,\n    \"editorial\": \"The Russian Messenger\",\n    \"releaseDateYear\": 1866\n  },\n  {\n    \"title\": \"El Hobbit\",\n    \"author\": \"J.R.R. Tolkien\",\n    \"pages\": 310,\n    \"editorial\": \"George Allen & Unwin\",\n    \"releaseDateYear\": 1937\n  },\n  {\n    \"title\": \"Moby Dick\",\n    \"author\": \"Herman Melville\",\n    \"pages\": 634,\n    \"editorial\": \"Richard Bentley\",\n    \"releaseDateYear\": 1851\n  },\n  {\n    \"title\": \"La metamorfosis\",\n    \"author\": \"Franz Kafka\",\n    \"pages\": 56,\n    \"editorial\": \"Kurt Wolff Verlag\",\n    \"releaseDateYear\": 1915\n  },\n  {\n    \"title\": \"La ciudad y los perros\",\n    \"author\": \"Mario Vargas Llosa\",\n    \"pages\": 368,\n    \"editorial\": \"Santillana\",\n    \"releaseDateYear\": 1963\n  },\n  {\n    \"title\": \"El Aleph\",\n    \"author\": \"Jorge Luis Borges\",\n    \"pages\": 224,\n    \"editorial\": \"Santillana\",\n    \"releaseDateYear\": 1949\n  },\n  {\n    \"title\": \"Los detectives salvajes\",\n    \"author\": \"Roberto Bolaño\",\n    \"pages\": 584,\n    \"editorial\": \"Santillana\",\n    \"releaseDateYear\": 1998\n  },\n  {\n    \"title\": \"El túnel\",\n    \"author\": \"Ernesto Sabato\",\n    \"pages\": 160,\n    \"editorial\": \"Santillana\",\n    \"releaseDateYear\": 1948\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/literary-works/create/bulk",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"create",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all literary works",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get literary work by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/find/Oby4oo8BnZXnb69m7iXM",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"find",
+						"Oby4oo8BnZXnb69m7iXM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update literary work",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cien años de soledad\",\n    \"author\": \"Gabriel García Márquez\",\n    \"pages\": 582,\n    \"editorial\": \"Sudamericana\",\n    \"releaseDateYear\": 1970\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/literary-works/update/Oby4oo8BnZXnb69m7iXM",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"update",
+						"Oby4oo8BnZXnb69m7iXM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete literary work",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/delete/Oby4oo8BnZXnb69m7iXM",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"delete",
+						"Oby4oo8BnZXnb69m7iXM"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get literary works by author",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/find-by-author/gabriel",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"find-by-author",
+						"gabriel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get literary works by title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/find-by-title-containing/quijote",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"find-by-title-containing",
+						"quijote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get top 5 literary works by pages quantity desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/find-top-5-by-pages-desc",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"find-top-5-by-pages-desc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get literary works before year",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/find-by-release-date-year-before/1998",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"find-by-release-date-year-before",
+						"1998"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get literary works by editorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/literary-works/find-by-editorial/santillana",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"literary-works",
+						"find-by-editorial",
+						"santillana"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
