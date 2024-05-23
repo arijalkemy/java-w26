@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "34d3fe70-9bf2-4744-8a6f-86c7583932e2",
+		"name": "ElasticSearchJAVA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34766285"
+	},
+	"item": [
+		{
+			"name": "getLibros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLibrosByAutor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/hoMer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"hoMer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLibrosByNombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/hoMer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"hoMer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get libros by editorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/editorial/Greece",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"editorial",
+						"Greece"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/hoMer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"hoMer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get top 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libro/hoMer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libro",
+						"hoMer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts elastic Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProducts elastic Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"id\": 1,\n            \"nombre\": \"Tesst\",\n            \"tipo\": null,\n            \"precio\": null,\n            \"costo\": null,\n            \"cantidad\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"producto"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

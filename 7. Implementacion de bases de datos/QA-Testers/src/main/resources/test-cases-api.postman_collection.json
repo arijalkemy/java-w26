@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "9b69e626-d87c-494b-abc2-947969287fc9",
+		"name": "test-cases-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34400903"
+	},
+	"item": [
+		{
+			"name": "post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"New test case\",\n    \"tested\": true,\n    \"passed\": false,\n    \"numberOfTries\": 2,\n    \"lastUpdate\": \"2024-05-20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"New test case\",\n    \"tested\": true,\n    \"passed\": false,\n    \"numberOfTries\": 2,\n    \"lastUpdate\": \"2024-05-20\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/53",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"53"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get pageable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/findAll?page=1&size=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"findAll"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/52",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by last_update",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/last_update?last_update=2024-02-23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"last_update"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "2024-02-23"
+						}
+					]
+				},
+				"description": "\nThe API endpoint `GET /api/testcases/last_update` is used to retrieve test cases that were last updated on a specific date.\n\n### Response\nThe response is a JSON array containing objects with the following properties:\n- `idCase` (number): The ID of the test case.\n- `description` (string): The description of the test case.\n- `tested` (boolean): Indicates if the test case has been executed.\n- `passed` (string): Indicates if the test case passed.\n- `numberOfTries` (number): The number of attempts made for the test case.\n- `lastUpdate` (string): The date when the test case was last updated.\n\nExample:\n```json\n[\n    {\n        \"idCase\": 0,\n        \"description\": \"\",\n        \"tested\": true,\n        \"passed\": \"\",\n        \"numberOfTries\": 0,\n        \"lastUpdate\": \"\"\n    }\n]\n```\n"
+			},
+			"response": []
+		}
+	]
+}
