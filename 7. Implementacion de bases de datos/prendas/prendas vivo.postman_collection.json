@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "e6ea8214-5d31-4239-8b30-eb9b85fb0c66",
+		"name": "prendas vivo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34474464"
+	},
+	"item": [
+		{
+			"name": "ventas",
+			"item": [
+				{
+					"name": "crear venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha\": \"2022-12-01\",\n    \"total\": 230.00,\n    \"medioDePago\": \"Tarjeta de Crédito\",\n    \"lista_de_prendas\": [\n        {\n            \"prenda_id\": 1,\n            \"cantidad\": 1,\n            \"precioUnitario\": 150.00\n        },\n        {\n            \"prenda_id\": 2,\n            \"cantidad\": 1,\n            \"precioUnitario\": 80.00\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sale",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fecha\": \"2022-12-01\",\n    \"total\": 200.00,\n    \"medioDePago\": \"Tarjeta de Crédito\",\n    \"lista_de_prendas\": [\n        {\n            \"prenda_id\": 1,\n            \"cantidad\": 1,\n            \"precioUnitario\": 150.00\n        },\n        {\n            \"prenda_id\": 2,\n            \"cantidad\": 1,\n            \"precioUnitario\": 80.00\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/sale/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale?date=2022-12-01",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2022-12-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find clothes by number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/sale/clothes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"sale",
+								"clothes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "prendas",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crear",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Camisa\",\n    \"tipo\": \"Formal\",\n    \"marca\": \"Dior\",\n    \"color\": \"Blanco\",\n    \"talle\": \"M\",\n    \"cantidad\": 10,\n    \"precio_venta\": 150.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clothes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Remera\",\n    \"tipo\": \"Formal\",\n    \"marca\": \"Armani\",\n    \"color\": \"Blanco\",\n    \"talle\": \"M\",\n    \"cantidad\": 10,\n    \"precio_venta\": 150.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/clothes/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by size",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes/size/42",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes",
+								"size",
+								"42"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/clothes?name=Pantalón",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clothes"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Pantalón"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

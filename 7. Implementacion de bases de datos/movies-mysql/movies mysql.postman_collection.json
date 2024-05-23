@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "0bb68d69-9625-4e3e-8241-7e6c53f52088",
+		"name": "movies mysql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34474464"
+	},
+	"item": [
+		{
+			"name": "/actores",
+			"item": [
+				{
+					"name": "/with-favorite-movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/actores/with-favorite-movie",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actores",
+								"with-favorite-movie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ratingGreaterThan/{rating}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/actores/ratingGreaterThan/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actores",
+								"ratingGreaterThan",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/pelicula/{peliculaId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/actores/pelicula/16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"actores",
+								"pelicula",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/peliculas",
+			"item": [
+				{
+					"name": "/actores/ratingGreaterThan/{rating}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/peliculas/actores/ratingGreaterThan/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"actores",
+								"ratingGreaterThan",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/genero/{generoId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/peliculas/genero/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"genero",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/series",
+			"item": [
+				{
+					"name": "/temporadasGreaterThan/{cantTemporadas}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/series/temporadasGreaterThan/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"series",
+								"temporadasGreaterThan",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/episodios",
+			"item": [
+				{
+					"name": "/actor/{actorId}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/episodios/actor/49",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"episodios",
+								"actor",
+								"49"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
