@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "2bfb1cfe-cf3f-4292-9c19-8023ae5ee14f",
+		"name": "moviesHQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34268596"
+	},
+	"item": [
+		{
+			"name": "actorsWithFavoriteMovie",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "rating",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "actors by movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/actors/movie/harry potter",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"actors",
+						"movie",
+						"harry potter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movies by actor rating",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "movies by genre",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "series by seasons number",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "episodes by actor id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080\n",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "b3f0692c-9356-416d-aa6a-8a3ade053ca9",
+		"name": "ejercicio extra",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34268596"
+	},
+	"item": [
+		{
+			"name": "Bulk_Prendas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"index\":{\"_index\":\"clothes\",\"_id\":\"1\"}}\n{\"code\":\"G1\",\"name\":\"Camiseta básica\",\"type\":\"Camiseta\",\"brand\":\"Marca A\",\"color\":\"Blanco\",\"size\":42,\"quantity\":100,\"salePrice\":19.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"2\"}}\n{\"code\":\"G2\",\"name\":\"Pantalón de mezclilla\",\"type\":\"Pantalón\",\"brand\":\"Marca B\",\"color\":\"Azul\",\"size\":32,\"quantity\":50,\"salePrice\":49.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"3\"}}\n{\"code\":\"G3\",\"name\":\"Sudadera con capucha\",\"type\":\"Sudadera\",\"brand\":\"Marca C\",\"color\":\"Negro\",\"size\":40,\"quantity\":70,\"salePrice\":29.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"4\"}}\n{\"code\":\"G4\",\"name\":\"Falda corta\",\"type\":\"Falda\",\"brand\":\"Marca D\",\"color\":\"Rojo\",\"size\":36,\"quantity\":40,\"salePrice\":24.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"5\"}}\n{\"code\":\"G5\",\"name\":\"Vestido largo\",\"type\":\"Vestido\",\"brand\":\"Marca E\",\"color\":\"Verde\",\"size\":38,\"quantity\":30,\"salePrice\":59.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"6\"}}\n{\"code\":\"G6\",\"name\":\"Chaqueta de cuero\",\"type\":\"Chaqueta\",\"brand\":\"Marca F\",\"color\":\"Negro\",\"size\":44,\"quantity\":20,\"salePrice\":89.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"7\"}}\n{\"code\":\"G7\",\"name\":\"Zapatos deportivos\",\"type\":\"Zapatos\",\"brand\":\"Marca G\",\"color\":\"Blanco\",\"size\":41,\"quantity\":60,\"salePrice\":69.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"8\"}}\n{\"code\":\"G8\",\"name\":\"Sombrero de ala ancha\",\"type\":\"Sombrero\",\"brand\":\"Marca H\",\"color\":\"Marrón\",\"size\":56,\"quantity\":15,\"salePrice\":15.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"9\"}}\n{\"code\":\"G9\",\"name\":\"Bufanda de lana\",\"type\":\"Bufanda\",\"brand\":\"Marca I\",\"color\":\"Gris\",\"size\":180,\"quantity\":25,\"salePrice\":9.99}\n{\"index\":{\"_index\":\"clothes\",\"_id\":\"10\"}}\n{\"code\":\"G10\",\"name\":\"Guantes de cuero\",\"type\":\"Guantes\",\"brand\":\"Marca J\",\"color\":\"Negro\",\"size\":9,\"quantity\":35,\"salePrice\":19.99}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/garments/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"garments",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear prenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Camisa de algodón\",\n  \"type\": \"Camisa\",\n  \"brand\": \"MarcaX\",\n  \"color\": \"Azul\",\n  \"size\": 42,\n  \"quantity\": 100,\n  \"sale_price\": 29.99\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/clothes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las prendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clothes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prenda por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clothes/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete por id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clothes/21",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener prenda por tamaño",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clothes/size/42",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"size",
+						"42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener por nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/clothes?name=camiseta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "camiseta"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Venta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"date\": \"2024-05-22\",\n  \"total\": 119.96,\n  \"payment_method\": \"Tarjeta de crédito\",\n  \"sale_details\": [\n    {\n      \"quantity\": 2,\n      \"price\": 59.98,\n      \"garment\": {\n        \"code\": 1,\n        \"name\": \"Camisa de algodón\",\n        \"type\": \"Camisa\",\n        \"brand\": \"MarcaX\",\n        \"color\": \"Azul\",\n        \"size\": 42,\n        \"quantity\": 100,\n        \"sale_price\": 29.99\n      }\n    },\n    {\n      \"quantity\": 1,\n      \"price\": 59.98,\n      \"garment\": {\n        \"code\": 3,\n        \"name\": \"Pantalones de lino\",\n        \"type\": \"Pantalones\",\n        \"brand\": \"MarcaY\",\n        \"color\": \"Blanco\",\n        \"size\": 36,\n        \"quantity\": 50,\n        \"sale_price\": 59.98\n      }\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/sale",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las ventas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/sale",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener venta por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/sale/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar venta por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/sale/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prendas por fecha de venta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/sale?date=2024-05-01",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2024-05-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prendas por id venta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/sale/clothes/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"clothes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
