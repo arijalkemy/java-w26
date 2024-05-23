@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "69c8dc84-2d9c-4c4b-892b-c7d0348d05b8",
+		"name": "API Obras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34402904"
+	},
+	"item": [
+		{
+			"name": "Find By Autor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras/find/Garcia marquez",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"find",
+						"Garcia marquez"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Titulo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras/find/titulo/quijote",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"find",
+						"titulo",
+						"quijote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Editorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras/find/editorial/Editorial Sudamericana",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"find",
+						"editorial",
+						"Editorial Sudamericana"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Top 5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras/find/top5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"find",
+						"top5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find by Year Publicacion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/obras/find/publicacion/2022",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"find",
+						"publicacion",
+						"2022"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Obra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Cien años de soledad\",\n    \"autor\": \"Garcia Marquez\",\n    \"paginas\": null,\n    \"editorial\": \"Editorial Sudamericana\",\n    \"publicacion\": 1967\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/obras/save",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"obras",
+						"save"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
