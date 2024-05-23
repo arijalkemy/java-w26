@@ -4,4 +4,13 @@ Ejercicio Miniserie - JPA + Hibernate Vivo
 	ejercicio1_miniserie
 
 Ejercicio Jewerly - CRUD con JPA
-	ejercicio2_jewerly
+	ejercicio2_jewerly	
+
+Ejercicio Testcase - Paso a paso + Ejercicios en Vivo
+	ejercicio3_testcase
+
+Ejercicio Course - Relaciones JPA
+	ejercicio4_course
+
+Ejercicio Vehículo - HQL: Hibernate Query Language - VIVO
+	ejercicio5_vehiculo
