@@ -62,7 +62,9 @@ public class ProductControllerTest {
                 .andExpect(status().isOk());
 
          result.andDo(MockMvcResultHandlers.print());
+
     }
+
 
     @Test
     @DisplayName("enviar nombre de producto con caracter especia devuelve badRequest")
