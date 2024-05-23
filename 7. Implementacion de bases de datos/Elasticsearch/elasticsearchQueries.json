@@ -1,0 +1,87 @@
+
+{
+    "mappings":{
+        "properties":{
+            "brand":{
+                "type":"text"
+            },
+            "price":{
+                "type":"float"
+            },
+            "color":{
+                "type":"text"
+            },
+            "size":{
+                "type":"integer"
+            }
+        }
+    }
+}
+
+
+{"index":{"_id":1}}
+{"brand": "Converse","price": 200,"color": "Red","size": 10}
+{"index":{"_id":2}}
+{"brand": "Adiddas","price": 200,"color": "Red","size": 10}
+{"index":{"_id":3}}
+{"brand": "Nike","price": 200,"color": "Red","size": 10}
+{"index":{"_id":4}}
+{"brand": "Adiddas","price": 200,"color": "Blue","size": 70}
+{"index":{"_id":5}}
+{"brand": "Adiddas","price": 250,"color": "Yellow","size": 100}
+{"index":{"_id":6}}
+{"brand": "Adiddas","price": 300,"color": "Green","size": 98}
+{"index":{"_id":7}}
+{"brand": "Adiddas","price": 30,"color": "Grey","size": 1}
+{"index":{"_id":8}}
+{"brand": "Nike","price": 90,"color": "Blue","size": 3}
+{"index":{"_id":9}}
+{"brand": "Nike","price": 89.8,"color": "Yellow","size": 11}
+{"index":{"_id":10}}
+{"brand": "Nike","price": 180.77,"color": "Green","size": 12}
+{"index":{"_id":11}}
+{"brand": "Nike","price": 100.72,"color": "Grey","size": 9}
+{"index":{"_id":12}}
+{"brand": "Guess","price": 142.99,"color": "Blue","size": 40}
+{"index":{"_id":13}}
+{"brand": "Guess","price": 150.04,"color": "Yellow","size": 20}
+{"index":{"_id":14}}
+{"brand": "Guess","price": 179.99,"color": "Green","size": 30}
+{"index":{"_id":15}}
+{"brand": "Converse","price": 100.99,"color": "Grey","size": 10}
+{"index":{"_id":16}}
+{"brand": "Converse","price": 99,"color": "Blue","size": 7}
+{"index":{"_id":17}}
+{"brand": "Converse","price": 100,"color": "Yellow","size": 8}
+{"index":{"_id":18}}
+{"brand": "Converse","price": 101.98,"color": "Green","size": 9}
+{"index":{"_id":19}}
+{"brand": "Converse","price": 1000,"color": "Grey","size": 10}
+
+GET localhost:9200/zapatillas/_search
+
+{
+    "query":{
+        "match":{
+            "color":"red"
+        }
+    }
+}
+
+GET localhost:9200/zapatillas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET localhost:9200/zapatillas/_search
+{
+    "query": {
+        "range": {
+            "size": {
+                "lte": 10
+            }
+        }
+    }
+}
