@@ -1,0 +1,6 @@
+Respuesta:
+
+Nuestro grupo pensó en que la opción sería:
+- TimeOut = 250ms
+- Retries = 1
+Puesto que es un punto medio entre p99 y p95, así se cubre al menos el 95% de requests en la primera llamada y con un re intento se asegura que pueda cubrir el 95% de las request que fallaron en la primera llamada, lo cual sería realmente poco. El time-out se escogió para que pudiera acercarse lo más posible al p99 sin exceder el SLA de 500ms.
