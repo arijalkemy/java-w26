@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "8c32ad51-6c82-4deb-a2b8-a999c14a65a2",
+		"name": "JoyeriaLasPerlas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34482140"
+	},
+	"item": [
+		{
+			"name": "add new jewel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\":\"Cadena\",\n   \"material\":\"oro\",\n   \"weight\":999,\n   \"description\":\"Hermosa cadena de oro 24k\" ,\n   \"hasStone\":true,\n   \"isOnSale\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/jewerly/new"
+			},
+			"response": []
+		},
+		{
+			"name": "get all jewels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/jewerly"
+			},
+			"response": []
+		},
+		{
+			"name": "delete logically a jewel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/jewerly/delete/11"
+			},
+			"response": []
+		},
+		{
+			"name": "update jewel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\":\"Cadena\",\n   \"material\":\"oro\",\n   \"weight\":999,\n   \"description\":\"Hermosa cadena de oro 24k\" ,\n   \"hasStone\":true,\n   \"isOnSale\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/jewerly/update/11"
+			},
+			"response": []
+		}
+	]
+}
