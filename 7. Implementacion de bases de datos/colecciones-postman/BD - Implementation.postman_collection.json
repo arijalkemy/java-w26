@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "5a22d07e-aad6-4bbb-ad39-1c56955b7c03",
+		"name": "BD - Implementation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34289762"
+	},
+	"item": [
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "get-student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/student/1"
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/student/"
+					},
+					"response": []
+				},
+				{
+					"name": "delete-student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{server}}/api/student/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create-student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dni\":\"1000591649\",\n    \"name\":\"Andrés\",\n    \"surname\": \"Lugo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{server}}/api/student/"
+					},
+					"response": []
+				},
+				{
+					"name": "update-student",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"id\": 2,\n        \"dni\": \"1000591649\",\n        \"name\": \"Felipe\",\n        \"surname\": \"Lugo\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{server}}/api/student/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Elastic",
+			"item": []
+		},
+		{
+			"name": "Joya",
+			"item": [
+				{
+					"name": "get-joya",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/joya/1"
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-joyas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/joya/"
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-joyas-logical",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/joya/logical/"
+					},
+					"response": []
+				},
+				{
+					"name": "delete-joya",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{server}}/api/joya/2"
+					},
+					"response": []
+				},
+				{
+					"name": "delete-joya-logical",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{server}}/api/joya/2"
+					},
+					"response": []
+				},
+				{
+					"name": "create-joya",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Cadena\",\n    \"material\": \"oro\",\n    \"peso\": 500,\n    \"particularidad\": \"Cadena del CJ aka Mr GTA\",\n    \"poseePiedra\": true,\n    \"ventaONo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{server}}/api/joya/"
+					},
+					"response": []
+				},
+				{
+					"name": "update-joya",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nro_identificatorio\": 1,\n    \"nombre\": \"Anillo\",\n    \"material\": \"plata\",\n    \"peso\": 320.0,\n    \"particularidad\": \"Forma circular con triángulos\",\n    \"poseePiedra\": false,\n    \"ventaONo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{server}}/api/joya/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Case",
+			"item": [
+				{
+					"name": "get-test-case",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/testcases"
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-test-case",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/testcases"
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-test-case-last-update",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/testcases?last_update=23-03-2024",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "last_update",
+									"value": "23-03-2024"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-test-case-passed-or-tested",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{server}}/api/testcases"
+					},
+					"response": []
+				},
+				{
+					"name": "delete-test-case",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{server}}/api/testcases"
+					},
+					"response": []
+				},
+				{
+					"name": "create-test-case",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Cadena\",\n    \"material\": \"oro\",\n    \"peso\": 500,\n    \"particularidad\": \"Cadena del CJ aka Mr GTA\",\n    \"poseePiedra\": true,\n    \"ventaONo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{server}}/api/testcases"
+					},
+					"response": []
+				},
+				{
+					"name": "update-test-case",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nro_identificatorio\": 1,\n    \"nombre\": \"Anillo\",\n    \"material\": \"plata\",\n    \"peso\": 320.0,\n    \"particularidad\": \"Forma circular con triángulos\",\n    \"poseePiedra\": false,\n    \"ventaONo\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{server}}/api/testcases"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
