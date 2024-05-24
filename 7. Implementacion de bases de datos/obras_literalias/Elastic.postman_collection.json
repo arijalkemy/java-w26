@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "3e2e6fc8-644a-4b8f-bf5b-b3b90de641fc",
+		"name": "Elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34294002"
+	},
+	"item": [
+		{
+			"name": "Post Obras-Elastic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": {} }\n{ \"name\": \"Cien años de soledad\", \"author\": \"Gabriel García Márquez\", \"amountOfPages\": 471, \"editorial\": \"Editorial Sudamericana\", \"publishingYear\": 1967}\n{ \"index\": {} }\n{ \"name\": \"Pedro Páramo\", \"author\": \"Juan Rulfo\", \"amountOfPages\": 124, \"editorial\": \"Fondo de Cultura Económica\",\"publishingYear\": 1955 }\n{ \"index\": {} }\n{ \"name\": \"Rayuela\", \"author\": \"Julio Cortázar\", \"amountOfPages\": 679, \"editorial\": \"Sudamericana\", \"publishingYear\": 1963 }  \n{ \"index\": {} }\n{ \"name\": \"La ciudad y los perros\", \"author\": \"Mario Vargas Llosa\", \"amountOfPages\": 504, \"editorial\": \"Seix Barral\", \"publishingYear\": 1963}\n{ \"index\": {} }\n{ \"name\": \"La casa de los espíritus\", \"author\": \"Isabel Allende\", \"amountOfPages\": 433, \"editorial\": \"Plaza & Janés\", \"publishingYear\": 1982 }\n{ \"index\": {} }\n{ \"name\": \"Ficciones\", \"author\": \"Jorge Luis Borges\", \"amountOfPages\": 173, \"editorial\": \"Sur\", \"publishingYear\": 1944}\n{ \"index\": {} }\n{ \"name\": \"El amor en los tiempos del cólera\", \"author\": \"Gabriel García Márquez\", \"amountOfPages\": 378, \"editorial\": \"Oveja Negra\", \"publishingYear\": 1985}\n{ \"index\": {} }\n{ \"name\": \"Doña Bárbara\", \"author\": \"Rómulo Gallegos\", \"amountOfPages\": 352, \"editorial\": \"Losada\", \"publishingYear\": 1929 }\n{ \"index\": {} }\n{ \"name\": \"Aura\", \"author\": \"Carlos Fuentes\", \"amountOfPages\": 77, \"editorial\": \"Joan Boldó\", \"publishingYear\": 1962}\n{ \"index\": {} }\n{ \"name\": \"Los pasos perdidos\", \"author\": \"Alejo Carpentier\", \"amountOfPages\": 398, \"editorial\": \"Fondo de Cultura Económica\",\"publishingYear\": 1953}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/obra_literaria/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"obra_literaria",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search all - Elastic",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\": 30,\n  \"query\": {\n    \"match_all\": {}\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/obra_literaria/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"obra_literaria",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete index - Elastic",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9200/obra_literaria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"obra_literaria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por autor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/obras?author_name=Gabriel García Márquez",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"obras"
+					],
+					"query": [
+						{
+							"key": "author_name",
+							"value": "Gabriel García Márquez"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta por title keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/obras?keyword=soledad",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"obras"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "soledad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top 5 con mas paginas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/obras/topPorPagina",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"obras",
+						"topPorPagina"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "publicadas antes de un año en particular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/obras/publicadasAntes?yearPublished=1990",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"obras",
+						"publicadasAntes"
+					],
+					"query": [
+						{
+							"key": "yearPublished",
+							"value": "1990"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Por editorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/obras?editorial=Sudamericana",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"obras"
+					],
+					"query": [
+						{
+							"key": "editorial",
+							"value": "Sudamericana"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
