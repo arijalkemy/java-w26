@@ -16,10 +16,18 @@
 
 > 📂StarWars_TestUnitarios
 
-## Ejercicio N5 - Práctica Test Unitarios Números Romanos
+## Ejercicio N5 - Práctica Test Unitarios Star Wars
+
+> 📂StarWars_TestIntegracion
+
+## Ejercicio N6 - Práctica Test Unitarios Números Romanos
 
 >📂NumerosRomanos_TestUnitarios
 
-## Ejercicio N6 - Práctica Test Unitarios y de Integración Calculadora Metros Cuadrados
+## Ejercicio N7 - Práctica Test Unitarios y de Integración Calculadora Metros Cuadrados
 
 >📂Calculadora_TestUnitariosIntegra
+
+## Ejercicio N8 - Práctica Test Viajes
+
+>📂Viajes_test
