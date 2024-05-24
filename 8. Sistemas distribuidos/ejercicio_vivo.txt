@@ -1,0 +1,25 @@
+Respuesta ejercicio 1:
+
+	De acuerdo a lo hablado y conversado en la meet, se establecen diferentes opciones
+	dar cumplimiento a con un timeout de 250ms con el fin de garantizar más del 50% de
+	la máxima respuesta que es 400ms, y asimismo, se establece 1 reintento o retrie con 
+	el fin de que si fallan algunos en el proceso se puede a volver a intentar la petición
+	y cumplir con lo solicitado con máximo de 500ms en la respuesta del servicio.
+
+Respuesta ejercicio 2:
+
+	En este punto grupal, se establecieron diferentes soluciones, una de estás era que 
+	solamente se estableciera un timeout de 400ms y sin retrie de acuerdo a que se debe
+	garantizar la funcionalidad correcta del servicio, otra solución que se planteo y se
+	selecciono como equipo debido fue la misma anterior, timeout de 250ms y 1 retrie de
+	acuerdo a lo mismo de la anterior, con el fin de garantizar que si fallan algunas 
+	se pudiera almenas volver a intentar 1 vez y cumplir con el tiempo máximo de respuesta
+	de 500ms.
+
+	
+	Ahora, de acuerdo a lo hablado y aclarado en la mentoría, la mejor decisión es
+	seleccionar la porcentual 95 (P95) que tiene 150ms y dos retries ya que, esté 
+	garantiza que si llegan 100 solicitudes las 100 solicitudes en el proceso de la
+	primera y los dos retries se de respuesta y que cumple de un total de 450ms que 
+	es menos de lo que se espera como respuesta del servicio (500ms). 
+
