@@ -15,4 +15,9 @@ Ejercicio Course - Relaciones JPA
 Ejercicio Vehículo - HQL: Hibernate Query Language - VIVO
 	ejercicio5_vehiculo
 
-Ajuste del archivo y prueba con git
+Ejercicio Asíncronos - Implementación NO SQL (Elasticsearch) 
+	ejercicio6_empleados
+	ejercicio7_productos
+
+Ejercicio Obras Literarias - Implementación NO SQL (Elasticsearch) - VIVO
+	ejercicio8_obrasliterarias

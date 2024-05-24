@@ -1,13 +1,13 @@
-package com.bootcamp.vehiculo;
+package com.bootcamp.employees;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EjercicioApplication {
+public class EmployeeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EjercicioApplication.class, args);
+		SpringApplication.run(EmployeeApplication.class, args);
 	}
 
 }

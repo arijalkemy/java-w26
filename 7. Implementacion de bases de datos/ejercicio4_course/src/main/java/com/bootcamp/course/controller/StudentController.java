@@ -3,6 +3,7 @@ package com.bootcamp.course.controller;
 import com.bootcamp.course.dto.StudentDTO;
 import com.bootcamp.course.service.IStudentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,11 @@ public class StudentController {
 
     private IStudentService studentService;
 
+    @Autowired
     public StudentController(IStudentService studentService) {
         this.studentService = studentService;
     }
+
 
     @PostMapping
     public ResponseEntity<StudentDTO> save(@RequestBody StudentDTO studentDTO) {
@@ -43,15 +46,16 @@ public class StudentController {
 
     @PutMapping("/{id}")
     public ResponseEntity<StudentDTO> update(@PathVariable Long id,
-                                       @RequestParam String identification,
-                                       @RequestParam String name,
-                                       @RequestParam String lastName) {
-        return ResponseEntity.ok().body(studentService.update(id, identification, name, lastName));
-    }
+                                             @RequestParam(required = false) String identification,
+                                             @RequestParam(required = false) String name,
+                                             @RequestParam(required = false) String lastName,
+                                             @RequestBody StudentDTO studentDTO) {
 
-    @PutMapping()
-    public ResponseEntity<StudentDTO> update(@RequestBody StudentDTO studentDTO) {
-        return ResponseEntity.ok().body(studentService.update(studentDTO));
+        if (identification != null && name != null && lastName != null)
+            return ResponseEntity.ok().body(studentService.updatePartial(id, identification, name, lastName));
+
+        return ResponseEntity.ok().body(studentService.update(id, studentDTO));
+
     }
 
     @GetMapping("/average/{student_id}")

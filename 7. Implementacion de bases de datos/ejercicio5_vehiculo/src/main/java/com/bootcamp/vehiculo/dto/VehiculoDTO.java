@@ -29,7 +29,7 @@ public class VehiculoDTO {
 
     @JsonFormat(pattern = "dd-MM-yyyy")
     @JsonProperty("anio_fabricacion")
-    private LocalDate anioFabricacion;
+    private Integer anioFabricacion;
 
     @JsonProperty("cantidad_ruedas")
     private Integer cantidadRuedas;

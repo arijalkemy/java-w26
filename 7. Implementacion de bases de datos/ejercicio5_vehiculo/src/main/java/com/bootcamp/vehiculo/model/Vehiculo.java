@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Vehiculo {
 
     @Id
@@ -26,8 +28,8 @@ public class Vehiculo {
 
     private String modelo;
 
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private LocalDate anioFabricacion;
+    @Column(name = "anio_fabricacion")
+    private Integer anioFabricacion;
 
     @Column(name = "cantidad_ruedas", nullable = false)
     private Integer cantidadRuedas;

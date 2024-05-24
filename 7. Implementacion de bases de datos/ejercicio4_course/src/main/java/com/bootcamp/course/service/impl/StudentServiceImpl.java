@@ -13,15 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class StudentService implements IStudentService {
+public class StudentServiceImpl implements IStudentService {
 
     private final IStudentRepository studentRepository;
+    private final String NAME_ENTITY = "estudiante";
 
-    public StudentService(IStudentRepository studentRepository) {
+    public StudentServiceImpl(IStudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
-    private final String NOT_FOUND_MESSAGE = "No se encontró el alumno solicitado";
 
     @Override
     @Transactional
@@ -39,12 +39,12 @@ public class StudentService implements IStudentService {
     @Override
     public StudentDTO findById(Long id) {
         return StudentMapper.studentToStudentDTO(studentRepository.findById(id).orElseThrow(
-                () -> new NotFoundException(NOT_FOUND_MESSAGE)));
+                () -> new NotFoundException(NAME_ENTITY)));
     }
 
     @Override
     @Transactional
-    public StudentDTO update(Long id, String identification, String name, String lastName) {
+    public StudentDTO updatePartial(Long id, String identification, String name, String lastName) {
         Student student = StudentMapper.studentDTOToStudent(findById(id));
         student.setIdentification(identification);
         student.setName(name);
@@ -54,8 +54,9 @@ public class StudentService implements IStudentService {
 
     @Override
     @Transactional
-    public StudentDTO update(StudentDTO studentDTO) {
-        validate(studentDTO.getId());
+    public StudentDTO update(Long id, StudentDTO studentDTO) {
+        validate(id);
+        studentDTO.setId(id);
         return StudentMapper.studentToStudentDTO(
                 studentRepository.save(StudentMapper.studentDTOToStudent(studentDTO)));
     }
@@ -81,7 +82,7 @@ public class StudentService implements IStudentService {
 
     private void validate(Long id) {
         if (!studentRepository.existsById(id)) {
-            throw new NotFoundException(NOT_FOUND_MESSAGE);
+            throw new NotFoundException(NAME_ENTITY);
         }
     }
 

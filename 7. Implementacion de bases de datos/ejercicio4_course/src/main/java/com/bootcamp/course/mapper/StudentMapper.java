@@ -4,6 +4,7 @@ import com.bootcamp.course.dto.StudentDTO;
 import com.bootcamp.course.entity.Student;
 import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentMapper {
@@ -19,6 +20,10 @@ public class StudentMapper {
     }
 
     public static List<StudentDTO> studentListToStudentDTOList(List<Student> studentList) {
+
+        if(studentList == null)
+            return new ArrayList<>();
+
         return studentList.stream()
                 .map(StudentMapper::studentToStudentDTO)
                 .toList();
