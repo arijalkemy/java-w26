@@ -1,0 +1,26 @@
+
+Qué tengo en el DAO?
+
+
+1. Método save que guarda un DTO de student
+2. Método que borra
+3. Método que comprueba la existencia de un DTO
+4. Método que encuentra por ID
+
+
+
+1. Casos borde save
+    - Guardar un estudiante que no exista check
+    - Guardar un estudiante que ya exista check
+
+2. Casos borde delete
+    - Borrar un estudiante que existe
+    - Borrar un estudiante que no existe
+
+3. Casos borde find
+    - Encontrar un estudiante que existe
+    - Encontrar un estudiante que no existe
+
+
+
+
