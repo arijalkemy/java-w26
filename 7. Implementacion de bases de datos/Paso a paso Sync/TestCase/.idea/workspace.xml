@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da1cdff3-a628-4486-a118-8045225a57a0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../4. Testing/1- Introducción a la calidad de SW - P1/ObtenerDiploma/src/main/java/Ejercicio/ObtenerDiploma/exception/GlobalExceptionHandlerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4. Testing/1- Introducción a la calidad de SW - P1/ObtenerDiploma/src/main/java/Ejercicio/ObtenerDiploma/exception/GlobalExceptionHandlerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../4. Testing/2-Validaciones + Tests Unitarios - VIVO/ObtenerDiplomaTesting/src/main/java/com/meli/obtenerdiploma/service/ObtenerDiplomaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4. Testing/2-Validaciones + Tests Unitarios - VIVO/ObtenerDiplomaTesting/src/main/java/com/meli/obtenerdiploma/service/ObtenerDiplomaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../4. Testing/2-Validaciones + Tests Unitarios - VIVO/ObtenerDiplomaTesting/src/test/java/com/meli/obtenerdiploma/service/ObtenerDiplomaServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../4. Testing/2-Validaciones + Tests Unitarios - VIVO/ObtenerDiplomaTesting/src/test/java/com/meli/obtenerdiploma/service/ObtenerDiplomaServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Controller/JewelController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/CrudApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/DTO/Request/JewelRequestDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/DTO/Response/JewelResponseDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Entity/Jewel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Exception/ControllerAdvice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Exception/JewelNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Repository/IJewelRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Service/IJewelService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/java/ejercicio/Crud/Service/implementation/JewelService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Crud con JPA Async/Crud/src/test/java/ejercicio/Crud/CrudApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/src/main/java/practica/Miniseries/Entity/MiniSerie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/src/main/java/practica/Miniseries/MiniseriesApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/src/main/java/practica/Miniseries/Repository/IMiniserieRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../JPA + Hibernate Sync/Miniseries/src/test/java/practica/Miniseries/MiniseriesApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ejercicio/TestCase/Entity/TestCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ejercicio/TestCase/TestCaseApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Ejercicio/TestCase/TestCaseApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2gk4kg9DPRVZpIRihJlZqkPgaKe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/brdonato/RepositoryW26/java-w26/7. Implementacion de bases de datos/Paso a paso Sync/TestCase",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "c9aba2c3e60126169e80e9a26ba273c1"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="TestCaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="TestCase" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="Ejercicio.TestCase.TestCaseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da1cdff3-a628-4486-a118-8045225a57a0" name="Changes" comment="" />
+      <created>1716228385662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716228385662</updated>
+      <workItem from="1716228386792" duration="1278000" />
+      <workItem from="1716260243622" duration="2358000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
