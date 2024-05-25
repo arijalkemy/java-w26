@@ -12,19 +12,10 @@ import java.util.List;
 
 @Repository
 public interface ISaleRepository extends JpaRepository<Sale,Long> {
-    /*
-    @Query("SELECT p " +
-            "FROM Sale s JOIN s.clothesList p " +
-            "WHERE s.date = :date")
-     */
+
     @Query("SELECT s.clothesList FROM Sale s WHERE s.date = :date")
     List<Clothes> findAllClothesBySaleDate(@Param("date") LocalDate date);
 
-    /*
-    @Query("SELECT p " +
-            "FROM Sale s JOIN s.clothesList p " +
-            "WHERE s.id = :number")
-    */
     @Query("SELECT s.clothesList FROM Sale s WHERE s.id = :saleId")
     List<Clothes> findAllClothesBySale(@Param("saleId") Long saleId);
 
