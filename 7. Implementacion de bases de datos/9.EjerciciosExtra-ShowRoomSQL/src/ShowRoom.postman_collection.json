@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "65b60d99-e01c-474e-9e07-93742646bb50",
+		"name": "ShowRoom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33821589"
+	},
+	"item": [
+		{
+			"name": "Crear prenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codigo\": 1,\n    \"nombre\": \"bufanda de lana\",\n    \"marca\": \"marca a\",\n    \"talla\": \"talla a\",\n    \"color\": \"azul\",\n    \"cantidad\": 2,\n    \"precio\": 200.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clothes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las prendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar prenda por codigo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/getByCode/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"getByCode",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar prenda",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJhbGRvLmJvcm5hY2VsbHlAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiQWxkbyBKdW5pb3IgQm9ybmFjZWxseSBOYXZhcnJvIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6ImFib3JuYWNlbGx5In0sImV4cCI6MTcxNjYwMDk0NCwiaWF0IjoxNzE2NTY4NTQ0LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9hYm9ybmFjZWxseSIsImlzcyI6ImZ1cnlfdGlnZXIiLCJzdWIiOiJhYm9ybmFjZWxseSJ9.GOfRti90hX0Rs-AKDn2FucBpX6ISWYCfsF0ePWDLIfKNOFG9IFoGbXS-i4RWeBM62TK378Ql8uhBQXOA5zWsHrCd3YTm6xmRMus73k_sbxccaf7E4DVHrwomHTs-oi5BsmmW3GYqnE7h0gDqpGp5m0veYuSGsPFFpo9utkD0WarZRZu6uJZtGzyi5CueqoTQ1PKWUvBszvf9D_XZssPZkUnvRS_gFKZbOadgzgtBv2ICRlj9P0i2yOf8tKBc_eRLhfH9tE1PqK2UP3RJrshScZW-Z4m919j9LzvVo5_FaJQ_rtxxlYpcUDhg2POB_sIBFNqEGimJBf6OvAGeEj-6jQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "x-tiger-token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"bufanda editada\",\n    \"marca\": \"marca a\",\n    \"talla\": \"talla a\",\n    \"color\": \"azul\",\n    \"cantidad\": 2,\n    \"precio\": 2132.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar prenda",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Prenda por talla",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/getBySize/talla a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"getBySize",
+						"talla a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar prenda por nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes?name=bufanda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "bufanda"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Venta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\": \"2020-01-01\",\n    \"precioTotal\": 200.0,\n    \"medioPago\": \"tarjeta\",\n    \"prendaLista\": [\n        {\n            \"codigo\": 1,\n            \"nombre\": \"bufanda de lana\",\n            \"marca\": \"marca a\",\n            \"talla\": \"talla a\",\n            \"color\": \"azul\",\n            \"cantidad\": 2,\n            \"precio\": 200.0\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las ventas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener venta por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar venta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\": \"2020-01-01\",\n    \"precioTotal\": 200.0,\n    \"medioPago\": \"Nequi\",\n    \"prendaLista\": [\n        {\n            \"codigo\": 1,\n            \"nombre\": \"bufanda de lana\",\n            \"marca\": \"marca a\",\n            \"talla\": \"talla a\",\n            \"color\": \"azul\",\n            \"cantidad\": 2,\n            \"precio\": 200.0\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/sale/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Venta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las ventas por fecha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale?date=2022-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2022-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener todas las prendas de una venta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale/clothes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale",
+						"clothes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
