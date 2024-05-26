@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "2fc0cc0c-1f95-40f5-8598-b18027e59c7d",
+		"name": "QA Testers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33821589"
+	},
+	"item": [
+		{
+			"name": "Post TestCase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"prueba\",\n    \"tested\": true,\n    \"passed\": true,\n    \"last_updated\": \"2020-01-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ALL testCases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get TestCase By id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get TestCase after a date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases?last_update=2010-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases"
+					],
+					"query": [
+						{
+							"key": "last_update",
+							"value": "2010-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put TestCase",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"prueba\",\n    \"tested\": true,\n    \"passed\": true,\n    \"last_updated\": \"2020-01-01\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Testcase",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/testcases/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"testcases",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
