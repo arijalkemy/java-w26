@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "5a343b1c-0813-4c27-9ba9-de7077cd7771",
+		"name": "actores, peliculas, series",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34426729"
+	},
+	"item": [
+		{
+			"name": "actors-favorite-movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actors/favorite/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actors",
+						"favorite",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actors-ranking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actors/ranking?num=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actors",
+						"ranking"
+					],
+					"query": [
+						{
+							"key": "num",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actors-tittle",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/actors/movies?movies=Inception",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actors",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "movies",
+							"value": "Inception"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movies-actors-by-ranking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/actors?num=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"actors"
+					],
+					"query": [
+						{
+							"key": "num",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "movies-genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/movies/genres?genres=Action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"movies",
+						"genres"
+					],
+					"query": [
+						{
+							"key": "genres",
+							"value": "Action"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "series-genres count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/series/seasons?seasons=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"series",
+						"seasons"
+					],
+					"query": [
+						{
+							"key": "seasons",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "episodes-series-actors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/series/seasons/actors?actor=Tom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"series",
+						"seasons",
+						"actors"
+					],
+					"query": [
+						{
+							"key": "actor",
+							"value": "Tom"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
