@@ -1,0 +1,20 @@
+spring:
+
+  application:
+    name: joyeria
+
+  datasource:
+    url: jdbc:h2:mem:joyeriadb
+    username: sa
+    password: sa
+    driverClassName: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+server:
+  port: 8080
