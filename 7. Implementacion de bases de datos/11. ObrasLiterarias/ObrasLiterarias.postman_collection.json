@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "3079345c-6954-4b5d-b134-1d93d94dd540",
+		"name": "ObrasLiterarias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34316992"
+	},
+	"item": [
+		{
+			"name": "Post Obra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Cien años de soledad\",\n    \"autor\": \"Gabriel Garcia Marquez\",\n    \"cantidad_paginas\": 500,\n    \"editorial\": \"Santillan\",\n    \"anio_primera_publicacion\": 1967\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obra",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por autor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras/autor/gabriel",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras",
+						"autor",
+						"gabriel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar por nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras/nombre/cien",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras",
+						"nombre",
+						"cien"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top 5 mas paginas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras/top-5-total-paginas",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras",
+						"top-5-total-paginas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publicado antes del año",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras/publicacion-antes/2000",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras",
+						"publicacion-antes",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busca por editorial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{localhost}}:{{port}}/obras/editorial/santillan",
+					"host": [
+						"{{localhost}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"obras",
+						"editorial",
+						"santillan"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}
