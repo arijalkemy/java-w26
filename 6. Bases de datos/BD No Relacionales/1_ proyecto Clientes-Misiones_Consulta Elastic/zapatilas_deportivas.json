@@ -1,0 +1,4 @@
+{ "index": {} }
+{ "marca": "Nike", "modelo": "Air Max", "precio": 120.0, "talla": "42", "color": "Negro", "descripcion": "zapatillas_deportivas de running", "stock": 50 }
+{ "index": {} }
+{ "marca": "Adidas", "modelo": "Ultra Boost", "precio": 180.0, "talla": "43", "color": "Blanco", "descripcion": "zapatillas_deportivas de entrenamiento", "stock": 30 }

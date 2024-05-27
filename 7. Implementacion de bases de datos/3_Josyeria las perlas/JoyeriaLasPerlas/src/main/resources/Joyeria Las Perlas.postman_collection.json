@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "35e4a043-a574-404b-9f72-90454c282033",
+		"name": "Joyeria Las Perlas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33784114"
+	},
+	"item": [
+		{
+			"name": "savejoya",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Anillo\",\n    \"material\": \"oro\",\n    \"peso\": 350,\n    \"particularidad\": \"Otra particularidad\",\n    \"posee_piedra\": false,\n    \"ventaONo\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/jewerly/new"
+			},
+			"response": []
+		},
+		{
+			"name": "get joyas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/jewerly/"
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar joya",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:8080/jewerly/delete/3"
+			},
+			"response": []
+		},
+		{
+			"name": "modificar joya",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Anillo\",\n    \"material\": \"oro\",\n    \"peso\": 350,\n    \"particularidad\": \"Otra particularidad\",\n    \"posee_piedra\": false,\n    \"ventaONo\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/jewerly/update/1"
+			},
+			"response": []
+		}
+	]
+}
