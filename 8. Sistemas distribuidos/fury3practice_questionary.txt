@@ -1,0 +1,10 @@
+1. ¿Qué ocurriría si nos llegan 1000 requests por minuto? ¿Y si llegaran 100.000? ¿Esta API tiene una implementación correcta? ¿Qué preguntas harías para pensar en optimizaciones a hacerle a la API?
+- En caso de que lleguen demasiadas requests, yo creo que se podría tener en caché las requests más recientes, o de algún modo las requests más solicitadas, así no se tendría que consultar al api de mercadolibre cada vez. En caso de tener que realizar muchas peticiones se podría crear una cola de peticiones y si se excede un límite de tiempo de espera se re-intente un par de veces más (dependiendo de los requerimientos), en caso de no recibir respuesta luego de los re-intentos se puede enviar un error 408 (por el timeout) o un 409 (conflicto).
+- Actualmente considero que la API que realicé no tiene una implementación correcta pues puede ser mejorada con mejores prácticas y manejando casos borde, con errores, conflictos, etc.
+
+2. Una vez deployada en producción, ¿cómo te vas a asegurar de enterarte si hay algún problema con tu aplicación? Por ejemplo: si hay un alto grado de errores.
+- Se puede realizar un log de los errores. No sé cómo funcionan la herramientas como NewRelic, DataDog o Kibana, pero estas pueden ser utilizadas para monitorear la aplicación.
+
+3. Asumiendo que las cotizaciones cambian una vez al día, ¿qué opción podemos tomar para mejorar esta API?
+- En la primera pregunta propuse una solución. Se podría tener en caché las requests más recientes, o de algún modo las requests más solicitadas, así no se tendría que consultar al api de mercadolibre cada vez.
+- También se podría hacer una sola consulta y mantener la respuesta en memoria para enviarla cuando se consulte, pero con esta opción podría consumir bastante memoria pues tendría todas las consultas.
