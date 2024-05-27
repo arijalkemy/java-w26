@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "9a1a8632-7360-483d-8194-2ecbf4c927ab",
+		"name": "Mapeo Clave Compuesta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34403745"
+	},
+	"item": [
+		{
+			"name": "Create Compra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"empresa\" : \"MercadoLibre\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/compras/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compras",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all compras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/compras",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"compras"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
