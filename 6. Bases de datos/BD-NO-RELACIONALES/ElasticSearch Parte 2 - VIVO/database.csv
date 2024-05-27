@@ -1,0 +1,21 @@
+marca,modelo,precio,color,talla,genero,tipo,material,tecnologia,lanzamiento
+Nike,Air Max 90,120,Blanco,42,masculino,casual,Cuero,Air,2023-01-15
+Adidas,Ultraboost 22,180,Negro,40,femenino,running,Boost,Primeknit,2022-02-28
+Nike,Air Jordan 1,150,Rojo,44,masculino,baloncesto,Cuero,Air,2023-03-10
+Puma,RS-X,100,Azul,38,unisex,casual,Malla,Running System,2022-05-20
+New Balance,550,110,Blanco,41,masculino,casual,Cuero,ENCAP,2023-06-02
+Asics,Gel-Kayano 29,160,Gris,43,masculino,running,Malla,GEL,2022-07-12
+Converse,Chuck Taylor All Star,60,Negro,39,unisex,casual,Lona,OrthoLite,2023-08-25
+Hoka,Clifton 9,140,Azul,45,masculino,running,Malla,Meta-Rocker,2022-09-08
+Reebok,Club C 85,80,Blanco,37,femenino,casual,Cuero,EVA,2023-10-18
+Saucony,Endorphin Speed 3,170,Naranja,42,masculino,running,Malla,PWRRUN PB,2022-11-22
+On,Cloudstratus,150,Negro,40,femenino,running,Malla,CloudTec,2023-12-05
+Salomon,Speedcross 6,130,Verde,44,masculino,trail,Malla,Contagrip,2022-12-28
+Under Armour,Hovr Phantom 3,120,Gris,41,unisex,running,Malla,HOVR,2023-01-10
+Brooks,Ghost 15,140,Azul,38,femenino,running,Malla,DNA Loft,2022-02-14
+Mizuno,Wave Rider 26,130,Negro,43,masculino,running,Malla,Mizuno Enerzy,2023-03-20
+Skechers,GOrun Ride 10,110,Rosa,39,femenino,running,Malla,Hyper Burst,2022-04-25
+Altra,Torin 6,150,Azul,45,masculino,running,Malla,EGO MAX,2023-05-30
+Merrell,Trail Glove 6,120,Naranja,42,unisex,trail,Malla,Vibram,2022-06-15
+Vivobarefoot,Ra II,130,Negro,37,femenino,casual,Eco-Mesh,PRO5,2023-07-05
+La Sportiva,Bushido II,160,Verde,44,masculino,trail,Malla,FriXion,2022-08-10
