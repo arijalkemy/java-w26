@@ -43,8 +43,8 @@ public class Movie {
     @OneToMany(mappedBy = "favouriteMovieId")
     private List<Actor> favouriteMoviesFromActors;
 
-    @ManyToMany(mappedBy = "movies")
-    private Set<Actor> actors;
+    @OneToMany(mappedBy = "movie")
+    private Set<ActorMovie> actorMovies;
 
     @ManyToOne
     @JoinColumn(name = "genre_id", nullable = false)

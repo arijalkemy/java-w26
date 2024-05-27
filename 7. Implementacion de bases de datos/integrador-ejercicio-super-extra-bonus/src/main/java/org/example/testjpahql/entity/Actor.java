@@ -31,20 +31,9 @@ public class Actor {
     @JoinColumn(name = "favorite_movie_id", nullable = false)
     private Movie favouriteMovieId;
 
-    @ManyToMany()
-    @JoinTable(
-            name = "actor_movie",
-            joinColumns = @JoinColumn(name = "actor_id"),
-            inverseJoinColumns = @JoinColumn(name = "movie_id")
-    )
+    @OneToMany(mappedBy = "actor")
+    private Set<ActorMovie> actorMovies;
 
-    private Set<Movie> movies;
-
-    @ManyToMany()
-    @JoinTable(
-            name = "actor_episode",
-            joinColumns = @JoinColumn(name = "actor_id"),
-            inverseJoinColumns = @JoinColumn(name = "episode_id")
-    )
-    private Set<Episode> episodes;
+    @OneToMany(mappedBy = "actor")
+    private Set<ActorEpisode> actorEpisodes;
 }

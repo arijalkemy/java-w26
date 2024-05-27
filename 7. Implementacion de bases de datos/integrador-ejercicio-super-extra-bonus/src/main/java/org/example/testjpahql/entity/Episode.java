@@ -34,8 +34,8 @@ public class Episode {
     @Column(name = "release_date")
     private LocalDate releaseDate;
 
-    @ManyToMany(mappedBy = "episodes")
-    private Set<Actor> actors;
+    @OneToMany(mappedBy = "episode")
+    private Set<ActorEpisode> actorEpisodes;
 
     @ManyToOne
     @JoinColumn(name = "season_id", nullable = false)
