@@ -1,7 +1,7 @@
 package org.example.movies_hql.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.movies_hql.model.Episode;
+import org.example.movies_hql.model.EpisodesEntity;
 import org.example.movies_hql.service.interfaces.IEpisodeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class EpisodeController {
     private final IEpisodeService service;
 
     @GetMapping
-    public ResponseEntity<List<Episode>> getEpisodesByActor(
+    public ResponseEntity<List<EpisodesEntity>> getEpisodesByActor(
             @PathVariable String actor
     ){
         return null;

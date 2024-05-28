@@ -1,7 +1,7 @@
 package org.example.movies_hql.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.movies_hql.model.Movie;
+import org.example.movies_hql.model.MoviesEntity;
 import org.example.movies_hql.service.interfaces.IMovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,14 +18,14 @@ public class MovieController {
     private final IMovieService service;
 
     @GetMapping("/genre")
-    public ResponseEntity<List<Movie>> getMoviesByGenre(
+    public ResponseEntity<List<MoviesEntity>> getMoviesByGenre(
             @PathVariable String genre
     ) {
         return null;
     }
 
     @GetMapping("/rating")
-    public ResponseEntity<List<Movie>> getMovieByRating(
+    public ResponseEntity<List<MoviesEntity>> getMovieByRating(
             @PathVariable Double rating
     ){
         return null;

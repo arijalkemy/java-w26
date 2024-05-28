@@ -1,7 +1,7 @@
 package org.example.movies_hql.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.movies_hql.model.Actor;
+import org.example.movies_hql.model.ActorsEntity;
 import org.example.movies_hql.service.interfaces.IActorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,19 +18,19 @@ public class ActorController {
     private final IActorService service;
 
     @GetMapping("/has-favorite")
-    public ResponseEntity<List<Actor>> getActorsWithFavoriteMovies() {
+    public ResponseEntity<List<ActorsEntity>> getActorsWithFavoriteMovies() {
         return null;
     }
 
     @GetMapping("/by-rating")
-    public ResponseEntity<List<Actor>> getActorsByRatingGT(
+    public ResponseEntity<List<ActorsEntity>> getActorsByRatingGT(
             @PathVariable Double rating
     ) {
         return null;
     }
 
     @GetMapping("/by-movie")
-    public ResponseEntity<List<Actor>> getActorsByMovie(
+    public ResponseEntity<List<ActorsEntity>> getActorsByMovie(
             @PathVariable String movie
     ) {
         return null;
