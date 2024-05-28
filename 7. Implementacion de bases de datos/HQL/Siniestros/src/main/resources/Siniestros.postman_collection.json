@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "70ad4ba0-c480-4473-860d-bbe0a46ff3db",
+		"name": "Siniestros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34403745"
+	},
+	"item": [
+		{
+			"name": "Get all patentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehiculo/patente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculo",
+						"patente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all marca patentes ordered by anio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehiculo/marca-patente",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculo",
+						"marca-patente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all patente over 4 wheels and current year",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get vehicles with sinister",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehiculo/siniestro",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculo",
+						"siniestro"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

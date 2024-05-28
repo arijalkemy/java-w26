@@ -1,0 +1,46 @@
+INSERT INTO VEHICULOS (id_vehiculo, anio_fabricacion, cantidad_ruedas, marca, modelo, patente)
+VALUES (1, 2015, 4, 'Toyota', 'Corolla', 'ABC123');
+
+INSERT INTO VEHICULOS (id_vehiculo, anio_fabricacion, cantidad_ruedas, marca, modelo, patente)
+VALUES (2, 2018, 4, 'Honda', 'Civic', 'DEF456');
+
+INSERT INTO VEHICULOS (id_vehiculo, anio_fabricacion, cantidad_ruedas, marca, modelo, patente)
+VALUES (3, 2020, 2, 'Yamaha', 'YZF-R3', 'GHI789');
+
+INSERT INTO VEHICULOS (id_vehiculo, anio_fabricacion, cantidad_ruedas, marca, modelo, patente)
+VALUES (4, 2017, 4, 'Ford', 'Focus', 'JKL012');
+
+INSERT INTO VEHICULOS (id_vehiculo, anio_fabricacion, cantidad_ruedas, marca, modelo, patente)
+VALUES (5, 2024, 8, 'Chevrolet', 'Cruze', 'MNO345');
+
+
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (1, '2023-01-15', 1500.00, 1);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (2, '2023-03-22', 2500.50, 2);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (3, '2023-05-18', 3000.00, 3);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (4, '2023-07-04', 4500.75, 4);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (5, '2023-08-09', 500.00, 5);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (6, '2023-09-23', 1200.25, 1);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (7, '2023-10-12', 180000.00, 2);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (8, '2023-11-30', 2200.40, 3);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (9, '2024-01-05', 350000.00, 4);
+
+INSERT INTO SINIESTROS (id_siniestro, fecha_siniestro, perdida_economica, vehiculo_id)
+VALUES (10, '2024-02-16', 2750.60, 5);
