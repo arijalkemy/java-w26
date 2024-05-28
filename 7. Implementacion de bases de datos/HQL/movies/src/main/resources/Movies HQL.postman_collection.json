@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "46e9512e-4e44-4d42-90f6-9390069a7ad9",
+		"name": "Movies HQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34403745"
+	},
+	"item": [
+		{
+			"name": "Get actor with fav movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actor/favorite",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actor",
+						"favorite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get actor with rating",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actor/rating/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actor",
+						"rating",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get actor in movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actor/rating/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actor",
+						"rating",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get peliculas actor raiting",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actor/rating/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actor",
+						"rating",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
