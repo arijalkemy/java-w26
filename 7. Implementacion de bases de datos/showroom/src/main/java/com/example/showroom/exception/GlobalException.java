@@ -1,6 +1,5 @@
-package com.bootcamp.JPAImplementation.exception;
-
-import com.bootcamp.JPAImplementation.dto.ExceptionDTO;
+package com.example.showroom.exception;
+import com.example.showroom.dto.ExceptionDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
