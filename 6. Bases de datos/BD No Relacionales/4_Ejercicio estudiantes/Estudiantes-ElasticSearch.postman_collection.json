@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "6a40ea8d-373f-4ec9-bc01-5043d72187ad",
+		"name": "Estudiantes-ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33784114"
+	},
+	"item": [
+		{
+			"name": "save empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Andrea\",\n    \"apellido\": \"Perez\",\n    \"edad\": 19,\n    \"ciudad\": \"Boyaca\",\n    \"departamento\": \"Pasto\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/empleado"
+			},
+			"response": []
+		},
+		{
+			"name": "get empleados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/empleado"
+			},
+			"response": []
+		},
+		{
+			"name": "modificar empleado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Jose\",\n    \"apellido\": \"Miguel\",\n    \"edad\": 20,\n    \"ciudad\": \"Bogota\",\n    \"departamento\": \"Antioquia\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/empleado/QSbzv48BFjOmX3U5jrEb"
+			},
+			"response": []
+		}
+	]
+}
