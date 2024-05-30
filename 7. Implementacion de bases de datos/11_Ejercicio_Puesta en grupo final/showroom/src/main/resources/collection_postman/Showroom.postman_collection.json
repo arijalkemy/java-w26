@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "ea8c39a8-2f36-4aae-bad1-1c9d4c42a6c7",
+		"name": "Showroom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33784114"
+	},
+	"item": [
+		{
+			"name": "save prenda",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Camisa polo\",\n    \"tipo\": \"remera polo\",\n    \"marca\": \"MarcaD\",\n    \"color\": \"Blanco\",\n    \"talla\": \"L\",\n    \"cantidad\": 18,\n    \"precio_venta\": 49.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/clothes"
+			},
+			"response": []
+		},
+		{
+			"name": "save venta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fecha\": \"2023-05-15\",\n    \"total\": 150.75,\n    \"medio_pago\": \"Tarjeta de crédito\",\n    \"prendas\": [\n        {\n            \"nombre\": \"Camiseta\",\n            \"tipo\": \"Ropa\",\n            \"marca\": \"Nike\",\n            \"color\": \"Rojo\",\n            \"talla\": \"M\",\n            \"cantidad\": 2,\n            \"precio_venta\": 25.00\n        },\n        {\n            \"nombre\": \"Pantalones\",\n            \"tipo\": \"Ropa\",\n            \"marca\": \"Levi's\",\n            \"color\": \"Azul\",\n            \"talla\": \"L\",\n            \"cantidad\": 1,\n            \"precio_venta\": 50.75\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/sale"
+			},
+			"response": []
+		},
+		{
+			"name": "get prendas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes"
+			},
+			"response": []
+		},
+		{
+			"name": "get ventas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/sale"
+			},
+			"response": []
+		},
+		{
+			"name": "get prendas by talla",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes/talla/M"
+			},
+			"response": []
+		},
+		{
+			"name": "get prendas by date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/sale?date=\"2023-05-15\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"sale"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "\"2023-05-15\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get prendas by tipo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/clothes/type?tipo=remera",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"clothes",
+						"type"
+					],
+					"query": [
+						{
+							"key": "tipo",
+							"value": "remera"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get prendas by sale",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/sale/clothes/1"
+			},
+			"response": []
+		},
+		{
+			"name": "get prendas by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes/5"
+			},
+			"response": []
+		},
+		{
+			"name": "get venta by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/sale/1"
+			},
+			"response": []
+		},
+		{
+			"name": "update prendas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Bufanda de lana\",\n    \"tipo\": \"Bufanda\",\n    \"marca\": \"MarcaD\",\n    \"color\": \"Gris\",\n    \"talla\": \"Única\",\n    \"cantidad\": 40,\n    \"precio_venta\": 24.99\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/clothes/5"
+			},
+			"response": []
+		},
+		{
+			"name": "delete prendas",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/clothes/5"
+			},
+			"response": []
+		},
+		{
+			"name": "delete venta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/sale/5"
+			},
+			"response": []
+		}
+	]
+}

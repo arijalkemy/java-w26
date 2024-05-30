@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "ee261b7c-eac2-4317-b835-4f38b8afc0a7",
+		"name": "Productos-ElasticSearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33784114"
+	},
+	"item": [
+		{
+			"name": "save producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Cereal\",\n    \"type\": \"Comida\",\n    \"price_sale\": 8900.0,\n    \"price_cost\": 7000.0,\n    \"cant_disp\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/product"
+			},
+			"response": []
+		},
+		{
+			"name": "get productos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/product"
+			},
+			"response": []
+		},
+		{
+			"name": "modificar producto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Cargador celular\",\n    \"type\": \"tecnología\",\n    \"price_sale\": 200000.0,\n    \"price_cost\": 120000.0,\n    \"cant_disp\": 6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/product/RCbIwI8BFjOmX3U507Go"
+			},
+			"response": []
+		}
+	]
+}
