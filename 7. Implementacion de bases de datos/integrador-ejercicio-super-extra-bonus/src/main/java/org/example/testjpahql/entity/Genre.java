@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Getter @Setter
@@ -19,9 +20,11 @@ public class Genre {
     private Integer genreId;
 
     @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
 
     @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updatedAt;
 
     @Column(name = "name")

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -25,8 +26,9 @@ public class ActorMovie {
     private Movie movie;
 
     @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
 
     @Column(name = "updated_at")
-    private Timestamp updatedAt;
-}
+    @Temporal(TemporalType.TIMESTAMP)
+    private Timestamp updatedAt;}

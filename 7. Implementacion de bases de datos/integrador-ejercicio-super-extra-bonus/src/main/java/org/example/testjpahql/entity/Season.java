@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Setter
@@ -20,9 +21,11 @@ public class Season {
     private Integer seasonId;
 
     @Column(name = "created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdAt;
 
     @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updatedAt;
 
     @Column(name = "title")
@@ -32,10 +35,10 @@ public class Season {
     private Integer number;
 
     @Column(name = "release_date")
-    private LocalDate releaseDate;
+    private Date releaseDate;
 
     @Column(name = "end_date")
-    private LocalDate endDate;
+    private Date endDate;
 
     @ManyToOne
     @JoinColumn(name = "serie_id", nullable = false)
