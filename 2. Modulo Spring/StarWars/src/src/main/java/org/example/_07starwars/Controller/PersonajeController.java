@@ -27,7 +27,8 @@ public class PersonajeController {
 }
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/personajes")
+
 public class PersonajeController {
 
     @Autowired
@@ -35,7 +36,6 @@ public class PersonajeController {
 
     @GetMapping
     public ResponseEntity<List<PersonajeDTO>> obtenerTodos(@RequestParam String nombre) {
-        return ResponseEntity.ok().body("");
-        //return ResponseEntity.ok().body(personajeService.buscarPorNombre(nombre));
+        return ResponseEntity.ok().body(personajeService.buscarPorNombre(nombre));
     }
 }

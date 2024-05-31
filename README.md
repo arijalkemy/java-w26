@@ -26,25 +26,25 @@ Ejemplo:
 Cada desarrolador cuenta con un branch con la estructura ya creada a su nombre para trabajar en las prácticas y desafíos.
 
 1. Clonar el repositorio (branch y estructura)
-     
+
    `git clone https://github.com/arijalkemy/wave25-practicas.git`
-   
+
 2. Entrar a la carpeta del proyecto clonado y crear el branch con su apellido y nombre
 
    `git branch [apellido]_[nombre]`
    o
    `git checkout -b [apellido]_[nombre]`
-   
+
 3. Subir la rama que crearon
-   
+
    `git push -u origin [apellido]_[nombre]`
 
-4. Luego trabajar con el flujo habitual 
+4. Luego trabajar con el flujo habitual
 
    `git add .`
-   
+
    `git commit -m "mensaje de commit"`
-   
+
    `git push`
 
 -----------
