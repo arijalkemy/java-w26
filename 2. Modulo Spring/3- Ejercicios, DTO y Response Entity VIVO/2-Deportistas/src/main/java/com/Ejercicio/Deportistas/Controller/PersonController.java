@@ -1,23 +1,25 @@
 package com.Ejercicio.Deportistas.Controller;
 
-import com.Ejercicio.Deportistas.Entity.DTO.PersonDTO;
-import com.Ejercicio.Deportistas.Service.IPerson;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.Ejercicio.Deportistas.DTO.PersonDTO;
+import com.Ejercicio.Deportistas.Service.IPersonService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/PersonController")
 public class PersonController {
 
-    @Autowired
-    IPerson iPerson;
+    private IPersonService iPersonService;
 
-    @GetMapping(path = "/getPersons")
-    public List<PersonDTO> getPersons() {
-        return iPerson.getPersons();
+    public PersonController(IPersonService iPersonService) {
+        this.iPersonService = iPersonService;
+    }
+
+    @GetMapping("/findSportsPersons")
+    public ResponseEntity<?> getAllSportsPersons(){
+        List<PersonDTO> personDTOList = iPersonService.findAllPerson();
+        return new ResponseEntity<>(personDTOList, HttpStatus.OK);
     }
 }

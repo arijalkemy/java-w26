@@ -1,4 +1,4 @@
-package com.Ejercicio.Deportistas.Entity.DTO;
+package com.Ejercicio.Deportistas.DTO;
 
 import lombok.Data;
 
@@ -6,5 +6,5 @@ import lombok.Data;
 public class PersonDTO {
     private  String name;
     private String lastName;
-    private String sport;
+    private String sportName;
 }
