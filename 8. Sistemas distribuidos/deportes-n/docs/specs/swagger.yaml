@@ -1,0 +1,137 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "deportes-n",
+    "description" : "deportes-n",
+    "contact" : {
+      "name" : "nvargasparra",
+      "email" : "nilson.vargasparra@mercadolibre.com.co"
+    },
+    "version" : "last"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Scope local"
+  } ],
+  "paths" : {
+    "/ping" : {
+      "get" : {
+        "tags" : [ "ping-controller" ],
+        "operationId" : "ping",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deporte_persona/encontrar" : {
+      "get" : {
+        "tags" : [ "controlador-deporte-persona" ],
+        "operationId" : "encontrarDeportePersona",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/DTOPersonaDeporte"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deporte/encontrarDeportes/" : {
+      "get" : {
+        "tags" : [ "controlador-deporte" ],
+        "operationId" : "encontrarDeportes",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Deporte"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deporte/encontrarDeportes/{nombre}" : {
+      "get" : {
+        "tags" : [ "controlador-deporte" ],
+        "operationId" : "encontrarDeportes_1",
+        "parameters" : [ {
+          "name" : "nombre",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Deporte"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "DTOPersonaDeporte" : {
+        "type" : "object",
+        "properties" : {
+          "nombre" : {
+            "type" : "string"
+          },
+          "apellido" : {
+            "type" : "string"
+          },
+          "deporte" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Deporte" : {
+        "type" : "object",
+        "properties" : {
+          "nombre" : {
+            "type" : "string"
+          },
+          "nivel" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
