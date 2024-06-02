@@ -4,6 +4,6 @@ import org.example.starwars.dto.CharacterDTO;
 
 import java.util.List;
 
-public interface ICharacter {
+public interface ICharacterService {
     List<CharacterDTO> getAllCharactersWithName(String name);
 }

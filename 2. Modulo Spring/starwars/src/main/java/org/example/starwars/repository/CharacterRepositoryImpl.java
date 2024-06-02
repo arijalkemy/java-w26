@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class CharacterRepositoryImpl implements CharacterRepository {
@@ -49,6 +50,6 @@ public class CharacterRepositoryImpl implements CharacterRepository {
     }
 
     public List<CharacterDTO> getCharactersByName(String name) {
-        return characters.stream().filter(person -> person.getName().contains(name)).toList();
+        return characters.stream().filter(person -> person.getName().contains(name)).collect(Collectors.toList());
     }
 }

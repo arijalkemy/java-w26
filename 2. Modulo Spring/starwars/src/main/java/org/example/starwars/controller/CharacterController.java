@@ -1,7 +1,8 @@
     package org.example.starwars.controller;
 
     import org.example.starwars.dto.CharacterDTO;
-    import org.example.starwars.service.CharacterService;
+    import org.example.starwars.service.CharacterServiceService;
+    import org.example.starwars.service.ICharacterService;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.ResponseEntity;
     import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,7 @@
     @RestController
     public class CharacterController {
         @Autowired
-        private CharacterService characterService;
+        private ICharacterService characterService;
 
         @GetMapping("/find")
         public ResponseEntity<List<CharacterDTO>> findAll(@RequestParam String name){
