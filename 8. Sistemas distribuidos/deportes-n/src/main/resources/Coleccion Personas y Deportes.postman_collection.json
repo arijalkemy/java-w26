@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "7e2a58a6-0ac8-43e6-9d68-a9517b513bb6",
+		"name": "Coleccion Personas y Deportes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34291760"
+	},
+	"item": [
+		{
+			"name": "ObtenerDeportes",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJuaWxzb24udmFyZ2FzcGFycmFAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiTmlsc29uIEZlbGlwZSBWYXJnYXMgUGFycmEiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoibnZhcmdhc3BhcnJhIn0sImV4cCI6MTcxNzM4Njc4MiwiaWF0IjoxNzE3MzU0MzgyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9udmFyZ2FzcGFycmEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoibnZhcmdhc3BhcnJhIn0.gPkA-Bt_S3KqPbixd3giKWzTYa-nqQIPy5_xki6NMs6C5RSiiq2aaNRdtV3HOb2EwNSOMjrkm7cKpbbKK5GX1R8VJLzo5J5kslGGl9b4CdnuEGtO4BMfsNdMgqkaY1WPsLUTWnODea4rtVKGVddUwqofyRfPkestb0ydEtdiHR3ZDB985yoh-5PW3cu5cSdk6Ujb_JYLtzAMX9PEkrjSpuxZVo3pQP0qJU5KznygL0o_jgDHdXkXOADzF89ZK7A7um3lFce6yxZfgL8lLKMP7lbiehIVjFc20GitU8YlMi3vYIqhUnnMu-x4WlVZ-IM2uDjYBn2mCoHDBcudZO5V8A",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Tiger-Token",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_app}}/deporte/encontrarDeportes/",
+					"host": [
+						"{{domain_app}}"
+					],
+					"path": [
+						"deporte",
+						"encontrarDeportes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerDeportes By Tipo",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJuaWxzb24udmFyZ2FzcGFycmFAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiTmlsc29uIEZlbGlwZSBWYXJnYXMgUGFycmEiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoibnZhcmdhc3BhcnJhIn0sImV4cCI6MTcxNzM4Njc4MiwiaWF0IjoxNzE3MzU0MzgyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9udmFyZ2FzcGFycmEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoibnZhcmdhc3BhcnJhIn0.gPkA-Bt_S3KqPbixd3giKWzTYa-nqQIPy5_xki6NMs6C5RSiiq2aaNRdtV3HOb2EwNSOMjrkm7cKpbbKK5GX1R8VJLzo5J5kslGGl9b4CdnuEGtO4BMfsNdMgqkaY1WPsLUTWnODea4rtVKGVddUwqofyRfPkestb0ydEtdiHR3ZDB985yoh-5PW3cu5cSdk6Ujb_JYLtzAMX9PEkrjSpuxZVo3pQP0qJU5KznygL0o_jgDHdXkXOADzF89ZK7A7um3lFce6yxZfgL8lLKMP7lbiehIVjFc20GitU8YlMi3vYIqhUnnMu-x4WlVZ-IM2uDjYBn2mCoHDBcudZO5V8A",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Tiger-Token",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_app}}/deporte/encontrarDeportes/Baloncesto",
+					"host": [
+						"{{domain_app}}"
+					],
+					"path": [
+						"deporte",
+						"encontrarDeportes",
+						"Baloncesto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Personas y sus deportes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_app}}/deporte_persona/encontrar",
+					"host": [
+						"{{domain_app}}"
+					],
+					"path": [
+						"deporte_persona",
+						"encontrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ping/Pong",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJuaWxzb24udmFyZ2FzcGFycmFAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiTmlsc29uIEZlbGlwZSBWYXJnYXMgUGFycmEiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoibnZhcmdhc3BhcnJhIn0sImV4cCI6MTcxNzM4Njc4MiwiaWF0IjoxNzE3MzU0MzgyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9udmFyZ2FzcGFycmEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoibnZhcmdhc3BhcnJhIn0.gPkA-Bt_S3KqPbixd3giKWzTYa-nqQIPy5_xki6NMs6C5RSiiq2aaNRdtV3HOb2EwNSOMjrkm7cKpbbKK5GX1R8VJLzo5J5kslGGl9b4CdnuEGtO4BMfsNdMgqkaY1WPsLUTWnODea4rtVKGVddUwqofyRfPkestb0ydEtdiHR3ZDB985yoh-5PW3cu5cSdk6Ujb_JYLtzAMX9PEkrjSpuxZVo3pQP0qJU5KznygL0o_jgDHdXkXOADzF89ZK7A7um3lFce6yxZfgL8lLKMP7lbiehIVjFc20GitU8YlMi3vYIqhUnnMu-x4WlVZ-IM2uDjYBn2mCoHDBcudZO5V8A",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Tiger-Token",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_app}}/ping",
+					"host": [
+						"{{domain_app}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain_app",
+			"value": "localhost:8080",
+			"type": "string"
+		}
+	]
+}
