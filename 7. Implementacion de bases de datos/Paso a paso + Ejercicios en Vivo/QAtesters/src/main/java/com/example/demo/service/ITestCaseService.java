@@ -1,16 +1,17 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.TestCaseDTO;
 import com.example.demo.model.TestCase;
-import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 
 public interface ITestCaseService {
 
-    void createTestCase(TestCase testCase);
-    TestCase getTestCaseById(Long id);
-    void updateTestCase(TestCase testCase);
-    List<TestCase> getAllTestCases();
-    void deleteTestCase(Long id);
+    TestCaseDTO createTestCase(TestCaseDTO testCaseDTO);
+    TestCaseDTO findTestCaseById(Long id);
+    String updateTestCase(Long id, TestCaseDTO testCaseDTO);
+    List<TestCaseDTO> getAllTestCases(String last_update);
+    String deleteTestCase(Long id);
 }
