@@ -1,16 +1,21 @@
 package com.bootcamp.hqlmovies.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.sql.Timestamp;
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "actors")
+@Table(name = "series")
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter @Setter
-public class Actor {
+@Getter
+@Setter
+public class Serie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -22,19 +27,16 @@ public class Actor {
     @Column(name = "updated_at")
     private Timestamp updatedAt;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "title")
+    private String title;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "release_date")
+    private LocalDate releaseDate;
 
-    @Column(name = "rating")
-    private Double rating;
+    @Column(name = "end_date")
+    private LocalDate endDate;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "favorite_movie_id")
-    private Movie favoriteMovie;
-
-    @OneToMany(mappedBy = "actor")
-    private List<ActorMovie> actorMovies;
+    @JoinColumn(name = "genre_id")
+    private Genre genre;
 }

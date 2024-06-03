@@ -1,18 +1,23 @@
 package com.bootcamp.hqlmovies.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
 @Table(name = "movies")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter @Setter
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name="title")
+    private String title;
 
     @Column(name = "created_at")
     private Timestamp createdAt;
@@ -35,7 +40,10 @@ public class Movie {
     @OneToMany(mappedBy = "favoriteMovie")
     private List<Actor> actors;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "genre_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "genre_id")
     private Genre genre;
+
+    @OneToMany(mappedBy = "movie")
+    private List<ActorMovie> actorMovies;
 }

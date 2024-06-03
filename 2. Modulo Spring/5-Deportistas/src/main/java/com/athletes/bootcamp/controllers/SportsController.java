@@ -5,7 +5,7 @@ import com.athletes.bootcamp.dtos.PersonDTO;
 import com.athletes.bootcamp.classes.Sport;
 import com.athletes.bootcamp.services.IPersonsService;
 import com.athletes.bootcamp.services.ISportsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +15,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequiredArgsConstructor
 public class SportsController {
-    @Autowired
-    ISportsService sportsService;
-    @Autowired
-    IPersonsService personsService;
+    private final ISportsService sportsService;
+    private final IPersonsService personsService;
 
     @GetMapping("/findSports")
-    @ResponseBody
     public List<Sport> getSports() {
         return sportsService.getSports();
     }
@@ -40,7 +38,6 @@ public class SportsController {
     }
 
     @GetMapping("/findSportsPersons")
-    @ResponseBody
     public List<PersonDTO> findPersons() {
         List<PersonDTO> personDTOS = new ArrayList<>();
 
