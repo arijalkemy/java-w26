@@ -41,7 +41,7 @@ public class SportServiceImpl implements IsportServices {
     public SportDto sportByName(String name) {
         Sport sport = this.sports.stream().filter(s -> s.getName().equals(name)).findFirst().orElse(null);
         if (sport != null) {
-            return new SportDto(sport.getName());
+            return new SportDto(sport.getLevel());
         }
         return null;
     }

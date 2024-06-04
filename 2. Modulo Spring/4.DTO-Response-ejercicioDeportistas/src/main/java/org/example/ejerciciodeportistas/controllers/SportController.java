@@ -1,7 +1,5 @@
 package org.example.ejerciciodeportistas.controllers;
 
-import org.example.ejerciciodeportistas.models.Sport;
-import org.example.ejerciciodeportistas.services.IpersonServices;
 import org.example.ejerciciodeportistas.services.IsportServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,13 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/")
-public class PersonController {
+public class SportController {
 
     @Autowired
-    IpersonServices iPersonServices;
+    IsportServices isportServices;
 
-    @GetMapping("/findSportsPersons")
-    public ResponseEntity<?> getSportsPersons() {
-        return new ResponseEntity<>(iPersonServices.findPersons(), HttpStatus.OK);
+    @GetMapping("/findSports")
+    public ResponseEntity<?> getSports() {
+        return new ResponseEntity<>(isportServices.allSporst(), HttpStatus.OK);
     }
+
+    @GetMapping("/findSport/{name}")
+    public ResponseEntity<?> getSport(@PathVariable String name) {
+        return new ResponseEntity<>(isportServices.sportByName(name), HttpStatus.OK);
+    }
+
 }

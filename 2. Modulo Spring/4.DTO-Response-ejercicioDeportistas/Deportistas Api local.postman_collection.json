@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "58d1e548-4df9-4989-8f6e-6881f1f3d5f2",
+		"name": "Deportistas Api local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33821589"
+	},
+	"item": [
+		{
+			"name": "find sport by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-tiger-token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJhbGRvLmJvcm5hY2VsbHlAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiQWxkbyBKdW5pb3IgQm9ybmFjZWxseSBOYXZhcnJvIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6ImFib3JuYWNlbGx5In0sImV4cCI6MTcxNzQ4MTE1OSwiaWF0IjoxNzE3NDQ4NzU5LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9hYm9ybmFjZWxseSIsImlzcyI6ImZ1cnlfdGlnZXIiLCJzdWIiOiJhYm9ybmFjZWxseSJ9.NJVptOYAjuEUvSK21DMj1RwciyDDpjf7hgoiWF3YfEHz3JTt1n71GQU-oOqaPfYAw3WjztBw7os4BhwIIihPD3DvpK4-VXvLwMnjjLnkOMt8xPZ00GkdAX8ozsGnu-7yjCtABGyz3Nx8K2uxBJ-BjQVJWO7E6knfS9PH1BtIjd-2NUPtPidB_xb6EPiBgHCrnzmYBuxm1V5MPbVBW0brejsfeYo5SlfaI1ZsMySlM-HHDjfFkqlavIbQjyJnMWHTUhAxO9DS27Yfc1LszKi8mp-0TadTFfDnQWgKF-ps5ah-8gt4M6kbhq3KzTgP7DoDE1XfvtnOZXa3vkNOpkUOgQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/findSport/soccer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findSport",
+						"soccer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find all persons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-tiger-token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJhbGRvLmJvcm5hY2VsbHlAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiQWxkbyBKdW5pb3IgQm9ybmFjZWxseSBOYXZhcnJvIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6ImFib3JuYWNlbGx5In0sImV4cCI6MTcxNzQ4MTE1OSwiaWF0IjoxNzE3NDQ4NzU5LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9hYm9ybmFjZWxseSIsImlzcyI6ImZ1cnlfdGlnZXIiLCJzdWIiOiJhYm9ybmFjZWxseSJ9.NJVptOYAjuEUvSK21DMj1RwciyDDpjf7hgoiWF3YfEHz3JTt1n71GQU-oOqaPfYAw3WjztBw7os4BhwIIihPD3DvpK4-VXvLwMnjjLnkOMt8xPZ00GkdAX8ozsGnu-7yjCtABGyz3Nx8K2uxBJ-BjQVJWO7E6knfS9PH1BtIjd-2NUPtPidB_xb6EPiBgHCrnzmYBuxm1V5MPbVBW0brejsfeYo5SlfaI1ZsMySlM-HHDjfFkqlavIbQjyJnMWHTUhAxO9DS27Yfc1LszKi8mp-0TadTFfDnQWgKF-ps5ah-8gt4M6kbhq3KzTgP7DoDE1XfvtnOZXa3vkNOpkUOgQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/findSportsPersons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findSportsPersons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find sports",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-tiger-token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJhbGRvLmJvcm5hY2VsbHlAbWVyY2Fkb2xpYnJlLmNvbS5jbyIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiQWxkbyBKdW5pb3IgQm9ybmFjZWxseSBOYXZhcnJvIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6ImFib3JuYWNlbGx5In0sImV4cCI6MTcxNzQ4MTE1OSwiaWF0IjoxNzE3NDQ4NzU5LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9hYm9ybmFjZWxseSIsImlzcyI6ImZ1cnlfdGlnZXIiLCJzdWIiOiJhYm9ybmFjZWxseSJ9.NJVptOYAjuEUvSK21DMj1RwciyDDpjf7hgoiWF3YfEHz3JTt1n71GQU-oOqaPfYAw3WjztBw7os4BhwIIihPD3DvpK4-VXvLwMnjjLnkOMt8xPZ00GkdAX8ozsGnu-7yjCtABGyz3Nx8K2uxBJ-BjQVJWO7E6knfS9PH1BtIjd-2NUPtPidB_xb6EPiBgHCrnzmYBuxm1V5MPbVBW0brejsfeYo5SlfaI1ZsMySlM-HHDjfFkqlavIbQjyJnMWHTUhAxO9DS27Yfc1LszKi8mp-0TadTFfDnQWgKF-ps5ah-8gt4M6kbhq3KzTgP7DoDE1XfvtnOZXa3vkNOpkUOgQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/findSports",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findSports"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
