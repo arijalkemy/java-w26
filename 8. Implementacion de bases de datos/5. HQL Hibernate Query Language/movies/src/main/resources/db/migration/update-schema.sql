@@ -1,0 +1,81 @@
+ALTER TABLE actors
+    MODIFY favorite_movie_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE movies
+    MODIFY genre_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE series
+    MODIFY genre_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE actor_episode
+DROP
+COLUMN id;
+
+ALTER TABLE actor_episode
+    ADD id numeric(19, 0) AUTO_INCREMENT NOT NULL PRIMARY KEY;
+
+ALTER TABLE movies
+DROP
+COLUMN rating;
+
+ALTER TABLE movies
+    ADD rating DECIMAL(3, 1) NOT NULL;
+
+ALTER TABLE episodes
+    MODIFY season_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE seasons
+    MODIFY serie_id INT UNSIGNED NOT NULL;
+ALTER TABLE password_resets
+    ADD id BIGINT AUTO_INCREMENT NULL;
+
+ALTER TABLE password_resets
+    ADD PRIMARY KEY (id);
+
+ALTER TABLE actors
+    MODIFY favorite_movie_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE movies
+    MODIFY genre_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE series
+    MODIFY genre_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE movies
+    DROP COLUMN rating;
+
+ALTER TABLE movies
+    ADD rating DECIMAL(3, 1) NOT NULL;
+
+ALTER TABLE episodes
+    MODIFY season_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE seasons
+    MODIFY serie_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE password_resets
+    ADD id BIGINT AUTO_INCREMENT NULL;
+
+ALTER TABLE password_resets
+    ADD PRIMARY KEY (id);
+
+ALTER TABLE actors
+    MODIFY favorite_movie_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE movies
+    MODIFY genre_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE series
+    MODIFY genre_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE movies
+    DROP COLUMN rating;
+
+ALTER TABLE movies
+    ADD rating DECIMAL(3, 1) NOT NULL;
+
+ALTER TABLE episodes
+    MODIFY season_id INT UNSIGNED NOT NULL;
+
+ALTER TABLE seasons
+    MODIFY serie_id INT UNSIGNED NOT NULL;
