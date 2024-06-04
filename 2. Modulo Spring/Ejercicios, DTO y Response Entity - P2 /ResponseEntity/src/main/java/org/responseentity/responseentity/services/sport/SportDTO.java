@@ -1,7 +1,6 @@
 package org.responseentity.responseentity.services.sport;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 public class SportDTO implements Serializable {
     private String name;

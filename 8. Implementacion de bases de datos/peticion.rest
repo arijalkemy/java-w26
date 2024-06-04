@@ -1,2 +1,0 @@
-### Get all
-GET http://localhost:8080/clothes
