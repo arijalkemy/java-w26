@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "55539a34-ab75-4a30-a225-03770ef7e5f6",
+		"name": "covid19",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34426729"
+	},
+	"item": [
+		{
+			"name": "getAllSymptoms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/findSymptom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findSymptom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BySymptoms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/findSymptom/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findSymptom",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CriticalPerson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/findSymptom/findRiskPerson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findSymptom",
+						"findRiskPerson"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

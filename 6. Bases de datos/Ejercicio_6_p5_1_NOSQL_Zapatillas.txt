@@ -1,0 +1,58 @@
+POST /zapatillas/_bulk
+{"index":{}}
+{"id": 1, "marca": "Nike", "modelo": "Air Max", "talla": "41", "precio": "2000"}
+{"index":{}}
+{"id": 2, "marca": "Adidas", "modelo": "UltraBoost", "talla": "40", "precio": "1800"}
+{"index":{}}
+{"id": 3, "marca": "Puma", "modelo": "modelo 1", "talla": "42", "precio": "1900"}
+{"index":{}}
+{"id": 4, "marca": "Reebok", "modelo": "Classic", "talla": "39", "precio": "1700"}
+{"index":{}}
+{"id": 5, "marca": "New Balance", "modelo": "Fresh Foam", "talla": "43", "precio": "2100"}
+{"index":{}}
+{"id": 6, "marca": "Under Armour", "modelo": "Charged Bandit", "talla": "44", "precio": "2200"}
+{"index":{}}
+{"id": 7, "marca": "Brooks", "modelo": "Ghost", "talla": "45", "precio": "2300"}
+{"index":{}}
+{"id": 8, "marca": "Saucony", "modelo": "Ride", "talla": "41", "precio": "2000"}
+{"index":{}}
+{"id": 9, "marca": "Mizuno", "modelo": "Wave Rider", "talla": "40", "precio": "1900"}
+{"index":{}}
+{"id": 10, "marca": "Asics", "modelo": "Gel Nimbus", "talla": "42", "precio": "2200"}
+{"index":{}}
+{"id": 11, "marca": "Salomon", "modelo": "Speedcross", "talla": "43", "precio": "2100"}
+{"index":{}}
+{"id": 12, "marca": "Hoka One One", "modelo": "Clifton", "talla": "44", "precio": "2300"}
+{"index":{}}
+{"id": 13, "marca": "Topo Athletic", "modelo": "Magnifly", "talla": "39", "precio": "1800"}
+{"index":{}}
+{"id": 14, "marca": "On", "modelo": "Cloud", "talla": "45", "precio": "2400"}
+{"index":{}}
+{"id": 15, "marca": "Vibram", "modelo": "FiveFingers", "talla": "41", "precio": "2100"}
+{"index":{}}
+{"id": 16, "marca": "Merrell", "modelo": "Bare Access", "talla": "40", "precio": "2000"}
+{"index":{}}
+{"id": 17, "marca": "La Sportiva", "modelo": "Ultra Raptor", "talla": "42", "precio": "2200"}
+{"index":{}}
+{"id": 18, "marca": "Altra", "modelo": "Lone Peak", "talla": "43", "precio": "2300"}
+{"index":{}}
+{"id": 19, "marca": "Inov-8", "modelo": "Roclite", "talla": "44", "precio": "2400"}
+{"index":{}}
+{"id": 20, "marca": "Scott", "modelo": "Supertrac", "talla": "45", "precio": "2500"}
+GET /zapatillas/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+GET /zapatillas/_search
+{
+  "query": {
+    "range": {
+      "precio": {
+        "lt": 2000,
+        "gt": 1800
+      }
+    }
+  }
+} (edit

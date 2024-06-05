@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "51708ff6-a80a-4cf8-ac97-4cacb7a0fd35",
+		"name": "vehiculo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34426729"
+	},
+	"item": [
+		{
+			"name": "Listar patentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/patentes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"patentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los vehiculos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos los vehiculos por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar patentes-marcas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/patentes/marcas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"patentes",
+						"marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar patentes-marcas con filtro ruedas y año",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/patentes/filtros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"patentes",
+						"filtros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar agrupación por perdidas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/siniestro/perdidas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"siniestro",
+						"perdidas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar agrupación y detalle perdidas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/siniestro/detallesdperdidas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"siniestro",
+						"detallesdperdidas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nuevo vehiculo con siniestros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/vehiculos/siniestro/detallesdperdidas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehiculos",
+						"siniestro",
+						"detallesdperdidas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

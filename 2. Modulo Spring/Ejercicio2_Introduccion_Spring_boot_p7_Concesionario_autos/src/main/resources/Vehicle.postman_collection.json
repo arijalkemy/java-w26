@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "fba6c0b9-29ee-4a6e-9d70-e980471f995e",
+		"name": "Vehicle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34426729"
+	},
+	"item": [
+		{
+			"name": "getAllUsedVehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVehiclesByManufacturingDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vehicles/dates?date=2018-5-15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vehicles",
+						"dates"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2018-5-15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVehiclesByPrices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vehicles/prices?price=15000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vehicles",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "15000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVehicleById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vehicles/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vehicles",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vehicles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Honda\",\n    \"model\": \"Civic\",\n    \"manufacturingDate\": \"2019-8-20\",\n    \"numberofKilometers\": 40000,\n    \"doors\": 4,\n    \"price\": 18000,\n    \"currenoy\": \"USD\",\n    \"list\": [\n        {\n            \"date\": \"2023-3-10\",\n            \"kilometers\": 5000.0,\n            \"descriptions\": \"Oil change\"\n        }\n    ],\n    \"countOfOwners\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/api/vehicles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"vehicles"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
