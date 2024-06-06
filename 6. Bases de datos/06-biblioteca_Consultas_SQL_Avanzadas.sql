@@ -56,3 +56,103 @@ SELECT LIBRO.Título
 FROM LIBRO
 JOIN PRESTAMO ON LIBRO.idLibro = PRESTAMO.idLibro
 WHERE PRESTAMO.FechaDevolucion = '2021-07-16';
+
+-- PARTE 2
+
+CREATE DATABASE IF NOT EXISTS LIBRARY;
+USE LIBRARY;
+
+-- Tabla AUTOR
+CREATE TABLE AUTOR (
+    idAutor INT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Nacionalidad VARCHAR(255)
+);
+
+-- Tabla LIBRO
+CREATE TABLE LIBRO (
+    idLibro INT PRIMARY KEY,
+    Titulo VARCHAR(255) NOT NULL,
+    Editorial VARCHAR(255),
+    Area VARCHAR(255)
+);
+
+-- Tabla ESTUDIANTE
+CREATE TABLE ESTUDIANTE (
+    idLector INT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Apellido VARCHAR(255) NOT NULL,
+    Direccion VARCHAR(255),
+    Carrera VARCHAR(255),
+    Edad INT
+);
+
+-- Tabla LIBROAUTOR
+CREATE TABLE LIBROAUTOR (
+    idAutor INT,
+    idLibro INT,
+    PRIMARY KEY (idAutor, idLibro),
+    FOREIGN KEY (idAutor) REFERENCES AUTOR(idAutor),
+    FOREIGN KEY (idLibro) REFERENCES LIBRO(idLibro)
+);
+
+-- Tabla PRESTAMO
+CREATE TABLE PRESTAMO (
+    idPrestamo INT PRIMARY KEY AUTO_INCREMENT,
+    idLector INT,
+    idLibro INT,
+    FechaPrestamo DATE,
+    FechaDevolucion DATE,
+    Devuelto BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (idLector) REFERENCES ESTUDIANTE(idLector),
+    FOREIGN KEY (idLibro) REFERENCES LIBRO(idLibro)
+);
+
+-- AUTOR
+INSERT INTO AUTOR (idAutor, Nombre, Nacionalidad)
+VALUES
+    (1, 'J.K. Rowling', 'Británica'),
+    (2, 'George R.R. Martin', 'Estadounidense'),
+    (3, 'Stephen King', 'Estadounidense'),
+    (4, 'Gabriel García Márquez', 'Colombiano'),
+    (5, 'Haruki Murakami', 'Japonés');
+
+
+-- LIBRO
+INSERT INTO LIBRO (idLibro, Titulo, Editorial, Area)
+VALUES
+    (1, 'Harry Potter y la piedra filosofal', 'Salamandra', 'Fantasía'),
+    (2, 'Juego de Tronos', 'Gigamesh', 'Fantasía'),
+    (3, 'It (Eso)', 'Debolsillo', 'Terror'),
+    (4, 'Cien años de soledad', 'Alfaguara', 'Realismo mágico'),
+    (5, 'Tokio Blues (Norwegian Wood)', 'Tusquets', 'Ficción contemporánea');
+
+
+-- ESTUDIANTE
+INSERT INTO ESTUDIANTE (idLector, Nombre, Apellido, Direccion, Carrera, Edad)
+VALUES
+    (1, 'Juan', 'Pérez', 'Calle 123', 'Ingeniería', 22),
+    (2, 'María', 'Gómez', 'Avenida 456', 'Medicina', 20),
+    (3, 'Carlos', 'López', 'Plaza 789', 'Derecho', 23),
+    (4, 'Ana', 'Rodríguez', 'Paseo 012', 'Arte', 21),
+    (5, 'Pedro', 'Sánchez', 'Bulevar 345', 'Economía', 19);
+
+
+-- LIBROAUTOR
+INSERT INTO LIBROAUTOR (idAutor, idLibro)
+VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5);
+
+
+-- PRESTAMO
+INSERT INTO PRESTAMO (idLector, idLibro, FechaPrestamo, FechaDevolucion)
+VALUES
+    (1, 1, '2024-05-15', '2024-06-15'),
+    (2, 3, '2024-04-20', '2024-05-20'),
+    (3, 5, '2024-06-01', '2024-07-01'),
+    (4, 2, '2024-05-10', '2024-06-10'),
+    (5, 4, '2024-05-28', '2024-06-28');
