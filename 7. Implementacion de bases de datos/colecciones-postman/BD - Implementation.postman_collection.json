@@ -76,7 +76,240 @@
 		},
 		{
 			"name": "Elastic",
-			"item": []
+			"item": [
+				{
+					"name": "Test",
+					"item": [
+						{
+							"name": "New Request",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\n    {\n        \"id\": \"123\",\n        \"title\": \"Por qué el queso sabe a pie\",\n        \"authors\":[\n            {\n                \"name\" : \"Andrés\"\n            },\n            {\n                \"name\" : \"Felipe\"\n            }\n        ]\n    }\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/blog/"
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Employee - Product",
+					"item": [
+						{
+							"name": "get-products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/products"
+							},
+							"response": []
+						},
+						{
+							"name": "get-employee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/employee"
+							},
+							"response": []
+						},
+						{
+							"name": "get-product",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/products/1"
+							},
+							"response": []
+						},
+						{
+							"name": "get-employee",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/employee/dnlN7o8BuClD-Uh_Diln"
+							},
+							"response": []
+						},
+						{
+							"name": "update-product",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/products"
+							},
+							"response": []
+						},
+						{
+							"name": "update-employee",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"id\": \"dnlN7o8BuClD-Uh_Diln\",\n        \"name\": \"Juan\",\n        \"surname\": \"Pérez\",\n        \"age\": 23,\n        \"location\": \"Bogotá\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/employee"
+							},
+							"response": []
+						},
+						{
+							"name": "create-product",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/products"
+							},
+							"response": []
+						},
+						{
+							"name": "create-employee",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"name\": \"Sara\",\n        \"surname\": \"Ruiz\",\n        \"age\": 29,\n        \"location\": \"Valladolid\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/employee"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Books",
+					"item": [
+						{
+							"name": "get-all-books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/books"
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-books-author",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/books/author/Miguel de Cervantes"
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-books-editorial",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/books/editorial/Sudamericana"
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-books-pages",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/books/pages"
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-books-year",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/books/year/1950"
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-books-keyword",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/books/name/quijote"
+							},
+							"response": []
+						},
+						{
+							"name": "post-book",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"name\": \"Pedro Páramo\",\n        \"authorName\": \"Juan Rulfo\",\n        \"pages\": 124,\n        \"editorial\": \"Fondo de Cultura Económica\",\n        \"publicationYear\": 1955\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/books"
+							},
+							"response": []
+						}
+					]
+				}
+			]
 		},
 		{
 			"name": "Joya",
@@ -172,7 +405,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{server}}/api/testcases"
+						"url": "{{server}}/api/testcases/2"
 					},
 					"response": []
 				},
@@ -181,17 +414,17 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{server}}/api/testcases"
+						"url": "{{server}}/api/testcases/"
 					},
 					"response": []
 				},
 				{
-					"name": "get-all-test-case-last-update",
+					"name": "get-all-test-case-last-updatee",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server}}/api/testcases?last_update=23-03-2024",
+							"raw": "{{server}}/api/testcases?last_update=23-01-2024",
 							"host": [
 								"{{server}}"
 							],
@@ -202,7 +435,7 @@
 							"query": [
 								{
 									"key": "last_update",
-									"value": "23-03-2024"
+									"value": "23-01-2024"
 								}
 							]
 						}
@@ -214,7 +447,22 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{server}}/api/testcases"
+						"url": {
+							"raw": "{{server}}/api/testcases?passed_tested=tested",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"testcases"
+							],
+							"query": [
+								{
+									"key": "passed_tested",
+									"value": "tested"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -223,7 +471,7 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{server}}/api/testcases"
+						"url": "{{server}}/api/testcases/4"
 					},
 					"response": []
 				},
@@ -234,14 +482,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"Cadena\",\n    \"material\": \"oro\",\n    \"peso\": 500,\n    \"particularidad\": \"Cadena del CJ aka Mr GTA\",\n    \"poseePiedra\": true,\n    \"ventaONo\": true\n}",
+							"raw": "{\n  \"description\": \"Test case for login functionality\",\n  \"tested\": false,\n  \"passed\": false,\n  \"numberOfTries\": 3,\n  \"lastUpdate\": \"23-05-2024\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{server}}/api/testcases"
+						"url": "{{server}}/api/testcases/new"
 					},
 					"response": []
 				},
@@ -252,14 +500,206 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nro_identificatorio\": 1,\n    \"nombre\": \"Anillo\",\n    \"material\": \"plata\",\n    \"peso\": 320.0,\n    \"particularidad\": \"Forma circular con triángulos\",\n    \"poseePiedra\": false,\n    \"ventaONo\": true\n}",
+							"raw": "    {\n        \"idCase\": 1,\n        \"description\": \"Test case for loginnnnnnn functionality\",\n        \"tested\": true,\n        \"passed\": false,\n        \"numberOfTries\": 3,\n        \"lastUpdate\": \"23-05-2024\"\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{server}}/api/testcases"
+						"url": "{{server}}/api/testcases/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HQL - Movies",
+			"item": [
+				{
+					"name": "localhost:8080/actor/favourite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/actor/favourite"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/actor/rating/9.0",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/actor/rating/9.0"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/actor/movie/Avatar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/actor/movie/Avatar"
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/movies/rating/8.0"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/movies/genre/Comedia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/movies/genre/Drama"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/series/seasons/9",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/series/seasons/9"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/episodes/actor?name=Emilia&lastName=Clarke",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/episodes/actor?name=Emilia&lastName=Clarke",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"episodes",
+								"actor"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Emilia"
+								},
+								{
+									"key": "lastName",
+									"value": "Clarke"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HQL - Vehicles",
+			"item": [
+				{
+					"name": "localhost:8080/vehicle/",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"plate\": \"WXY1234\",\n    \"brand\": \"Subaru\",\n    \"model\": \"Impreza\",\n    \"fabricationDate\": \"2023-02-14T15:30:40\",\n    \"wheels\": 6\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/vehicle/"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/vehicle/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/vehicle/"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/accident/11",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\n    \"accidentDate\": \"2023-02-14T10:50:20\",\n    \"moneyLoss\": 200.50\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/accident/11"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/accident/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/accident/"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/vehicle/plate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/vehicle/plate"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/vehicle/plate/brand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/vehicle/plate/brand"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/vehicle/plate/year",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/vehicle/plate/year"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/vehicle/plate/accident",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/vehicle/plate/accident"
+					},
+					"response": []
+				},
+				{
+					"name": "localhost:8080/vehicle/money/total",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/vehicle/money/total"
 					},
 					"response": []
 				}
