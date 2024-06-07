@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.List;
 
-
 public class TestUtils {
     public static Vehicle mitsubishiExcelVehicleEntity() {
         Vehicle vehicle = new Vehicle();
