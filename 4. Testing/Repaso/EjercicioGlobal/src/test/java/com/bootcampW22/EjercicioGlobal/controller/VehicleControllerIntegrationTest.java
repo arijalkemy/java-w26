@@ -34,8 +34,7 @@ class VehicleControllerIntegrationTest {
     @Autowired
     MockMvc mockMvc;
 
-    final ObjectWriter writer = new ObjectMapper()
-            .configure(SerializationFeature.WRAP_ROOT_VALUE, false).writer();
+    final ObjectWriter writer = new ObjectMapper().writer();
 
     @Test
     @DisplayName("Get vehicle by color and year ok test")
