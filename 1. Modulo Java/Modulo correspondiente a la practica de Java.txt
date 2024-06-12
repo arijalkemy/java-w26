@@ -1,0 +1,12 @@
+Ej1  - Temperatura de ciudades
+Ej2  - Carrera de la selva =
+Ej3  - Calcular IMC
+Ej4  - Excepciones en división por cero
+Ej5  - Productos perecederos y no perecederos
+Ej6  - Transacciones
+Ej7  - Tipos de documentos = 
+Ej8  - Animales interfaz 
+Ej9  - Garages y carros 
+Ej10 - Viajes
+Ej11 - Prendas
+Ej12 - Dakar
