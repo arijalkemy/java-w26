@@ -1,0 +1,5 @@
+Ejemplo 1:
+El tiempo de espera (TO) se ha fijado en alrededor de 250 ms, ya que este valor representa un equilibrio entre el percentil 95 (P95) y el percentil 99 (P99). Esta selección nos permite realizar un intento adicional sin superar los límites de error, cumpliendo así con los tiempos de respuesta requeridos. Con este tiempo de espera, aplicamos una estrategia de reintento lineal.
+
+Ejemplo 2:
+El código de estado 429, que significa "Demasiadas solicitudes" (Too Many Requests), indica que el servidor está sobrecargado y no puede gestionar todas las peticiones que está recibiendo.
