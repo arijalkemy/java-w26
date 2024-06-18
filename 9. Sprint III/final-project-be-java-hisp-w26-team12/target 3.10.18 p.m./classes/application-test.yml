@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: mtgarcia
+    password: Sup3r_m4
+    url: jdbc:mysql://proxysql.master.meliseginf.com:6612/mainDB?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+
