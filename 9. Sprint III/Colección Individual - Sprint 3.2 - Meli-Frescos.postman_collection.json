@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "e4abb8db-e545-4d99-b09e-2a1665e559b1",
+		"name": "Colección Individual - Sprint 3.2 - Meli-Frescos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34481603"
+	},
+	"item": [
+		{
+			"name": "Search by name or price range",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODgyNzM4NSwiZXhwIjoxNzE4ODI4ODI1fQ.Zqi6QuDPG2tnfo3cjpIS_wOfII3SeCLZvZvq7k2ZYOM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/search?maxPrice=30&minPrice=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Lechuga Fresca",
+							"disabled": true
+						},
+						{
+							"key": "maxPrice",
+							"value": "30"
+						},
+						{
+							"key": "minPrice",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for low stock products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg4MjczMjcsImV4cCI6MTcxODgyODc2N30.XVCDeTUd-tcSZcsnK8LopDdcW05IGGUjVy1PzAQ8ENY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/low-stock?threshold=1000",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"low-stock"
+					],
+					"query": [
+						{
+							"key": "threshold",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"buyer_user1\",\n    \"password\": \"password1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
