@@ -1,0 +1,285 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "role": "WAREHOUSEMAN",
+      "email": "johndoe@example.com",
+      "password": "$2a$10$QsAAIrpUIaqfQOTfbgbaxO2hHCuyQCYo3/fQOqj..voCDZVZXvpFa",
+      "address": "123 Main St"
+    },
+    {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "role": "BUYER",
+      "email": "janedoe@example.com",
+      "password": "$2a$10$QsAAIrpUIaqfQOTfbgbaxO2hHCuyQCYo3/fQOqj..voCDZVZXvpFa",
+      "address": "456 Main St"
+    },
+    {
+      "id": 3,
+      "firstName": "Jim",
+      "lastName": "Doe",
+      "role": "SELLER",
+      "email": "jimdoe@example.com",
+      "password": "$2a$10$QsAAIrpUIaqfQOTfbgbaxO2hHCuyQCYo3/fQOqj..voCDZVZXvpFa",
+      "address": "789 Main St"
+    },
+    {
+      "id": 4,
+      "firstName": "Emily",
+      "lastName": "Smith",
+      "role": "BUYER",
+      "email": "emilysmith@example.com",
+      "password": "$2a$10$QsAAIrpUIaqfQOTfbgbaxO2hHCuyQCYo3/fQOqj..voCDZVZXvpFa",
+      "address": "321 Elm St"
+    },
+    {
+      "id": 5,
+      "firstName": "Michael",
+      "lastName": "Johnson",
+      "role": "SELLER",
+      "email": "michaeljohnson@example.com",
+      "password": "$2a$10$QsAAIrpUIaqfQOTfbgbaxO2hHCuyQCYo3/fQOqj..voCDZVZXvpFa",
+      "address": "567 Oak St"
+    }
+  ],
+  "warehouses": [
+    {
+      "id": 1,
+      "address": "123 Warehouse St",
+      "country": "Country A",
+      "warehouseman": 1
+    }
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "temperature": 0.0,
+      "caracteristics": "Some characteristics",
+      "sectorSize": 100,
+      "currentAvailability": 50,
+      "category": "RF",
+      "warehouse": 1
+    },
+    {
+      "id": 2,
+      "temperature": 10.0,
+      "caracteristics": "Other characteristics",
+      "sectorSize": 150,
+      "currentAvailability": 100,
+      "category": "FS",
+      "warehouse": 1
+    },
+    {
+      "id": 3,
+      "temperature": -15.0,
+      "caracteristics": "More characteristics",
+      "sectorSize": 200,
+      "currentAvailability": 150,
+      "category": "FF",
+      "warehouse": 1
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "price": 100.0,
+      "description": "Product description",
+      "seller": 3
+    },
+    {
+      "id": 2,
+      "price": 150.0,
+      "description": "Another product description",
+      "seller": 3
+    },
+    {
+      "id": 3,
+      "price": 75.0,
+      "description": "Yet another product description",
+      "seller": 3
+    },
+    {
+      "id": 4,
+      "price": 120.0,
+      "description": "New product description",
+      "seller": 5
+    },
+    {
+      "id": 5,
+      "price": 80.0,
+      "description": "Different product description",
+      "seller": 5
+    }
+  ],
+  "purchase_orders": [
+    {
+      "id": 1,
+      "orderStatus": "SHOPPING_CART",
+      "date": "2024-01-01",
+      "buyer": 2
+    },
+    {
+      "id": 2,
+      "orderStatus": "SHOPPING_CART",
+      "date": "2024-01-05",
+      "buyer": 2
+    },
+    {
+      "id": 3,
+      "orderStatus": "SHOPPING_CART",
+      "date": "2024-01-10",
+      "buyer": 2
+    },
+    {
+      "id": 4,
+      "orderStatus": "SHOPPING_CART",
+      "date": "2024-01-03",
+      "buyer": 4
+    },
+    {
+      "id": 5,
+      "orderStatus": "SHOPPING_CART",
+      "date": "2024-01-08",
+      "buyer": 4
+    }
+  ],
+  "cart_details": [
+    {
+      "id": {
+        "orderId": 1,
+        "productId": 1
+      },
+      "quantity": 2
+    },
+    {
+      "id": {
+        "orderId": 1,
+        "productId": 2
+      },
+      "quantity": 3
+    },
+    {
+      "id": {
+        "orderId": 2,
+        "productId": 3
+      },
+      "quantity": 1
+    },
+    {
+      "id": {
+        "orderId": 4,
+        "productId": 4
+      },
+      "quantity": 2
+    },
+    {
+      "id": {
+        "orderId": 5,
+        "productId": 5
+      },
+      "quantity": 3
+    }
+  ],
+  "inbound_orders": [
+    {
+      "id": 1,
+      "orderDate": "2022-01-01",
+      "orderNumber": 1,
+      "warehouseman": 1
+    },
+    {
+      "id": 2,
+      "orderDate": "2022-01-03",
+      "orderNumber": 2,
+      "warehouseman": 1
+    },
+    {
+      "id": 3,
+      "orderDate": "2022-01-05",
+      "orderNumber": 3,
+      "warehouseman": 1
+    },
+    {
+      "id": 4,
+      "orderDate": "2022-01-07",
+      "orderNumber": 4,
+      "warehouseman": 1
+    }
+  ],
+  "batches": [
+    {
+      "id": 1,
+      "initialQuantity": 100,
+      "currentQuantity": 100,
+      "dueDate": "2024-12-31",
+      "manufacturingDate": "2022-02-15",
+      "manufacturingTime": "2022-02-15T12:21:45",
+      "batchNumber": 1,
+      "currentTemperature": 6.0,
+      "minimumTemperature": 6.0,
+      "inboundOrder": 1,
+      "product": 1,
+      "section": 1
+    },
+    {
+      "id": 2,
+      "initialQuantity": 50,
+      "currentQuantity": 40,
+      "dueDate": "2024-08-30",
+      "manufacturingDate": "2022-01-10",
+      "manufacturingTime": "2022-01-10T10:15:30",
+      "batchNumber": 2,
+      "currentTemperature": 5.0,
+      "minimumTemperature": 5.0,
+      "inboundOrder": 2,
+      "product": 2,
+      "section": 1
+    },
+    {
+      "id": 3,
+      "initialQuantity": 80,
+      "currentQuantity": 70,
+      "dueDate": "2024-07-02",
+      "manufacturingDate": "2022-03-05",
+      "manufacturingTime": "2022-03-05T08:45:00",
+      "batchNumber": 3,
+      "currentTemperature": 5.0,
+      "minimumTemperature": 5.0,
+      "inboundOrder": 1,
+      "product": 3,
+      "section": 1
+    },
+    {
+      "id": 4,
+      "initialQuantity": 120,
+      "currentQuantity": 110,
+      "dueDate": "2024-07-10",
+      "manufacturingDate": "2022-02-28",
+      "manufacturingTime": "2022-02-28T14:30:00",
+      "batchNumber": 4,
+      "currentTemperature": -5.0,
+      "minimumTemperature": -5.0,
+      "inboundOrder": 3,
+      "product": 4,
+      "section": 3
+    },
+    {
+      "id": 5,
+      "initialQuantity": 200,
+      "currentQuantity": 180,
+      "dueDate": "2024-07-03",
+      "manufacturingDate": "2022-01-20",
+      "manufacturingTime": "2022-01-20T09:00:00",
+      "batchNumber": 5,
+      "currentTemperature": -10.0,
+      "minimumTemperature": -10.0,
+      "inboundOrder": 4,
+      "product": 5,
+      "section": 3
+    }
+  ]
+}
