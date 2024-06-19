@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "d9e15aa2-7e02-4974-b5be-6c2a60d317f7",
+		"name": "SPRINT_3_individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34295947",
+		"_collection_link": "https://bold-meadow-809897.postman.co/workspace/SPRINT_1_BOOTCAMP~7a63b65d-3367-41e5-bf0d-6e497ace5dd9/collection/34295947-d9e15aa2-7e02-4974-b5be-6c2a60d317f7?action=share&source=collection_link&creator=34295947"
+	},
+	"item": [
+		{
+			"name": "req1",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 14,\n        \"order_date\": \"19-04-2024\",\n        \"section\": {\n            \"section_code\": 4,\n            \"warehouse_code\": 2\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 14,\n                \"product_id\": 1,\n                \"current_temperature\": 15.00,\n                \"minimum_temperature\": 10.00,\n                \"initial_quantity\": 20,\n                \"current_quantity\": 20,\n                \"manufacturing_date\": \"18-04-2024\",\n                \"manufacturing_time\": \"18-04-2024 17:23:21\",\n                \"due_date\": \"20-07-2025 00:00:00\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/inboundorder",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"inboundorder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mod",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 1,\n        \"order_date\": \"10-04-2014\",\n        \"section\": {\n            \"section_code\": 4,\n            \"warehouse_code\": 2\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 2,\n                \"product_id\": 1,\n                \"current_temperature\": 15.00,\n                \"minimum_temperature\": 10.00,\n                \"initial_quantity\": 20,\n                \"current_quantity\": 20,\n                \"manufacturing_date\": \"15-04-2014\",\n                \"manufacturing_time\": \"15-04-2014 17:23:21\",\n                \"due_date\": \"15-05-2014 00:00:00\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/inboundorder",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"inboundorder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "req2",
+			"item": [
+				{
+					"name": "get product list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/list",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product list RF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/list?category=RF",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"list"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "RF"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product list ASD",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/list?category=ASD",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"list"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "ASD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create orders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"purchase_order\": {\n    \"date\": \"21-06-2024\",\n    \"buyer_id\": 2,\n    \"order_status\": {\n      \"status_code\": \"CARRITO\"\n    },\n    \"products\": [\n      {\n        \"product_id\": 1,\n        \"quantity\": 10\n      }\n    ]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/orders",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mod order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"purchase_order\": {\n    \"date\": \"13-06-2024\",\n    \"buyer_id\": 2,\n    \"order_status\": {\n      \"status_code\": \"Carrito\"\n    },\n    \"products\": [\n      {\n        \"product_id\": 1,\n        \"quantity\": 10\n      }\n    ]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/orders",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"purchase_order\": {\n    \"date\": \"13-06-2024\",\n    \"buyer_id\": 2,\n    \"order_status\": {\n      \"status_code\": \"Carrito\"\n    },\n    \"products\": [\n      {\n        \"product_id\": 1,\n        \"quantity\": 10\n      }\n    ]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/orders/1",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "req3",
+			"item": [
+				{
+					"name": "correct get",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/1/batch/list",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "correct get by C",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/1/batch/list?order=C",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "C"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "correct get by L",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/1/batch/list?order=L",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "L"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "correct get by F",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/1/batch/list?order=F",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "F"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incorrect get (product)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/-1/batch/list",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"-1",
+								"batch",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incorrect get (order)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/1/batch/list?order=ASD",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "ASD"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "req4",
+			"item": [
+				{
+					"name": "req4",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/1/warehouse/list",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"warehouse",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "req4 error",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/500/warehouse/list",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"500",
+								"warehouse",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "req5",
+			"item": [
+				{
+					"name": "Get Batch list by due-date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/batch/list/due-date/100",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"list",
+								"due-date",
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "req6",
+			"item": [
+				{
+					"name": "get all warehouses data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/warehouses",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"warehouses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mod sector available quantity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "{{FURY_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"section_code\": 4,\n    \"new_capacity\": 1000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_3}}/api/v1/fresh-products/warehouses/2/sector",
+							"host": [
+								"{{URL_3}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"warehouses",
+								"2",
+								"sector"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "{{FURY_TOKEN}}"
+					}
+				],
+				"url": {
+					"raw": "{{URL_3}}/ping",
+					"host": [
+						"{{URL_3}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const API_URL_AUTH = pm.environment.get(\"URL_3\") + \"/auth/login\";",
+					"const USERNAME = pm.variables.get(\"USERNAME\");",
+					"const PW = pm.variables.get(\"PW\");",
+					"const FURY_TOKEN = pm.environment.get(\"FURY_TOKEN\")",
+					"const TOKEN_NAME = \"TOKEN\"",
+					"// -------------",
+					"const options = {",
+					"    url: API_URL_AUTH,",
+					"    method: \"POST\",",
+					"    header: ",
+					"        {",
+					"            \"content-type\": \"application/json\",",
+					"            \"X-Tiger-Token\": FURY_TOKEN",
+					"    },",
+					"    body: {",
+					"        mode: \"raw\",",
+					"        raw: JSON.stringify({ \"username\": USERNAME, \"password\": PW })",
+					"    }",
+					"}",
+					"// -------------",
+					"pm.sendRequest(options, function (err, response) {",
+					"    const res = response.json();",
+					"    if(response.code !== 200){",
+					"        pm.environment.set(TOKEN_NAME, \"ERROR\");",
+					"        pm.execution.skipRequest();",
+					"    } else {",
+					"        pm.environment.set(TOKEN_NAME, res?.access_token)",
+					"    }",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "USERNAME",
+			"value": "charlie",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "PW",
+			"value": "12345",
+			"type": "string"
+		},
+		{
+			"key": "USERNAME",
+			"value": "bob",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "PW",
+			"value": "12345",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "USERNAME",
+			"value": "mati",
+			"type": "string"
+		}
+	]
+}
