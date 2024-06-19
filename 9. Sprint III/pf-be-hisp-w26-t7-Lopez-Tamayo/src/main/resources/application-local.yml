@@ -1,0 +1,43 @@
+# Properties file for local/dev environment
+# You need to configure the environment variable in your IDE, more info in README.md
+# Overrides application.yml default properties
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+    username: admin
+    password:
+  h2:
+    console:
+      settings:
+        web-allow-others: true
+        tcp-allow-others: true
+      enabled: true
+  sql:
+    init:
+      mode: always
+
+secrets:
+  JWT_SECRET: UHJ1ZWJhczEyMzQ1Njc4OV9NZWxUZXN0OTg3NjU0MzIxMEZ1cnkgVGVzdCAxMjM0MzI1NjU3ODM1NDg5NzlBLVotMC0x
+
+#spring:
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+#    defer-datasource-initialization: true
+#  sql:
+#    init:
+#      mode: never
+#
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: ${DB_USER}
+#    password: ${DB_PASS}
+#    url: jdbc:mysql://proxysql.master.meliseginf.com:6612/productdb7?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+
