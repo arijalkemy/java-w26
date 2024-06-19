@@ -1,0 +1,15 @@
+# "prod" suffix properties file. Scopes name samples: "prod", "web-prod", "api-prod", etc.
+# Overrides application.yml default properties
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    max-lifetime: 500000
+    keepalive: 200000
+    db: FRESHMARKE
+    host: jdbc:mysql://DB_MYSQL_DESAENV09_FRESHMARKF_FRESHMARKF_ENDPOINT
+    user: FRESHMARKF_WPROD
+    password: DB_MYSQL_DESAENV09_FRESHMARKF_FRESHMARKF_WPROD
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
