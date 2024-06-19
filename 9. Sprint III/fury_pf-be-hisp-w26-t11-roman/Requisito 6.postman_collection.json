@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "f86797cf-3f41-4ede-8755-9db2886859df",
+		"name": "Requisito 6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34022843"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJjZXNhci5yb21hbnp1bmlnYUBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJDZXNhciBSb21hbiIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJjcm9tYW56dW5pZ2EifSwiZXhwIjoxNzE4NzUyNzQ0LCJpYXQiOjE3MTg3MjAzNDQsImlkZW50aXR5IjoibXJuOnNlZ2luZjphZDp1c2VyL2Nyb21hbnp1bmlnYSIsImlzcyI6ImZ1cnlfdGlnZXIiLCJzdWIiOiJjcm9tYW56dW5pZ2EifQ.uDyhJr8XMy6Vr4TReXdhM7g99iGTi1L0BrPhEwg-ELzsK2rf24KB_u8cSwrwQTmw1KJcMiHg3IKbP8NTgLhLnN-Isxzws5c87XQ6fkyjWCTC4swf9Bt9BfAVVURtH7I82SmvRdFkRK6rPBS7Pnfjc3vPWtEgKksYammuO5mB2yrVgOhjetRIaoYlLxoU85mSCcmKGjRpy9KjaMoPFWKaNed8LH2iJtZJZtwBRD9Xkt6mTGrHlWnEu8p2IQZDO84heRzEGruOxvI6o92limuLzvLwuJUEyeUHoh_j73VaYnnreWFx_GxmqKkH7cTMg07d90X0XMEOSdl58l8HMSCwcg"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"rep_user1\",\n    \"password\": \"password1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "List Star Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg4MjgwMTUsImV4cCI6MTcxODgyOTQ1NX0.7_HbjcYDLAI9FObF97F17I-_fH1V6WuGJ1KXEoOlXkk",
+						"disabled": true
+					}
+				],
+				"url": "localhost:8080/api/v1/fresh-products/orders/2/batch-list"
+			},
+			"response": []
+		},
+		{
+			"name": "List More Products in a Car",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/api/v1/fresh-products/products/cart"
+			},
+			"response": []
+		}
+	]
+}
