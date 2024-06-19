@@ -1,0 +1,18 @@
+# "prod" suffix properties file. Scopes name samples: "prod", "web-prod", "api-prod", etc.
+# Overrides application.yml default properties
+spring:
+  datasource:
+    host: DB_MYSQL_DESAENV09_FRESCOSMEL_FRESCOSMEL_ENDPOINT
+    db: frescosmel
+    username: frescosmel_WPROD
+    password: DB_MYSQL_DESAENV09_FRESCOSMEL_FRESCOSMEL_WPROD
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    generate-ddl: false
+  h2:
+    console:
+      enabled: false
