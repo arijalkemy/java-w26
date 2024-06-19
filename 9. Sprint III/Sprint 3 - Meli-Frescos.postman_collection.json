@@ -1,0 +1,533 @@
+{
+	"info": {
+		"_postman_id": "24c17ff1-7959-4846-a36a-e66fd0952e59",
+		"name": "Sprint 3 - Meli-Frescos",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34295574"
+	},
+	"item": [
+		{
+			"name": "Requerimiento 1",
+			"item": [
+				{
+					"name": "POST 1.1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3NjcwNzUsImV4cCI6MTcxODc2ODUxNX0.chNbUPJlpITaFsWapUxLlsYzicRSHhMjliApfoD6jbY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 118,\n        \"order_date\": \"20-05-2023\",\n        \"section\": {\n            \"section_code\": 7,\n            \"warehouse_code\": 2\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 32,\n                \"product_id\": 1,\n                \"current_temperature\": 10.23,\n                \"minimum_temperature\": 5.0,\n                \"initial_quantity\": 10,\n                \"current_quantity\": 40,\n                \"manufacturing_date\": \"10-05-2023\",\n                \"manufacturing_time\": \"10-05-2023 11:11:11\",\n                \"due_date\": \"30-05-2023\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/inboundorder"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 1.2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb25hdGhhbmZyYW5jaXNjby5wZXJlemhlcm5hbmRlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb25hdGhhbiBGcmFuY2lzY28gUGVyZXoiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiam9wZXJlemhlcm5hIn0sImV4cCI6MTcxODgzNDgwMCwiaWF0IjoxNzE4ODAyNDAwLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9qb3BlcmV6aGVybmEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiam9wZXJlemhlcm5hIn0.HxLYYfihnMT9cq3EDttXcTQR-JKUsuoFipkw_oWLBT41dLNrI3LvaASWiz-2DMcZHIZKSjfxMDucPLa4sBVkes8IojNodD5GQrOEjQ4_d8rrMgSyQKmzNG7qf4_8HY_MBXknThT5ZWSkGBzryQG9PvgRRJlckTrGBb6HpXc70oy-hmJA-IuAKvH7doCjkbV344lycp01LkMoWY4T2AH8lblx_zJTkwzIY6hDZJr9RIfgF3uhga-vPiikWUSbTK_Zpi7KM1HbtVZhdWozFQD4H4PbL_WT_5lt1hU-fWwbdlK60brVJywVTu47s-SBz6clFUhWO--dhO84hsw7TE8wHQ",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg4MDY5MDYsImV4cCI6MTcxODgwODM0Nn0.IqFVGwR2EJjHQ5g8KvE_Ntd3I4JUvVFBUiQlYTB5DE4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 118,\n        \"order_date\": \"20-05-2023\",\n        \"section\": {\n            \"section_code\": 5,\n            \"warehouse_code\": 1\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 32,\n                \"product_id\": 1,\n                \"current_temperature\": 10.23,\n                \"minimum_temperature\": 5.0,\n                \"initial_quantity\": 50,\n                \"current_quantity\": 1,\n                \"manufacturing_date\": \"10-05-2023\",\n                \"manufacturing_time\": \"10-05-2023 11:11:11\",\n                \"due_date\": \"30-05-2023\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/inboundorder"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 2",
+			"item": [
+				{
+					"name": "GET 2.1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2NzMzOSwiZXhwIjoxNzE4NzY4Nzc5fQ.2DIw5Ts-K0IfLDp1AMmUcQIZGuZ2iIVshm7qYApI-VY",
+								"type": "text"
+							}
+						],
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/products/list"
+					},
+					"response": []
+				},
+				{
+					"name": "GET 2.2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2NzMzOSwiZXhwIjoxNzE4NzY4Nzc5fQ.2DIw5Ts-K0IfLDp1AMmUcQIZGuZ2iIVshm7qYApI-VY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/products/list?acronym=FS",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"list"
+							],
+							"query": [
+								{
+									"key": "acronym",
+									"value": "FS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 2.3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2OTM3NiwiZXhwIjoxNzE4NzcwODE2fQ.i9vkJQ9QHSgu3KDk_46pahvGe3qsluEwLnaJWYF1WLw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchase_order\": {\n        \"date\": \"14-06-2024\",\n        \"buyer_id\": \"11\",\n        \"order_status\": {\n            \"status_code\": \"Carrito\"\n        },\n        \"products\": [\n            {\n                \"product_id\": \"1\",\n                \"quantity\": \"7\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/orders"
+					},
+					"response": []
+				},
+				{
+					"name": "GET 2.4",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2NzMzOSwiZXhwIjoxNzE4NzY4Nzc5fQ.2DIw5Ts-K0IfLDp1AMmUcQIZGuZ2iIVshm7qYApI-VY",
+								"type": "text"
+							}
+						],
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/orders/14"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 2.5",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2OTM3NiwiZXhwIjoxNzE4NzcwODE2fQ.i9vkJQ9QHSgu3KDk_46pahvGe3qsluEwLnaJWYF1WLw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchase_order\": {\n        \"date\": \"14-06-2024\",\n        \"buyer_id\": \"11\",\n        \"order_status\": {\n            \"status_code\": \"Carrito\"\n        },\n        \"products\": [\n            {\n                \"product_id\": \"1\",\n                \"quantity\": \"6\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/orders/16"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 3",
+			"item": [
+				{
+					"name": "GET 3.1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk1NzIsImV4cCI6MTcxODc3MTAxMn0.WZJkc8OowAx5J4-Ro_RuhQzCwTmZTHJLBAK2XZYoV2M",
+								"type": "text"
+							}
+						],
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/1/batch/list",
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "GET 3.2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3NjcwNzUsImV4cCI6MTcxODc2ODUxNX0.chNbUPJlpITaFsWapUxLlsYzicRSHhMjliApfoD6jbY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/1/batch/list?order=F",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "F"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 4",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/1/warehouse/list"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 5",
+			"item": [
+				{
+					"name": "GET 5.1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/batch/list/due-date/1000"
+					},
+					"response": []
+				},
+				{
+					"name": "GET 5.2.1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/batch/list/due-date/1000?category=FS",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"list",
+								"due-date",
+								"1000"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "FS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 5.2.2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/batch/list/due-date/1000?order=date_desc&category=FS",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"list",
+								"due-date",
+								"1000"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								},
+								{
+									"key": "category",
+									"value": "FS"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 6",
+			"item": [
+				{
+					"name": "expired-batches",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/api/v1/expired-batches"
+					},
+					"response": []
+				},
+				{
+					"name": "ordersById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/api/v1/fresh-products/ordersById/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb25hdGhhbmZyYW5jaXNjby5wZXJlemhlcm5hbmRlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb25hdGhhbiBGcmFuY2lzY28gUGVyZXoiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiam9wZXJlemhlcm5hIn0sImV4cCI6MTcxODgzNDgwMCwiaWF0IjoxNzE4ODAyNDAwLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9qb3BlcmV6aGVybmEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiam9wZXJlemhlcm5hIn0.HxLYYfihnMT9cq3EDttXcTQR-JKUsuoFipkw_oWLBT41dLNrI3LvaASWiz-2DMcZHIZKSjfxMDucPLa4sBVkes8IojNodD5GQrOEjQ4_d8rrMgSyQKmzNG7qf4_8HY_MBXknThT5ZWSkGBzryQG9PvgRRJlckTrGBb6HpXc70oy-hmJA-IuAKvH7doCjkbV344lycp01LkMoWY4T2AH8lblx_zJTkwzIY6hDZJr9RIfgF3uhga-vPiikWUSbTK_Zpi7KM1HbtVZhdWozFQD4H4PbL_WT_5lt1hU-fWwbdlK60brVJywVTu47s-SBz6clFUhWO--dhO84hsw7TE8wHQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"rep_user1\",\n    \"password\": \"password1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://mlfrescos-prod--meli-frescos.furyapps.io/auth/login",
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

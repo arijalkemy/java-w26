@@ -1,0 +1,16 @@
+# "prod" suffix properties file. Scopes name samples: "prod", "web-prod", "api-prod", etc.
+# Overrides application.yml default properties
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:melifreskos
+    username: admin
+    password: admin
+  h2:
+    console:
+      enabled: false
