@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/9. Sprint III/group part/final-project-java-hisp-w26-t1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/9. Sprint III/single part/pf-be-hisp-w26-t01-coro" vcs="Git" />
   </component>
 </project>
