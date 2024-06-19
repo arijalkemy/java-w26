@@ -1,0 +1,1739 @@
+{
+	"info": {
+		"_postman_id": "1ddab9fa-6442-40d7-811a-5ce2ae64c9d4",
+		"name": "Sprint 3 Warehouses",
+		"description": "**Description:**  \nThis API collection is designed for managing the entire lifecycle of products in a warehouse system, from registration to purchase. It utilizes environment variables to authenticate and interact with various endpoints efficiently.\n\n**Environment Variables:**\n\n- `X_TIGER_TOKEN`: This is a mandatory application token required for establishing connections with each endpoint through the header. It ensures secure and authorized interactions with the API.\n- `FURY_URL`: The base URL of the hosting server where the API endpoints are accessible.\n- `BEARER_TOKEN_ADMIN`: An authentication token used for administrative access. It is obtained through a pre-request script that performs a POST request to the login endpoint.\n- `BEARER_TOKEN_USER`: Similar to the admin token, this is used for user-level access within the system, allowing typical user interactions and permissions.\n    \n\n**Key Features:**\n\n1. **Inbound Order Management**: Admins can register new product entries into the system by creating Inbound Orders. Each order is associated with specific sections within a warehouse managed by an admin.\n2. **Product Availability Check**: Before adding items to carts, the API checks for product availability within the designated warehouses.\n3. **Cart Management for Users**: Users can add products to their carts. The API supports transitions status once the transaction is validated and the products are confirmed to be available.\n    \n\n**Use Cases:**\n\n- Admins managing inbound product flows and organizing warehouse sections.\n- Users performing purchase operations through their individual carts.\n    \n\n**Authentication:**  \nThe collection uses Bearer token authentication. Tokens are dynamically retrieved through pre-request scripts that ensure fresh authentication for every session.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34292067"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"EjemploUser\",\n    \"password\": \"EjemploUser\",\n    \"first_name\": \"EjemploNombre\",\n    \"last_name\": \"EjemploApellido\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FURY_URL}}/auth/register",
+							"host": [
+								"{{FURY_URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"EjemploAdmin\",\n    \"password\": \"EjemploAdmin\",\n    \"first_name\": \"EjemploNombre\",\n    \"last_name\": \"EjemploApellido\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FURY_URL}}/auth/registerAdmin",
+							"host": [
+								"{{FURY_URL}}"
+							],
+							"path": [
+								"auth",
+								"registerAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Quetzalli\",\n    \"password\": \"Quetzalli\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{FURY_URL}}/auth/login",
+							"host": [
+								"{{FURY_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login with User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"Ricardo\",\n    \"password\": \"Ricardo\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FURY_URL}}/auth/login",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Login with Admin",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"Quetzalli\",\n    \"password\": \"Quetzalli\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FURY_URL}}/auth/login",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Login with Seller",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"Seller\",\n    \"password\": \"Seller\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FURY_URL}}/auth/login",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "**Auth Endpoints**\n\nThis folder houses essential authentication APIs for user management and login functionality.\n\n1. **Create New User**\n    - **Endpoint**: `{{FURY_URL}}/auth/register`\n    - **Method**: POST\n    - **Description**: Endpoint to create a new user in the system.\n2. **Create New Admin**\n    - **Endpoint**: `{{FURY_URL}}/auth/registerAdmin`\n    - **Method**: POST\n    - **Description**: Endpoint to register a new administrator with warehouse privileges.\n3. **User Login**\n    - **Endpoint**: `{{FURY_URL}}/auth/login`\n    - **Method**: POST\n    - **Description**: Endpoint to authenticate and log in a user.\n\nThese endpoints facilitate user registration, administrator creation, and user authentication within the application."
+		},
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Test Token with User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN_USER}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "{{X_TIGER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{FURY_URL}}/api/v1/demo",
+							"host": [
+								"{{FURY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"demo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test Token with Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN_ADMIN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "{{X_TIGER_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{FURY_URL}}/api/v1/demoAdmin",
+							"host": [
+								"{{FURY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"demoAdmin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test with Not Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{FURY_URL}}/api/v1/index2",
+							"host": [
+								"{{FURY_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"index2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "**Token Endpoints**\n\nThis folder contains endpoints aimed at testing token functionality across various user roles within the application.\n\n1. **Test Token with User**\n    - **Endpoint**: `{{FURY_URL}}/api/v1/demo`\n    - **Description**: Tests the functionality of an authentication token with user privileges.\n2. **Test Token with Admin**\n    - **Endpoint**: `{{FURY_URL}}/api/v1/demoAdmin`\n    - **Description**: Validates the functionality of an authentication token with administrative privileges.\n3. **Test with Not Token**\n    - **Endpoint**: `{{FURY_URL}}/api/v1/index2`\n    - **Description**: Checks the behavior of an endpoint when no token is provided.\n\nThese endpoints are essential for verifying the correct handling and authorization of tokens across different user roles within the application environment."
+		},
+		{
+			"name": "Requirements",
+			"item": [
+				{
+					"name": "Requirement Nº 1",
+					"item": [
+						{
+							"name": "Create Inbound Order As Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/inboundorder",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"inboundorder"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Create Inbound Order As Admin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 125,\n        \"order_date\": \"01-01-2023\",\n        \"section\": {\n            \"section_code\": 7,\n            \"warehouse_code\": 3\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 5,\n                \"product_id\": 4,\n                \"current_temperature\": 25.0,\n                \"minimum_temperature\": 15.0,\n                \"initial_quantity\": 1,\n                \"current_quantity\": 0,\n                \"manufacturing_date\": \"01-01-2023\",\n                \"manufacturing_time\": \"01-01-2023 10:00:00\",\n                \"due_date\": \"18-06-2025\"\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/inboundorder",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"inboundorder"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Update Inbound Order As Admin Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/inboundorder",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"inboundorder"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Inbound Order As Admin",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 125,\n        \"order_date\": \"01-01-2023\",\n        \"section\": {\n            \"section_code\": 7,\n            \"warehouse_code\": 3\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 5,\n                \"product_id\": 4,\n                \"current_temperature\": 25.0,\n                \"minimum_temperature\": 15.0,\n                \"initial_quantity\": 1,\n                \"current_quantity\": 0,\n                \"manufacturing_date\": \"01-01-2023\",\n                \"manufacturing_time\": \"01-01-2023 10:00:00\",\n                \"due_date\": \"18-06-2025\"\n            },\n            {\n                \"batch_number\": 6,\n                \"product_id\": 7,\n                \"current_temperature\": 25.0,\n                \"minimum_temperature\": 15.0,\n                \"initial_quantity\": 1,\n                \"current_quantity\": 0,\n                \"manufacturing_date\": \"01-01-2023\",\n                \"manufacturing_time\": \"01-01-2023 10:00:00\",\n                \"due_date\": \"18-06-2025\"\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}\t/api/v1/fresh-products/inboundorder",
+											"host": [
+												"{{FURY_URL}}\t"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"inboundorder"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Requirement Nº 2",
+					"item": [
+						{
+							"name": "Get products",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_USER}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/list",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/list",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"list"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get products by category FF",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/list?category=FF",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"list"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "FF"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get products by category FS",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/list?category=FS",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"list"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "FS"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get products by category RF",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/list?category=RF",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"list"
+											],
+											"query": [
+												{
+													"key": "category",
+													"value": "RF"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Update cart by order ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_USER}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/orders/{idOrder}",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"orders",
+										"{idOrder}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update cart by order ID 1",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"purchase_order\": {\n        \"date\": \"12-06-2024\",\n        \"buyer_id\": 4,\n        \"order_status\": {\n            \"status_code\": \"CARRITO\"\n        },\n        \"products\": [\n            {\n                \"product_id\": 1,\n                \"quantity\": 1\n            },\n            {\n                \"product_id\": 1,\n                \"quantity\": 2\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/orders/1",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"orders",
+												"1"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Register an Order with the List of Products",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_USER}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/orders",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"orders"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Register an Order with the List of Products",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"purchase_order\": {\n        \"date\": \"12-06-2024\",\n        \"buyer_id\": 4,\n        \"order_status\": {\n            \"status_code\": \"CARRITO\"\n        },\n        \"products\": [\n            {\n                \"product_id\": 1,\n                \"quantity\": 1\n            },\n            {\n                \"product_id\": 1,\n                \"quantity\": 2\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/orders",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"orders"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Requirement Nº 3",
+					"item": [
+						{
+							"name": "Get warehouse stock by product ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/{idProduct}/batch/list",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"{idProduct}",
+										"batch",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get warehouse stock by product ID 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/1/batch/list",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"1",
+												"batch",
+												"list"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get warehouse stock by product ID 1 ordered by Batch",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/1/batch/list?order=L",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"1",
+												"batch",
+												"list"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "L"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get warehouse stock by product ID 1 ordered by Amount",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/1/batch/list?order=C",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"1",
+												"batch",
+												"list"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "C"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get warehouse stock by product ID 1 ordered by Date",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/1/batch/list?order=F",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"1",
+												"batch",
+												"list"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "F"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Requirement Nº 4",
+					"item": [
+						{
+							"name": "Get all warehouse stock by product ID",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/{idProduct}/warehouse/list",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"{idProduct}",
+										"warehouse",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get all warehouse stock by product ID 1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/1/warehouse/list",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"1",
+												"warehouse",
+												"list"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get all warehouse stock by product ID 4",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/4/warehouse/list",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"4",
+												"warehouse",
+												"list"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Requirement Nº 5",
+					"item": [
+						{
+							"name": "Get batches due by days",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/batch/list/due-date/{cantDays}",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"batch",
+										"list",
+										"due-date",
+										"{cantDays}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get batches due by 400 days",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/batch/list/due-date/400",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"batch",
+												"list",
+												"due-date",
+												"400"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Get batches due by days and category and order",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/batch/list/due-date/f/{cantDays}?order&category",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"batch",
+										"list",
+										"due-date",
+										"f",
+										"{cantDays}"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": null
+										},
+										{
+											"key": "category",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get batches due by 400 days and category FS and order desc",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/batch/list/due-date/f/400?order=date_desc&category=FS",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"batch",
+												"list",
+												"due-date",
+												"f",
+												"400"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "date_desc"
+												},
+												{
+													"key": "category",
+													"value": "FS"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "Get batches due by 400 days and category RF and order asc",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"warning": "This is a duplicate header and will be overridden by the x-tiger-token header generated by Postman.",
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/batch/list/due-date/f/400?order=date_asc&category=RF",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"batch",
+												"list",
+												"due-date",
+												"f",
+												"400"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "date_asc"
+												},
+												{
+													"key": "category",
+													"value": "RF"
+												}
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Requirement Nº 6",
+					"item": [
+						{
+							"name": "Get Inbound Orders by Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_ADMIN}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/inboundorder",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"inboundorder"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Products By Seller",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_SELLER}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/products",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"products"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Product by Seller",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{BEARER_TOKEN_SELLER}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-tiger-token",
+										"value": "{{X_TIGER_TOKEN}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Product 100\",\n  \"price\": 10.25,\n  \"type\": \"FS\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FURY_URL}}/api/v1/fresh-products/new-product",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"fresh-products",
+										"new-product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Product 1",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Product 111\",\n  \"price\": 10.25,\n  \"type\": \"FS\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/new-product",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"new-product"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "New Product 2",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Product 222\",\n  \"price\": 34.56,\n  \"type\": \"FF\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/new-product",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"new-product"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "New Product preexisted",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "{{X_TIGER_TOKEN}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Product 1\",\n  \"price\": 34.56,\n  \"type\": \"FF\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{FURY_URL}}/api/v1/fresh-products/new-product",
+											"host": [
+												"{{FURY_URL}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fresh-products",
+												"new-product"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "New Seller",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"EjemploSeller\",\n    \"password\": \"EjemploSeller\",\n    \"first_name\": \"EjemploNombre\",\n    \"last_name\": \"EjemploApellido\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{FURY_URL}}/auth/registerSeller",
+									"host": [
+										"{{FURY_URL}}"
+									],
+									"path": [
+										"auth",
+										"registerSeller"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{FURY_URL}}/ping",
+					"host": [
+						"{{FURY_URL}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{X_TIGER_TOKEN}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "x-tiger-token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.sendRequest({",
+					"    url: pm.variables.get('FURY_URL') + '/auth/login',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'x-tiger-token': pm.variables.get('X_TIGER_TOKEN'),",
+					"        'Content-Type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({",
+					"            \"username\": \"Yair\",",
+					"            \"password\": \"Yair\"",
+					"        })",
+					"    }",
+					"}, function (err, res) {",
+					"    if (err) {",
+					"        console.error(err);",
+					"        // Manejar el error según sea necesario",
+					"    } else {",
+					"        var responseJson = res.json();",
+					"        pm.environment.set('BEARER_TOKEN_ADMIN', responseJson.token);",
+					"        // Guardar el token en la variable de entorno 'bearer_token' para admin",
+					"        pm.sendRequest({",
+					"        url: pm.variables.get('FURY_URL') + '/auth/login',",
+					"        method: 'POST',",
+					"        header: {",
+					"            'x-tiger-token': pm.variables.get('X_TIGER_TOKEN'),",
+					"            'Content-Type': 'application/json'",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({",
+					"                \"username\": \"Joaquin\",",
+					"            \"password\": \"Joaquin\"",
+					"            })",
+					"        }",
+					"    }, function (err, res) {",
+					"        if (err) {",
+					"            console.error(err);",
+					"        // Manejar el error según sea necesario",
+					"        } else {",
+					"            var responseJson = res.json();",
+					"            pm.environment.set('BEARER_TOKEN_USER', responseJson.token);",
+					"            // Guardar el token en la variable de entorno 'bearer_token'",
+					"            pm.sendRequest({",
+					"        url: pm.variables.get('FURY_URL') + '/auth/login',",
+					"        method: 'POST',",
+					"        header: {",
+					"            'x-tiger-token': pm.variables.get('X_TIGER_TOKEN'),",
+					"            'Content-Type': 'application/json'",
+					"        },",
+					"        body: {",
+					"            mode: 'raw',",
+					"            raw: JSON.stringify({",
+					"                \"username\": \"Seller\",",
+					"            \"password\": \"Seller\"",
+					"            })",
+					"        }",
+					"    }, function (err, res) {",
+					"        if (err) {",
+					"            console.error(err);",
+					"        // Manejar el error según sea necesario",
+					"        } else {",
+					"            var responseJson = res.json();",
+					"            pm.environment.set('BEARER_TOKEN_SELLER', responseJson.token);",
+					"            // Guardar el token en la variable de entorno 'bearer_token'",
+					"            ",
+					"            }",
+					"        });",
+					"            }",
+					"        });",
+					"    }",
+					"});",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BEARER_TOKEN_USER",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "BEARER_TOKEN_ADMIN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "BEARER_TOKEN_SELLER",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "X_TIGER_TOKEN",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "FURY_URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
