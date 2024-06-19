@@ -1,0 +1,787 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "pf-be-hisp-w26-t11-arriaga",
+    "description" : "pf-be-hisp-w26-t11-arriaga",
+    "contact" : {
+      "name" : "joperezherna",
+      "email" : "jonathanfrancisco.perezhernandez@mercadolibre.com.mx"
+    },
+    "version" : "last"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Scope %s"
+  } ],
+  "paths" : {
+    "/api/v1/fresh-products/orders" : {
+      "put" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "updateOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseRequestDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "registerOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseRequestDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/inboundorder" : {
+      "put" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "updateInboundOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/InboundOrderRequestDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InboundOrderResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "createInboundOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/InboundOrderRequestDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InboundOrderResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register" : {
+      "post" : {
+        "tags" : [ "auth-controller" ],
+        "operationId" : "register",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RegisterRequestDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login" : {
+      "post" : {
+        "tags" : [ "auth-controller" ],
+        "operationId" : "login",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/LoginRequestDto"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ping" : {
+      "get" : {
+        "tags" : [ "ping-controller" ],
+        "operationId" : "ping",
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/list" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "listProducts",
+        "parameters" : [ {
+          "name" : "acronym",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ProductSimpleResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/{productId}/batch/list" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "listBatchesOfProduct",
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "order",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProductBatchesResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/{idProduct}/warehouse/list" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "listProductStockByWarehouse",
+        "parameters" : [ {
+          "name" : "idProduct",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/warehouse/{warehouseId}" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "getRepresentativeByWarehouseCode",
+        "parameters" : [ {
+          "name" : "warehouseId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/RepresentativeResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/orders/{orderId}" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "listOrderProducts",
+        "parameters" : [ {
+          "name" : "orderId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ProductSimpleResponseDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/inboundorder/{inboundorderId}" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "getInboundOrder",
+        "parameters" : [ {
+          "name" : "inboundorderId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/BatchStockInboundOrderResponseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/batch/list/due-date/{cantDays}" : {
+      "get" : {
+        "tags" : [ "meli-frescos-controller" ],
+        "operationId" : "listOrderedDueDateProducts",
+        "parameters" : [ {
+          "name" : "cantDays",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "category",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "pattern" : "FS|RF|FF",
+            "type" : "string"
+          }
+        }, {
+          "name" : "order",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "pattern" : "date_asc|date_desc",
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "*/*" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BatchSearchStockResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "PurchaseOrderDTO" : {
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "products" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PurchasedProductDTO"
+            }
+          },
+          "buyer_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "order_status" : {
+            "$ref" : "#/components/schemas/StatusDTO"
+          }
+        }
+      },
+      "PurchaseRequestDTO" : {
+        "type" : "object",
+        "properties" : {
+          "purchase_order" : {
+            "$ref" : "#/components/schemas/PurchaseOrderDTO"
+          }
+        }
+      },
+      "PurchasedProductDTO" : {
+        "type" : "object",
+        "properties" : {
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "StatusDTO" : {
+        "type" : "object",
+        "properties" : {
+          "status_code" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PurchaseResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "total_cost" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BatchStockRequestDTO" : {
+        "required" : [ "batch_number", "current_quantity", "current_temperature", "due_date", "initial_quantity", "manufacturing_date", "manufacturing_time", "minimum_temperature", "product_id" ],
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "minimum_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "initial_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "manufacturing_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "manufacturing_time" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "due_date" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "InboundOrderDTO" : {
+        "required" : [ "batch_stock", "order_date", "order_number", "section" ],
+        "type" : "object",
+        "properties" : {
+          "section" : {
+            "$ref" : "#/components/schemas/SectionDTO"
+          },
+          "order_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "order_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "batch_stock" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BatchStockRequestDTO"
+            }
+          }
+        }
+      },
+      "InboundOrderRequestDTO" : {
+        "required" : [ "inbound_order" ],
+        "type" : "object",
+        "properties" : {
+          "inbound_order" : {
+            "$ref" : "#/components/schemas/InboundOrderDTO"
+          }
+        }
+      },
+      "SectionDTO" : {
+        "required" : [ "section_code", "warehouse_code" ],
+        "type" : "object",
+        "properties" : {
+          "section_code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "warehouse_code" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "BatchStockResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "minimum_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "initial_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "manufacturing_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "manufacturing_time" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "due_date" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "InboundOrderResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_stock" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BatchStockResponseDTO"
+            }
+          }
+        }
+      },
+      "RegisterRequestDto" : {
+        "type" : "object",
+        "properties" : {
+          "username" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "role" : {
+            "type" : "string",
+            "enum" : [ "BUYER", "SELLER", "WAREHOUSE" ]
+          },
+          "firstname" : {
+            "type" : "string"
+          },
+          "lastname" : {
+            "type" : "string"
+          }
+        }
+      },
+      "LoginRequestDto" : {
+        "type" : "object",
+        "properties" : {
+          "username" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ProductSimpleResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "price" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BatchDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "due_time" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "ProductBatchesResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "section" : {
+            "$ref" : "#/components/schemas/SectionDTO"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "batch_stock" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BatchDTO"
+            }
+          }
+        }
+      },
+      "RepresentativeResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "warehouse_code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "first_name" : {
+            "type" : "string"
+          },
+          "last_name" : {
+            "type" : "string"
+          },
+          "role" : {
+            "type" : "string",
+            "enum" : [ "BUYER", "SELLER", "WAREHOUSE" ]
+          }
+        }
+      },
+      "BatchStockInboundOrderResponseDto" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "section_code" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_name" : {
+            "type" : "string"
+          },
+          "product_price" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "BatchSearchStockResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_stock_extended_dtolist" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BatchStockExtendedDTO"
+            }
+          }
+        }
+      },
+      "BatchStockExtendedDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_type_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "due_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      }
+    }
+  }
+}

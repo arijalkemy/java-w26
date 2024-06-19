@@ -1,0 +1,823 @@
+{
+	"info": {
+		"_postman_id": "02138e85-5240-4be4-902d-7923a3ae43f0",
+		"name": "Sprint 3 - Meli-Frescos",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34296738"
+	},
+	"item": [
+		{
+			"name": "Requerimiento 1",
+			"item": [
+				{
+					"name": "POST 1.1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3NjcwNzUsImV4cCI6MTcxODc2ODUxNX0.chNbUPJlpITaFsWapUxLlsYzicRSHhMjliApfoD6jbY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 118,\n        \"order_date\": \"20-05-2023\",\n        \"section\": {\n            \"section_code\": 7,\n            \"warehouse_code\": 2\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 32,\n                \"product_id\": 1,\n                \"current_temperature\": 10.23,\n                \"minimum_temperature\": 5.0,\n                \"initial_quantity\": 10,\n                \"current_quantity\": 40,\n                \"manufacturing_date\": \"10-05-2023\",\n                \"manufacturing_time\": \"10-05-2023 11:11:11\",\n                \"due_date\": \"30-05-2023\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/inboundorder",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"inboundorder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 1.2",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk1NzIsImV4cCI6MTcxODc3MTAxMn0.WZJkc8OowAx5J4-Ro_RuhQzCwTmZTHJLBAK2XZYoV2M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inbound_order\": {\n        \"order_number\": 118,\n        \"order_date\": \"20-05-2023\",\n        \"section\": {\n            \"section_code\": 7,\n            \"warehouse_code\": 2\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": 32,\n                \"product_id\": 1,\n                \"current_temperature\": 10.23,\n                \"minimum_temperature\": 5.0,\n                \"initial_quantity\": 50,\n                \"current_quantity\": 50,\n                \"manufacturing_date\": \"10-05-2023\",\n                \"manufacturing_time\": \"10-05-2023 11:11:11\",\n                \"due_date\": \"30-05-2023\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/inboundorder",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"inboundorder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 2",
+			"item": [
+				{
+					"name": "GET 2.1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2NzMzOSwiZXhwIjoxNzE4NzY4Nzc5fQ.2DIw5Ts-K0IfLDp1AMmUcQIZGuZ2iIVshm7qYApI-VY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/products/list",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 2.2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2NzMzOSwiZXhwIjoxNzE4NzY4Nzc5fQ.2DIw5Ts-K0IfLDp1AMmUcQIZGuZ2iIVshm7qYApI-VY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/products/list?acronym=FS",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"list"
+							],
+							"query": [
+								{
+									"key": "acronym",
+									"value": "FS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST 2.3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2OTM3NiwiZXhwIjoxNzE4NzcwODE2fQ.i9vkJQ9QHSgu3KDk_46pahvGe3qsluEwLnaJWYF1WLw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchase_order\": {\n        \"date\": \"14-06-2024\",\n        \"buyer_id\": \"11\",\n        \"order_status\": {\n            \"status_code\": \"Carrito\"\n        },\n        \"products\": [\n            {\n                \"product_id\": \"1\",\n                \"quantity\": \"7\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/orders",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 2.4",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2NzMzOSwiZXhwIjoxNzE4NzY4Nzc5fQ.2DIw5Ts-K0IfLDp1AMmUcQIZGuZ2iIVshm7qYApI-VY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/orders/14",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"orders",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT 2.5",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllcl91c2VyMSIsImlhdCI6MTcxODc2OTM3NiwiZXhwIjoxNzE4NzcwODE2fQ.i9vkJQ9QHSgu3KDk_46pahvGe3qsluEwLnaJWYF1WLw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"purchase_order\": {\n        \"date\": \"14-06-2024\",\n        \"buyer_id\": \"11\",\n        \"order_status\": {\n            \"status_code\": \"Carrito\"\n        },\n        \"products\": [\n            {\n                \"product_id\": \"1\",\n                \"quantity\": \"6\"\n            }\n        ]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/orders/16",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"orders",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 3",
+			"item": [
+				{
+					"name": "GET 3.1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk1NzIsImV4cCI6MTcxODc3MTAxMn0.WZJkc8OowAx5J4-Ro_RuhQzCwTmZTHJLBAK2XZYoV2M",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/1/batch/list",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							]
+						},
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "GET 3.2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3NjcwNzUsImV4cCI6MTcxODc2ODUxNX0.chNbUPJlpITaFsWapUxLlsYzicRSHhMjliApfoD6jbY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/1/batch/list?order=F",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "F"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 4",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/1/warehouse/list",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"warehouse",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 5",
+			"item": [
+				{
+					"name": "GET 5.1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/batch/list/due-date/1000",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"list",
+								"due-date",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 5.2.1",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/batch/list/due-date/1000?category=FS",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"list",
+								"due-date",
+								"1000"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "FS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET 5.2.2",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg3Njk3MDIsImV4cCI6MTcxODc3MTE0Mn0.2cA5YwFWKza-E_djAYiU-sd9dbX5o2FKMas9lwYPrck",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/api/v1/fresh-products/batch/list/due-date/1000?order=date_desc&category=FS",
+							"protocol": "https",
+							"host": [
+								"mlfrescos-prod--meli-frescos",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"list",
+								"due-date",
+								"1000"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "date_desc"
+								},
+								{
+									"key": "category",
+									"value": "FS"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Requerimiento 6 - individual",
+			"item": [
+				{
+					"name": "inboundorderId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg4MjExNzgsImV4cCI6MTcxODgyMjYxOH0.nEPn_N1cC28WkdxhYCBvI_50LQYxythyQuMAzFA96nE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJwZWRyby5hcnJpYWdhZmFqYXJkb0BtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJQZWRybyBBcnJpYWdhIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6InBhcnJpYWdhZmFqYSJ9LCJleHAiOjE3MTgzMzUxNjUsImlhdCI6MTcxODMwMjc2NSwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvcGFycmlhZ2FmYWphIiwiaXNzIjoiZnVyeV90aWdlciIsInN1YiI6InBhcnJpYWdhZmFqYSJ9.YDmNp6HhpZ0kYlDVNFRIIKr6dYq1EAbzvACYEOUqqe98J8R7rdE-XJnePoSPvao6yItbezA2JWEifY6rxhuLb5tLrTCoJzJiEttnJUBzMFKVwENvt-54iZ06KNfDQbx8tzun8C3c8qWZ6Y5srserZlFo-RSpgwgGLARWhvE5vNLxFkG2Fhkdn22ZKxMweamY9GuWhQnf1p5IuovLr8FEqM49peCxW5DhT9UfNQHbkjrXdJlLK2ypK9B6zO8f_PAoWwe286EG6HUb3FQ0HHjvfB5wdMJMBxSTFHxIBEOwuxohTOeKHOWv0I67E5OuPcFpgjRtsJKtjqHtzHAf79neJA",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://mlpaindi-local--pf-be-hisp-w26-t11-arriaga.furyapps.io/api/v1/fresh-products/inboundorder/12",
+							"protocol": "https",
+							"host": [
+								"mlpaindi-local--pf-be-hisp-w26-t11-arriaga",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"inboundorder",
+								"12"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "representative by warehouse",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXBfdXNlcjEiLCJpYXQiOjE3MTg4Mjg5ODEsImV4cCI6MTcxODgzMDQyMX0.SlwwZcigyvgPoHjYS8yPGBwJ9QtlO1jhVILZvyum8YE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Tiger-Token",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJwZWRyby5hcnJpYWdhZmFqYXJkb0BtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJQZWRybyBBcnJpYWdhIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6InBhcnJpYWdhZmFqYSJ9LCJleHAiOjE3MTgzMzUxNjUsImlhdCI6MTcxODMwMjc2NSwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvcGFycmlhZ2FmYWphIiwiaXNzIjoiZnVyeV90aWdlciIsInN1YiI6InBhcnJpYWdhZmFqYSJ9.YDmNp6HhpZ0kYlDVNFRIIKr6dYq1EAbzvACYEOUqqe98J8R7rdE-XJnePoSPvao6yItbezA2JWEifY6rxhuLb5tLrTCoJzJiEttnJUBzMFKVwENvt-54iZ06KNfDQbx8tzun8C3c8qWZ6Y5srserZlFo-RSpgwgGLARWhvE5vNLxFkG2Fhkdn22ZKxMweamY9GuWhQnf1p5IuovLr8FEqM49peCxW5DhT9UfNQHbkjrXdJlLK2ypK9B6zO8f_PAoWwe286EG6HUb3FQ0HHjvfB5wdMJMBxSTFHxIBEOwuxohTOeKHOWv0I67E5OuPcFpgjRtsJKtjqHtzHAf79neJA",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://mlpaindi-local--pf-be-hisp-w26-t11-arriaga.furyapps.io/api/v1/fresh-products/warehouse/1002",
+							"protocol": "https",
+							"host": [
+								"mlpaindi-local--pf-be-hisp-w26-t11-arriaga",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"warehouse",
+								"1002"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJwZWRyby5hcnJpYWdhZmFqYXJkb0BtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJQZWRybyBBcnJpYWdhIiwidHlwZSI6InVzZXIiLCJ1c2VybmFtZSI6InBhcnJpYWdhZmFqYSJ9LCJleHAiOjE3MTg4MzcyNzQsImlhdCI6MTcxODgwNDg3NCwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvcGFycmlhZ2FmYWphIiwiaXNzIjoiZnVyeV90aWdlciIsInN1YiI6InBhcnJpYWdhZmFqYSJ9.Kfvpz00VLBqAqzOdAL0nf_ocdmzGoIx3qMQHOL8TZQbVItb4qzSC564a5r3v2UFcFDoscjLfFUymZVMyEgQ30I7pM_WOzBdu1VPfhV0WYNo171VYKu75Cn1efT-b_0wSrQL_hGV2qT-pR6fbW-_efmYbqwkMfvx1Sup3uL6gyJP3u6cQ_opBeKMomgzhQpkmf05JR-vvFyOmBbb7r_AUCtOengIHUVS11YovQc5EQuTruX5cs5pQeZJa8S_co5YvPbpf5DmOL41wdnXbOfZ0uVYov6BQ9vhiri_m11JFUVMZHOqHUA7PD-1zEZ0Z2CAeDl-sak3WGIMInf2KGKa8mw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"rep_user1\",\n    \"password\": \"password1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://mlpaindi-local--pf-be-hisp-w26-t11-arriaga.furyapps.io/auth/login",
+							"protocol": "https",
+							"host": [
+								"mlpaindi-local--pf-be-hisp-w26-t11-arriaga",
+								"furyapps",
+								"io"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJmcmFuY2lzY28uY2FyZG9zb3JvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tLm14IiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJGcmFuY2lzY28gQWRyaWFuIENhcmRvc28iLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiZmNhcmRvc29yb2RyIn0sImV4cCI6MTcxODc5NzEyMiwiaWF0IjoxNzE4NzY0NzIyLCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9mY2FyZG9zb3JvZHIiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiZmNhcmRvc29yb2RyIn0.Adgvg3gezNhLZvJvobgbvGv9cwbunWtWgHXrfXW6vdvjUSHB4pZaFWam820_N-Fl0UcmUQp_OwThk3KLmq3p7OAAsLJyN4YRIWk089Esf6ieqnuYtZoo2kF5vcNOcxYdZ_9pFFL6OFy8v14nyxCMinfu8IMJyreBNtkHqAqQnPeHSaKcbBmbZhrzTGcXTkwIdNKsjT7QjC4jwNUVcumL21JmocQHSzhsVJZqmI3R4CAm9qup0jwggQS0ppG4crlbIwaHFOA8h4WUKokyq-LyIYslnPgd0mc23uzLFGyb-ycAwBUBqx5XJyvhIYp9kh_8O0bTnUe_O6lbh5SyGIXr5w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"rep_user1\",\n    \"password\": \"password1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mlfrescos-prod--meli-frescos.furyapps.io/auth/login",
+					"protocol": "https",
+					"host": [
+						"mlfrescos-prod--meli-frescos",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
