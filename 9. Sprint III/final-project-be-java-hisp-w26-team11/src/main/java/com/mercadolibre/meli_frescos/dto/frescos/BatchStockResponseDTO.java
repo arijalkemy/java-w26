@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -29,7 +30,7 @@ public class BatchStockResponseDTO {
     @JsonProperty("manufacturing_date")
     private LocalDate manufacturingDate;
     @JsonProperty("manufacturing_time")
-    private Time manufacturingTime;
+    private LocalDateTime manufacturingTime;
     @JsonProperty("due_date")
     private LocalDate dueDate;
 }

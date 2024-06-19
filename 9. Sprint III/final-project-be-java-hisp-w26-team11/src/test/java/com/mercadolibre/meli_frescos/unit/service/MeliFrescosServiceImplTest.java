@@ -771,6 +771,7 @@ public class MeliFrescosServiceImplTest {
     public void updateInboundOrderTest() {
         InboundOrder inboundOrder = mapper.map(inboundOrderRequestDTO, InboundOrder.class);
         Batch batch = mapper.map(batchStockRequestDTO, Batch.class);
+        batch.setInboudOrder(inboundOrder);
 
         // Configurar los objetos mock
         when(inboundOrderRepository.findByOrderNumber(inboundOrderRequestDTO.getInboundOrder().getOrderNumber())).thenReturn(inboundOrder);
@@ -885,11 +886,15 @@ public class MeliFrescosServiceImplTest {
     public void updateInboundOrderErrorSectionCapacityTest() {
         batchStockRequestDTO.setCurrentQuantity(10000);
 
+        InboundOrder inboundOrder = mapper.map(inboundOrderRequestDTO, InboundOrder.class);
+        Batch batch = mapper.map(batchStockRequestDTO, Batch.class);
+        batch.setInboudOrder(inboundOrder);
+
         when(inboundOrderRepository.findByOrderNumber(inboundOrderRequestDTO.getInboundOrder().getOrderNumber())).thenReturn(mapper.map(inboundOrderRequestDTO, InboundOrder.class));
         when(warehouseRepository.findById(inboundOrderRequestDTO.getInboundOrder().getSection().getWarehouseCode())).thenReturn(Optional.of(warehouse));
         when(sectionRepository.findById(inboundOrderRequestDTO.getInboundOrder().getSection().getSectionCode())).thenReturn(Optional.of(section));
-        when(batchRepository.findByBatchNumber(anyInt())).thenReturn(mapper.map(batchStockRequestDTO, Batch.class));
-        when(batchRepository.findAllBySection(any(Section.class))).thenReturn(List.of(mapper.map(batchStockRequestDTO, Batch.class)));
+        when(batchRepository.findByBatchNumber(anyInt())).thenReturn(batch);
+        when(batchRepository.findAllBySection(any(Section.class))).thenReturn(List.of(batch));
 
         try {
             meliFrescosService.updateInboundOrder(inboundOrderRequestDTO);

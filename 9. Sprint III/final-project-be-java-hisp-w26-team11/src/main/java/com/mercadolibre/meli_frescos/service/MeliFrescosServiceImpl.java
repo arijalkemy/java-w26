@@ -149,6 +149,9 @@ public class MeliFrescosServiceImpl implements IMeliFrescosService {
             Optional<Batch> batchExist = Optional.ofNullable(batchRepository.findByBatchNumber(batch.getBatchNumber()));
             if (batchExist.isEmpty()) throw new ApiException("Batch not found", "bad_request", 400);
 
+            if(!Objects.equals(batchExist.get().getInboudOrder().getOrderNumber(), inboundOrder.getOrderNumber()))
+                throw new ApiException("Batch already exists in another Inbound Order", "bad_request", 400);
+
             batch.setId(batchExist.get().getId());
             batch.setSection(section.get());
             batch.setInboudOrder(inboundOrderSaved);
