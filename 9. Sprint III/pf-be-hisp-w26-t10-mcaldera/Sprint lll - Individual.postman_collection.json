@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "598ea1e6-0fda-4a07-8677-fa62bcc8f421",
+		"name": "Sprint lll - Individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34293503"
+	},
+	"item": [
+		{
+			"name": "Local",
+			"item": [
+				{
+					"name": "Auth Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* ---- SUPERVISOR ----- */\n/*\n{\n    \"username\":\"userSuper\",\n    \"password\":\"12345\"\n}\n*/\n/* ---- SELLER ----- */\n{\n    \"username\":\"jlaura\",\n    \"password\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"product_desc\": \"Product 1\",\n            \"price\": 200\n        },\n        {\n            \"product_desc\": \"Product 2\",\n            \"price\": 300\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificacion de productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_desc\": \"PrubaChange\",\n    \"price\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/8/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"8",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/list-items-seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"list-items-seller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminacion de registros",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/7/delete/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"7",
+								"delete",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fury Prod",
+			"item": [
+				{
+					"name": "Auth Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "/* ---- SUPERVISOR ----- */\n/*\n{\n    \"username\":\"userSuper\",\n    \"password\":\"12345\"\n}\n*/\n/* ---- SELLER ----- */\n{\n    \"username\":\"jlaura\",\n    \"password\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creacion de productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"products\": [\n        {\n            \"product_desc\": \"Product 1\",\n            \"price\": 200\n        },\n        {\n            \"product_desc\": \"Product 2\",\n            \"price\": 300\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificacion de productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_desc\": \"PrubaChange\",\n    \"price\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/8/12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"8",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lista de productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/list-items-seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"list-items-seller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminacion de registros",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODc0NDA0NiwiZXhwIjoxNzE4NzQ1NDg2fQ.hoxu4nVbo5cqJQLTTW0NZnHB3U7H3nXvKNoYcg4kvG0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/fresh-products/7/delete/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"7",
+								"delete",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
