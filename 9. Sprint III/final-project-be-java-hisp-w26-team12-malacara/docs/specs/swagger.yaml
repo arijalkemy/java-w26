@@ -1,0 +1,18 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "sprint-3-team-12",
+    "description" : "sprint-3-team-12",
+    "contact" : {
+      "name" : "yvalderrama",
+      "email" : "yair.valderrama@mercadolibre.com.mx"
+    },
+    "version" : "last"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Scope local"
+  } ],
+  "paths" : { },
+  "components" : { }
+}
