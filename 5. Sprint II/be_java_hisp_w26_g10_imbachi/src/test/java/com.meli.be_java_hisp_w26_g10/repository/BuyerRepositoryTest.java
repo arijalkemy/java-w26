@@ -3,7 +3,6 @@ package com.meli.be_java_hisp_w26_g10.repository;
 import com.api.socialmeli.entity.Buyer;
 import com.api.socialmeli.entity.Seller;
 import com.api.socialmeli.repository.impl.BuyerRepositoryImpl;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.meli.be_java_hisp_w26_g10.util.TestGeneratorUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

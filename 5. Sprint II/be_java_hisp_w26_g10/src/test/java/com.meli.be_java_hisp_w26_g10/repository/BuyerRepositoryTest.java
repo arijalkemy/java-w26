@@ -22,7 +22,7 @@ public class BuyerRepositoryTest {
         Buyer buyerObtained = buyerRepository.getById(1);
         //Assert
         Assertions.assertNotNull(buyerObtained);
-    }
+    @}
 
     @Test
     @DisplayName("Obtener un usuario que no existe ")
