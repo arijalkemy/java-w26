@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "a9685bc2-41ef-4354-8353-d2d9f80e7b49",
+		"name": "Tercer Sprint individual",
+		"description": "Coleccion usable para probar la parte individual dle tercer sprint de coro reader juan manuel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34291307"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqdWFubWFudWVsLmNvcm9AbWVyY2Fkb2xpYnJlLmNvbSIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiSnVhbiBNYW51ZWwgQ29ybyBSZWFkZXIiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiamNvcm8ifSwiZXhwIjoxNzE4NjcyMDMzLCJpYXQiOjE3MTg2Mzk2MzMsImlkZW50aXR5IjoibXJuOnNlZ2luZjphZDp1c2VyL2pjb3JvIiwiaXNzIjoiZnVyeV90aWdlciIsInN1YiI6Impjb3JvIn0.i-EDkNYl_3gWWKQj4nVsVkDn-zzI5jL4nrWtGBUntgoly_Wa9URRv5xiEJK0qkMy0OQIPZwBG3TtWyVy2odrwye2TQNcAb3aXfjriz7H6z_CnZxbLjrgtzWR10YdZNUk2hxlCQrtm9dpCaTUXS0jTnj5ARks8QfOcAuMTQ9jXfhNNNW6-GvClAffLDijCNKnvqXKKUIviFjT9K3jzsK47o3b21LPtqbyd89WlJFuiSI1k20r793HYCJl3Nc_uTYif_tv2FkQ5qGxceVd1cw5jSAdXNmlMpGsgM9LH25F3AHB_A-z8iP_BRJkXYkzQrRNZehaC4IJ-k1GqHKKidGi7A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"email\": \"juan@gmail.com\",\n    \"password\":\"juan\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/auth/login",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqdWFubWFudWVsLmNvcm9AbWVyY2Fkb2xpYnJlLmNvbSIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiSnVhbiBNYW51ZWwgQ29ybyBSZWFkZXIiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoiamNvcm8ifSwiZXhwIjoxNzE4NjA5NTY1LCJpYXQiOjE3MTg1NzcxNjUsImlkZW50aXR5IjoibXJuOnNlZ2luZjphZDp1c2VyL2pjb3JvIiwiaXNzIjoiZnVyeV90aWdlciIsInN1YiI6Impjb3JvIn0.MHO1dvOzEeObMd3gqUnB5UBFxczWiqOi97llQbODKvYSYOjgcZFYSsCuTM1NsqoXJXQiUsJ2x0cX90Y9PWWhXFmm_i8biEjGgxhrLDzVoXXXxY7skyKEdmW7hvfPkaU8ILwnqLDxn_tRAGT1doIgQk7TOaYzsbNO4bjl_YpfMQLQ_TChRh26i_MV8d0b8t7f8BHR1PUWE_l0QGCiiaSF94abb-Evk2vepeoF5k0MFjPcBhHlD_GRU9oyB3M2GBgy3MpAGll66wFIqtlDCUjfdpUegv6Vme4l_uWt6PopVvQEwQ1JIV0LUagX8a3Lf4_7WhwCsSFkDBAUf_uFNsuOyA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"email\": \"juan@gmail.com\",\n    \"username\": \"juan\",\n    \"password\":\"juan\",\n    \"id_role\":1\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/auth/register",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post warehouse",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqQG1haWwuY29tIiwiaWF0IjoxNzE4ODMzNDA3LCJleHAiOjE3MTg4MzQ4NDd9.aJlHvnHqJvJpMvgjD48jyB3DhJjMaYhEyYS-weI3Tzs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\":\"wr3\",\n        \"city\":\"salta\",\n        \"province\":\"salta\",\n        \"manager\":{\n            \"email\" :\"m@mail.com\"\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{local}}/api/v1/fresh-products/warehouse",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8081",
+			"type": "string"
+		},
+		{
+			"key": "fury",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
