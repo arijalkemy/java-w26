@@ -58,7 +58,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "GET",
@@ -94,7 +94,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "GET",
@@ -109,7 +109,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "POST",
@@ -133,7 +133,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "POST",
@@ -157,7 +157,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "PUT",
@@ -181,7 +181,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "PUT",
@@ -205,7 +205,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "GET",
@@ -220,7 +220,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk"
+						"token": ""
 					}
 				},
 				"method": "GET",
