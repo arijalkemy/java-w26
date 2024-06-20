@@ -2,14 +2,18 @@
 # Overrides application.yml default properties
 spring:
   datasource:
+    host: DB_MYSQL_DESAENV09_FRESHMARKF_FRESHMARKF_ENDPOINT
+    db: freshMarkF
     driver-class-name: com.mysql.cj.jdbc.Driver
-    max-lifetime: 500000
-    keepalive: 200000
-    db: FRESHMARKE
-    host: jdbc:mysql://DB_MYSQL_DESAENV09_FRESHMARKF_FRESHMARKF_ENDPOINT
-    user: FRESHMARKF_WPROD
+    username: freshMarkF_WPROD
     password: DB_MYSQL_DESAENV09_FRESHMARKF_FRESHMARKF_WPROD
   jpa:
+    show-sql: true
     database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+  sql:
+    init:
+      mode: never
