@@ -1,0 +1,72 @@
+package com.mercadolibre.sprint_3_team_12.repository;
+
+import com.mercadolibre.sprint_3_team_12.dto.response.BatchDueDTO;
+import com.mercadolibre.sprint_3_team_12.entity.BatchStock;
+import com.mercadolibre.sprint_3_team_12.projections.BatchStockProjection;
+import com.mercadolibre.sprint_3_team_12.projections.ScarceWarehouseProjection;
+import com.mercadolibre.sprint_3_team_12.projections.WarehouseProjection;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import com.mercadolibre.sprint_3_team_12.enums.Category;
+import java.util.List;
+
+import java.sql.Date;
+
+public interface IBatchStockRepository extends JpaRepository<BatchStock,Long> {
+
+    @Query("SELECT new com.mercadolibre.sprint_3_team_12.dto.response.BatchDueDTO (bs.id, bs.product.id, p.type, bs.dueDate, bs.currentQuantity, null)" +
+            "FROM BatchStock bs " +
+            "INNER JOIN bs.product p " +
+            "INNER JOIN bs.inboundOrder ibo " +
+            "INNER JOIN ibo.section s " +
+            "WHERE s.warehouse.id = :warehouseId " +
+            "AND bs.dueDate BETWEEN :startDate AND :endDate")
+    List<BatchDueDTO> findProductsBetweenDate(Long warehouseId, Date startDate, Date endDate);
+
+    List<BatchStock> getBatchStocksByProductId(Long id);
+
+    @Query("SELECT NEW  com.mercadolibre.sprint_3_team_12.projections.BatchStockProjection(bs.id, bs.currentQuantity, bs.dueDate) " +
+            "FROM BatchStock bs " +
+            "JOIN bs.inboundOrder io " +
+            "JOIN io.section s " +
+            "WHERE bs.product.id = :productId " +
+            "AND s.warehouse.id = :warehouseId")
+    List<BatchStockProjection> findByProductIDAndWareHouseID(@Param("productId")Long productI, @Param("warehouseId")Long warehouseId);
+
+    @Query("SELECT NEW  com.mercadolibre.sprint_3_team_12.projections.WarehouseProjection(s.warehouse.id, SUM(bs.currentQuantity)) " +
+            "FROM BatchStock bs " +
+            "JOIN bs.inboundOrder io " +
+            "JOIN io.section s " +
+            "WHERE bs.product.id = :productId " +
+            "GROUP BY s.warehouse.id")
+    List<WarehouseProjection> findWarehouseStockByProductId(@Param("productId")Long productId);
+
+
+    @Query("SELECT new com.mercadolibre.sprint_3_team_12.dto.response.BatchDueDTO(bs.id, bs.product.id, p.type, " +
+            "bs.dueDate, bs.currentQuantity, null) " +
+            "FROM BatchStock bs " +
+            "INNER JOIN bs.product p " +
+            "INNER JOIN bs.inboundOrder ibo " +
+            "INNER JOIN ibo.section s " +
+            "WHERE s.warehouse.id = :warehouseId " +
+            "AND bs.dueDate BETWEEN :startDate AND :endDate " +
+            "AND p.type = :category " +
+            "ORDER BY " +
+            "CASE WHEN :order = 'date_asc' THEN bs.dueDate END ASC, " +
+            "CASE WHEN :order = 'date_desc' THEN bs.dueDate END DESC")
+    List<BatchDueDTO> findProductsBetweenDateAndCategory(@Param("warehouseId") Long warehouseId,
+                                                         @Param("startDate") Date startDate,
+                                                         @Param("endDate") Date endDate,
+                                                         @Param("category") Category category,
+                                                         @Param("order") String order);
+
+    @Query("SELECT NEW com.mercadolibre.sprint_3_team_12.projections.ScarceWarehouseProjection(s.warehouse.id, bs.product.id, SUM(bs.currentQuantity)) " +
+            "FROM BatchStock bs " +
+            "JOIN bs.inboundOrder io " +
+            "JOIN io.section s " +
+            "WHERE bs.currentQuantity < :scarceLimit " +
+            "GROUP BY s.warehouse.id, bs.product.id")
+    List<ScarceWarehouseProjection> findScarceProductsInAllWarehouses(@Param("scarceLimit") Long scarceLimit);
+
+}

@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "13548826-834e-47a7-a9f4-4a43b097c45d",
+		"name": "Sprint 3 individual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34456916"
+	},
+	"item": [
+		{
+			"name": "Post product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"products\": [\n    {\n      \"name\": \"Producto 1\",\n      \"price\": 10.5,\n      \"type\": \"FF\"\n    },\n    {\n      \"name\": \"Producto 2\",\n      \"price\": 20.75,\n      \"type\": \"FF\"\n    },\n    {\n      \"name\": \"Producto 3\",\n      \"price\": 15.0,\n      \"type\": \"FF\"\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:58718/api/v1/fresh-products/1",
+					"host": [
+						"localhost"
+					],
+					"port": "58718",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"product_desc\": \"toy\",\n    \"price\": 2.0\n\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:58718/api/v1/fresh-products/2/1",
+					"host": [
+						"localhost"
+					],
+					"port": "58718",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"2",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get scarce products",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
