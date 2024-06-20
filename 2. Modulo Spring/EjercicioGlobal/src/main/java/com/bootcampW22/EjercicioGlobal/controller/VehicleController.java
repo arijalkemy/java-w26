@@ -1,7 +1,7 @@
 package com.bootcampW22.EjercicioGlobal.controller;
 
 import com.bootcampW22.EjercicioGlobal.service.IVehicleService;
-import com.bootcampW22.EjercicioGlobal.service.VehicleServiceImpl;
+import com.bootcampW22.EjercicioGlobal.service.impl.VehicleServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

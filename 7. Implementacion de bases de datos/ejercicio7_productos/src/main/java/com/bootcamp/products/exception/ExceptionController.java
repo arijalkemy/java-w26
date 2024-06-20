@@ -1,6 +1,6 @@
 package com.bootcamp.products.exception;
 
-import com.bootcamp.employees.dto.ExceptionDTO;
+import com.bootcamp.products.dto.ExceptionDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
