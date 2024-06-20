@@ -1,0 +1,21 @@
+# Properties file for local/dev environment
+# You need to configure the environment variable in your IDE, more info in README.md
+# Overrides application.yml default properties
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_LOCAL_USER}
+    password: ${DB_LOCAL_PASS}
+    url: jdbc:mysql://localhost:${DB_LOCAL_PORT}/${DB_LOCAL_NAME}?useSSL=false&serverTimezone=UTC
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  sql:
+    init:
+      data-locations: classpath:DataLoad.sql
+      mode: always
+
+
+#DB_LOCAL_USER=root;DB_LOCAL_PASS=@@Sevastol12d##;DB_LOCAL_PORT=3306;DB_LOCAL_NAME=warehouse_individual
