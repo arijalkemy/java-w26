@@ -1,0 +1,564 @@
+{
+	"info": {
+		"_postman_id": "9bc8c57e-1942-409c-a86d-47772af3ab3c",
+		"name": "SPRINT III",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Auth Individual",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"gpaco\",\n    \"password\":\"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Products Seller Individual Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODg0MDc4OSwiZXhwIjoxNzE4ODQyMjI5fQ.2mCXGhzeaVW1m7YqDpZ65fauyT3ibfOmc9KSn3IKoOM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/seller/list/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"seller",
+						"list",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Created Products Individual Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODg0MDc4OSwiZXhwIjoxNzE4ODQyMjI5fQ.2mCXGhzeaVW1m7YqDpZ65fauyT3ibfOmc9KSn3IKoOM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"products\":\n[\n    {\n      \"product_desc\": \"Papayas\",\n      \"price\": 12.5\n    },\n    {\n      \"product_desc\": \"Uvas \",\n      \"price\": 8.75\n    },\n    {\n      \"product_desc\": \"Bananos\",\n      \"price\": 8.75\n    }\n  ]\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/products/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"products",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product Individual Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODg0MDY4OSwiZXhwIjoxNzE4ODQyMTI5fQ.2T80qA2s1IVTXJ7AmZ0o8419HcssTOasTDF7Vq0LIC8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"product_desc\": \"Uvas \",\n      \"price\": 8.75\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/9/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"9",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Products Individual Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJncGFjbyIsImlhdCI6MTcxODgzODUxNCwiZXhwIjoxNzE4ODM5OTU0fQ.NhMWGtTIFDX6hio_MKLPXHAgkPTe6JIJRwv7c581C4s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"product_desc\": \"Uvas \",\n      \"price\": 8.75\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/9/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"9",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 2 issue 1 y 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/list?category=FF",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"list"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "FF"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"jlaura\",\n    \"password\":\"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-stories 3 issue 8 and issue 9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/1/batch/list?order=L",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"1",
+						"batch",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "L"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 2 issue 6",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 2 issue 5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchase_order\": {\n        \"date\": \"16-06-2024\",\n        \"buyer_id\": \"11\",\n        \"order_status\": {\n            \"status_code\": \"shopping_cart\"\n        },\n        \"products\": [\n            {\n                \"product_id\": \"100\",\n                \"quantity\": \"3\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 1 issue 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inbound_order\": {\n        \"order_number\": \"1020\",\n        \"order_date\": \"2024-06-17\",\n        \"section\": {\n            \"section_code\": \"1\",\n            \"warehouse_code\": \"1\"\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": \"1\",\n                \"product_id\": \"1\",\n                \"current_temperature\": \"32.1\",\n                \"minimum_temperature\": \"31.0\",\n                \"initial_quantity\": \"4\",\n                \"current_quantity\": \"7\",\n                \"manufacturing_date\": \"2024-06-17\",\n                \"manufacturing_time\": \"09:00:05\",\n                \"due_date\": \"2025-06-17\"\n            },\n            {\n                \"batch_number\": \"1989\",\n                \"product_id\": \"1\",\n                \"current_temperature\": \"32.1\",\n                \"minimum_temperature\": \"31.0\",\n                \"initial_quantity\": \"4\",\n                \"current_quantity\": \"7\",\n                \"manufacturing_date\": \"2024-06-17\",\n                \"manufacturing_time\": \"09:00:05\",\n                \"due_date\": \"2025-06-17\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/inboundorder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 1 issue 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inbound_order\": {\n        \"order_number\": \"1020\",\n        \"order_date\": \"2024-06-17\",\n        \"section\": {\n            \"section_code\": \"1\",\n            \"warehouse_code\": \"1\"\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": \"1989\",\n                \"product_id\": \"1\",\n                \"current_temperature\": \"42.1\",\n                \"minimum_temperature\": \"41.0\",\n                \"initial_quantity\": \"4\",\n                \"current_quantity\": \"7\",\n                \"manufacturing_date\": \"2024-06-17\",\n                \"manufacturing_time\": \"09:00:05\",\n                \"due_date\": \"2025-06-17\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/inboundorder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "us-story 2 issue 7",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"purchase_order\": {\n            \"date\": \"1995-10-10T00:00:00Z\",\n            \"buyer_id\": 1,\n            \"order_status\": {\n                \"status_code\": \"shopping_cart\"\n            },\n            \"products\": [\n                {\n                    \"product_id\": 1,\n                    \"quantity\": 12\n                },\n                {\n                    \"product_id\": 2,\n                    \"quantity\": 30\n                }\n            ]\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "us-4-issue-10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/1/warehouse/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"1",
+						"warehouse",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-story-5-issue-11-and-12",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/batch/list/due-date/50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"batch",
+						"list",
+						"due-date",
+						"50"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "FF",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "DESC ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
