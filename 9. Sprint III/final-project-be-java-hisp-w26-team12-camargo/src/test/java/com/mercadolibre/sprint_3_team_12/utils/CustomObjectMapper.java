@@ -33,7 +33,7 @@ public class CustomObjectMapper {
      * @return
      */
     public static Optional<Product> productGenerator(){
-        return  Optional.of(new Product(1L,"1", 1.1, Category.FF, null, null));
+        return  Optional.of(new Product(1L,"1", 1.1, Category.FF, null, null,0,0));
     }
 
     /**

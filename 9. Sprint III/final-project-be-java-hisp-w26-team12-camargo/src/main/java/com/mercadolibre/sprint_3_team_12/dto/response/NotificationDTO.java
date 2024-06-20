@@ -10,7 +10,7 @@ import lombok.Data;
 @AllArgsConstructor
 public class NotificationDTO {
     @JsonProperty("product_id")
-    private Integer productId;
+    private Long productId;
 
     @JsonProperty("product_name")
     private String productName;

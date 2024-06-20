@@ -47,11 +47,13 @@ public class CartServiceTest {
         cartMock.setOrderStatus(OrderStatus.CARRITO);
         cartMock.setCarDate(Date.valueOf("2024-10-10"));
         cartMock.setId(1L);
-        ProductInCart productInCart1 = new ProductInCart(1L,10, new Product(1L,"Sample 1",43.5, Category.FF,null,null), cartMock);
-        ProductInCart productInCart2 = new ProductInCart(2L,5, new Product(2L,"Sample 2",23.5, Category.FF,null,null), cartMock);
-        cartMock.setProducts(List.of(productInCart1,productInCart2));
-        cartMock.setTotalPrice(cartMock.getProducts().stream().mapToDouble(productInCart -> productInCart.getProduct().getPrice() * productInCart.getQuantity()).sum());
-
+        Product product1 = new Product(1L, "Sample 1", 43.5, Category.FF, null, null, 0, 0);
+        Product product2 = new Product(2L, "Sample 2", 23.5, Category.FF, null, null, 0, 0);
+        ProductInCart productInCart1 = new ProductInCart(1L, 10, product1, cartMock);
+        ProductInCart productInCart2 = new ProductInCart(2L, 5, product2, cartMock);
+        cartMock.setProducts(List.of(productInCart1, productInCart2));
+        cartMock.setTotalPrice(cartMock.getProducts().stream()
+                .mapToDouble(productInCart -> productInCart.getProduct().getPrice() * productInCart.getQuantity()).sum());
     }
 
     /**
@@ -84,19 +86,6 @@ public class CartServiceTest {
         // Act and Assert
         assertThrows(ApiException.class, () -> cartService.getCart(1L));
     }
-
-//    /**
-//     * Test to the validation of the fields of the cart. CarDate is null.
-//     */
-//    @Test
-//    @DisplayName("Test to the validation of the fields of the cart. CarDate is null.")
-//    void validateCartFieldsCarDateIsNullTest() {
-//        //Arrange - Mock the repository
-//        cartMock.setCarDate(null);
-//        when(cartRepository.findById(1L)).thenReturn(Optional.of(cartMock));
-//        // Act and Assert
-//        assertThrows(ApiException.class, () -> cartService.getCart(1L));
-//    }
 
     /**
      * Test to the validation of the fields of the cart. Buyer is null.
@@ -149,5 +138,4 @@ public class CartServiceTest {
         // Act and Assert
         assertThrows(ApiException.class, () -> cartService.getCart(1L));
     }
-
 }

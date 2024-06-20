@@ -18,10 +18,10 @@ public class StockService implements IStockService {
     private IProductRepository productRepository;
 
     @Override
-    public void setMinimumStockLevel(Long productId, Integer minimumStock) {
+    public void setMinimumStockLevel(Long productId, Integer minimumStockLevel) {
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new ApiException("Product not found", "Product with ID " + productId + " not found", HttpStatus.NOT_FOUND.value()));
-        product.setMinimumStock(minimumStock);
+                .orElseThrow(() -> new ApiException("Product not found", "The product with the given ID was not found.", 404));
+        product.setMinimumStock(minimumStockLevel);
         productRepository.save(product);
     }
 
@@ -29,13 +29,7 @@ public class StockService implements IStockService {
     public List<NotificationDTO> getLowStockNotifications() {
         return productRepository.findAll().stream()
                 .filter(product -> product.getCurrentStock() < product.getMinimumStock())
-                .map(product -> new NotificationDTO(
-                        product.getId().intValue(),
-                        product.getName(),
-                        product.getCurrentStock(),
-                        product.getMinimumStock(),
-                        "Stock is below minimum level."
-                ))
+                .map(product -> new NotificationDTO(product.getId(), product.getName(), product.getCurrentStock(), product.getMinimumStock(), "Stock is below minimum level."))
                 .collect(Collectors.toList());
     }
 }
