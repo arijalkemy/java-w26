@@ -1,88 +1,42 @@
-# pf-be-hisp-w26-t10-garcia
+# Sprint III - Solución individual
 
-# Spring Boot App model for Java 17
+## Sobre el proyecto
 
-We provide a basic model for JDK 17 / Spring based web applications.
+El desarrollo se realizó en springboot, se integró con una base de datos relacional el mysql.
+Es importante que al momento de correrlo localmente se haya creado la base de datos. Las pruebas
+se están realizando con h2 a partir del script que hace los inserts en la base de datos.
 
-Please address any questions and comments to [Fury Issue Tracker](https://github.com/mercadolibre/fury/issues).
-
-## Usage
-
-### SCOPE
-
-The suffix of each Fury **SCOPE** is used to know which properties file to use, it is identified from the last '-' of the name of the scope.
-
-If you want to run the application from your development IDE, you need to configure the environment variable **SCOPE=local** in the app luncher.
-
-The properties of **application.yml** are always loaded and at the same time they are complemented with **application-<SCOPE_SUFFIX>.yml** properties. If a property is in both files, the one that is configured in **application-<SCOPE_SUFFIX>.yml** has preference over the property of **application.yml**.
-
-For example, for the **SCOPE** 'items-loader-test' the **SCOPE_SUFFIX** would be 'test' and the loaded property files will be **application.yml** and **application-test.yml**
-
-### Web Server
-
-Each Spring Boot web application includes an embedded web server. For servlet stack applications, Its supports three web Servers:
-  * Tomcat (maven dependency: `spring-boot-starter-tomcat`)
-  * Jetty (maven dependency: `spring-boot-starter-jetty`)
-  * Undertow (maven dependency: `spring-boot-starter-undertow`)
-
-This project is configured with Jetty, but to exchange WebServer, it is enough to configure the dependencies mentioned above in the pom.xml file.
-
-### Main
-
-The main class for this app is Application, where Spring context is initialized and SCOPE_SUFFIX is generated.
-
-### Error Handling
-
-We also provide basic handling for exceptions in ControllerExceptionHandler class.
-
-## API Documentation
-
-This project uses OpenAPI to automate the generation of machine and human readable specifications for JSON APIs written using Spring. OpenAPI works by examining an application, once, at runtime to infer API semantics based on spring configurations, class structure and various compile time java Annotations.
-
-You can change this configuration in SpringDocConfig class.
-
-### Fury Specs Hub
-
-To simplify the management and maintainability of your API specs, we present [Fury Specs Hub](https://furydocs.io/specs-hub/latest/guide/#/). Fury Specs Hub is a new service from Fury that aims to be a one-stop solution for API definition. With Specs Hub, you will be able to:
-- Define your APIs using OpenAPI or AsyncAPI.
-- Automate the configuration and generation of your API specs with the help of new commands from the Fury CLI.
-- Have all your specs in one place for visualization and management.
-- Share them with other teams.
-- Find available APIs based on the information you need.
-- Usage documentation [Fury Specs Hub - Getting started](https://furydocs.io/specs-hub/latest/guide/#/tutorial/).
-
-#### Usage guide fast reference
-
-1. [Installing the Specs Hub plugin for Fury CLI.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/install-specs-hub-furycli)
-2. [Installing the OpenAPI plugin and initializing a basic configuration.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/install-open-api)
-3. [Generating your first API specification.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/generate-open-api-spec)
-4. [Validating your API specification.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/validate-specs)
-5. [Uploading your first specification.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/upload-spec)
-6. [Viewing your specification in Fury web.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/view-spec)
-7. [Managing your specification in Fury web.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/manage-spec)
-
-## [Release Process](https://release-process.furycloud.io/#/)
-
-### Usage
-
-1. Specify the correct tag for your app in your `Dockerfile` and `Dockerfile.runtime`, according to the desired Java runtime version.
-
+A continuación, también muestran que variables de entorno deberían tener configuradas para la base de datos:
 ```
-# Dockerfile
-FROM hub.furycloud.io/mercadolibre/java:17-mini
+{DB_LOCAL_USER}: Nombre del usuario del servidor de mysql
+{DB_LOCAL_PASS}: Contraseña del servidor local de mysql
+{DB_LOCAL_PORT}: El puerto con el que se conecta a la base de datos
+{DB_LOCAL_NAME}: Nombre de la base de datos creada para el proyecto
 ```
 
-You can find all available tags for your `Dockerfile` [here](https://github.com/mercadolibre/fury_java-mini#supported-tags)
+## Diagrama de base de datos 
+En el siguiente diagrama se puede ver representada las entidades y sus relaciones que fueron implementadas en el proyecto. 
+![Diagrama de entidad realación](DER.png)
 
+## Historia de Usuario 6
+
+Es importante precisar sobre como se llenan los campos en el json response cuando tiene el siguiente formato:
 ```
-# Dockerfile.runtime
-FROM hub.furycloud.io/mercadolibre/java:17-runtime-mini
+{
+    "operation": "Integer",
+    "message": "String",
+    "code": Integer,
+}
+```
+Se asignan los valores de la siguiente forma:
+```
+    "operation": El numero de operaciones de updates/creates que se realizaron,
+    "message": La operación que llevo a cabo,
+    "code": El mismo codigo de respuesta que se devuelve en status,
 ```
 
-You can find all available tags for your `Dockerfile.runtime` [here](https://github.com/mercadolibre/fury_java-mini-runtime#supported-tags)
+Sobre los enpoints propuestos son dos que hacen los siguiente:
+1. Trae todos los productos que tiene un vendedor
+2. Actualizar varios productos en un solo request
 
-2. Start coding!
 
-### Questions
-
-[Release Process Issue Tracker](https://github.com/mercadolibre/fury_release-process/issues)
