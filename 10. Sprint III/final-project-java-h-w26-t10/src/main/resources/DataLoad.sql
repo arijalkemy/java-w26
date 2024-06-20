@@ -1,16 +1,15 @@
 -- Inserting data into user_account table
-
-INSERT INTO user_account (first_name, last_name, password, user_role, username) VALUES
-                                                                                    ('nicolas', 'hoyos', '', 'BUYER', 'nhoyosp'),
-                                                                                    ('juan', 'gonzalez', '$2a$10$HApgftcY3m4qgHFiaPZQkuIck/Fxios/Vwn2HvPS5ccw1NPhjWxx.', 'BUYER', 'jgonz'),
-                                                                                    ('luis', 'meza', '$2a$10$dSxd1Ydm74kQeaQNqnWE9./ufOIPWWcfcO1AcK7WMivLBqyOyYBva', 'BUYER', 'mluis'),
-                                                                                    ('stiven', 'garcia', '$2a$10$iSeMgntSPi8x1d1eTYAvO.4N8PAiFIMlYmEDHbrfRz8IzbJklRVsS', 'BUYER', 'gstiven'),
-                                                                                    ('nicolas', 'imbachi', '$2a$10$4yGUSbLw2AAL6NDF/p5dPuemzpDUk5cBVR2CM/00mupeaIyU.1gTi', 'BUYER', 'inicolas'),
-                                                                                    ('jose', 'gomez', '$2a$10$uLxyNN4XaUBe157PGY5q3uJtYPTjkRmA9jp6bHIukxj1Ki0pQJ2qu', 'BUYER', 'gjose'),
-                                                                                    ('mateo', 'caldera', '$2a$10$uIBcaiVxrohx46v3Hj.keeLHKL7TOjY4JiYYaI3Kvzl9/U.J2esA.', 'BUYER', 'cmateo'),
-                                                                                    ('paco', 'gomez', '$2a$10$3LBlB/0bjtY6cAHQa.LhC.RfdN0HFMul.YvC.AmpMEcWUq5sax7Za', 'BUYER', 'gpaco'),
-                                                                                    ('marcos', 'zapata', '$2a$10$A41s47KxikbLvBPru/4XfOc8HFgdNXivrXRYFBsq7JHfNsQ0ZiXku', 'BUYER', 'zmarcos'),
-                                                                                    ('laura', 'jimenez', '$2a$10$QEVeq1PdFum/M0CqrIHVQuMTkuYSI.CkdI6wEikAwwTiomrye2/Ha', 'SUPERVISOR', 'jlaura');
+INSERT INTO user_account (first_name, last_name, password, user_role, username, email) VALUES
+    ('nicolas', 'hoyos', '', 'BUYER', 'nhoyosp', 'nicolas@example.com'),
+    ('juan', 'gonzalez', '$2a$10$HApgftcY3m4qgHFiaPZQkuIck/Fxios/Vwn2HvPS5ccw1NPhjWxx.', 'BUYER', 'jgonz', 'juan@example.com'),
+    ('luis', 'meza', '$2a$10$dSxd1Ydm74kQeaQNqnWE9./ufOIPWWcfcO1AcK7WMivLBqyOyYBva', 'BUYER', 'mluis', 'luis@example.com'),
+    ('stiven', 'garcia', '$2a$10$iSeMgntSPi8x1d1eTYAvO.4N8PAiFIMlYmEDHbrfRz8IzbJklRVsS', 'BUYER', 'gstiven', 'stiven@example.com'),
+    ('nicolas', 'imbachi', '$2a$10$4yGUSbLw2AAL6NDF/p5dPuemzpDUk5cBVR2CM/00mupeaIyU.1gTi', 'BUYER', 'inicolas', 'nicolas2@example.com'),
+    ('jose', 'gomez', '$2a$10$uLxyNN4XaUBe157PGY5q3uJtYPTjkRmA9jp6bHIukxj1Ki0pQJ2qu', 'BUYER', 'gjose', 'jose@example.com'),
+    ('mateo', 'caldera', '$2a$10$uIBcaiVxrohx46v3Hj.keeLHKL7TOjY4JiYYaI3Kvzl9/U.J2esA.', 'BUYER', 'cmateo', 'mateo@example.com'),
+    ('paco', 'gomez', '$2a$10$3LBlB/0bjtY6cAHQa.LhC.RfdN0HFMul.YvC.AmpMEcWUq5sax7Za', 'BUYER', 'gpaco', 'paco@example.com'),
+    ('marcos', 'zapata', '$2a$10$A41s47KxikbLvBPru/4XfOc8HFgdNXivrXRYFBsq7JHfNsQ0ZiXku', 'BUYER', 'zmarcos', 'marcos@example.com'),
+    ('laura', 'jimenez', '$2a$10$QEVeq1PdFum/M0CqrIHVQuMTkuYSI.CkdI6wEikAwwTiomrye2/Ha', 'SUPERVISOR', 'jlaura', 'laura@example.com');
 
 
 -- Inserting data into category table
