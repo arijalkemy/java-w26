@@ -41,12 +41,15 @@ To determine the scope of your application, you should configure the environment
 | InBoundOrderController  | POST        | /api/v1/fresh-products/orders                              | Register an order with the list of products that make up the PurchaseOrder and calculate final price |
 | InBoundOrderController  | PUT         | /api/v1/fresh-products/orders/{idOrder}                    | Update an order with the list of products that take the PurchaseOrder and calculate final price |
 | ProductController       | GET         | /api/v1/fresh-products/list                                | Get products (optional: by category)                                                            |
+| ProductController       | POST        | /api/v1/fresh-products/addProduct                          | Post a new product                                                                              |
+| ProductController       | PUT         | /api/v1/fresh-products/modifyProduct                       | Modify a product                                                                                |
+| ProductController       | GET         | /api/v1/fresh-products/listProdName                        | Get all products with names                                                                     |
 
-### UML Diagrams
+## UML Diagrams
 
-<<<<<<<<< Diagram Entity Relation >>>>>>>>
+### Diagram Entity Relation 
 ![UML Diagram](./docs/DER_Sprint3.png)
 
-<<<<<<<<< Class Diagram>>>>>>>>>>
-![UML Diagram](./docs/Diagrama_de_Clases.png)
-<<<<<<<<< UML DIAGRAM>>>>>>>>>>
+### Class Diagram 
+The class diagram shows the relationship between the classes in the project.
+It is in this repo in the docs folder as an SVG.
