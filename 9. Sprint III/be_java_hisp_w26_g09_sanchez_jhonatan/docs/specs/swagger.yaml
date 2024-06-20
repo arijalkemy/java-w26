@@ -1,0 +1,964 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "fresh-market",
+    "description" : "fresh-market",
+    "contact" : {
+      "name" : "ftrujillo",
+      "email" : "fabian.trujillo@mercadolibre.com.co"
+    },
+    "version" : "last"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Scope local"
+  } ],
+  "paths" : {
+    "/api/v1/fresh-products/{idSeller}/{idProduct}" : {
+      "put" : {
+        "tags" : [ "product-controller" ],
+        "summary" : "Update an existing product for a seller",
+        "operationId" : "updateProductSeller",
+        "parameters" : [ {
+          "name" : "idSeller",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "idProduct",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductDetailDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "403" : {
+            "description" : "User has no permissions to update the product for this seller"
+          },
+          "404" : {
+            "description" : "Product or seller not found"
+          },
+          "200" : {
+            "description" : "Successfully updated the product",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProductResDTO"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Invalid input data"
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/orders/{orderId}" : {
+      "put" : {
+        "tags" : [ "purchase-order-controller" ],
+        "summary" : "Modify the existence of a purchase order",
+        "operationId" : "modifyOrderExistence",
+        "parameters" : [ {
+          "name" : "orderId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseOrderDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "403" : {
+            "description" : "User has no permissions to modify the order"
+          },
+          "200" : {
+            "description" : "Successfully updated the purchase order",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseOrderDTO"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Purchase order not found"
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/inboundorder" : {
+      "put" : {
+        "tags" : [ "inbound-order-controller" ],
+        "summary" : "Update a inbound order",
+        "operationId" : "putUpdateInboundOrder",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/InboundOrderReqDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved the Batch list",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InboundOrderDTO"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "User has no permissions to modify the order"
+          },
+          "400" : {
+            "description" : "Some param is bad or does not exists"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "inbound-order-controller" ],
+        "summary" : "Create a inbound order",
+        "operationId" : "postCreateInboundOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/InboundOrderReqDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved the Batch list",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/InboundOrderDTO"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "User has no permissions to modify the order"
+          },
+          "400" : {
+            "description" : "Some param is bad or does not exists"
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/{idSeller}" : {
+      "post" : {
+        "tags" : [ "product-controller" ],
+        "summary" : "Save a new product for a seller",
+        "operationId" : "saveProductSeller",
+        "parameters" : [ {
+          "name" : "idSeller",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductReqDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "409" : {
+            "description" : "Products already exists"
+          },
+          "403" : {
+            "description" : "User has no permissions to create a product for this seller"
+          },
+          "400" : {
+            "description" : "Invalid input data"
+          },
+          "404" : {
+            "description" : "Seller not found"
+          },
+          "201" : {
+            "description" : "Successfully created the product",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProductResDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/orders" : {
+      "post" : {
+        "tags" : [ "purchase-order-controller" ],
+        "summary" : "Create a purchase order",
+        "operationId" : "postPurchaseOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseOrderDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "409" : {
+            "description" : "There are not enought stock for the next products: "
+          },
+          "404" : {
+            "description" : "The products with the next list of IDs not exists!"
+          },
+          "201" : {
+            "description" : "Successfully created the purchase order",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseOrderDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/auth" : {
+      "post" : {
+        "tags" : [ "auth-controller" ],
+        "summary" : "Authenticate user",
+        "operationId" : "authenticate",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AuthDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "User authenticated successfully",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthService"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "403" : {
+            "description" : "User could not be authenticated"
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/auth/register" : {
+      "post" : {
+        "tags" : [ "auth-controller" ],
+        "summary" : "Register new user",
+        "operationId" : "register",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "User registered successfully",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AuthService"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "User could not be registered"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/ping" : {
+      "get" : {
+        "tags" : [ "ping-controller" ],
+        "summary" : "Ping the application",
+        "operationId" : "ping",
+        "responses" : {
+          "500" : {
+            "description" : "Application is not running",
+            "content" : {
+              "application/json" : { }
+            }
+          },
+          "200" : {
+            "description" : "Application is running",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/{idProduct}/warehouse/list" : {
+      "get" : {
+        "tags" : [ "product-controller" ],
+        "summary" : "Get stock by product and warehouse",
+        "operationId" : "getStockByProductAndWarehouse",
+        "parameters" : [ {
+          "name" : "idProduct",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "403" : {
+            "description" : "User has no permissions to modify the order"
+          },
+          "200" : {
+            "description" : "Successfully retrieved the stock information",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseOrderDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/{idProduct}/batch/list" : {
+      "get" : {
+        "tags" : [ "batch-controller" ],
+        "summary" : "Get batches by product id",
+        "operationId" : "getBatchByProductId",
+        "parameters" : [ {
+          "name" : "idProduct",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "order",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "Product is not available"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "403" : {
+            "description" : "You don't have permissions to access this warehouse"
+          },
+          "200" : {
+            "description" : "Successfully retrieved the batches by product id",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BatchLocationResponseDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/orders/{idOrder}" : {
+      "get" : {
+        "tags" : [ "purchase-order-controller" ],
+        "summary" : "Get products by purchase order",
+        "operationId" : "getMethodName",
+        "parameters" : [ {
+          "name" : "idOrder",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Getting products succesfully",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProjectionPurchaseOrder"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "The purchase order with id  idOrder  was not found.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/list" : {
+      "get" : {
+        "tags" : [ "product-controller" ],
+        "summary" : "Get product list",
+        "operationId" : "getProducts",
+        "parameters" : [ {
+          "name" : "category",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved the product list",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ProductDetailDTO"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "User has no permissions to modify the order"
+          },
+          "404" : {
+            "description" : "Product list not found"
+          }
+        }
+      }
+    },
+    "/api/v1/fresh-products/batch/list/due-date/{cantDays}" : {
+      "get" : {
+        "tags" : [ "batch-controller" ],
+        "summary" : "Get batches expiring soon",
+        "operationId" : "getBatchesExpiringSoon",
+        "parameters" : [ {
+          "name" : "cantDays",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "category",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "order",
+          "in" : "query",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved the batches",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ExpiringProductResponseDTO"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "User has no permissions to access the batches"
+          },
+          "400" : {
+            "description" : "Invalid input parameters"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ProductDetailDTO" : {
+        "required" : [ "price", "product_desc" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "price" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "seller_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "product_desc" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ProductResDTO" : {
+        "type" : "object",
+        "properties" : {
+          "operation" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "code" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "ProductDTO" : {
+        "type" : "object",
+        "properties" : {
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "productId" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "PurchaseOrderDTO" : {
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "buyer_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "order_status" : {
+            "type" : "string",
+            "enum" : [ "STATUS_CODE", "SHOPPING_CART" ]
+          },
+          "products" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductDTO"
+            }
+          }
+        }
+      },
+      "BatchDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "current_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "minimum_temperature" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "initial_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "manufacturing_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "manufacturing_time" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "due_date" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "InboundOrderDTO" : {
+        "type" : "object",
+        "properties" : {
+          "order_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "order_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "section" : {
+            "$ref" : "#/components/schemas/SectionDTO"
+          },
+          "batch_stock" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BatchDTO"
+            }
+          }
+        }
+      },
+      "InboundOrderReqDTO" : {
+        "type" : "object",
+        "properties" : {
+          "inbound_order" : {
+            "$ref" : "#/components/schemas/InboundOrderDTO"
+          }
+        }
+      },
+      "SectionDTO" : {
+        "type" : "object",
+        "properties" : {
+          "section_code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "warehouse_code" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "ProductReqDTO" : {
+        "required" : [ "products" ],
+        "type" : "object",
+        "properties" : {
+          "products" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductDetailDTO"
+            }
+          }
+        }
+      },
+      "AuthDTO" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AuthService" : {
+        "type" : "object",
+        "properties" : {
+          "user_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "UserDTO" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "role" : {
+            "type" : "string",
+            "enum" : [ "WAREHOUSEMAN", "BUYER", "SELLER" ]
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "first_name" : {
+            "type" : "string"
+          },
+          "last_name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BatchLocationResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "section" : {
+            "$ref" : "#/components/schemas/SectionResponseDTO"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "batch_stock" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BatchResponseDTO"
+            }
+          }
+        }
+      },
+      "BatchResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "due_date" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        }
+      },
+      "SectionResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "section_code" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "warehouse_code" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "ProjectionCartDetail" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "id" : {
+            "$ref" : "#/components/schemas/ShoppingCartKey"
+          },
+          "quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product" : {
+            "$ref" : "#/components/schemas/ProjectionProduct"
+          }
+        }
+      },
+      "ProjectionProduct" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "price" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "description" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ProjectionPurchaseOrder" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "order_status" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "cart_details" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProjectionCartDetail"
+            }
+          }
+        }
+      },
+      "ShoppingCartKey" : {
+        "type" : "object",
+        "properties" : {
+          "order_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "ApiError" : {
+        "type" : "object",
+        "properties" : {
+          "error" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "ExpiringProductDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_number" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "product_id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "product_type_id" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "due_date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "current_quantity" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "ExpiringProductResponseDTO" : {
+        "type" : "object",
+        "properties" : {
+          "batch_stock" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ExpiringProductDTO"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    }
+  }
+}

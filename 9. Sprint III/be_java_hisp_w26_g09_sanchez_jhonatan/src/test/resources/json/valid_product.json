@@ -1,0 +1,14 @@
+{
+  "id": 1,
+  "price": 50.0,
+  "description": "Original Description",
+  "seller": {
+    "id": 1,
+    "role": "WAREHOUSEMAN",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "john.doe@example.com",
+    "password": "password",
+    "address": "Address"
+  }
+}
