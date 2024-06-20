@@ -1,0 +1,18 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "pf-be-hisp-w26-t10-guzmanq",
+    "description" : "pf-be-hisp-w26-t10-guzmanq",
+    "contact" : {
+      "name" : "jgarciavarga",
+      "email" : "johnstiven.garciavargas@mercadolibre.com.co"
+    },
+    "version" : "last"
+  },
+  "servers" : [ {
+    "url" : "https://test_pf-be-hisp-w26-t10-guzmanq.furyapps.io",
+    "description" : "Scope test"
+  } ],
+  "paths" : { },
+  "components" : { }
+}
