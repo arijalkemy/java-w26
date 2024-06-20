@@ -1,54 +1,34 @@
 package com.example.deportista.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
 
+@Data @NoArgsConstructor @AllArgsConstructor
+@Entity
 public class Persona {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    Long id;
 
     private String nombre;
     private String apellido;
     private int edad;
-    private Deporte deporte;
 
+    @JsonManagedReference
+    @ManyToMany
+    @JoinTable(
+            name = "persona_deporte",
+            joinColumns = @JoinColumn(name = "persona_id"),
+            inverseJoinColumns = @JoinColumn(name = "deporte_id")
+    )
+    private Set<Deporte> deportes = new HashSet<>();
 
-    public Persona(String nombre, String apellido, int edad, Deporte deporte) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
-        this.deporte = deporte;
-    }
-
-
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public Deporte getDeporte() {
-        return deporte;
-    }
-
-    public void setDeporte(Deporte deporte) {
-        this.deporte = deporte;
-    }
 }

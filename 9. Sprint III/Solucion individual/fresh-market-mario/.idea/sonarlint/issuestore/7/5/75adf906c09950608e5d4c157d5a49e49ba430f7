@@ -1,0 +1,39 @@
+
+N
+java:S2589F"8Remove this expression which always evaluates to "false"(Ââ†þ
+W
+java:S4973-"<Strings and Boxed types should be compared using "equals()".(ºïñ¶øÿÿÿÿ
+R
+java:S49730"<Strings and Boxed types should be compared using "equals()".(›÷¿ï
+R
+java:S4973F"<Strings and Boxed types should be compared using "equals()".(Ââ†þ
+R
+java:S4973I"<Strings and Boxed types should be compared using "equals()".(›÷¿ï
+_
+java:S2583B"DChange this condition so that it does not always evaluate to "false"(ŽÈ¿ñûÿÿÿÿ
+_
+java:S2583)"DChange this condition so that it does not always evaluate to "false"(ŽÈ¿ñûÿÿÿÿ
+_
+java:S2583c"DChange this condition so that it does not always evaluate to "false"(ÌŸ¿ïøÿÿÿÿ
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813""BRemove this field injection and use constructor injection instead.(êæÄÞ
+•
+java:S6204<"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(™ÐÆýùÿÿÿÿ
+
+java:S6204T"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(Äî›
+D
+java:S1874`".Remove this use of "getOne"; it is deprecated.(ó‹Â
+D
+java:S1874b".Remove this use of "getOne"; it is deprecated.(Ø¼£ž
+l
+java:S6201†"PReplace this instanceof check and cast with 'instanceof UserDetails userDetails'(¶Þ¿Œýÿÿÿÿ
+^
+java:S6201ˆ"BReplace this instanceof check and cast with 'instanceof User user'(ÿ˜™Äüÿÿÿÿ

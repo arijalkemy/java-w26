@@ -1,0 +1,31 @@
+
+†
+java:S1488ù"oImmediately return this expression instead of assigning it to the temporary variable "projectionPurchaseOrder".(þÆ•“
+X
+java:S6813'"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813*"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813-"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S68130"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S68133"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S68137"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813:"BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813="BRemove this field injection and use constructor injection instead.(êæÄÞ
+X
+java:S6813@"BRemove this field injection and use constructor injection instead.(êæÄÞ
+Z
+java:S1854ž"CRemove this useless assignment to local variable "filteredBatches".(ÄŠ÷·
+K
+java:S1481ž"4Remove this unused "filteredBatches" local variable.(ÄŠ÷·
+f
+java:S1128"KRemove this unused import 'com.mercadolibre.fresh_market.model.enums.Role'.(óùâßûÿÿÿÿ
+c
+java:S1128"MRemove this unused import 'org.springframework.security.core.Authentication'.(ñýÓ“
+r
+java:S1128"\Remove this unused import 'org.springframework.security.core.context.SecurityContextHolder'.(ŒÄæë

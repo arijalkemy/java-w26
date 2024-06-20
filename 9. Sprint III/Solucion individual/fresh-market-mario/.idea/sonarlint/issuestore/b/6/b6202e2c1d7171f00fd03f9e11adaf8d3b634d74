@@ -1,0 +1,13 @@
+
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄÞ8‚ñàžƒ2
+_
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄÞ8‚ñàžƒ2
+_
+java:S6813$"BRemove this field injection and use constructor injection instead.(êæÄÞ8‚ñàžƒ2
+l
+java:S1854P"JRemove this useless assignment to local variable "responseReturnsDTOList".(ŠÌ‚õüÿÿÿÿ8†ñàžƒ2
+g
+java:S1128"JRemove this unused import 'org.modelmapper.internal.bytebuddy.asm.Advice'.(ÿƒ“°8‰ñàžƒ2
+Z
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8‰ñàžƒ2

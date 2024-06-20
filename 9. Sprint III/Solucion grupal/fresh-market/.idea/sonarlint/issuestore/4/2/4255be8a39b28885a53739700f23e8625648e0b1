@@ -1,0 +1,9 @@
+
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8øÁÚç‚2J$b8edbf67-0fbd-46bd-8a8b-f94688eb39c2
+…
+java:S6813 "BRemove this field injection and use constructor injection instead.(êæÄŞ8øÁÚç‚2J$18f5cc72-ed26-4868-93bc-1c147ef92d99
+{
+java:S1172$"3Remove this unused method parameter "objectMapper".(ñ›ç¶ûÿÿÿÿ8øÁÚç‚2J$35b9fcb7-14f1-4c14-bb36-d88bc6aaca64
+˜
+java:S6204œ"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8ÈÊ‡ƒ2
