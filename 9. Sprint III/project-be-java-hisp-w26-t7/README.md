@@ -4,23 +4,24 @@
 
 ## Diagrama Entidad Relacion
 
-![image](https://github.com/melisource/fury_project-be-java-hisp-w26-t7/assets/164009961/780313aa-cec3-45b5-b4da-2091eb0dc29c)
+![image](https://github.com/arijalkemy/java-w26/assets/166527186/f90f1c74-2c74-47d1-afe4-72e1dd656987)
+
 
 ## Diagrama Relacional
 
-![image](https://github.com/melisource/fury_project-be-java-hisp-w26-t7/assets/164009961/c8833520-593b-432f-bc97-1c7c0a228648)
+![image](https://github.com/arijalkemy/java-w26/assets/166527186/a28bde82-7256-4796-9347-026997df934b)
 
 ## Arquitectura Multicapa
 
-![image](https://github.com/melisource/fury_project-be-java-hisp-w26-t7/assets/164009961/af6fb8d2-7a0c-4e55-a230-4e8dd5e11c85)
+![image](https://github.com/arijalkemy/java-w26/assets/166527186/a26eab57-2066-41ed-8be1-c66031027096)
 
 ## Despliegue de la API
 
-![image](https://github.com/melisource/fury_project-be-java-hisp-w26-t7/assets/164009961/d4c9c289-0f0a-48fc-9b52-0f19ab735aae)
+![image](https://github.com/arijalkemy/java-w26/assets/166527186/d4473fc7-61cd-44e6-abfd-cf9756358058)
 
 ## Diagrama de clases
 
-![image](https://github.com/melisource/fury_project-be-java-hisp-w26-t7/assets/164009961/11913196-2991-4515-8ef3-25677f3c0827)
+![image](https://github.com/arijalkemy/java-w26/assets/166527186/864f9a47-3966-42b5-9b1e-3dd79c34066f)
 
 ## Requerimiento 1
 
