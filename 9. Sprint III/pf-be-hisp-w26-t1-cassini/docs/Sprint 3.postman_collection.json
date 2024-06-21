@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "fc3196c2-dba1-4d5d-9f63-588694f129b0",
+		"name": "Sprint 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34481501"
+	},
+	"item": [
+		{
+			"name": "Req 3",
+			"item": [
+				{
+					"name": "GET Req3 happy path without order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Req3 happy path without order Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Req3 happy path with order due date",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTcxODc0MjIzMywiZXhwIjoxNzE4NzQzNjczfQ.sIBcJ2DPRlw7a1PFJXx-dMXuT4-wiQAvlGxm2UGRDb0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1/list?order=F",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "F"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Req3 happy path with order quantity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1/list?order=C",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "C"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Req3 happy path with order Batch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1/list?order=L",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "L"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Req3 sad path Batch inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/5/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"5",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Req3 sad path product id inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/6/list?order=F",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"6",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "F"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "requ 4",
+			"item": [
+				{
+					"name": "Requerimiento 4 Happy path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/1/warehouse/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"1",
+								"warehouse",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Requerimiento 4 sad path id producto inexistente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/7/warehouse/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"7",
+								"warehouse",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Requerimiento 4 sad path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/5/warehouse/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"5",
+								"warehouse",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Req 6",
+			"item": [
+				{
+					"name": "GET batch temperature without order happy path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1/wrongTemperature/list",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"wrongTemperature",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update batch temperature sad path",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_temperature\": 16.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/fresh-products/batch/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update batch temperature happy path",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_temperature\": 16.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{APIHTTP}}://{{APISCOPE}}/api/v1/fresh-products/batch/1",
+							"protocol": "{{APIHTTP}}",
+							"host": [
+								"{{APISCOPE}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET batch temperature with order L happy path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/fresh-products/batch/1/wrongTemperature/list?order=L",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"wrongTemperature",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "L"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET batch temperature with order C happy path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/fresh-products/batch/1/wrongTemperature/list?order=C",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"wrongTemperature",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "C"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET batch temperature with order T happy path",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/fresh-products/batch/1/wrongTemperature/list?order=T",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"fresh-products",
+								"batch",
+								"1",
+								"wrongTemperature",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "T"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"juan@gmail.com\",\n    \"password\":\"123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{APIHTTP}}://{{APISCOPE}}/auth/login",
+					"protocol": "{{APIHTTP}}",
+					"host": [
+						"{{APISCOPE}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTcxOTAwMzk0OSwiZXhwIjoxNzE5MDA1Mzg5fQ.K4vDh8NgjxcvqcTDEVPKdXs1p1BoIflKKzqFNihLOoc",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APIHTTP",
+			"value": "http",
+			"type": "string"
+		},
+		{
+			"key": "APISCOPE",
+			"value": "localhost:8081",
+			"type": "string"
+		}
+	]
+}
