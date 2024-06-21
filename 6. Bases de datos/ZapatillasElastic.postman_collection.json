@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "dcceb00e-5a1a-4fae-9705-578580b2aa33",
+		"name": "Elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34292067"
+	},
+	"item": [
+		{
+			"name": "Create Index",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"settings\": {\n    \"number_of_shards\": 1,\n    \"number_of_replicas\": 1\n  },\n  \"mappings\": {\n    \"properties\": {\n      \"talla\": {\n        \"type\": \"integer\"\n      },\n      \"modelo\": {\n        \"type\": \"text\"\n      },\n      \"color\": {\n        \"type\": \"keyword\"\n      },\n      \"marca\": {\n        \"type\": \"keyword\"\n      }\n    }\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add zapatillas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\" : {} }\n{ \"talla\" : 42, \"modelo\" : \"Air Max\", \"color\" : \"Rojo\", \"marca\" : \"Nike\" }\n{ \"index\" : {} }\n{ \"talla\" : 38, \"modelo\" : \"Ultra Boost\", \"color\" : \"Negro\", \"marca\" : \"Adidas\" }\n{ \"index\" : {} }\n{ \"talla\" : 40, \"modelo\" : \"Classic\", \"color\" : \"Blanco\", \"marca\" : \"Reebok\" }\n{ \"index\" : {} }\n{ \"talla\" : 41, \"modelo\" : \"Gel-Lyte\", \"color\" : \"Azul\", \"marca\" : \"Asics\" }\n{ \"index\" : {} }\n{ \"talla\" : 39, \"modelo\" : \"Wave Rider\", \"color\" : \"Verde\", \"marca\" : \"Mizuno\" }\n{ \"index\" : {} }\n{ \"talla\" : 43, \"modelo\" : \"Predator\", \"color\" : \"Amarillo\", \"marca\" : \"Adidas\" }\n{ \"index\" : {} }\n{ \"talla\" : 44, \"modelo\" : \"Air Jordan\", \"color\" : \"Negro\", \"marca\" : \"Nike\" }\n{ \"index\" : {} }\n{ \"talla\" : 37, \"modelo\" : \"FuelCell\", \"color\" : \"Rosa\", \"marca\" : \"New Balance\" }\n{ \"index\" : {} }\n{ \"talla\" : 45, \"modelo\" : \"Metcon\", \"color\" : \"Gris\", \"marca\" : \"Nike\" }\n{ \"index\" : {} }\n{ \"talla\" : 40, \"modelo\" : \"Nano\", \"color\" : \"Blanco\", \"marca\" : \"Reebok\" }\n{ \"index\" : {} }\n{ \"talla\" : 42, \"modelo\" : \"Speedcross\", \"color\" : \"Negro\", \"marca\" : \"Salomon\" }\n{ \"index\" : {} }\n{ \"talla\" : 38, \"modelo\" : \"Pegasus\", \"color\" : \"Azul\", \"marca\" : \"Nike\" }\n{ \"index\" : {} }\n{ \"talla\" : 39, \"modelo\" : \"X-Talon\", \"color\" : \"Verde\", \"marca\" : \"Inov-8\" }\n{ \"index\" : {} }\n{ \"talla\" : 41, \"modelo\" : \"Terrex\", \"color\" : \"Rojo\", \"marca\" : \"Adidas\" }\n{ \"index\" : {} }\n{ \"talla\" : 43, \"modelo\" : \"Cascadia\", \"color\" : \"Naranja\", \"marca\" : \"Brooks\" }\n{ \"index\" : {} }\n{ \"talla\" : 44, \"modelo\" : \"Rider\", \"color\" : \"Negro\", \"marca\" : \"Mizuno\" }\n{ \"index\" : {} }\n{ \"talla\" : 37, \"modelo\" : \"Glycerin\", \"color\" : \"Azul\", \"marca\" : \"Brooks\" }\n{ \"index\" : {} }\n{ \"talla\" : 45, \"modelo\" : \"Ride\", \"color\" : \"Amarillo\", \"marca\" : \"Saucony\" }\n{ \"index\" : {} }\n{ \"talla\" : 42, \"modelo\" : \"Zoom\", \"color\" : \"Gris\", \"marca\" : \"Nike\" }\n{ \"index\" : {} }\n{ \"talla\" : 40, \"modelo\" : \"Cloud\", \"color\" : \"Blanco\", \"marca\" : \"On Running\" }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Serach zapatillas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\":{\n        \"match\":{\n            \"color\": \"Negro\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,29 @@
+
+### Producto
+- id_producto: int
+- marca: string
+- modelo: string
+- precio: float
+- descripcion_articulo: string
+
+### Factura
+- id_factura: int
+- fecha_factura: date
+- forma_pago: string
+- IVA: double
+- cantidad: int
+- importe: double
+- id_cliente: int
+- id_producto: int
+
+### Cliente
+- id_cliente: int
+- nombre_cliente: string
+- apellido_cliente: string
+- direccion_cliente: string
+
+### Propuesta de Normalización:
+1. **Creación de Nuevas Entidades**: Se proponen dos nuevas entidades, "Producto" y "Cliente".
+2. **Reasignación de Campos**: Los campos que no dependen directamente de los datos de facturación se trasladan a sus respectivas entidades.
+3. **Completar Información del Producto**: Se añaden todos los campos necesarios a la entidad "Producto".
+4. **Relaciones entre Tablas**: Se establecen relaciones entre las tablas de manera que la tabla de "Factura" pueda completarse con los datos relacionados.
