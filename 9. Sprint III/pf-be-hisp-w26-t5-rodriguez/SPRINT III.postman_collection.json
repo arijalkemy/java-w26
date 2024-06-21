@@ -1,0 +1,853 @@
+{
+	"info": {
+		"_postman_id": "91091689-e6d4-48a4-98ae-e76f61ab9a5a",
+		"name": "SPRINT III",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" alt=\"\" height=\"1530\" width=\"2162\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34289513"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MDQyODQsImlhdCI6MTcxODM3MTg4NCwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.uWeNqCZbIa1zxzBPXDfZKvE7PsbX1keJAYFiIj_bFp-V0Aw6LHfQ_STVqV8o2wjF4qZNCQhqQM7WLcGQduE8RAxCZqbGGtCW5Pmq9y1IJ8YABGISMmjvAlKYu3Zh-yyvTeTxrQ1vsfmvfmYGRWhy7bxA1iTtfDh7y1BVH6i5czIt_xELEjhSdRBNaU6TnQx5Lrp9llr5gYnDRn_tTlB-OytoMuFua0b-fnQn41C1_eXOCCoHQrtl-yXgJML2vCgryzNAPm9mY9Zoaz_OceSVzzU-xNWrCLMErLDyxgfJKxb7XxaLH3hK54iLUPLAGu0N_nTLzcoIMA442jPBhi4-tg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"Roberto\",\n    \"password\": \"robertol123\",\n    \"first_name\": \"roberto\",\n    \"last_name\" : \"suarez\",\n    \"role\": \"MANAGER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domain2}}/auth/register",
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "login BUYER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg3NzA1NDcsImlhdCI6MTcxODczODE0NywiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.q_fzK9cpRnPNKPPOmv3n4sp41ZJ5AFpKIV19rg1fbxjKUyoyssvp1IJvgqCfwaq0WNCEkK-p9eqlpK71xnWrz_LBvpVvzQ3qjG1qJONt8kOseu6F7Z5EQtpGQt3TKWikQUGW6hk1UlN44GQ-muCYGf2mk8Pe7Z3sba86MFAvJQI_T9PmbNvAo9_qIpj-akNysO-S1Q4BKivrnBV5dxdef1gQ_44n_ERncgHDOcNxTw69kNM7bWGKMm_RzeavVRChqb8LtXN66gB98vYp7inxPbLjYDLraHzLH8583QrsoMyheg0ILYRkf5MaYiapN_lSRnXTNCpmc33dNq_IpWL3wQ",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"joel\",\n    \"password\": \"joel123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/auth/login",
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "login SELLER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MDQyODQsImlhdCI6MTcxODM3MTg4NCwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.uWeNqCZbIa1zxzBPXDfZKvE7PsbX1keJAYFiIj_bFp-V0Aw6LHfQ_STVqV8o2wjF4qZNCQhqQM7WLcGQduE8RAxCZqbGGtCW5Pmq9y1IJ8YABGISMmjvAlKYu3Zh-yyvTeTxrQ1vsfmvfmYGRWhy7bxA1iTtfDh7y1BVH6i5czIt_xELEjhSdRBNaU6TnQx5Lrp9llr5gYnDRn_tTlB-OytoMuFua0b-fnQn41C1_eXOCCoHQrtl-yXgJML2vCgryzNAPm9mY9Zoaz_OceSVzzU-xNWrCLMErLDyxgfJKxb7XxaLH3hK54iLUPLAGu0N_nTLzcoIMA442jPBhi4-tg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"jhon\",\n    \"password\": \"jon123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://freshprods.melioffice.com/auth/login",
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				},
+				{
+					"name": "login MANAGER",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MDQyODQsImlhdCI6MTcxODM3MTg4NCwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.uWeNqCZbIa1zxzBPXDfZKvE7PsbX1keJAYFiIj_bFp-V0Aw6LHfQ_STVqV8o2wjF4qZNCQhqQM7WLcGQduE8RAxCZqbGGtCW5Pmq9y1IJ8YABGISMmjvAlKYu3Zh-yyvTeTxrQ1vsfmvfmYGRWhy7bxA1iTtfDh7y1BVH6i5czIt_xELEjhSdRBNaU6TnQx5Lrp9llr5gYnDRn_tTlB-OytoMuFua0b-fnQn41C1_eXOCCoHQrtl-yXgJML2vCgryzNAPm9mY9Zoaz_OceSVzzU-xNWrCLMErLDyxgfJKxb7XxaLH3hK54iLUPLAGu0N_nTLzcoIMA442jPBhi4-tg"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"Roberto\",\n    \"password\": \"robertol123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{host}}/auth/login",
+						"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "filter individual",
+					"item": [
+						{
+							"name": "filter",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VsIiwiaWF0IjoxNzE4OTkwMTU2LCJleHAiOjE3MTg5OTE1OTZ9.GS6frueldRaQzPinKRQUohYUqzUmf1BvpFzXY-fuPt8"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-tiger-token",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MTc5MTIsImlhdCI6MTcxODM4NTUxMiwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.LHGMV-voN1S7fEUH34Rh1WYLq33fc6fjJySnKXmpla4j16pwMuMGkoz3GW3qabAlfVG7wgyKOhEsC6v9DVOpU2ojR6kD0PCpxY0PbIKF5Xm7b1bmv151eTbVXTDdukNjf7IJf8Ix0lgOUvmgV5SJfeikLDQcoQBJeLpXRDWqx_oEgfhzGykKRJ-2qr7Gw10VuYKbqfr1SldQs9LXeeqe0BOvBRs0WVzMVehc8NrHWknj9uMTHGe5_NgtDA1riiFGRikn0roq9MsJCK0DVtq1kdXcHgZnNMWJH9dtxF8493LmuQxa2xurXeFktJbKCaQTMqbkyNeCl9GZWiEocTKIWQ",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    //  \"id_seller\": 5,\n    // \"type\": [\"FF\",\"RF\"]\n    // \"name\": \"\"\n    // \"min_price\": 30,\n    // \"max_price\": 51\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{host}}/api/v1/products/filter",
+								"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+							},
+							"response": [
+								{
+									"name": "by id seller 4",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MTc5MTIsImlhdCI6MTcxODM4NTUxMiwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.LHGMV-voN1S7fEUH34Rh1WYLq33fc6fjJySnKXmpla4j16pwMuMGkoz3GW3qabAlfVG7wgyKOhEsC6v9DVOpU2ojR6kD0PCpxY0PbIKF5Xm7b1bmv151eTbVXTDdukNjf7IJf8Ix0lgOUvmgV5SJfeikLDQcoQBJeLpXRDWqx_oEgfhzGykKRJ-2qr7Gw10VuYKbqfr1SldQs9LXeeqe0BOvBRs0WVzMVehc8NrHWknj9uMTHGe5_NgtDA1riiFGRikn0roq9MsJCK0DVtq1kdXcHgZnNMWJH9dtxF8493LmuQxa2xurXeFktJbKCaQTMqbkyNeCl9GZWiEocTKIWQ",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n     \"id_seller\": 4\n    // \"type\": \"FS\"\n    // \"name\": \"Apple\"\n    // \"min_price\": 30,\n    // \"max_price\": 51\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}/api/v1/products/filter"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 21 Jun 2024 17:01:15 GMT"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "52e90dd3-8b03-8824-a76c-2d658ba84984"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 3,\n        \"name\": \"Chicken\",\n        \"description\": \"Description Chicken\",\n        \"type\": \"FF\",\n        \"creation_date\": \"2024-06-21T03:00:00Z\"\n    },\n    {\n        \"id\": 101,\n        \"name\": \"meat\",\n        \"description\": \"Apple\",\n        \"type\": \"RF\",\n        \"creation_date\": \"2022-01-02T03:00:00Z\"\n    }\n]"
+								},
+								{
+									"name": "by type and min_price",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MTc5MTIsImlhdCI6MTcxODM4NTUxMiwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.LHGMV-voN1S7fEUH34Rh1WYLq33fc6fjJySnKXmpla4j16pwMuMGkoz3GW3qabAlfVG7wgyKOhEsC6v9DVOpU2ojR6kD0PCpxY0PbIKF5Xm7b1bmv151eTbVXTDdukNjf7IJf8Ix0lgOUvmgV5SJfeikLDQcoQBJeLpXRDWqx_oEgfhzGykKRJ-2qr7Gw10VuYKbqfr1SldQs9LXeeqe0BOvBRs0WVzMVehc8NrHWknj9uMTHGe5_NgtDA1riiFGRikn0roq9MsJCK0DVtq1kdXcHgZnNMWJH9dtxF8493LmuQxa2xurXeFktJbKCaQTMqbkyNeCl9GZWiEocTKIWQ",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    //  \"id_seller\": 4\n    \"type\": \"FS\",\n    // \"name\": \"Apple\"\n    \"min_price\": 30\n    // \"max_price\": 51\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}/api/v1/products/filter"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 21 Jun 2024 17:02:26 GMT"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "d02f36d5-2c60-8358-2fd7-5f9c8acae506"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Banana\",\n        \"description\": \"Description Banana\",\n        \"type\": \"FS\",\n        \"creation_date\": \"2024-06-21T03:00:00Z\"\n    }\n]"
+								},
+								{
+									"name": "range prices",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MTc5MTIsImlhdCI6MTcxODM4NTUxMiwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.LHGMV-voN1S7fEUH34Rh1WYLq33fc6fjJySnKXmpla4j16pwMuMGkoz3GW3qabAlfVG7wgyKOhEsC6v9DVOpU2ojR6kD0PCpxY0PbIKF5Xm7b1bmv151eTbVXTDdukNjf7IJf8Ix0lgOUvmgV5SJfeikLDQcoQBJeLpXRDWqx_oEgfhzGykKRJ-2qr7Gw10VuYKbqfr1SldQs9LXeeqe0BOvBRs0WVzMVehc8NrHWknj9uMTHGe5_NgtDA1riiFGRikn0roq9MsJCK0DVtq1kdXcHgZnNMWJH9dtxF8493LmuQxa2xurXeFktJbKCaQTMqbkyNeCl9GZWiEocTKIWQ",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    //  \"id_seller\": 4\n    // \"type\": \"FS\",\n    // \"name\": \"Apple\"\n    \"min_price\": 30,\n    \"max_price\": 51\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}/api/v1/products/filter"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 21 Jun 2024 17:03:22 GMT"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "0cec1b26-8cee-8e5d-fb82-6eb3e15395a7"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Banana\",\n        \"description\": \"Description Banana\",\n        \"type\": \"FS\",\n        \"creation_date\": \"2024-06-21T03:00:00Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Chicken\",\n        \"description\": \"Description Chicken\",\n        \"type\": \"FF\",\n        \"creation_date\": \"2024-06-21T03:00:00Z\"\n    }\n]"
+								},
+								{
+									"name": "by type",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "x-tiger-token",
+												"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MTc5MTIsImlhdCI6MTcxODM4NTUxMiwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.LHGMV-voN1S7fEUH34Rh1WYLq33fc6fjJySnKXmpla4j16pwMuMGkoz3GW3qabAlfVG7wgyKOhEsC6v9DVOpU2ojR6kD0PCpxY0PbIKF5Xm7b1bmv151eTbVXTDdukNjf7IJf8Ix0lgOUvmgV5SJfeikLDQcoQBJeLpXRDWqx_oEgfhzGykKRJ-2qr7Gw10VuYKbqfr1SldQs9LXeeqe0BOvBRs0WVzMVehc8NrHWknj9uMTHGe5_NgtDA1riiFGRikn0roq9MsJCK0DVtq1kdXcHgZnNMWJH9dtxF8493LmuQxa2xurXeFktJbKCaQTMqbkyNeCl9GZWiEocTKIWQ",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    //  \"id_seller\": 4\n    \"type\": [\"FF\",\"RF\"]\n    // \"name\": \"Apple\"\n    // \"min_price\": 30,\n    // \"max_price\": 51\n\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{host}}/api/v1/products/filter"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 21 Jun 2024 17:09:29 GMT"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Vary",
+											"value": "Origin"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Method"
+										},
+										{
+											"key": "Vary",
+											"value": "Access-Control-Request-Headers"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "f09efd1c-d076-236e-4940-9868a978bc63"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, no-store, max-age=0, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Expires",
+											"value": "0"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 3,\n        \"name\": \"Chicken\",\n        \"description\": \"Description Chicken\",\n        \"type\": \"FF\",\n        \"creation_date\": \"2024-06-21T03:00:00Z\"\n    },\n    {\n        \"id\": 101,\n        \"name\": \"meat\",\n        \"description\": \"Apple\",\n        \"type\": \"RF\",\n        \"creation_date\": \"2022-01-02T03:00:00Z\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "all",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VsIiwiaWF0IjoxNzE4ODA4ODk4LCJleHAiOjE3MTg4MTAzMzh9.s7kilgtIGPfcwePrHpPcNJ-wOvXNJk2owhtgUzjNQws"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-tiger-token",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJqb2VsLnJvZHJpZ3VlekBtZXJjYWRvbGlicmUuY29tIiwiZW52aXJvbm1lbnQiOiJNZXJjYWRvTGlicmUiLCJmdWxsX25hbWUiOiJKb2VsIE5pY29sYXMgUm9kcmlndWV6IE5vYmVyYXNjbyIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJqbHJvZHJpZ3VleiJ9LCJleHAiOjE3MTg0MTc5MTIsImlhdCI6MTcxODM4NTUxMiwiaWRlbnRpdHkiOiJtcm46c2VnaW5mOmFkOnVzZXIvamxyb2RyaWd1ZXoiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoiamxyb2RyaWd1ZXoifQ.LHGMV-voN1S7fEUH34Rh1WYLq33fc6fjJySnKXmpla4j16pwMuMGkoz3GW3qabAlfVG7wgyKOhEsC6v9DVOpU2ojR6kD0PCpxY0PbIKF5Xm7b1bmv151eTbVXTDdukNjf7IJf8Ix0lgOUvmgV5SJfeikLDQcoQBJeLpXRDWqx_oEgfhzGykKRJ-2qr7Gw10VuYKbqfr1SldQs9LXeeqe0BOvBRs0WVzMVehc8NrHWknj9uMTHGe5_NgtDA1riiFGRikn0roq9MsJCK0DVtq1kdXcHgZnNMWJH9dtxF8493LmuQxa2xurXeFktJbKCaQTMqbkyNeCl9GZWiEocTKIWQ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{domain2}}/products/",
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "byCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VsIiwiaWF0IjoxNzE4NzQyMzQzLCJleHAiOjE3MTg3NDM3ODN9.jFO4mGqp6qF5_ArPUwC_qViEI1ncbi4FU04i2E-05Co"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain2}}/products/list?category=FS",
+							"host": [
+								"{{domain2}}"
+							],
+							"path": [
+								"products",
+								"list"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "FS",
+									"description": "type product (category) [FS,FF,RF]"
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "idProduct batch list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSb2JlcnRvIiwiaWF0IjoxNzE4NzQyNTIzLCJleHAiOjE3MTg3NDM5NjN9.CQRuTtzF-1HbDOJjhRnON-y8NQ4Yk2t06jT2p0OzwK8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain2}}/products/100/batch/list",
+							"host": [
+								"{{domain2}}"
+							],
+							"path": [
+								"products",
+								"100",
+								"batch",
+								"list"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "L",
+									"description": "type product (category) [FS,FF,RF]",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "idProduct warehouse list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSb2JlcnRvIiwiaWF0IjoxNzE4NzQyODIxLCJleHAiOjE3MTg3NDQyNjF9.kvY6q5uo9V2da_ZfqWjBkLRCVGUQXg7JEASbQ9TJsMQ"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain2}}/products/1/warehouse/list",
+							"host": [
+								"{{domain2}}"
+							],
+							"path": [
+								"products",
+								"1",
+								"warehouse",
+								"list"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "FS,FF",
+									"description": "type product (category) [FS,FF,RF]",
+									"disabled": true
+								}
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "batch",
+			"item": [
+				{
+					"name": "batch due-date",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSb2JlcnRvIiwiaWF0IjoxNzE4OTg2MzEzLCJleHAiOjE3MTg5ODc3NTN9.7mr_atbcDIj0DN6fNe5zatXmbAIlBZuIvHCt3fPQFho"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{host}}/batches/batch/list/due-date/20"
+					},
+					"response": []
+				},
+				{
+					"name": "new batch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJSb2JlcnRvIiwiaWF0IjoxNzE4OTg2MzEzLCJleHAiOjE3MTg5ODc3NTN9.7mr_atbcDIj0DN6fNe5zatXmbAIlBZuIvHCt3fPQFho"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"order_number\": 1,\n    \"order_date\": \"11-10-2024\",\n    \"section\": {\n        \"section_code\": 1,\n        \"warehouse_code\": 1\n    },\n    \"batch_stock\":\n        {\n            \"batch_number\": \"1000\",\n            \"product_id\": 1,\n            \"current_temperature\": 10.2,\n            \"minimum_temperature\": 12.0,\n            \"initial_quantity\": 20,\n            \"current_quantity\": 20,\n            \"manufacturing_date\": \"05-10-2024\",\n            \"manufacturing_time\": \"05-10-2024 10:40:00\",\n            \"due_date\": \"21-12-2024\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{domain2}}/batches/inboundorder"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "purchase order",
+			"item": [
+				{
+					"name": "purchase order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{domain2}}/purchase-orders/100/products"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}
