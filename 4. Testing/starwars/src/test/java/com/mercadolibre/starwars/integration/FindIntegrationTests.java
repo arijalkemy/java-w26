@@ -45,7 +45,8 @@ public class FindIntegrationTests {
     void testFindByLukeName() throws Exception {
         this.mockMvc.perform(MockMvcRequestBuilders.get("/Luke"))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(writer.writeValueAsString(List.of(GenerateCharacter.generateLuke()))));
+                .andExpect(MockMvcResultMatchers.content().
+                        json(writer.writeValueAsString(List.of(GenerateCharacter.generateLuke()))));
     }
 
     @Test

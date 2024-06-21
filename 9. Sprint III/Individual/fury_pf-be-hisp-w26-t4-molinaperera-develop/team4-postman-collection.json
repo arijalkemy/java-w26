@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "6885b756-ab1a-4fdc-bcc1-70e411519299",
+		"name": "fury_project-be-java-hisp-w26-team4-postman-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34319307"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/ping",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Manager",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"manager\",\n    \"password\": \"manager\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/auth/login",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Buyer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"buyers\",\n    \"password\": \"buyers\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/auth/login",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Manager",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"manager\",\n    \"password\": \"manager\",\n    \"role\": \"MANAGER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/auth/register",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Buyer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\" : \"buyers\",\n    \"password\" : \"buyers\",\n    \"role\" : \"BUYER\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/auth/register",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US1 - Add Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyIiwiaWF0IjoxNzE4ODA5NzI5LCJleHAiOjE3MTg4MTExNjl9.-O_-t73ecKFIc3SkiPOf_WVLCjQK5UMqvRZLILAss9U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"section\":{\"section_code\":1,\"warehouse_code\":1},\"order_number\":10011,\"order_date\":\"01-06-2023\",\"batch_stock\":[{\"batch_number\":155,\"product_id\":1,\"current_temperature\":0.0,\"minimum_temperature\":20.0,\"initial_quantity\":100,\"current_quantity\":100,\"manufacturing_date\":\"18-06-2024\",\"manufacturing_time\":\"18-06-2024 09:55:22\",\"due_date\":\"25-06-2024\"}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/inboundorder",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US1 - Update Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyIiwiaWF0IjoxNzE4ODA5NzI5LCJleHAiOjE3MTg4MTExNjl9.-O_-t73ecKFIc3SkiPOf_WVLCjQK5UMqvRZLILAss9U",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"section\":{\"section_code\":1,\"warehouse_code\":1},\"order_number\":1001,\"order_date\":\"01-06-2023\",\"batch_stock\":[{\"batch_number\":15,\"product_id\":1,\"current_temperature\":0.0,\"minimum_temperature\":20.0,\"initial_quantity\":100,\"current_quantity\":100,\"manufacturing_date\":\"18-06-2024\",\"manufacturing_time\":\"18-06-2024 09:55:22\",\"due_date\":\"25-06-2024\"}]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/inboundorder",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US2 - Purchase Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJidXllciIsImlhdCI6MTcxODgxOTM4MCwiZXhwIjoxNzE4ODIwODIwfQ.rrZItgZfdwI3mE5nFwwJ1zdjrxYCBGMqEZmvzjbbokQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchase_order\": {\n        \"date\": \"02-02-2000\",\n        \"buyer_id\": 1,\n        \"order_status\": {\n            \"status_code\": \"carrito\"\n        },\n        \"products\": [\n            {\n                \"product_id\": 1,\n                \"quantity\": 1\n            },\n            {\n                \"product_id\": 3,\n                \"quantity\": 1\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/orders",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US2 - All products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/list",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US2 - Products By Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/list?category=fs",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"list"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "fs"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US2 - Products By Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/orders/2",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"orders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US2 - Update Order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchase_order\": {\n        \"date\": \"24-02-2000\",\n        \"buyer_id\": 2,\n        \"order_status\": {\n            \"status_code\": \"carrito\"\n        },\n        \"products\": [\n            {\n                \"product_id\": 1,\n                \"quantity\": 2\n            },\n            {\n                \"product_id\": 4,\n                \"quantity\": 50000\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/orders/1",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US3 - Product Locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/8/batch/list",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"8",
+						"batch",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US3 - Product Locations By Type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/8/batch/list?order=L",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"8",
+						"batch",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "L"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US4 - Warehouse Product Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW5hZ2VyIiwiaWF0IjoxNzE4NjcwMTIyLCJleHAiOjE3MTg2NzE1NjJ9.Y1aPXDxYH-mTgVpXcqMsY93IjwcAxVN-CNQ6cf72MBU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}:{{port}}/api/v1/fresh_products/15/warehouse/list",
+					"host": [
+						"{{server}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"15",
+						"warehouse",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US5 - Batches By Due Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh_products/batch/list/due-date/10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"batch",
+						"list",
+						"due-date",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US5 - Batches By Due Date And Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh_products/batch/list/due-date2/10?category=FS&order=date_desc",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh_products",
+						"batch",
+						"list",
+						"due-date2",
+						"10"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "FS"
+						},
+						{
+							"key": "order",
+							"value": "date_desc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}
