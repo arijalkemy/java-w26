@@ -359,8 +359,6 @@ class OrderServiceImplTest {
         assertThat(responseDTO).usingRecursiveComparison().isEqualTo(expectedResponse);
     }
 
-    /*
-    TODO: increase the coverage
     @Test
     @DisplayName("Save: Product is about to expire")
     void saveProductListTest_AboutToExpire() {
@@ -424,7 +422,6 @@ class OrderServiceImplTest {
         // Assert
         assertThat(responseDTO).usingRecursiveComparison().isEqualTo(expectedResponse);
     }
-     */
 
     @Test
     @DisplayName("Save: Ok creation")
@@ -602,53 +599,6 @@ class OrderServiceImplTest {
         assertEquals(MessageError.BUYER_NOT_MATCHES_ORDER.getMessage(wrongBuyerId), thrownEx.getMessage());
     }
 
-// TODO: uncomment to increase coverage
-
-//    @Test
-//    @DisplayName("Update: Order status is 'carrito'")
-//    void updateProductListTest_FixedStatus() {
-//        // Arrange
-//        Long orderId = 1L;
-//        Long buyerId = 2L;
-//        String wrongStatusName = "WRONG_STATUS";
-//        String acceptableStatusName = "carrito";
-//        Double orderTotal = 7500.0;
-//        Order mockOrder = TestDataGenerator.getOrderWithProps(
-//                orderId, buyerId, orderTotal, true);
-//
-//        when(orderRepository.findById(orderId))
-//                .thenReturn(TestDataGenerator.getOptionalObject(mockOrder));
-//
-//        Status acceptableStatus = TestDataGenerator.getStatusWithName(acceptableStatusName);
-//        when(statusRepository.findFirstByDescription(acceptableStatusName))
-//        .thenReturn(TestDataGenerator.getOptionalObject(acceptableStatus));
-//        Status wrongStatus = TestDataGenerator.getStatusWithName(wrongStatusName);
-//        when(statusRepository.findFirstByDescription(wrongStatusName))
-//        .thenReturn(TestDataGenerator.getOptionalObject(wrongStatus));
-//
-//        PurchaseOrderRequestDTO requestDTO = PurchaseOrderRequestDTO
-//                .builder()
-//                .purchaseOrder(
-//                        PurchaseOrderDetailsRequestDTO.builder()
-//                                .buyerId(buyerId.intValue())
-//                                .orderStatus(
-//                                        OrderStatusRequestDTO.builder()
-//                                                .statusCode(wrongStatusName)
-//                                                .build()
-//                                )
-//                                .date(LocalDate.now())
-//                                .build()
-//                )
-//                .build();
-//        // Act
-//        // Assert
-//        BadRequestException thrownEx = assertThrows(
-//                BadRequestException.class,
-//                () -> orderService.updateProductList(orderId, requestDTO)
-//        );
-//        assertEquals(MessageError.STATUS_INVALID.getMessage(), thrownEx.getMessage());
-//    }
-
     @Test
     @DisplayName("Update: Product list must not be empty")
     void updateProductListTest_ProductListNotEmpty() {
@@ -757,4 +707,5 @@ class OrderServiceImplTest {
         verify(orderProductSellerRepository, atLeast(1)).saveAll(orderProductSellerList);
         assertThat(responseDTO).usingRecursiveComparison().isEqualTo(expectedResponse);
     }
+
 }

@@ -55,4 +55,5 @@ public class BuyerServiceTest {
         // Assert
         Assertions.assertEquals(exMessage, actual.getMessage());
     }
+
 }

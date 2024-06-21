@@ -27,8 +27,7 @@ public interface IBatchRepository extends JpaRepository<Batch, Long> {
             "JOIN w.sections s " +
             "JOIN s.batches b " +
             "JOIN b.productSeller ps " +
-            "JOIN ps.product p " +
-            "WHERE p.id = :productId AND r.id = :representativeId ")
+            "WHERE ps.id = :productId AND r.id = :representativeId ")
     List<IBatchSectionProductProjection> findProductBySectionWarehouse(@Param("productId") Long productId, Long representativeId);
 
     @Query("""

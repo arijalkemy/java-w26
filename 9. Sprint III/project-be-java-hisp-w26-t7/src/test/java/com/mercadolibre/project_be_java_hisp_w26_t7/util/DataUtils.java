@@ -2,13 +2,13 @@ package com.mercadolibre.project_be_java_hisp_w26_t7.util;
 
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.batch.BSResponseDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.batch.BatchStockRequestDTO;
+import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.batch.BatchStockResponseDTO;
+import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.order.OrderRequestDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.order.OrderStatusRequestDTO;
+import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.others.InboundorderRequestDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.others.TotalPriceResponseDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.product.LocationForProductDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.product.ProductPurchaseOrderRequestDto;
-import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.batch.BatchStockResponseDTO;
-import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.order.OrderRequestDTO;
-import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.others.InboundorderRequestDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.product.ProductResponseDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.product.PurchaseOrderDetailsRequestDTO;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.projection.IProductResponseProjection;
@@ -590,7 +590,7 @@ public class DataUtils {
 
     public static String getJsonProductsFrozen() {
         return "[{\"id\":3,\"description\":\"Helado\",\"price\":20.99,\"seller_name\":\"AgroAlimentos S.A." +
-               "\",\"category\":\"Congelado\"}]";
+                "\",\"category\":\"Congelado\"}]";
     }
 
     public static Representative getRepresentativeAdditional() {
@@ -629,50 +629,50 @@ public class DataUtils {
 
     public static String bodyCreateInboundOrderIntegration() {
         return "{\"inbound_order\": {\"order_number\": 1," +
-               "\"order_date\": \"10-06-2024\"," +
-               "\"section\": {" +
-               "\"section_code\": 1," +
-               "\"warehouse_code\": 1" +
-               "},\"batch_stock\": [{" +
-               "\"batch_number\": 2," +
-               "\"product_id\": 1," +
-               "\"current_temperature\": 4.4," +
-               "\"minimum_temperature\": 4.3," +
-               "\"initial_quantity\": 40," +
-               "\"current_quantity\": 30," +
-               "\"manufacturing_date\": \"01-04-2024\"," +
-               "\"manufacturing_time\": \"01-04-2024 12:30:32\"," +
-               "\"due_date\": \"25-02-2025\"}]}}";
+                "\"order_date\": \"10-06-2024\"," +
+                "\"section\": {" +
+                "\"section_code\": 1," +
+                "\"warehouse_code\": 1" +
+                "},\"batch_stock\": [{" +
+                "\"batch_number\": 2," +
+                "\"product_id\": 1," +
+                "\"current_temperature\": 4.4," +
+                "\"minimum_temperature\": 4.3," +
+                "\"initial_quantity\": 40," +
+                "\"current_quantity\": 30," +
+                "\"manufacturing_date\": \"01-04-2024\"," +
+                "\"manufacturing_time\": \"01-04-2024 12:30:32\"," +
+                "\"due_date\": \"25-02-2025\"}]}}";
     }
 
     public static String bodyUpdateInboundOrderIntegration() {
         return "{\"inbound_order\": {\"order_number\": 1," +
-               "\"order_date\": \"10-06-2024\"," +
-               "\"section\": {" +
-               "\"section_code\": 1," +
-               "\"warehouse_code\": 1" +
-               "},\"batch_stock\": [{" +
-               "\"batch_number\": 1," +
-               "\"product_id\": 1," +
-               "\"current_temperature\": 4.4," +
-               "\"minimum_temperature\": 4.3," +
-               "\"initial_quantity\": 40," +
-               "\"current_quantity\": 20," +
-               "\"manufacturing_date\": \"01-04-2024\"," +
-               "\"manufacturing_time\": \"01-04-2024 12:30:32\"," +
-               "\"due_date\": \"25-02-2025\"}]}}";
+                "\"order_date\": \"10-06-2024\"," +
+                "\"section\": {" +
+                "\"section_code\": 1," +
+                "\"warehouse_code\": 1" +
+                "},\"batch_stock\": [{" +
+                "\"batch_number\": 1," +
+                "\"product_id\": 1," +
+                "\"current_temperature\": 4.4," +
+                "\"minimum_temperature\": 4.3," +
+                "\"initial_quantity\": 40," +
+                "\"current_quantity\": 20," +
+                "\"manufacturing_date\": \"01-04-2024\"," +
+                "\"manufacturing_time\": \"01-04-2024 12:30:32\"," +
+                "\"due_date\": \"25-02-2025\"}]}}";
     }
 
     public static String responseUpdateInboundOrderIntegration() {
         return "{\"batch_stock\":[{\"batch_number\":1,\"product_id\":1,\"current_temperature\":4.4," +
-               "\"minimum_temperature\":4.3,\"initial_quantity\":40,\"current_quantity\":20,\"manufacturing_date\":" +
-               "\"01-04-2024\",\"manufacturing_time\":\"01-04-2024 12:30:32\",\"due_date\":\"25-02-2025\"}]}";
+                "\"minimum_temperature\":4.3,\"initial_quantity\":40,\"current_quantity\":20,\"manufacturing_date\":" +
+                "\"01-04-2024\",\"manufacturing_time\":\"01-04-2024 12:30:32\",\"due_date\":\"25-02-2025\"}]}";
     }
 
     public static String responseCreateInboundOrderIntegration() {
         return "{\"batch_stock\":[{\"batch_number\":2,\"product_id\":1,\"current_temperature\":4.4," +
-               "\"minimum_temperature\":4.3,\"initial_quantity\":40,\"current_quantity\":30,\"manufacturing_date\":" +
-               "\"01-04-2024\",\"manufacturing_time\":\"01-04-2024 12:30:32\",\"due_date\":\"25-02-2025\"}]}";
+                "\"minimum_temperature\":4.3,\"initial_quantity\":40,\"current_quantity\":30,\"manufacturing_date\":" +
+                "\"01-04-2024\",\"manufacturing_time\":\"01-04-2024 12:30:32\",\"due_date\":\"25-02-2025\"}]}";
     }
 
     public static BatchStockResponseDTO responseIntegrationInboundOrder() {
@@ -747,4 +747,5 @@ public class DataUtils {
         return LocationForProductDTO.builder().productId(idProduct).
                 section(SectionResponseDTO.builder().sectionCode(1).warehouseCode(1).build()).batchStock(listBSResponseDTO).build();
     }
+
 }

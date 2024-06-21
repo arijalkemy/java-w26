@@ -1,7 +1,9 @@
 package com.mercadolibre.project_be_java_hisp_w26_t7.service;
 
+import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.buyers.BuyerResponseDto;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.others.TokenResponseDto;
 import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.representatives.RepresentativeResponseDto;
+import com.mercadolibre.project_be_java_hisp_w26_t7.dtos.sellers.SellerResponseDto;
 import com.mercadolibre.project_be_java_hisp_w26_t7.security.JWTAuthenticationConfig;
 import com.mercadolibre.project_be_java_hisp_w26_t7.service.interfaces.RepresentativeServiceImpl;
 import com.mercadolibre.project_be_java_hisp_w26_t7.util.enums.RoleEnumUtil;
@@ -28,21 +30,19 @@ public class JwtServiceTest {
     @Mock
     private JWTAuthenticationConfig jwtAuthenticationConfig;
 
-    /*
     @Mock
     private SellerServiceImpl sellerServiceImpl;
 
     @Mock
     private BuyerServiceImpl buyerServiceImpl;
-     */
+
     @Mock
     private RepresentativeServiceImpl representativeServiceImpl;
 
     @InjectMocks
     private JwtService service;
 
-    /*
-    TODO: uncommented to increase the coverage
+
     @Test
     @DisplayName("generate token seller")
     public void generateTokenSeller() {
@@ -78,7 +78,6 @@ public class JwtServiceTest {
         Assertions.assertEquals(expected, actual);
         Assertions.assertEquals(expected.getToken(), actual.getToken());
     }
-     */
 
     @Test
     @DisplayName("generate token representative")
@@ -111,4 +110,5 @@ public class JwtServiceTest {
         // Assert
         Assertions.assertEquals(expected, actual);
     }
+
 }

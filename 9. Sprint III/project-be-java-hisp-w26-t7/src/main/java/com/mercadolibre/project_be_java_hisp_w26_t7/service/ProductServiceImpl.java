@@ -38,8 +38,6 @@ public class ProductServiceImpl implements IProductService {
     @Autowired
     private AuthDataUtil auth;
     @Autowired
-    private IProductRepository productRepository;
-    @Autowired
     private IBatchRepository batchRepository;
     @Autowired
     private IProductSellerRepository productSellerRepository;
@@ -113,7 +111,7 @@ public class ProductServiceImpl implements IProductService {
         if (!ProductUtil.orderValidation(order)) {
             throw new BadRequestException(MessageError.INVALID_SORTING.getMessage());
         }
-        Product product = productRepository.findById(idProduct).orElseThrow(() ->
+        ProductSeller product = productSellerRepository.findById(idProduct).orElseThrow(() ->
                 new NotFoundException(MessageError.PRODUCT_NOT_FOUND.getMessage(idProduct)));
 
         List<IBatchSectionProductProjection> projections = batchRepository.findProductBySectionWarehouse(idProduct, representativeId);

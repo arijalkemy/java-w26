@@ -26,7 +26,6 @@ class OrderControllerTest {
     @InjectMocks
     private OrderController orderController;
 
-
     @Test
     @DisplayName("Test - get products by order with id 1")
     void getProductsByOrderWithId1Test() {

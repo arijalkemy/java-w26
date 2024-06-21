@@ -40,12 +40,12 @@ import static org.mockito.Mockito.*;
 class ProductServiceImplTest {
 
     @Mock
-    private IProductRepository productRepository;
+    private IProductSellerRepository productSellerRepository;
 
     @Mock
     private IBatchRepository batchRepository;
-    @Mock
-    private IProductSellerRepository productSellerRepository;
+
+
     @Mock
     private IWarehouseRepository warehouseRepository;
     @Mock
@@ -241,7 +241,7 @@ class ProductServiceImplTest {
         String order = null;
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         List<IBatchSectionProductProjection> mockProjections = Stream.of(
@@ -252,7 +252,7 @@ class ProductServiceImplTest {
         ).collect(Collectors.toList());
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(mockProjections);
 
         LocationForProductDTO response = productService.checkLocationForProduct(idProduct, order);
@@ -273,7 +273,7 @@ class ProductServiceImplTest {
         Long idProduct = 1L;
         String order = null;
 
-        when(productRepository.findById(idProduct)).thenReturn(Optional.empty());
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.empty());
 
         NotFoundException thrown = assertThrows(NotFoundException.class, () ->
                 productService.checkLocationForProduct(idProduct, order));
@@ -288,11 +288,11 @@ class ProductServiceImplTest {
         String order = null;
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(Collections.emptyList());
 
         NotFoundException thrown = assertThrows(NotFoundException.class, () ->
@@ -320,7 +320,7 @@ class ProductServiceImplTest {
         String order = "L";
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         List<IBatchSectionProductProjection> mockProjections = Stream.of(
@@ -333,7 +333,7 @@ class ProductServiceImplTest {
         ).collect(Collectors.toList());
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(mockProjections);
 
         LocationForProductDTO response = productService.checkLocationForProduct(idProduct, order);
@@ -356,7 +356,7 @@ class ProductServiceImplTest {
         String order = "C";
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         List<IBatchSectionProductProjection> mockProjections = Stream.of(
@@ -369,7 +369,7 @@ class ProductServiceImplTest {
         ).collect(Collectors.toList());
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(mockProjections);
 
         LocationForProductDTO response = productService.checkLocationForProduct(idProduct, order);
@@ -394,7 +394,7 @@ class ProductServiceImplTest {
         String order = "F";
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         List<IBatchSectionProductProjection> mockProjections = Stream.of(
@@ -407,7 +407,7 @@ class ProductServiceImplTest {
         ).collect(Collectors.toList());
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(mockProjections);
 
         LocationForProductDTO response = productService.checkLocationForProduct(idProduct, order);
@@ -440,14 +440,14 @@ class ProductServiceImplTest {
     @DisplayName("Test checkLocationForProduct - No Batches Found")
     void testCheckLocationForProduct_NoBatchesFound() {
         Long idProduct = 1L;
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         Long idRepresentative = 1L;
         mockProduct.setId(idProduct);
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
 
 
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(Collections.emptyList());
 
         NotFoundException thrown = assertThrows(NotFoundException.class, () ->
@@ -464,7 +464,7 @@ class ProductServiceImplTest {
         String order = null;
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         List<IBatchSectionProductProjection> mockProjections = Stream.of(
@@ -473,7 +473,7 @@ class ProductServiceImplTest {
         ).collect(Collectors.toList());
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(mockProjections);
 
         BadRequestException thrown = assertThrows(BadRequestException.class, () ->
@@ -489,7 +489,7 @@ class ProductServiceImplTest {
         String order = null;
         Long idRepresentative = 1L;
 
-        Product mockProduct = new Product();
+        ProductSeller mockProduct = new ProductSeller();
         mockProduct.setId(idProduct);
 
         List<IBatchSectionProductProjection> mockProjections = Stream.of(
@@ -500,7 +500,7 @@ class ProductServiceImplTest {
         ).collect(Collectors.toList());
 
         when(authDataUtil.getIdSession()).thenReturn(idRepresentative);
-        when(productRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
+        when(productSellerRepository.findById(idProduct)).thenReturn(Optional.of(mockProduct));
         when(batchRepository.findProductBySectionWarehouse(idProduct, idRepresentative)).thenReturn(mockProjections);
 
         BadRequestException thrown = assertThrows(BadRequestException.class, () ->

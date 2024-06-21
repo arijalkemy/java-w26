@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class TestDataGenerator {
+
     public static Buyer getBuyerWithCustomId(Long id) {
         return Buyer.builder()
                 .id(id)
@@ -181,4 +182,5 @@ public class TestDataGenerator {
 
         return stockQuantityResponseDto;
     }
+
 }
