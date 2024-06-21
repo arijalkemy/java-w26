@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-class PostServiceImplTest {
+class   PostServiceImplTest {
     @Mock
     IPostRepository postRepository;
     @Mock

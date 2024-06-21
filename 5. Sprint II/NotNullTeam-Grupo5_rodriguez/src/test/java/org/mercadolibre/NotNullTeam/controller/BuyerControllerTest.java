@@ -115,7 +115,7 @@ class BuyerControllerTest {
         long userIdToUnfollow = -6L;
         String url = URL_BASE + "/" + userId + "/unfollow/" + userIdToUnfollow;
         mockMvc
-                .perform(post(url))
+                .perform(post(url).queryParam("userId", String.valueOf(userId)))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
