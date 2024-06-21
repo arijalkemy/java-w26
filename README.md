@@ -17,7 +17,7 @@ Al momento de crear las ramas convenimos una directriz de "Naming" para las mism
 Ejemplo:
 
 ```
- git branch [apellido]_[nombre]
+ git branch [rodriguez]_[joel]
 ```
 
 ## Flujo de trabajo
