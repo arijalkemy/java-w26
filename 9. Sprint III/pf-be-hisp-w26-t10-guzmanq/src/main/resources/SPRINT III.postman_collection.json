@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "abb418c1-bea7-4c04-a277-8839de13bd07",
+		"name": "SPRINT III",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33784114"
+	},
+	"item": [
+		{
+			"name": "US 2 issue 1 y 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/list?category=FF",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"list"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "FF"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"jlaura\",\n    \"password\":\"12345\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-stories 3 issue 8 and issue 9",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/1/batch/list?order=L",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"1",
+						"batch",
+						"list"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "L"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 2 issue 6",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 2 issue 5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"purchase_order\": {\n        \"date\": \"16-06-2024\",\n        \"buyer_id\": \"11\",\n        \"order_status\": {\n            \"status_code\": \"shopping_cart\"\n        },\n        \"products\": [\n            {\n                \"product_id\": \"100\",\n                \"quantity\": \"3\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 1 issue 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inbound_order\": {\n        \"order_number\": \"1020\",\n        \"order_date\": \"2024-06-17\",\n        \"section\": {\n            \"section_code\": \"1\",\n            \"warehouse_code\": \"1\"\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": \"1\",\n                \"product_id\": \"1\",\n                \"current_temperature\": \"32.1\",\n                \"minimum_temperature\": \"31.0\",\n                \"initial_quantity\": \"4\",\n                \"current_quantity\": \"7\",\n                \"manufacturing_date\": \"2024-06-17\",\n                \"manufacturing_time\": \"09:00:05\",\n                \"due_date\": \"2025-06-17\"\n            },\n            {\n                \"batch_number\": \"1989\",\n                \"product_id\": \"1\",\n                \"current_temperature\": \"32.1\",\n                \"minimum_temperature\": \"31.0\",\n                \"initial_quantity\": \"4\",\n                \"current_quantity\": \"7\",\n                \"manufacturing_date\": \"2024-06-17\",\n                \"manufacturing_time\": \"09:00:05\",\n                \"due_date\": \"2025-06-17\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/inboundorder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-storie 1 issue 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inbound_order\": {\n        \"order_number\": \"1020\",\n        \"order_date\": \"2024-06-17\",\n        \"section\": {\n            \"section_code\": \"1\",\n            \"warehouse_code\": \"1\"\n        },\n        \"batch_stock\": [\n            {\n                \"batch_number\": \"1989\",\n                \"product_id\": \"1\",\n                \"current_temperature\": \"42.1\",\n                \"minimum_temperature\": \"41.0\",\n                \"initial_quantity\": \"4\",\n                \"current_quantity\": \"7\",\n                \"manufacturing_date\": \"2024-06-17\",\n                \"manufacturing_time\": \"09:00:05\",\n                \"due_date\": \"2025-06-17\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/inboundorder",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "us-story 2 issue 7",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"purchase_order\": {\n            \"date\": \"1995-10-10T00:00:00Z\",\n            \"buyer_id\": 1,\n            \"order_status\": {\n                \"status_code\": \"shopping_cart\"\n            },\n            \"products\": [\n                {\n                    \"product_id\": 1,\n                    \"quantity\": 12\n                },\n                {\n                    \"product_id\": 2,\n                    \"quantity\": 30\n                }\n            ]\n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/orders/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "us-4-issue-10",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/1/warehouse/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"1",
+						"warehouse",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-story-5-issue-11-and-12",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg3NjE5MjYsImV4cCI6MTcxODc2MzM2Nn0.yQvhw_dTmPjmrwEPlStHT3TkOAnCY0b8toysPTMfLbk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/fresh-products/batch/list/due-date/50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"batch",
+						"list",
+						"due-date",
+						"50"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "FF",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "DESC ",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 6 issue 3",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg4OTc3MDUsImV4cCI6MTcxODg5OTE0NX0.PUNBoxAYNHDKH-dUmvay3CpK_Nj7xNVfStKyrt_JJYI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/warehouse/1/sales/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse",
+						"1",
+						"sales",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 6 issue 4",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg4OTc3MDUsImV4cCI6MTcxODg5OTE0NX0.PUNBoxAYNHDKH-dUmvay3CpK_Nj7xNVfStKyrt_JJYI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/warehouse/1/sales/products/best-selling",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse",
+						"1",
+						"sales",
+						"products",
+						"best-selling"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 6 issue 2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg4OTc3MDUsImV4cCI6MTcxODg5OTE0NX0.PUNBoxAYNHDKH-dUmvay3CpK_Nj7xNVfStKyrt_JJYI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/warehouse/1/sales/collected-Total",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse",
+						"1",
+						"sales",
+						"collected-Total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 6 issue 5",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg4OTc3MDUsImV4cCI6MTcxODg5OTE0NX0.PUNBoxAYNHDKH-dUmvay3CpK_Nj7xNVfStKyrt_JJYI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/warehouse/1/sales/inbound_order",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse",
+						"1",
+						"sales",
+						"inbound_order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "US 6 issue 1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqbGF1cmEiLCJpYXQiOjE3MTg4OTc3MDUsImV4cCI6MTcxODg5OTE0NX0.PUNBoxAYNHDKH-dUmvay3CpK_Nj7xNVfStKyrt_JJYI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1/fresh-products/warehouse/1/sales/inbound_order",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"warehouse",
+						"1",
+						"sales",
+						"inbound_order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
