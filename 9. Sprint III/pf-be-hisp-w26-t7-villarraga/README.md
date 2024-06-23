@@ -23,6 +23,16 @@
 
 ![image](https://github.com/arijalkemy/java-w26/assets/166527186/864f9a47-3966-42b5-9b1e-3dd79c34066f)
 
+## Colección de Postman
+
+### Grupal
+
+[Colección de Postman](https://drive.google.com/file/d/1r1BXfY02CR4gIwwBHNEqOM4ekHunje2E/view?usp=drive_link)
+
+### Individual
+
+[Colección de Postman Individual](https://github.com/arijalkemy/java-w26/blob/edwin_villarraga/9.%20Sprint%20III/pf-be-hisp-w26-t7-villarraga/Sprint%20III.edwin-villarraga.json)
+
 ## Requerimiento 1
 
 Es necesario tener un token de REPRESENTATIVE
