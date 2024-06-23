@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "939d3fcc-794d-4bff-baa6-d5609d5240a0",
+		"name": "Sprint III",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34024034"
+	},
+	"item": [
+		{
+			"name": "Delete Batch",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUkVQUkVTRU5UQVRJVkUiLCJzdWIiOiIxIiwiaWF0IjoxNzE4ODQ0MDQyLCJleHAiOjE3MjE0MzYwNDJ9.52kIR4hlfa6-vH5sDe6OqIvjUXbm3HdSwMLGNxtKmZc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{local}}/api/v1/fresh-products/inboundorder/batch/:batchNumber/product/:productId",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder",
+						"batch",
+						":batchNumber",
+						"product",
+						":productId"
+					],
+					"variable": [
+						{
+							"key": "batchNumber",
+							"value": "1"
+						},
+						{
+							"key": "productId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJlZHdpbi52aWxsYXJyYWdhYXJkaWxhQG1lcmNhZG9saWJyZS5jb20uY28iLCJlbnZpcm9ubWVudCI6Ik1lcmNhZG9MaWJyZSIsImZ1bGxfbmFtZSI6IkVkd2luIEFuZHJlcyBWaWxsYXJyYWdhIEFyZGlsYSIsInR5cGUiOiJ1c2VyIiwidXNlcm5hbWUiOiJldmlsbGFycmFnYWEifSwiZXhwIjoxNzE5MDM2OTk2LCJpYXQiOjE3MTkwMDQ1OTYsImlkZW50aXR5IjoibXJuOnNlZ2luZjphZDp1c2VyL2V2aWxsYXJyYWdhYSIsImlzcyI6ImZ1cnlfdGlnZXIiLCJzdWIiOiJldmlsbGFycmFnYWEifQ.bTxkZl8e_vdcQZ_Za9VVJQ6JEJgMjrrzxcZgePDElRhHREVM1HbEjZI9ILDztp7GHEUlVCwW_8UFppkmK4aEcUmHLK6LNU23GJTzc-cHByRVGsING29ATjQisobeReIXZajvtTmbjrM0SrvPXcvtmSjMfv_WGD2wIVnZjtNEvAsXbmfs3iBmV93vgIU0kyckRxhI4E3bcXaS3Wyeie0HJY_AbSKB6EadcWdNcKUM0XT8x37AGBJ_adS3F10wpdBueWHX1bUF2Oi5_4Kp0Jh_3Re92UXYo_xKPWZUWj3eBpVhfG5BrwSdSfNIJFFJXqNmaJHllY7bRYitL-TkdYQ7Vw",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Tiger-Token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiU0VMTEVSIiwic3ViIjoiMSIsImlhdCI6MTcxOTAxNDU1MSwiZXhwIjoxNzIxNjA2NTUxfQ.uOMExArTJF94YfiDWWffcGhBVXNOpOzQPZnMFZOKlUs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\":[\n        {\n            \"price\": 23.5,\n            \"description\": \"Carne\",\n            \"storage_type\": \"Congelado\"\n        },\n        {\n            \"price\": 57.9,\n            \"description\": \"Naranja\",\n            \"storage_type\": \"Congelado\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://edwin-v1-prod--pf-be-hisp-w26-t7-villarraga.furyapps.io/api/v1/fresh-products/:sellerId",
+					"protocol": "https",
+					"host": [
+						"edwin-v1-prod--pf-be-hisp-w26-t7-villarraga",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						":sellerId"
+					],
+					"variable": [
+						{
+							"key": "sellerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Average temperatura by section",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUkVQUkVTRU5UQVRJVkUiLCJzdWIiOiIxIiwiaWF0IjoxNzE4OTk0OTU3LCJleHAiOjE3MjE1ODY5NTd9.K4JNtqy7qYUIrLJ7adXtwz7oZHR07Jg42mJ_m35OIgY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/api/v1/fresh-products/batch/section/:sectionId/temperature-average",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"batch",
+						"section",
+						":sectionId",
+						"temperature-average"
+					],
+					"variable": [
+						{
+							"key": "sectionId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
