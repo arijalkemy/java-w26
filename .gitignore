@@ -2,6 +2,7 @@
 **/.idea/
 **/target/
 **/out/
+**/.git/
 target/
 pom.xml.tag
 pom.xml.releaseBackup
