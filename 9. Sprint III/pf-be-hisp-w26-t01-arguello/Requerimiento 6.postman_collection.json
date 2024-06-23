@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "24cab433-1141-4ddf-b8a1-e445d001f455",
+		"name": "Requerimiento 6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34481516"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"juan@gmail.com\",\n    \"password\":\"juan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlBase}}/auth/login",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InboundOrderByWarehouse",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTcxOTE4MTI3NSwiZXhwIjoxNzE5MTgyNzE1fQ.Lp--db9RN3yokqmH_7a2Sm7r0jEB6IdL0bBa3Ik-WSw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{urlBase}}/api/v1/fresh-products/inboundorder/warehouse/1",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder",
+						"warehouse",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InboundOrderById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTcxOTE4MTI3NSwiZXhwIjoxNzE5MTgyNzE1fQ.Lp--db9RN3yokqmH_7a2Sm7r0jEB6IdL0bBa3Ik-WSw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{urlBase}}/api/v1/fresh-products/inboundorder/1",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"inboundorder",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlBase",
+			"value": "localhost:8081",
+			"type": "string"
+		}
+	]
+}
