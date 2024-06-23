@@ -1,0 +1,20 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "project-be-java-hisp-w26-team5",
+    "description" : "pf-be-hisp-w26-t05-ruiz-diaz",
+    "contact" : {
+      "name" : "jlrodriguez",
+      "email" : "joel.rodriguez@mercadolibre.com"
+    },
+    "version" : "last"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Scope local"
+  } ],
+  "paths" : { },
+  "components" : {
+    "schemas" : { }
+  }
+}
