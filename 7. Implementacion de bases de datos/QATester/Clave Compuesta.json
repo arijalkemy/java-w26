@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "a8bca536-7857-4e96-ab2e-ef11d219bb96",
+		"name": "Clave Compuesta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Obtener todas las compras",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/v1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Compra",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"clienteId\": 120,\n  \"fecha\": \"2024-12-01\",\n  \"valor\": 256000.0,\n  \"ciudad\": \"Bogota D.C\",\n  \"observacion\": \"Sin factura\",\n  \"numeroTienda\": 25,\n  \"tipoPago\": \"Tarjeta de Credito\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

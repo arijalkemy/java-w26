@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "21bc62df-df70-4237-9ef1-8012456e02e6",
+		"name": "Siniestros",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Obtener patentes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/patentes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"patentes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener patentes y marca por año",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/patentes-marcas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"patentes-marcas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener patentes vehiculos de mas de 4 ruedas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/vehicles/patentes-marcas-ruedas",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicles",
+						"patentes-marcas-ruedas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matricula, Marca, Modelo de siniestro de mas de 10000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/siniestro/matricula-marca-modelo",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"siniestro",
+						"matricula-marca-modelo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Matricula, Marca, Modelo, Perdida de siniestro de mas de 10000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/siniestro/matricula-marca-modelo-perdida",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"siniestro",
+						"matricula-marca-modelo-perdida"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

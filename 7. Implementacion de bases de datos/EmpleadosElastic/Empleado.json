@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "20fdf45e-bd10-4341-bcc2-13ca7c9c6674",
+		"name": "Empleado Elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Crear/Modifica Empleado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"GftMPZABgQQul8l2p-9p\",\n    \"nombre\": \"Pepito\",\n    \"apellido\": \"Cartagena\",\n    \"edad\": 32,\n    \"ciudad\": \"Bogotá\",\n    \"departamento\": \"Cundinamarca\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

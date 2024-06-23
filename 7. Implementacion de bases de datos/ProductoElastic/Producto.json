@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "de661d53-8ce1-4c46-9c74-17b568756bd5",
+		"name": "Producto Elastic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34541116"
+	},
+	"item": [
+		{
+			"name": "Crear/Modificar Producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"G_tlPZABgQQul8l2Xe_s\",\n    \"nombre\": \"Arroba de Arroz\",\n    \"tipo\": \"COMESTIBLE\",\n    \"precio_venta\": 10.5,\n    \"precio_costo\": 7.8,\n    \"cantidad_disponible\": 200\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
