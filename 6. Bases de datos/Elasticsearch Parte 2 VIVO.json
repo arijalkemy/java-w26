@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "b764518e-ff09-4216-8e36-3524e215bbb6",
+		"name": "EjercicioZapatillasDeportivas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34319882"
+	},
+	"item": [
+		{
+			"name": "CrearIndice",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mappings\": {\n    \"properties\": {\n      \"Marca\": { \"type\": \"text\" },\n      \"Modelo\": { \"type\": \"text\" },\n      \"Color\": { \"type\": \"text\" }\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AgregarRegistros",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"index\": { \"_id\": \"1\" }}\n{ \"Marca\": \"Nike\", \"Modelo\": \"Air Max 90\", \"Color\": \"Negro\" }\n{ \"index\": { \"_id\": \"2\" }}\n{ \"Marca\": \"Adidas\", \"Modelo\": \"Ultraboost\", \"Color\": \"Blanco\" }\n{ \"index\": { \"_id\": \"3\" }}\n{ \"Marca\": \"Puma\", \"Modelo\": \"RS-X\", \"Color\": \"Rojo\" }\n{ \"index\": { \"_id\": \"4\" }}\n{ \"Marca\": \"Reebok\", \"Modelo\": \"Classic\", \"Color\": \"Azul\" }\n{ \"index\": { \"_id\": \"5\" }}\n{ \"Marca\": \"New Balance\", \"Modelo\": \"574\", \"Color\": \"Gris\" }\n{ \"index\": { \"_id\": \"6\" }}\n{ \"Marca\": \"Asics\", \"Modelo\": \"Gel-Lyte III\", \"Color\": \"Verde\" }\n{ \"index\": { \"_id\": \"7\" }}\n{ \"Marca\": \"Under Armour\", \"Modelo\": \"HOVR\", \"Color\": \"Negro\" }\n{ \"index\": { \"_id\": \"8\" }}\n{ \"Marca\": \"Mizuno\", \"Modelo\": \"Wave Rider\", \"Color\": \"Azul\" }\n{ \"index\": { \"_id\": \"9\" }}\n{ \"Marca\": \"Saucony\", \"Modelo\": \"Jazz\", \"Color\": \"Rojo\" }\n{ \"index\": { \"_id\": \"10\" }}\n{ \"Marca\": \"Brooks\", \"Modelo\": \"Ghost\", \"Color\": \"Blanco\" }\n{ \"index\": { \"_id\": \"11\" }}\n{ \"Marca\": \"Nike\", \"Modelo\": \"Air Force 1\", \"Color\": \"Blanco\" }\n{ \"index\": { \"_id\": \"12\" }}\n{ \"Marca\": \"Adidas\", \"Modelo\": \"NMD\", \"Color\": \"Negro\" }\n{ \"index\": { \"_id\": \"13\" }}\n{ \"Marca\": \"Puma\", \"Modelo\": \"Suede\", \"Color\": \"Gris\" }\n{ \"index\": { \"_id\": \"14\" }}\n{ \"Marca\": \"Reebok\", \"Modelo\": \"Nano\", \"Color\": \"Verde\" }\n{ \"index\": { \"_id\": \"15\" }}\n{ \"Marca\": \"New Balance\", \"Modelo\": \"990\", \"Color\": \"Azul\" }\n{ \"index\": { \"_id\": \"16\" }}\n{ \"Marca\": \"Asics\", \"Modelo\": \"Kayano\", \"Color\": \"Negro\" }\n{ \"index\": { \"_id\": \"17\" }}\n{ \"Marca\": \"Under Armour\", \"Modelo\": \"Curry\", \"Color\": \"Blanco\" }\n{ \"index\": { \"_id\": \"18\" }}\n{ \"Marca\": \"Mizuno\", \"Modelo\": \"Wave Sky\", \"Color\": \"Gris\" }\n{ \"index\": { \"_id\": \"19\" }}\n{ \"Marca\": \"Saucony\", \"Modelo\": \"Guide\", \"Color\": \"Rojo\" }\n{ \"index\": { \"_id\": \"20\" }}\n{ \"Marca\": \"Brooks\", \"Modelo\": \"Adrenaline\", \"Color\":\"Negro\"}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas/_bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllZapatillas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"size\": 20,\n  \"query\": {\n    \"match_all\": {}\n  }\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarPor",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"query\": {\n    \"match\": {\n      \"Marca\": \"Nike\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9200/zapatillas_deportivas/_search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"zapatillas_deportivas",
+						"_search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
