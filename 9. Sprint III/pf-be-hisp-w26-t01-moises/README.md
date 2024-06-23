@@ -1,88 +1,50 @@
 # pf-be-hisp-w26-t01-moises
 
-# Spring Boot App model for Java 17
 
-We provide a basic model for JDK 17 / Spring based web applications.
+## Autenticación
 
-Please address any questions and comments to [Fury Issue Tracker](https://github.com/mercadolibre/fury/issues).
+Para interactuar con los endpoints, es necesaria la autenticación. En el caso del endpoint desarrollado, se requere el uso de un `Buyer` con pedidos de compra existentes.
 
-## Usage
 
-### SCOPE
+**Credenciales de comprador:**
+- Email: eliana@gmail.com
+- Contraseña: eliana
 
-The suffix of each Fury **SCOPE** is used to know which properties file to use, it is identified from the last '-' of the name of the scope.
+## Endpoints
 
-If you want to run the application from your development IDE, you need to configure the environment variable **SCOPE=local** in the app luncher.
+### User Story de los endpoints mencionados abajo:
+https://drive.google.com/file/d/12XS4gZPNTvA1vtpYqrVThBKVfFjWqVvX/view?usp=sharing
 
-The properties of **application.yml** are always loaded and at the same time they are complemented with **application-<SCOPE_SUFFIX>.yml** properties. If a property is in both files, the one that is configured in **application-<SCOPE_SUFFIX>.yml** has preference over the property of **application.yml**.
+### GET /api/v1/fresh-products/orders/own?sort={date,total}
 
-For example, for the **SCOPE** 'items-loader-test' the **SCOPE_SUFFIX** would be 'test' and the loaded property files will be **application.yml** and **application-test.yml**
+Este endpoint permite la consulta de pedidos de compra correspondientes a un buyer. Se filtraran en base al token que se envia para autenticar la peticion. Se ordenaran a partir del parametro sort
 
-### Web Server
+**Response:**
 
-Each Spring Boot web application includes an embedded web server. For servlet stack applications, Its supports three web Servers:
-  * Tomcat (maven dependency: `spring-boot-starter-tomcat`)
-  * Jetty (maven dependency: `spring-boot-starter-jetty`)
-  * Undertow (maven dependency: `spring-boot-starter-undertow`)
-
-This project is configured with Jetty, but to exchange WebServer, it is enough to configure the dependencies mentioned above in the pom.xml file.
-
-### Main
-
-The main class for this app is Application, where Spring context is initialized and SCOPE_SUFFIX is generated.
-
-### Error Handling
-
-We also provide basic handling for exceptions in ControllerExceptionHandler class.
-
-## API Documentation
-
-This project uses OpenAPI to automate the generation of machine and human readable specifications for JSON APIs written using Spring. OpenAPI works by examining an application, once, at runtime to infer API semantics based on spring configurations, class structure and various compile time java Annotations.
-
-You can change this configuration in SpringDocConfig class.
-
-### Fury Specs Hub
-
-To simplify the management and maintainability of your API specs, we present [Fury Specs Hub](https://furydocs.io/specs-hub/latest/guide/#/). Fury Specs Hub is a new service from Fury that aims to be a one-stop solution for API definition. With Specs Hub, you will be able to:
-- Define your APIs using OpenAPI or AsyncAPI.
-- Automate the configuration and generation of your API specs with the help of new commands from the Fury CLI.
-- Have all your specs in one place for visualization and management.
-- Share them with other teams.
-- Find available APIs based on the information you need.
-- Usage documentation [Fury Specs Hub - Getting started](https://furydocs.io/specs-hub/latest/guide/#/tutorial/).
-
-#### Usage guide fast reference
-
-1. [Installing the Specs Hub plugin for Fury CLI.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/install-specs-hub-furycli)
-2. [Installing the OpenAPI plugin and initializing a basic configuration.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/install-open-api)
-3. [Generating your first API specification.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/generate-open-api-spec)
-4. [Validating your API specification.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/validate-specs)
-5. [Uploading your first specification.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/upload-spec)
-6. [Viewing your specification in Fury web.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/view-spec)
-7. [Managing your specification in Fury web.](https://furydocs.io/specs-hub/latest/guide/#/tutorial/manage-spec)
-
-## [Release Process](https://release-process.furycloud.io/#/)
-
-### Usage
-
-1. Specify the correct tag for your app in your `Dockerfile` and `Dockerfile.runtime`, according to the desired Java runtime version.
-
+json
 ```
-# Dockerfile
-FROM hub.furycloud.io/mercadolibre/java:17-mini
+[
+ {
+     "id_purchase_order": "Integer",
+     "date":"yyyy-MM-dd",
+     "order_status": {
+         "status_code": "String"
+     },
+     "products":[
+         {
+             "name":"String",
+             "quantity":"Integer"
+         }
+     ],
+     "total_price": "Double"	
+ }
+]
 ```
 
-You can find all available tags for your `Dockerfile` [here](https://github.com/mercadolibre/fury_java-mini#supported-tags)
+## Uso
 
-```
-# Dockerfile.runtime
-FROM hub.furycloud.io/mercadolibre/java:17-runtime-mini
-```
+Utiliza herramientas como Postman o CURL para interactuar con la API. Asegúrate de incluir las credenciales adecuadas para los roles de usuario correspondientes.
 
-You can find all available tags for your `Dockerfile.runtime` [here](https://github.com/mercadolibre/fury_java-mini-runtime#supported-tags)
+## Consideraciones de Seguridad
 
-2. Start coding!
-
-### Questions
-
-[Release Process Issue Tracker](https://github.com/mercadolibre/fury_release-process/issues)
+Asegúrate de que las credenciales de usuario no sean expuestas y que la comunicación con la API se realice a través de HTTPS, protegiendo así la privacidad e integridad de los datos transmitidos.
