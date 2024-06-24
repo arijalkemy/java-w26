@@ -1,0 +1,7 @@
+Ej1
+
+TO = ~250ms, porque es un punto “medio” en el rango entre el P95 y el P99 y a la vez nos permite tener un reintento más como para poder entrar en el error rate y el tiempo de respuesta deseados.
+Con este timeout nos permitimos un retry con estrategia lineal.
+
+Ej2
+El status code 429 refiere a Too Many Requests. Esto significa que el servidor se saturó entonces no puede procesar tantas requests como los que le hacen.
