@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "fc297f87-9c8b-43a0-bd71-8db3ba286b4a",
+		"name": "clothes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34048972"
+	},
+	"item": [
+		{
+			"name": "New Clothes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Musculosa\",\n    \"type\": \"Oversize\",\n    \"brand\": \"Bensimon\",\n    \"color\": \"white\",\n    \"size\": \"XL\",\n    \"quantity\": 70,\n    \"price\": 23.1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{server}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all clothes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}"
+			},
+			"response": []
+		},
+		{
+			"name": "get by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/2"
+			},
+			"response": []
+		},
+		{
+			"name": "update clothes",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Musculosa\",\n    \"type\": \"Oversize\",\n    \"brand\": \"Nike\",\n    \"color\": \"white\",\n    \"size\": \"XL\",\n    \"quantity\": 70,\n    \"price\": 23.1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{server}}/5"
+			},
+			"response": []
+		},
+		{
+			"name": "delete clothes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{server}}/1"
+			},
+			"response": []
+		},
+		{
+			"name": "get all by size",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{server}}/bySize/L"
+			},
+			"response": []
+		},
+		{
+			"name": "get all by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}?name=ReMe",
+					"host": [
+						"{{server}}"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "ReMe"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "localhost:8080/api/clothes",
+			"type": "string"
+		}
+	]
+}
