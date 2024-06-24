@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "4fcd9d5a-7c7c-464a-9630-7af852c655cb",
+		"name": "Sprint III",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34403745"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJtYXJjb3MuZGl0dGFAbWVyY2Fkb2xpYnJlLmNvbSIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiTWFyY29zIEdhYnJpZWwgRGl0dGEiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoibWRpdHRhIn0sImV4cCI6MTcxOTI4MjgwNSwiaWF0IjoxNzE5MjUwNDA1LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9tZGl0dGEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoibWRpdHRhIn0.YM8q75YXQlQ3gERbLZIxfpc8vPpfMMdCuOtlK3D35bhidfceWyEOcclIOopXHZbUnSHM9YqWLxCL_rrTEVs_jid9ZJIUMRXGNofQ7hzpaNvEI5HRNpjd5WuEfUeIUK39s9Jqd2c9gRb5BZbjHzVdUoah1PibQWjuQXPRRHg6zgjIvCzSA7ERBGJHqTp_pcoseMKfiVT73mnjXYS3xbPDTPtl03NNqwrh9-y-BrdRN0Zdidpdu__Li5ICCZS48UJ-92cZ8sisgn2zv5e5qGHs-7a_1MaVJeCcdVyr-qgF9U9P0ZoYRAJZGPmK1qXvFffHo8M2L5CHdTH4NHFglR2EOA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"juan@gmail.com\",\n    \"password\":\"juan\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pf-be-hisp-w26-t01-ditta-test--pf-be-hisp-w26-t01-ditta.furyapps.io/auth/login",
+					"protocol": "https",
+					"host": [
+						"pf-be-hisp-w26-t01-ditta-test--pf-be-hisp-w26-t01-ditta",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all sections",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTcxOTI1MjU0MiwiZXhwIjoxNzE5MjUzOTgyfQ.Kggx9UwtptjxZyOHe-r2en7d27USp1z9ME1-OfkhZyo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJtYXJjb3MuZGl0dGFAbWVyY2Fkb2xpYnJlLmNvbSIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiTWFyY29zIEdhYnJpZWwgRGl0dGEiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoibWRpdHRhIn0sImV4cCI6MTcxOTI4MjgwNSwiaWF0IjoxNzE5MjUwNDA1LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9tZGl0dGEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoibWRpdHRhIn0.YM8q75YXQlQ3gERbLZIxfpc8vPpfMMdCuOtlK3D35bhidfceWyEOcclIOopXHZbUnSHM9YqWLxCL_rrTEVs_jid9ZJIUMRXGNofQ7hzpaNvEI5HRNpjd5WuEfUeIUK39s9Jqd2c9gRb5BZbjHzVdUoah1PibQWjuQXPRRHg6zgjIvCzSA7ERBGJHqTp_pcoseMKfiVT73mnjXYS3xbPDTPtl03NNqwrh9-y-BrdRN0Zdidpdu__Li5ICCZS48UJ-92cZ8sisgn2zv5e5qGHs-7a_1MaVJeCcdVyr-qgF9U9P0ZoYRAJZGPmK1qXvFffHo8M2L5CHdTH4NHFglR2EOA"
+					}
+				],
+				"url": {
+					"raw": "https://pf-be-hisp-w26-t01-ditta-test--pf-be-hisp-w26-t01-ditta.furyapps.io/api/v1/fresh-products/sections",
+					"protocol": "https",
+					"host": [
+						"pf-be-hisp-w26-t01-ditta-test--pf-be-hisp-w26-t01-ditta",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"sections"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new section",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuQGdtYWlsLmNvbSIsImlhdCI6MTcxOTI1MjU0MiwiZXhwIjoxNzE5MjUzOTgyfQ.Kggx9UwtptjxZyOHe-r2en7d27USp1z9ME1-OfkhZyo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Tiger-Token",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjRmY2ZiZjEyLWY2ODUtNDI5NS1iOTIwLWFhMWNkMTUyYzI0NCIsInR5cCI6IkpXVCJ9.eyJhZGRpdGlvbmFsX2luZm8iOnsiZW1haWwiOiJtYXJjb3MuZGl0dGFAbWVyY2Fkb2xpYnJlLmNvbSIsImVudmlyb25tZW50IjoiTWVyY2Fkb0xpYnJlIiwiZnVsbF9uYW1lIjoiTWFyY29zIEdhYnJpZWwgRGl0dGEiLCJ0eXBlIjoidXNlciIsInVzZXJuYW1lIjoibWRpdHRhIn0sImV4cCI6MTcxOTI4MjgwNSwiaWF0IjoxNzE5MjUwNDA1LCJpZGVudGl0eSI6Im1ybjpzZWdpbmY6YWQ6dXNlci9tZGl0dGEiLCJpc3MiOiJmdXJ5X3RpZ2VyIiwic3ViIjoibWRpdHRhIn0.YM8q75YXQlQ3gERbLZIxfpc8vPpfMMdCuOtlK3D35bhidfceWyEOcclIOopXHZbUnSHM9YqWLxCL_rrTEVs_jid9ZJIUMRXGNofQ7hzpaNvEI5HRNpjd5WuEfUeIUK39s9Jqd2c9gRb5BZbjHzVdUoah1PibQWjuQXPRRHg6zgjIvCzSA7ERBGJHqTp_pcoseMKfiVT73mnjXYS3xbPDTPtl03NNqwrh9-y-BrdRN0Zdidpdu__Li5ICCZS48UJ-92cZ8sisgn2zv5e5qGHs-7a_1MaVJeCcdVyr-qgF9U9P0ZoYRAJZGPmK1qXvFffHo8M2L5CHdTH4NHFglR2EOA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idSection\": 9,\n    \"idCategory\": 1,\n    \"maxBatchCapacity\": 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pf-be-hisp-w26-t01-ditta-test--pf-be-hisp-w26-t01-ditta.furyapps.io/api/v1/fresh-products/sections",
+					"protocol": "https",
+					"host": [
+						"pf-be-hisp-w26-t01-ditta-test--pf-be-hisp-w26-t01-ditta",
+						"furyapps",
+						"io"
+					],
+					"path": [
+						"api",
+						"v1",
+						"fresh-products",
+						"sections"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

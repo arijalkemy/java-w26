@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    db: dbditta
+    username: dbditta_WPROD
+    password: DB_MYSQL_DESAENV09_DBDITTA_DBDITTA_WPROD
+    host: DB_MYSQL_DESAENV09_DBDITTA_DBDITTA_ENDPOINT
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    defer-datasource-initialization: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+
+
+    #server:
+    # servlet:
+    #  context-path: /api/v1
