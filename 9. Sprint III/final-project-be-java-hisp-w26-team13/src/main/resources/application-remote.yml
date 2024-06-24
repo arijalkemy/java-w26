@@ -1,0 +1,20 @@
+# "remote" suffix properties file. Scopes name samples: "prod", "web-prod", "api-prod", etc.
+# Overrides application.yml default properties
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: jdbc:mysql://${DB_HOST_PORT}/${DB_SCHEMA}?userSSL=false&serverTimezone=UTC&characterEncoding=UTF-8
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    #    initialization-mode: always
+    jwt:
+      enabled: false
+  sql:
+    init:
+      mode: always
