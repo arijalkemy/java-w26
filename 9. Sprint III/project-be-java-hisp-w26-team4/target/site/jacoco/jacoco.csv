@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.beans,RandomSampleBean,0,10,0,0,0,2,0,2,0,2
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.controller,PingController,0,6,0,0,0,3,0,2,0,2
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.controller,AuthController,6,12,0,0,1,2,1,2,1,2
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.controller,FreshProductController,8,6,0,0,2,1,1,1,1,1
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.service.impl,IFreshProductServiceImpl,61,6,3,0,14,1,8,1,6,1
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.runner,LoadInitialUsers,0,51,0,0,0,12,0,3,0,3
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4.service,AuthServiceImpl,0,72,0,0,0,16,0,3,0,3
+project-be-java-hisp-w26-team4,com.mercadolibre.project_be_java_hisp_w26_team4,Application,16,3,0,0,3,1,1,1,1,1

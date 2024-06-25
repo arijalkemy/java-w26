@@ -1,0 +1,91 @@
+package com.mercadolibre.pf_be_hisp_w26_t4_aquino.exceptions;
+
+import java.util.List;
+
+/**
+ * Class containing relevant information from an API call error.
+ * */
+public class ApiError {
+
+  private String error;
+
+  private String message;
+
+  private List<String> errors;
+
+  private Integer status;
+
+  /** 
+   * Creates a new instance, with empty fields. 
+   */
+  public ApiError() { }
+
+  /**
+   * Creates a new instance, with provided fields.
+   *
+   * @param error error short description.
+   * @param message full error message.
+   * @param status HTTP Status.
+   */
+  public ApiError(String error, String message, Integer status) {
+    this.error = error;
+    this.message = message;
+    this.status = status;
+  }
+
+  public ApiError(String error, List<String> errors, Integer status) {
+    this.error = error;
+    this.errors = errors;
+    this.status = status;
+  }
+
+  /** 
+   * @return error short description.
+   */
+  public String getError() {
+    return this.error;
+  }
+
+  /** 
+   * @param error error short description.
+   */
+  public void setError(String error) {
+    this.error = error;
+  }
+
+  /** 
+   * @return full error message.
+   */
+  public String getMessage() {
+    return this.message;
+  }
+
+  /** 
+   * @param message full error message.
+   */
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
+  }
+
+  public List<String> getErrors() {
+    return this.errors;
+  }
+
+  /** 
+   * @return HTTP Status.
+   */
+  public Integer getStatus() {
+    return this.status;
+  }
+
+  /**
+   * @param status HTTP Status.
+   */
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+}

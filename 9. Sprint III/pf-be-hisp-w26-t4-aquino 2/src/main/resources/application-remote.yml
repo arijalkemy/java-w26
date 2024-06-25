@@ -1,0 +1,23 @@
+# Scope remote para conectarse a la db remota de fury
+# Hay que setear las variables de entorno
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+    defer-datasource-initialization: true
+    generate-ddl: true
+  sql:
+    init:
+      mode: always
+db:
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+  username: ${DB_USER}
+  password: ${DB_PASS}
+  name: ${DB_SCHEMA}
+  url: jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+  driver:
+    name: com.mysql.cj.jdbc.Driver

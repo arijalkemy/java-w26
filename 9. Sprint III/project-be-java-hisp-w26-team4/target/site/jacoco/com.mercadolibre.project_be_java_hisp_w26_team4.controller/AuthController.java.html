@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AuthController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project-be-java-hisp-w26-team4</a> &gt; <a href="index.source.html" class="el_package">com.mercadolibre.project_be_java_hisp_w26_team4.controller</a> &gt; <span class="el_source">AuthController.java</span></div><h1>AuthController.java</h1><pre class="source lang-java linenums">package com.mercadolibre.project_be_java_hisp_w26_team4.controller;
+
+import com.mercadolibre.project_be_java_hisp_w26_team4.dtos.request.LoginRequestDTO;
+import com.mercadolibre.project_be_java_hisp_w26_team4.dtos.request.RegisterRequestDTO;
+import com.mercadolibre.project_be_java_hisp_w26_team4.service.IAuthService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+<span class="fc" id="L14">@RequiredArgsConstructor</span>
+@RequestMapping(&quot;/auth&quot;)
+public class AuthController {
+
+    private final IAuthService authService;
+
+    @PostMapping(&quot;/login&quot;)
+    public ResponseEntity&lt;?&gt; login(@RequestBody LoginRequestDTO loginRequestDto){
+<span class="nc" id="L22">        return ResponseEntity.ok(authService.login(loginRequestDto));</span>
+    }
+
+    @PostMapping(&quot;/register&quot;)
+    public ResponseEntity&lt;?&gt; register(@RequestBody RegisterRequestDTO registerRequestDto){
+<span class="fc" id="L27">        return ResponseEntity.ok(authService.register(registerRequestDto));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

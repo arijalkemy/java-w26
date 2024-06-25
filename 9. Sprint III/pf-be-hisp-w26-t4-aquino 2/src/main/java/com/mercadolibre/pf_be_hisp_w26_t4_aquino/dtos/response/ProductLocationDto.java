@@ -1,0 +1,24 @@
+package com.mercadolibre.pf_be_hisp_w26_t4_aquino.dtos.response;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ProductLocationDto {
+    SectionDTO section;
+
+    @JsonProperty("product_id")
+    Long productId;
+
+    @JsonProperty("batch_stock")
+    List<BatchInfoDto> batches;
+}

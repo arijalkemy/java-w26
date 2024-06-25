@@ -1,0 +1,83 @@
+@startuml
+
+class User {
+ id: Long
+ username: String
+ password: String
+ role: Role
+}
+
+class Warehouse {
+ id: Long
+ location: String
+ sections: List<Section>
+ managers: List<User>
+}
+
+class Batch {
+ id: Long
+ currentTemperature: Double
+ minimumTemperature: Double
+ initialQuantity: Integer
+ currentQuantity: Integer
+ dueDate: LocalDate
+ manufacturingDate: LocalDate
+ manufacturingTime: LocalDateTime
+ product: Product
+}
+
+class Section {
+ id: Long
+ capacity: Integer
+ productType: ProductType
+ batches: List<Batch>
+}
+
+class ProductType {
+ id: Long
+ description: String
+}
+
+class Product {
+ id: Long
+ productType: ProdutType
+ description: String
+ price: Double
+}
+
+class PurcharseOrder {
+ id: Ling
+ date: LocalDate
+ buyer: User
+ status: String
+ productOrders: List<ProductOrder>
+}
+
+class ProductOrder {
+ product: Product
+ quantity: Integer
+}
+
+enum Role {
+ BUYER, MANAGER, ADMIN
+}
+
+
+User -> Role
+
+Warehouse --> "*" Section
+Warehouse --> "*" User
+
+Section --> "*" Batch
+Section --> ProductType
+
+Batch --> Product
+
+Product --> ProductType
+
+PurcharseOrder --> "*" ProductOrder
+PurcharseOrder --> User
+
+ProductOrder --> Product
+
+@enduml

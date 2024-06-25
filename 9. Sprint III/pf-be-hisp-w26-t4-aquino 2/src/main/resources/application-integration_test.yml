@@ -1,0 +1,15 @@
+# Properties file for integration tests
+# Overrides application.yml default properties
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: h2
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa

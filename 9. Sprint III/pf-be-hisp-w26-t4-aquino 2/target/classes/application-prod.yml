@@ -1,0 +1,20 @@
+# "prod" suffix properties file. Scopes name samples: "prod", "web-prod", "api-prod", etc.
+# Overrides application.yml default properties
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: true
+    generate-ddl: false
+db:
+  host: DB_MYSQL_DESAENV09_DATAFPDB_DATAFPDB_ENDPOINT
+  username: datafpDB_WPROD
+  password: DB_MYSQL_DESAENV09_DATAFPDB_DATAFPDB_WPROD
+  name: datafpDB
+  url: jdbc:mysql://%s/%s?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+  driver:
+    name: com.mysql.jdbc.Driver
